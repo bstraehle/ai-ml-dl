@@ -1,1 +1,1 @@
-https://learn.deeplearning.ai/large-language-models-semantic-search  
+https://learn.deeplearning.ai/large-language-models-semantic-search/  
