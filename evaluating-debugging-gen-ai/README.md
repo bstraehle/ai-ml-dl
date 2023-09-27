@@ -1,1 +1,1 @@
-https://learn.deeplearning.ai/evaluating-debugging-generative-ai  
+https://learn.deeplearning.ai/evaluating-debugging-generative-ai/  
