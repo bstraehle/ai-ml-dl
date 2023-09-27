@@ -1,1 +1,1 @@
-https://learn.deeplearning.ai/diffusion-models  
+https://learn.deeplearning.ai/diffusion-models/  
