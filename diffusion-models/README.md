@@ -1,1 +1,1 @@
-https://learn.deeplearning.ai/diffusion-models/  
+https://www.deeplearning.ai/short-courses/how-diffusion-models-work/  
