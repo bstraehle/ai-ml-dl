@@ -1,1 +1,1 @@
-https://learn.deeplearning.ai/finetuning-large-language-models/  
+https://www.deeplearning.ai/short-courses/finetuning-large-language-models/  
