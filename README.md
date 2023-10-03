@@ -6,4 +6,3 @@ https://course.fast.ai/
 https://huggingface.co/learn/  
 
 https://www.kaggle.com/learn/  
-https://www.kaggle.com/competitions/  
