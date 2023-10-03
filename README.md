@@ -1,5 +1,5 @@
-https://www.deeplearning.ai/short-courses/  
 https://www.deeplearning.ai/courses/  
+https://www.deeplearning.ai/short-courses/  
 
 https://course.fast.ai/  
 
