@@ -1,0 +1,9 @@
+bs4
+chromadb
+gradio
+langchain
+openai
+pypdf
+python-dotenv
+tiktoken
+yt_dlp
