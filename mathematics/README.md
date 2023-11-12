@@ -1,3 +1,5 @@
+https://www.deeplearning.ai/courses/mathematics-for-machine-learning-and-data-science-specialization/  
+
 ## Machine Learning Motivation
 
 ### Linear Algebra
@@ -14,5 +16,3 @@
 - Classification
 
 ### Probability & Statistics
-
-https://www.deeplearning.ai/courses/mathematics-for-machine-learning-and-data-science-specialization/  
