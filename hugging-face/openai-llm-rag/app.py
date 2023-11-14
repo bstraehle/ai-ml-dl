@@ -12,11 +12,21 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.prompts import PromptTemplate
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
+from langchain.vectorstores import MongoDBAtlasVectorSearch
+
+from pymongo import MongoClient
 
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
 
 #openai.api_key = os.environ["OPENAI_API_KEY"]
+
+MONGODB_URI = os.environ["MONGODB_ATLAS_CLUSTER_URI"]
+client = MongoClient(MONGODB_URI)
+MONGODB_DB_NAME = "langchain_db"
+MONGODB_COLLECTION_NAME = "gpt-4"
+MONGODB_COLLECTION = client[MONGODB_DB_NAME][MONGODB_COLLECTION_NAME]
+MONGODB_INDEX_NAME = "default"
 
 template = """If you don't know the answer, just say that you don't know, don't try to make up an answer. Keep the answer as concise as possible. Always say 
               "🧠 Thanks for using the app - Bernd" at the end of the answer. """
@@ -40,10 +50,67 @@ YOUTUBE_URL_3 = "https://www.youtube.com/watch?v=vw-KWfKwvTQ"
 
 MODEL_NAME  = "gpt-4"
 
-def invoke(openai_api_key, use_rag, prompt):
+def document_loading_splitting():
+    # Document loading
+    docs = []
+    # Load PDF
+    loader = PyPDFLoader(PDF_URL)
+    docs.extend(loader.load())
+    # Load Web
+    loader = WebBaseLoader(WEB_URL)
+    docs.extend(loader.load())
+    # Load YouTube
+    loader = GenericLoader(YoutubeAudioLoader([YOUTUBE_URL_1,
+                                               YOUTUBE_URL_2,
+                                               YOUTUBE_URL_3], YOUTUBE_DIR), 
+                           OpenAIWhisperParser())
+    docs.extend(loader.load())
+    # Document splitting
+    text_splitter = RecursiveCharacterTextSplitter(chunk_overlap = 150,
+                                                   chunk_size = 1500)
+    splits = text_splitter.split_documents(docs)
+    return splits
+
+def document_storage_chroma(splits):
+    Chroma.from_documents(documents = splits, 
+                          embedding = OpenAIEmbeddings(disallowed_special = ()), 
+                          persist_directory = CHROMA_DIR)
+
+def document_storage_mongodb(splits):
+    MongoDBAtlasVectorSearch.from_documents(documents = splits,
+                                            embedding = OpenAIEmbeddings(disallowed_special = ()),
+                                            collection = MONGODB_COLLECTION,
+                                            index_name = MONGODB_INDEX_NAME)
+
+def document_retrieval_chroma(llm, prompt):
+    db = Chroma(embedding_function = OpenAIEmbeddings(),
+                persist_directory = CHROMA_DIR)
+    return db
+
+def document_retrieval_mongodb(llm, prompt):
+    db = MongoDBAtlasVectorSearch.from_connection_string(MONGODB_URI,
+                                                         MONGODB_DB_NAME + "." + MONGODB_COLLECTION_NAME,
+                                                         OpenAIEmbeddings(disallowed_special = ()),
+                                                         index_name = MONGODB_INDEX_NAME)
+    return db
+
+def llm_chain(llm, prompt):
+    llm_chain = LLMChain(llm = llm, prompt = LLM_CHAIN_PROMPT)
+    result = llm_chain.run({"question": prompt})
+    return result
+
+def rag_chain(llm, prompt, db):
+    rag_chain = RetrievalQA.from_chain_type(llm, 
+                                            chain_type_kwargs = {"prompt": RAG_CHAIN_PROMPT}, 
+                                            retriever = db.as_retriever(search_kwargs = {"k": 3}), 
+                                            return_source_documents = True)
+    result = rag_chain({"query": prompt})
+    return result["result"]
+
+def invoke(openai_api_key, rag_option, prompt):
     if (openai_api_key == ""):
         raise gr.Error("OpenAI API Key is required.")
-    if (use_rag is None):
+    if (rag_option is None):
         raise gr.Error("Retrieval Augmented Generation is required.")
     if (prompt == ""):
         raise gr.Error("Prompt is required.")
@@ -51,41 +118,18 @@ def invoke(openai_api_key, use_rag, prompt):
         llm = ChatOpenAI(model_name = MODEL_NAME, 
                          openai_api_key = openai_api_key, 
                          temperature = 0)
-        if (use_rag):
-            # Document loading
-            #docs = []
-            # Load PDF
-            #loader = PyPDFLoader(PDF_URL)
-            #docs.extend(loader.load())
-            # Load Web
-            #loader = WebBaseLoader(WEB_URL_1)
-            #docs.extend(loader.load())
-            # Load YouTube
-            #loader = GenericLoader(YoutubeAudioLoader([YOUTUBE_URL_1,
-            #                                           YOUTUBE_URL_2,
-            #                                           YOUTUBE_URL_3], YOUTUBE_DIR), 
-            #                       OpenAIWhisperParser())
-            #docs.extend(loader.load())
-            # Document splitting
-            #text_splitter = RecursiveCharacterTextSplitter(chunk_overlap = 150,
-            #                                               chunk_size = 1500)
-            #splits = text_splitter.split_documents(docs)
-            # Document storage
-            #vector_db = Chroma.from_documents(documents = splits, 
-            #                                  embedding = OpenAIEmbeddings(disallowed_special = ()), 
-            #                                  persist_directory = CHROMA_DIR)
-            # Document retrieval
-            vector_db = Chroma(embedding_function = OpenAIEmbeddings(),
-                               persist_directory = CHROMA_DIR)
-            rag_chain = RetrievalQA.from_chain_type(llm, 
-                                                    chain_type_kwargs = {"prompt": RAG_CHAIN_PROMPT}, 
-                                                    retriever = vector_db.as_retriever(search_kwargs = {"k": 3}), 
-                                                    return_source_documents = True)
-            result = rag_chain({"query": prompt})
-            result = result["result"]
+        if (rag_option == "Chroma"):
+            #splits = document_loading_splitting()
+            #document_storage_chroma(splits)
+            db = document_retrieval_chroma(llm, prompt)
+            result = rag_chain(llm, prompt, db)
+        elif (rag_option == "MongoDB"):
+            #splits = document_loading_splitting()
+            #document_storage_mongodb(splits)
+            db = document_retrieval_mongodb(llm, prompt)
+            result = rag_chain(llm, prompt, db)
         else:
-            chain = LLMChain(llm = llm, prompt = LLM_CHAIN_PROMPT)
-            result = chain.run({"question": prompt})
+            result = llm_chain(llm, prompt)
     except Exception as e:
         raise gr.Error(e)
     return result
@@ -96,20 +140,20 @@ description = """<strong>Overview:</strong> Reasoning application that demonstra
                  <a href='""" + YOUTUBE_URL_1 + """'>YouTube</a>, <a href='""" + PDF_URL + """'>PDF</a>, and <a href='""" + WEB_URL + """'>Web</a> 
                  <strong>data on GPT-4</strong> (published after LLM knowledge cutoff).
                  <ul style="list-style-type:square;">
-                 <li>Set "Retrieval Augmented Generation" to "<strong>False</strong>" and submit prompt "What is GPT-4?" The LLM <strong>without</strong> RAG does not know the answer.</li>
-                 <li>Set "Retrieval Augmented Generation" to "<strong>True</strong>" and submit prompt "What is GPT-4?" The LLM <strong>with</strong> RAG knows the answer.</li>
+                 <li>Set "Retrieval Augmented Generation" to "<strong>Off</strong>" and submit prompt "What is GPT-4?" The LLM <strong>without</strong> RAG does not know the answer.</li>
+                 <li>Set "Retrieval Augmented Generation" to "<strong>Chroma</strong>" or "<strong>MongoDB</strong>" and submit prompt "What is GPT-4?" The LLM <strong>with</strong> RAG knows the answer.</li>
                  <li>Experiment with prompts, e.g. "What are GPT-4's media capabilities in 3 emojis and 1 sentence?", "List GPT-4's exam scores and benchmark results.", or "Compare GPT-4 to GPT-3.5 in markdown table format."</li>
                  <li>Experiment some more, for example "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format." or "Write a Python program that calls the GPT-4 API."</li>
                  </ul>\n\n
-                 <strong>Technology:</strong> <a href='https://www.gradio.app/'>Gradio</a> UI using <a href='https://openai.com/'>OpenAI</a> API via AI-first 
-                 <a href='https://www.langchain.com/'>LangChain</a> toolkit with <a href='""" + WEB_URL + """'>GPT-4</a> foundation model and AI-native 
-                 <a href='https://www.trychroma.com/'>Chroma</a> embedding database. Speech-to-text via <a href='https://openai.com/research/whisper'>Whisper</a> 
-                 foundation model."""
+                 <strong>Technology:</strong> <a href='https://www.gradio.app/'>Gradio</a> UI using <a href='https://openai.com/'>OpenAI</a> API with 
+                 <a href='""" + WEB_URL + """'>GPT-4</a> foundation model and AI-native <a href='https://www.trychroma.com/'>Chroma</a> embedding database and 
+                 <a href='https://www.mongodb.com/blog/post/introducing-atlas-vector-search-build-intelligent-applications-semantic-search-ai'>MongoDB</a> vector search 
+                 (via AI-first <a href='https://www.langchain.com/'>LangChain</a> toolkit)."""
 
 gr.close_all()
 demo = gr.Interface(fn=invoke, 
                     inputs = [gr.Textbox(label = "OpenAI API Key", value = "sk-", lines = 1), 
-                              gr.Radio([True, False], label="Retrieval Augmented Generation", value = False), 
+                              gr.Radio(["Off", "Chroma", "MongoDB"], label="Retrieval Augmented Generation", value = "Off"),
                               gr.Textbox(label = "Prompt", value = "What is GPT-4?", lines = 1)],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
                     title = "Generative AI - LLM & RAG",
