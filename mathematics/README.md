@@ -7,8 +7,8 @@ https://www.deeplearning.ai/courses/mathematics-for-machine-learning-and-data-sc
 - Matrix Operations
 
 ### Calculus
-- Gradients
 - Derivatives
+- Gradients
 - Optimization
 - Loss and Cost Functions
 - Gradient Descent
