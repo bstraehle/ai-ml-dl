@@ -145,7 +145,7 @@ description = """<strong>Overview:</strong> Reasoning application that demonstra
                  <li>Experiment with prompts, e.g. "What are GPT-4's media capabilities in 3 emojis and 1 sentence?", "List GPT-4's exam scores and benchmark results.", or "Compare GPT-4 to GPT-3.5 in markdown table format."</li>
                  <li>Experiment some more, for example "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format." or "Write a Python program that calls the GPT-4 API."</li>
                  </ul>\n\n
-                 <strong>Technology:</strong> <a href='https://www.gradio.app/'>Gradio</a> UI using <a href='https://openai.com/'>OpenAI</a> API with 
+                 <strong>Technology:</strong> <a href='https://www.gradio.app/'>Gradio</a> UI using the <a href='https://openai.com/'>OpenAI</a> API with 
                  <a href='""" + WEB_URL + """'>GPT-4</a> foundation model, AI-native <a href='https://www.trychroma.com/'>Chroma</a> embedding database, and 
                  <a href='https://www.mongodb.com/blog/post/introducing-atlas-vector-search-build-intelligent-applications-semantic-search-ai'>MongoDB</a> vector search 
                  (via AI-first <a href='https://www.langchain.com/'>LangChain</a> toolkit). In addition to the OpenAI API version, see also the 
