@@ -148,8 +148,8 @@ description = """<strong>Overview:</strong> Reasoning application that demonstra
                  <strong>Technology:</strong> <a href='https://www.gradio.app/'>Gradio</a> UI using <a href='https://openai.com/'>OpenAI</a> API with 
                  <a href='""" + WEB_URL + """'>GPT-4</a> foundation model, AI-native <a href='https://www.trychroma.com/'>Chroma</a> embedding database, and 
                  <a href='https://www.mongodb.com/blog/post/introducing-atlas-vector-search-build-intelligent-applications-semantic-search-ai'>MongoDB</a> vector search 
-                 (via AI-first <a href='https://www.langchain.com/'>LangChain</a> toolkit). See also Amazon Bedrock and Google Vertex AI versions on 
-                 <a href='https://github.com/bstraehle/ai-ml-dl/tree/main/hugging-face'>GitHub</a>."""
+                 (via AI-first <a href='https://www.langchain.com/'>LangChain</a> toolkit).\n\n
+                 In addition to this OpenAI API version, see also the Amazon Bedrock API and Google Vertex AI API versions on <a href='https://github.com/bstraehle/ai-ml-dl/tree/main/hugging-face'>GitHub</a>."""
 
 gr.close_all()
 demo = gr.Interface(fn=invoke, 
