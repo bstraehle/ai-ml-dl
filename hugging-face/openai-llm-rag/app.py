@@ -138,10 +138,10 @@ description = """<strong>Overview:</strong> Reasoning application that demonstra
                  <strong>Retrieval Augmented Generation (RAG)</strong> on <strong>external data</strong>.\n\n
                  <strong>Instructions:</strong> Enter an OpenAI API key and perform LLM use cases (semantic search, summarization, translation, etc.) on 
                  <a href='""" + YOUTUBE_URL_1 + """'>YouTube</a>, <a href='""" + PDF_URL + """'>PDF</a>, and <a href='""" + WEB_URL + """'>Web</a> 
-                 <strong>data on GPT-4</strong>, published after LLM knowledge cutoff.
+                 data on GPT-4, published after LLM knowledge cutoff.
                  <ul style="list-style-type:square;">
-                 <li>Set "Retrieval Augmented Generation" to "<strong>Off</strong>" and submit prompt "What is GPT-4?" The LLM <strong>without</strong> RAG does not know the answer.</li>
-                 <li>Set "Retrieval Augmented Generation" to "<strong>Chroma</strong>" or "<strong>MongoDB</strong>" and submit prompt "What is GPT-4?" The LLM <strong>with</strong> RAG knows the answer.</li>
+                 <li>Set "Retrieval Augmented Generation" to "<strong>Off</strong>" and submit prompt "What is GPT-4?" The <strong>LLM without RAG</strong> does not know the answer.</li>
+                 <li>Set "Retrieval Augmented Generation" to "<strong>Chroma</strong>" or "<strong>MongoDB</strong>" and submit prompt "What is GPT-4?" The <strong>LLM with RAG</strong> knows the answer.</li>
                  <li>Experiment with prompts, e.g. "What are GPT-4's media capabilities in 3 emojis and 1 sentence?", "List GPT-4's exam scores and benchmark results.", or "Compare GPT-4 to GPT-3.5 in markdown table format."</li>
                  <li>Experiment some more, for example "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format." or "Write a Python program that calls the GPT-4 API."</li>
                  </ul>\n\n
