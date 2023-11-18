@@ -145,11 +145,15 @@ description = """<strong>Overview:</strong> Reasoning application that demonstra
                  <li>Experiment with prompts, e.g. "What are GPT-4's media capabilities in 3 emojis and 1 sentence?", "List GPT-4's exam scores and benchmark results.", or "Compare GPT-4 to GPT-3.5 in markdown table format."</li>
                  <li>Experiment some more, for example "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format." or "Write a Python program that calls the GPT-4 API."</li>
                  </ul>\n\n
-                 <strong>Technology:</strong> <a href='https://www.gradio.app/'>Gradio</a> UI using the <a href='https://openai.com/'>OpenAI</a> API with 
-                 <a href='""" + WEB_URL + """'>GPT-4</a> foundation model, AI-native <a href='https://www.trychroma.com/'>Chroma</a> embedding database, and 
-                 <a href='https://www.mongodb.com/blog/post/introducing-atlas-vector-search-build-intelligent-applications-semantic-search-ai'>MongoDB</a> vector search 
-                 (via AI-first <a href='https://www.langchain.com/'>LangChain</a> toolkit). In addition to the OpenAI API version, see also the 
-                 <a href='https://aws.amazon.com/bedrock/'>Amazon Bedrock</a> API and <a href='https://cloud.google.com/vertex-ai'>Google Vertex AI</a> API versions on 
+                 <strong>Technology:</strong> <a href='https://www.gradio.app/'>Gradio</a> UI using the <a href='https://openai.com/'>OpenAI</a> API, 
+                 AI-native <a href='https://www.trychroma.com/'>Chroma</a> embedding database, and alternatively 
+                 <a href='https://www.mongodb.com/blog/post/introducing-atlas-vector-search-build-intelligent-applications-semantic-search-ai'>MongoDB</a> vector search. 
+                 Speech-to-text (STT) via OpenAI <a href='https://openai.com/research/whisper'>whisper-1</a> model. 
+                 Embeddings via OpenAI <a href='https://openai.com/blog/new-and-improved-embedding-model'>text-embedding-ada-002</a> model. 
+                 Reasoning via OpenAI <a href='""" + WEB_URL + """'>gpt-4</a> model. 
+                 Implementation via AI-first <a href='https://www.langchain.com/'>LangChain</a> toolkit.\n\n
+                 In addition to the OpenAI API version, see also the <a href='https://aws.amazon.com/bedrock/'>Amazon Bedrock</a> API and 
+                 <a href='https://cloud.google.com/vertex-ai'>Google Vertex AI</a> API versions on 
                  <a href='https://github.com/bstraehle/ai-ml-dl/tree/main/hugging-face'>GitHub</a>."""
 
 gr.close_all()
