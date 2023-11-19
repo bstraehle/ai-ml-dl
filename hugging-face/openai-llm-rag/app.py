@@ -148,10 +148,9 @@ description = """<strong>Overview:</strong> Reasoning application that demonstra
                  <strong>Technology:</strong> <a href='https://www.gradio.app/'>Gradio</a> UI using the <a href='https://openai.com/'>OpenAI</a> API, 
                  AI-native <a href='https://www.trychroma.com/'>Chroma</a> embedding database, and alternatively 
                  <a href='https://www.mongodb.com/blog/post/introducing-atlas-vector-search-build-intelligent-applications-semantic-search-ai'>MongoDB</a> vector search. 
-                 Speech-to-text (STT) via OpenAI <a href='https://openai.com/research/whisper'>whisper-1</a> model. 
-                 Embeddings via OpenAI <a href='https://openai.com/blog/new-and-improved-embedding-model'>text-embedding-ada-002</a> model. 
-                 Generation via OpenAI <a href='""" + WEB_URL + """'>gpt-4</a> model. 
-                 Implementation via AI-first <a href='https://www.langchain.com/'>LangChain</a> toolkit.\n\n
+                 Speech-to-text (STT) via <a href='https://openai.com/research/whisper'>whisper-1</a> model, embeddings via 
+                 <a href='https://openai.com/blog/new-and-improved-embedding-model'>text-embedding-ada-002</a> model, and generation via 
+                 <a href='""" + WEB_URL + """'>gpt-4</a> model. Implementation via AI-first <a href='https://www.langchain.com/'>LangChain</a> toolkit.\n\n
                  In addition to the OpenAI API version, see also the <a href='https://aws.amazon.com/bedrock/'>Amazon Bedrock</a> API and 
                  <a href='https://cloud.google.com/vertex-ai'>Google Vertex AI</a> API versions on 
                  <a href='https://github.com/bstraehle/ai-ml-dl/tree/main/hugging-face'>GitHub</a>."""
