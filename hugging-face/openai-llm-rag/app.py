@@ -146,7 +146,7 @@ description = """<strong>Overview:</strong> Reasoning application that demonstra
                  <li>Experiment some more, for example "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format." or "Write a Python program that calls the GPT-4 API."</li>
                  </ul>\n\n
                  <strong>Technology:</strong> <a href='https://www.gradio.app/'>Gradio</a> UI using the <a href='https://openai.com/'>OpenAI</a> API and 
-                 AI-native <a href='https://www.trychroma.com/'>Chroma</a> embedding database or 
+                 AI-native <a href='https://www.trychroma.com/'>Chroma</a> embedding database / 
                  <a href='https://www.mongodb.com/blog/post/introducing-atlas-vector-search-build-intelligent-applications-semantic-search-ai'>MongoDB</a> vector search. 
                  <strong>Speech-to-text</strong> (STT) via <a href='https://openai.com/research/whisper'>whisper-1</a> model, <strong>text embedding</strong> via 
                  <a href='https://openai.com/blog/new-and-improved-embedding-model'>text-embedding-ada-002</a> model, and <strong>text generation</strong> via 
