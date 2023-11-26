@@ -148,7 +148,7 @@ description = """<strong>Overview:</strong> Reasoning application that demonstra
                  <strong>Technology:</strong> <a href='https://www.gradio.app/'>Gradio</a> UI using the <a href='https://openai.com/'>OpenAI</a> API and 
                  AI-native <a href='https://www.trychroma.com/'>Chroma</a> embedding database / 
                  <a href='https://www.mongodb.com/blog/post/introducing-atlas-vector-search-build-intelligent-applications-semantic-search-ai'>MongoDB</a> vector search. 
-                 <strong>Speech-to-text</strong> (STT) via <a href='https://openai.com/research/whisper'>whisper-1</a> model, <strong>text embedding</strong> via 
+                 <strong>Speech-to-text</strong> via <a href='https://openai.com/research/whisper'>whisper-1</a> model, <strong>text embedding</strong> via 
                  <a href='https://openai.com/blog/new-and-improved-embedding-model'>text-embedding-ada-002</a> model, and <strong>text generation</strong> via 
                  <a href='""" + WEB_URL + """'>gpt-4</a> model. Implementation via AI-first <a href='https://www.langchain.com/'>LangChain</a> toolkit.\n\n
                  In addition to the OpenAI API version, see also the <a href='https://aws.amazon.com/bedrock/'>Amazon Bedrock</a> API and 
