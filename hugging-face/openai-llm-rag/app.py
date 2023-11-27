@@ -136,9 +136,8 @@ def invoke(openai_api_key, rag_option, prompt):
 
 description = """<strong>Overview:</strong> Reasoning application that demonstrates a <strong>Large Language Model (LLM)</strong> with 
                  <strong>Retrieval Augmented Generation (RAG)</strong> on <strong>external data</strong>.\n\n
-                 <strong>Instructions:</strong> Enter an OpenAI API key and perform LLM use cases (semantic search, summarization, translation, etc.) on 
-                 <a href='""" + YOUTUBE_URL_1 + """'>YouTube</a>, <a href='""" + PDF_URL + """'>PDF</a>, and <a href='""" + WEB_URL + """'>Web</a> 
-                 data on GPT-4, published after LLM knowledge cutoff.
+                 <strong>Instructions:</strong> Enter an OpenAI API key and perform text generation use cases on <a href='""" + YOUTUBE_URL_1 + """'>YouTube</a>, 
+                 <a href='""" + PDF_URL + """'>PDF</a>, and <a href='""" + WEB_URL + """'>Web</a> data (example: GPT-4), published after LLM knowledge cutoff.
                  <ul style="list-style-type:square;">
                  <li>Set "Retrieval Augmented Generation" to "<strong>Off</strong>" and submit prompt "What is GPT-4?" The <strong>LLM without RAG</strong> does not know the answer.</li>
                  <li>Set "Retrieval Augmented Generation" to "<strong>Chroma</strong>" or "<strong>MongoDB</strong>" and submit prompt "What is GPT-4?" The <strong>LLM with RAG</strong> knows the answer.</li>
