@@ -141,15 +141,21 @@ description = """<strong>Overview:</strong> Reasoning application that demonstra
                  <ul style="list-style-type:square;">
                  <li>Set "Retrieval Augmented Generation" to "<strong>Off</strong>" and submit prompt "What is GPT-4?" The <strong>LLM without RAG</strong> does not know the answer.</li>
                  <li>Set "Retrieval Augmented Generation" to "<strong>Chroma</strong>" or "<strong>MongoDB</strong>" and submit prompt "What is GPT-4?" The <strong>LLM with RAG</strong> knows the answer.</li>
-                 <li>Experiment with prompts, e.g. "What are GPT-4's media capabilities in 5 emojis and 1 sentence?", "List GPT-4's exam scores and benchmark results.", or "Compare GPT-4 to GPT-3.5 in markdown table format."</li>
-                 <li>Experiment some more, for example "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format." or "Write a Python program that calls the GPT-4 API."</li>
+                 <li>Experiment with prompts, e.g.:</li>
+                 <ol>
+                 <li>What are GPT-4's media capabilities in 5 emojis and 1 sentence?</li>
+                 <li>List GPT-4's exam scores and benchmark results.</li>
+                 <li>Compare GPT-4 to GPT-3.5 in markdown table format.</li>
+                 <li>What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format.</li>
+                 <li>Write a Python program that calls the GPT-4 API.</li>
+                 </ol>
                  </ul>\n\n
                  <strong>Technology:</strong> <a href='https://www.gradio.app/'>Gradio</a> UI using the <a href='https://openai.com/'>OpenAI</a> API and 
                  AI-native <a href='https://www.trychroma.com/'>Chroma</a> embedding database / 
                  <a href='https://www.mongodb.com/blog/post/introducing-atlas-vector-search-build-intelligent-applications-semantic-search-ai'>MongoDB</a> vector search. 
                  <strong>Speech-to-text</strong> via <a href='https://openai.com/research/whisper'>whisper-1</a> model, <strong>text embedding</strong> via 
                  <a href='https://openai.com/blog/new-and-improved-embedding-model'>text-embedding-ada-002</a> model, and <strong>text generation</strong> via 
-                 <a href='""" + WEB_URL + """'>gpt-4</a> model. Implementation via AI-first <a href='https://www.langchain.com/'>LangChain</a> toolkit.\n\n
+                 <a href='""" + WEB_URL + """'>gpt-4</a> model. Implementation via AI-first <a href='https://www.langchain.com/'>LangChain</a> toolkit. 
                  In addition to the OpenAI API version, see also the <a href='https://aws.amazon.com/bedrock/'>Amazon Bedrock</a> API and 
                  <a href='https://cloud.google.com/vertex-ai'>Google Vertex AI</a> API versions on 
                  <a href='https://github.com/bstraehle/ai-ml-dl/tree/main/hugging-face'>GitHub</a>."""
