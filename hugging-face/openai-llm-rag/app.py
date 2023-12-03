@@ -142,7 +142,6 @@ description = """<strong>Overview:</strong> Reasoning application that demonstra
                  <li>Set "Retrieval Augmented Generation" to "<strong>Off</strong>" and submit prompt "What is GPT-4?" The <strong>LLM without RAG</strong> does not know the answer.</li>
                  <li>Set "Retrieval Augmented Generation" to "<strong>Chroma</strong>" or "<strong>MongoDB</strong>" and experiment with prompts. The <strong>LLM with RAG</strong> knows the answer:</li>
                  <ol>
-                 <li>What is GPT-4?</li>
                  <li>What are GPT-4's media capabilities in 5 emojis and 1 sentence?</li>
                  <li>List GPT-4's exam scores and benchmark results.</li>
                  <li>Compare GPT-4 to GPT-3.5 in markdown table format.</li>
