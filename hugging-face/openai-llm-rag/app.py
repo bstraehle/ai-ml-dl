@@ -134,8 +134,8 @@ def invoke(openai_api_key, rag_option, prompt):
         raise gr.Error(e)
     return result
 
-description = """<strong>Overview:</strong> Reasoning application that demonstrates a <strong>large language model (LLM)</strong> with 
-                 <strong>retrieval augmented generation (RAG)</strong> on <strong>external data</strong>.\n\n
+description = """<strong>Overview:</strong> Context-aware multimodal reasoning application that demonstrates a <strong>large language model (LLM)</strong> with 
+                 <strong>retrieval augmented generation (RAG)</strong>.\n\n
                  <strong>Instructions:</strong> Enter an OpenAI API key and perform text generation use cases on <a href='""" + YOUTUBE_URL_1 + """'>YouTube</a>, 
                  <a href='""" + PDF_URL + """'>PDF</a>, and <a href='""" + WEB_URL + """'>web</a> data published after LLM knowledge cutoff (example: GPT-4 data).
                  <ul style="list-style-type:square;">
