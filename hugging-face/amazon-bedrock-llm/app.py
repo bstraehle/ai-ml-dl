@@ -43,7 +43,7 @@ def invoke(prompt):
     #completion = response_body["completion"]
     #wandb.log({"prompt": prompt, "completion": completion})
     #return completion
-    return "🛑 Execution is commented out, to view the source code see https://huggingface.co/spaces/bstraehle/amazon-bedrock-llm/tree/main."
+    return "🛑 Execution is commented out. To view the source code see https://huggingface.co/spaces/bstraehle/amazon-bedrock-llm/tree/main."
 
 description = """<a href='https://www.gradio.app/'>Gradio</a> UI using <a href='https://aws.amazon.com/bedrock/'>Amazon Bedrock</a> API 
                  with <a href='https://www.anthropic.com/'>Anthropic</a> Claude 2 foundation model. 
