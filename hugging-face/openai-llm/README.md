@@ -1,7 +1,7 @@
 ---
-title: OpenAI - LLM
-emoji: 🤖
-colorFrom: blue
+title: OpenAI - LLM (gpt-4)
+emoji: 🔥
+colorFrom: red
 colorTo: gray
 sdk: gradio
 sdk_version: 3.50.2
