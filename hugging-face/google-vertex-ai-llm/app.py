@@ -9,7 +9,12 @@ project = os.environ["PROJECT"]
 wandb_api_key = os.environ["WANDB_API_KEY"]
 
 config = {
-    "model": "text-bison@001",
+    "max_output_tokens": 800,
+    #"model": "text-bison@001",
+    "model": "gemini-pro",
+    "temperature": 0.1,
+    "top_k": 40,
+    "top_p": 1.0,
 }
 
 wandb.login(key = wandb_api_key)
@@ -26,18 +31,33 @@ if credentials.expired:
 
 vertexai.init(project = project, 
               location = "us-central1",
-              credentials = credentials)
+              credentials = credentials
+             )
 
-from vertexai.language_models import TextGenerationModel
-generation_model = TextGenerationModel.from_pretrained(config.model)
+#from vertexai.language_models import TextGenerationModel
+#generation_model = TextGenerationModel.from_pretrained(config.model)
+from vertexai.preview.generative_models import GenerativeModel
+generation_model = GenerativeModel(config.model)
 
 def invoke(prompt):
-    completion = generation_model.predict(prompt = prompt).text
-    wandb.log({"prompt": prompt, "completion": completion})
-    return completion
+    #completion = generation_model.predict(prompt = prompt,
+    #                                      max_output_tokens = config.max_output_tokens,
+    #                                      temperature = config.temperature,
+    #                                      top_k = config.top_k,
+    #                                      top_p = config.top_p,
+    #                                     ).text
+    #completion = generation_model.generate_content(prompt, generation_config = {
+    #                                                           "max_output_tokens": config.max_output_tokens,
+    #                                                           "temperature": config.temperature,
+    #                                                           "top_k": config.top_k,
+    #                                                           "top_p": config.top_p,
+    #                                                       }).text
+    #wandb.log({"prompt": prompt, "completion": completion})
+    #return completion
+    return "🛑 Execution is commented out, to view the source code see https://huggingface.co/spaces/bstraehle/google-vertex-ai-llm/tree/main."
 
 description = """<a href='https://www.gradio.app/'>Gradio</a> UI using <a href='https://cloud.google.com/vertex-ai?hl=en/'>Google Vertex AI</a> API 
-                 with Bison foundation model. Model performance evaluation via <a href='https://wandb.ai/bstraehle'>Weights & Biases</a>."""
+                 with gemini-pro foundation model. Model performance evaluation via <a href='https://wandb.ai/bstraehle'>Weights & Biases</a>."""
 
 gr.close_all()
 demo = gr.Interface(fn=invoke, 
