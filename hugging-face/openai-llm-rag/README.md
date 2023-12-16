@@ -1,6 +1,6 @@
 ---
-title: OpenAI - LLM & RAG
-emoji: 🧠
+title: OpenAI - LLM & RAG (gpt-4)
+emoji: 🔥
 colorFrom: red
 colorTo: gray
 sdk: gradio
