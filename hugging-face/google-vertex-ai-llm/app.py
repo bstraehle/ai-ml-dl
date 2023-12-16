@@ -54,7 +54,7 @@ def invoke(prompt):
     #                                                       }).text
     #wandb.log({"prompt": prompt, "completion": completion})
     #return completion
-    return "🛑 Execution is commented out, to view the source code see https://huggingface.co/spaces/bstraehle/google-vertex-ai-llm/tree/main."
+    return "🛑 Execution is commented out. To view the source code see https://huggingface.co/spaces/bstraehle/google-vertex-ai-llm/tree/main."
 
 description = """<a href='https://www.gradio.app/'>Gradio</a> UI using <a href='https://cloud.google.com/vertex-ai?hl=en/'>Google Vertex AI</a> API 
                  with gemini-pro foundation model. Model performance evaluation via <a href='https://wandb.ai/bstraehle'>Weights & Biases</a>."""
