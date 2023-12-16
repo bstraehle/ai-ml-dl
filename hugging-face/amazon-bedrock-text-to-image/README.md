@@ -1,7 +1,7 @@
 ---
-title: Amazon Bedrock - Text to Image
-emoji: 🚀
-colorFrom: green
+title: Amazon Bedrock - Text to Image (stability.stable-diffusion-xl)
+emoji: 🎨
+colorFrom: yellow
 colorTo: gray
 sdk: gradio
 sdk_version: 3.50.2
