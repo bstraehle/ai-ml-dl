@@ -1,7 +1,7 @@
 ---
-title: Amazon Bedrock - LLM
-emoji: 🤖
-colorFrom: blue
+title: Amazon Bedrock - LLM (anthropic.claude-v2)
+emoji: 🚀
+colorFrom: green
 colorTo: gray
 sdk: gradio
 sdk_version: 3.50.2
