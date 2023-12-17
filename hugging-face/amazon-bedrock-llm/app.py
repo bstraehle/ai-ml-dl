@@ -16,9 +16,8 @@ config = {
     "top_p": 0.999,
 }
 
-wandb.login(key = wandb_api_key)
-wandb.init(project = "bedrock-llm", config = config)
-config = wandb.config
+#wandb.login(key = wandb_api_key)
+#wandb.init(project = "bedrock-llm", config = config)
 
 bedrock_runtime = boto3.client(
     aws_access_key_id = aws_access_key_id,
@@ -29,13 +28,13 @@ bedrock_runtime = boto3.client(
 
 def invoke(prompt):
     body = json.dumps({"prompt": "\n\nHuman: " + prompt + "\n\nAssistant: ",
-                       "max_tokens_to_sample": config.max_tokens_to_sample,
-                       "temperature": config.temperature,
-                       "top_k": config.top_k,
-                       "top_p": config.top_p,
+                       "max_tokens_to_sample": config["max_tokens_to_sample"],
+                       "temperature": config["temperature"],
+                       "top_k": config["top_k"],
+                       "top_p": config["top_p"],
                        "stop_sequences": ["\n\nHuman: "]
                       })
-    modelId = config.model
+    modelId = config["model"]
     accept = "application/json"
     contentType = "application/json"
     #response = bedrock_runtime.invoke_model(body = body, modelId = modelId, accept = accept, contentType = contentType)
