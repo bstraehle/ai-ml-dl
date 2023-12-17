@@ -1,5 +1,5 @@
 import gradio as gr
-import openai, os, wandb
+import json, openai, os, wandb
 
 from langchain.chains import LLMChain, RetrievalQA
 from langchain.chat_models import ChatOpenAI
@@ -117,7 +117,7 @@ def rag_chain(llm, prompt, db):
 def wandb_log(prompt, completion, rag_option):
     wandb.login(key = wandb_api_key)
     wandb.init(project = "openai-llm-rag", config = config)
-    wandb.log({"prompt": prompt, "completion": completion, "rag_option": rag_option})
+    wandb.log({"prompt": prompt, "completion": str(completion), "rag_option": rag_option})
     wandb.finish()
 
 def invoke(openai_api_key, rag_option, prompt):
@@ -153,7 +153,7 @@ def invoke(openai_api_key, rag_option, prompt):
 
 description = """<strong>Overview:</strong> Context-aware multimodal reasoning application that demonstrates a <strong>large language model (LLM)</strong> with 
                  <strong>retrieval augmented generation (RAG)</strong>. 
-                 See <a href='https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/openai-llm-rag.png'>architecture diagram</a> on GitHub.\n\n
+                 See the <a href='https://huggingface.co/spaces/bstraehle/openai-llm-rag/blob/main/openai-llm-rag.png'>architecture diagram</a>.\n\n
                  <strong>Instructions:</strong> Enter an OpenAI API key and perform text generation use cases on <a href='""" + YOUTUBE_URL_1 + """'>YouTube</a>, 
                  <a href='""" + PDF_URL + """'>PDF</a>, and <a href='""" + WEB_URL + """'>web</a> data published after LLM knowledge cutoff (example: GPT-4 data).
                  <ul style="list-style-type:square;">
@@ -173,7 +173,7 @@ description = """<strong>Overview:</strong> Context-aware multimodal reasoning a
                  <strong>Speech-to-text</strong> via <a href='https://openai.com/research/whisper'>whisper-1</a> model, <strong>text embedding</strong> via 
                  <a href='https://openai.com/blog/new-and-improved-embedding-model'>text-embedding-ada-002</a> model, and <strong>text generation</strong> via 
                  <a href='""" + WEB_URL + """'>gpt-4</a> model. Implementation via AI-first <a href='https://www.langchain.com/'>LangChain</a> toolkit. 
-                 RAG evaluation via <a href='https://wandb.ai/bstraehle'>Weights & Biases</a>."""
+                 RAG evaluation via <a href='https://wandb.ai/bstraehle/openai-llm-rag/reports/OpenAI-LLM-RAG--Vmlldzo2Mjg0NzY1'>Weights & Biases</a>."""
 
 gr.close_all()
 demo = gr.Interface(fn=invoke, 
