@@ -1,5 +1,5 @@
 import gradio as gr
-import openai, os
+import openai, os, wandb
 
 from langchain.chains import LLMChain, RetrievalQA
 from langchain.chat_models import ChatOpenAI
@@ -20,6 +20,7 @@ from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
 
 #openai.api_key = os.environ["OPENAI_API_KEY"]
+wandb_api_key = os.environ["WANDB_API_KEY"]
 
 MONGODB_URI = os.environ["MONGODB_ATLAS_CLUSTER_URI"]
 client = MongoClient(MONGODB_URI)
@@ -27,6 +28,14 @@ MONGODB_DB_NAME = "langchain_db"
 MONGODB_COLLECTION_NAME = "gpt-4"
 MONGODB_COLLECTION = client[MONGODB_DB_NAME][MONGODB_COLLECTION_NAME]
 MONGODB_INDEX_NAME = "default"
+
+config = {
+    "model": "gpt-4",
+    "temperature": 0,
+}
+
+wandb.login(key = wandb_api_key)
+wandb.init(project = "openai-llm-rag", config = config)
 
 template = """If you don't know the answer, just say that you don't know, don't try to make up an answer. Keep the answer as concise as possible. Always say 
               "🧠 Thanks for using the app - Bernd" at the end of the answer. """
@@ -47,8 +56,6 @@ WEB_URL       = "https://openai.com/research/gpt-4"
 YOUTUBE_URL_1 = "https://www.youtube.com/watch?v=--khbXchTeE"
 YOUTUBE_URL_2 = "https://www.youtube.com/watch?v=hdhZwyf24mE"
 YOUTUBE_URL_3 = "https://www.youtube.com/watch?v=vw-KWfKwvTQ"
-
-MODEL_NAME  = "gpt-4"
 
 def document_loading_splitting():
     # Document loading
@@ -96,16 +103,16 @@ def document_retrieval_mongodb(llm, prompt):
 
 def llm_chain(llm, prompt):
     llm_chain = LLMChain(llm = llm, prompt = LLM_CHAIN_PROMPT)
-    result = llm_chain.run({"question": prompt})
-    return result
+    completion = llm_chain.run({"question": prompt})
+    return completion
 
 def rag_chain(llm, prompt, db):
     rag_chain = RetrievalQA.from_chain_type(llm, 
                                             chain_type_kwargs = {"prompt": RAG_CHAIN_PROMPT}, 
                                             retriever = db.as_retriever(search_kwargs = {"k": 3}), 
                                             return_source_documents = True)
-    result = rag_chain({"query": prompt})
-    return result["result"]
+    completion = rag_chain({"query": prompt})
+    return completion["result"]
 
 def invoke(openai_api_key, rag_option, prompt):
     if (openai_api_key == ""):
@@ -115,24 +122,25 @@ def invoke(openai_api_key, rag_option, prompt):
     if (prompt == ""):
         raise gr.Error("Prompt is required.")
     try:
-        llm = ChatOpenAI(model_name = MODEL_NAME, 
+        llm = ChatOpenAI(model_name = config["model"], 
                          openai_api_key = openai_api_key, 
-                         temperature = 0)
+                         temperature = config["temperature"])
         if (rag_option == "Chroma"):
             #splits = document_loading_splitting()
             #document_storage_chroma(splits)
             db = document_retrieval_chroma(llm, prompt)
-            result = rag_chain(llm, prompt, db)
+            completion = rag_chain(llm, prompt, db)
         elif (rag_option == "MongoDB"):
             #splits = document_loading_splitting()
             #document_storage_mongodb(splits)
             db = document_retrieval_mongodb(llm, prompt)
-            result = rag_chain(llm, prompt, db)
+            completion = rag_chain(llm, prompt, db)
         else:
-            result = llm_chain(llm, prompt)
+            completion = llm_chain(llm, prompt)
     except Exception as e:
         raise gr.Error(e)
-    return result
+    wandb.log({"prompt": prompt, "completion": completion, "rag_option": rag_option})
+    return completion
 
 description = """<strong>Overview:</strong> Context-aware multimodal reasoning application that demonstrates a <strong>large language model (LLM)</strong> with 
                  <strong>retrieval augmented generation (RAG)</strong>. 
@@ -155,7 +163,8 @@ description = """<strong>Overview:</strong> Context-aware multimodal reasoning a
                  <a href='https://www.mongodb.com/blog/post/introducing-atlas-vector-search-build-intelligent-applications-semantic-search-ai'>MongoDB</a> vector search. 
                  <strong>Speech-to-text</strong> via <a href='https://openai.com/research/whisper'>whisper-1</a> model, <strong>text embedding</strong> via 
                  <a href='https://openai.com/blog/new-and-improved-embedding-model'>text-embedding-ada-002</a> model, and <strong>text generation</strong> via 
-                 <a href='""" + WEB_URL + """'>gpt-4</a> model. Implementation via AI-first <a href='https://www.langchain.com/'>LangChain</a> toolkit."""
+                 <a href='""" + WEB_URL + """'>gpt-4</a> model. Implementation via AI-first <a href='https://www.langchain.com/'>LangChain</a> toolkit. 
+                 RAG evaluation via <a href='https://wandb.ai/bstraehle'>Weights & Biases</a>."""
 
 gr.close_all()
 demo = gr.Interface(fn=invoke, 
