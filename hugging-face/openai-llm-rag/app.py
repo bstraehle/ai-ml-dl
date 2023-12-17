@@ -112,7 +112,7 @@ def rag_chain(llm, prompt, db):
                                             retriever = db.as_retriever(search_kwargs = {"k": config["k"]}), 
                                             return_source_documents = True)
     completion = rag_chain({"query": prompt})
-    return completion["result"]
+    return completion
 
 def wandb_log(prompt, completion, rag_option):
     wandb.login(key = wandb_api_key)
