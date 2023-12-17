@@ -17,9 +17,8 @@ config = {
     "top_p": 1.0,
 }
 
-wandb.login(key = wandb_api_key)
-wandb.init(project = "vertex-ai-llm", config = config)
-config = wandb.config
+#wandb.login(key = wandb_api_key)
+#wandb.init(project = "vertex-ai-llm", config = config)
 
 credentials = json.loads(credentials)
 
@@ -35,22 +34,22 @@ vertexai.init(project = project,
              )
 
 #from vertexai.language_models import TextGenerationModel
-#generation_model = TextGenerationModel.from_pretrained(config.model)
+#generation_model = TextGenerationModel.from_pretrained(config["model"])
 from vertexai.preview.generative_models import GenerativeModel
-generation_model = GenerativeModel(config.model)
+generation_model = GenerativeModel(config["model"])
 
 def invoke(prompt):
     #completion = generation_model.predict(prompt = prompt,
-    #                                      max_output_tokens = config.max_output_tokens,
-    #                                      temperature = config.temperature,
-    #                                      top_k = config.top_k,
-    #                                      top_p = config.top_p,
+    #                                      max_output_tokens = config["max_output_tokens"],
+    #                                      temperature = config["temperature"],
+    #                                      top_k = config["top_k"],
+    #                                      top_p = config["top_p"],
     #                                     ).text
     #completion = generation_model.generate_content(prompt, generation_config = {
-    #                                                           "max_output_tokens": config.max_output_tokens,
-    #                                                           "temperature": config.temperature,
-    #                                                           "top_k": config.top_k,
-    #                                                           "top_p": config.top_p,
+    #                                                           "max_output_tokens": config["max_output_tokens"],
+    #                                                           "temperature": config["temperature"],
+    #                                                           "top_k": config["top_k"],
+    #                                                           "top_p": config["top_p"],
     #                                                       }).text
     #wandb.log({"prompt": prompt, "completion": completion})
     #return completion
