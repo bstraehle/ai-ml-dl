@@ -34,9 +34,6 @@ config = {
     "temperature": 0,
 }
 
-wandb.login(key = wandb_api_key)
-wandb.init(project = "openai-llm-rag", config = config)
-
 template = """If you don't know the answer, just say that you don't know, don't try to make up an answer. Keep the answer as concise as possible. Always say 
               "🧠 Thanks for using the app - Bernd" at the end of the answer. """
 
@@ -114,6 +111,12 @@ def rag_chain(llm, prompt, db):
     completion = rag_chain({"query": prompt})
     return completion["result"]
 
+def wandb_log(prompt, completion, rag_option):
+    wandb.login(key = wandb_api_key)
+    wandb.init(project = "openai-llm-rag", config = config)
+    wandb.log({"prompt": prompt, "completion": completion, "rag_option": rag_option})
+    wandb.finish()
+
 def invoke(openai_api_key, rag_option, prompt):
     if (openai_api_key == ""):
         raise gr.Error("OpenAI API Key is required.")
@@ -139,7 +142,7 @@ def invoke(openai_api_key, rag_option, prompt):
             completion = llm_chain(llm, prompt)
     except Exception as e:
         raise gr.Error(e)
-    wandb.log({"prompt": prompt, "completion": completion, "rag_option": rag_option})
+    wandb_log(prompt, completion, rag_option)
     return completion
 
 description = """<strong>Overview:</strong> Context-aware multimodal reasoning application that demonstrates a <strong>large language model (LLM)</strong> with 
