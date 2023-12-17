@@ -30,6 +30,9 @@ MONGODB_COLLECTION = client[MONGODB_DB_NAME][MONGODB_COLLECTION_NAME]
 MONGODB_INDEX_NAME = "default"
 
 config = {
+    "chunk_overlap": 150,
+    "chunk_size": 1500,
+    "k": 3,
     "model": "gpt-4",
     "temperature": 0,
 }
@@ -70,8 +73,8 @@ def document_loading_splitting():
                            OpenAIWhisperParser())
     docs.extend(loader.load())
     # Document splitting
-    text_splitter = RecursiveCharacterTextSplitter(chunk_overlap = 150,
-                                                   chunk_size = 1500)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_overlap = config["chunk_overlap"],
+                                                   chunk_size = config["chunk_size"])
     splits = text_splitter.split_documents(docs)
     return splits
 
@@ -106,7 +109,7 @@ def llm_chain(llm, prompt):
 def rag_chain(llm, prompt, db):
     rag_chain = RetrievalQA.from_chain_type(llm, 
                                             chain_type_kwargs = {"prompt": RAG_CHAIN_PROMPT}, 
-                                            retriever = db.as_retriever(search_kwargs = {"k": 3}), 
+                                            retriever = db.as_retriever(search_kwargs = {"k": config["k"]}), 
                                             return_source_documents = True)
     completion = rag_chain({"query": prompt})
     return completion["result"]
@@ -133,17 +136,20 @@ def invoke(openai_api_key, rag_option, prompt):
             #document_storage_chroma(splits)
             db = document_retrieval_chroma(llm, prompt)
             completion = rag_chain(llm, prompt, db)
+            result = completion["result"]
         elif (rag_option == "MongoDB"):
             #splits = document_loading_splitting()
             #document_storage_mongodb(splits)
             db = document_retrieval_mongodb(llm, prompt)
             completion = rag_chain(llm, prompt, db)
+            result = completion["result"]
         else:
-            completion = llm_chain(llm, prompt)
+            result = llm_chain(llm, prompt)
+            completion = result
     except Exception as e:
         raise gr.Error(e)
     wandb_log(prompt, completion, rag_option)
-    return completion
+    return result
 
 description = """<strong>Overview:</strong> Context-aware multimodal reasoning application that demonstrates a <strong>large language model (LLM)</strong> with 
                  <strong>retrieval augmented generation (RAG)</strong>. 
