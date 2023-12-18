@@ -147,6 +147,7 @@ def invoke(openai_api_key, rag_option, prompt):
         else:
             completion = llm_chain(llm, prompt)
     except Exception as e:
+        completion = e
         raise gr.Error(e)
     finally:
         wandb_log(prompt, completion, rag_option)
