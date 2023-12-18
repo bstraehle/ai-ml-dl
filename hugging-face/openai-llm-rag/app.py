@@ -117,7 +117,7 @@ def rag_chain(llm, prompt, db):
 def wandb_log(prompt, completion, rag_option):
     wandb.login(key = wandb_api_key)
     wandb.init(project = "openai-llm-rag", config = config)
-    wandb.log({"prompt": prompt, "completion": str(completion), "rag_option": rag_option})
+    wandb.log({"prompt": str(prompt), "completion": str(completion), "rag_option": rag_option})
     wandb.finish()
 
 def invoke(openai_api_key, rag_option, prompt):
@@ -127,6 +127,7 @@ def invoke(openai_api_key, rag_option, prompt):
         raise gr.Error("Retrieval Augmented Generation is required.")
     if (prompt == ""):
         raise gr.Error("Prompt is required.")
+    completion = ""
     try:
         llm = ChatOpenAI(model_name = config["model"], 
                          openai_api_key = openai_api_key, 
@@ -148,7 +149,8 @@ def invoke(openai_api_key, rag_option, prompt):
             completion = result
     except Exception as e:
         raise gr.Error(e)
-    wandb_log(prompt, completion, rag_option)
+    finally:
+        wandb_log(prompt, completion, rag_option)
     return result
 
 description = """<strong>Overview:</strong> Context-aware multimodal reasoning application that demonstrates a <strong>large language model (LLM)</strong> with 
@@ -173,7 +175,7 @@ description = """<strong>Overview:</strong> Context-aware multimodal reasoning a
                  <strong>Speech-to-text</strong> via <a href='https://openai.com/research/whisper'>whisper-1</a> model, <strong>text embedding</strong> via 
                  <a href='https://openai.com/blog/new-and-improved-embedding-model'>text-embedding-ada-002</a> model, and <strong>text generation</strong> via 
                  <a href='""" + WEB_URL + """'>gpt-4</a> model. Implementation via AI-first <a href='https://www.langchain.com/'>LangChain</a> toolkit. 
-                 RAG evaluation via <a href='https://wandb.ai/bstraehle/openai-llm-rag/reports/OpenAI-LLM-RAG--Vmlldzo2Mjg0NzY1'>Weights & Biases</a>."""
+                 RAG evaluation via <a href='https://wandb.ai/bstraehle'>Weights & Biases</a>."""
 
 gr.close_all()
 demo = gr.Interface(fn=invoke, 
