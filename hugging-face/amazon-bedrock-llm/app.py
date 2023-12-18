@@ -48,6 +48,7 @@ def invoke(prompt):
         response_body = json.loads(response.get("body").read())
         completion = response_body["completion"]
     except Exception as e:
+        completion = e
         raise gr.Error(e)
     finally:
         wandb_log(prompt, completion)
