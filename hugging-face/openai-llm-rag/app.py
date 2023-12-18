@@ -153,7 +153,7 @@ def invoke(openai_api_key, rag_option, prompt):
         wandb_log(prompt, completion, rag_option)
     return result
 
-description = """<strong>Overview:</strong> Context-aware multimodal reasoning application that demonstrates a <strong>large language model (LLM)</strong> with 
+description = """<strong>Overview:</strong> Context-aware multimodal reasoning application using a <strong>large language model (LLM)</strong> with 
                  <strong>retrieval augmented generation (RAG)</strong>. 
                  See the <a href='https://huggingface.co/spaces/bstraehle/openai-llm-rag/blob/main/openai-llm-rag.png'>architecture diagram</a>.\n\n
                  <strong>Instructions:</strong> Enter an OpenAI API key and perform text generation use cases on <a href='""" + YOUTUBE_URL_1 + """'>YouTube</a>, 
