@@ -63,6 +63,7 @@ def invoke(prompt):
         if (completion.text != None):
             completion = completion.text
     except Exception as e:
+        completion = e
         raise gr.Error(e)
     finally:
         wandb_log(prompt, completion)
