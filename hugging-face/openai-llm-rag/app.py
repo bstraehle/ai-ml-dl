@@ -137,21 +137,20 @@ def invoke(openai_api_key, rag_option, prompt):
             #document_storage_chroma(splits)
             db = document_retrieval_chroma(llm, prompt)
             completion = rag_chain(llm, prompt, db)
-            result = completion["result"]
+            completion = completion["result"]
         elif (rag_option == "MongoDB"):
             #splits = document_loading_splitting()
             #document_storage_mongodb(splits)
             db = document_retrieval_mongodb(llm, prompt)
             completion = rag_chain(llm, prompt, db)
-            result = completion["result"]
+            completion = completion["result"]
         else:
-            result = llm_chain(llm, prompt)
-            completion = result
+            completion = llm_chain(llm, prompt)
     except Exception as e:
         raise gr.Error(e)
     finally:
         wandb_log(prompt, completion, rag_option)
-    return result
+    return completion
 
 description = """<strong>Overview:</strong> Context-aware multimodal reasoning application using a <strong>large language model (LLM)</strong> with 
                  <strong>retrieval augmented generation (RAG)</strong>. 
