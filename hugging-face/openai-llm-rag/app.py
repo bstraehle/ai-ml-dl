@@ -115,7 +115,7 @@ def rag_chain(llm, prompt, db):
     completion = rag_chain({"query": prompt})
     return completion
 
-def wandb_trace(rag_option, prompt, prompt_template, result, completion, chain_name, status_msg, start_time_ms, end_time_ms, llm):
+def wandb_trace(rag_option, prompt, prompt_template, result, completion, chain_name, status_msg, start_time_ms, end_time_ms):
     wandb.init(project = "openai-llm-rag")
     trace = Trace(
         name = chain_name,
@@ -133,7 +133,7 @@ def wandb_trace(rag_option, prompt, prompt_template, result, completion, chain_n
         end_time_ms = end_time_ms,
         inputs = {"rag_option": rag_option, "prompt": str(prompt), "prompt_template": str(prompt_template)},
         outputs = {"result": str(result), "completion": str(completion)},
-        model_dict = {"llm": str(llm)}
+        #model_dict = {"llm": str(llm)}
     )
     trace.log("test")
     wandb.finish()
@@ -180,7 +180,7 @@ def invoke(openai_api_key, rag_option, prompt):
         raise gr.Error(e)
     finally:
         end_time_ms = round(time.time() * 1000)
-        wandb_trace(rag_option, prompt, prompt_template, result, completion, chain_name, status_msg, start_time_ms, end_time_ms, llm)
+        wandb_trace(rag_option, prompt, prompt_template, result, completion, chain_name, status_msg, start_time_ms, end_time_ms)
     return result
 
 description = """<strong>Overview:</strong> Context-aware multimodal reasoning application using a <strong>large language model (LLM)</strong> with 
