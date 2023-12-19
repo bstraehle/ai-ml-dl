@@ -44,8 +44,8 @@ langchain.verbose = True
 
 template = """If you don't know the answer, just say that you don't know, don't try to make up an answer. Keep the answer as concise as possible. Always say "Thanks for using the 🧠 app - Bernd" at the end of the answer. """
 
-llm_template = "Answer the question at the end. " + template + "Question: {question}. Helpful Answer: "
-rag_template = "Use the following pieces of context to answer the question at the end. " + template + "{context} Question: {question}. Helpful Answer: "
+llm_template = "Answer the question at the end. " + template + "Question: {question} Helpful Answer: "
+rag_template = "Use the following pieces of context to answer the question at the end. " + template + "{context}. Question: {question} Helpful Answer: "
 
 LLM_CHAIN_PROMPT = PromptTemplate(input_variables = ["question"], template = llm_template)
 RAG_CHAIN_PROMPT = PromptTemplate(input_variables = ["context", "question"], template = rag_template)
