@@ -1,5 +1,5 @@
 import gradio as gr
-import json, openai, os, wandb
+import openai, os, time, wandb
 
 from langchain.chains import LLMChain, RetrievalQA
 from langchain.chat_models import ChatOpenAI
@@ -16,11 +16,12 @@ from langchain.vectorstores import MongoDBAtlasVectorSearch
 
 from pymongo import MongoClient
 
+from wandb.sdk.data_types.trace_tree import Trace
+
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
 
-#openai.api_key = os.environ["OPENAI_API_KEY"]
-wandb_api_key = os.environ["WANDB_API_KEY"]
+WANDB_API_KEY = os.environ["WANDB_API_KEY"]
 
 MONGODB_URI = os.environ["MONGODB_ATLAS_CLUSTER_URI"]
 client = MongoClient(MONGODB_URI)
@@ -114,10 +115,27 @@ def rag_chain(llm, prompt, db):
     completion = rag_chain({"query": prompt})
     return completion
 
-def wandb_log(prompt, completion, rag_option):
-    wandb.login(key = wandb_api_key)
-    wandb.init(project = "openai-llm-rag", config = config)
-    wandb.log({"prompt": str(prompt), "completion": str(completion), "rag_option": rag_option})
+def wandb_trace(rag_option, prompt, prompt_template, result, completion, chain_name, status_msg, start_time_ms, end_time_ms, llm):
+    wandb.init(project = "openai-llm-rag")
+    trace = Trace(
+        name = chain_name,
+        kind = "chain",
+        status_code = "SUCCESS" if (str(status_msg) == "") else "ERROR",
+        status_message = str(status_msg),
+        metadata={
+            "chunk_overlap": "" if (rag_option == "Off") else config["chunk_overlap"],
+            "chunk_size": "" if (rag_option == "Off") else config["chunk_size"],
+            "k": "" if (rag_option == "Off") else config["k"],
+            "model": config["model"],
+            "temperature": config["temperature"],
+        },
+        start_time_ms = start_time_ms,
+        end_time_ms = end_time_ms,
+        inputs = {"rag_option": rag_option, "prompt": str(prompt), "prompt_template": str(prompt_template)},
+        outputs = {"result": str(result), "completion": str(completion)},
+        model_dict = {"llm": str(llm)}
+    )
+    trace.log("test")
     wandb.finish()
 
 def invoke(openai_api_key, rag_option, prompt):
@@ -128,7 +146,12 @@ def invoke(openai_api_key, rag_option, prompt):
     if (prompt == ""):
         raise gr.Error("Prompt is required.")
     completion = ""
+    result = ""
+    prompt_template = ""
+    chain_name = ""
+    status_msg = ""
     try:
+        start_time_ms = round(time.time() * 1000)
         llm = ChatOpenAI(model_name = config["model"], 
                          openai_api_key = openai_api_key, 
                          temperature = config["temperature"])
@@ -137,21 +160,28 @@ def invoke(openai_api_key, rag_option, prompt):
             #document_storage_chroma(splits)
             db = document_retrieval_chroma(llm, prompt)
             completion = rag_chain(llm, prompt, db)
-            completion = completion["result"]
+            result = completion["result"]
+            prompt_template = rag_template
+            chain_name = "RetrievalQA"
         elif (rag_option == "MongoDB"):
             #splits = document_loading_splitting()
             #document_storage_mongodb(splits)
             db = document_retrieval_mongodb(llm, prompt)
             completion = rag_chain(llm, prompt, db)
-            completion = completion["result"]
+            result = completion["result"]
+            prompt_template = rag_template
+            chain_name = "RetrievalQA"
         else:
-            completion = llm_chain(llm, prompt)
+            result = llm_chain(llm, prompt)
+            prompt_template = llm_template
+            chain_name = "LLMChain"
     except Exception as e:
-        completion = e
+        status_msg = e
         raise gr.Error(e)
     finally:
-        wandb_log(prompt, completion, rag_option)
-    return completion
+        end_time_ms = round(time.time() * 1000)
+        wandb_trace(rag_option, prompt, prompt_template, result, completion, chain_name, status_msg, start_time_ms, end_time_ms, llm)
+    return result
 
 description = """<strong>Overview:</strong> Context-aware multimodal reasoning application using a <strong>large language model (LLM)</strong> with 
                  <strong>retrieval augmented generation (RAG)</strong>. 
@@ -175,7 +205,7 @@ description = """<strong>Overview:</strong> Context-aware multimodal reasoning a
                  <strong>Speech-to-text</strong> via <a href='https://openai.com/research/whisper'>whisper-1</a> model, <strong>text embedding</strong> via 
                  <a href='https://openai.com/blog/new-and-improved-embedding-model'>text-embedding-ada-002</a> model, and <strong>text generation</strong> via 
                  <a href='""" + WEB_URL + """'>gpt-4</a> model. Implementation via AI-first <a href='https://www.langchain.com/'>LangChain</a> toolkit. 
-                 RAG evaluation via <a href='https://wandb.ai/bstraehle'>Weights & Biases</a>."""
+                 RAG evaluation via <a href='https://wandb.ai/bstraehle/openai-llm-rag/workspace'>Weights & Biases</a>."""
 
 gr.close_all()
 demo = gr.Interface(fn=invoke, 
