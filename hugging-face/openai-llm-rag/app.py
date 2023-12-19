@@ -135,7 +135,7 @@ def wandb_trace(rag_option, prompt, completion, status_msg, start_time_ms, end_t
                   "prompt_template": str((llm_template if (rag_option == "Off") else rag_template) if (str(status_msg) == "") else "")},
         outputs = {"completion": str(completion)},
         start_time_ms = start_time_ms,
-        end_time_ms = end_time_ms}
+        end_time_ms = end_time_ms
     )
     trace.log("test")
     wandb.finish()
