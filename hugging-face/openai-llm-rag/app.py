@@ -57,6 +57,10 @@ YOUTUBE_URL_1 = "https://www.youtube.com/watch?v=--khbXchTeE"
 YOUTUBE_URL_2 = "https://www.youtube.com/watch?v=hdhZwyf24mE"
 YOUTUBE_URL_3 = "https://www.youtube.com/watch?v=vw-KWfKwvTQ"
 
+RAG_OFF = "Off"
+RAG_CHROMA = "Chroma"
+RAG_MONGODB = "MongoDB"
+
 def document_loading_splitting():
     # Document loading
     docs = []
@@ -116,32 +120,28 @@ def rag_chain(llm, prompt, db):
     return completion, rag_chain
 
 def wandb_trace(rag_option, prompt, completion, chain, status_msg, start_time_ms, end_time_ms):
-    wandb.init(project = "openai-llm-rag")
-    if (rag_option == "Off" or str(status_msg) != ""):
+    if (rag_option == RAG_OFF or str(status_msg) != ""):
         result = completion
     else:
         result = completion["result"]
-        doc_meta_source_0 = completion["source_documents"][0].metadata["source"]
-        doc_meta_source_1 = completion["source_documents"][1].metadata["source"]
-        doc_meta_source_2 = completion["source_documents"][2].metadata["source"]
+        docs_meta = str([doc.metadata for doc in completion["source_documents"]])
+    wandb.init(project = "openai-llm-rag")
     trace = Trace(
         kind = "chain",
         name = type(chain).__name__ if (chain != None) else "",
-        status_code = "SUCCESS" if (str(status_msg) == "") else "ERROR",
+        status_code = "success" if (str(status_msg) == "") else "error",
         status_message = str(status_msg),
-        metadata={
-            "chunk_overlap": "" if (rag_option == "Off") else config["chunk_overlap"],
-            "chunk_size": "" if (rag_option == "Off") else config["chunk_size"],
-            "k": "" if (rag_option == "Off") else config["k"],
+        metadata = {
+            "chunk_overlap": "" if (rag_option == RAG_OFF) else config["chunk_overlap"],
+            "chunk_size": "" if (rag_option == RAG_OFF) else config["chunk_size"],
+            "k": "" if (rag_option == RAG_OFF) else config["k"],
             "model": config["model"],
             "temperature": config["temperature"],
         },
         inputs = {"rag_option": rag_option if (str(status_msg) == "") else "",
                   "prompt": str(prompt if (str(status_msg) == "") else ""), 
-                  "prompt_template": str((llm_template if (rag_option == "Off") else rag_template) if (str(status_msg) == "") else ""),
-                  "doc_meta_source_0": "" if (rag_option == "Off" or str(status_msg) != "") else str(doc_meta_source_0),
-                  "doc_meta_source_1": "" if (rag_option == "Off" or str(status_msg) != "") else str(doc_meta_source_1),
-                  "doc_meta_source_2": "" if (rag_option == "Off" or str(status_msg) != "") else str(doc_meta_source_2)},
+                  "prompt_template": str((llm_template if (rag_option == RAG_OFF) else rag_template) if (str(status_msg) == "") else ""),
+                  "docs_meta": "" if (rag_option == RAG_OFF or str(status_msg) != "") else docs_meta},
         outputs = {"result": result},
         start_time_ms = start_time_ms,
         end_time_ms = end_time_ms
@@ -165,13 +165,13 @@ def invoke(openai_api_key, rag_option, prompt):
         llm = ChatOpenAI(model_name = config["model"], 
                          openai_api_key = openai_api_key, 
                          temperature = config["temperature"])
-        if (rag_option == "Chroma"):
+        if (rag_option == RAG_CHROMA):
             #splits = document_loading_splitting()
             #document_storage_chroma(splits)
             db = document_retrieval_chroma(llm, prompt)
             completion, chain = rag_chain(llm, prompt, db)
             result = completion["result"]
-        elif (rag_option == "MongoDB"):
+        elif (rag_option == RAG_MONGODB):
             #splits = document_loading_splitting()
             #document_storage_mongodb(splits)
             db = document_retrieval_mongodb(llm, prompt)
@@ -191,7 +191,7 @@ def invoke(openai_api_key, rag_option, prompt):
 gr.close_all()
 demo = gr.Interface(fn=invoke, 
                     inputs = [gr.Textbox(label = "OpenAI API Key", value = "sk-", lines = 1), 
-                              gr.Radio(["Off", "Chroma", "MongoDB"], label="Retrieval Augmented Generation", value = "Off"),
+                              gr.Radio([RAG_OFF, RAG_CHROMA, RAG_MONGODB], label="Retrieval Augmented Generation", value = RAG_OFF),
                               gr.Textbox(label = "Prompt", value = "What is GPT-4?", lines = 1)],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
                     title = "Generative AI - LLM & RAG",
