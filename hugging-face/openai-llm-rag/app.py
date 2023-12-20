@@ -143,7 +143,7 @@ def wandb_trace(rag_option, prompt, completion, status_msg, start_time_ms, end_t
                    "document_0": "" if (rag_option == "Off" or str(status_msg) != "") else str(document_0),
                    "document_1": "" if (rag_option == "Off" or str(status_msg) != "") else str(document_1),
                    "document_2": "" if (rag_option == "Off" or str(status_msg) != "") else str(document_2)},
-        outputs = {"result": result}
+        outputs = {"result": result},
         start_time_ms = start_time_ms,
         end_time_ms = end_time_ms
     )
