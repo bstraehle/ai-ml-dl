@@ -139,7 +139,7 @@ def wandb_trace(rag_option, prompt, completion, chain, status_msg, start_time_ms
             "temperature": config["temperature"],
         },
         inputs = {"rag_option": rag_option if (str(status_msg) == "") else "",
-                  "prompt": str(prompt if (str(status_msg) == "") else ""), 
+                  "prompt": str(prompt if (str(status_msg) == "") else ""),
                   "prompt_template": str((llm_template if (rag_option == RAG_OFF) else rag_template) if (str(status_msg) == "") else ""),
                   "docs_meta": "" if (rag_option == RAG_OFF or str(status_msg) != "") else docs_meta},
         outputs = {"result": result},
@@ -190,8 +190,8 @@ def invoke(openai_api_key, rag_option, prompt):
 
 gr.close_all()
 demo = gr.Interface(fn=invoke, 
-                    inputs = [gr.Textbox(label = "OpenAI API Key", value = "sk-", lines = 1), 
-                              gr.Radio([RAG_OFF, RAG_CHROMA, RAG_MONGODB], label="Retrieval Augmented Generation", value = RAG_OFF),
+                    inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1), 
+                              gr.Radio([RAG_OFF, RAG_CHROMA, RAG_MONGODB], label = "Retrieval Augmented Generation", value = RAG_OFF),
                               gr.Textbox(label = "Prompt", value = "What is GPT-4?", lines = 1)],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
                     title = "Generative AI - LLM & RAG",
