@@ -192,7 +192,7 @@ gr.close_all()
 demo = gr.Interface(fn=invoke, 
                     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1), 
                               gr.Radio([RAG_OFF, RAG_CHROMA, RAG_MONGODB], label = "Retrieval Augmented Generation", value = RAG_OFF),
-                              gr.Textbox(label = "Prompt", value = "What is GPT-4?", lines = 1)],
+                              gr.Textbox(label = "Prompt", placeholder = "What is GPT-4?", lines = 1)],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
                     title = "Generative AI - LLM & RAG",
                     description = description)
