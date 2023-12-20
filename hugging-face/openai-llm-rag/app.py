@@ -141,7 +141,7 @@ def wandb_trace(rag_option, prompt, completion, chain, status_msg, start_time_ms
                   "prompt_template": str((llm_template if (rag_option == "Off") else rag_template) if (str(status_msg) == "") else ""),
                   "doc_meta_source_0": "" if (rag_option == "Off" or str(status_msg) != "") else str(doc_meta_source_0),
                   "doc_meta_source_1": "" if (rag_option == "Off" or str(status_msg) != "") else str(doc_meta_source_1),
-                  "doc_meta_source_2": "" if (rag_option == "Off" or str(status_msg) != "") else str(doc_meta_source_2},
+                  "doc_meta_source_2": "" if (rag_option == "Off" or str(status_msg) != "") else str(doc_meta_source_2)},
         outputs = {"result": result},
         start_time_ms = start_time_ms,
         end_time_ms = end_time_ms
