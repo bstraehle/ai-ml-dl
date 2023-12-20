@@ -1,5 +1,5 @@
 import gradio as gr
-import langchain, openai, os, time, wandb
+import openai, os, time, wandb
 
 from langchain.chains import LLMChain, RetrievalQA
 from langchain.chat_models import ChatOpenAI
@@ -31,8 +31,6 @@ MONGODB_COLLECTION = client[MONGODB_DB_NAME][MONGODB_COLLECTION_NAME]
 MONGODB_INDEX_NAME = "default"
 
 description = os.environ["DESCRIPTION"]
-
-#langchain.verbose = True
 
 config = {
     "chunk_overlap": 150,
@@ -104,30 +102,31 @@ def document_retrieval_mongodb(llm, prompt):
     return db
 
 def llm_chain(llm, prompt):
-    llm_chain = LLMChain(llm = llm, prompt = LLM_CHAIN_PROMPT)
+    llm_chain = LLMChain(llm = llm, prompt = LLM_CHAIN_PROMPT, verbose = False)
     completion = llm_chain.run({"question": prompt})
-    return completion
+    return completion, llm_chain
 
 def rag_chain(llm, prompt, db):
     rag_chain = RetrievalQA.from_chain_type(llm, 
                                             chain_type_kwargs = {"prompt": RAG_CHAIN_PROMPT}, 
                                             retriever = db.as_retriever(search_kwargs = {"k": config["k"]}), 
-                                            return_source_documents = True)
+                                            return_source_documents = True,
+                                            verbose = False)
     completion = rag_chain({"query": prompt})
-    return completion
+    return completion, rag_chain
 
-def wandb_trace(rag_option, prompt, completion, status_msg, start_time_ms, end_time_ms):
+def wandb_trace(rag_option, prompt, completion, chain, status_msg, start_time_ms, end_time_ms):
     wandb.init(project = "openai-llm-rag")
     if (rag_option == "Off" or str(status_msg) != ""):
         result = completion
     else:
         result = completion["result"]
-        document_0 = completion["source_documents"][0]
-        document_1 = completion["source_documents"][1]
-        document_2 = completion["source_documents"][2]
+        doc_meta_source_0 = completion["source_documents"][0].metadata["source"]
+        doc_meta_source_1 = completion["source_documents"][1].metadata["source"]
+        doc_meta_source_2 = completion["source_documents"][2].metadata["source"]
     trace = Trace(
         kind = "chain",
-        name = "LLMChain" if (rag_option == "Off") else "RetrievalQA",
+        name = type(chain).__name__ if (chain != None) else "",
         status_code = "SUCCESS" if (str(status_msg) == "") else "ERROR",
         status_message = str(status_msg),
         metadata={
@@ -140,9 +139,9 @@ def wandb_trace(rag_option, prompt, completion, status_msg, start_time_ms, end_t
         inputs = {"rag_option": rag_option if (str(status_msg) == "") else "",
                   "prompt": str(prompt if (str(status_msg) == "") else ""), 
                   "prompt_template": str((llm_template if (rag_option == "Off") else rag_template) if (str(status_msg) == "") else ""),
-                  "document_0": "" if (rag_option == "Off" or str(status_msg) != "") else str(document_0),
-                  "document_1": "" if (rag_option == "Off" or str(status_msg) != "") else str(document_1),
-                  "document_2": "" if (rag_option == "Off" or str(status_msg) != "") else str(document_2)},
+                  "doc_meta_source_0": "" if (rag_option == "Off" or str(status_msg) != "") else str(doc_meta_source_0),
+                  "doc_meta_source_1": "" if (rag_option == "Off" or str(status_msg) != "") else str(doc_meta_source_1),
+                  "doc_meta_source_2": "" if (rag_option == "Off" or str(status_msg) != "") else str(doc_meta_source_2},
         outputs = {"result": result},
         start_time_ms = start_time_ms,
         end_time_ms = end_time_ms
@@ -159,6 +158,7 @@ def invoke(openai_api_key, rag_option, prompt):
         raise gr.Error("Prompt is required.")
     completion = ""
     result = ""
+    chain = None
     status_msg = ""
     try:
         start_time_ms = round(time.time() * 1000)
@@ -169,23 +169,23 @@ def invoke(openai_api_key, rag_option, prompt):
             #splits = document_loading_splitting()
             #document_storage_chroma(splits)
             db = document_retrieval_chroma(llm, prompt)
-            completion = rag_chain(llm, prompt, db)
+            completion, chain = rag_chain(llm, prompt, db)
             result = completion["result"]
         elif (rag_option == "MongoDB"):
             #splits = document_loading_splitting()
             #document_storage_mongodb(splits)
             db = document_retrieval_mongodb(llm, prompt)
-            completion = rag_chain(llm, prompt, db)
+            completion, chain = rag_chain(llm, prompt, db)
             result = completion["result"]
         else:
-            result = llm_chain(llm, prompt)
+            result, chain = llm_chain(llm, prompt)
             completion = result
     except Exception as e:
         status_msg = e
         raise gr.Error(e)
     finally:
         end_time_ms = round(time.time() * 1000)
-        wandb_trace(rag_option, prompt, completion, status_msg, start_time_ms, end_time_ms)
+        wandb_trace(rag_option, prompt, completion, chain, status_msg, start_time_ms, end_time_ms)
     return result
 
 gr.close_all()
