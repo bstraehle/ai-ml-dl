@@ -32,6 +32,8 @@ MONGODB_INDEX_NAME = "default"
 
 description = os.environ["DESCRIPTION"]
 
+#langchain.verbose = True
+
 config = {
     "chunk_overlap": 150,
     "chunk_size": 1500,
@@ -39,8 +41,6 @@ config = {
     "model": "gpt-4",
     "temperature": 0,
 }
-
-langchain.verbose = True
 
 template = """If you don't know the answer, just say that you don't know, don't try to make up an answer. Keep the answer as concise as possible. Always say "Thanks for using the 🧠 app - Bernd" at the end of the answer. """
 
@@ -118,7 +118,7 @@ def rag_chain(llm, prompt, db):
 
 def wandb_trace(rag_option, prompt, completion, status_msg, start_time_ms, end_time_ms):
     wandb.init(project = "openai-llm-rag")
-    if (rag_option == "Off"):
+    if (rag_option == "Off" || str(status_msg) != ""):
         result = completion
     else:
         result = completion["result"]
@@ -141,9 +141,9 @@ def wandb_trace(rag_option, prompt, completion, status_msg, start_time_ms, end_t
                   "prompt": str(prompt if (str(status_msg) == "") else ""), 
                   "prompt_template": str((llm_template if (rag_option == "Off") else rag_template) if (str(status_msg) == "") else "")},
         outputs = {"result": result,
-                   "document_0": "" if (rag_option == "Off") else str(document_0),
-                   "document_1": "" if (rag_option == "Off") else str(document_1),
-                   "document_2": "" if (rag_option == "Off") else str(document_2)},
+                   "document_0": "" if (rag_option == "Off" || str(status_msg) != "") else str(document_0),
+                   "document_1": "" if (rag_option == "Off" || str(status_msg) != "") else str(document_1),
+                   "document_2": "" if (rag_option == "Off" || str(status_msg) != "") else str(document_2)},
         start_time_ms = start_time_ms,
         end_time_ms = end_time_ms
     )
