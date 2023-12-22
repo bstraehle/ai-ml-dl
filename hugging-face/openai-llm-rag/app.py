@@ -128,6 +128,9 @@ def wandb_trace(rag_option, prompt, completion, result, generation_info, llm_out
                    } if (str(err_msg) == "") else {},
         inputs = {"rag_option": rag_option,
                   "prompt": prompt,
+                  "chain_prompt": (str(chain.prompt) if (rag_option == RAG_OFF) else 
+                                   str(chain.combine_documents_chain.llm_chain.prompt)),
+                  "document_metadata": "" if (rag_option == RAG_OFF) else str([doc.metadata for doc in completion["source_documents"]]),
                  } if (str(err_msg) == "") else {},
         outputs = {"result": result,
                    "generation_info": str(generation_info),
@@ -140,8 +143,6 @@ def wandb_trace(rag_option, prompt, completion, result, generation_info, llm_out
                                      str(chain.combine_documents_chain.llm_chain.llm.model_name)),
                       "temperature": (str(chain.llm.temperature) if (rag_option == RAG_OFF) else
                                       str(chain.combine_documents_chain.llm_chain.llm.temperature)),
-                      "prompt": (str(chain.prompt) if (rag_option == RAG_OFF) else 
-                                 str(chain.combine_documents_chain.llm_chain.prompt)),
                       "retriever": ("" if (rag_option == RAG_OFF) else str(chain.retriever)),
                      } if (str(err_msg) == "") else {},
         start_time_ms = start_time_ms,
@@ -193,7 +194,7 @@ def invoke(openai_api_key, rag_option, prompt):
             if (completion.generations[0] != None and completion.generations[0][0] != None):
                 result = completion.generations[0][0].text
                 generation_info = completion.generations[0][0].generation_info
-            
+
             llm_output = completion.llm_output
     except Exception as e:
         err_msg = e
