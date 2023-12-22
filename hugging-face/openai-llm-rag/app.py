@@ -130,7 +130,7 @@ def wandb_trace(rag_option, prompt, completion, result, generation_info, llm_out
                   "prompt": prompt,
                   "chain_prompt": (str(chain.prompt) if (rag_option == RAG_OFF) else 
                                    str(chain.combine_documents_chain.llm_chain.prompt)),
-                  "document_metadata": "" if (rag_option == RAG_OFF) else str([doc.metadata for doc in completion["source_documents"]]),
+                  "source_documents": "" if (rag_option == RAG_OFF) else str([doc.metadata["source"] for doc in completion["source_documents"]]),
                  } if (str(err_msg) == "") else {},
         outputs = {"result": result,
                    "generation_info": str(generation_info),
