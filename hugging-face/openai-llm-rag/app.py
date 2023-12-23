@@ -48,7 +48,7 @@ config = {
     "chunk_overlap": 150,
     "chunk_size": 1500,
     "k": 3,
-    "model_name": "gpt-4",
+    "model_name": "gpt-4-0613",
     "temperature": 0,
 }
 
