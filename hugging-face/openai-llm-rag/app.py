@@ -3,17 +3,17 @@ import os, time
 
 from dotenv import load_dotenv, find_dotenv
 
-from rag import llm_chain, rag_chain, rag_batch
-from trace import wandb_trace
+from rag import run_llm_chain, run_rag_chain, run_rag_batch
+from trace import trace_wandb
 
 _ = load_dotenv(find_dotenv())
 
-RAG_BATCH = False # document loading, splitting, storage
+RUN_RAG_BATCH = False # load, split, embed, and store documents
 
 config = {
-    "chunk_overlap": 150,       # document splitting
-    "chunk_size": 1500,         # document splitting
-    "k": 3,                     # document retrieval
+    "chunk_overlap": 150,       # split documents
+    "chunk_size": 1500,         # split documents
+    "k": 3,                     # retrieve documents
     "model_name": "gpt-4-0314", # llm
     "temperature": 0,           # llm
 }
@@ -30,8 +30,8 @@ def invoke(openai_api_key, rag_option, prompt):
     if (prompt == ""):
         raise gr.Error("Prompt is required.")
 
-    if (RAG_BATCH):
-        rag_batch(config)
+    if (RUN_RAG_BATCH):
+        run_rag_batch(config)
     
     chain = None
     completion = ""
@@ -43,12 +43,12 @@ def invoke(openai_api_key, rag_option, prompt):
         start_time_ms = round(time.time() * 1000)
 
         if (rag_option == RAG_OFF):
-            completion, chain, cb = llm_chain(config, openai_api_key, prompt)
+            completion, chain, cb = run_llm_chain(config, openai_api_key, prompt)
             
             if (completion.generations[0] != None and completion.generations[0][0] != None):
                 result = completion.generations[0][0].text
         else:
-            completion, chain, cb = rag_chain(config, openai_api_key, rag_option, prompt)
+            completion, chain, cb = run_rag_chain(config, openai_api_key, rag_option, prompt)
 
             result = completion["result"]
     except Exception as e:
@@ -58,7 +58,7 @@ def invoke(openai_api_key, rag_option, prompt):
     finally:
         end_time_ms = round(time.time() * 1000)
         
-        wandb_trace(config,
+        trace_wandb(config,
                     rag_option == RAG_OFF, 
                     prompt, 
                     completion, 
