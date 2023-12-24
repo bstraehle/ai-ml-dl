@@ -1,5 +1,6 @@
 import openai, os
 
+from langchain.callbacks import get_openai_callback
 from langchain.chains import LLMChain, RetrievalQA
 from langchain.chat_models import ChatOpenAI
 from langchain.document_loaders import PyPDFLoader, WebBaseLoader
@@ -96,16 +97,16 @@ def get_llm(config, openai_api_key):
 
 def llm_chain(config, openai_api_key, prompt):
     llm_chain = LLMChain(llm = get_llm(config, openai_api_key), 
-                         prompt = LLM_CHAIN_PROMPT, 
-                         verbose = False)
+                         prompt = LLM_CHAIN_PROMPT)
     
-    completion = llm_chain.generate([{"question": prompt}])
+    with get_openai_callback() as cb:
+        completion = llm_chain.generate([{"question": prompt}])
     
-    return completion, llm_chain
+    return completion, llm_chain, cb
 
 def rag_chain(config, openai_api_key, rag_option, prompt):
     llm = get_llm(config, openai_api_key)
-    
+
     if (rag_option == RAG_CHROMA):
         db = document_retrieval_chroma()
     elif (rag_option == RAG_MONGODB):
@@ -114,9 +115,9 @@ def rag_chain(config, openai_api_key, rag_option, prompt):
     rag_chain = RetrievalQA.from_chain_type(llm, 
                                             chain_type_kwargs = {"prompt": RAG_CHAIN_PROMPT}, 
                                             retriever = db.as_retriever(search_kwargs = {"k": config["k"]}), 
-                                            return_source_documents = True,
-                                            verbose = False)
+                                            return_source_documents = True)
     
-    completion = rag_chain({"query": prompt})
-    
-    return completion, rag_chain
+    with get_openai_callback() as cb:
+        completion = rag_chain({"query": prompt})
+
+    return completion, rag_chain, cb
