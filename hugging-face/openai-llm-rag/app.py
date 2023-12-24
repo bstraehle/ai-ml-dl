@@ -82,7 +82,7 @@ demo = gr.Interface(fn=invoke,
                               gr.Textbox(label = "Prompt", value = "What are GPT-4's media capabilities in 5 emojis and 1 sentence?", lines = 1),
                              ],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
-                    title = "Generative AI - LLM & RAG",
+                    title = "Context-Aware Multimodal Reasoning Application",
                     description = os.environ["DESCRIPTION"])
 
 demo.launch()
