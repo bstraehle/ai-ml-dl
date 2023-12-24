@@ -36,23 +36,20 @@ def invoke(openai_api_key, rag_option, prompt):
     chain = None
     completion = ""
     result = ""
-    generation_info = ""
-    llm_output = ""
+    cb = ""
     err_msg = ""
     
     try:
         start_time_ms = round(time.time() * 1000)
 
         if (rag_option == RAG_OFF):
-            completion, chain = llm_chain(config, openai_api_key, prompt)
+            completion, chain, cb = llm_chain(config, openai_api_key, prompt)
             
             if (completion.generations[0] != None and completion.generations[0][0] != None):
                 result = completion.generations[0][0].text
-                generation_info = completion.generations[0][0].generation_info
-
-            llm_output = completion.llm_output
         else:
-            completion, chain = rag_chain(config, openai_api_key, rag_option, prompt)
+            completion, chain, cb = rag_chain(config, openai_api_key, rag_option, prompt)
+
             result = completion["result"]
     except Exception as e:
         err_msg = e
@@ -66,9 +63,8 @@ def invoke(openai_api_key, rag_option, prompt):
                     prompt, 
                     completion, 
                     result, 
-                    generation_info, 
-                    llm_output, 
                     chain, 
+                    cb, 
                     err_msg, 
                     start_time_ms, 
                     end_time_ms)
