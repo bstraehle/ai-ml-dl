@@ -2,9 +2,10 @@ bs4
 chromadb
 gradio
 langchain
-openai==0.28.1
+openai
 pymongo
 pypdf
 python-dotenv
 tiktoken
 yt_dlp
+wandb
