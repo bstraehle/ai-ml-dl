@@ -4,7 +4,7 @@ from wandb.sdk.data_types.trace_tree import Trace
 
 WANDB_API_KEY = os.environ["WANDB_API_KEY"]
 
-def wandb_trace(config,
+def trace_wandb(config,
                 is_rag_off, 
                 prompt, 
                 completion, 
