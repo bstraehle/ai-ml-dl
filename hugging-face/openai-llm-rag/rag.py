@@ -37,7 +37,7 @@ RAG_CHAIN_PROMPT = PromptTemplate(input_variables = ["context", "question"], tem
 client = MongoClient(MONGODB_ATLAS_CLUSTER_URI)
 collection = client[MONGODB_DB_NAME][MONGODB_COLLECTION_NAME]
 
-def document_loading():
+def load_documents():
     docs = []
     
     # PDF
@@ -55,47 +55,47 @@ def document_loading():
     
     return docs
 
-def document_splitting(config, docs):
+def split_documents(config, docs):
     text_splitter = RecursiveCharacterTextSplitter(chunk_overlap = config["chunk_overlap"],
                                                    chunk_size = config["chunk_size"])
     
     return text_splitter.split_documents(docs)
     
-def document_storage_chroma(chunks):
+def embed_store_documents_chroma(chunks):
     Chroma.from_documents(documents = chunks, 
                           embedding = OpenAIEmbeddings(disallowed_special = ()), 
                           persist_directory = CHROMA_DIR)
 
-def document_storage_mongodb(chunks):
+def embed_store_documents_mongodb(chunks):
     MongoDBAtlasVectorSearch.from_documents(documents = chunks,
                                             embedding = OpenAIEmbeddings(disallowed_special = ()),
                                             collection = collection,
                                             index_name = MONGODB_INDEX_NAME)
 
-def rag_batch(config):
-    docs = document_loading()
+def run_rag_batch(config):
+    docs = load_documents()
     
-    chunks = document_splitting(config, docs)
+    chunks = split_documents(config, docs)
     
-    document_storage_chroma(chunks)
-    document_storage_mongodb(chunks)
+    embed_store_documents_chroma(chunks)
+    embed_store_documents_mongodb(chunks)
 
-def document_retrieval_chroma():
+def retrieve_documents_chroma():
     return Chroma(embedding_function = OpenAIEmbeddings(disallowed_special = ()),
                   persist_directory = CHROMA_DIR)
 
-def document_retrieval_mongodb():
+def retrieve_documents_mongodb():
     return MongoDBAtlasVectorSearch.from_connection_string(MONGODB_ATLAS_CLUSTER_URI,
                                                            MONGODB_DB_NAME + "." + MONGODB_COLLECTION_NAME,
                                                            OpenAIEmbeddings(disallowed_special = ()),
                                                            index_name = MONGODB_INDEX_NAME)
-
+    
 def get_llm(config, openai_api_key):
     return ChatOpenAI(model_name = config["model_name"], 
                       openai_api_key = openai_api_key, 
                       temperature = config["temperature"])
 
-def llm_chain(config, openai_api_key, prompt):
+def run_llm_chain(config, openai_api_key, prompt):
     llm_chain = LLMChain(llm = get_llm(config, openai_api_key), 
                          prompt = LLM_CHAIN_PROMPT)
     
@@ -104,16 +104,17 @@ def llm_chain(config, openai_api_key, prompt):
     
     return completion, llm_chain, cb
 
-def rag_chain(config, openai_api_key, rag_option, prompt):
+def run_rag_chain(config, openai_api_key, rag_option, prompt):
     llm = get_llm(config, openai_api_key)
 
     if (rag_option == RAG_CHROMA):
-        db = document_retrieval_chroma()
+        db = retrieve_documents_chroma()
     elif (rag_option == RAG_MONGODB):
-        db = document_retrieval_mongodb()
+        db = retrieve_documents_mongodb()
 
     rag_chain = RetrievalQA.from_chain_type(llm, 
-                                            chain_type_kwargs = {"prompt": RAG_CHAIN_PROMPT}, 
+                                            chain_type_kwargs = {"prompt": RAG_CHAIN_PROMPT,
+                                                                 "verbose": True}, 
                                             retriever = db.as_retriever(search_kwargs = {"k": config["k"]}), 
                                             return_source_documents = True)
     
