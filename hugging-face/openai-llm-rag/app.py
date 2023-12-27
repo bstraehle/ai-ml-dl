@@ -74,7 +74,7 @@ gr.close_all()
 
 demo = gr.Interface(fn=invoke, 
                     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1), 
-                              gr.Radio([RAG_OFF, RAG_CHROMA, RAG_MONGODB], label = "Retrieval Augmented Generation", value = RAG_OFF),
+                              gr.Radio([RAG_OFF, RAG_CHROMA, RAG_MONGODB], label = "Retrieval-Augmented Generation", value = RAG_OFF),
                               gr.Textbox(label = "Prompt", value = "What are GPT-4's media capabilities in 5 emojis and 1 sentence?", lines = 1),
                              ],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
