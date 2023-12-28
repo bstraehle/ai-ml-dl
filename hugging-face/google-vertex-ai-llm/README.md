@@ -1,5 +1,5 @@
 ---
-title: Google Vertex AI - LLM (gemini-pro)
+title: Google Vertex AI - LLM
 emoji: 🤖
 colorFrom: blue
 colorTo: gray
