@@ -1,5 +1,5 @@
 ---
-title: Amazon Bedrock - Text to Image (stability.stable-diffusion-xl)
+title: Amazon Bedrock - Text-to-Image
 emoji: 🎨
 colorFrom: yellow
 colorTo: gray
