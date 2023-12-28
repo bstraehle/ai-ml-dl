@@ -1,5 +1,5 @@
 ---
-title: OpenAI - LLM (gpt-4)
+title: OpenAI - LLM
 emoji: 🔥
 colorFrom: red
 colorTo: gray
