@@ -1,5 +1,5 @@
 ---
-title: Amazon Bedrock - LLM (anthropic.claude-v2)
+title: Amazon Bedrock - LLM
 emoji: 🚀
 colorFrom: green
 colorTo: gray
