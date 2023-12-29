@@ -2,4 +2,3 @@ boto3
 botocore
 gradio
 python-dotenv
-wandb
