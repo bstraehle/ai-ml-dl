@@ -1,0 +1,61 @@
+import gradio as gr
+import base64
+
+from openai import OpenAI
+
+config = {
+    "max_tokens": 500,
+    "model": "gpt-4-vision-preview",
+    "temperature": 0,
+}
+
+def get_img_b64(img_path):
+    with open(img_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode("utf-8")
+
+def invoke(openai_api_key, prompt, image):
+    if (openai_api_key == ""):
+        raise gr.Error("OpenAI API Key is required.")
+    if (prompt == ""):
+        raise gr.Error("Prompt is required.")
+    if (image is None):
+        raise gr.Error("Image is required.")
+
+    content = ""
+    
+    try:
+        client = OpenAI(api_key = openai_api_key)
+
+        img_b64 = get_img_b64(image)
+        
+        completion = client.chat.completions.create(
+            max_tokens = config["max_tokens"],
+            messages=[{"role": "user",
+                       "content": [{"type": "text", "text": prompt},
+                                   {"type": "image_url",
+                                    "image_url": {"url": f"data:image/jpeg;base64,{img_b64}"},},],},],
+            model = config["model"],
+            temperature = config["temperature"],)
+    
+        content = completion.choices[0].message.content
+    except Exception as e:
+        err_msg = e
+
+        raise gr.Error(e)
+
+    return content
+
+description = """<a href='https://www.gradio.app/'>Gradio</a> UI using the <a href='https://openai.com/'>OpenAI</a> API 
+                 with <a href='https://openai.com/research/gpt-4'>gpt-4-vision-preview</a> model."""
+
+gr.close_all()
+
+demo = gr.Interface(fn = invoke, 
+                    inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
+                              gr.Textbox(label = "Prompt", lines = 1, value = "Solve the riddle. Think step-by-step."),
+                              gr.Image(type = "filepath", sources = ["upload"], value = "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/openai-multimodal-llm/riddle.jpg")],
+                    outputs = [gr.Textbox(label = "Completion", lines = 1)],
+                    title = "Generative AI - Multimodal LLM",
+                    description = description,)
+
+demo.launch()
