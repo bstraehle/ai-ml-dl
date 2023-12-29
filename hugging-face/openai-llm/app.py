@@ -1,11 +1,6 @@
 import gradio as gr
-import openai, os, wandb
 
-from dotenv import load_dotenv, find_dotenv
-_ = load_dotenv(find_dotenv())
-
-openai.api_key = os.environ["OPENAI_API_KEY"]
-wandb_api_key = os.environ["WANDB_API_KEY"]
+from openai import OpenAI
 
 config = {
     "max_tokens": 500,
@@ -13,28 +8,41 @@ config = {
     "temperature": 0,
 }
 
-wandb.login(key = wandb_api_key)
-wandb.init(project = "openai-llm", config = config)
-config = wandb.config
+def invoke(openai_api_key, prompt):
+    if (openai_api_key == ""):
+        raise gr.Error("OpenAI API Key is required.")
+    if (prompt == ""):
+        raise gr.Error("Prompt is required.")
 
-def invoke(prompt):
-    response = openai.ChatCompletion.create(
-        model = config.model,
-        messages = [{"role": "user", "content": prompt}],
-        temperature = config.temperature,
-        max_tokens = config.max_tokens,
-    )
-    completion = response.choices[0].message["content"]
-    wandb.log({"prompt": prompt, "completion": completion})
-    return completion
+    content = ""
+    
+    try:
+        client = OpenAI(api_key = openai_api_key)
+    
+        completion = client.chat.completions.create(
+            max_tokens = config["max_tokens"],
+            messages = [{"role": "user", "content": prompt}],
+            model = config["model"],
+            temperature = config["temperature"],)
+    
+        content = completion.choices[0].message.content
+    except Exception as e:
+        err_msg = e
 
-description = """<a href='https://www.gradio.app/'>Gradio</a> UI using <a href='https://platform.openai.com/'>OpenAI</a> API with GPT 4 foundation model. 
-                 Model performance evaluation via <a href='https://wandb.ai/bstraehle'>Weights & Biases</a>."""
+        raise gr.Error(e)
+
+    return content
+
+description = """<a href='https://www.gradio.app/'>Gradio</a> UI using the <a href='https://openai.com/'>OpenAI</a> API 
+                 with <a href='https://openai.com/research/gpt-4'>gpt-4</a> model."""
 
 gr.close_all()
-demo = gr.Interface(fn=invoke, 
-                    inputs = [gr.Textbox(label = "Prompt", lines = 1)],
+
+demo = gr.Interface(fn = invoke, 
+                    inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
+                              gr.Textbox(label = "Prompt", lines = 1)],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
                     title = "Generative AI - LLM",
-                    description = description)
+                    description = description,)
+
 demo.launch()
