@@ -22,30 +22,53 @@ def b64_to_pil(img_b64):
     img_pil = Image.open(byte_stream)
     return img_pil
 
-# See https://platform.stability.ai/docs/api-reference#tag/v1generation/operation/textToImage
 def invoke(prompt, neg_prompt, style_preset):
-    body = json.dumps({"text_prompts": (
-                           [{"text": prompt, "weight": 1.0}] +
-                           [{"text": neg_prompt, "weight": -1.0}]
-                       ),
-                       "cfg_scale": 7,
-                       "seed": 0,
-                       "steps": 150,
-                       "style_preset": style_preset.lower().replace(" ", "-"),
-                      })
-    modelId = "stability.stable-diffusion-xl"
-    response = bedrock_runtime.invoke_model(body = body, modelId = modelId)
-    response_body = json.loads(response.get('body').read())
-    img_b64 = response_body.get('artifacts')[0].get('base64')
-    return b64_to_pil(img_b64)
+    if (prompt == ""):
+        raise gr.Error("Prompt is required.")
+    if (neg_prompt == ""):
+        raise gr.Error("Negative prompt is required.")
+    if (style_preset == ""):
+        raise gr.Error("Style is required.")
+
+    img_pil = None
+    
+    try:    
+        body = json.dumps({"text_prompts": (
+                               [{"text": prompt, "weight": 1.0}] +
+                               [{"text": neg_prompt, "weight": -1.0}]
+                           ),
+                           "cfg_scale": 7,
+                           "seed": 0,
+                           "steps": 150,
+                           "style_preset": style_preset.lower().replace(" ", "-"),
+                          })
+        modelId = "stability.stable-diffusion-xl"
+    
+        response = bedrock_runtime.invoke_model(body = body, 
+                                                modelId = modelId)
+    
+        response_body = json.loads(response.get('body').read())
+        img_b64 = response_body.get('artifacts')[0].get('base64')
+        img_pil = b64_to_pil(img_b64)
+    except Exception as e:
+        completion = e
+        
+        raise gr.Error(e)
+    
+    return img_pil
+
+description = """<a href='https://www.gradio.app/'>Gradio</a> UI using the <a href='https://aws.amazon.com/bedrock/'>Amazon Bedrock</a> API 
+                 with <a href='https://stability.ai/'>Stability AI</a> Stable Diffusion XL model."""
 
 gr.close_all()
+
 demo = gr.Interface(fn = invoke,
                     inputs = [gr.Textbox(label = "Prompt", lines = 1),
                               gr.Textbox(label = "Negative Prompt", lines = 1),
                               gr.Dropdown(choices = ["Analog Film", "Anime", "Neon Punk", "Photographic", "Pixel Art"], value = "Photographic", label = "Style")],
                     outputs = [gr.Image(label="Result")],
-                    title = "Generative AI - Text to Image",
-                    description = "<a href='https://www.gradio.app/'>Gradio</a> UI using <a href='https://aws.amazon.com/bedrock/'>Amazon Bedrock</a> API with <a href='https://stability.ai/'>Stability AI</a> Stable Diffusion XL foundation model.",
+                    title = "Generative AI - Text-to-Image",
+                    description = description,
                     allow_flagging = "never")
+
 demo.launch()
