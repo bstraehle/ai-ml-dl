@@ -1,16 +1,14 @@
 import gradio as gr
-import json, os, vertexai, wandb
+import json, os, vertexai
 
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
 
 credentials = os.environ["CREDENTIALS"]
 project = os.environ["PROJECT"]
-wandb_api_key = os.environ["WANDB_API_KEY"]
 
 config = {
     "max_output_tokens": 800,
-    #"model": "text-bison@001",
     "model": "gemini-pro",
     "temperature": 0.1,
     "top_k": 40,
@@ -30,53 +28,42 @@ vertexai.init(project = project,
               credentials = credentials
              )
 
-#from vertexai.language_models import TextGenerationModel
-#generation_model = TextGenerationModel.from_pretrained(config["model"])
 from vertexai.preview.generative_models import GenerativeModel
 generation_model = GenerativeModel(config["model"])
-
-def wandb_log(prompt, completion):
-    wandb.login(key = wandb_api_key)
-    wandb.init(project = "vertex-ai-llm", config = config)
-    wandb.log({"prompt": str(prompt), "completion": str(completion)})
-    wandb.finish()
 
 def invoke(prompt):
     if (prompt == ""):
         raise gr.Error("Prompt is required.")
+
     completion = ""
+    
     try:
-        #completion = generation_model.predict(prompt = prompt,
-        #                                      max_output_tokens = config["max_output_tokens"],
-        #                                      temperature = config["temperature"],
-        #                                      top_k = config["top_k"],
-        #                                      top_p = config["top_p"],
-        #                                     )
-        #if (completion.text != None):
-        #    completion = completion.text
-        completion = generation_model.generate_content(prompt, generation_config = {
-                                                                   "max_output_tokens": config["max_output_tokens"],
-                                                                   "temperature": config["temperature"],
-                                                                   "top_k": config["top_k"],
-                                                                   "top_p": config["top_p"],
-                                                               })
+        completion = generation_model.generate_content(prompt,
+                                                       generation_config = {
+                                                           "max_output_tokens": config["max_output_tokens"],
+                                                           "temperature": config["temperature"],
+                                                           "top_k": config["top_k"],
+                                                           "top_p": config["top_p"],
+                                                       })
+        
         if (completion.text != None):
             completion = completion.text
     except Exception as e:
         completion = e
+        
         raise gr.Error(e)
-    finally:
-        wandb_log(prompt, completion)
+    
     return completion
-    #return "🛑 Execution is commented out. To view the source code see https://huggingface.co/spaces/bstraehle/google-vertex-ai-llm/tree/main."
 
-description = """<a href='https://www.gradio.app/'>Gradio</a> UI using <a href='https://cloud.google.com/vertex-ai?hl=en/'>Google Vertex AI</a> API 
-                 with gemini-pro foundation model. RAG evaluation via <a href='https://wandb.ai/bstraehle'>Weights & Biases</a>."""
+description = """<a href='https://www.gradio.app/'>Gradio</a> UI using the <a href='https://cloud.google.com/vertex-ai'>Google Vertex AI</a> API 
+                 with Gemini Pro model."""
 
 gr.close_all()
-demo = gr.Interface(fn=invoke, 
+
+demo = gr.Interface(fn = invoke, 
                     inputs = [gr.Textbox(label = "Prompt", lines = 1)],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
                     title = "Generative AI - LLM",
                     description = description)
+
 demo.launch()
