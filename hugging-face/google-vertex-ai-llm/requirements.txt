@@ -1,4 +1,3 @@
 google-cloud-aiplatform
 gradio
 python-dotenv
-wandb
