@@ -8,7 +8,7 @@ aws_access_key_id = os.environ["AWS_ACCESS_KEY_ID"]
 aws_secret_access_key = os.environ["AWS_SECRET_ACCESS_KEY"]
 
 config = {
-    "max_tokens_to_sample": 300,
+    "max_tokens_to_sample": 1000,
     "model": "anthropic.claude-v2",
     "temperature": 0,
     "top_k": 250,
