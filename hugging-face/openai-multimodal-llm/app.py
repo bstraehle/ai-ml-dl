@@ -27,7 +27,7 @@ def invoke(openai_api_key, prompt, image):
         client = OpenAI(api_key = openai_api_key)
 
         img_b64 = get_img_b64(image)
-        
+
         completion = client.chat.completions.create(
             max_tokens = config["max_tokens"],
             messages=[{"role": "user",
@@ -52,9 +52,9 @@ gr.close_all()
 
 demo = gr.Interface(fn = invoke, 
                     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
-                              gr.Textbox(label = "Prompt", lines = 1, value = "What is in the image?"),
-                              gr.Image(type = "filepath", sources = ["upload"], value = "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/architecture-openai-llm-rag.png")],
-                    outputs = [gr.Textbox(label = "Completion", lines = 1)],
+                              gr.Textbox(label = "Prompt", lines = 1, value = "What is in the image? Answer in JSON format."),
+                              gr.Image(type = "filepath", sources = ["upload"], value = "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/architecture-openai-llm-rag.png"),],
+                    outputs = [gr.Textbox(label = "Completion", lines = 1),],
                     title = "Generative AI - Multimodal LLM",
                     description = description,)
 
