@@ -52,7 +52,7 @@ gr.close_all()
 
 demo = gr.Interface(fn = invoke, 
                     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
-                              gr.Textbox(label = "Prompt", lines = 1, value = "How to prepare this dish? What wine to serve? What music to play?"),
+                              gr.Textbox(label = "Prompt", lines = 1, value = "How to prepare this dish? What wine to serve with it? What music to play?"),
                               gr.Image(type = "filepath", sources = ["upload"], value = "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/openai-multimodal-llm/chiles-en-nogada.jpg")],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
                     title = "Generative AI - Multimodal LLM",
