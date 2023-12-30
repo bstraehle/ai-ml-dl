@@ -3,7 +3,7 @@ import gradio as gr
 from openai import OpenAI
 
 config = {
-    "max_tokens": 500,
+    "max_tokens": 1000,
     "model": "gpt-4",
     "temperature": 0,
 }
