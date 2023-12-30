@@ -4,7 +4,7 @@ import base64
 from openai import OpenAI
 
 config = {
-    "max_tokens": 500,
+    "max_tokens": 1000,
     "model": "gpt-4-vision-preview",
     "temperature": 0,
 }
@@ -52,8 +52,8 @@ gr.close_all()
 
 demo = gr.Interface(fn = invoke, 
                     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
-                              gr.Textbox(label = "Prompt", lines = 1, value = "Solve the riddle. Think step-by-step."),
-                              gr.Image(type = "filepath", sources = ["upload"], value = "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/openai-multimodal-llm/riddle.jpg")],
+                              gr.Textbox(label = "Prompt", lines = 1, value = "How to prepare this dish?"),
+                              gr.Image(type = "filepath", sources = ["upload"], value = "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/openai-multimodal-llm/chiles-en-nogada.jpg")],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
                     title = "Generative AI - Multimodal LLM",
                     description = description,)
