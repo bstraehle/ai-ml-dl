@@ -8,7 +8,7 @@ credentials = os.environ["CREDENTIALS"]
 project = os.environ["PROJECT"]
 
 config = {
-    "max_output_tokens": 800,
+    "max_output_tokens": 1000,
     "model": "gemini-pro",
     "temperature": 0.1,
     "top_k": 40,
