@@ -74,17 +74,16 @@ gr.close_all()
 
 demo = gr.Interface(fn = invoke, 
                     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1, value = "sk-"), 
-                              gr.Radio([RAG_OFF, RAG_CHROMA, RAG_MONGODB], label = "Retrieval-Augmented Generation", value = RAG_OFF),
                               gr.Textbox(label = "Prompt", value = "What are GPT-4's media capabilities in 5 emojis and 1 sentence?", lines = 1),
-                             ],
+                              gr.Radio([RAG_OFF, RAG_CHROMA, RAG_MONGODB], label = "Retrieval-Augmented Generation", value = RAG_OFF),],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
                     title = "Context-Aware Multimodal Reasoning Application",
                     description = os.environ["DESCRIPTION"],
-                    examples = [["sk-", RAG_MONGODB, "What are GPT-4's media capabilities in 5 emojis and 1 sentence?"],
-                                ["sk-", RAG_CHROMA, "List GPT-4's exam scores and benchmark results."],
-                                ["sk-", RAG_MONGODB, "Compare GPT-4 to GPT-3.5 in markdown table format."],
-                                ["sk-", RAG_CHROMA, "Write a Python program that calls the GPT-4 API."],
-                                ["sk-", RAG_MONGODB, "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format."],],
+                    examples = [["sk-", "What are GPT-4's media capabilities in 5 emojis and 1 sentence?", RAG_MONGODB],
+                                ["sk-", "List GPT-4's exam scores and benchmark results.", RAG_CHROMA],
+                                ["sk-", "Compare GPT-4 to GPT-3.5 in markdown table format.", RAG_MONGODB],
+                                ["sk-", "Write a Python program that calls the GPT-4 API.", RAG_CHROMA],
+                                ["sk-", "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format.", RAG_MONGODB],],
                                 cache_examples = False)
 
 demo.launch()
