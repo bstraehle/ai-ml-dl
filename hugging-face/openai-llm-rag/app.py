@@ -22,13 +22,13 @@ RAG_OFF     = "Off"
 RAG_CHROMA  = "Chroma"
 RAG_MONGODB = "MongoDB"
 
-def invoke(openai_api_key, rag_option, prompt):
+def invoke(openai_api_key, prompt, rag_option):
     if (openai_api_key == ""):
         raise gr.Error("OpenAI API Key is required.")
-    if (rag_option is None):
-        raise gr.Error("Retrieval Augmented Generation is required.")
     if (prompt == ""):
         raise gr.Error("Prompt is required.")
+    if (rag_option is None):
+        raise gr.Error("Retrieval Augmented Generation is required.")
 
     if (RUN_RAG_BATCH):
         run_rag_batch(config)
