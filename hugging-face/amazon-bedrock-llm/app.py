@@ -34,8 +34,7 @@ def invoke(prompt):
                            "temperature": config["temperature"],
                            "top_k": config["top_k"],
                            "top_p": config["top_p"],
-                           "stop_sequences": ["Human: "]
-                          })
+                           "stop_sequences": ["Human: "]})
         modelId = config["model"]
         accept = "application/json"
         contentType = "application/json"
