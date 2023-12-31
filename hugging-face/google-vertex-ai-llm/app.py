@@ -43,8 +43,7 @@ def invoke(prompt):
                                                            "max_output_tokens": config["max_output_tokens"],
                                                            "temperature": config["temperature"],
                                                            "top_k": config["top_k"],
-                                                           "top_p": config["top_p"],
-                                                       })
+                                                           "top_p": config["top_p"]})
         
         if (completion.text != None):
             completion = completion.text
