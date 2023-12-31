@@ -40,7 +40,7 @@ def invoke(prompt, neg_prompt, style_preset):
                            "cfg_scale": 7,
                            "seed": 0,
                            "steps": 150,
-                           "style_preset": style_preset.lower().replace(" ", "-"),})
+                           "style_preset": style_preset.lower().replace(" ", "-")})
         modelId = "stability.stable-diffusion-xl"
     
         response = bedrock_runtime.invoke_model(body = body, 
@@ -64,11 +64,11 @@ gr.close_all()
 demo = gr.Interface(fn = invoke,
                     inputs = [gr.Textbox(label = "Prompt", lines = 1),
                               gr.Textbox(label = "Negative Prompt", lines = 1),
-                              gr.Dropdown(choices = ["Analog Film", "Anime", "Neon Punk", "Photographic", "Pixel Art"], label = "Style"),],
+                              gr.Dropdown(choices = ["Analog Film", "Anime", "Neon Punk", "Photographic", "Pixel Art"], label = "Style")],
                     outputs = [gr.Image(label="Result")],
                     title = "Generative AI - Text-to-Image",
                     description = description,
-                    examples = [["Create a picture of a cat.", "Low quality", "Photographic"],],
+                    examples = [["Create a picture of a cat.", "Low quality", "Photographic"]],
                                 cache_examples = False)
 
 demo.launch()
