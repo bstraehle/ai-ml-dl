@@ -58,7 +58,7 @@ demo = gr.Interface(fn = invoke,
                     title = "Generative AI - Multimodal LLM",
                     description = description,
                     examples = [["sk-", "Describe the diagram.", "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/openai-multimodal-llm/img1.png"],
-                                ["sk-", "How to prepare the dish? What wine to serve? What music to play? What else?", "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/openai-multimodal-llm/img2.jpg"],],
+                                ["sk-", "Write a poem about the dish in Spanish.", "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/openai-multimodal-llm/img2.jpg"],],
                                 cache_examples = False)
 
 demo.launch()
