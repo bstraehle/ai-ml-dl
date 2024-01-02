@@ -79,11 +79,11 @@ demo = gr.Interface(fn = invoke,
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
                     title = "Context-Aware Multimodal Reasoning Application",
                     description = os.environ["DESCRIPTION"],
-                    examples = [["sk-", "What are GPT-4's media capabilities in 5 emojis and 1 sentence?", RAG_MONGODB],
-                                ["sk-", "List GPT-4's exam scores and benchmark results.", RAG_MONGODB],
-                                ["sk-", "Compare GPT-4 to GPT-3.5 in markdown table format.", RAG_MONGODB],
-                                ["sk-", "Write a Python program that calls the GPT-4 API.", RAG_MONGODB],
-                                ["sk-", "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format.", RAG_MONGODB]],
+                    examples = [["", "What are GPT-4's media capabilities in 5 emojis and 1 sentence?", RAG_MONGODB],
+                                ["", "List GPT-4's exam scores and benchmark results.", RAG_MONGODB],
+                                ["", "Compare GPT-4 to GPT-3.5 in markdown table format.", RAG_MONGODB],
+                                ["", "Write a Python program that calls the GPT-4 API.", RAG_MONGODB],
+                                ["", "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format.", RAG_MONGODB]],
                                 cache_examples = False)
 
 demo.launch()
