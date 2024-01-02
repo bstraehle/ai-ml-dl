@@ -52,12 +52,12 @@ gr.close_all()
 
 demo = gr.Interface(fn = invoke, 
                     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
-                              gr.Textbox(label = "Prompt", lines = 1),
-                              gr.Image(label = "Image", type = "filepath", sources = ["upload"]),],
+                              gr.Textbox(label = "Prompt", lines = 1, value = "Describe the diagram."),
+                              gr.Image(label = "Image", type = "filepath", sources = ["upload"], value = "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/architecture-openai-llm-rag.png")],
                     outputs = [gr.Textbox(label = "Completion", lines = 1),],
                     title = "Generative AI - Multimodal LLM",
                     description = description,
-                    examples = [["sk-", "Describe the diagram.", "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/architecture-openai-llm-rag.png"],],
+                    examples = [["sk-", "Describe the diagram.", "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/architecture-openai-llm-rag.png"]],
                                 cache_examples = False)
 
 demo.launch()
