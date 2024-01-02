@@ -50,7 +50,8 @@ def invoke(openai_api_key, prompt, agent_option):
             llm = ChatOpenAI(
                 model_name = config["model_name"],
                 openai_api_key = openai_api_key, 
-                temperature = config["temperature"])
+                temperature = config["temperature"],
+                verbose = True)
     
             tools = load_tools(["openweathermap-api"])
             
@@ -75,14 +76,11 @@ def invoke(openai_api_key, prompt, agent_option):
 gr.close_all()
 
 demo = gr.Interface(fn = invoke, 
-                    inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1, value = "sk-"),
-                              gr.Textbox(label = "Prompt", lines = 1, value = "What is today's date?"),
-                              gr.Radio([AGENT_OFF, AGENT_ON], label = "Use Agent", value = AGENT_OFF)],
+                    inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
+                              gr.Textbox(label = "Prompt", lines = 1, value = "What is the weather in Irvine, California, in imperial system? Suggest activities."),
+                              gr.Radio([AGENT_OFF, AGENT_ON], label = "Use Agent", value = AGENT_ON)],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
                     title = "Real-Time Reasoning Application",
-                    description = os.environ["DESCRIPTION"],
-                    examples = [["sk-", "What is today's date?", AGENT_ON],
-                                ["sk-", "What is the weather in Irvine, California, in imperial system? Suggest activities.", AGENT_ON]],
-                                cache_examples = False)
+                    description = os.environ["DESCRIPTION"])
 
 demo.launch()
