@@ -30,6 +30,8 @@ def invoke(openai_api_key, prompt, rag_option):
     if (rag_option is None):
         raise gr.Error("Retrieval Augmented Generation is required.")
 
+    os.environ["OPENAI_API_KEY"] = openai_api_key
+    
     if (RUN_RAG_BATCH):
         run_rag_batch(config)
     
