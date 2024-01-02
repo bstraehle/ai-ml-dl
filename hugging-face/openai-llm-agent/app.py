@@ -82,7 +82,7 @@ demo = gr.Interface(fn = invoke,
                     title = "Real-Time Reasoning Application",
                     description = os.environ["DESCRIPTION"],
                     examples = [["sk-", "What is today's date?", AGENT_ON],
-                                ["sk-", "What is the weather in Irvine, California? Answer in imperial system.", AGENT_ON]],
+                                ["sk-", "What is the weather in Irvine, California, in imperial system? Suggest activities.", AGENT_ON]],
                                 cache_examples = False)
 
 demo.launch()
