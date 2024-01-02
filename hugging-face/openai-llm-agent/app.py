@@ -12,8 +12,8 @@ _ = load_dotenv(find_dotenv())
 OPENWEATHERMAP_API_KEY = os.environ["OPENWEATHERMAP_API_KEY"]
 
 config = {
-    "model_name": "gpt-4-0613", # llm
-    "temperature": 0,           # llm
+    "model_name": "gpt-4-0613",
+    "temperature": 0,
 }
 
 AGENT_OFF = False
