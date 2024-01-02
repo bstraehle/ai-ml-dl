@@ -50,8 +50,7 @@ def invoke(openai_api_key, prompt, agent_option):
             llm = ChatOpenAI(
                 model_name = config["model_name"],
                 openai_api_key = openai_api_key, 
-                temperature = config["temperature"],
-                verbose = True)
+                temperature = config["temperature"])
     
             tools = load_tools(["openweathermap-api"])
             
