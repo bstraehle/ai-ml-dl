@@ -76,7 +76,7 @@ gr.close_all()
 
 demo = gr.Interface(fn = invoke, 
                     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
-                              gr.Textbox(label = "Prompt", lines = 1, value = "How does current weather in Los Angeles, New York, and Paris compare in metric and imperial system? Answer in JSON format."),
+                              gr.Textbox(label = "Prompt", lines = 1, value = "How does current weather in Los Angeles, New York, and Paris compare in metric and imperial system? Answer in JSON format and include today's date."),
                               gr.Radio([AGENT_OFF, AGENT_ON], label = "Use Agent", value = AGENT_ON)],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
                     title = "Real-Time Reasoning Application",
