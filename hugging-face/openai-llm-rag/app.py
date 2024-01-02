@@ -73,9 +73,9 @@ def invoke(openai_api_key, prompt, rag_option):
 gr.close_all()
 
 demo = gr.Interface(fn = invoke, 
-                    inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1, value = "sk-"), 
+                    inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1), 
                               gr.Textbox(label = "Prompt", value = "What are GPT-4's media capabilities in 5 emojis and 1 sentence?", lines = 1),
-                              gr.Radio([RAG_OFF, RAG_MONGODB], label = "Retrieval-Augmented Generation", value = RAG_OFF),],
+                              gr.Radio([RAG_OFF, RAG_MONGODB], label = "Retrieval-Augmented Generation", value = RAG_MONGODB)],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
                     title = "Context-Aware Multimodal Reasoning Application",
                     description = os.environ["DESCRIPTION"],
@@ -83,7 +83,7 @@ demo = gr.Interface(fn = invoke,
                                 ["sk-", "List GPT-4's exam scores and benchmark results.", RAG_MONGODB],
                                 ["sk-", "Compare GPT-4 to GPT-3.5 in markdown table format.", RAG_MONGODB],
                                 ["sk-", "Write a Python program that calls the GPT-4 API.", RAG_MONGODB],
-                                ["sk-", "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format.", RAG_MONGODB],],
+                                ["sk-", "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format.", RAG_MONGODB]],
                                 cache_examples = False)
 
 demo.launch()
