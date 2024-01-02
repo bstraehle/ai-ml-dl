@@ -55,7 +55,7 @@ demo = gr.Interface(fn = invoke,
                               gr.Textbox(label = "Prompt", lines = 1, value = "Describe the diagram."),
                               gr.Image(label = "Image", type = "filepath", sources = ["upload"], value = "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/architecture-openai-llm-rag.png")],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
-                    title = "Generative AI - Multimodal LLM",
+                    title = "Multimodal Reasoning Application",
                     description = description,
                     examples = [["sk-", "Describe the diagram.", "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/architecture-openai-llm-rag.png"]],
                                 cache_examples = False)
