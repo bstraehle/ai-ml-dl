@@ -12,7 +12,7 @@ _ = load_dotenv(find_dotenv())
 OPENWEATHERMAP_API_KEY = os.environ["OPENWEATHERMAP_API_KEY"]
 
 config = {
-    "model_name": "gpt-4-0613",
+    "model": "gpt-4-0613",
     "temperature": 0,
 }
 
@@ -20,7 +20,7 @@ AGENT_OFF = False
 AGENT_ON  = True
 
 @tool
-def time(text: str) -> str:
+def date_tool(text: str) -> str:
     """Returns today's date. Use this for any questions related to knowing today's date. 
        The input should always be an empty string, and this function will always return today's date. 
        Any date mathematics should occur outside this function."""
@@ -42,21 +42,21 @@ def invoke(openai_api_key, prompt, agent_option):
     
             completion = client.chat.completions.create(
                 messages = [{"role": "user", "content": prompt}],
-                model = config["model_name"],
+                model = config["model"],
                 temperature = config["temperature"],)
     
             output = completion.choices[0].message.content
         else:
             llm = ChatOpenAI(
-                model_name = config["model_name"],
+                model_name = config["model"],
                 openai_api_key = openai_api_key, 
                 temperature = config["temperature"])
     
             tools = load_tools(["openweathermap-api"])
             
             agent = initialize_agent(
-                tools + # built-in tools
-                [time], # custom tools
+                tools +      # built-in tools
+                [date_tool], # custom tools
                 llm,
                 agent = AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION,
                 handle_parsing_errors = True,
