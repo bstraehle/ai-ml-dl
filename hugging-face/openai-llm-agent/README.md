@@ -1,5 +1,5 @@
 ---
-title: OpenAI - LLM & Agent
+title: OpenAI - LLM & Agent (LangChain)
 emoji: 🔥
 colorFrom: red
 colorTo: gray
