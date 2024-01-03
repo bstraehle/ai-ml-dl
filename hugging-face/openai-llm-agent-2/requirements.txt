@@ -1,0 +1,6 @@
+gradio
+llama-hub
+llama-index
+openai
+pyowm
+python-dotenv
