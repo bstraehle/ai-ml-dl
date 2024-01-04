@@ -1,12 +1,12 @@
 import gradio as gr
-import base64
+import base64, os
 
 from openai import OpenAI
 
 config = {
     "max_tokens": 1000,
     "model": "gpt-4-vision-preview",
-    "temperature": 0,
+    "temperature": 0
 }
 
 def get_img_b64(img_path):
@@ -21,10 +21,12 @@ def invoke(openai_api_key, prompt, image):
     if (image is None):
         raise gr.Error("Image is required.")
 
+    os.environ["OPENAI_API_KEY"] = openai_api_key
+    
     content = ""
     
     try:
-        client = OpenAI(api_key = openai_api_key)
+        client = OpenAI()
 
         img_b64 = get_img_b64(image)
 
@@ -33,9 +35,9 @@ def invoke(openai_api_key, prompt, image):
             messages=[{"role": "user",
                        "content": [{"type": "text", "text": prompt},
                                    {"type": "image_url",
-                                    "image_url": {"url": f"data:image/jpeg;base64,{img_b64}"},},],},],
+                                    "image_url": {"url": f"data:image/jpeg;base64,{img_b64}"}}]}],
             model = config["model"],
-            temperature = config["temperature"],)
+            temperature = config["temperature"])
     
         content = completion.choices[0].message.content
     except Exception as e:
