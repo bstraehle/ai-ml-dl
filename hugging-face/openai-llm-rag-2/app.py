@@ -7,7 +7,7 @@ from rag import rag_ingestion, rag_retrieval
 
 _ = load_dotenv(find_dotenv())
 
-RAG_INGESTION = True # load, split, embed, and store documents
+RAG_INGESTION = False # load, split, embed, and store documents
 
 config = {
     "chunk_overlap": 150,       # split documents
