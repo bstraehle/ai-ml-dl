@@ -1,5 +1,7 @@
 gradio
 langchain
+llama-hub
+llama-index
 openai
 pyowm
 python-dotenv
