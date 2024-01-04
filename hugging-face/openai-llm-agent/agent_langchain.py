@@ -15,6 +15,8 @@ def agent_langchain(model, temperature, prompt):
     llm = ChatOpenAI(
         model_name = model,
         temperature = temperature)
+
+    OPENWEATHERMAP_API_KEY = os.environ["OPENWEATHERMAP_API_KEY"]
     
     tools = load_tools(["openweathermap-api"])
             
