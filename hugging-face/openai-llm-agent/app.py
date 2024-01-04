@@ -1,7 +1,8 @@
 import gradio as gr
 import os
 
-from agent import invoke_agent
+from agent_langchain import agent_langchain
+from agent_llamaindex import agent_llamaindex
 from openai import OpenAI
 
 from dotenv import load_dotenv, find_dotenv
@@ -12,8 +13,11 @@ config = {
     "temperature": 0
 }
 
-AGENT_OFF = False
-AGENT_ON  = True
+AGENT_OFF = "Off"
+AGENT_LANGCHAIN  = "LangChain"
+AGENT_LLAMAINDEX = "LlamaIndex"
+
+OPENWEATHERMAP_API_KEY = os.environ["OPENWEATHERMAP_API_KEY"]
 
 def invoke(openai_api_key, prompt, agent_option):
     if (openai_api_key == ""):
@@ -28,7 +32,19 @@ def invoke(openai_api_key, prompt, agent_option):
     output = ""
     
     try:
-        if (agent_option == AGENT_OFF):
+        if (agent_option == AGENT_LANGCHAIN):
+            completion = agent_langchain(
+                config["model"], 
+                config["temperature"],
+                prompt)
+    
+            output = completion["output"]
+        elif (agent_option == AGENT_LLAMAINDEX):
+            output = agent_llamaindex(
+                config["model"], 
+                config["temperature"],
+                prompt)
+        else:
             client = OpenAI()
     
             completion = client.chat.completions.create(
@@ -37,13 +53,6 @@ def invoke(openai_api_key, prompt, agent_option):
                 temperature = config["temperature"])
     
             output = completion.choices[0].message.content
-        else:
-            completion = invoke_agent(
-                config["model"], 
-                config["temperature"],
-                prompt)
-    
-            output = completion["output"]
     except Exception as e:
         err_msg = e
 
@@ -56,7 +65,7 @@ gr.close_all()
 demo = gr.Interface(fn = invoke, 
                     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
                               gr.Textbox(label = "Prompt", lines = 1, value = "How does current weather in Los Angeles, New York, and Paris compare in metric and imperial system? Answer in JSON format and include today's date."),
-                              gr.Radio([AGENT_OFF, AGENT_ON], label = "Use Agent", value = AGENT_ON)],
+                              gr.Radio([AGENT_OFF, AGENT_LANGCHAIN, AGENT_LLAMAINDEX], label = "Use Agent", value = AGENT_LANGCHAIN)],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
                     title = "Real-Time Reasoning Application",
                     description = os.environ["DESCRIPTION"])
