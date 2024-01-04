@@ -31,8 +31,12 @@ MONGODB_DB_NAME           = "langchain_db"
 MONGODB_COLLECTION_NAME   = "gpt-4"
 MONGODB_INDEX_NAME        = "default"
 
-LLM_CHAIN_PROMPT = PromptTemplate(input_variables = ["question"], template = os.environ["LLM_TEMPLATE"])
-RAG_CHAIN_PROMPT = PromptTemplate(input_variables = ["context", "question"], template = os.environ["RAG_TEMPLATE"])
+LLM_CHAIN_PROMPT = PromptTemplate(
+    input_variables = ["question"], 
+    template = os.environ["LLM_TEMPLATE"])
+RAG_CHAIN_PROMPT = PromptTemplate(
+    input_variables = ["context", "question"], 
+    template = os.environ["RAG_TEMPLATE"])
 
 client = MongoClient(MONGODB_ATLAS_CLUSTER_URI)
 collection = client[MONGODB_DB_NAME][MONGODB_COLLECTION_NAME]
@@ -49,28 +53,34 @@ def load_documents():
     docs.extend(loader.load())
     
     # YouTube
-    loader = GenericLoader(YoutubeAudioLoader([YOUTUBE_URL_1, YOUTUBE_URL_2], YOUTUBE_DIR), 
-                           OpenAIWhisperParser())
+    loader = GenericLoader(
+        YoutubeAudioLoader(
+            [YOUTUBE_URL_1, YOUTUBE_URL_2], 
+            YOUTUBE_DIR), 
+        OpenAIWhisperParser())
     docs.extend(loader.load())
     
     return docs
 
 def split_documents(config, docs):
-    text_splitter = RecursiveCharacterTextSplitter(chunk_overlap = config["chunk_overlap"],
-                                                   chunk_size = config["chunk_size"])
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_overlap = config["chunk_overlap"],
+        chunk_size = config["chunk_size"])
     
     return text_splitter.split_documents(docs)
     
 def store_chroma(chunks):
-    Chroma.from_documents(documents = chunks, 
-                          embedding = OpenAIEmbeddings(disallowed_special = ()), 
-                          persist_directory = CHROMA_DIR)
+    Chroma.from_documents(
+        documents = chunks, 
+        embedding = OpenAIEmbeddings(disallowed_special = ()), 
+        persist_directory = CHROMA_DIR)
 
 def store_mongodb(chunks):
-    MongoDBAtlasVectorSearch.from_documents(documents = chunks,
-                                            embedding = OpenAIEmbeddings(disallowed_special = ()),
-                                            collection = collection,
-                                            index_name = MONGODB_INDEX_NAME)
+    MongoDBAtlasVectorSearch.from_documents(
+        documents = chunks,
+        embedding = OpenAIEmbeddings(disallowed_special = ()),
+        collection = collection,
+        index_name = MONGODB_INDEX_NAME)
 
 def rag_ingestion(config):
     docs = load_documents()
@@ -81,22 +91,26 @@ def rag_ingestion(config):
     store_mongodb(chunks)
 
 def retrieve_chroma():
-    return Chroma(embedding_function = OpenAIEmbeddings(disallowed_special = ()),
-                  persist_directory = CHROMA_DIR)
+    return Chroma(
+        embedding_function = OpenAIEmbeddings(disallowed_special = ()),
+        persist_directory = CHROMA_DIR)
 
 def retrieve_mongodb():
-    return MongoDBAtlasVectorSearch.from_connection_string(MONGODB_ATLAS_CLUSTER_URI,
-                                                           MONGODB_DB_NAME + "." + MONGODB_COLLECTION_NAME,
-                                                           OpenAIEmbeddings(disallowed_special = ()),
-                                                           index_name = MONGODB_INDEX_NAME)
+    return MongoDBAtlasVectorSearch.from_connection_string(
+        MONGODB_ATLAS_CLUSTER_URI,
+        MONGODB_DB_NAME + "." + MONGODB_COLLECTION_NAME,
+        OpenAIEmbeddings(disallowed_special = ()),
+        index_name = MONGODB_INDEX_NAME)
 
 def get_llm(config):
-    return ChatOpenAI(model_name = config["model_name"], 
-                      temperature = config["temperature"])
+    return ChatOpenAI(
+        model_name = config["model_name"], 
+        temperature = config["temperature"])
 
 def llm_chain(config, prompt):
-    llm_chain = LLMChain(llm = get_llm(config), 
-                         prompt = LLM_CHAIN_PROMPT)
+    llm_chain = LLMChain(
+        llm = get_llm(config), 
+        prompt = LLM_CHAIN_PROMPT)
     
     with get_openai_callback() as cb:
         completion = llm_chain.generate([{"question": prompt}])
@@ -111,11 +125,12 @@ def rag_chain(config, rag_option, prompt):
     elif (rag_option == RAG_MONGODB):
         db = retrieve_mongodb()
 
-    rag_chain = RetrievalQA.from_chain_type(llm, 
-                                            chain_type_kwargs = {"prompt": RAG_CHAIN_PROMPT,
-                                                                 "verbose": True}, 
-                                            retriever = db.as_retriever(search_kwargs = {"k": config["k"]}), 
-                                            return_source_documents = True)
+    rag_chain = RetrievalQA.from_chain_type(
+        llm, 
+        chain_type_kwargs = {"prompt": RAG_CHAIN_PROMPT,
+                             "verbose": True}, 
+        retriever = db.as_retriever(search_kwargs = {"k": config["k"]}), 
+        return_source_documents = True)
     
     with get_openai_callback() as cb:
         completion = rag_chain({"query": prompt})
