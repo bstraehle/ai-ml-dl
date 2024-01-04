@@ -1,11 +1,12 @@
 import gradio as gr
+import os
 
 from openai import OpenAI
 
 config = {
     "max_tokens": 1000,
     "model": "gpt-4",
-    "temperature": 0,
+    "temperature": 0
 }
 
 def invoke(openai_api_key, prompt):
@@ -14,16 +15,18 @@ def invoke(openai_api_key, prompt):
     if (prompt == ""):
         raise gr.Error("Prompt is required.")
 
+    os.environ["OPENAI_API_KEY"] = openai_api_key
+    
     content = ""
     
     try:
-        client = OpenAI(api_key = openai_api_key)
+        client = OpenAI()
     
         completion = client.chat.completions.create(
             max_tokens = config["max_tokens"],
             messages = [{"role": "user", "content": prompt}],
             model = config["model"],
-            temperature = config["temperature"],)
+            temperature = config["temperature"])
     
         content = completion.choices[0].message.content
     except Exception as e:
@@ -43,6 +46,6 @@ demo = gr.Interface(fn = invoke,
                               gr.Textbox(label = "Prompt", lines = 1)],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
                     title = "Generative AI - LLM",
-                    description = description,)
+                    description = description)
 
 demo.launch()
