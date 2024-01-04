@@ -61,41 +61,41 @@ def split_documents(config, docs):
     
     return text_splitter.split_documents(docs)
     
-def embed_store_documents_chroma(chunks):
+def store_chroma(chunks):
     Chroma.from_documents(documents = chunks, 
                           embedding = OpenAIEmbeddings(disallowed_special = ()), 
                           persist_directory = CHROMA_DIR)
 
-def embed_store_documents_mongodb(chunks):
+def store_mongodb(chunks):
     MongoDBAtlasVectorSearch.from_documents(documents = chunks,
                                             embedding = OpenAIEmbeddings(disallowed_special = ()),
                                             collection = collection,
                                             index_name = MONGODB_INDEX_NAME)
 
-def run_rag_batch(config):
+def rag_ingestion(config):
     docs = load_documents()
     
     chunks = split_documents(config, docs)
     
-    embed_store_documents_chroma(chunks)
-    embed_store_documents_mongodb(chunks)
+    store_chroma(chunks)
+    store_mongodb(chunks)
 
-def retrieve_documents_chroma():
+def retrieve_chroma():
     return Chroma(embedding_function = OpenAIEmbeddings(disallowed_special = ()),
                   persist_directory = CHROMA_DIR)
 
-def retrieve_documents_mongodb():
+def retrieve_mongodb():
     return MongoDBAtlasVectorSearch.from_connection_string(MONGODB_ATLAS_CLUSTER_URI,
                                                            MONGODB_DB_NAME + "." + MONGODB_COLLECTION_NAME,
                                                            OpenAIEmbeddings(disallowed_special = ()),
                                                            index_name = MONGODB_INDEX_NAME)
-    
+
 def get_llm(config, openai_api_key):
     return ChatOpenAI(model_name = config["model_name"], 
                       openai_api_key = openai_api_key, 
                       temperature = config["temperature"])
 
-def run_llm_chain(config, openai_api_key, prompt):
+def llm_chain(config, openai_api_key, prompt):
     llm_chain = LLMChain(llm = get_llm(config, openai_api_key), 
                          prompt = LLM_CHAIN_PROMPT)
     
@@ -104,13 +104,13 @@ def run_llm_chain(config, openai_api_key, prompt):
     
     return completion, llm_chain, cb
 
-def run_rag_chain(config, openai_api_key, rag_option, prompt):
+def rag_chain(config, openai_api_key, rag_option, prompt):
     llm = get_llm(config, openai_api_key)
 
     if (rag_option == RAG_CHROMA):
-        db = retrieve_documents_chroma()
+        db = retrieve_chroma()
     elif (rag_option == RAG_MONGODB):
-        db = retrieve_documents_mongodb()
+        db = retrieve_mongodb()
 
     rag_chain = RetrievalQA.from_chain_type(llm, 
                                             chain_type_kwargs = {"prompt": RAG_CHAIN_PROMPT,
