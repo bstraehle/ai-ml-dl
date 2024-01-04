@@ -17,8 +17,6 @@ AGENT_OFF = "Off"
 AGENT_LANGCHAIN  = "LangChain"
 AGENT_LLAMAINDEX = "LlamaIndex"
 
-OPENWEATHERMAP_API_KEY = os.environ["OPENWEATHERMAP_API_KEY"]
-
 def invoke(openai_api_key, prompt, agent_option):
     if (openai_api_key == ""):
         raise gr.Error("OpenAI API Key is required.")
