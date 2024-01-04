@@ -3,12 +3,12 @@ import os, time
 
 from dotenv import load_dotenv, find_dotenv
 
-from rag import run_llm_chain, run_rag_chain, run_rag_batch
+from rag import llm_chain, rag_chain, rag_ingestion
 from trace import trace_wandb
 
 _ = load_dotenv(find_dotenv())
 
-RUN_RAG_BATCH = False # load, split, embed, and store documents
+RAG_INGESTION = False # load, split, embed, and store documents
 
 config = {
     "chunk_overlap": 150,       # split documents
@@ -32,8 +32,8 @@ def invoke(openai_api_key, prompt, rag_option):
 
     os.environ["OPENAI_API_KEY"] = openai_api_key
     
-    if (RUN_RAG_BATCH):
-        run_rag_batch(config)
+    if (RAG_INGESTION):
+        rag_ingestion(config)
     
     chain = None
     completion = ""
@@ -45,12 +45,12 @@ def invoke(openai_api_key, prompt, rag_option):
         start_time_ms = round(time.time() * 1000)
 
         if (rag_option == RAG_OFF):
-            completion, chain, cb = run_llm_chain(config, openai_api_key, prompt)
+            completion, chain, cb = llm_chain(config, openai_api_key, prompt)
             
             if (completion.generations[0] != None and completion.generations[0][0] != None):
                 result = completion.generations[0][0].text
         else:
-            completion, chain, cb = run_rag_chain(config, openai_api_key, rag_option, prompt)
+            completion, chain, cb = rag_chain(config, openai_api_key, rag_option, prompt)
 
             result = completion["result"]
     except Exception as e:
@@ -70,6 +70,7 @@ def invoke(openai_api_key, prompt, rag_option):
                     err_msg, 
                     start_time_ms, 
                     end_time_ms)
+
     return result
 
 gr.close_all()
