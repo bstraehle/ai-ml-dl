@@ -90,13 +90,12 @@ def retrieve_mongodb():
                                                            OpenAIEmbeddings(disallowed_special = ()),
                                                            index_name = MONGODB_INDEX_NAME)
 
-def get_llm(config, openai_api_key):
+def get_llm(config):
     return ChatOpenAI(model_name = config["model_name"], 
-                      openai_api_key = openai_api_key, 
                       temperature = config["temperature"])
 
-def llm_chain(config, openai_api_key, prompt):
-    llm_chain = LLMChain(llm = get_llm(config, openai_api_key), 
+def llm_chain(config, prompt):
+    llm_chain = LLMChain(llm = get_llm(config), 
                          prompt = LLM_CHAIN_PROMPT)
     
     with get_openai_callback() as cb:
@@ -104,8 +103,8 @@ def llm_chain(config, openai_api_key, prompt):
     
     return completion, llm_chain, cb
 
-def rag_chain(config, openai_api_key, rag_option, prompt):
-    llm = get_llm(config, openai_api_key)
+def rag_chain(config, rag_option, prompt):
+    llm = get_llm(config)
 
     if (rag_option == RAG_CHROMA):
         db = retrieve_chroma()
