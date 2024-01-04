@@ -1,5 +1,6 @@
 import openai, os, requests
 
+from llama_hub.youtube_transcript import YoutubeTranscriptReader
 from llama_index import GPTVectorStoreIndex, download_loader
 from llama_index.node_parser import SimpleNodeParser
 from llama_index.storage.docstore import MongoDocumentStore
@@ -8,12 +9,18 @@ from llama_index.storage.storage_context import StorageContext
 
 from pathlib import Path
 
-PDF_URL = "https://arxiv.org/pdf/2303.08774.pdf"
+PDF_URL       = "https://arxiv.org/pdf/2303.08774.pdf"
+WEB_URL       = "https://openai.com/research/gpt-4"
+YOUTUBE_URL_1 = "https://www.youtube.com/watch?v=--khbXchTeE"
+YOUTUBE_URL_2 = "https://www.youtube.com/watch?v=hdhZwyf24mE"
 
 MONGODB_ATLAS_CLUSTER_URI = os.environ["MONGODB_ATLAS_CLUSTER_URI"]
 MONGODB_DB_NAME           = "llamaindex_db"
 
 def load_documents():
+    docs = []
+    
+    # PDF
     PDFReader = download_loader("PDFReader")
     loader = PDFReader()
 
@@ -30,10 +37,24 @@ def load_documents():
         with open(out_path, "wb") as f:
             f.write(r.content)
 
-    return loader.load_data(file = Path(out_path))[0]
+    docs.extend(loader.load_data(file = Path(out_path)))
+
+    # Web
+    SimpleWebPageReader = download_loader("SimpleWebPageReader")
+    loader = SimpleWebPageReader()
+    
+    docs.extend(loader.load_data(urls = [WEB_URL]))
+
+    # YouTube
+    loader = YoutubeTranscriptReader()
+    
+    docs.extend(loader.load_data(ytlinks = [YOUTUBE_URL_1, 
+                                            YOUTUBE_URL_2]))
+    
+    return docs
 
 def split_documents(docs):
-    return SimpleNodeParser().get_nodes_from_documents([docs])
+    return SimpleNodeParser().get_nodes_from_documents(docs)
 
 def store_documents(nodes):
     docstore = MongoDocumentStore.from_uri(
