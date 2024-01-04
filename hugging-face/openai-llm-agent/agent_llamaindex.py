@@ -17,7 +17,7 @@ def agent_llamaindex(model, temperature, prompt):
         model = model,
         temperature = temperature)
 
-    tool_spec = OpenWeatherMapToolSpec()
+    tool_spec = OpenWeatherMapToolSpec(key = os.environ["OPENWEATHERMAP_API_KEY"])
     tools = tool_spec.to_tool_list()
     
     dt_tool = FunctionTool.from_defaults(fn = date_tool)
