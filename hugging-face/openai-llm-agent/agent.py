@@ -13,10 +13,9 @@ def date_tool(text: str) -> str:
        Any date mathematics should occur outside this function."""
     return str(date.today())
 
-def invoke_agent(model, temperature, openai_api_key, prompt):
+def invoke_agent(model, temperature, prompt):
     llm = ChatOpenAI(
         model_name = model,
-        openai_api_key = openai_api_key, 
         temperature = temperature)
     
     tools = load_tools(["openweathermap-api"])
