@@ -23,11 +23,13 @@ def invoke(openai_api_key, prompt, agent_option):
     if (agent_option is None):
         raise gr.Error("Use Agent is required.")
 
+    os.environ["OPENAI_API_KEY"] = openai_api_key
+    
     output = ""
     
     try:
         if (agent_option == AGENT_OFF):
-            client = OpenAI(api_key = openai_api_key)
+            client = OpenAI()
     
             completion = client.chat.completions.create(
                 messages = [{"role": "user", "content": prompt}],
@@ -38,8 +40,7 @@ def invoke(openai_api_key, prompt, agent_option):
         else:
             completion = invoke_agent(
                 config["model"], 
-                config["temperature"], 
-                openai_api_key, 
+                config["temperature"],
                 prompt)
     
             output = completion["output"]
