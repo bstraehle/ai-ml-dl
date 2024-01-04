@@ -15,7 +15,7 @@ config = {
     "chunk_size": 1500,         # split documents
     "k": 3,                     # retrieve documents
     "model_name": "gpt-4-0314", # llm
-    "temperature": 0,           # llm
+    "temperature": 0            # llm
 }
 
 RAG_OFF     = "Off"
@@ -45,12 +45,12 @@ def invoke(openai_api_key, prompt, rag_option):
         start_time_ms = round(time.time() * 1000)
 
         if (rag_option == RAG_OFF):
-            completion, chain, cb = llm_chain(config, openai_api_key, prompt)
+            completion, chain, cb = llm_chain(config, prompt)
             
             if (completion.generations[0] != None and completion.generations[0][0] != None):
                 result = completion.generations[0][0].text
         else:
-            completion, chain, cb = rag_chain(config, openai_api_key, rag_option, prompt)
+            completion, chain, cb = rag_chain(config, rag_option, prompt)
 
             result = completion["result"]
     except Exception as e:
