@@ -19,8 +19,6 @@ MONGODB_DB_NAME           = "llamaindex_db"
 MONGODB_COLLECTION_NAME   = "gpt-4"
 MONGODB_INDEX_NAME        = "default"
 
-RAG_PROMPT = PromptTemplate(os.environ["RAG_TEMPLATE"])
-
 logging.basicConfig(stream = sys.stdout, level = logging.INFO)
 logging.getLogger().addHandler(logging.StreamHandler(stream = sys.stdout))
 
@@ -85,6 +83,8 @@ def rag_retrieval(config, prompt):
     index = VectorStoreIndex.from_vector_store(
         vector_store = get_vector_store())
 
-    query_engine = index.as_query_engine()
-    
+    query_engine = index.as_query_engine(
+        similarity_top_k = config["k"]
+    )
+ 
     return query_engine.query(prompt)
