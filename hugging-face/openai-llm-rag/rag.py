@@ -66,9 +66,7 @@ def load_documents():
     return docs
 
 def split_documents(config, docs):
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_overlap = config["chunk_overlap"],
-        chunk_size = config["chunk_size"])
+    text_splitter = RecursiveCharacterTextSplitter()
     
     return text_splitter.split_documents(docs)
     
