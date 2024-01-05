@@ -10,11 +10,11 @@ _ = load_dotenv(find_dotenv())
 RAG_INGESTION = False # load, split, embed, and store documents
 
 config = {
-    "chunk_overlap": 150,       # split documents
-    "chunk_size": 1500,         # split documents
-    "k": 3,                     # retrieve documents
-    "model_name": "gpt-4-0314", # llm
-    "temperature": 0            # llm
+    #"chunk_overlap": 150,  # split documents
+    #"chunk_size": 1500,    # split documents
+    #"k": 3,                # retrieve documents
+    "model": "gpt-4-0314", # llm
+    "temperature": 0       # llm
 }
 
 RAG_OFF     = "Off"
@@ -31,7 +31,7 @@ def invoke(openai_api_key, prompt, rag_option):
     os.environ["OPENAI_API_KEY"] = openai_api_key
     
     if (RAG_INGESTION):
-        rag_ingestion()
+        rag_ingestion(config)
     
     content = ""
     err_msg = ""
@@ -42,12 +42,12 @@ def invoke(openai_api_key, prompt, rag_option):
     
             completion = client.chat.completions.create(
                 messages = [{"role": "user", "content": prompt}],
-                model = config["model_name"],
+                model = config["model"],
                 temperature = config["temperature"])
     
             content = completion.choices[0].message.content
         else:
-            content = rag_retrieval(prompt)
+            content = rag_retrieval(config, prompt)
     except Exception as e:
         err_msg = e
 
