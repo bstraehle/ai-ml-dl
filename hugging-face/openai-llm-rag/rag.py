@@ -38,9 +38,6 @@ RAG_CHAIN_PROMPT = PromptTemplate(
     input_variables = ["context", "question"], 
     template = os.environ["RAG_TEMPLATE"])
 
-client = MongoClient(MONGODB_ATLAS_CLUSTER_URI)
-collection = client[MONGODB_DB_NAME][MONGODB_COLLECTION_NAME]
-
 def load_documents():
     docs = []
     
@@ -76,6 +73,9 @@ def store_chroma(chunks):
         persist_directory = CHROMA_DIR)
 
 def store_mongodb(chunks):
+    client = MongoClient(MONGODB_ATLAS_CLUSTER_URI)
+    collection = client[MONGODB_DB_NAME][MONGODB_COLLECTION_NAME]
+
     MongoDBAtlasVectorSearch.from_documents(
         documents = chunks,
         embedding = OpenAIEmbeddings(disallowed_special = ()),
