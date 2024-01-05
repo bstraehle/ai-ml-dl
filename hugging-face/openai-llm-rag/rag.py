@@ -1,4 +1,4 @@
-import openai, os
+import logging, os, sys
 
 from langchain.callbacks import get_openai_callback
 from langchain.chains import LLMChain, RetrievalQA
@@ -38,16 +38,21 @@ RAG_CHAIN_PROMPT = PromptTemplate(
     input_variables = ["context", "question"], 
     template = os.environ["RAG_TEMPLATE"])
 
+logging.basicConfig(stream = sys.stdout, level = logging.INFO)
+logging.getLogger().addHandler(logging.StreamHandler(stream = sys.stdout))
+
 def load_documents():
     docs = []
     
     # PDF
     loader = PyPDFLoader(PDF_URL)
     docs.extend(loader.load())
+    #print("docs = " + str(len(docs)))
     
     # Web
     loader = WebBaseLoader(WEB_URL)
     docs.extend(loader.load())
+    #print("docs = " + str(len(docs)))
     
     # YouTube
     loader = GenericLoader(
@@ -56,6 +61,7 @@ def load_documents():
             YOUTUBE_DIR), 
         OpenAIWhisperParser())
     docs.extend(loader.load())
+    #print("docs = " + str(len(docs)))
     
     return docs
 
