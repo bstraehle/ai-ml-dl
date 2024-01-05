@@ -10,9 +10,7 @@ _ = load_dotenv(find_dotenv())
 RAG_INGESTION = False # load, split, embed, and store documents
 
 config = {
-    #"chunk_overlap": 150,  # split documents
-    #"chunk_size": 1500,    # split documents
-    #"k": 3,                # retrieve documents
+    "k": 3,                # retrieve documents
     "model": "gpt-4-0314", # llm
     "temperature": 0       # llm
 }
