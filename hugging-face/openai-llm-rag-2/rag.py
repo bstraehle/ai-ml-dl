@@ -1,4 +1,4 @@
-import logging, os, requests, sys
+import logging, os, sys
 
 from llama_hub.youtube_transcript import YoutubeTranscriptReader
 from llama_index import download_loader, PromptTemplate
@@ -43,19 +43,19 @@ def load_documents():
             f.write(r.content)
 
     docs.extend(loader.load_data(file = Path(out_path)))
-    print("docs = " + str(len(docs)))
+    #print("docs = " + str(len(docs)))
     
     # Web
     SimpleWebPageReader = download_loader("SimpleWebPageReader")
     loader = SimpleWebPageReader()
     docs.extend(loader.load_data(urls = [WEB_URL]))
-    print("docs = " + str(len(docs)))
+    #print("docs = " + str(len(docs)))
 
     # YouTube
     loader = YoutubeTranscriptReader()
     docs.extend(loader.load_data(ytlinks = [YOUTUBE_URL_1,
                                             YOUTUBE_URL_2]))
-    print("docs = " + str(len(docs)))
+    #print("docs = " + str(len(docs)))
     
     return docs
 
@@ -65,7 +65,6 @@ def store_documents(config, docs):
     
     VectorStoreIndex.from_documents(
         docs,
-        show_progress = True,
         storage_context = storage_context
     )
 
@@ -83,13 +82,9 @@ def rag_ingestion(config):
     store_documents(config, docs)
 
 def rag_retrieval(config, prompt):
-    storage_context = StorageContext.from_defaults(
-        vector_store = get_vector_store()) #???
-
     index = VectorStoreIndex.from_vector_store(
         vector_store = get_vector_store())
 
-    #query_engine = index.as_query_engine(similarity_top_k = 20)
     query_engine = index.as_query_engine()
     
     return query_engine.query(prompt)
