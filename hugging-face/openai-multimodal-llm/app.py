@@ -49,18 +49,17 @@ def invoke(openai_api_key, prompt, image):
 
     return content
 
-description = """<a href='https://www.gradio.app/'>Gradio</a> UI using the <a href='https://openai.com/'>OpenAI</a> API 
-                 with <a href='https://openai.com/research/gpt-4'>gpt-4-vision-preview</a> model."""
-
 gr.close_all()
 
 demo = gr.Interface(
     fn = invoke, 
     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
               gr.Textbox(label = "Prompt", lines = 1, value = "Describe the diagram."),
-              gr.Image(label = "Image", type = "filepath", sources = ["upload"], value = "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/architecture-openai-llm-rag.png")],
+              gr.Image(label = "Image", type = "filepath", sources = ["upload"], 
+                       value = "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/architecture-openai-llm-rag.png")],
     outputs = [gr.Textbox(label = "Completion", lines = 1)],
     title = "Multimodal Reasoning Application",
-    description = description)
+    description = os.environ["DESCRIPTION"]
+)
 
 demo.launch()
