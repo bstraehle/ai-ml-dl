@@ -32,16 +32,14 @@ def invoke(openai_api_key, prompt, agent_option):
     try:
         if (agent_option == AGENT_LANGCHAIN):
             completion = agent_langchain(
-                config["model"], 
-                config["temperature"],
+                config,
                 prompt
             )
     
             output = completion["output"]
         elif (agent_option == AGENT_LLAMAINDEX):
             output = agent_llamaindex(
-                config["model"], 
-                config["temperature"],
+                config,
                 prompt
             )
         else:
@@ -70,6 +68,7 @@ demo = gr.Interface(
               gr.Radio([AGENT_OFF, AGENT_LANGCHAIN, AGENT_LLAMAINDEX], label = "Use Agent", value = AGENT_LANGCHAIN)],
     outputs = [gr.Textbox(label = "Completion", lines = 1)],
     title = "Real-Time Reasoning Application",
-    description = os.environ["DESCRIPTION"])
+    description = os.environ["DESCRIPTION"]
+)
 
 demo.launch()
