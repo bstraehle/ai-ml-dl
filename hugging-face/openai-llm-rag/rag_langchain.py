@@ -24,10 +24,10 @@ class LangChainRAG(BaseRAG):
 
     LLM_CHAIN_PROMPT = PromptTemplate(
         input_variables = ["question"], 
-        template = os.environ["LLM_TEMPLATE"])
+        template = os.environ["TEMPLATE"])
     RAG_CHAIN_PROMPT = PromptTemplate(
         input_variables = ["context", "question"], 
-        template = os.environ["RAG_TEMPLATE"])
+        template = os.environ["LANGCHAIN_TEMPLATE"])
 
     def load_documents(self):
         docs = []
