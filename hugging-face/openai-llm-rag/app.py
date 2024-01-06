@@ -1,15 +1,19 @@
 import gradio as gr
-import os, time
+import logging, os, sys, time
 
 from dotenv import load_dotenv, find_dotenv
 
-from rag_langchain import llm_chain, rag_chain, rag_ingestion_langchain
-from rag_llamaindex import rag_ingestion_llamaindex, rag_retrieval
+from rag_langchain import LangChainRAG
+from rag_llamaindex import LlamaIndexRAG
 from trace import trace_wandb
 
 _ = load_dotenv(find_dotenv())
 
 RAG_INGESTION = False # load, split, embed, and store documents
+
+RAG_OFF        = "Off"
+RAG_LANGCHAIN  = "LangChain"
+RAG_LLAMAINDEX = "LlamaIndex"
 
 config = {
     "k": 3,                     # retrieve documents
@@ -17,9 +21,8 @@ config = {
     "temperature": 0            # llm
 }
 
-RAG_OFF        = "Off"
-RAG_LANGCHAIN  = "LangChain"
-RAG_LLAMAINDEX = "LlamaIndex"
+logging.basicConfig(stream = sys.stdout, level = logging.INFO)
+logging.getLogger().addHandler(logging.StreamHandler(stream = sys.stdout))
 
 def invoke(openai_api_key, prompt, rag_option):
     if (openai_api_key == ""):
@@ -33,9 +36,11 @@ def invoke(openai_api_key, prompt, rag_option):
     
     if (RAG_INGESTION):
         if (rag_option == RAG_LANGCHAIN):
-            rag_ingestion_llangchain(config)
+            rag = LangChainRAG()
+            rag.ingestion(config)
         elif (rag_option == RAG_LLAMAINDEX):
-            rag_ingestion_llamaindex(config)
+            rag = LlamaIndexRAG()
+            rag.ingestion(config)
     
     completion = ""
     result = ""
@@ -46,13 +51,16 @@ def invoke(openai_api_key, prompt, rag_option):
         start_time_ms = round(time.time() * 1000)
 
         if (rag_option == RAG_LANGCHAIN):
-            completion, chain, callback = rag_chain(config, prompt)
+            rag = LangChainRAG()
+            completion, chain, callback = rag.rag_chain(config, prompt)
 
             result = completion["result"]
         elif (rag_option == RAG_LLAMAINDEX):
-            result = rag_retrieval(config, prompt)
+            rag = LlamaIndexRAG()
+            result = rag.retrieval(config, prompt)
         else:
-            completion, chain, callback = llm_chain(config, prompt)
+            rag = LangChainRAG()
+            completion, chain, callback = rag.llm_chain(config, prompt)
             
             if (completion.generations[0] != None and 
                 completion.generations[0][0] != None):
