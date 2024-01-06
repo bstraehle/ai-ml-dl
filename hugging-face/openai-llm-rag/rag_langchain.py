@@ -74,7 +74,7 @@ class LangChainRAG(BaseRAG):
             collection = collection,
             index_name = self.MONGODB_INDEX_NAME)
 
-    def rag_ingestion_langchain(self, config):
+    def ingestion(self, config):
         docs = self.load_documents()
     
         chunks = self.split_documents(config, docs)
