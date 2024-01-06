@@ -5,6 +5,7 @@ from llama_index import download_loader, PromptTemplate, ServiceContext
 from llama_index.embeddings import OpenAIEmbedding
 from llama_index.indices.vector_store.base import VectorStoreIndex
 from llama_index.llms import OpenAI
+from llama_index.prompts import PromptTemplate
 from llama_index.storage.storage_context import StorageContext
 from llama_index.vector_stores.mongodb import MongoDBAtlasVectorSearch
 
@@ -14,7 +15,7 @@ from rag_base import BaseRAG
 
 class LlamaIndexRAG(BaseRAG):
     MONGODB_DB_NAME = "llamaindex_db"
-    
+
     def load_documents(self):
         docs = []
     
@@ -99,8 +100,9 @@ class LlamaIndexRAG(BaseRAG):
         )
 
         query_engine = index.as_query_engine(
+            text_qa_template = PromptTemplate(os.environ["LLAMAINDEX_TEMPLATE"]),
             service_context = self.get_service_context(config),
             similarity_top_k = config["k"]
         )
- 
+
         return query_engine.query(prompt)
