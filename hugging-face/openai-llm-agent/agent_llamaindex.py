@@ -12,10 +12,10 @@ def date_tool(text: str) -> str:
        Any date mathematics should occur outside this function."""
     return str(date.today())
 
-def agent_llamaindex(model, temperature, prompt):
+def agent_llamaindex(config, prompt):
     llm = OpenAI(
-        model = model,
-        temperature = temperature)
+        model = config["model"],
+        temperature = config["temperature"])
 
     tool_spec = OpenWeatherMapToolSpec(key = os.environ["OPENWEATHERMAP_API_KEY"])
     tools = tool_spec.to_tool_list()
@@ -26,6 +26,7 @@ def agent_llamaindex(model, temperature, prompt):
         [tools[0], # built-in tools
          dt_tool], # custom tools
         llm = llm, 
-        verbose = True)
+        verbose = True
+    )
 
     return agent.chat(prompt)
