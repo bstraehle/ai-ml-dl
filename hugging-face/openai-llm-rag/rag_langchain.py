@@ -54,14 +54,17 @@ class LangChainRAG(BaseRAG):
         return docs
 
     def split_documents(self, config, docs):
-        text_splitter = RecursiveCharacterTextSplitter()
+        text_splitter = RecursiveCharacterTextSplitter(
+            chunk_overlap  = config["chunk_overlap"],
+            chunk_size = config["chunk_size"]
+        )
     
         return text_splitter.split_documents(docs)
     
     def store_documents_chroma(self, chunks):
         Chroma.from_documents(
             documents = chunks, 
-            embedding = OpenAIEmbeddings(disallowed_special = ()), 
+            embedding = OpenAIEmbeddings(disallowed_special = ()), # embed
             persist_directory = self.CHROMA_DIR
         )
 
@@ -86,7 +89,7 @@ class LangChainRAG(BaseRAG):
 
     def get_vector_store_chroma(self):
         return Chroma(
-            embedding_function = OpenAIEmbeddings(disallowed_special = ()),
+            embedding_function = OpenAIEmbeddings(disallowed_special = ()), # embed
             persist_directory = self.CHROMA_DIR
         )
 
