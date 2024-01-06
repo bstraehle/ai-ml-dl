@@ -62,7 +62,8 @@ class LangChainRAG(BaseRAG):
         Chroma.from_documents(
             documents = chunks, 
             embedding = OpenAIEmbeddings(disallowed_special = ()), 
-            persist_directory = self.CHROMA_DIR)
+            persist_directory = self.CHROMA_DIR
+        )
 
     def store_documents_mongodb(self, chunks):
         client = MongoClient(self.MONGODB_ATLAS_CLUSTER_URI)
@@ -72,7 +73,8 @@ class LangChainRAG(BaseRAG):
             documents = chunks,
             embedding = OpenAIEmbeddings(disallowed_special = ()),
             collection = collection,
-            index_name = self.MONGODB_INDEX_NAME)
+            index_name = self.MONGODB_INDEX_NAME
+        )
 
     def ingestion(self, config):
         docs = self.load_documents()
@@ -85,24 +87,28 @@ class LangChainRAG(BaseRAG):
     def get_vector_store_chroma(self):
         return Chroma(
             embedding_function = OpenAIEmbeddings(disallowed_special = ()),
-            persist_directory = self.CHROMA_DIR)
+            persist_directory = self.CHROMA_DIR
+        )
 
     def get_vector_store_mongodb(self):
         return MongoDBAtlasVectorSearch.from_connection_string(
             self.MONGODB_ATLAS_CLUSTER_URI,
             self.MONGODB_DB_NAME + "." + self.MONGODB_COLLECTION_NAME,
             OpenAIEmbeddings(disallowed_special = ()),
-            index_name = self.MONGODB_INDEX_NAME)
+            index_name = self.MONGODB_INDEX_NAME
+        )
 
     def get_llm(self, config):
         return ChatOpenAI(
             model_name = config["model_name"], 
-            temperature = config["temperature"])
+            temperature = config["temperature"]
+        )
 
     def llm_chain(self, config, prompt):
         llm_chain = LLMChain(
             llm = self.get_llm(config), 
-            prompt = self.LLM_CHAIN_PROMPT)
+            prompt = self.LLM_CHAIN_PROMPT
+        )
     
         with get_openai_callback() as callback:
             completion = llm_chain.generate([{"question": prompt}])
@@ -115,10 +121,10 @@ class LangChainRAG(BaseRAG):
 
         rag_chain = RetrievalQA.from_chain_type(
             self.get_llm(config), 
-            chain_type_kwargs = {"prompt": self.RAG_CHAIN_PROMPT,
-                                 "verbose": True}, 
+            chain_type_kwargs = {"prompt": self.RAG_CHAIN_PROMPT}, 
             retriever = vector_store.as_retriever(search_kwargs = {"k": config["k"]}), 
-            return_source_documents = True)
+            return_source_documents = True
+        )
     
         with get_openai_callback() as callback:
             completion = rag_chain({"query": prompt})
