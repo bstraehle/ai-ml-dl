@@ -1,5 +1,5 @@
 ---
-title: OpenAI - LLM & RAG (LangChain)
+title: OpenAI - LLM & RAG
 emoji: 🔥
 colorFrom: red
 colorTo: gray
