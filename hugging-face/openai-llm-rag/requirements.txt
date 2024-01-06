@@ -2,10 +2,13 @@ bs4
 chromadb
 gradio
 langchain
+llama-hub
+llama-index
 openai
 pymongo
 pypdf
 python-dotenv
 tiktoken
+youtube_transcript_api
 yt_dlp
 wandb
