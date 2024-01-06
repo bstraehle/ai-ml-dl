@@ -11,10 +11,10 @@ def date_tool(text: str) -> str:
        Any date mathematics should occur outside this function."""
     return str(date.today())
 
-def agent_langchain(model, temperature, prompt):
+def agent_langchain(config, prompt):
     llm = ChatOpenAI(
-        model_name = model,
-        temperature = temperature)
+        model_name = config["model"],
+        temperature = config["temperature"])
 
     OPENWEATHERMAP_API_KEY = os.environ["OPENWEATHERMAP_API_KEY"]
     
@@ -26,6 +26,7 @@ def agent_langchain(model, temperature, prompt):
         llm,
         agent = AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION,
         handle_parsing_errors = True,
-        verbose = True)
+        verbose = True
+    )
 
     return agent(prompt)
