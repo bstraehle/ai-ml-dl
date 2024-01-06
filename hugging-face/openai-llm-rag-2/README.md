@@ -1,5 +1,5 @@
 ---
-title: OpenAI - LLM & RAG (LlamaIndex)
+title: OpenAI - LLM & RAG
 emoji: 🔥
 colorFrom: red
 colorTo: gray
