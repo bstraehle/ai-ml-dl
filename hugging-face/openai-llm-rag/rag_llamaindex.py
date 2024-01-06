@@ -1,7 +1,8 @@
-import os
+import os, requests
 
 from llama_hub.youtube_transcript import YoutubeTranscriptReader
 from llama_index import download_loader, PromptTemplate, ServiceContext
+from llama_index.embeddings import OpenAIEmbedding
 from llama_index.indices.vector_store.base import VectorStoreIndex
 from llama_index.llms import OpenAI
 from llama_index.storage.storage_context import StorageContext
@@ -49,14 +50,10 @@ class LlamaIndexRAG(BaseRAG):
     
         return docs
 
-    def store_documents(self, config, docs):
-        storage_context = StorageContext.from_defaults(
-            vector_store = self.get_vector_store()
-        )
-    
-        VectorStoreIndex.from_documents(
-            docs,
-            storage_context = storage_context
+    def get_llm(self, config):
+        return OpenAI(
+            model = config["model_name"], 
+            temperature = config["temperature"]
         )
 
     def get_vector_store(self):
@@ -66,29 +63,43 @@ class LlamaIndexRAG(BaseRAG):
             collection_name = self.MONGODB_COLLECTION_NAME,
             index_name = self.MONGODB_INDEX_NAME
         )
+        
+    def get_service_context(self, config):
+        return ServiceContext.from_defaults(
+            chunk_overlap = config["chunk_overlap"],
+            chunk_size = config["chunk_size"],
+            embed_model = OpenAIEmbedding(), # embed
+            llm = self.get_llm(config)
+        )
+
+    def get_storage_context(self):
+        return StorageContext.from_defaults(
+            vector_store = self.get_vector_store()
+        )
+        
+    def store_documents(self, config, docs):
+        storage_context = StorageContext.from_defaults(
+            vector_store = self.get_vector_store()
+        )
+    
+        VectorStoreIndex.from_documents(
+            docs,
+            service_context = self.get_service_context(config),
+            storage_context = self.get_storage_context()
+        )
 
     def ingestion(self, config):
         docs = self.load_documents()
     
         self.store_documents(config, docs)
-
-    def get_llm(self, config):
-        return OpenAI(
-            model = config["model_name"], 
-            temperature = config["temperature"]
-        )
-        
+       
     def retrieval(self, config, prompt):
-        service_context = ServiceContext.from_defaults(
-            llm = self.get_llm(config)
-        )
-        
         index = VectorStoreIndex.from_vector_store(
             vector_store = self.get_vector_store()
         )
 
         query_engine = index.as_query_engine(
-            service_context = service_context,
+            service_context = self.get_service_context(config),
             similarity_top_k = config["k"]
         )
  
