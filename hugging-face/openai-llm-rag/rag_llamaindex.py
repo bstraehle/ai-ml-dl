@@ -1,4 +1,4 @@
-import logging, os, sys
+import os
 
 from llama_hub.youtube_transcript import YoutubeTranscriptReader
 from llama_index import download_loader, PromptTemplate
@@ -8,83 +8,74 @@ from llama_index.vector_stores.mongodb import MongoDBAtlasVectorSearch
 
 from pathlib import Path
 from pymongo import MongoClient
+from rag_base import BaseRAG
 
-PDF_URL       = "https://arxiv.org/pdf/2303.08774.pdf"
-WEB_URL       = "https://openai.com/research/gpt-4"
-YOUTUBE_URL_1 = "https://www.youtube.com/watch?v=--khbXchTeE"
-YOUTUBE_URL_2 = "https://www.youtube.com/watch?v=hdhZwyf24mE"
-
-MONGODB_ATLAS_CLUSTER_URI = os.environ["MONGODB_ATLAS_CLUSTER_URI"]
-MONGODB_DB_NAME           = "llamaindex_db"
-MONGODB_COLLECTION_NAME   = "gpt-4"
-MONGODB_INDEX_NAME        = "default"
-
-logging.basicConfig(stream = sys.stdout, level = logging.INFO)
-logging.getLogger().addHandler(logging.StreamHandler(stream = sys.stdout))
-
-def load_documents():
-    docs = []
+class LlamaIndexRAG(BaseRAG):
+    MONGODB_DB_NAME = "llamaindex_db"
     
-    # PDF
-    PDFReader = download_loader("PDFReader")
-    loader = PDFReader()
-    out_dir = Path("data")
+    def load_documents(self):
+        docs = []
     
-    if not out_dir.exists():
-        os.makedirs(out_dir)
+        # PDF
+        PDFReader = download_loader("PDFReader")
+        loader = PDFReader()
+        out_dir = Path("data")
     
-    out_path = out_dir / "gpt-4.pdf"
+        if not out_dir.exists():
+            os.makedirs(out_dir)
     
-    if not out_path.exists():
-        r = requests.get(PDF_URL)
-        with open(out_path, "wb") as f:
-            f.write(r.content)
-
-    docs.extend(loader.load_data(file = Path(out_path)))
-    #print("docs = " + str(len(docs)))
+        out_path = out_dir / "gpt-4.pdf"
     
-    # Web
-    SimpleWebPageReader = download_loader("SimpleWebPageReader")
-    loader = SimpleWebPageReader()
-    docs.extend(loader.load_data(urls = [WEB_URL]))
-    #print("docs = " + str(len(docs)))
+        if not out_path.exists():
+            r = requests.get(self.PDF_URL)
+            with open(out_path, "wb") as f:
+                f.write(r.content)
 
-    # YouTube
-    loader = YoutubeTranscriptReader()
-    docs.extend(loader.load_data(ytlinks = [YOUTUBE_URL_1,
-                                            YOUTUBE_URL_2]))
-    #print("docs = " + str(len(docs)))
+        docs.extend(loader.load_data(file = Path(out_path)))
+        #print("docs = " + str(len(docs)))
     
-    return docs
+        # Web
+        SimpleWebPageReader = download_loader("SimpleWebPageReader")
+        loader = SimpleWebPageReader()
+        docs.extend(loader.load_data(urls = [self.WEB_URL]))
+        #print("docs = " + str(len(docs)))
 
-def store_documents(config, docs):
-    storage_context = StorageContext.from_defaults(
-        vector_store = get_vector_store())
+        # YouTube
+        loader = YoutubeTranscriptReader()
+        docs.extend(loader.load_data(ytlinks = [self.YOUTUBE_URL_1,
+                                                self.YOUTUBE_URL_2]))
+        #print("docs = " + str(len(docs)))
     
-    VectorStoreIndex.from_documents(
-        docs,
-        storage_context = storage_context
-    )
+        return docs
 
-def get_vector_store():
-    return MongoDBAtlasVectorSearch(
-        MongoClient(MONGODB_ATLAS_CLUSTER_URI),
-        db_name = MONGODB_DB_NAME,
-        collection_name = MONGODB_COLLECTION_NAME,
-        index_name = MONGODB_INDEX_NAME
-    )
-
-def rag_ingestion_llamaindex(config):
-    docs = load_documents()
+    def store_documents(self, config, docs):
+        storage_context = StorageContext.from_defaults(
+            vector_store = self.get_vector_store())
     
-    store_documents(config, docs)
+        VectorStoreIndex.from_documents(
+            docs,
+            storage_context = storage_context
+        )
 
-def rag_retrieval(config, prompt):
-    index = VectorStoreIndex.from_vector_store(
-        vector_store = get_vector_store())
+    def get_vector_store(self):
+        return MongoDBAtlasVectorSearch(
+            MongoClient(self.MONGODB_ATLAS_CLUSTER_URI),
+            db_name = self.MONGODB_DB_NAME,
+            collection_name = self.MONGODB_COLLECTION_NAME,
+            index_name = self.MONGODB_INDEX_NAME
+        )
 
-    query_engine = index.as_query_engine(
-        similarity_top_k = config["k"]
-    )
+    def ingestion(self, config):
+        docs = self.load_documents()
+    
+        self.store_documents(config, docs)
+
+    def retrieval(self, config, prompt):
+        index = VectorStoreIndex.from_vector_store(
+            vector_store = self.get_vector_store())
+
+        query_engine = index.as_query_engine(
+            similarity_top_k = config["k"]
+        )
  
-    return query_engine.query(prompt)
+        return query_engine.query(prompt)
