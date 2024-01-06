@@ -83,7 +83,8 @@ def invoke(openai_api_key, prompt, rag_option):
             callback, 
             err_msg, 
             start_time_ms, 
-            end_time_ms)
+            end_time_ms
+        )
 
     return result
 
@@ -102,6 +103,7 @@ demo = gr.Interface(
                 ["", "Compare GPT-4 to GPT-3.5 in markdown table format.", RAG_LANGCHAIN],
                 ["", "Write a Python program that calls the GPT-4 API.", RAG_LLAMAINDEX],
                 ["", "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format.", RAG_LANGCHAIN]],
-               cache_examples = False)
+               cache_examples = False
+)
 
 demo.launch()
