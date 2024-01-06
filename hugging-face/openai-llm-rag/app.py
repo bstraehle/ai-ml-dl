@@ -98,9 +98,9 @@ demo = gr.Interface(
     title = "Context-Aware Reasoning Application",
     description = os.environ["DESCRIPTION"],
     examples = [["", "What are GPT-4's media capabilities in 5 emojis and 1 sentence?", RAG_LANGCHAIN],
-                ["", "List GPT-4's exam scores and benchmark results.", RAG_LANGCHAIN],
+                ["", "List GPT-4's exam scores and benchmark results.", RAG_LLAMAINDEX],
                 ["", "Compare GPT-4 to GPT-3.5 in markdown table format.", RAG_LANGCHAIN],
-                ["", "Write a Python program that calls the GPT-4 API.", RAG_LANGCHAIN],
+                ["", "Write a Python program that calls the GPT-4 API.", RAG_LLAMAINDEX],
                 ["", "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format.", RAG_LANGCHAIN]],
                cache_examples = False)
 
