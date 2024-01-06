@@ -54,7 +54,8 @@ def invoke(openai_api_key, prompt, rag_option):
         else:
             completion, chain, callback = llm_chain(config, prompt)
             
-            if (completion.generations[0] != None and completion.generations[0][0] != None):
+            if (completion.generations[0] != None and 
+                completion.generations[0][0] != None):
                 result = completion.generations[0][0].text
     except Exception as e:
         err_msg = e
@@ -63,32 +64,34 @@ def invoke(openai_api_key, prompt, rag_option):
     finally:
         end_time_ms = round(time.time() * 1000)
         
-        trace_wandb(config,
-                    rag_option, 
-                    prompt, 
-                    completion, 
-                    result, 
-                    callback, 
-                    err_msg, 
-                    start_time_ms, 
-                    end_time_ms)
+        trace_wandb(
+            config,
+            rag_option, 
+            prompt, 
+            completion, 
+            result, 
+            callback, 
+            err_msg, 
+            start_time_ms, 
+            end_time_ms)
 
     return result
 
 gr.close_all()
 
-demo = gr.Interface(fn = invoke, 
-                    inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1), 
-                              gr.Textbox(label = "Prompt", value = "What are GPT-4's media capabilities in 5 emojis and 1 sentence?", lines = 1),
-                              gr.Radio([RAG_OFF, RAG_LANGCHAIN, RAG_LLAMAINDEX], label = "Retrieval-Augmented Generation", value = RAG_LANGCHAIN)],
-                    outputs = [gr.Textbox(label = "Completion", lines = 1)],
-                    title = "Context-Aware Reasoning Application",
-                    description = os.environ["DESCRIPTION"],
-                    examples = [["", "What are GPT-4's media capabilities in 5 emojis and 1 sentence?", RAG_LANGCHAIN],
-                                ["", "List GPT-4's exam scores and benchmark results.", RAG_LANGCHAIN],
-                                ["", "Compare GPT-4 to GPT-3.5 in markdown table format.", RAG_LANGCHAIN],
-                                ["", "Write a Python program that calls the GPT-4 API.", RAG_LANGCHAIN],
-                                ["", "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format.", RAG_LANGCHAIN]],
-                                cache_examples = False)
+demo = gr.Interface(
+    fn = invoke, 
+    inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1), 
+              gr.Textbox(label = "Prompt", value = "What are GPT-4's media capabilities in 5 emojis and 1 sentence?", lines = 1),
+              gr.Radio([RAG_OFF, RAG_LANGCHAIN, RAG_LLAMAINDEX], label = "Retrieval-Augmented Generation", value = RAG_LANGCHAIN)],
+    outputs = [gr.Textbox(label = "Completion", lines = 1)],
+    title = "Context-Aware Reasoning Application",
+    description = os.environ["DESCRIPTION"],
+    examples = [["", "What are GPT-4's media capabilities in 5 emojis and 1 sentence?", RAG_LANGCHAIN],
+                ["", "List GPT-4's exam scores and benchmark results.", RAG_LANGCHAIN],
+                ["", "Compare GPT-4 to GPT-3.5 in markdown table format.", RAG_LANGCHAIN],
+                ["", "Write a Python program that calls the GPT-4 API.", RAG_LANGCHAIN],
+                ["", "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format.", RAG_LANGCHAIN]],
+               cache_examples = False)
 
 demo.launch()
