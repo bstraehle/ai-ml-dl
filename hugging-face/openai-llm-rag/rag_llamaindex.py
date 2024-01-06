@@ -1,8 +1,9 @@
 import os
 
 from llama_hub.youtube_transcript import YoutubeTranscriptReader
-from llama_index import download_loader, PromptTemplate
+from llama_index import download_loader, PromptTemplate, ServiceContext
 from llama_index.indices.vector_store.base import VectorStoreIndex
+from llama_index.llms import OpenAI
 from llama_index.storage.storage_context import StorageContext
 from llama_index.vector_stores.mongodb import MongoDBAtlasVectorSearch
 
@@ -50,7 +51,8 @@ class LlamaIndexRAG(BaseRAG):
 
     def store_documents(self, config, docs):
         storage_context = StorageContext.from_defaults(
-            vector_store = self.get_vector_store())
+            vector_store = self.get_vector_store()
+        )
     
         VectorStoreIndex.from_documents(
             docs,
@@ -70,11 +72,23 @@ class LlamaIndexRAG(BaseRAG):
     
         self.store_documents(config, docs)
 
+    def get_llm(self, config):
+        return OpenAI(
+            model = config["model_name"], 
+            temperature = config["temperature"]
+        )
+        
     def retrieval(self, config, prompt):
+        service_context = ServiceContext.from_defaults(
+            llm = self.get_llm(config)
+        )
+        
         index = VectorStoreIndex.from_vector_store(
-            vector_store = self.get_vector_store())
+            vector_store = self.get_vector_store()
+        )
 
         query_engine = index.as_query_engine(
+            service_context = service_context,
             similarity_top_k = config["k"]
         )
  
