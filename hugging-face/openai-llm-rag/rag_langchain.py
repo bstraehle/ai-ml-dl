@@ -116,7 +116,7 @@ class LangChainRAG(BaseRAG):
         with get_openai_callback() as callback:
             completion = llm_chain.generate([{"question": prompt}])
     
-        return completion, llm_chain, callback
+        return completion, callback
 
     def rag_chain(self, config, prompt):
         #vector_store = self.get_vector_store_chroma()
@@ -132,4 +132,4 @@ class LangChainRAG(BaseRAG):
         with get_openai_callback() as callback:
             completion = rag_chain({"query": prompt})
 
-        return completion, rag_chain, callback
+        return completion, callback
