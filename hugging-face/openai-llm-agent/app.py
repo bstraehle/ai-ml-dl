@@ -1,5 +1,5 @@
 import gradio as gr
-import os
+import logging, os, sys
 
 from agent_langchain import agent_langchain
 from agent_llamaindex import agent_llamaindex
@@ -16,6 +16,9 @@ config = {
     "model": "gpt-4-0613",
     "temperature": 0
 }
+
+logging.basicConfig(stream = sys.stdout, level = logging.INFO)
+logging.getLogger().addHandler(logging.StreamHandler(stream = sys.stdout))
 
 def invoke(openai_api_key, prompt, agent_option):
     if (openai_api_key == ""):
