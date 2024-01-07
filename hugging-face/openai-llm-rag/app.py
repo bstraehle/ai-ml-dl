@@ -44,7 +44,6 @@ def invoke(openai_api_key, prompt, rag_option):
             rag = LlamaIndexRAG()
             rag.ingestion(config)
 
-    prompt_template = ""
     completion = ""
     result = ""
     callback = ""
@@ -54,17 +53,14 @@ def invoke(openai_api_key, prompt, rag_option):
         start_time_ms = round(time.time() * 1000)
 
         if (rag_option == RAG_LANGCHAIN):
-            prompt_template = os.environ["LANGCHAIN_TEMPLATE"]
             rag = LangChainRAG()
             completion, chain, callback = rag.rag_chain(config, prompt)
 
             result = completion["result"]
         elif (rag_option == RAG_LLAMAINDEX):
-            prompt_template = os.environ["LLAMAINDEX_TEMPLATE"]
             rag = LlamaIndexRAG()
             result = rag.retrieval(config, prompt)
         else:
-            prompt_template = os.environ["TEMPLATE"]
             rag = LangChainRAG()
             completion, chain, callback = rag.llm_chain(config, prompt)
             
@@ -81,7 +77,6 @@ def invoke(openai_api_key, prompt, rag_option):
         trace_wandb(
             config,
             rag_option,
-            prompt_template,
             prompt, 
             completion, 
             result, 
