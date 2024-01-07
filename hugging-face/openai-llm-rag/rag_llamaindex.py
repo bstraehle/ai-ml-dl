@@ -1,7 +1,8 @@
-import os, requests
+import os, requests, tiktoken
 
 from llama_hub.youtube_transcript import YoutubeTranscriptReader
 from llama_index import download_loader, PromptTemplate, ServiceContext
+from llama_index.callbacks import CallbackManager, TokenCountingHandler
 from llama_index.embeddings import OpenAIEmbedding
 from llama_index.indices.vector_store.base import VectorStoreIndex
 from llama_index.llms import OpenAI
@@ -51,6 +52,23 @@ class LlamaIndexRAG(BaseRAG):
     
         return docs
 
+    def get_callback_manager(self, config):
+        token_counter = TokenCountingHandler(
+            tokenizer = tiktoken.encoding_for_model(config["model_name"]).encode
+        )
+
+        token_counter.reset_counts()
+
+        return CallbackManager([token_counter])
+
+    def get_callback(self, token_counter):
+        return ("Tokens Used: " +
+                str(token_counter.total_llm_token_count) + "\n" +
+                "Prompt Tokens: " +
+                str(token_counter.prompt_llm_token_count) + "\n" +
+                "Completion Tokens: " +
+                str(token_counter.completion_llm_token_count))
+
     def get_llm(self, config):
         return OpenAI(
             model = config["model_name"], 
@@ -67,6 +85,7 @@ class LlamaIndexRAG(BaseRAG):
         
     def get_service_context(self, config):
         return ServiceContext.from_defaults(
+            callback_manager = self.get_callback_manager(config),
             chunk_overlap = config["chunk_overlap"],
             chunk_size = config["chunk_size"],
             embed_model = OpenAIEmbedding(), # embed
@@ -88,7 +107,7 @@ class LlamaIndexRAG(BaseRAG):
             service_context = self.get_service_context(config),
             storage_context = self.get_storage_context()
         )
-
+  
     def ingestion(self, config):
         docs = self.load_documents()
     
@@ -99,10 +118,16 @@ class LlamaIndexRAG(BaseRAG):
             vector_store = self.get_vector_store()
         )
 
+        service_context = self.get_service_context(config)
+        
         query_engine = index.as_query_engine(
             text_qa_template = PromptTemplate(os.environ["LLAMAINDEX_TEMPLATE"]),
-            service_context = self.get_service_context(config),
+            service_context = service_context,
             similarity_top_k = config["k"]
         )
 
-        return query_engine.query(prompt)
+        completion = query_engine.query(prompt)
+        callback = self.get_callback(
+            service_context.callback_manager.handlers[0])
+        
+        return completion, callback
