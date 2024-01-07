@@ -54,19 +54,15 @@ def invoke(openai_api_key, prompt, rag_option):
 
         if (rag_option == RAG_LANGCHAIN):
             rag = LangChainRAG()
-            completion, chain, callback = rag.rag_chain(config, prompt)
-
+            completion, callback = rag.rag_chain(config, prompt)
             result = completion["result"]
         elif (rag_option == RAG_LLAMAINDEX):
             rag = LlamaIndexRAG()
-            result = rag.retrieval(config, prompt)
+            result, callback = rag.retrieval(config, prompt)
         else:
             rag = LangChainRAG()
-            completion, chain, callback = rag.llm_chain(config, prompt)
-            
-            if (completion.generations[0] != None and 
-                completion.generations[0][0] != None):
-                result = completion.generations[0][0].text
+            completion, callback = rag.llm_chain(config, prompt)
+            result = completion.generations[0][0].text
     except Exception as e:
         err_msg = e
 
