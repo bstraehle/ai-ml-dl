@@ -121,9 +121,9 @@ class LlamaIndexRAG(BaseRAG):
         service_context = self.get_service_context(config)
         
         query_engine = index.as_query_engine(
-            text_qa_template = PromptTemplate(os.environ["LLAMAINDEX_TEMPLATE"]),
             service_context = service_context,
-            similarity_top_k = config["k"]
+            similarity_top_k = config["k"],
+            text_qa_template = PromptTemplate(os.environ["LLAMAINDEX_TEMPLATE"])
         )
 
         completion = query_engine.query(prompt)
