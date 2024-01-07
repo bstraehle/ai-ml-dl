@@ -18,7 +18,7 @@ RAG_LLAMAINDEX = "LlamaIndex"
 config = {
     "chunk_overlap": 100,       # split documents
     "chunk_size": 2000,         # split documents
-    "k": 3,                     # retrieve documents
+    "k": 2,                     # retrieve documents
     "model_name": "gpt-4-0314", # llm
     "temperature": 0            # llm
 }
