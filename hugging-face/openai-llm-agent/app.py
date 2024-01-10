@@ -1,9 +1,10 @@
 import gradio as gr
-import logging, os, sys
+import logging, os, sys, time
 
 from agent_langchain import agent_langchain
 from agent_llamaindex import agent_llamaindex
 from openai import OpenAI
+from trace import trace_wandb
 
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
@@ -29,19 +30,22 @@ def invoke(openai_api_key, prompt, agent_option):
         raise gr.Error("Use Agent is required.")
 
     os.environ["OPENAI_API_KEY"] = openai_api_key
-    
+
+    completion = ""
     output = ""
     
     try:
+        start_time_ms = round(time.time() * 1000)
+        
         if (agent_option == AGENT_LANGCHAIN):
             completion = agent_langchain(
                 config,
                 prompt
             )
     
-            output = completion["output"]
+            result = completion["output"]
         elif (agent_option == AGENT_LLAMAINDEX):
-            output = agent_llamaindex(
+            result = agent_llamaindex(
                 config,
                 prompt
             )
@@ -54,13 +58,26 @@ def invoke(openai_api_key, prompt, agent_option):
                 temperature = config["temperature"]
             )
     
-            output = completion.choices[0].message.content
+            result = completion.choices[0].message.content
     except Exception as e:
         err_msg = e
 
         raise gr.Error(e)
+    finally:
+        end_time_ms = round(time.time() * 1000)
+        
+        trace_wandb(
+            config,
+            agent_option,
+            prompt, 
+            completion, 
+            result, 
+            err_msg, 
+            start_time_ms, 
+            end_time_ms
+        )
 
-    return output
+    return result
 
 gr.close_all()
 
