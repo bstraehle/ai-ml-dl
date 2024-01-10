@@ -16,6 +16,10 @@ from langchain.vectorstores import MongoDBAtlasVectorSearch
 from pymongo import MongoClient
 from rag_base import BaseRAG
 
+os.environ["LANGCHAIN_ENDPOINT"]   = "https://api.smith.langchain.com"
+os.environ["LANGCHAIN_PROJECT"]    = "openai-llm-rag"
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+
 class LangChainRAG(BaseRAG):
     MONGODB_DB_NAME = "langchain_db"
     
