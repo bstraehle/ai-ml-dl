@@ -2,6 +2,7 @@ import os
 
 from datetime import date
 from langchain.agents import AgentType, initialize_agent, load_tools, tool
+from langchain.callbacks import get_openai_callback
 from langchain.chat_models import ChatOpenAI
 
 os.environ["LANGCHAIN_ENDPOINT"]   = "https://api.smith.langchain.com"
@@ -33,4 +34,7 @@ def agent_langchain(config, prompt):
         verbose = True
     )
 
-    return agent(prompt)
+    with get_openai_callback() as callback:
+        completion = agent(prompt)
+
+    return completion, callback
