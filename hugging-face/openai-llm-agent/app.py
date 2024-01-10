@@ -32,7 +32,8 @@ def invoke(openai_api_key, prompt, agent_option):
     os.environ["OPENAI_API_KEY"] = openai_api_key
 
     completion = ""
-    output = ""
+    result = ""
+    err_msg = ""
     
     try:
         start_time_ms = round(time.time() * 1000)
