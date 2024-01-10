@@ -33,13 +33,14 @@ def invoke(openai_api_key, prompt, agent_option):
 
     completion = ""
     result = ""
+    callback = ""
     err_msg = ""
     
     try:
         start_time_ms = round(time.time() * 1000)
         
         if (agent_option == AGENT_LANGCHAIN):
-            completion = agent_langchain(
+            completion, callback = agent_langchain(
                 config,
                 prompt
             )
@@ -72,7 +73,8 @@ def invoke(openai_api_key, prompt, agent_option):
             agent_option,
             prompt, 
             completion, 
-            result, 
+            result,
+            callback,
             err_msg, 
             start_time_ms, 
             end_time_ms
