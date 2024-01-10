@@ -4,6 +4,10 @@ from datetime import date
 from langchain.agents import AgentType, initialize_agent, load_tools, tool
 from langchain.chat_models import ChatOpenAI
 
+os.environ["LANGCHAIN_ENDPOINT"]   = "https://api.smith.langchain.com"
+os.environ["LANGCHAIN_PROJECT"]    = "openai-llm-agent"
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+
 @tool
 def today_tool(text: str) -> str:
     """Returns today's date. Use this for any questions related to knowing today's date. 
