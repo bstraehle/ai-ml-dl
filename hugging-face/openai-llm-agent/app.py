@@ -59,7 +59,8 @@ def invoke(openai_api_key, prompt, agent_option):
                 model = config["model"],
                 temperature = config["temperature"]
             )
-    
+
+            callback = completion.usage
             result = completion.choices[0].message.content
     except Exception as e:
         err_msg = e
