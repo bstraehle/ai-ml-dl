@@ -23,9 +23,9 @@ def agent_langchain(config, prompt):
     OPENWEATHERMAP_API_KEY = os.environ["OPENWEATHERMAP_API_KEY"]
     
     tools = load_tools(["openweathermap-api"])
-            
+
     agent = initialize_agent(
-        tools +      # built-in tools
+        tools +       # built-in tools
         [today_tool], # custom tools
         llm,
         agent = AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION,
