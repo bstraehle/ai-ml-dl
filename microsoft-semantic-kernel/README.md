@@ -2,5 +2,5 @@ Semantic Kernel is an SDK that integrates Large Language Models (LLMs) like Open
 
 https://www.deeplearning.ai/short-courses/microsoft-semantic-kernel/  
 
-https://github.com/microsoft/semantic-kernel
+https://github.com/microsoft/semantic-kernel  
 https://github.com/microsoft/chat-copilot  
