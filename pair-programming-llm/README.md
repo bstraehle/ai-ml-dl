@@ -1,3 +1,3 @@
-https://developers.generativeai.google/ - Generate API key  
+https://www.deeplearning.ai/short-courses/pair-programming-llm/ (Google)  
 
-https://www.deeplearning.ai/short-courses/pair-programming-llm/  
+https://developers.generativeai.google/ - Generate API key  
