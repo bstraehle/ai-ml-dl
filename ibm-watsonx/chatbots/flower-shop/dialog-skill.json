@@ -1,0 +1,1325 @@
+{
+  "name": "Flower Shop Chatbot",
+  "type": "dialog",
+  "valid": true,
+  "counts": {
+    "intents": 6,
+    "entities": 3,
+    "dialog_nodes": 36
+  },
+  "status": "Available",
+  "created": "2024-02-03T01:56:05.389Z",
+  "updated": "2024-02-03T01:56:05.389Z",
+  "language": "en",
+  "skill_id": "9b11dcfd-875b-43ec-ad81-e11fad6758a2",
+  "snapshot": "9",
+  "workspace": {
+    "created": "2024-02-03T01:56:05.389Z",
+    "intents": [
+      {
+        "intent": "flower_recommendations",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "examples": [
+          {
+            "text": "beautiful flowers",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "flower recommendations",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "flowers for my wife",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "flowers suggestions for my girlfriend",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "which flowers for Valentine's Day",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "intent": "goodbyes",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "examples": [
+          {
+            "text": "bye",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "c ya",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "good bye",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "see you",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "talk to you soon",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "intent": "greetings",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "examples": [
+          {
+            "text": "good afternoon",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "good morning",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "hello",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "hey",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "hi",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "intent": "hours_info",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "examples": [
+          {
+            "text": "Are you open on Christmas' Day?",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "Are you open on Saturdays?",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "Are you open on Sundays?",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "what are the hours of operation for your Montreal store",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "what are you hours of operation in Toronto",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "What are your hours?",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "What are your hours of operation?",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "What days are you closed on?",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "What time are you open until?",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "When are you open",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "When do you close",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "When do you open",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          }
+        ]
+      },
+      {
+        "intent": "location_info",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "examples": [
+          {
+            "text": "do you have a flower shop in Montreal",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "Give me a list of locations",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "List of location",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "list of locations",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "list of your locations",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "locations in America",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "Locations in Canada",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "What are your locations?",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "What's the address of your Toronto store?",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "what's the address of your Vancouver store?",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "Where are you physically located?",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "Where are your stores?",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "where is your Toronto store?",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          }
+        ]
+      },
+      {
+        "intent": "thank_you",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "examples": [
+          {
+            "text": "appreciate it",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "cheers",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "thanks",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "thank you",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          },
+          {
+            "text": "thx",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z"
+          }
+        ],
+        "description": ""
+      }
+    ],
+    "updated": "2024-02-03T01:56:05.389Z",
+    "entities": [
+      {
+        "entity": "location",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Calgary",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Montreal",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Toronto",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": [
+              "Warden Avenue"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Vancouver",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": [
+              "Burnaby"
+            ]
+          }
+        ],
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "fuzzy_match": true
+      },
+      {
+        "entity": "occasion",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Anniversary",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Birthday",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": [
+              "b-day",
+              "bday",
+              "birth day"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Christmas",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": [
+              "Dec 25",
+              "December 25",
+              "December 25th",
+              "Yule"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Congratulations",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": [
+              "award",
+              "success"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Funeral",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": [
+              "celebration of life",
+              "condolences",
+              "grief",
+              "Shiva",
+              "sorrow",
+              "sympathy",
+              "wake"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Get Well",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": [
+              "cancer",
+              "disease",
+              "hospital",
+              "ill",
+              "sickness"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Graduation",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": [
+              "commencement",
+              "grad",
+              "graduate",
+              "graduating"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Mother's Day",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": [
+              "Mom's Day",
+              "Mothering Sunday",
+              "Mum's Day"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Retirement",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Valentine's Day",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": [
+              "Feb 14",
+              "February 14",
+              "February 14th",
+              "heart day",
+              "valentines"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Wedding",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": [
+              "best man",
+              "bride",
+              "bridesmaid",
+              "groom"
+            ]
+          }
+        ],
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z"
+      },
+      {
+        "entity": "relationship",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "boyfriend",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": [
+              "beau"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "couple",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "father",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": [
+              "dad",
+              "daddy",
+              "pops"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "friend",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": [
+              "acquaintance",
+              "associate",
+              "bestie",
+              "BFF",
+              "coach",
+              "colleague",
+              "companion",
+              "neighbor",
+              "professor",
+              "roommate",
+              "teacher",
+              "trainer"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "girlfriend",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": [
+              "fiancee",
+              "GF"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "husband",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "mother",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": [
+              "mama",
+              "mom",
+              "mommy",
+              "momsie",
+              "mum"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "partner",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "relative",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": [
+              "aunt",
+              "brother",
+              "cousin",
+              "grandma",
+              "grandpa",
+              "grannie",
+              "granny",
+              "sister",
+              "step",
+              "uncle"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "wife",
+            "created": "2024-02-03T01:56:23.078Z",
+            "updated": "2024-02-03T01:56:23.078Z",
+            "synonyms": []
+          }
+        ],
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z"
+      }
+    ],
+    "language": "en",
+    "metadata": {
+      "skill": {
+        "counts": {
+          "intents": 6,
+          "entities": 3,
+          "dialog_nodes": 36
+        }
+      },
+      "api_version": {
+        "major_version": "v2",
+        "minor_version": "2018-11-08"
+      },
+      "from-sample": true
+    },
+    "dialog_nodes": [
+      {
+        "type": "standard",
+        "title": "Anything else",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "I didn't understand. You can try rephrasing."
+                },
+                {
+                  "text": "Can you reword your statement? I'm not understanding."
+                },
+                {
+                  "text": "I didn't get your meaning."
+                },
+                {
+                  "text": "It looks like we are not quite getting each other today. Would you like to talk to a human agent instead? If so, please contact us at 555-123-4567 or email us at support\\@example.org."
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "anything_else",
+        "dialog_node": "Anything else",
+        "previous_sibling": "node_1_1706845742277",
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "event_handler",
+        "output": {},
+        "parent": "slot_9_1706851723790",
+        "context": {
+          "city": "@location"
+        },
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "@location",
+        "event_name": "input",
+        "dialog_node": "handler_10_1706851723790"
+      },
+      {
+        "type": "event_handler",
+        "output": {
+          "generic": []
+        },
+        "parent": "slot_9_1706851723790",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "event_name": "focus",
+        "dialog_node": "handler_11_1706851723790",
+        "previous_sibling": "handler_10_1706851723790"
+      },
+      {
+        "type": "event_handler",
+        "output": {},
+        "parent": "slot_9_1706850819540",
+        "context": {
+          "city": "@location"
+        },
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "@location",
+        "event_name": "input",
+        "dialog_node": "handler_1_1706850819562"
+      },
+      {
+        "type": "event_handler",
+        "output": {
+          "generic": []
+        },
+        "parent": "slot_9_1706850819540",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "event_name": "focus",
+        "dialog_node": "handler_3_1706850819562",
+        "previous_sibling": "handler_1_1706850819562"
+      },
+      {
+        "type": "event_handler",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "What occasion are the flowers for?"
+                }
+              ],
+              "response_type": "text"
+            }
+          ]
+        },
+        "parent": "slot_10_1706850100541",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "event_name": "focus",
+        "dialog_node": "handler_5_1706850100552",
+        "previous_sibling": "handler_9_1706850100552"
+      },
+      {
+        "type": "event_handler",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Thank you, $name"
+                }
+              ],
+              "response_type": "text"
+            }
+          ]
+        },
+        "parent": "slot_10_1706850100541",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "true",
+        "event_name": "filled",
+        "dialog_node": "handler_8_1706924101060",
+        "previous_sibling": "handler_5_1706850100552"
+      },
+      {
+        "type": "event_handler",
+        "output": {},
+        "parent": "slot_10_1706850100541",
+        "context": {
+          "occasion": "@occasion"
+        },
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "@occasion",
+        "event_name": "input",
+        "dialog_node": "handler_9_1706850100552"
+      },
+      {
+        "type": "event_handler",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Sorry to ask again, $name, but what occasion are the flowers for?"
+                }
+              ],
+              "response_type": "text"
+            }
+          ]
+        },
+        "parent": "slot_10_1706850100541",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "true",
+        "event_name": "nomatch",
+        "dialog_node": "handler_9_1706924160232",
+        "previous_sibling": "handler_8_1706924101060"
+      },
+      {
+        "type": "standard",
+        "title": "Collect Name",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Nice to meet you, $name. How can I help you? You can ask me about our store hours, locations, or flower recommendations."
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "Welcome",
+        "context": {
+          "name": "<? input.text.substring(0, 1).toUpperCase() + input.text.substring(1) ?>"
+        },
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "true",
+        "dialog_node": "node_10_1706849601107"
+      },
+      {
+        "type": "folder",
+        "title": "Chitchat",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "digress_in": "does_not_return",
+        "dialog_node": "node_1_1706845742277",
+        "previous_sibling": "node_8_1706851723789"
+      },
+      {
+        "type": "frame",
+        "title": "Flower Recommendations",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "metadata": {
+          "_customization": {
+            "mcr": true
+          }
+        },
+        "conditions": "#flower_recommendations",
+        "digress_in": "returns",
+        "dialog_node": "node_1_1706850038343",
+        "digress_out": "allow_all",
+        "previous_sibling": "Welcome",
+        "digress_out_slots": "allow_all"
+      },
+      {
+        "type": "standard",
+        "title": "Thank You",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "You're welcome. Please let me know if you need anything else."
+                },
+                {
+                  "text": "My pleasure."
+                },
+                {
+                  "text": "No problem. Let me know if there is anything else I can help with."
+                },
+                {
+                  "text": "I aim to please. 😊"
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "node_1_1706845742277",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "#thank_you",
+        "dialog_node": "node_3_1706845899372",
+        "previous_sibling": "node_8_1706845834039"
+      },
+      {
+        "type": "frame",
+        "title": "Hours of Operation",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "metadata": {
+          "_customization": {
+            "mcr": true
+          }
+        },
+        "conditions": "#hours_info",
+        "digress_in": "returns",
+        "dialog_node": "node_5_1706846280242",
+        "digress_out": "allow_all",
+        "previous_sibling": "node_1_1706850038343",
+        "digress_out_slots": "allow_all"
+      },
+      {
+        "type": "standard",
+        "title": "Goodbyes",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Nice talking to you today. We hope you visit our $city store."
+                },
+                {
+                  "text": "Have a nice day. We hope you visit our $city store."
+                },
+                {
+                  "text": "Goodbye. We hope you visit our $city store."
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "random"
+            }
+          ]
+        },
+        "parent": "node_1_1706845742277",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "#goodbyes",
+        "dialog_node": "node_6_1706845919336",
+        "previous_sibling": "node_3_1706845899372"
+      },
+      {
+        "type": "standard",
+        "title": "Greetings",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Hi there. How can I help you?"
+                },
+                {
+                  "text": "Hello. How may I assist you today?"
+                },
+                {
+                  "text": "Hi. What can I help you with?"
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "node_1_1706845742277",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "#greetings",
+        "dialog_node": "node_8_1706845834039"
+      },
+      {
+        "type": "frame",
+        "title": "Location Information",
+        "output": {},
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "metadata": {
+          "_customization": {
+            "mcr": true
+          }
+        },
+        "conditions": "#location_info",
+        "digress_in": "returns",
+        "dialog_node": "node_8_1706851723789",
+        "digress_out": "allow_all",
+        "previous_sibling": "node_5_1706846280242",
+        "digress_out_slots": "allow_all"
+      },
+      {
+        "type": "response_condition",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "You can never go wrong with a dozen red roses."
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "node_1_1706850038343",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "$occasion==\"Valentine's Day\"",
+        "dialog_node": "response_10_1706850448549",
+        "previous_sibling": "response_1_1706850324057"
+      },
+      {
+        "type": "response_condition",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Opt for a fun bouquet of flowers, choosing a colorful     one from <a href=\"https://example.org/catalog\">our catalog</a>."
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "node_1_1706850038343",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "$occasion==\"Birthday\"",
+        "dialog_node": "response_10_1706850457594",
+        "previous_sibling": "response_10_1706850448549"
+      },
+      {
+        "type": "response_condition",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Moms are awesome and worth celebrating every day. Consider our <a href=\"https://example.org/mothers-day\">Mother's Day special bouquet</a>."
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "node_1_1706850038343",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "$occasion==\"Mother's Day\"",
+        "dialog_node": "response_1_1706850324057"
+      },
+      {
+        "type": "response_condition",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Our Toronto store is located at 1111 Main Street."
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "node_8_1706851723789",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "$city:Toronto",
+        "dialog_node": "response_12_1706851723790"
+      },
+      {
+        "type": "response_condition",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Our Montreal store is located at 2222 Main Street."
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "node_8_1706851723789",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "$city:Montreal",
+        "dialog_node": "response_13_1706851723790",
+        "previous_sibling": "response_12_1706851723790"
+      },
+      {
+        "type": "response_condition",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Our Vancouver store is located at 3333 Main Street."
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "node_8_1706851723789",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "$city:Vancouver",
+        "dialog_node": "response_14_1706851723790",
+        "previous_sibling": "response_13_1706851723790"
+      },
+      {
+        "type": "response_condition",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Our Calgary store is located at 4444 Main Street."
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "node_8_1706851723789",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "$city:Calgary",
+        "dialog_node": "response_15_1706851723790",
+        "previous_sibling": "response_14_1706851723790"
+      },
+      {
+        "type": "response_condition",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Our locations are listed on <a href=\"https://example.org/locations/\"> our Locations page</a>"
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "node_8_1706851723789",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "true",
+        "dialog_node": "response_16_1706851723790",
+        "previous_sibling": "response_15_1706851723790"
+      },
+      {
+        "type": "response_condition",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Our hours of operations are listed on <a href=\"https://example.org/hours/\"> our Hours page</a>"
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "node_5_1706846280242",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "true",
+        "dialog_node": "response_2_1706854452281",
+        "previous_sibling": "response_7_1706850930690"
+      },
+      {
+        "type": "response_condition",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Our Toronto store is open Monday to Saturday from 9 am until 6 pm, except statutory holidays."
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "node_5_1706846280242",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "$city:Toronto",
+        "dialog_node": "response_3_1706850864728"
+      },
+      {
+        "type": "response_condition",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Our Montreal store is open Monday to Saturday from 9 am until 6 pm, except statutory holidays."
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "node_5_1706846280242",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "$city:Montreal",
+        "dialog_node": "response_3_1706850910997",
+        "previous_sibling": "response_3_1706850864728"
+      },
+      {
+        "type": "response_condition",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "You can never go wrong with a dozen roses."
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "node_1_1706850038343",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "anything_else",
+        "dialog_node": "response_4_1706889802458",
+        "previous_sibling": "response_8_1706850461035"
+      },
+      {
+        "type": "response_condition",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Our Vancouver store is open Monday to Saturday from 9 am until 6 pm, except statutory holidays."
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "node_5_1706846280242",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "$city:Vancouver",
+        "dialog_node": "response_5_1706850920339",
+        "previous_sibling": "response_3_1706850910997"
+      },
+      {
+        "type": "response_condition",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Our Calgary store is open Monday to Saturday from 9 am until 6 pm, except statutory holidays."
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "node_5_1706846280242",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "$city:Calgary",
+        "dialog_node": "response_7_1706850930690",
+        "previous_sibling": "response_5_1706850920339"
+      },
+      {
+        "type": "response_condition",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "I'd go with an all-time classic: a beautiful Red Poinsettia."
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "parent": "node_1_1706850038343",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "$occasion==\"Christmas\"",
+        "dialog_node": "response_8_1706850461035",
+        "previous_sibling": "response_10_1706850457594"
+      },
+      {
+        "type": "slot",
+        "output": {},
+        "parent": "node_1_1706850038343",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "variable": "$occasion",
+        "dialog_node": "slot_10_1706850100541",
+        "previous_sibling": "response_4_1706889802458"
+      },
+      {
+        "type": "slot",
+        "output": {},
+        "parent": "node_5_1706846280242",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "variable": "$city",
+        "dialog_node": "slot_9_1706850819540",
+        "previous_sibling": "response_2_1706854452281"
+      },
+      {
+        "type": "slot",
+        "output": {},
+        "parent": "node_8_1706851723789",
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "variable": "$city",
+        "dialog_node": "slot_9_1706851723790",
+        "previous_sibling": "response_16_1706851723790"
+      },
+      {
+        "type": "standard",
+        "title": "Welcome",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "👋 Greetings, my name is Florence (it/its) and I'm a flower shop chatbot. What name can I call you by?"
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "created": "2024-02-03T01:56:23.078Z",
+        "updated": "2024-02-03T01:56:23.078Z",
+        "conditions": "welcome",
+        "dialog_node": "Welcome"
+      }
+    ],
+    "counterexamples": [],
+    "learning_opt_out": false
+  },
+  "description": "",
+  "assistant_id": "a8c255b6-ac9d-4761-a721-3fd78be5bf32",
+  "dialog_settings": {
+    "source_assistant": "030e5bf6-229d-4d6d-b6fd-8897bc861190"
+  },
+  "assistant_references": [
+    {
+      "name": "Flower Shop Chatbot",
+      "assistant_id": "030e5bf6-229d-4d6d-b6fd-8897bc861190",
+      "skill_reference": "main skill"
+    }
+  ]
+}
