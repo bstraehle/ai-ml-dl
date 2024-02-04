@@ -881,7 +881,7 @@
         },
         {
           "type": "synonyms",
-          "value": "Javascript",
+          "value": "JavaScript",
           "synonyms": []
         },
         {
@@ -891,53 +891,7 @@
         },
         {
           "type": "synonyms",
-          "value": "python",
-          "synonyms": []
-        }
-      ],
-      "fuzzy_match": true
-    },
-    {
-      "entity": "professionalcertificate",
-      "values": [
-        {
-          "type": "synonyms",
-          "value": "customer engagement",
-          "synonyms": [
-            "customer engagement",
-            "customer support"
-          ]
-        },
-        {
-          "type": "synonyms",
-          "value": "data science",
-          "synonyms": [
-            "data analysis",
-            "data analytics",
-            "data engineering",
-            "ibm"
-          ]
-        },
-        {
-          "type": "synonyms",
-          "value": "entrepreneurship",
-          "synonyms": [
-            "business development",
-            "entrepreneur",
-            "innovation management",
-            "mba"
-          ]
-        },
-        {
-          "type": "synonyms",
-          "value": "IT support",
-          "synonyms": [
-            "technical support"
-          ]
-        },
-        {
-          "type": "synonyms",
-          "value": "project management",
+          "value": "Python",
           "synonyms": []
         }
       ],
