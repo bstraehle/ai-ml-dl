@@ -1303,7 +1303,7 @@
           {
             "values": [
               {
-                "text": "🤖 Greetings, human. I'm Einstein (it/its), your friendly Student Advisor Chatbot. I can help with questions about our site and give course recommendations."
+                "text": "🤖 Greetings, human. I'm Einstein (it/its), your friendly Student Advisor Chatbot. I can give course recommendations and help with questions about our site."
               }
             ],
             "response_type": "text",
