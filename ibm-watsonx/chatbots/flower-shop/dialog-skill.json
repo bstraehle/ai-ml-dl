@@ -1293,7 +1293,7 @@
             {
               "values": [
                 {
-                  "text": "🤖 Greetings, human. My name is Einstein (it/its) and I'm your friendly Flower Shop Chatbot. What name can I call you by?"
+                  "text": "🤖 Greetings, human. My name is Einstein (it/its), and I'm your friendly Flower Shop Chatbot. What name can I call you by?"
                 }
               ],
               "response_type": "text",
