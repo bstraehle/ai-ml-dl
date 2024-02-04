@@ -953,7 +953,7 @@
   },
   "webhooks": [
     {
-      "url": "https://bstraehle-5000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/chat/",
+      "url": "https://bstraehle-5000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/chat",
       "name": "main_webhook",
       "headers": [
         {
@@ -966,7 +966,7 @@
         },
         {
           "name": "Authorization",
-          "value": "Basic YnN0cmFlaGxlOmdocF9lQkFsVVR5MXlaWUNNeTlsTE1KSTl0aWhTUlY3STYxZ3R6aEs="
+          "value": "Basic YnN0cmFlaGxlOmdocF9KVDVPTGFNYmdkeWZVcUhpVUlIQTI1RDRBM1UzVjU0SWIyZkc="
         }
       ]
     }
@@ -1007,7 +1007,7 @@
           {
             "values": [
               {
-                "text": "Here are some courses I found for you!</br>\n<br> Name of the course: <br>\n<? $webhook_result_1.response_message[0].name ?></br>\n<br>Description of the course: <br> \n<? $webhook_result_1.response_message[0].description.substring(0, 200) ?>"
+                "text": "Here are some courses I found for you!\n</br><b>Name of the course:</b></br>\n<? $webhook_result_1.response_message[0].name ?>\n</br><b>Description of the course:</b><br> \n<? $webhook_result_1.response_message[0].description ?>"
               }
             ],
             "response_type": "text",
@@ -1042,18 +1042,6 @@
       },
       "conditions": "#Enrollment_Cost",
       "dialog_node": "node_3_1706929348466",
-      "previous_sibling": "node_3_1706929420906"
-    },
-    {
-      "type": "standard",
-      "title": "Professional Certificate",
-      "metadata": {
-        "_customization": {
-          "mcr": true
-        }
-      },
-      "conditions": "#Professional_Certificate_Recommendation",
-      "dialog_node": "node_3_1706929420906",
       "previous_sibling": "node_9_1706929583864"
     },
     {
@@ -1102,26 +1090,6 @@
           {
             "values": [
               {
-                "text": "We recommend the IBM Data Science professional certificate."
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
-      },
-      "parent": "node_3_1706929420906",
-      "conditions": "@professionalcertificate:(data science)",
-      "dialog_node": "response_2_1706929513559",
-      "previous_sibling": "response_9_1706929495123"
-    },
-    {
-      "type": "response_condition",
-      "output": {
-        "generic": [
-          {
-            "values": [
-              {
                 "text": "Bye bye."
               }
             ],
@@ -1133,52 +1101,6 @@
       "parent": "node_8_1706929146595",
       "conditions": "#General_Ending",
       "dialog_node": "response_3_1706938791351"
-    },
-    {
-      "type": "response_condition",
-      "parent": "node_9_1706929583864",
-      "conditions": "anything_else",
-      "dialog_node": "response_4_1706936862519",
-      "previous_sibling": "response_9_1706936862234"
-    },
-    {
-      "type": "response_condition",
-      "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "We recommend our Applied Project Management Certificate by University of California Irvine."
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
-      },
-      "parent": "node_3_1706929420906",
-      "conditions": "@professionalcertificate:(project management)",
-      "dialog_node": "response_7_1706929449802"
-    },
-    {
-      "type": "response_condition",
-      "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "We recommend the professional certificate in Innovation Management and Entrepreneurship by HEC Paris."
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
-      },
-      "parent": "node_3_1706929420906",
-      "conditions": "@professionalcertificate:entrepreneurship",
-      "dialog_node": "response_7_1706929530040",
-      "previous_sibling": "response_2_1706929513559"
     },
     {
       "type": "response_condition",
@@ -1207,66 +1129,6 @@
       "conditions": "#General_Positive_Feedback",
       "dialog_node": "response_7_1706938858008",
       "previous_sibling": "response_9_1706938844790"
-    },
-    {
-      "type": "response_condition",
-      "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "We recommend Google’s IT Support certificate."
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
-      },
-      "parent": "node_3_1706929420906",
-      "conditions": "@professionalcertificate:(IT support)",
-      "dialog_node": "response_8_1706929475530",
-      "previous_sibling": "response_7_1706929449802"
-    },
-    {
-      "type": "response_condition",
-      "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "We recommend the IBM Customer Engagement Specialist professional certificate."
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
-      },
-      "parent": "node_3_1706929420906",
-      "conditions": "@professionalcertificate:(customer engagement)",
-      "dialog_node": "response_9_1706929495123",
-      "previous_sibling": "response_8_1706929475530"
-    },
-    {
-      "type": "response_condition",
-      "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "You can see a list of our professional certificates on our site."
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
-      },
-      "parent": "node_3_1706929420906",
-      "conditions": "true",
-      "dialog_node": "response_9_1706929547372",
-      "previous_sibling": "response_7_1706929530040"
     },
     {
       "type": "response_condition",
@@ -1303,7 +1165,7 @@
           {
             "values": [
               {
-                "text": "🤖 Greetings, human. I'm Einstein (it/its), your friendly Student Advisor Chatbot. I can give course recommendations and help with questions about our site."
+                "text": "🤖 Greetings. My name is Einstein (it/its), and I'm your Student Advisor Chatbot. I can give course recommendations."
               }
             ],
             "response_type": "text",
