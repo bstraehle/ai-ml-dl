@@ -1,3 +1,3 @@
 https://huggingface.co/bstraehle  
 
-<a href="PythonCodeGenerator.AI">PythonCodeGenerator.AI</a>  
+<a href="http://pythoncodegenerator.ai">PythonCodeGenerator.AI</a>  
