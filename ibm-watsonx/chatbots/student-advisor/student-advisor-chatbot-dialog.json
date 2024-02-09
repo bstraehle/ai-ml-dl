@@ -1119,7 +1119,7 @@
           {
             "values": [
               {
-                "text": "🤖 Greetings. My name is Einstein (it/its), and I'm your Student Advisor Chatbot. I can give course recommendations."
+                "text": "🤖 Greetings. My name is Einstein, and I'm your Student Advisor Chatbot. I can give course recommendations."
               }
             ],
             "response_type": "text",
