@@ -1288,7 +1288,7 @@
             {
               "values": [
                 {
-                  "text": "🤖 Greetings. My name is Einstein, and I'm a Flower Shop Chatbot. What name can I call you by?"
+                  "text": "🤖 Hi! My name is Flo, and I'm a Flower Shop Chatbot. What name can I call you by?"
                 }
               ],
               "response_type": "text",
