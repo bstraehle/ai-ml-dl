@@ -11,3 +11,5 @@ Google Colab:
 <a href="https://colab.research.google.com/drive/1WNSVtM82oknmzL1QrJlNu--yNaWbp6o9">Supervised fine-tuning (SFT) of an LLM  
 
 <a href="https://colab.research.google.com/drive/1mWiOFBy3zY6OdINEvHN9EPoQ_VIvfFKw">Human preference fine-tuning using direct preference optimization (DPO) of an LLM</a>  
+
+http://wandb.me/openai-colab  
