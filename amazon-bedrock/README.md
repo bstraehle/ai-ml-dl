@@ -2,3 +2,5 @@ https://community.aws/posts/amazon-bedrock-integrating-foundation-models-into-yo
 https://community.aws/posts/amazon-bedrock-quick-start  
 
 https://github.com/aws-samples/amazon-bedrock-workshop  
+
+https://www.deeplearning.ai/short-courses/serverless-llm-apps-amazon-bedrock/  
