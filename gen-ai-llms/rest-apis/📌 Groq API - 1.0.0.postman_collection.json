@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "26b0809c-9b8a-4e91-8f6d-8748492993c9",
+		"name": "📌 Groq API - 1.0.0",
+		"description": "### Prerequisites\n\n- Postman\n- Groq Account: [https://console.groq.com/](https://console.groq.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.api.groq.com/](https://docs.api.groq.com/)\n- Models: [https://console.groq.com/docs/models](https://console.groq.com/docs/models)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7643177",
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/genai-llm-apis/collection/7643177-26b0809c-9b8a-4e91-8f6d-8748492993c9?action=share&source=collection_link&creator=7643177"
+	},
+	"item": [
+		{
+			"name": "chat/completions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"mixtral-8x7b-32768\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.groq.com/openai/v1/chat/completions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"groq",
+						"com"
+					],
+					"path": [
+						"openai",
+						"v1",
+						"chat",
+						"completions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"mixtral-8x7b-32768\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.groq.com/openai/v1/chat/completions",
+							"protocol": "https",
+							"host": [
+								"api",
+								"groq",
+								"com"
+							],
+							"path": [
+								"openai",
+								"v1",
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 05 Mar 2024 18:56:46 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "x-request-id",
+							"value": "6afd2429-e5f4-98e5-9355-a07c786aa507"
+						},
+						{
+							"key": "cache-control",
+							"value": "private, max-age=0, no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "x-cloud-trace-context",
+							"value": "8b4de09f479aa2b94ae5875bb6c09fb5"
+						},
+						{
+							"key": "via",
+							"value": "1.1 google, 1.1 google"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=86400"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "85fc53e8d9856a2f-LAX"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6afd2429-e5f4-98e5-9355-a07c786aa507\",\n    \"object\": \"chat.completion\",\n    \"created\": 1709665006,\n    \"model\": \"mixtral-8x7b-32768\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low latency Large Language Models (LLMs) are important for real-time applications where prompt response times are critical. In such applications, even small delays in processing and generating responses can significantly impact user experience.\\n\\nFor instance, in real-time chat or conversation systems, users expect quick and snappy responses from the model. High latency can result in a laggy and unresponsive user interface, leading to a poor user experience. Moreover, long delays can disrupt the natural flow of the conversation and make it difficult for users to maintain context.\\n\\nIn addition, low latency is also crucial for applications that require real-time decision-making, such as autonomous systems, financial trading systems, or online gaming. In these scenarios, even minor delays in processing and generating responses can result in significant losses or missed opportunities.\\n\\nTherefore, low latency LLMs are essential for building responsive and efficient systems that can handle real-time data processing, analysis, and decision-making tasks. By reducing the time it takes for LLMs to process and generate responses, developers can build more engaging, interactive, and efficient applications.\\n\\nMoreover, low latency LLMs can enable new use cases and applications that were previously not possible due to the limitations of high-latency models. For instance, low latency LLMs can power real-time translation services, live captioning, and other real-time language processing tasks.\\n\\nIn summary, low latency LLMs are important for building responsive, efficient, and engaging applications that require real-time data processing, analysis, and decision-making. By reducing the time it takes for LLMs to process and generate responses, developers can build more innovative and practical applications that can handle real-world scenarios.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 24,\n        \"prompt_time\": 0.016,\n        \"completion_tokens\": 368,\n        \"completion_time\": 0.837,\n        \"total_tokens\": 392,\n        \"total_time\": 0.853\n    },\n    \"system_fingerprint\": null\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.groq.com/openai/v1",
+			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "TODO",
+			"type": "string"
+		}
+	]
+}
