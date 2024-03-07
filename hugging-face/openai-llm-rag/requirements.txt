@@ -1,6 +1,6 @@
 bs4
 chromadb
-langchain==0.0.354
+langchain==0.1.11
 llama-hub
 llama-index==0.9.24
 openai
