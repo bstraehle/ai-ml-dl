@@ -1,6 +1,6 @@
-langchain
+langchain==0.0.354
 llama-hub
-llama-index
+llama-index==0.9.24
 openai
 pyowm
 python-dotenv
