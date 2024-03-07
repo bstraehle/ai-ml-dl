@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "38acaaa9-1887-4228-be71-c5acf86ba7b9",
+		"name": "📌 Google Vertex AI API - 1.0.0",
+		"description": "### Prerequisites\n\n- Postman\n- Google Cloud Account: [https://cloud.google.com/](https://cloud.google.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://cloud.google.com/vertex-ai/docs/reference/rest](https://cloud.google.com/vertex-ai/docs/reference/rest)\n    \n- Models: [https://console.cloud.google.com/vertex-ai/model-garden](https://console.cloud.google.com/vertex-ai/model-garden)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7643177",
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/genai-llm-apis/collection/7643177-38acaaa9-1887-4228-be71-c5acf86ba7b9?action=share&source=collection_link&creator=7643177"
+	},
+	"item": [
+		{
+			"name": "models/gemini-1.0-pro:generateContent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contents\": {\r\n        \"role\": \"user\",\r\n        \"parts\": {\r\n            \"text\": \"Question: For the given review, return a JSON object that has the fields sentiment and explanation. Acceptable values for sentiment are Positive or Negative. The explanation field contains text that explains the sentiment. Review: This is a shoe I will wear with black dress pants or jeans when I need comfort and a little style, but I am not impressed. This is a very flimsy shoe with little support at all. Unlike any other shoes I've purchased in the past. It looks nice, but it's not comfortable.\"\r\n        }\r\n    },\r\n    \"generation_config\": {\r\n        \"maxOutputTokens\": 2048,\r\n        \"temperature\": 0.9,\r\n        \"topP\": 1\r\n    },\r\n    \"safetySettings\": [\r\n        {\r\n            \"category\": \"HARM_CATEGORY_HATE_SPEECH\",\r\n            \"threshold\": \"BLOCK_MEDIUM_AND_ABOVE\"\r\n        },\r\n        {\r\n            \"category\": \"HARM_CATEGORY_DANGEROUS_CONTENT\",\r\n            \"threshold\": \"BLOCK_MEDIUM_AND_ABOVE\"\r\n        },\r\n        {\r\n            \"category\": \"HARM_CATEGORY_SEXUALLY_EXPLICIT\",\r\n            \"threshold\": \"BLOCK_MEDIUM_AND_ABOVE\"\r\n        },\r\n        {\r\n            \"category\": \"HARM_CATEGORY_HARASSMENT\",\r\n            \"threshold\": \"BLOCK_MEDIUM_AND_ABOVE\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/projects/{{projectId}}/locations/{{locationId}}/publishers/google/models/{{modelId}}:{{modelAction}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"projects",
+						"{{projectId}}",
+						"locations",
+						"{{locationId}}",
+						"publishers",
+						"google",
+						"models",
+						"{{modelId}}:{{modelAction}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contents\": {\r\n        \"role\": \"user\",\r\n        \"parts\": {\r\n            \"text\": \"Question: For the given review, return a JSON object that has the fields sentiment and explanation. Acceptable values for sentiment are Positive or Negative. The explanation field contains text that explains the sentiment. Review: This is a shoe I will wear with black dress pants or jeans when I need comfort and a little style, but I am not impressed. This is a very flimsy shoe with little support at all. Unlike any other shoes I've purchased in the past. It looks nice, but it's not comfortable.\"\r\n        }\r\n    },\r\n    \"generation_config\": {\r\n        \"maxOutputTokens\": 2048,\r\n        \"temperature\": 0.9,\r\n        \"topP\": 1\r\n    },\r\n    \"safetySettings\": [\r\n        {\r\n            \"category\": \"HARM_CATEGORY_HATE_SPEECH\",\r\n            \"threshold\": \"BLOCK_MEDIUM_AND_ABOVE\"\r\n        },\r\n        {\r\n            \"category\": \"HARM_CATEGORY_DANGEROUS_CONTENT\",\r\n            \"threshold\": \"BLOCK_MEDIUM_AND_ABOVE\"\r\n        },\r\n        {\r\n            \"category\": \"HARM_CATEGORY_SEXUALLY_EXPLICIT\",\r\n            \"threshold\": \"BLOCK_MEDIUM_AND_ABOVE\"\r\n        },\r\n        {\r\n            \"category\": \"HARM_CATEGORY_HARASSMENT\",\r\n            \"threshold\": \"BLOCK_MEDIUM_AND_ABOVE\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/projects/{{projectId}}/locations/{{locationId}}/publishers/google/models/{{modelId}}:{{modelAction}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"projects",
+								"{{projectId}}",
+								"locations",
+								"{{locationId}}",
+								"publishers",
+								"google",
+								"models",
+								"{{modelId}}:{{modelAction}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "X-Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Referer"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 05 Mar 2024 20:20:16 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "scaffolding on HTTPServer2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"candidates\": [\n        {\n            \"content\": {\n                \"role\": \"model\",\n                \"parts\": [\n                    {\n                        \"text\": \"```json\\n{\\n  \\\"sentiment\\\": \\\"Negative\\\",\\n  \\\"explanation\\\": \\\"The reviewer expressed dissatisfaction with the shoe's flimsy construction, lack of support, and discomfort, despite its stylish appearance.\\\"\\n}\\n```\"\n                    }\n                ]\n            },\n            \"finishReason\": \"STOP\",\n            \"safetyRatings\": [\n                {\n                    \"category\": \"HARM_CATEGORY_HATE_SPEECH\",\n                    \"probability\": \"NEGLIGIBLE\",\n                    \"probabilityScore\": 0.1501534,\n                    \"severity\": \"HARM_SEVERITY_NEGLIGIBLE\",\n                    \"severityScore\": 0.051749535\n                },\n                {\n                    \"category\": \"HARM_CATEGORY_DANGEROUS_CONTENT\",\n                    \"probability\": \"NEGLIGIBLE\",\n                    \"probabilityScore\": 0.048047356,\n                    \"severity\": \"HARM_SEVERITY_NEGLIGIBLE\",\n                    \"severityScore\": 0.03890198\n                },\n                {\n                    \"category\": \"HARM_CATEGORY_HARASSMENT\",\n                    \"probability\": \"NEGLIGIBLE\",\n                    \"probabilityScore\": 0.37364724,\n                    \"severity\": \"HARM_SEVERITY_NEGLIGIBLE\",\n                    \"severityScore\": 0.124851815\n                },\n                {\n                    \"category\": \"HARM_CATEGORY_SEXUALLY_EXPLICIT\",\n                    \"probability\": \"NEGLIGIBLE\",\n                    \"probabilityScore\": 0.09653532,\n                    \"severity\": \"HARM_SEVERITY_NEGLIGIBLE\",\n                    \"severityScore\": 0.12252322\n                }\n            ]\n        }\n    ],\n    \"usageMetadata\": {\n        \"promptTokenCount\": 103,\n        \"candidatesTokenCount\": 46,\n        \"totalTokenCount\": 149\n    }\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://us-central1-aiplatform.googleapis.com/v1",
+			"type": "string"
+		},
+		{
+			"key": "projectId",
+			"value": "TODO",
+			"type": "string"
+		},
+		{
+			"key": "locationId",
+			"value": "us-central1",
+			"type": "string"
+		},
+		{
+			"key": "modelId",
+			"value": "gemini-1.0-pro",
+			"type": "string"
+		},
+		{
+			"key": "modelAction",
+			"value": "generateContent",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "TODO",
+			"type": "string"
+		}
+	]
+}
