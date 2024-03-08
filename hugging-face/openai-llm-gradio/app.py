@@ -36,7 +36,7 @@ def invoke(openai_api_key, prompt):
 
     return content
 
-description = """<a href='https://www.gradio.app/'>Gradio</a> UI using the <a href='https://openai.com/'>OpenAI</a> API 
+description = """<a href='https://www.gradio.app/'>Gradio</a> UI using the <a href='https://openai.com/'>OpenAI</a> SDK 
                  with <a href='https://openai.com/research/gpt-4'>gpt-4</a> model."""
 
 gr.close_all()
