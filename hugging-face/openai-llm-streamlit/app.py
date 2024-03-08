@@ -39,7 +39,7 @@ def invoke(openai_api_key, prompt):
 
     return content
 
-description = """[Streamlit](https://streamlit.io/) UI using the [OpenAI](https://openai.com/) API 
+description = """[Streamlit](https://streamlit.io/) UI using the [OpenAI](https://openai.com/) SDK 
                  with [gpt-4](https://openai.com/research/gpt-4) model."""
 
 st.title("Generative AI - LLM")
