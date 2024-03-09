@@ -1,12 +1,12 @@
 ---
 title: Transformers
-emoji: ⚡
-colorFrom: gray
+emoji: 🧠
+colorFrom: pink
 colorTo: gray
 sdk: gradio
 sdk_version: 4.21.0
 app_file: app.py
-pinned: false
+pinned: true
 license: apache-2.0
 ---
 
