@@ -1,7 +1,7 @@
 ---
 title: HF - Transformers
-emoji: 🧠
-colorFrom: pink
+emoji: 🤗
+colorFrom: yellow
 colorTo: gray
 sdk: gradio
 sdk_version: 4.21.0
