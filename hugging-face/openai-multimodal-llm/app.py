@@ -56,7 +56,7 @@ demo = gr.Interface(
     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
               gr.Textbox(label = "Prompt", lines = 1, value = "Describe the diagram."),
               gr.Image(label = "Image", type = "filepath", sources = ["upload"], 
-                       value = "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/architecture-openai-llm-rag.png")],
+                       value = "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/openai-multimodal-llm/architecture-openai-llm-rag.png")],
     outputs = [gr.Textbox(label = "Completion", lines = 1)],
     title = "Multimodal Reasoning Application",
     description = os.environ["DESCRIPTION"]
