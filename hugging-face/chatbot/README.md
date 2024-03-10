@@ -1,5 +1,5 @@
 ---
-title: IBM watsonx - Chatbot
+title: IBM watsonx - Virtual Assistant
 emoji: 🤖
 colorFrom: blue
 colorTo: gray
