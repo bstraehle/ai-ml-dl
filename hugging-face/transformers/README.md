@@ -1,5 +1,5 @@
 ---
-title: HF - Transformers
+title: Hugging Face - Transformers
 emoji: 🤗
 colorFrom: yellow
 colorTo: gray
