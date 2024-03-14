@@ -1,1 +1,1 @@
-https://www.deeplearning.ai/short-courses/knowledge-graphs-rag  
+https://www.deeplearning.ai/short-courses/knowledge-graphs-rag/ (Neo4j)  
