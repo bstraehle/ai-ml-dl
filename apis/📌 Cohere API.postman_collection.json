@@ -1,0 +1,906 @@
+{
+	"info": {
+		"_postman_id": "bd265571-91dd-46c2-9ae3-b43aa865bd04",
+		"name": "📌 Cohere API",
+		"description": "### Prerequisites\n\n- Postman\n- Cohere Account: [https://cohere.com/](https://cohere.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.cohere.com/reference/about](https://docs.cohere.com/reference/about)\n- Models: [https://docs.cohere.com/docs/models](https://docs.cohere.com/docs/models)\n    \n\n### About Cohere\n\nCohere provides industry-leading large language models and RAG capabilities, tailored to meet the needs of enterprise use cases that solve real-world problems.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7643177",
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-apis/collection/7643177-bd265571-91dd-46c2-9ae3-b43aa865bd04?action=share&source=collection_link&creator=7643177"
+	},
+	"item": [
+		{
+			"name": "🚀 Get Started",
+			"item": [
+				{
+					"name": "Summarize",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"Ice cream is a sweetened frozen food typically eaten as a snack or dessert. It may be made from milk or cream and is flavoured with a sweetener, either sugar or an alternative, and a spice, such as cocoa or vanilla, or with fruit such as strawberries or peaches. It can also be made by whisking a flavored cream base and liquid nitrogen together. Food coloring is sometimes added, in addition to stabilizers. The mixture is cooled below the freezing point of water and stirred to incorporate air spaces and to prevent detectable ice crystals from forming. The result is a smooth, semi-solid foam that is solid at very low temperatures (below 2 °C or 35 °F). It becomes more malleable as its temperature increases.\\n\\nThe meaning of the name \\\"ice cream\\\" varies from one country to another. In some countries, such as the United States, \\\"ice cream\\\" applies only to a specific variety, and most governments regulate the commercial use of the various terms according to the relative quantities of the main ingredients, notably the amount of cream. Products that do not meet the criteria to be called ice cream are sometimes labelled \\\"frozen dairy dessert\\\" instead. In other countries, such as Italy and Argentina, one word is used for all variants. Analogues made from dairy alternatives, such as goat's or sheep's milk, or milk substitutes (e.g., soy, cashew, coconut, almond milk or tofu), are available for those who are lactose intolerant, allergic to dairy protein or vegan.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/summarize",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"summarize"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"text\": \"Ice cream is a sweetened frozen food typically eaten as a snack or dessert. It may be made from milk or cream and is flavoured with a sweetener, either sugar or an alternative, and a spice, such as cocoa or vanilla, or with fruit such as strawberries or peaches. It can also be made by whisking a flavored cream base and liquid nitrogen together. Food coloring is sometimes added, in addition to stabilizers. The mixture is cooled below the freezing point of water and stirred to incorporate air spaces and to prevent detectable ice crystals from forming. The result is a smooth, semi-solid foam that is solid at very low temperatures (below 2 °C or 35 °F). It becomes more malleable as its temperature increases.\\n\\nThe meaning of the name \\\"ice cream\\\" varies from one country to another. In some countries, such as the United States, \\\"ice cream\\\" applies only to a specific variety, and most governments regulate the commercial use of the various terms according to the relative quantities of the main ingredients, notably the amount of cream. Products that do not meet the criteria to be called ice cream are sometimes labelled \\\"frozen dairy dessert\\\" instead. In other countries, such as Italy and Argentina, one word is used for all variants. Analogues made from dairy alternatives, such as goat's or sheep's milk, or milk substitutes (e.g., soy, cashew, coconut, almond milk or tofu), are available for those who are lactose intolerant, allergic to dairy protein or vegan.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.cohere.ai/v1/summarize",
+									"protocol": "https",
+									"host": [
+										"api",
+										"cohere",
+										"ai"
+									],
+									"path": [
+										"v1",
+										"summarize"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "access-control-expose-headers",
+									"value": "X-Debug-Trace-ID"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache, no-store, no-transform, must-revalidate, private, max-age=0"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "expires",
+									"value": "Thu, 01 Jan 1970 00:00:00 UTC"
+								},
+								{
+									"key": "num_chars",
+									"value": "2005"
+								},
+								{
+									"key": "num_tokens",
+									"value": "421"
+								},
+								{
+									"key": "pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-accel-expires",
+									"value": "0"
+								},
+								{
+									"key": "x-debug-trace-id",
+									"value": "d06eb5336ba284de577ea769959497ee"
+								},
+								{
+									"key": "x-endpoint-monthly-call-limit",
+									"value": "1000"
+								},
+								{
+									"key": "x-trial-endpoint-call-limit",
+									"value": "5"
+								},
+								{
+									"key": "x-trial-endpoint-call-remaining",
+									"value": "4"
+								},
+								{
+									"key": "date",
+									"value": "Tue, 12 Mar 2024 05:37:37 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "685"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "3451"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"f79f66b2-8d56-4901-ac12-5a38ff07c3d1\",\n    \"summary\": \"Ice cream is a frozen dessert or snack usually made from dairy products and eaten at a low temperature. Despite its name, it does not usually contain ice crystals, unlike sorbet. It is usually flavoured with sweeteners and spice additives. The name varies from one country to another, with some countries like the US having different categories dependent on ingredients, and others having a more generalised naming strategy. Ice cream can also be made without dairy products for those intolerant or allergic to dairy, or for vegans.\",\n    \"meta\": {\n        \"api_version\": {\n            \"version\": \"1\"\n        },\n        \"billed_units\": {\n            \"input_tokens\": 320,\n            \"output_tokens\": 101\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "Chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"chat_history\": [\n        {\n            \"role\": \"USER\",\n            \"message\": \"Who discovered gravity?\"\n        },\n        {\n            \"role\": \"CHATBOT\",\n            \"message\": \"The man who is widely credited with discovering gravity is Sir Isaac Newton\"\n        }\n    ],\n    \"message\": \"What year was he born?\",\n    \"connectors\": [\n        {\n            \"id\": \"web-search\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Classify",
+			"item": [
+				{
+					"name": "Classify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": [\n        \"Confirm your email address\",\n        \"hey i need u to send some $\"\n    ],\n    \"examples\": [\n        {\n            \"text\": \"Dermatologists don't like her!\",\n            \"label\": \"Spam\"\n        },\n        {\n            \"text\": \"'Hello, open to this?'\",\n            \"label\": \"Spam\"\n        },\n        {\n            \"text\": \"I need help please wire me $1000 right now\",\n            \"label\": \"Spam\"\n        },\n        {\n            \"text\": \"Nice to know you ;)\",\n            \"label\": \"Spam\"\n        },\n        {\n            \"text\": \"Please help me?\",\n            \"label\": \"Spam\"\n        },\n        {\n            \"text\": \"Your parcel will be delivered today\",\n            \"label\": \"Not spam\"\n        },\n        {\n            \"text\": \"Review changes to our Terms and Conditions\",\n            \"label\": \"Not spam\"\n        },\n        {\n            \"text\": \"Weekly sync notes\",\n            \"label\": \"Not spam\"\n        },\n        {\n            \"text\": \"'Re: Follow up from today's meeting'\",\n            \"label\": \"Not spam\"\n        },\n        {\n            \"text\": \"Pre-read for tomorrow\",\n            \"label\": \"Not spam\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/classify",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"classify"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Connectors",
+			"item": [
+				{
+					"name": "List Connectors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/connectors",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"connectors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Connector",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Example connector\",\r\n    \"url\": \"https://connector-example.com/search\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/connectors",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"connectors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Connector",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/connectors/id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"connectors",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Connector",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"new name\",\r\n    \"url\": \"https://example.com/search\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/connectors/id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"connectors",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Connector",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/connectors/id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"connectors",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authorize with oAuth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/connectors/id/oauth/authorize",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"connectors",
+								"id",
+								"oauth",
+								"authorize"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Datasets",
+			"item": [
+				{
+					"name": "Create a Dataset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/bstra/Downloads/file.jsonl"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/datasets?name=my-dataset&type=generative-finetune-input",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"datasets"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "my-dataset"
+								},
+								{
+									"key": "type",
+									"value": "generative-finetune-input"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Datasets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/datasets",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"datasets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Dataset Usage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/datasets/usage",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"datasets",
+								"usage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Dataset",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/datasets/id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"datasets",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Dataset",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/datasets/id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"datasets",
+								"id"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Detokenize",
+			"item": [
+				{
+					"name": "Detokenize",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"command\",\n    \"tokens\": [\n        8466,\n        5169,\n        2594,\n        8,\n        2792,\n        43\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/detokenize",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"detokenize"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Embed",
+			"item": [
+				{
+					"name": "Embed",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"embed-english-v3.0\",\n    \"texts\": [\n        \"hello\",\n        \"goodbye\"\n    ],\n    \"input_type\": \"classification\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/embed",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"embed"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Embed-jobs",
+			"item": [
+				{
+					"name": "Create an Embed Job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"embed-english-v3.0\",\n    \"dataset_id\": \"my-dataset\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/embed-jobs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"embed-jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Embed Jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/embed-jobs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"embed-jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch an Embed Job",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/embed-jobs/id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"embed-jobs",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel an Embed Job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/embed-jobs/id/cancel",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"embed-jobs",
+								"id",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Finetuning",
+			"item": [
+				{
+					"name": "List fine-tuned models",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/finetuning/finetuned-models",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"finetuning",
+								"finetuned-models"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trains and deploys a fine-tuned model",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/finetuning/finetuned-models",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"finetuning",
+								"finetuned-models"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updates a fine-tuned model",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/finetuning/finetuned-models/id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"finetuning",
+								"finetuned-models",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns a fine-tuned model by ID or name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/finetuning/finetuned-models/id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"finetuning",
+								"finetuned-models",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletes a fine-tuned model",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/finetuning/finetuned-models/id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"finetuning",
+								"finetuned-models",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieves the chronology of statuses the fine-tuned model has been through",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/finetuning/finetuned-models/finetuned_model_id/events",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"finetuning",
+								"finetuned-models",
+								"finetuned_model_id",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieves metrics measured during the training of a fine-tuned model",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/finetuning/finetuned-models/finetuned_model_id/metrics",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"finetuning",
+								"finetuned-models",
+								"finetuned_model_id",
+								"metrics"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Models",
+			"item": [
+				{
+					"name": "Models",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/models",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rerank",
+			"item": [
+				{
+					"name": "Rerank",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"rerank-english-v2.0\",\n    \"query\": \"What is the capital of the United States?\",\n    \"top_n\": 3,\n    \"documents\": [\n        \"Carson City is the capital city of the American state of Nevada.\",\n        \"The Commonwealth of the Northern Mariana Islands is a group of islands in the Pacific Ocean. Its capital is Saipan.\",\n        \"Washington, D.C. (also known as simply Washington or D.C., and officially as the District of Columbia) is the capital of the United States. It is a federal district.\",\n        \"Capital punishment (the death penalty) has existed in the United States since beforethe United States was a country. As of 2017, capital punishment is legal in 30 of the 50 states.\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/rerank",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"rerank"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Summarize",
+			"item": [
+				{
+					"name": "Summarize",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"Ice cream is a sweetened frozen food typically eaten as a snack or dessert. It may be made from milk or cream and is flavoured with a sweetener, either sugar or an alternative, and a spice, such as cocoa or vanilla, or with fruit such as strawberries or peaches. It can also be made by whisking a flavored cream base and liquid nitrogen together. Food coloring is sometimes added, in addition to stabilizers. The mixture is cooled below the freezing point of water and stirred to incorporate air spaces and to prevent detectable ice crystals from forming. The result is a smooth, semi-solid foam that is solid at very low temperatures (below 2 °C or 35 °F). It becomes more malleable as its temperature increases.\\n\\nThe meaning of the name \\\"ice cream\\\" varies from one country to another. In some countries, such as the United States, \\\"ice cream\\\" applies only to a specific variety, and most governments regulate the commercial use of the various terms according to the relative quantities of the main ingredients, notably the amount of cream. Products that do not meet the criteria to be called ice cream are sometimes labelled \\\"frozen dairy dessert\\\" instead. In other countries, such as Italy and Argentina, one word is used for all variants. Analogues made from dairy alternatives, such as goat's or sheep's milk, or milk substitutes (e.g., soy, cashew, coconut, almond milk or tofu), are available for those who are lactose intolerant, allergic to dairy protein or vegan.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/summarize",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"summarize"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tokenize",
+			"item": [
+				{
+					"name": "Tokenize",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"command\",\n    \"text\": \"tokenize me! :D\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tokenize",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tokenize"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.cohere.ai/v1",
+			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "TODO",
+			"type": "string"
+		}
+	]
+}

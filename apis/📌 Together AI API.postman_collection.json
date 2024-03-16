@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "630d3bca-bea6-445a-bb3c-345433dc6b53",
+		"name": "📌 Together AI API",
+		"description": "### Prerequisites\n\n- Postman\n- Together AI Account: [https://api.together.xyz/](https://api.together.xyz/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.together.ai/docs/quickstart](https://docs.together.ai/docs/quickstart)\n- Models: [https://api.together.xyz/models](https://api.together.xyz/models)\n    \n\n### About Together AI\n\nThe fastest cloud platform for building and running generative AI.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7643177",
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-apis/collection/7643177-630d3bca-bea6-445a-bb3c-345433dc6b53?action=share&source=collection_link&creator=7643177"
+	},
+	"item": [
+		{
+			"name": "🚀 Get Started",
+			"item": [
+				{
+					"name": "/chat/completions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are an expert travel guide\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Tell me fun things to do in San Francisco.\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are an expert travel guide\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Tell me fun things to do in San Francisco.\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:26:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "2"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "1"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "2"
+								},
+								{
+									"key": "X-Inference-Version",
+									"value": "v2"
+								},
+								{
+									"key": "X-API-Received",
+									"value": "2024-03-14T00:26:40.549Z"
+								},
+								{
+									"key": "X-API-Call-Start",
+									"value": "2024-03-14T00:26:40.556Z"
+								},
+								{
+									"key": "X-API-Call-End",
+									"value": "2024-03-14T00:26:49.069Z"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "8386"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "109"
+								},
+								{
+									"key": "x-total-time",
+									"value": "8386"
+								},
+								{
+									"key": "x-validation-time",
+									"value": "0"
+								},
+								{
+									"key": "x-queue-time",
+									"value": "6"
+								},
+								{
+									"key": "x-inference-time",
+									"value": "8379"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "17"
+								},
+								{
+									"key": "x-hostname",
+									"value": "mistralai-mixtral-8x7b-instruct-v0-1-69f75f6797-blk9z"
+								},
+								{
+									"key": "ETag",
+									"value": "\"r4kmjfwkcx1sl\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "864022332a6214f6-LAX"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"864022332a6214f6-LAX\",\n    \"object\": \"chat.completion\",\n    \"created\": 1710376009,\n    \"model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\",\n    \"prompt\": [],\n    \"choices\": [\n        {\n            \"finish_reason\": \"eos\",\n            \"logprobs\": null,\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" Absolutely, I'd be happy to help you discover some fun things to do in San Francisco! Here are a few suggestions:\\n\\n1. **Explore Golden Gate Park:** This urban park is larger than New York's Central Park and offers a variety of activities. You can visit the California Academy of Sciences, stroll through the Japanese Tea Garden, or rent a boat to paddle on Stow Lake.\\n\\n2. **Ride a Cable Car:** San Francisco's cable car system is a National Historic Landmark. It's not only a fun way to get around, but also offers great views of the city.\\n\\n3. **Visit the Ferry Building Marketplace:** This is a food lover's paradise. It's home to a variety of local food and artisan stalls. Don't miss the Farmer's Market on Saturdays!\\n\\n4. **Explore the Mission District:** This vibrant neighborhood is known for its colorful murals, hip bars, and delicious Mexican food.\\n\\n5. **Walk the Golden Gate Bridge:** The bridge is one of the most iconic sights in San Francisco. You can walk or bike across it for stunning views of the Bay Area.\\n\\n6. **Visit Alcatraz Island:** This former prison is now a museum. You can take a ferry to the island and tour the prison cells.\\n\\n7. **Explore the Exploratorium:** This museum makes science fun and accessible. It's full of interactive exhibits that are fun for all ages.\\n\\n8. **Visit the San Francisco Museum of Modern Art (SFMOMA):** If you're an art lover, don't miss SFMOMA. It's one of the largest modern and contemporary art museums in the United States.\\n\\n9. **Stroll through the Presidio:** This former military base is now a park with beautiful views, hiking trails, and historic sites.\\n\\n10. **Visit the Painted Ladies:** These Victorian houses are one of the most photographed sites in San Francisco. They're especially beautiful at sunset.\\n\\nRemember, San Francisco is a city with a lot to offer, so take your time to explore and enjoy!\"\n            }\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 36,\n        \"completion_tokens\": 488,\n        \"total_tokens\": 524\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.together.xyz/v1",
+			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "TODO",
+			"type": "string"
+		}
+	]
+}

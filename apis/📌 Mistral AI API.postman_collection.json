@@ -1,0 +1,549 @@
+{
+	"info": {
+		"_postman_id": "a2821cd2-040a-48d7-86e1-42ee05ba1fb3",
+		"name": "📌 Mistral AI API",
+		"description": "### Prerequisites\n\n- Postman\n- Mistral AI Account: [https://console.mistral.ai/](https://console.mistral.ai/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.mistral.ai/api](https://docs.mistral.ai/api)\n- Models: [https://docs.mistral.ai/models](https://docs.mistral.ai/models)\n    \n\n### About Mistral AI\n\nOpen and portable generative AI for developers and businesses.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7643177",
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-apis/collection/7643177-a2821cd2-040a-48d7-86e1-42ee05ba1fb3?action=share&source=collection_link&creator=7643177"
+	},
+	"item": [
+		{
+			"name": "🚀 Get Started",
+			"item": [
+				{
+					"name": "Create Chat Completions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"mistral-large-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"mistral-large-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Mar 2024 02:42:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1967990"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999967990"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "45"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1967990"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "2969"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "71"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "6b43954c0f515a247ed7e34a1913d75f"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86306e109f132ef7-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"b7f966f6553e4ecd8c696d10ddf62901\",\n    \"object\": \"chat.completion\",\n    \"created\": 1710211335,\n    \"model\": \"mistral-large-latest\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"There are many renowned French painters, but one of the most famous is Claude Monet. Monet is a key figure in the impressionist movement, which emphasizes capturing the sensory effect of a scene. His series of water lilies paintings are particularly well-known. However, it's important to note that France has a rich art history, and there are many other notable French painters, such as Vincent van Gogh (who was Dutch-born but spent much of his life in France), Paul Cézanne, Henri Matisse, and Pierre-Auguste Renoir, among others.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 12,\n        \"total_tokens\": 141,\n        \"completion_tokens\": 129\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "Completions",
+					"item": [
+						{
+							"name": "Create Chat Completions",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"mistral-large-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"model\": \"mistral-large-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/chat/completions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"chat",
+												"completions"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2024 02:42:19 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "ratelimitbysize-limit",
+											"value": "2000000"
+										},
+										{
+											"key": "ratelimitbysize-remaining",
+											"value": "1967990"
+										},
+										{
+											"key": "x-ratelimitbysize-remaining-month",
+											"value": "9999967990"
+										},
+										{
+											"key": "ratelimitbysize-reset",
+											"value": "45"
+										},
+										{
+											"key": "x-ratelimitbysize-limit-minute",
+											"value": "2000000"
+										},
+										{
+											"key": "x-ratelimitbysize-remaining-minute",
+											"value": "1967990"
+										},
+										{
+											"key": "x-ratelimitbysize-limit-month",
+											"value": "10000000000"
+										},
+										{
+											"key": "ratelimitbysize-query-cost",
+											"value": "32010"
+										},
+										{
+											"key": "access-control-allow-origin",
+											"value": "*"
+										},
+										{
+											"key": "x-kong-upstream-latency",
+											"value": "2969"
+										},
+										{
+											"key": "x-kong-proxy-latency",
+											"value": "71"
+										},
+										{
+											"key": "x-kong-request-id",
+											"value": "6b43954c0f515a247ed7e34a1913d75f"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "86306e109f132ef7-LAX"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										},
+										{
+											"key": "alt-svc",
+											"value": "h3=\":443\"; ma=86400"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"b7f966f6553e4ecd8c696d10ddf62901\",\n    \"object\": \"chat.completion\",\n    \"created\": 1710211335,\n    \"model\": \"mistral-large-latest\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"There are many renowned French painters, but one of the most famous is Claude Monet. Monet is a key figure in the impressionist movement, which emphasizes capturing the sensory effect of a scene. His series of water lilies paintings are particularly well-known. However, it's important to note that France has a rich art history, and there are many other notable French painters, such as Vincent van Gogh (who was Dutch-born but spent much of his life in France), Paul Cézanne, Henri Matisse, and Pierre-Auguste Renoir, among others.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 12,\n        \"total_tokens\": 141,\n        \"completion_tokens\": 129\n    }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Embeddings",
+			"item": [
+				{
+					"name": "Create Embeddings",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"model\": \"<string>\",\n  \"input\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"encoding_format\": \"float\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/embeddings",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"embeddings"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"model\": \"<string>\",\n  \"input\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"encoding_format\": \"float\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/embeddings",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"embeddings"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<string>\",\n  \"object\": \"<string>\",\n  \"data\": [\n    {\n      \"object\": \"<string>\",\n      \"embedding\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"index\": \"<int>\"\n    },\n    {\n      \"object\": \"<string>\",\n      \"embedding\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"index\": \"<int>\"\n    }\n  ],\n  \"model\": \"<string>\",\n  \"usage\": {\n    \"prompt_tokens\": \"<integer>\",\n    \"total_tokens\": \"<integer>\"\n  }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Models",
+			"item": [
+				{
+					"name": "List Available Models",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/models",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/models",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"object\": \"<string>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"object\": \"<string>\",\n      \"created\": \"<integer>\",\n      \"owned_by\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"object\": \"<string>\",\n      \"created\": \"<integer>\",\n      \"owned_by\": \"<string>\"\n    }\n  ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.mistral.ai/v1",
+			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "TODO",
+			"type": "string"
+		}
+	]
+}
