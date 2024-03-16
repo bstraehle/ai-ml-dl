@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "048587c0-9980-4025-9c81-1934045e3fc0",
+		"name": "📌 Lamini API",
+		"description": "### Prerequisites\n\n- Postman\n- Lamini Account: [https://app.lamini.ai/](https://app.lamini.ai/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://lamini-ai.github.io/](https://lamini-ai.github.io/)\n- Models: [https://lamini-ai.github.io/inference/models_list](https://lamini-ai.github.io/inference/models_list)\n    \n\n### About Lamini\n\nLamini is the enterprise LLM platform for existing software teams to quickly develop and control their own LLMs.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7643177",
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-apis/collection/7643177-048587c0-9980-4025-9c81-1934045e3fc0?action=share&source=collection_link&creator=7643177"
+	},
+	"item": [
+		{
+			"name": "🚀 Get Started",
+			"item": [
+				{
+					"name": "Completions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model_name\": \"meta-llama/Llama-2-7b-chat-hf\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model_name\": \"meta-llama/Llama-2-7b-chat-hf\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "950"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Mar 2024 04:10:30 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"output\": \" I hope you are doing well.\\nI am writing to you today to ask for your help. As you may know, I am a big fan of your work and I have been following your career for many years. I must say, you are an inspiration to me and many others.\\n\\nI am reaching out to you because I am in a bit of a difficult situation and I was hoping you could offer me some advice. You see, I have been struggling with [insert problem here] and I am not sure how to handle it. I have tried [insert solutions here] but they have not worked for me. I was hoping you could share some of your wisdom and experience with me.\\n\\nI know that you are a very busy person, but I would be forever grateful if you could take the time to respond to my message. I promise to keep your advice confidential and to use it to help me overcome my problem.\\n\\nThank you in advance for your time and consideration. I look forward to hearing from you soon.\\n\\nSincerely,\\n[Your Name]\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.lamini.ai/v1",
+			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "TODO",
+			"type": "string"
+		}
+	]
+}

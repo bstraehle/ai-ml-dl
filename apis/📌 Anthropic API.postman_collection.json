@@ -1,0 +1,329 @@
+{
+	"info": {
+		"_postman_id": "2abea212-3a37-41f4-b008-32f40323fc30",
+		"name": "📌 Anthropic API",
+		"description": "### Prerequisites\n\n- Postman\n- Anthropic Account: [https://console.anthropic.com/](https://console.anthropic.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://www.anthropic.com/api](https://www.anthropic.com/api)\n- Models: [https://www.anthropic.com/claude](https://www.anthropic.com/claude)\n    \n\n### About Anthropic\n\nAI research and products that put safety at the frontier.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7643177",
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-apis/collection/7643177-2abea212-3a37-41f4-b008-32f40323fc30?action=share&source=collection_link&creator=7643177"
+	},
+	"item": [
+		{
+			"name": "🚀 Get Started",
+			"item": [
+				{
+					"name": "Messages",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "anthropic-version",
+								"value": "2023-06-01",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"claude-3-opus-20240229\",\r\n    \"max_tokens\": 1024,\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Hello, world\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/messages",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"messages"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "anthropic-version",
+										"value": "2023-06-01",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"claude-3-opus-20240229\",\r\n    \"max_tokens\": 1024,\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Hello, world\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.anthropic.com/v1/messages",
+									"protocol": "https",
+									"host": [
+										"api",
+										"anthropic",
+										"com"
+									],
+									"path": [
+										"v1",
+										"messages"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Mar 2024 21:32:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "anthropic-ratelimit-requests-limit",
+									"value": "5"
+								},
+								{
+									"key": "anthropic-ratelimit-requests-remaining",
+									"value": "4"
+								},
+								{
+									"key": "anthropic-ratelimit-requests-reset",
+									"value": "2024-03-12T21:33:00Z"
+								},
+								{
+									"key": "anthropic-ratelimit-tokens-limit",
+									"value": "25000"
+								},
+								{
+									"key": "anthropic-ratelimit-tokens-remaining",
+									"value": "25000"
+								},
+								{
+									"key": "anthropic-ratelimit-tokens-reset",
+									"value": "2024-03-12T21:33:00Z"
+								},
+								{
+									"key": "request-id",
+									"value": "req_01FrbJBMQ5X4swj5SYCdgGem"
+								},
+								{
+									"key": "x-cloud-trace-context",
+									"value": "611499349cbe1a3c8afe8795afbc6071"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8636e5060ad20fd1-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"msg_01UCagXm2wPzX1UBmfCpDrCG\",\n    \"type\": \"message\",\n    \"role\": \"assistant\",\n    \"content\": [\n        {\n            \"type\": \"text\",\n            \"text\": \"Hello! How can I assist you today?\"\n        }\n    ],\n    \"model\": \"claude-3-opus-20240229\",\n    \"stop_reason\": \"end_turn\",\n    \"stop_sequence\": null,\n    \"usage\": {\n        \"input_tokens\": 10,\n        \"output_tokens\": 12\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Text Completion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "anthropic-version",
+								"value": "2023-06-01",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"claude-2.1\",\r\n    \"max_tokens_to_sample\": 1024,\r\n    \"prompt\": \"\\n\\nHuman: Hello, Claude\\n\\nAssistant:\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/complete",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"complete"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "anthropic-version",
+										"value": "2023-06-01",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"claude-2.1\",\r\n    \"max_tokens_to_sample\": 1024,\r\n    \"prompt\": \"\\n\\nHuman: Hello, Claude\\n\\nAssistant:\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/complete",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"complete"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Mar 2024 21:36:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "request-id",
+									"value": "req_01GD4j3LFhKz4sg2CSdsRkSw"
+								},
+								{
+									"key": "x-cloud-trace-context",
+									"value": "923b40b20287735d8f1fca5025566c68"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8636eafd2ba20fd1-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"completion\",\n    \"id\": \"compl_01MkyGZUBp7TyQavs2dMC9r6\",\n    \"completion\": \" Hello!\",\n    \"stop_reason\": \"stop_sequence\",\n    \"model\": \"claude-2.1\",\n    \"stop\": \"\\n\\nHuman:\",\n    \"log_id\": \"compl_01MkyGZUBp7TyQavs2dMC9r6\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.anthropic.com/v1",
+			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "TODO",
+			"type": "string"
+		}
+	]
+}

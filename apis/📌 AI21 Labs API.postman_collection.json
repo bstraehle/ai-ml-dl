@@ -1,0 +1,690 @@
+{
+	"info": {
+		"_postman_id": "0c4e9448-1031-4c77-b62b-f9b3b45cde48",
+		"name": "📌 AI21 Labs API",
+		"description": "### Prerequisites\n\n- Postman\n- AI21 Labs Account: [https://studio.ai21.com/](https://studio.ai21.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.ai21.com/reference](https://docs.ai21.com/reference)\n- Models: [https://studio.ai21.com/models](https://studio.ai21.com/models)\n    \n\n### About AI21 Labs\n\nAI lab & product company whose mission is to reimagine the way we read and write by making the machine a thought partner to humans.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7643177",
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-apis/collection/7643177-0c4e9448-1031-4c77-b62b-f9b3b45cde48?action=share&source=collection_link&creator=7643177"
+	},
+	"item": [
+		{
+			"name": "🚀 Get Started",
+			"item": [
+				{
+					"name": "j2-mid/complete (Zero-Shot Prompt)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"prompt\": \"These are a few of my favorite\",\r\n    \"numResults\": 1,\r\n    \"maxTokens\": 30,\r\n    \"temperature\": 0.7,\r\n    \"topKReturn\": 0,\r\n    \"topP\": 1,\r\n    \"countPenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"frequencyPenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"presencePenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"stopSequences\": [\r\n        \"##\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/j2-mid/complete",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"j2-mid",
+								"complete"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"prompt\": \"These are a few of my favorite\",\r\n    \"numResults\": 1,\r\n    \"maxTokens\": 30,\r\n    \"temperature\": 0.7,\r\n    \"topKReturn\": 0,\r\n    \"topP\": 1,\r\n    \"countPenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"frequencyPenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"presencePenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"stopSequences\": [\r\n        \"##\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.ai21.com/studio/v1/j2-mid/complete",
+									"protocol": "https",
+									"host": [
+										"api",
+										"ai21",
+										"com"
+									],
+									"path": [
+										"studio",
+										"v1",
+										"j2-mid",
+										"complete"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 13 Mar 2024 03:01:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "request-id",
+									"value": "9db8badb-a289-75ed-943d-6313db438b22"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=GwYrLOch64vOPmxkIanvMApr94GVp4VWs14VqlLM82I5CtD%2Bnx8JMSbuNzVxWAu5tGkCDQv9AhLgGkaO4I%2B8YliUJijxM96ZVqhl4SJgv6CH8SIqMA3Ijhc5ey17LA%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=0; includeSubDomains"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8638c6f0ea7914e0-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"9db8badb-a289-75ed-943d-6313db438b22\",\n    \"prompt\": {\n        \"text\": \"These are a few of my favorite\",\n        \"tokens\": [\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁These▁are\",\n                    \"logprob\": -10.226343154907227,\n                    \"raw_logprob\": -10.226343154907227\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 0,\n                    \"end\": 9\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁a▁few\",\n                    \"logprob\": -4.274288654327393,\n                    \"raw_logprob\": -4.274288654327393\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 9,\n                    \"end\": 15\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁of▁my▁favorite\",\n                    \"logprob\": -2.5181467533111572,\n                    \"raw_logprob\": -2.5181467533111572\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 15,\n                    \"end\": 30\n                }\n            }\n        ]\n    },\n    \"completions\": [\n        {\n            \"data\": {\n                \"text\": \" things\\n* Reading\\n* Traveling\\n* Spending time with my family\\n* Watching movies\\n* Eating delicious food\\n* Listening to music\\n* Going for long walks\\n*\",\n                \"tokens\": [\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁things\",\n                            \"logprob\": -0.017673784866929054,\n                            \"raw_logprob\": -0.2848397493362427\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 0,\n                            \"end\": 7\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -0.001666443538852036,\n                            \"raw_logprob\": -0.018869301304221153\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 7,\n                            \"end\": 8\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁*\",\n                            \"logprob\": -2.3869662284851074,\n                            \"raw_logprob\": -2.27801513671875\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 8,\n                            \"end\": 9\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Reading\",\n                            \"logprob\": -1.1124753952026367,\n                            \"raw_logprob\": -1.4746603965759277\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 9,\n                            \"end\": 17\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -0.679068386554718,\n                            \"raw_logprob\": -0.8038983941078186\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 17,\n                            \"end\": 18\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁*\",\n                            \"logprob\": 0,\n                            \"raw_logprob\": -0.000010847986231965479\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 18,\n                            \"end\": 19\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Traveling\",\n                            \"logprob\": -1.9420790672302246,\n                            \"raw_logprob\": -1.5842175483703613\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 19,\n                            \"end\": 29\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": 0,\n                            \"raw_logprob\": -0.0000027418097943154862\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 29,\n                            \"end\": 30\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁*\",\n                            \"logprob\": 0,\n                            \"raw_logprob\": 0\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 30,\n                            \"end\": 31\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Spending▁time\",\n                            \"logprob\": -0.015777966007590294,\n                            \"raw_logprob\": -0.10531635582447052\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 31,\n                            \"end\": 45\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁with▁my▁family\",\n                            \"logprob\": -0.44742342829704285,\n                            \"raw_logprob\": -0.6379113793373108\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 45,\n                            \"end\": 60\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -0.0000013113030945532955,\n                            \"raw_logprob\": -0.00008809178689261898\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 60,\n                            \"end\": 61\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁*\",\n                            \"logprob\": 0,\n                            \"raw_logprob\": -9.536738616588991e-7\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 61,\n                            \"end\": 62\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Watching\",\n                            \"logprob\": -0.23490454256534576,\n                            \"raw_logprob\": -0.4989784359931946\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 62,\n                            \"end\": 71\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁movies\",\n                            \"logprob\": -0.004077450837939978,\n                            \"raw_logprob\": -0.039326123893260956\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 71,\n                            \"end\": 78\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -1.788139485370266e-7,\n                            \"raw_logprob\": -0.000017881233361549675\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 78,\n                            \"end\": 79\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁*\",\n                            \"logprob\": 0,\n                            \"raw_logprob\": -0.000002264974000354414\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 79,\n                            \"end\": 80\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Eating\",\n                            \"logprob\": -0.9700682163238525,\n                            \"raw_logprob\": -0.9854297637939453\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 80,\n                            \"end\": 87\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁delicious▁food\",\n                            \"logprob\": -0.012792403809726238,\n                            \"raw_logprob\": -0.05514192208647728\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 87,\n                            \"end\": 102\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -0.000008165869985532481,\n                            \"raw_logprob\": -0.0002821285743266344\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 102,\n                            \"end\": 103\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁*\",\n                            \"logprob\": -6.556513199029723e-7,\n                            \"raw_logprob\": -0.00006341733387671411\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 103,\n                            \"end\": 104\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Listening▁to\",\n                            \"logprob\": -0.13225585222244263,\n                            \"raw_logprob\": -0.3871974050998688\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 104,\n                            \"end\": 117\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁music\",\n                            \"logprob\": -0.0000019073504518019035,\n                            \"raw_logprob\": -0.00019429226813372225\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 117,\n                            \"end\": 123\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -0.00017739915347192436,\n                            \"raw_logprob\": -0.002385629341006279\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 123,\n                            \"end\": 124\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁*\",\n                            \"logprob\": -0.0000014305124977909145,\n                            \"raw_logprob\": -0.00008916457591112703\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 124,\n                            \"end\": 125\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Going\",\n                            \"logprob\": -0.4823583960533142,\n                            \"raw_logprob\": -0.7873618006706238\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 125,\n                            \"end\": 131\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁for\",\n                            \"logprob\": -1.4107898473739624,\n                            \"raw_logprob\": -1.373512625694275\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 131,\n                            \"end\": 135\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁long▁walks\",\n                            \"logprob\": -0.1371821016073227,\n                            \"raw_logprob\": -0.2361689954996109\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 135,\n                            \"end\": 146\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -0.00038285431219264865,\n                            \"raw_logprob\": -0.004707681946456432\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 146,\n                            \"end\": 147\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁*\",\n                            \"logprob\": -6.556513199029723e-7,\n                            \"raw_logprob\": -0.00006508615479106084\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 147,\n                            \"end\": 148\n                        }\n                    }\n                ]\n            },\n            \"finishReason\": {\n                \"reason\": \"length\",\n                \"length\": 30\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "j2-mid/complete (Instructional Prompt)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"prompt\": \"List down 3 actionable steps to improve customer retention in my online tour agency. Each step should not exceed a length of 13 words.\",\r\n    \"numResults\": 1,\r\n    \"maxTokens\": 100,\r\n    \"temperature\": 0.8,\r\n    \"topKReturn\": 0,\r\n    \"topP\": 1,\r\n    \"countPenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"frequencyPenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"presencePenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"stopSequences\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/j2-mid/complete",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"j2-mid",
+								"complete"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"prompt\": \"List down 3 actionable steps to improve customer retention in my online tour agency. Each step should not exceed a length of 13 words.\",\r\n    \"numResults\": 1,\r\n    \"maxTokens\": 100,\r\n    \"temperature\": 0.8,\r\n    \"topKReturn\": 0,\r\n    \"topP\": 1,\r\n    \"countPenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"frequencyPenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"presencePenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"stopSequences\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/j2-mid/complete",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"j2-mid",
+										"complete"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 13 Mar 2024 03:03:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "request-id",
+									"value": "1ccf4cc7-4de7-d238-5f1e-d2cad8d0a7d0"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=wEnNA8WZFwwMKsGOdpTPXFrSiHP5gYZ8Fn6Q9%2FFG%2Fxec9qO2mjmzC0yEa54NK%2BuUsNYO9wu8vUR%2BGRgHne2gziNEcsMPNx0UJ%2Bh958V4vg89v6etNC0El8L4CM1Ilg%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=0; includeSubDomains"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8638ca3f0f5314e0-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"1ccf4cc7-4de7-d238-5f1e-d2cad8d0a7d0\",\n    \"prompt\": {\n        \"text\": \"List down 3 actionable steps to improve customer retention in my online tour agency. Each step should not exceed a length of 13 words.\",\n        \"tokens\": [\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁List\",\n                    \"logprob\": -9.671649932861328,\n                    \"raw_logprob\": -9.671649932861328\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 0,\n                    \"end\": 4\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁down\",\n                    \"logprob\": -6.571890830993652,\n                    \"raw_logprob\": -6.571890830993652\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 4,\n                    \"end\": 9\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁\",\n                    \"logprob\": -2.5240824222564697,\n                    \"raw_logprob\": -2.5240824222564697\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 9,\n                    \"end\": 10\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"3\",\n                    \"logprob\": -1.6851214170455933,\n                    \"raw_logprob\": -1.6851214170455933\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 10,\n                    \"end\": 11\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁actionable\",\n                    \"logprob\": -12.774166107177734,\n                    \"raw_logprob\": -12.774166107177734\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 11,\n                    \"end\": 22\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁steps\",\n                    \"logprob\": -1.281213641166687,\n                    \"raw_logprob\": -1.281213641166687\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 22,\n                    \"end\": 28\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁to▁improve\",\n                    \"logprob\": -6.759221076965332,\n                    \"raw_logprob\": -6.759221076965332\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 28,\n                    \"end\": 39\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁customer▁retention\",\n                    \"logprob\": -7.143137454986572,\n                    \"raw_logprob\": -7.143137454986572\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 39,\n                    \"end\": 58\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁in▁my\",\n                    \"logprob\": -17.015756607055664,\n                    \"raw_logprob\": -17.015756607055664\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 58,\n                    \"end\": 64\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁online\",\n                    \"logprob\": -8.470044136047363,\n                    \"raw_logprob\": -8.470044136047363\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 64,\n                    \"end\": 71\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁tour\",\n                    \"logprob\": -16.593936920166016,\n                    \"raw_logprob\": -16.593936920166016\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 71,\n                    \"end\": 76\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁agency\",\n                    \"logprob\": -3.0446457862854004,\n                    \"raw_logprob\": -3.0446457862854004\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 76,\n                    \"end\": 83\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \".\",\n                    \"logprob\": -13.390681266784668,\n                    \"raw_logprob\": -13.390681266784668\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 83,\n                    \"end\": 84\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁Each\",\n                    \"logprob\": -21.417991638183594,\n                    \"raw_logprob\": -21.417991638183594\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 84,\n                    \"end\": 89\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁step\",\n                    \"logprob\": -2.0140841007232666,\n                    \"raw_logprob\": -2.0140841007232666\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 89,\n                    \"end\": 94\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁should▁not▁exceed\",\n                    \"logprob\": -15.058265686035156,\n                    \"raw_logprob\": -15.058265686035156\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 94,\n                    \"end\": 112\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁a▁length▁of\",\n                    \"logprob\": -13.660906791687012,\n                    \"raw_logprob\": -13.660906791687012\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 112,\n                    \"end\": 124\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁\",\n                    \"logprob\": -2.3843727111816406,\n                    \"raw_logprob\": -2.3843727111816406\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 124,\n                    \"end\": 125\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"13\",\n                    \"logprob\": -13.036738395690918,\n                    \"raw_logprob\": -13.036738395690918\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 125,\n                    \"end\": 127\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁words\",\n                    \"logprob\": -4.082718372344971,\n                    \"raw_logprob\": -4.082718372344971\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 127,\n                    \"end\": 133\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \".\",\n                    \"logprob\": -8.562695503234863,\n                    \"raw_logprob\": -8.562695503234863\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 133,\n                    \"end\": 134\n                }\n            }\n        ]\n    },\n    \"completions\": [\n        {\n            \"data\": {\n                \"text\": \"\\n1. Personalized Customer Experience: Customize tour offerings based on customer preferences, ensuring a memorable experience.\\n2. Post-Tour Feedback: Collect feedback after each tour, addressing any issues to enhance future experiences.\\n3. Loyalty Programs: Implement reward programs for repeat customers, fostering long-term relationships.\",\n                \"tokens\": [\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": 0,\n                            \"raw_logprob\": -0.0000011920922133867862\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 0,\n                            \"end\": 1\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁\",\n                            \"logprob\": -0.0010330646764487028,\n                            \"raw_logprob\": -0.005163310561329126\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 1,\n                            \"end\": 1\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"1\",\n                            \"logprob\": -0.000006258507255552104,\n                            \"raw_logprob\": -0.00007784063927829266\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 1,\n                            \"end\": 2\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \".\",\n                            \"logprob\": -0.0000014901172562531428,\n                            \"raw_logprob\": -0.000023007127310847864\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 2,\n                            \"end\": 3\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Personalized\",\n                            \"logprob\": -0.8023635745048523,\n                            \"raw_logprob\": -0.9334945678710938\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 3,\n                            \"end\": 16\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Customer▁Experience\",\n                            \"logprob\": -3.551769733428955,\n                            \"raw_logprob\": -3.244452476501465\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 16,\n                            \"end\": 36\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \":\",\n                            \"logprob\": -0.2240770012140274,\n                            \"raw_logprob\": -0.33281388878822327\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 36,\n                            \"end\": 37\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Customize\",\n                            \"logprob\": -1.5828121900558472,\n                            \"raw_logprob\": -1.6265933513641357\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 37,\n                            \"end\": 47\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁tour\",\n                            \"logprob\": -0.6852675676345825,\n                            \"raw_logprob\": -0.8117750287055969\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 47,\n                            \"end\": 52\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁offerings\",\n                            \"logprob\": -1.9205538034439087,\n                            \"raw_logprob\": -1.9454916715621948\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 52,\n                            \"end\": 62\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁based▁on\",\n                            \"logprob\": -0.12510956823825836,\n                            \"raw_logprob\": -0.26603490114212036\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 62,\n                            \"end\": 71\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁customer\",\n                            \"logprob\": -0.2496836632490158,\n                            \"raw_logprob\": -0.3372095227241516\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 71,\n                            \"end\": 80\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁preferences\",\n                            \"logprob\": -0.11078574508428574,\n                            \"raw_logprob\": -0.1671292781829834\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 80,\n                            \"end\": 92\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \",\",\n                            \"logprob\": -0.25694015622138977,\n                            \"raw_logprob\": -0.3942050337791443\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 92,\n                            \"end\": 93\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁ensuring\",\n                            \"logprob\": -0.15012137591838837,\n                            \"raw_logprob\": -0.37030741572380066\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 93,\n                            \"end\": 102\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁a▁memorable\",\n                            \"logprob\": -0.949884831905365,\n                            \"raw_logprob\": -1.139730453491211\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 102,\n                            \"end\": 114\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁experience\",\n                            \"logprob\": -0.007900609634816647,\n                            \"raw_logprob\": -0.02398126758635044\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 114,\n                            \"end\": 125\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \".\",\n                            \"logprob\": -0.00041553069604560733,\n                            \"raw_logprob\": -0.0034869839437305927\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 125,\n                            \"end\": 126\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -0.00031822023447602987,\n                            \"raw_logprob\": -0.0018230738351121545\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 126,\n                            \"end\": 127\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁\",\n                            \"logprob\": -1.1920930376163597e-7,\n                            \"raw_logprob\": -0.0000033378546504536644\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 127,\n                            \"end\": 127\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"2\",\n                            \"logprob\": -0.0000012516983360910672,\n                            \"raw_logprob\": -0.000019907753085135482\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 127,\n                            \"end\": 128\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \".\",\n                            \"logprob\": -0.0000020861648408754263,\n                            \"raw_logprob\": -0.0000290866428258596\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 128,\n                            \"end\": 129\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Post-\",\n                            \"logprob\": -1.9835107326507568,\n                            \"raw_logprob\": -2.002041816711426\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 129,\n                            \"end\": 135\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"Tour\",\n                            \"logprob\": -0.261303573846817,\n                            \"raw_logprob\": -0.3603651523590088\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 135,\n                            \"end\": 139\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Feedback\",\n                            \"logprob\": -0.1901746541261673,\n                            \"raw_logprob\": -0.27647894620895386\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 139,\n                            \"end\": 148\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \":\",\n                            \"logprob\": -0.12764441967010498,\n                            \"raw_logprob\": -0.21904054284095764\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 148,\n                            \"end\": 149\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Collect\",\n                            \"logprob\": -0.8861037492752075,\n                            \"raw_logprob\": -1.1158430576324463\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 149,\n                            \"end\": 157\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁feedback\",\n                            \"logprob\": -1.6637678146362305,\n                            \"raw_logprob\": -1.584863305091858\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 157,\n                            \"end\": 166\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁after▁each\",\n                            \"logprob\": -0.9387608766555786,\n                            \"raw_logprob\": -0.9355358481407166\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 166,\n                            \"end\": 177\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁tour\",\n                            \"logprob\": -0.0011438113870099187,\n                            \"raw_logprob\": -0.004488393664360046\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 177,\n                            \"end\": 182\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \",\",\n                            \"logprob\": -0.24103417992591858,\n                            \"raw_logprob\": -0.3251386284828186\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 182,\n                            \"end\": 183\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁addressing\",\n                            \"logprob\": -0.005655035842210054,\n                            \"raw_logprob\": -0.02581613138318062\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 183,\n                            \"end\": 194\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁any▁issues\",\n                            \"logprob\": -0.4925452470779419,\n                            \"raw_logprob\": -0.6049748659133911\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 194,\n                            \"end\": 205\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁to▁enhance\",\n                            \"logprob\": -3.712939500808716,\n                            \"raw_logprob\": -3.263947010040283\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 205,\n                            \"end\": 216\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁future\",\n                            \"logprob\": -0.6222018003463745,\n                            \"raw_logprob\": -0.6829813718795776\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 216,\n                            \"end\": 223\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁experiences\",\n                            \"logprob\": -1.6218117475509644,\n                            \"raw_logprob\": -1.6916216611862183\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 223,\n                            \"end\": 235\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \".\",\n                            \"logprob\": -0.0002963982115034014,\n                            \"raw_logprob\": -0.0019306369358673692\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 235,\n                            \"end\": 236\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -0.000147353537613526,\n                            \"raw_logprob\": -0.0008700875914655626\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 236,\n                            \"end\": 237\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁\",\n                            \"logprob\": 0,\n                            \"raw_logprob\": -1.1920928244535389e-7\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 237,\n                            \"end\": 237\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"3\",\n                            \"logprob\": 0,\n                            \"raw_logprob\": 0\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 237,\n                            \"end\": 238\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \".\",\n                            \"logprob\": -0.000004708777851192281,\n                            \"raw_logprob\": -0.00005507317473529838\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 238,\n                            \"end\": 239\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Loyalty\",\n                            \"logprob\": -0.3184947669506073,\n                            \"raw_logprob\": -0.47486382722854614\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 239,\n                            \"end\": 247\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Programs\",\n                            \"logprob\": -0.019929395988583565,\n                            \"raw_logprob\": -0.04715174809098244\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 247,\n                            \"end\": 256\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \":\",\n                            \"logprob\": -0.004509229212999344,\n                            \"raw_logprob\": -0.01394246332347393\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 256,\n                            \"end\": 257\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Implement\",\n                            \"logprob\": -0.012865819036960602,\n                            \"raw_logprob\": -0.04581283777952194\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 257,\n                            \"end\": 267\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁reward\",\n                            \"logprob\": -2.1422183513641357,\n                            \"raw_logprob\": -2.012453079223633\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 267,\n                            \"end\": 274\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁programs▁for\",\n                            \"logprob\": -0.29432857036590576,\n                            \"raw_logprob\": -0.44475340843200684\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 274,\n                            \"end\": 287\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁repeat▁customers\",\n                            \"logprob\": -0.41155630350112915,\n                            \"raw_logprob\": -0.4791814982891083\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 287,\n                            \"end\": 304\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \",\",\n                            \"logprob\": -0.026731381192803383,\n                            \"raw_logprob\": -0.06102822348475456\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 304,\n                            \"end\": 305\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁fostering\",\n                            \"logprob\": -0.007996798492968082,\n                            \"raw_logprob\": -0.03004012443125248\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 305,\n                            \"end\": 315\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁long-term▁relationships\",\n                            \"logprob\": -0.49217018485069275,\n                            \"raw_logprob\": -0.6310533285140991\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 315,\n                            \"end\": 339\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \".\",\n                            \"logprob\": -0.02227134257555008,\n                            \"raw_logprob\": -0.050614964216947556\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 339,\n                            \"end\": 340\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|endoftext|>\",\n                            \"logprob\": -0.000034511685953475535,\n                            \"raw_logprob\": -0.00027021096320822835\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 340,\n                            \"end\": 340\n                        }\n                    }\n                ]\n            },\n            \"finishReason\": {\n                \"reason\": \"endoftext\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "j2-mid/chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numResults\": 1,\r\n    \"temperature\": 0.7,\r\n    \"messages\": [\r\n        {\r\n            \"text\": \"I'm crafting a market analysis tool for fintech leaders. How should I initiate the process?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"system\": \"You are an AI assistant for business research. Your responses should be informative and concise.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/j2-ultra/chat",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"j2-ultra",
+								"chat"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numResults\": 1,\r\n    \"temperature\": 0.7,\r\n    \"messages\": [\r\n        {\r\n            \"text\": \"I'm crafting a market analysis tool for fintech leaders. How should I initiate the process?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"system\": \"You are an AI assistant for business research. Your responses should be informative and concise.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/j2-ultra/chat",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"j2-ultra",
+										"chat"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:01:13 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "request-id",
+									"value": "b9290764-a489-7693-f5dd-f8de63f367fc"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=ZaIHcmw0ityJ5UB7pdwIhlcKlKUeRwWh3E%2FbqUYSYgKiir6utOfLWkAPepVlhZs4TrLSnOpZ%2BdTn3M3T05A4jY1FkFPfFQeebb6d8iVPjXoTYfwMKgYOSKn01wp1Iw%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=0; includeSubDomains"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "863ffcd8ac422f02-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"b9290764-a489-7693-f5dd-f8de63f367fc\",\n    \"outputs\": [\n        {\n            \"text\": \"To get started, you could start by identifying the specific information that fintech leaders need in order to make informed decisions about their market. This could include data on market trends, competition, customer demographics, regulatory environment, and other relevant factors.\\n\\nNext, you could begin collecting and analyzing the data you have identified. This could involve using a variety of research methods, such as surveys, interviews, focus groups, and secondary data sources.\\n\\nOnce you have collected and analyzed the data, you could begin creating your market analysis tool. This could involve organizing the data into a clear and concise format, using charts and graphs to illustrate key findings, and including actionable recommendations based on the data.\\n\\nFinally, you could test your market analysis tool with a group of fintech leaders and gather feedback. This could help you make any necessary changes and ensure that the tool is meeting the needs of your target audience.\",\n            \"role\": \"assistant\",\n            \"finishReason\": {\n                \"reason\": \"endoftext\",\n                \"length\": null,\n                \"sequence\": null\n            }\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Complete",
+			"item": [
+				{
+					"name": "j2-mid/complete (Zero-Shot Prompt)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"prompt\": \"These are a few of my favorite\",\r\n    \"numResults\": 1,\r\n    \"maxTokens\": 30,\r\n    \"temperature\": 0.7,\r\n    \"topKReturn\": 0,\r\n    \"topP\": 1,\r\n    \"countPenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"frequencyPenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"presencePenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"stopSequences\": [\r\n        \"##\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/j2-mid/complete",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"j2-mid",
+								"complete"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"prompt\": \"These are a few of my favorite\",\r\n    \"numResults\": 1,\r\n    \"maxTokens\": 30,\r\n    \"temperature\": 0.7,\r\n    \"topKReturn\": 0,\r\n    \"topP\": 1,\r\n    \"countPenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"frequencyPenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"presencePenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"stopSequences\": [\r\n        \"##\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.ai21.com/studio/v1/j2-mid/complete",
+									"protocol": "https",
+									"host": [
+										"api",
+										"ai21",
+										"com"
+									],
+									"path": [
+										"studio",
+										"v1",
+										"j2-mid",
+										"complete"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 13 Mar 2024 03:01:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "request-id",
+									"value": "9db8badb-a289-75ed-943d-6313db438b22"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=GwYrLOch64vOPmxkIanvMApr94GVp4VWs14VqlLM82I5CtD%2Bnx8JMSbuNzVxWAu5tGkCDQv9AhLgGkaO4I%2B8YliUJijxM96ZVqhl4SJgv6CH8SIqMA3Ijhc5ey17LA%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=0; includeSubDomains"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8638c6f0ea7914e0-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"9db8badb-a289-75ed-943d-6313db438b22\",\n    \"prompt\": {\n        \"text\": \"These are a few of my favorite\",\n        \"tokens\": [\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁These▁are\",\n                    \"logprob\": -10.226343154907227,\n                    \"raw_logprob\": -10.226343154907227\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 0,\n                    \"end\": 9\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁a▁few\",\n                    \"logprob\": -4.274288654327393,\n                    \"raw_logprob\": -4.274288654327393\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 9,\n                    \"end\": 15\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁of▁my▁favorite\",\n                    \"logprob\": -2.5181467533111572,\n                    \"raw_logprob\": -2.5181467533111572\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 15,\n                    \"end\": 30\n                }\n            }\n        ]\n    },\n    \"completions\": [\n        {\n            \"data\": {\n                \"text\": \" things\\n* Reading\\n* Traveling\\n* Spending time with my family\\n* Watching movies\\n* Eating delicious food\\n* Listening to music\\n* Going for long walks\\n*\",\n                \"tokens\": [\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁things\",\n                            \"logprob\": -0.017673784866929054,\n                            \"raw_logprob\": -0.2848397493362427\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 0,\n                            \"end\": 7\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -0.001666443538852036,\n                            \"raw_logprob\": -0.018869301304221153\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 7,\n                            \"end\": 8\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁*\",\n                            \"logprob\": -2.3869662284851074,\n                            \"raw_logprob\": -2.27801513671875\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 8,\n                            \"end\": 9\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Reading\",\n                            \"logprob\": -1.1124753952026367,\n                            \"raw_logprob\": -1.4746603965759277\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 9,\n                            \"end\": 17\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -0.679068386554718,\n                            \"raw_logprob\": -0.8038983941078186\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 17,\n                            \"end\": 18\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁*\",\n                            \"logprob\": 0,\n                            \"raw_logprob\": -0.000010847986231965479\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 18,\n                            \"end\": 19\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Traveling\",\n                            \"logprob\": -1.9420790672302246,\n                            \"raw_logprob\": -1.5842175483703613\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 19,\n                            \"end\": 29\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": 0,\n                            \"raw_logprob\": -0.0000027418097943154862\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 29,\n                            \"end\": 30\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁*\",\n                            \"logprob\": 0,\n                            \"raw_logprob\": 0\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 30,\n                            \"end\": 31\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Spending▁time\",\n                            \"logprob\": -0.015777966007590294,\n                            \"raw_logprob\": -0.10531635582447052\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 31,\n                            \"end\": 45\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁with▁my▁family\",\n                            \"logprob\": -0.44742342829704285,\n                            \"raw_logprob\": -0.6379113793373108\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 45,\n                            \"end\": 60\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -0.0000013113030945532955,\n                            \"raw_logprob\": -0.00008809178689261898\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 60,\n                            \"end\": 61\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁*\",\n                            \"logprob\": 0,\n                            \"raw_logprob\": -9.536738616588991e-7\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 61,\n                            \"end\": 62\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Watching\",\n                            \"logprob\": -0.23490454256534576,\n                            \"raw_logprob\": -0.4989784359931946\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 62,\n                            \"end\": 71\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁movies\",\n                            \"logprob\": -0.004077450837939978,\n                            \"raw_logprob\": -0.039326123893260956\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 71,\n                            \"end\": 78\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -1.788139485370266e-7,\n                            \"raw_logprob\": -0.000017881233361549675\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 78,\n                            \"end\": 79\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁*\",\n                            \"logprob\": 0,\n                            \"raw_logprob\": -0.000002264974000354414\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 79,\n                            \"end\": 80\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Eating\",\n                            \"logprob\": -0.9700682163238525,\n                            \"raw_logprob\": -0.9854297637939453\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 80,\n                            \"end\": 87\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁delicious▁food\",\n                            \"logprob\": -0.012792403809726238,\n                            \"raw_logprob\": -0.05514192208647728\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 87,\n                            \"end\": 102\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -0.000008165869985532481,\n                            \"raw_logprob\": -0.0002821285743266344\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 102,\n                            \"end\": 103\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁*\",\n                            \"logprob\": -6.556513199029723e-7,\n                            \"raw_logprob\": -0.00006341733387671411\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 103,\n                            \"end\": 104\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Listening▁to\",\n                            \"logprob\": -0.13225585222244263,\n                            \"raw_logprob\": -0.3871974050998688\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 104,\n                            \"end\": 117\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁music\",\n                            \"logprob\": -0.0000019073504518019035,\n                            \"raw_logprob\": -0.00019429226813372225\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 117,\n                            \"end\": 123\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -0.00017739915347192436,\n                            \"raw_logprob\": -0.002385629341006279\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 123,\n                            \"end\": 124\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁*\",\n                            \"logprob\": -0.0000014305124977909145,\n                            \"raw_logprob\": -0.00008916457591112703\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 124,\n                            \"end\": 125\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Going\",\n                            \"logprob\": -0.4823583960533142,\n                            \"raw_logprob\": -0.7873618006706238\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 125,\n                            \"end\": 131\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁for\",\n                            \"logprob\": -1.4107898473739624,\n                            \"raw_logprob\": -1.373512625694275\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 131,\n                            \"end\": 135\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁long▁walks\",\n                            \"logprob\": -0.1371821016073227,\n                            \"raw_logprob\": -0.2361689954996109\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 135,\n                            \"end\": 146\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -0.00038285431219264865,\n                            \"raw_logprob\": -0.004707681946456432\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 146,\n                            \"end\": 147\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁*\",\n                            \"logprob\": -6.556513199029723e-7,\n                            \"raw_logprob\": -0.00006508615479106084\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 147,\n                            \"end\": 148\n                        }\n                    }\n                ]\n            },\n            \"finishReason\": {\n                \"reason\": \"length\",\n                \"length\": 30\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "j2-mid/complete (Instructional Prompt)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"prompt\": \"List down 3 actionable steps to improve customer retention in my online tour agency. Each step should not exceed a length of 13 words.\",\r\n    \"numResults\": 1,\r\n    \"maxTokens\": 100,\r\n    \"temperature\": 0.8,\r\n    \"topKReturn\": 0,\r\n    \"topP\": 1,\r\n    \"countPenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"frequencyPenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"presencePenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"stopSequences\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/j2-mid/complete",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"j2-mid",
+								"complete"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"prompt\": \"List down 3 actionable steps to improve customer retention in my online tour agency. Each step should not exceed a length of 13 words.\",\r\n    \"numResults\": 1,\r\n    \"maxTokens\": 100,\r\n    \"temperature\": 0.8,\r\n    \"topKReturn\": 0,\r\n    \"topP\": 1,\r\n    \"countPenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"frequencyPenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"presencePenalty\": {\r\n        \"scale\": 0,\r\n        \"applyToNumbers\": false,\r\n        \"applyToPunctuations\": false,\r\n        \"applyToStopwords\": false,\r\n        \"applyToWhitespaces\": false,\r\n        \"applyToEmojis\": false\r\n    },\r\n    \"stopSequences\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/j2-mid/complete",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"j2-mid",
+										"complete"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 13 Mar 2024 03:03:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "request-id",
+									"value": "1ccf4cc7-4de7-d238-5f1e-d2cad8d0a7d0"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=wEnNA8WZFwwMKsGOdpTPXFrSiHP5gYZ8Fn6Q9%2FFG%2Fxec9qO2mjmzC0yEa54NK%2BuUsNYO9wu8vUR%2BGRgHne2gziNEcsMPNx0UJ%2Bh958V4vg89v6etNC0El8L4CM1Ilg%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=0; includeSubDomains"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8638ca3f0f5314e0-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"1ccf4cc7-4de7-d238-5f1e-d2cad8d0a7d0\",\n    \"prompt\": {\n        \"text\": \"List down 3 actionable steps to improve customer retention in my online tour agency. Each step should not exceed a length of 13 words.\",\n        \"tokens\": [\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁List\",\n                    \"logprob\": -9.671649932861328,\n                    \"raw_logprob\": -9.671649932861328\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 0,\n                    \"end\": 4\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁down\",\n                    \"logprob\": -6.571890830993652,\n                    \"raw_logprob\": -6.571890830993652\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 4,\n                    \"end\": 9\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁\",\n                    \"logprob\": -2.5240824222564697,\n                    \"raw_logprob\": -2.5240824222564697\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 9,\n                    \"end\": 10\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"3\",\n                    \"logprob\": -1.6851214170455933,\n                    \"raw_logprob\": -1.6851214170455933\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 10,\n                    \"end\": 11\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁actionable\",\n                    \"logprob\": -12.774166107177734,\n                    \"raw_logprob\": -12.774166107177734\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 11,\n                    \"end\": 22\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁steps\",\n                    \"logprob\": -1.281213641166687,\n                    \"raw_logprob\": -1.281213641166687\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 22,\n                    \"end\": 28\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁to▁improve\",\n                    \"logprob\": -6.759221076965332,\n                    \"raw_logprob\": -6.759221076965332\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 28,\n                    \"end\": 39\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁customer▁retention\",\n                    \"logprob\": -7.143137454986572,\n                    \"raw_logprob\": -7.143137454986572\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 39,\n                    \"end\": 58\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁in▁my\",\n                    \"logprob\": -17.015756607055664,\n                    \"raw_logprob\": -17.015756607055664\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 58,\n                    \"end\": 64\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁online\",\n                    \"logprob\": -8.470044136047363,\n                    \"raw_logprob\": -8.470044136047363\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 64,\n                    \"end\": 71\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁tour\",\n                    \"logprob\": -16.593936920166016,\n                    \"raw_logprob\": -16.593936920166016\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 71,\n                    \"end\": 76\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁agency\",\n                    \"logprob\": -3.0446457862854004,\n                    \"raw_logprob\": -3.0446457862854004\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 76,\n                    \"end\": 83\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \".\",\n                    \"logprob\": -13.390681266784668,\n                    \"raw_logprob\": -13.390681266784668\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 83,\n                    \"end\": 84\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁Each\",\n                    \"logprob\": -21.417991638183594,\n                    \"raw_logprob\": -21.417991638183594\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 84,\n                    \"end\": 89\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁step\",\n                    \"logprob\": -2.0140841007232666,\n                    \"raw_logprob\": -2.0140841007232666\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 89,\n                    \"end\": 94\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁should▁not▁exceed\",\n                    \"logprob\": -15.058265686035156,\n                    \"raw_logprob\": -15.058265686035156\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 94,\n                    \"end\": 112\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁a▁length▁of\",\n                    \"logprob\": -13.660906791687012,\n                    \"raw_logprob\": -13.660906791687012\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 112,\n                    \"end\": 124\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁\",\n                    \"logprob\": -2.3843727111816406,\n                    \"raw_logprob\": -2.3843727111816406\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 124,\n                    \"end\": 125\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"13\",\n                    \"logprob\": -13.036738395690918,\n                    \"raw_logprob\": -13.036738395690918\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 125,\n                    \"end\": 127\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \"▁words\",\n                    \"logprob\": -4.082718372344971,\n                    \"raw_logprob\": -4.082718372344971\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 127,\n                    \"end\": 133\n                }\n            },\n            {\n                \"generatedToken\": {\n                    \"token\": \".\",\n                    \"logprob\": -8.562695503234863,\n                    \"raw_logprob\": -8.562695503234863\n                },\n                \"topTokens\": null,\n                \"textRange\": {\n                    \"start\": 133,\n                    \"end\": 134\n                }\n            }\n        ]\n    },\n    \"completions\": [\n        {\n            \"data\": {\n                \"text\": \"\\n1. Personalized Customer Experience: Customize tour offerings based on customer preferences, ensuring a memorable experience.\\n2. Post-Tour Feedback: Collect feedback after each tour, addressing any issues to enhance future experiences.\\n3. Loyalty Programs: Implement reward programs for repeat customers, fostering long-term relationships.\",\n                \"tokens\": [\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": 0,\n                            \"raw_logprob\": -0.0000011920922133867862\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 0,\n                            \"end\": 1\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁\",\n                            \"logprob\": -0.0010330646764487028,\n                            \"raw_logprob\": -0.005163310561329126\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 1,\n                            \"end\": 1\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"1\",\n                            \"logprob\": -0.000006258507255552104,\n                            \"raw_logprob\": -0.00007784063927829266\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 1,\n                            \"end\": 2\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \".\",\n                            \"logprob\": -0.0000014901172562531428,\n                            \"raw_logprob\": -0.000023007127310847864\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 2,\n                            \"end\": 3\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Personalized\",\n                            \"logprob\": -0.8023635745048523,\n                            \"raw_logprob\": -0.9334945678710938\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 3,\n                            \"end\": 16\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Customer▁Experience\",\n                            \"logprob\": -3.551769733428955,\n                            \"raw_logprob\": -3.244452476501465\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 16,\n                            \"end\": 36\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \":\",\n                            \"logprob\": -0.2240770012140274,\n                            \"raw_logprob\": -0.33281388878822327\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 36,\n                            \"end\": 37\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Customize\",\n                            \"logprob\": -1.5828121900558472,\n                            \"raw_logprob\": -1.6265933513641357\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 37,\n                            \"end\": 47\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁tour\",\n                            \"logprob\": -0.6852675676345825,\n                            \"raw_logprob\": -0.8117750287055969\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 47,\n                            \"end\": 52\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁offerings\",\n                            \"logprob\": -1.9205538034439087,\n                            \"raw_logprob\": -1.9454916715621948\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 52,\n                            \"end\": 62\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁based▁on\",\n                            \"logprob\": -0.12510956823825836,\n                            \"raw_logprob\": -0.26603490114212036\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 62,\n                            \"end\": 71\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁customer\",\n                            \"logprob\": -0.2496836632490158,\n                            \"raw_logprob\": -0.3372095227241516\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 71,\n                            \"end\": 80\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁preferences\",\n                            \"logprob\": -0.11078574508428574,\n                            \"raw_logprob\": -0.1671292781829834\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 80,\n                            \"end\": 92\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \",\",\n                            \"logprob\": -0.25694015622138977,\n                            \"raw_logprob\": -0.3942050337791443\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 92,\n                            \"end\": 93\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁ensuring\",\n                            \"logprob\": -0.15012137591838837,\n                            \"raw_logprob\": -0.37030741572380066\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 93,\n                            \"end\": 102\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁a▁memorable\",\n                            \"logprob\": -0.949884831905365,\n                            \"raw_logprob\": -1.139730453491211\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 102,\n                            \"end\": 114\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁experience\",\n                            \"logprob\": -0.007900609634816647,\n                            \"raw_logprob\": -0.02398126758635044\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 114,\n                            \"end\": 125\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \".\",\n                            \"logprob\": -0.00041553069604560733,\n                            \"raw_logprob\": -0.0034869839437305927\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 125,\n                            \"end\": 126\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -0.00031822023447602987,\n                            \"raw_logprob\": -0.0018230738351121545\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 126,\n                            \"end\": 127\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁\",\n                            \"logprob\": -1.1920930376163597e-7,\n                            \"raw_logprob\": -0.0000033378546504536644\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 127,\n                            \"end\": 127\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"2\",\n                            \"logprob\": -0.0000012516983360910672,\n                            \"raw_logprob\": -0.000019907753085135482\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 127,\n                            \"end\": 128\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \".\",\n                            \"logprob\": -0.0000020861648408754263,\n                            \"raw_logprob\": -0.0000290866428258596\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 128,\n                            \"end\": 129\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Post-\",\n                            \"logprob\": -1.9835107326507568,\n                            \"raw_logprob\": -2.002041816711426\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 129,\n                            \"end\": 135\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"Tour\",\n                            \"logprob\": -0.261303573846817,\n                            \"raw_logprob\": -0.3603651523590088\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 135,\n                            \"end\": 139\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Feedback\",\n                            \"logprob\": -0.1901746541261673,\n                            \"raw_logprob\": -0.27647894620895386\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 139,\n                            \"end\": 148\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \":\",\n                            \"logprob\": -0.12764441967010498,\n                            \"raw_logprob\": -0.21904054284095764\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 148,\n                            \"end\": 149\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Collect\",\n                            \"logprob\": -0.8861037492752075,\n                            \"raw_logprob\": -1.1158430576324463\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 149,\n                            \"end\": 157\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁feedback\",\n                            \"logprob\": -1.6637678146362305,\n                            \"raw_logprob\": -1.584863305091858\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 157,\n                            \"end\": 166\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁after▁each\",\n                            \"logprob\": -0.9387608766555786,\n                            \"raw_logprob\": -0.9355358481407166\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 166,\n                            \"end\": 177\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁tour\",\n                            \"logprob\": -0.0011438113870099187,\n                            \"raw_logprob\": -0.004488393664360046\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 177,\n                            \"end\": 182\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \",\",\n                            \"logprob\": -0.24103417992591858,\n                            \"raw_logprob\": -0.3251386284828186\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 182,\n                            \"end\": 183\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁addressing\",\n                            \"logprob\": -0.005655035842210054,\n                            \"raw_logprob\": -0.02581613138318062\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 183,\n                            \"end\": 194\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁any▁issues\",\n                            \"logprob\": -0.4925452470779419,\n                            \"raw_logprob\": -0.6049748659133911\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 194,\n                            \"end\": 205\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁to▁enhance\",\n                            \"logprob\": -3.712939500808716,\n                            \"raw_logprob\": -3.263947010040283\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 205,\n                            \"end\": 216\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁future\",\n                            \"logprob\": -0.6222018003463745,\n                            \"raw_logprob\": -0.6829813718795776\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 216,\n                            \"end\": 223\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁experiences\",\n                            \"logprob\": -1.6218117475509644,\n                            \"raw_logprob\": -1.6916216611862183\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 223,\n                            \"end\": 235\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \".\",\n                            \"logprob\": -0.0002963982115034014,\n                            \"raw_logprob\": -0.0019306369358673692\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 235,\n                            \"end\": 236\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|newline|>\",\n                            \"logprob\": -0.000147353537613526,\n                            \"raw_logprob\": -0.0008700875914655626\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 236,\n                            \"end\": 237\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁\",\n                            \"logprob\": 0,\n                            \"raw_logprob\": -1.1920928244535389e-7\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 237,\n                            \"end\": 237\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"3\",\n                            \"logprob\": 0,\n                            \"raw_logprob\": 0\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 237,\n                            \"end\": 238\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \".\",\n                            \"logprob\": -0.000004708777851192281,\n                            \"raw_logprob\": -0.00005507317473529838\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 238,\n                            \"end\": 239\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Loyalty\",\n                            \"logprob\": -0.3184947669506073,\n                            \"raw_logprob\": -0.47486382722854614\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 239,\n                            \"end\": 247\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Programs\",\n                            \"logprob\": -0.019929395988583565,\n                            \"raw_logprob\": -0.04715174809098244\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 247,\n                            \"end\": 256\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \":\",\n                            \"logprob\": -0.004509229212999344,\n                            \"raw_logprob\": -0.01394246332347393\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 256,\n                            \"end\": 257\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁Implement\",\n                            \"logprob\": -0.012865819036960602,\n                            \"raw_logprob\": -0.04581283777952194\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 257,\n                            \"end\": 267\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁reward\",\n                            \"logprob\": -2.1422183513641357,\n                            \"raw_logprob\": -2.012453079223633\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 267,\n                            \"end\": 274\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁programs▁for\",\n                            \"logprob\": -0.29432857036590576,\n                            \"raw_logprob\": -0.44475340843200684\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 274,\n                            \"end\": 287\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁repeat▁customers\",\n                            \"logprob\": -0.41155630350112915,\n                            \"raw_logprob\": -0.4791814982891083\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 287,\n                            \"end\": 304\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \",\",\n                            \"logprob\": -0.026731381192803383,\n                            \"raw_logprob\": -0.06102822348475456\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 304,\n                            \"end\": 305\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁fostering\",\n                            \"logprob\": -0.007996798492968082,\n                            \"raw_logprob\": -0.03004012443125248\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 305,\n                            \"end\": 315\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"▁long-term▁relationships\",\n                            \"logprob\": -0.49217018485069275,\n                            \"raw_logprob\": -0.6310533285140991\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 315,\n                            \"end\": 339\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \".\",\n                            \"logprob\": -0.02227134257555008,\n                            \"raw_logprob\": -0.050614964216947556\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 339,\n                            \"end\": 340\n                        }\n                    },\n                    {\n                        \"generatedToken\": {\n                            \"token\": \"<|endoftext|>\",\n                            \"logprob\": -0.000034511685953475535,\n                            \"raw_logprob\": -0.00027021096320822835\n                        },\n                        \"topTokens\": null,\n                        \"textRange\": {\n                            \"start\": 340,\n                            \"end\": 340\n                        }\n                    }\n                ]\n            },\n            \"finishReason\": {\n                \"reason\": \"endoftext\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Contextual Answers",
+			"item": []
+		},
+		{
+			"name": "Custom Models",
+			"item": []
+		},
+		{
+			"name": "Datasets",
+			"item": []
+		},
+		{
+			"name": "Embeddings",
+			"item": []
+		},
+		{
+			"name": "Grammatical Error Corrections",
+			"item": []
+		},
+		{
+			"name": "Paraphrase",
+			"item": []
+		},
+		{
+			"name": "Semantic Search",
+			"item": []
+		},
+		{
+			"name": "Summarize Models",
+			"item": []
+		},
+		{
+			"name": "Text Improvements",
+			"item": []
+		},
+		{
+			"name": "Text Segmentation",
+			"item": []
+		},
+		{
+			"name": "Tokenize",
+			"item": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.ai21.com/studio/v1",
+			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "TODO",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "5e86b362-34d0-4a92-ae32-f341fad1c30b",
+		"name": "📌 Anyscale API",
+		"description": "### Prerequisites\n\n- Postman\n- Anyscale Account: [https://app.endpoints.anyscale.com/](https://app.endpoints.anyscale.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.endpoints.anyscale.com/](https://docs.endpoints.anyscale.com/)\n- Models: [https://docs.endpoints.anyscale.com/](https://docs.endpoints.anyscale.com/)\n    \n\n### About Anyscale\n\nThe modern AI infrastructure trusted by the world’s leading AI teams.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7643177",
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-apis/collection/7643177-5e86b362-34d0-4a92-ae32-f341fad1c30b?action=share&source=collection_link&creator=7643177"
+	},
+	"item": [
+		{
+			"name": "🚀 Get Started",
+			"item": [
+				{
+					"name": "/chat/completions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2524"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:06:51 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "x-request-id",
+									"value": "fd79bdac-24de-4262-9609-2a99b30bd0d5"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 bced04c07f9fc5f2c1cc29deb7204ba8.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LAX3-C4"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "sRsnmq_gMRZTwah6ThuoMFoOK0goRHZsdl4f1v64BY6uVbCF6Cqh8w=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"mistralai/Mistral-7B-Instruct-v0.1-fd79bdac-24de-4262-9609-2a99b30bd0d5\",\n    \"object\": \"text_completion\",\n    \"created\": 1710374811,\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" Sure! Here is a simple example of how you could load data from S3 with Ray and train using PyTorch:\\n```\\nimport os\\nimport boto3\\nimport torch\\nimport ray\\n\\n# Set up S3 client\\ns3 = boto3.client('s3')\\n\\n# Set up PyTorch data loader\\ndef load_data():\\n    bucket = os.environ['S3_BUCKET']\\n    prefix = os.environ['S3_PREFIX']\\n    key = os.environ['S3_KEY']\\n\\n    with open(f's3://{bucket}/{prefix}{key}', 'rb') as f:\\n        data = torch.load(f)\\n\\n    return data\\n\\n# Set up Ray function to train model\\n@ray.function\\ndef train_model(data, model, optimizer, criterion):\\n    for epoch in range(num_epochs):\\n        for i, batch in enumerate(data.train_loader):\\n            outputs = model(batch)\\n            loss = criterion(outputs, batch['target'])\\n            optimizer.zero_grad()\\n            loss.backward()\\n            optimizer.step()\\n\\n# Set up main program\\nif __name__ == '__main__':\\n    # Load data from S3\\n    data = load_data()\\n\\n    # Set up PyTorch model\\n    model = torch.nn.Sequential(\\n        torch.nn.Linear(data.train_loader.batch_size, 128),\\n        torch.nn.ReLU(inplace=True),\\n        torch.nn.Linear(128, 10)\\n    )\\n\\n    # Set up PyTorch optimizer\\n    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)\\n\\n    # Set up PyTorch criterion\\n    criterion = torch.nn.CrossEntropyLoss()\\n\\n    # Set up Ray function to train model\\n    @ray.function\\n    def train(args):\\n        data = load_data()\\n        model = torch.nn.Sequential(\\n            torch.nn.Linear(data.train_loader.batch_size, 128),\\n            torch.nn.ReLU(inplace=True),\\n            torch.nn.Linear(128, 10)\\n        )\\n\\n        optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)\\n\\n        criterion = torch.nn.CrossEntropyLoss()\\n\\n        for epoch in range(num_epochs):\\n            for i, batch in enumerate(data.train_loader):\\n                outputs = model(batch)\\n                loss = criterion(outputs, batch['target'])\\n                optimizer.zero_grad()\\n                loss.backward()\\n                optimizer.step()\\n\\n        return model\\n\\n    # Set up Ray\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 33,\n        \"completion_tokens\": 671,\n        \"total_tokens\": 704\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.endpoints.anyscale.com/v1",
+			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "TODO",
+			"type": "string"
+		}
+	]
+}
