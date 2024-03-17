@@ -819,7 +819,7 @@
 					]
 				},
 				{
-					"name": "Create fine-tuning job",
+					"name": "Create fine-tuning job (gpt-3.5-turbo-0125)",
 					"request": {
 						"method": "POST",
 						"header": [],
