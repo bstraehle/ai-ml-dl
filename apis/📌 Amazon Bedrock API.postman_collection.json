@@ -481,7 +481,7 @@
 			"name": "Actions",
 			"item": [
 				{
-					"name": "Fine-tune-jobs",
+					"name": "Fine-Tuning Jobs",
 					"item": [
 						{
 							"name": "{job_Identifier}",
