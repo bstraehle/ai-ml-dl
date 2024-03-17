@@ -12,6 +12,320 @@
 			"name": "🚀 Get Started",
 			"item": [
 				{
+					"name": "Analyze Text",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930. It was the first structure to reach a height of 300 metres. Due to the addition of a broadcasting aerial at the top of the tower in 1957, it is now taller than the Chrysler Building by 5.2 metres (17 ft). Excluding transmitters, the Eiffel Tower is the second tallest free-standing structure in France after the Millau Viaduct.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/read?language=en&summarize=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"read"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "en"
+								},
+								{
+									"key": "summarize",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"text\": \"The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930. It was the first structure to reach a height of 300 metres. Due to the addition of a broadcasting aerial at the top of the tower in 1957, it is now taller than the Chrysler Building by 5.2 metres (17 ft). Excluding transmitters, the Eiffel Tower is the second tallest free-standing structure in France after the Millau Viaduct.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/read?language=en&summarize=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"read"
+									],
+									"query": [
+										{
+											"key": "language",
+											"value": "en"
+										},
+										{
+											"key": "summarize",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "vary",
+									"value": "origin"
+								},
+								{
+									"key": "vary",
+									"value": "access-control-request-method"
+								},
+								{
+									"key": "vary",
+									"value": "access-control-request-headers"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-encoding",
+									"value": "br"
+								},
+								{
+									"key": "dg-request-id",
+									"value": "78c76da3-bde3-4c3b-90f9-dbffb6434ae2"
+								},
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "date",
+									"value": "Sun, 17 Mar 2024 05:00:40 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"metadata\": {\n        \"request_id\": \"78c76da3-bde3-4c3b-90f9-dbffb6434ae2\",\n        \"created\": \"2024-03-17T05:00:40.682Z\",\n        \"language\": \"en\",\n        \"summary_info\": {\n            \"model_uuid\": \"67875a7f-c9c4-48a0-aa55-5bdb8a91c34a\",\n            \"input_tokens\": 170,\n            \"output_tokens\": 58\n        }\n    },\n    \"results\": {\n        \"summary\": {\n            \"text\": \"The transcript describes the construction of the Eiffel Tower, a tower at Paris. It is the tallest structures in the world and has surpassed the Washington Monument since its construction in 36. The tower is the second-highest free-standing structure in France after the Millau Viaduct.\"\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Speech-to-Text",
+			"item": [
+				{
+					"name": "Transcribe - Local file",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/C:/Users/bstra/Downloads/response.mp3"
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/listen",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"listen"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": "/C:/Users/bstra/Downloads/response.mp3"
+									},
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/listen",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"listen"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "vary",
+									"value": "origin"
+								},
+								{
+									"key": "vary",
+									"value": "access-control-request-method"
+								},
+								{
+									"key": "vary",
+									"value": "access-control-request-headers"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-encoding",
+									"value": "br"
+								},
+								{
+									"key": "dg-request-id",
+									"value": "e8578d03-bd70-4c47-9603-43b022d163b1"
+								},
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "date",
+									"value": "Sun, 17 Mar 2024 04:51:10 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"metadata\": {\n        \"transaction_key\": \"deprecated\",\n        \"request_id\": \"e8578d03-bd70-4c47-9603-43b022d163b1\",\n        \"sha256\": \"c360f13d2497bd8c4f59eb740c2754b2d5c2470220f4c8ab84d4cd6aa24a5c39\",\n        \"created\": \"2024-03-17T04:51:10.933Z\",\n        \"duration\": 2.0375626,\n        \"channels\": 1,\n        \"models\": [\n            \"1ed36bac-f71c-4f3f-a31f-02fd6525c489\"\n        ],\n        \"model_info\": {\n            \"1ed36bac-f71c-4f3f-a31f-02fd6525c489\": {\n                \"name\": \"general\",\n                \"version\": \"2024-01-26.8851\",\n                \"arch\": \"base\"\n            }\n        }\n    },\n    \"results\": {\n        \"channels\": [\n            {\n                \"alternatives\": [\n                    {\n                        \"transcript\": \"hello how can i help you today\",\n                        \"confidence\": 0.99658203,\n                        \"words\": [\n                            {\n                                \"word\": \"hello\",\n                                \"start\": 0.1951923,\n                                \"end\": 0.35134614,\n                                \"confidence\": 0.99853516\n                            },\n                            {\n                                \"word\": \"how\",\n                                \"start\": 0.5075,\n                                \"end\": 0.66365385,\n                                \"confidence\": 0.99853516\n                            },\n                            {\n                                \"word\": \"can\",\n                                \"start\": 0.66365385,\n                                \"end\": 0.74173075,\n                                \"confidence\": 0.99658203\n                            },\n                            {\n                                \"word\": \"i\",\n                                \"start\": 0.8978846,\n                                \"end\": 0.9759615,\n                                \"confidence\": 0.99853516\n                            },\n                            {\n                                \"word\": \"help\",\n                                \"start\": 0.9759615,\n                                \"end\": 1.1321154,\n                                \"confidence\": 0.9975586\n                            },\n                            {\n                                \"word\": \"you\",\n                                \"start\": 1.1321154,\n                                \"end\": 1.4444231,\n                                \"confidence\": 0.9951172\n                            },\n                            {\n                                \"word\": \"today\",\n                                \"start\": 1.4444231,\n                                \"end\": 1.6005769,\n                                \"confidence\": 0.99902344\n                            }\n                        ]\n                    }\n                ]\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Transcribe - Remote file",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"https://dpgr.am/spacewalk.wav\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/listen",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"listen"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"https://dpgr.am/spacewalk.wav\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/listen",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"listen"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "vary",
+									"value": "origin"
+								},
+								{
+									"key": "vary",
+									"value": "access-control-request-method"
+								},
+								{
+									"key": "vary",
+									"value": "access-control-request-headers"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-encoding",
+									"value": "br"
+								},
+								{
+									"key": "dg-request-id",
+									"value": "180e7980-b75f-4642-820c-481f0dd30234"
+								},
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "date",
+									"value": "Sun, 17 Mar 2024 04:51:36 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"metadata\": {\n        \"transaction_key\": \"deprecated\",\n        \"request_id\": \"180e7980-b75f-4642-820c-481f0dd30234\",\n        \"sha256\": \"154e291ecfa8be6ab8343560bcc109008fa7853eb5372533e8efdefc9b504c33\",\n        \"created\": \"2024-03-17T04:51:37.321Z\",\n        \"duration\": 25.933313,\n        \"channels\": 1,\n        \"models\": [\n            \"1ed36bac-f71c-4f3f-a31f-02fd6525c489\"\n        ],\n        \"model_info\": {\n            \"1ed36bac-f71c-4f3f-a31f-02fd6525c489\": {\n                \"name\": \"general\",\n                \"version\": \"2024-01-26.8851\",\n                \"arch\": \"base\"\n            }\n        }\n    },\n    \"results\": {\n        \"channels\": [\n            {\n                \"alternatives\": [\n                    {\n                        \"transcript\": \"yeah as as much as it's worth celebrating the first space walk with an all female team i think many of us are looking forward to it just being normal and i think if it signifies anything it is to honor the the women who came before us who were skilled and qualified and didn't get the same opportunities that we have today\",\n                        \"confidence\": 0.9946289,\n                        \"words\": [\n                            {\n                                \"word\": \"yeah\",\n                                \"start\": 0.11971429,\n                                \"end\": 0.1995238,\n                                \"confidence\": 0.9868164\n                            },\n                            {\n                                \"word\": \"as\",\n                                \"start\": 0.4389524,\n                                \"end\": 0.9389524,\n                                \"confidence\": 0.9291992\n                            },\n                            {\n                                \"word\": \"as\",\n                                \"start\": 0.99761903,\n                                \"end\": 1.1572381,\n                                \"confidence\": 0.9926758\n                            },\n                            {\n                                \"word\": \"much\",\n                                \"start\": 1.1572381,\n                                \"end\": 1.3168571,\n                                \"confidence\": 0.99853516\n                            },\n                            {\n                                \"word\": \"as\",\n                                \"start\": 1.3168571,\n                                \"end\": 1.6360953,\n                                \"confidence\": 0.98779297\n                            },\n                            {\n                                \"word\": \"it's\",\n                                \"start\": 2.1149523,\n                                \"end\": 2.3543808,\n                                \"confidence\": 0.9946289\n                            },\n                            {\n                                \"word\": \"worth\",\n                                \"start\": 2.3543808,\n                                \"end\": 2.8543808,\n                                \"confidence\": 1\n                            },\n                            {\n                                \"word\": \"celebrating\",\n                                \"start\": 2.9130476,\n                                \"end\": 3.4130476,\n                                \"confidence\": 0.99902344\n                            },\n                            {\n                                \"word\": \"the\",\n                                \"start\": 4.5092382,\n                                \"end\": 4.668857,\n                                \"confidence\": 0.99560547\n                            },\n                            {\n                                \"word\": \"first\",\n                                \"start\": 4.668857,\n                                \"end\": 5.168857,\n                                \"confidence\": 0.9980469\n                            },\n                            {\n                                \"word\": \"space\",\n                                \"start\": 5.3871427,\n                                \"end\": 5.706381,\n                                \"confidence\": 0.9980469\n                            },\n                            {\n                                \"word\": \"walk\",\n                                \"start\": 5.706381,\n                                \"end\": 6.025619,\n                                \"confidence\": 0.7651367\n                            },\n                            {\n                                \"word\": \"with\",\n                                \"start\": 6.504476,\n                                \"end\": 6.6640954,\n                                \"confidence\": 0.99609375\n                            },\n                            {\n                                \"word\": \"an\",\n                                \"start\": 6.6640954,\n                                \"end\": 6.8237143,\n                                \"confidence\": 0.99121094\n                            },\n                            {\n                                \"word\": \"all\",\n                                \"start\": 6.8237143,\n                                \"end\": 6.9833336,\n                                \"confidence\": 0.8881836\n                            },\n                            {\n                                \"word\": \"female\",\n                                \"start\": 6.9833336,\n                                \"end\": 7.382381,\n                                \"confidence\": 0.9951172\n                            },\n                            {\n                                \"word\": \"team\",\n                                \"start\": 7.382381,\n                                \"end\": 7.6218095,\n                                \"confidence\": 0.99902344\n                            },\n                            {\n                                \"word\": \"i\",\n                                \"start\": 8.594185,\n                                \"end\": 8.67386,\n                                \"confidence\": 0.99853516\n                            },\n                            {\n                                \"word\": \"think\",\n                                \"start\": 8.67386,\n                                \"end\": 8.992555,\n                                \"confidence\": 0.9980469\n                            },\n                            {\n                                \"word\": \"many\",\n                                \"start\": 8.992555,\n                                \"end\": 9.151903,\n                                \"confidence\": 0.99853516\n                            },\n                            {\n                                \"word\": \"of\",\n                                \"start\": 9.151903,\n                                \"end\": 9.311251,\n                                \"confidence\": 0.9975586\n                            },\n                            {\n                                \"word\": \"us\",\n                                \"start\": 9.311251,\n                                \"end\": 9.811251,\n                                \"confidence\": 0.9980469\n                            },\n                            {\n                                \"word\": \"are\",\n                                \"start\": 10.028316,\n                                \"end\": 10.267338,\n                                \"confidence\": 0.99853516\n                            },\n                            {\n                                \"word\": \"looking\",\n                                \"start\": 10.267338,\n                                \"end\": 10.586033,\n                                \"confidence\": 0.99902344\n                            },\n                            {\n                                \"word\": \"forward\",\n                                \"start\": 10.586033,\n                                \"end\": 10.825055,\n                                \"confidence\": 0.9970703\n                            },\n                            {\n                                \"word\": \"to\",\n                                \"start\": 10.825055,\n                                \"end\": 10.984403,\n                                \"confidence\": 0.9970703\n                            },\n                            {\n                                \"word\": \"it\",\n                                \"start\": 10.984403,\n                                \"end\": 11.143751,\n                                \"confidence\": 0.9892578\n                            },\n                            {\n                                \"word\": \"just\",\n                                \"start\": 11.143751,\n                                \"end\": 11.382772,\n                                \"confidence\": 0.99658203\n                            },\n                            {\n                                \"word\": \"being\",\n                                \"start\": 11.382772,\n                                \"end\": 11.882772,\n                                \"confidence\": 0.9916992\n                            },\n                            {\n                                \"word\": \"normal\",\n                                \"start\": 12.020164,\n                                \"end\": 12.418533,\n                                \"confidence\": 0.9980469\n                            },\n                            {\n                                \"word\": \"and\",\n                                \"start\": 12.737228,\n                                \"end\": 13.237228,\n                                \"confidence\": 0.9892578\n                            },\n                            {\n                                \"word\": \"i\",\n                                \"start\": 14.012012,\n                                \"end\": 14.091685,\n                                \"confidence\": 0.9970703\n                            },\n                            {\n                                \"word\": \"think\",\n                                \"start\": 14.091685,\n                                \"end\": 14.251034,\n                                \"confidence\": 0.9975586\n                            },\n                            {\n                                \"word\": \"if\",\n                                \"start\": 14.251034,\n                                \"end\": 14.410381,\n                                \"confidence\": 0.99560547\n                            },\n                            {\n                                \"word\": \"it\",\n                                \"start\": 14.410381,\n                                \"end\": 14.80875,\n                                \"confidence\": 0.9916992\n                            },\n                            {\n                                \"word\": \"signifies\",\n                                \"start\": 14.80875,\n                                \"end\": 15.127446,\n                                \"confidence\": 0.9995117\n                            },\n                            {\n                                \"word\": \"anything\",\n                                \"start\": 15.127446,\n                                \"end\": 15.627446,\n                                \"confidence\": 0.9995117\n                            },\n                            {\n                                \"word\": \"it\",\n                                \"start\": 15.859274,\n                                \"end\": 16.097822,\n                                \"confidence\": 0.9868164\n                            },\n                            {\n                                \"word\": \"is\",\n                                \"start\": 16.097822,\n                                \"end\": 16.33637,\n                                \"confidence\": 0.99560547\n                            },\n                            {\n                                \"word\": \"to\",\n                                \"start\": 16.892984,\n                                \"end\": 17.131533,\n                                \"confidence\": 0.99853516\n                            },\n                            {\n                                \"word\": \"honor\",\n                                \"start\": 17.131533,\n                                \"end\": 17.37008,\n                                \"confidence\": 1\n                            },\n                            {\n                                \"word\": \"the\",\n                                \"start\": 17.37008,\n                                \"end\": 17.688145,\n                                \"confidence\": 0.9785156\n                            },\n                            {\n                                \"word\": \"the\",\n                                \"start\": 17.688145,\n                                \"end\": 17.847178,\n                                \"confidence\": 0.99902344\n                            },\n                            {\n                                \"word\": \"women\",\n                                \"start\": 17.847178,\n                                \"end\": 18.085726,\n                                \"confidence\": 0.7294922\n                            },\n                            {\n                                \"word\": \"who\",\n                                \"start\": 18.085726,\n                                \"end\": 18.244759,\n                                \"confidence\": 0.9980469\n                            },\n                            {\n                                \"word\": \"came\",\n                                \"start\": 18.244759,\n                                \"end\": 18.562822,\n                                \"confidence\": 0.9995117\n                            },\n                            {\n                                \"word\": \"before\",\n                                \"start\": 18.562822,\n                                \"end\": 18.721855,\n                                \"confidence\": 0.9970703\n                            },\n                            {\n                                \"word\": \"us\",\n                                \"start\": 18.721855,\n                                \"end\": 18.880886,\n                                \"confidence\": 0.9980469\n                            },\n                            {\n                                \"word\": \"who\",\n                                \"start\": 19.517015,\n                                \"end\": 19.914597,\n                                \"confidence\": 0.9946289\n                            },\n                            {\n                                \"word\": \"were\",\n                                \"start\": 20.23266,\n                                \"end\": 20.550726,\n                                \"confidence\": 0.8852539\n                            },\n                            {\n                                \"word\": \"skilled\",\n                                \"start\": 20.550726,\n                                \"end\": 20.948307,\n                                \"confidence\": 0.99853516\n                            },\n                            {\n                                \"word\": \"and\",\n                                \"start\": 20.948307,\n                                \"end\": 21.186855,\n                                \"confidence\": 0.9970703\n                            },\n                            {\n                                \"word\": \"qualified\",\n                                \"start\": 21.186855,\n                                \"end\": 21.686855,\n                                \"confidence\": 0.9995117\n                            },\n                            {\n                                \"word\": \"and\",\n                                \"start\": 22.379597,\n                                \"end\": 22.618145,\n                                \"confidence\": 0.99853516\n                            },\n                            {\n                                \"word\": \"didn't\",\n                                \"start\": 22.618145,\n                                \"end\": 22.856693,\n                                \"confidence\": 0.8745117\n                            },\n                            {\n                                \"word\": \"get\",\n                                \"start\": 22.856693,\n                                \"end\": 23.254274,\n                                \"confidence\": 0.9970703\n                            },\n                            {\n                                \"word\": \"the\",\n                                \"start\": 23.413307,\n                                \"end\": 23.651855,\n                                \"confidence\": 0.96777344\n                            },\n                            {\n                                \"word\": \"same\",\n                                \"start\": 23.651855,\n                                \"end\": 24.128952,\n                                \"confidence\": 0.9980469\n                            },\n                            {\n                                \"word\": \"opportunities\",\n                                \"start\": 24.128952,\n                                \"end\": 24.526531,\n                                \"confidence\": 0.98779297\n                            },\n                            {\n                                \"word\": \"that\",\n                                \"start\": 24.526531,\n                                \"end\": 24.685564,\n                                \"confidence\": 0.99853516\n                            },\n                            {\n                                \"word\": \"we\",\n                                \"start\": 24.685564,\n                                \"end\": 24.844597,\n                                \"confidence\": 0.99902344\n                            },\n                            {\n                                \"word\": \"have\",\n                                \"start\": 24.844597,\n                                \"end\": 25.16266,\n                                \"confidence\": 0.9980469\n                            },\n                            {\n                                \"word\": \"today\",\n                                \"start\": 25.16266,\n                                \"end\": 25.242176,\n                                \"confidence\": 0.984375\n                            }\n                        ]\n                    }\n                ]\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Text-to-Speech",
+			"item": [
+				{
 					"name": "Transform Text to Speech",
 					"request": {
 						"method": "POST",
@@ -42,6 +356,126 @@
 						}
 					},
 					"response": []
+				}
+			]
+		},
+		{
+			"name": "Text-to-Text",
+			"item": [
+				{
+					"name": "Analyze Text",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930. It was the first structure to reach a height of 300 metres. Due to the addition of a broadcasting aerial at the top of the tower in 1957, it is now taller than the Chrysler Building by 5.2 metres (17 ft). Excluding transmitters, the Eiffel Tower is the second tallest free-standing structure in France after the Millau Viaduct.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/read?language=en&summarize=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"read"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "en"
+								},
+								{
+									"key": "summarize",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"text\": \"The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930. It was the first structure to reach a height of 300 metres. Due to the addition of a broadcasting aerial at the top of the tower in 1957, it is now taller than the Chrysler Building by 5.2 metres (17 ft). Excluding transmitters, the Eiffel Tower is the second tallest free-standing structure in France after the Millau Viaduct.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/read?language=en&summarize=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"read"
+									],
+									"query": [
+										{
+											"key": "language",
+											"value": "en"
+										},
+										{
+											"key": "summarize",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "vary",
+									"value": "origin"
+								},
+								{
+									"key": "vary",
+									"value": "access-control-request-method"
+								},
+								{
+									"key": "vary",
+									"value": "access-control-request-headers"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-encoding",
+									"value": "br"
+								},
+								{
+									"key": "dg-request-id",
+									"value": "78c76da3-bde3-4c3b-90f9-dbffb6434ae2"
+								},
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "date",
+									"value": "Sun, 17 Mar 2024 05:00:40 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"metadata\": {\n        \"request_id\": \"78c76da3-bde3-4c3b-90f9-dbffb6434ae2\",\n        \"created\": \"2024-03-17T05:00:40.682Z\",\n        \"language\": \"en\",\n        \"summary_info\": {\n            \"model_uuid\": \"67875a7f-c9c4-48a0-aa55-5bdb8a91c34a\",\n            \"input_tokens\": 170,\n            \"output_tokens\": 58\n        }\n    },\n    \"results\": {\n        \"summary\": {\n            \"text\": \"The transcript describes the construction of the Eiffel Tower, a tower at Paris. It is the tallest structures in the world and has surpassed the Washington Monument since its construction in 36. The tower is the second-highest free-standing structure in France after the Millau Viaduct.\"\n        }\n    }\n}"
+						}
+					]
 				}
 			]
 		}
