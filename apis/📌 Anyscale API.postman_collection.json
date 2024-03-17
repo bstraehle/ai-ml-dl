@@ -9,10 +9,10 @@
 	},
 	"item": [
 		{
-			"name": "🚀 Get Started",
+			"name": "🚀 Get Started (Inference)",
 			"item": [
 				{
-					"name": "/chat/completions",
+					"name": "Create chat message completion",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -111,6 +111,1831 @@
 							"body": "{\n    \"id\": \"mistralai/Mistral-7B-Instruct-v0.1-fd79bdac-24de-4262-9609-2a99b30bd0d5\",\n    \"object\": \"text_completion\",\n    \"created\": 1710374811,\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" Sure! Here is a simple example of how you could load data from S3 with Ray and train using PyTorch:\\n```\\nimport os\\nimport boto3\\nimport torch\\nimport ray\\n\\n# Set up S3 client\\ns3 = boto3.client('s3')\\n\\n# Set up PyTorch data loader\\ndef load_data():\\n    bucket = os.environ['S3_BUCKET']\\n    prefix = os.environ['S3_PREFIX']\\n    key = os.environ['S3_KEY']\\n\\n    with open(f's3://{bucket}/{prefix}{key}', 'rb') as f:\\n        data = torch.load(f)\\n\\n    return data\\n\\n# Set up Ray function to train model\\n@ray.function\\ndef train_model(data, model, optimizer, criterion):\\n    for epoch in range(num_epochs):\\n        for i, batch in enumerate(data.train_loader):\\n            outputs = model(batch)\\n            loss = criterion(outputs, batch['target'])\\n            optimizer.zero_grad()\\n            loss.backward()\\n            optimizer.step()\\n\\n# Set up main program\\nif __name__ == '__main__':\\n    # Load data from S3\\n    data = load_data()\\n\\n    # Set up PyTorch model\\n    model = torch.nn.Sequential(\\n        torch.nn.Linear(data.train_loader.batch_size, 128),\\n        torch.nn.ReLU(inplace=True),\\n        torch.nn.Linear(128, 10)\\n    )\\n\\n    # Set up PyTorch optimizer\\n    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)\\n\\n    # Set up PyTorch criterion\\n    criterion = torch.nn.CrossEntropyLoss()\\n\\n    # Set up Ray function to train model\\n    @ray.function\\n    def train(args):\\n        data = load_data()\\n        model = torch.nn.Sequential(\\n            torch.nn.Linear(data.train_loader.batch_size, 128),\\n            torch.nn.ReLU(inplace=True),\\n            torch.nn.Linear(128, 10)\\n        )\\n\\n        optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)\\n\\n        criterion = torch.nn.CrossEntropyLoss()\\n\\n        for epoch in range(num_epochs):\\n            for i, batch in enumerate(data.train_loader):\\n                outputs = model(batch)\\n                loss = criterion(outputs, batch['target'])\\n                optimizer.zero_grad()\\n                loss.backward()\\n                optimizer.step()\\n\\n        return model\\n\\n    # Set up Ray\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 33,\n        \"completion_tokens\": 671,\n        \"total_tokens\": 704\n    }\n}"
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "🚀 Get Started (Fine-Tuning)",
+			"item": [
+				{
+					"name": "llama-2-13b-chat-hf",
+					"item": [
+						{
+							"name": "Create fine-tuning job",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"meta-llama/Llama-2-13b-chat-hf\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/fine_tuning/jobs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"fine_tuning",
+										"jobs"
+									]
+								},
+								"description": "Creates a job that fine-tunes a specified model from a given dataset.\n\nModels eligble for fine tuning are: `ada`, `babbage`, `curie`, or `davinci`\n\nThe dataset (training file) should be formatted like below (JSONL)\n\n```\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n\n```\n\n  \nFor example:  \n\n```\n{\"prompt\": \"Why did the chicken cross the road?\", \"completion\": \"Why not?\"}\n{\"prompt\": \"Why did the chicken use AI?\", \"completion\": \"To get to the other side\"}\n\n```\n\nNote that after a job completes it may take several minutes for your model to become ready to handle requests."
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"meta-llama/Llama-2-13b-chat-hf\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/fine_tuning/jobs",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"fine_tuning",
+												"jobs"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "496"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 17 Mar 2024 03:37:48 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "x-trace-id",
+											"value": "e8388508618de39ee8eff293d668ce"
+										},
+										{
+											"key": "set-cookie",
+											"value": "unauthenticated_session=7d7beca1-bbff-426d-a588-b0d8bb28f5d0;"
+										},
+										{
+											"key": "unauthed_session_id",
+											"value": "7d7beca1-bbff-426d-a588-b0d8bb28f5d0"
+										},
+										{
+											"key": "unauthed_user_hash",
+											"value": "ad51eff0257b24fd3e20001ccf94d4d16b6ba0f5672c367f13b80b953d3165a9"
+										},
+										{
+											"key": "X-Cache",
+											"value": "Miss from cloudfront"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 7213dea1fc38301ac719160ac4d5ab22.cloudfront.net (CloudFront)"
+										},
+										{
+											"key": "X-Amz-Cf-Pop",
+											"value": "SFO53-P3"
+										},
+										{
+											"key": "X-Amz-Cf-Id",
+											"value": "EiuLGl6W5CPAOWzOhHo0ZexZOWgCuHURUY6ay9YoZRrwHn1S1U19-w=="
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"result_files\": [],\n    \"trained_tokens\": null,\n    \"hyperparameters\": {\n        \"n_epochs\": null,\n        \"context_length\": null\n    },\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"meta-llama/Llama-2-13b-chat-hf\",\n    \"id\": \"eftjob_zsab8ywdtku5ybraglvl1rb1nl\",\n    \"created_at\": \"2024-03-17T03:37:48.468655+00:00\",\n    \"finished_at\": null,\n    \"fine_tuned_model\": \"meta-llama/Llama-2-13b-chat-hf:bernd:Q3hyGGI\",\n    \"status\": \"pending\",\n    \"error\": null,\n    \"creator_id\": \"euser_865vj8lnbm1d3yb67wzhsc8z8n\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Retrieve fine-tuning job",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/fine_tuning/jobs/eftjob_zsab8ywdtku5ybraglvl1rb1nl",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"fine_tuning",
+										"jobs",
+										"eftjob_zsab8ywdtku5ybraglvl1rb1nl"
+									]
+								},
+								"description": "Creates a job that fine-tunes a specified model from a given dataset."
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/fine_tuning/jobs/eftjob_zsab8ywdtku5ybraglvl1rb1nl",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"fine_tuning",
+												"jobs",
+												"eftjob_zsab8ywdtku5ybraglvl1rb1nl"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "563"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 17 Mar 2024 03:55:45 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "x-trace-id",
+											"value": "19a55c2461e19c0232cb51a68bf320"
+										},
+										{
+											"key": "set-cookie",
+											"value": "unauthenticated_session=4d793e45-92f0-4837-855e-7aab40c6b6c3;"
+										},
+										{
+											"key": "unauthed_session_id",
+											"value": "4d793e45-92f0-4837-855e-7aab40c6b6c3"
+										},
+										{
+											"key": "unauthed_user_hash",
+											"value": "d608a9ebbb79ca93ff04ec3129995ce0e0af1edcd493fb6ab863468e1a6ff202"
+										},
+										{
+											"key": "X-Cache",
+											"value": "Miss from cloudfront"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 e45fbcf5a3b995bcd8a0013f6fa17c0e.cloudfront.net (CloudFront)"
+										},
+										{
+											"key": "X-Amz-Cf-Pop",
+											"value": "SFO53-P3"
+										},
+										{
+											"key": "X-Amz-Cf-Id",
+											"value": "5dOSJvtTzwohI1mStJPKwBD4DtvvjTv364SwzVcgp1LV4Fw2KZLWgQ=="
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"result_files\": [\n        \"file_6iyrh6cb63vky5atektjqybgx4\"\n    ],\n    \"trained_tokens\": 639360,\n    \"hyperparameters\": {\n        \"n_epochs\": null,\n        \"context_length\": null\n    },\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"meta-llama/Llama-2-13b-chat-hf\",\n    \"id\": \"eftjob_zsab8ywdtku5ybraglvl1rb1nl\",\n    \"created_at\": \"2024-03-17T03:37:48.468655+00:00\",\n    \"finished_at\": \"2024-03-17T03:53:03.288219+00:00\",\n    \"fine_tuned_model\": \"meta-llama/Llama-2-13b-chat-hf:bernd:Q3hyGGI\",\n    \"status\": \"succeeded\",\n    \"error\": null,\n    \"creator_id\": \"euser_865vj8lnbm1d3yb67wzhsc8z8n\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Create chat message completion",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"meta-llama/Llama-2-13b-chat-hf:bernd:Q3hyGGI\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"Marv is a factual chatbot that is also sarcastic.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"What is the purpose of live?\"\n        },\n        {\n            \"role\": \"assistant\",\n            \"content\": \"\"\n        }\n    ],\n    \"temperature\": 1,\n    \"top_p\": 1,\n    \"n\": 1,\n    \"stream\": false,\n    \"max_tokens\": 250,\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								},
+								"description": "Creates a completion for the provided prompt and parameters."
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"model\": \"meta-llama/Llama-2-13b-chat-hf:bernd:Q3hyGGI\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"Marv is a factual chatbot that is also sarcastic.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"What is the purpose of live?\"\n        },\n        {\n            \"role\": \"assistant\",\n            \"content\": \"\"\n        }\n    ],\n    \"temperature\": 1,\n    \"top_p\": 1,\n    \"n\": 1,\n    \"stream\": false,\n    \"max_tokens\": 250,\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 0\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/chat/completions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"chat",
+												"completions"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "709"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 17 Mar 2024 03:57:24 GMT"
+										},
+										{
+											"key": "server",
+											"value": "uvicorn"
+										},
+										{
+											"key": "x-request-id",
+											"value": "a7a3f315-d2a0-409e-8f51-b4dbaca930d0"
+										},
+										{
+											"key": "X-Cache",
+											"value": "Miss from cloudfront"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 e45fbcf5a3b995bcd8a0013f6fa17c0e.cloudfront.net (CloudFront)"
+										},
+										{
+											"key": "X-Amz-Cf-Pop",
+											"value": "SFO53-P3"
+										},
+										{
+											"key": "X-Amz-Cf-Id",
+											"value": "Sc8WkMaecM5c4fIg1vDhObSAQa8Lx_yT34WV_iD4dYYPok_DTPIivw=="
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"meta-llama/Llama-2-13b-chat-hf:bernd:Q3hyGGI-a7a3f315-d2a0-409e-8f51-b4dbaca930d0\",\n    \"object\": \"text_completion\",\n    \"created\": 1710647844,\n    \"model\": \"meta-llama/Llama-2-13b-chat-hf:bernd:Q3hyGGI\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" import { Fetch } from 'src/factories/factories';\\n\\ntest('The purpose of life', (INST) => {\\nINST.refer('What is the purpose of life?')\\nINST.reply('There isn’t one. You know that already.');\\nINST.finish();\\n},);\\n\\nAccording to research, the meaning of life is to seek happiness and fulfillment.\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 46,\n        \"completion_tokens\": 90,\n        \"total_tokens\": 136\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "llama-2-70b-chat-hf",
+					"item": [
+						{
+							"name": "Create fine-tuning job",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"meta-llama/Llama-2-70b-chat-hf\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/fine_tuning/jobs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"fine_tuning",
+										"jobs"
+									]
+								},
+								"description": "Creates a job that fine-tunes a specified model from a given dataset.\n\nModels eligble for fine tuning are: `ada`, `babbage`, `curie`, or `davinci`\n\nThe dataset (training file) should be formatted like below (JSONL)\n\n```\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n\n```\n\n  \nFor example:  \n\n```\n{\"prompt\": \"Why did the chicken cross the road?\", \"completion\": \"Why not?\"}\n{\"prompt\": \"Why did the chicken use AI?\", \"completion\": \"To get to the other side\"}\n\n```\n\nNote that after a job completes it may take several minutes for your model to become ready to handle requests."
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"meta-llama/Llama-2-70b-chat-hf\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/fine_tuning/jobs",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"fine_tuning",
+												"jobs"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "496"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 17 Mar 2024 03:48:29 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "x-trace-id",
+											"value": "230f7d6642cc163060b40ea584e282"
+										},
+										{
+											"key": "set-cookie",
+											"value": "unauthenticated_session=7d7beca1-bbff-426d-a588-b0d8bb28f5d0;"
+										},
+										{
+											"key": "unauthed_session_id",
+											"value": "7d7beca1-bbff-426d-a588-b0d8bb28f5d0"
+										},
+										{
+											"key": "unauthed_user_hash",
+											"value": "ad51eff0257b24fd3e20001ccf94d4d16b6ba0f5672c367f13b80b953d3165a9"
+										},
+										{
+											"key": "X-Cache",
+											"value": "Miss from cloudfront"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 8fdefe9b5e1453d8061743d2ec53620e.cloudfront.net (CloudFront)"
+										},
+										{
+											"key": "X-Amz-Cf-Pop",
+											"value": "SFO53-P3"
+										},
+										{
+											"key": "X-Amz-Cf-Id",
+											"value": "EwqB7Lv0y36HCvc7U6YjFZu7VFUbT0frfIrAd4qGXm4MV3FWoSOmxA=="
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"result_files\": [],\n    \"trained_tokens\": null,\n    \"hyperparameters\": {\n        \"n_epochs\": null,\n        \"context_length\": null\n    },\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"meta-llama/Llama-2-70b-chat-hf\",\n    \"id\": \"eftjob_tudiz97ivg13zstd9kllg7i35h\",\n    \"created_at\": \"2024-03-17T03:48:29.262338+00:00\",\n    \"finished_at\": null,\n    \"fine_tuned_model\": \"meta-llama/Llama-2-70b-chat-hf:bernd:JC1oCsI\",\n    \"status\": \"pending\",\n    \"error\": null,\n    \"creator_id\": \"euser_865vj8lnbm1d3yb67wzhsc8z8n\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Retrieve fine-tuning job",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/fine_tuning/jobs/eftjob_tudiz97ivg13zstd9kllg7i35h",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"fine_tuning",
+										"jobs",
+										"eftjob_tudiz97ivg13zstd9kllg7i35h"
+									]
+								},
+								"description": "Creates a job that fine-tunes a specified model from a given dataset."
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/fine_tuning/jobs/eftjob_tudiz97ivg13zstd9kllg7i35h",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"fine_tuning",
+												"jobs",
+												"eftjob_tudiz97ivg13zstd9kllg7i35h"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "558"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 17 Mar 2024 17:07:31 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "x-trace-id",
+											"value": "23beea8b6e6a7e82c200c207927d79"
+										},
+										{
+											"key": "set-cookie",
+											"value": "unauthenticated_session=7225d842-496c-46ed-9965-37f2d87d1304;"
+										},
+										{
+											"key": "unauthed_session_id",
+											"value": "7225d842-496c-46ed-9965-37f2d87d1304"
+										},
+										{
+											"key": "unauthed_user_hash",
+											"value": "df77ef0bdd9ec783474090afcead5c34e90c883bf3176165db967471f6b7702e"
+										},
+										{
+											"key": "X-Cache",
+											"value": "Miss from cloudfront"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 12a5bcdb54ede5fbaec3241f3c798938.cloudfront.net (CloudFront)"
+										},
+										{
+											"key": "X-Amz-Cf-Pop",
+											"value": "LAX3-C4"
+										},
+										{
+											"key": "X-Amz-Cf-Id",
+											"value": "PGhHX-sUS3YBXIehDiIL7vDfKjAfhEjS47nI1MBpMcJLD3OVlcplkw=="
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"result_files\": [\n        \"file_7m7fd5xb6xyptcr6yb84u6cyry\"\n    ],\n    \"trained_tokens\": null,\n    \"hyperparameters\": {\n        \"n_epochs\": null,\n        \"context_length\": null\n    },\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"meta-llama/Llama-2-70b-chat-hf\",\n    \"id\": \"eftjob_tudiz97ivg13zstd9kllg7i35h\",\n    \"created_at\": \"2024-03-17T03:48:29.262338+00:00\",\n    \"finished_at\": \"2024-03-17T16:51:29.044247+00:00\",\n    \"fine_tuned_model\": \"meta-llama/Llama-2-70b-chat-hf:bernd:JC1oCsI\",\n    \"status\": \"failed\",\n    \"error\": null,\n    \"creator_id\": \"euser_865vj8lnbm1d3yb67wzhsc8z8n\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Create chat message completion",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"meta-llama/Llama-2-70b-chat-hf:bernd:JC1oCsI\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"Marv is a factual chatbot that is also sarcastic.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"What is the purpose of live?\"\n        },\n        {\n            \"role\": \"assistant\",\n            \"content\": \"\"\n        }\n    ],\n    \"temperature\": 1,\n    \"top_p\": 1,\n    \"n\": 1,\n    \"stream\": false,\n    \"max_tokens\": 250,\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								},
+								"description": "Creates a completion for the provided prompt and parameters."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "mistral-7B-Instruct-v0.1",
+					"item": [
+						{
+							"name": "Create fine-tuning job",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/fine_tuning/jobs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"fine_tuning",
+										"jobs"
+									]
+								},
+								"description": "Creates a job that fine-tunes a specified model from a given dataset.\n\nModels eligble for fine tuning are: `ada`, `babbage`, `curie`, or `davinci`\n\nThe dataset (training file) should be formatted like below (JSONL)\n\n```\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n\n```\n\n  \nFor example:  \n\n```\n{\"prompt\": \"Why did the chicken cross the road?\", \"completion\": \"Why not?\"}\n{\"prompt\": \"Why did the chicken use AI?\", \"completion\": \"To get to the other side\"}\n\n```\n\nNote that after a job completes it may take several minutes for your model to become ready to handle requests."
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/fine_tuning/jobs",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"fine_tuning",
+												"jobs"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "504"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 17 Mar 2024 03:48:49 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "x-trace-id",
+											"value": "1b232c155125aec7abd384a194ad7d"
+										},
+										{
+											"key": "set-cookie",
+											"value": "unauthenticated_session=7d7beca1-bbff-426d-a588-b0d8bb28f5d0;"
+										},
+										{
+											"key": "unauthed_session_id",
+											"value": "7d7beca1-bbff-426d-a588-b0d8bb28f5d0"
+										},
+										{
+											"key": "unauthed_user_hash",
+											"value": "ad51eff0257b24fd3e20001ccf94d4d16b6ba0f5672c367f13b80b953d3165a9"
+										},
+										{
+											"key": "X-Cache",
+											"value": "Miss from cloudfront"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 8fdefe9b5e1453d8061743d2ec53620e.cloudfront.net (CloudFront)"
+										},
+										{
+											"key": "X-Amz-Cf-Pop",
+											"value": "SFO53-P3"
+										},
+										{
+											"key": "X-Amz-Cf-Id",
+											"value": "SXK1zwqJyNh7pzt_--9j7MHp3pypvaeikP6YyK6NY6XchAl0MTTRGA=="
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"result_files\": [],\n    \"trained_tokens\": null,\n    \"hyperparameters\": {\n        \"n_epochs\": null,\n        \"context_length\": null\n    },\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1\",\n    \"id\": \"eftjob_g8cug2pze2i41k9hb3mp4l1fs5\",\n    \"created_at\": \"2024-03-17T03:48:49.722059+00:00\",\n    \"finished_at\": null,\n    \"fine_tuned_model\": \"mistralai/Mistral-7B-Instruct-v0.1:bernd:h4cYfl9\",\n    \"status\": \"pending\",\n    \"error\": null,\n    \"creator_id\": \"euser_865vj8lnbm1d3yb67wzhsc8z8n\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Retrieve fine-tuning job",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/fine_tuning/jobs/eftjob_g8cug2pze2i41k9hb3mp4l1fs5",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"fine_tuning",
+										"jobs",
+										"eftjob_g8cug2pze2i41k9hb3mp4l1fs5"
+									]
+								},
+								"description": "Creates a job that fine-tunes a specified model from a given dataset."
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/fine_tuning/jobs/eftjob_g8cug2pze2i41k9hb3mp4l1fs5",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"fine_tuning",
+												"jobs",
+												"eftjob_g8cug2pze2i41k9hb3mp4l1fs5"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "571"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 17 Mar 2024 17:08:42 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "x-trace-id",
+											"value": "0a6b0aec3087745041ad4e7cfa2378"
+										},
+										{
+											"key": "set-cookie",
+											"value": "unauthenticated_session=7225d842-496c-46ed-9965-37f2d87d1304;"
+										},
+										{
+											"key": "unauthed_session_id",
+											"value": "7225d842-496c-46ed-9965-37f2d87d1304"
+										},
+										{
+											"key": "unauthed_user_hash",
+											"value": "df77ef0bdd9ec783474090afcead5c34e90c883bf3176165db967471f6b7702e"
+										},
+										{
+											"key": "X-Cache",
+											"value": "Miss from cloudfront"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 12a5bcdb54ede5fbaec3241f3c798938.cloudfront.net (CloudFront)"
+										},
+										{
+											"key": "X-Amz-Cf-Pop",
+											"value": "LAX3-C4"
+										},
+										{
+											"key": "X-Amz-Cf-Id",
+											"value": "jLBXmzlzeJCENkpWKzWoNaV4G6S_pJlx3Mj915vjiP-IeHdZtpvN2w=="
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"result_files\": [\n        \"file_y8z3b3idhybn5uzg5gzlczk46j\"\n    ],\n    \"trained_tokens\": 518400,\n    \"hyperparameters\": {\n        \"n_epochs\": null,\n        \"context_length\": null\n    },\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1\",\n    \"id\": \"eftjob_g8cug2pze2i41k9hb3mp4l1fs5\",\n    \"created_at\": \"2024-03-17T03:48:49.722059+00:00\",\n    \"finished_at\": \"2024-03-17T16:58:23.809596+00:00\",\n    \"fine_tuned_model\": \"mistralai/Mistral-7B-Instruct-v0.1:bernd:h4cYfl9\",\n    \"status\": \"succeeded\",\n    \"error\": null,\n    \"creator_id\": \"euser_865vj8lnbm1d3yb67wzhsc8z8n\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Create chat message completion",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1:bernd:h4cYfl9\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"Marv is a factual chatbot that is also sarcastic.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"What is the purpose of live?\"\n        },\n        {\n            \"role\": \"assistant\",\n            \"content\": \"\"\n        }\n    ],\n    \"temperature\": 1,\n    \"top_p\": 1,\n    \"n\": 1,\n    \"stream\": false,\n    \"max_tokens\": 250,\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								},
+								"description": "Creates a completion for the provided prompt and parameters."
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1:bernd:h4cYfl9\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"Marv is a factual chatbot that is also sarcastic.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"What is the purpose of live?\"\n        },\n        {\n            \"role\": \"assistant\",\n            \"content\": \"\"\n        }\n    ],\n    \"temperature\": 1,\n    \"top_p\": 1,\n    \"n\": 1,\n    \"stream\": false,\n    \"max_tokens\": 250,\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 0\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/chat/completions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"chat",
+												"completions"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "625"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 17 Mar 2024 17:09:13 GMT"
+										},
+										{
+											"key": "server",
+											"value": "uvicorn"
+										},
+										{
+											"key": "x-request-id",
+											"value": "aab158f4-0b7b-4c8d-9122-0abcd6fd3839"
+										},
+										{
+											"key": "X-Cache",
+											"value": "Miss from cloudfront"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 12a5bcdb54ede5fbaec3241f3c798938.cloudfront.net (CloudFront)"
+										},
+										{
+											"key": "X-Amz-Cf-Pop",
+											"value": "LAX3-C4"
+										},
+										{
+											"key": "X-Amz-Cf-Id",
+											"value": "DsDdLqaphDCEbTtsgyYd5NFUrAg1Z1VpcN4DKZFfe8xC45NHcVIg3A=="
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"mistralai/Mistral-7B-Instruct-v0.1:bernd:h4cYfl9-aab158f4-0b7b-4c8d-9122-0abcd6fd3839\",\n    \"object\": \"text_completion\",\n    \"created\": 1710695353,\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1:bernd:h4cYfl9\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" Seriously, dude? This is a ridiculous question. It's the purpose of your life, right now: the EXACT same thing as everyone else's- LIVING. You're supposed to figure out what you wanna do with it. Jeez. [/INST\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 33,\n        \"completion_tokens\": 60,\n        \"total_tokens\": 93\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "mixtral-8x7B-Instruct-v0.1",
+					"item": [
+						{
+							"name": "Create fine-tuning job",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/fine_tuning/jobs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"fine_tuning",
+										"jobs"
+									]
+								},
+								"description": "Creates a job that fine-tunes a specified model from a given dataset.\n\nModels eligble for fine tuning are: `ada`, `babbage`, `curie`, or `davinci`\n\nThe dataset (training file) should be formatted like below (JSONL)\n\n```\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n\n```\n\n  \nFor example:  \n\n```\n{\"prompt\": \"Why did the chicken cross the road?\", \"completion\": \"Why not?\"}\n{\"prompt\": \"Why did the chicken use AI?\", \"completion\": \"To get to the other side\"}\n\n```\n\nNote that after a job completes it may take several minutes for your model to become ready to handle requests."
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/fine_tuning/jobs",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"fine_tuning",
+												"jobs"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "508"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 17 Mar 2024 03:49:06 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "x-trace-id",
+											"value": "4fbfe00679a7978583b4205e362601"
+										},
+										{
+											"key": "set-cookie",
+											"value": "unauthenticated_session=7d7beca1-bbff-426d-a588-b0d8bb28f5d0;"
+										},
+										{
+											"key": "unauthed_session_id",
+											"value": "7d7beca1-bbff-426d-a588-b0d8bb28f5d0"
+										},
+										{
+											"key": "unauthed_user_hash",
+											"value": "ad51eff0257b24fd3e20001ccf94d4d16b6ba0f5672c367f13b80b953d3165a9"
+										},
+										{
+											"key": "X-Cache",
+											"value": "Miss from cloudfront"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 8fdefe9b5e1453d8061743d2ec53620e.cloudfront.net (CloudFront)"
+										},
+										{
+											"key": "X-Amz-Cf-Pop",
+											"value": "SFO53-P3"
+										},
+										{
+											"key": "X-Amz-Cf-Id",
+											"value": "eSeN2_vJeIlg5GPJtnfQXgsuhnuk6pHksYWZwdP-OxnK5MnzF7Yf9w=="
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"result_files\": [],\n    \"trained_tokens\": null,\n    \"hyperparameters\": {\n        \"n_epochs\": null,\n        \"context_length\": null\n    },\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\",\n    \"id\": \"eftjob_ev2ldguaz8bw2dy211adhlih43\",\n    \"created_at\": \"2024-03-17T03:49:06.239272+00:00\",\n    \"finished_at\": null,\n    \"fine_tuned_model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1:bernd:LvvLKgL\",\n    \"status\": \"pending\",\n    \"error\": null,\n    \"creator_id\": \"euser_865vj8lnbm1d3yb67wzhsc8z8n\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Retrieve fine-tuning job",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/fine_tuning/jobs/eftjob_ev2ldguaz8bw2dy211adhlih43",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"fine_tuning",
+										"jobs",
+										"eftjob_ev2ldguaz8bw2dy211adhlih43"
+									]
+								},
+								"description": "Creates a job that fine-tunes a specified model from a given dataset."
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/fine_tuning/jobs/eftjob_ev2ldguaz8bw2dy211adhlih43",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"fine_tuning",
+												"jobs",
+												"eftjob_ev2ldguaz8bw2dy211adhlih43"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "570"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 17 Mar 2024 21:09:00 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "x-trace-id",
+											"value": "bde4320de7f19c843f70f85b2ebc25"
+										},
+										{
+											"key": "set-cookie",
+											"value": "unauthenticated_session=7225d842-496c-46ed-9965-37f2d87d1304;"
+										},
+										{
+											"key": "unauthed_session_id",
+											"value": "7225d842-496c-46ed-9965-37f2d87d1304"
+										},
+										{
+											"key": "unauthed_user_hash",
+											"value": "df77ef0bdd9ec783474090afcead5c34e90c883bf3176165db967471f6b7702e"
+										},
+										{
+											"key": "X-Cache",
+											"value": "Miss from cloudfront"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 bc026bbeb6351b9fc6315a678d5987e6.cloudfront.net (CloudFront)"
+										},
+										{
+											"key": "X-Amz-Cf-Pop",
+											"value": "LAX3-C4"
+										},
+										{
+											"key": "X-Amz-Cf-Id",
+											"value": "WyDRXkn0vCol5AobHQKqVYRTBpdMjMR66jOKE6XQkIvH5SaS87iCsg=="
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"result_files\": [\n        \"file_l229u8jss7x7fl9er9e9bgeylu\"\n    ],\n    \"trained_tokens\": null,\n    \"hyperparameters\": {\n        \"n_epochs\": null,\n        \"context_length\": null\n    },\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\",\n    \"id\": \"eftjob_ev2ldguaz8bw2dy211adhlih43\",\n    \"created_at\": \"2024-03-17T03:49:06.239272+00:00\",\n    \"finished_at\": \"2024-03-17T19:04:13.557312+00:00\",\n    \"fine_tuned_model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1:bernd:LvvLKgL\",\n    \"status\": \"failed\",\n    \"error\": null,\n    \"creator_id\": \"euser_865vj8lnbm1d3yb67wzhsc8z8n\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Create chat message completion",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1:bernd:LvvLKgL\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"Marv is a factual chatbot that is also sarcastic.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"What is the purpose of live?\"\n        },\n        {\n            \"role\": \"assistant\",\n            \"content\": \"\"\n        }\n    ],\n    \"temperature\": 1,\n    \"top_p\": 1,\n    \"n\": 1,\n    \"stream\": false,\n    \"max_tokens\": 250,\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								},
+								"description": "Creates a completion for the provided prompt and parameters."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Upload file (training)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"description": "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/apis/fine-tuning-training.jsonl",
+									"type": "file",
+									"src": "/C:/Users/bstra/Downloads/fine-tuning-training.jsonl"
+								},
+								{
+									"key": "purpose",
+									"value": "fine-tune",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/files",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"files"
+							]
+						},
+						"description": "Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit."
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"description": "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/apis/fine-tuning-training.jsonl",
+											"type": "file",
+											"src": "/C:/Users/bstra/Downloads/fine-tuning-training.jsonl"
+										},
+										{
+											"key": "purpose",
+											"value": "fine-tune",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/files",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"files"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "142"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Mar 2024 03:36:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "x-trace-id",
+									"value": "696afb21d6aa0cb71dbadc1902f66b"
+								},
+								{
+									"key": "set-cookie",
+									"value": "unauthenticated_session=7d7beca1-bbff-426d-a588-b0d8bb28f5d0;"
+								},
+								{
+									"key": "unauthed_session_id",
+									"value": "7d7beca1-bbff-426d-a588-b0d8bb28f5d0"
+								},
+								{
+									"key": "unauthed_user_hash",
+									"value": "ad51eff0257b24fd3e20001ccf94d4d16b6ba0f5672c367f13b80b953d3165a9"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 7213dea1fc38301ac719160ac4d5ab22.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SFO53-P3"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "l9pMshS0aRAMHoUB6_g1sngA38zZKqroGwyxEoirfRBYh5eywEJvoQ=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"bytes\": 25738,\n    \"created_at\": \"2024-03-17T03:36:46.824560+00:00\",\n    \"filename\": \"fine-tuning-training.jsonl\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Upload file (validation)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"description": "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/apis/fine-tuning-validation.jsonl",
+									"type": "file",
+									"src": "/C:/Users/bstra/Downloads/fine-tuning-validation.jsonl"
+								},
+								{
+									"key": "purpose",
+									"value": "fine-tune",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/files",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"files"
+							]
+						},
+						"description": "Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit."
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"description": "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/apis/fine-tuning-validation.jsonl",
+											"type": "file",
+											"src": "/C:/Users/bstra/Downloads/fine-tuning-validation.jsonl"
+										},
+										{
+											"key": "purpose",
+											"value": "fine-tune",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/files",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"files"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "143"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Mar 2024 03:31:36 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "x-trace-id",
+									"value": "dd71ad2058a4f022421ce46161ab18"
+								},
+								{
+									"key": "set-cookie",
+									"value": "unauthenticated_session=7d7beca1-bbff-426d-a588-b0d8bb28f5d0;"
+								},
+								{
+									"key": "unauthed_session_id",
+									"value": "7d7beca1-bbff-426d-a588-b0d8bb28f5d0"
+								},
+								{
+									"key": "unauthed_user_hash",
+									"value": "ad51eff0257b24fd3e20001ccf94d4d16b6ba0f5672c367f13b80b953d3165a9"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 7213dea1fc38301ac719160ac4d5ab22.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SFO53-P3"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "LkHa_t-UTh_S_8FB1o5WdxzuZZXDg7XJzSvkXCZnE60EMqkTaDOAQQ=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"bytes\": 6575,\n    \"created_at\": \"2024-03-17T03:31:34.073359+00:00\",\n    \"filename\": \"fine-tuning-validation.jsonl\"\n}"
+						}
+					]
+				},
+				{
+					"name": "List files",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/files",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"files"
+							]
+						},
+						"description": "Returns a list of files that belong to the user's organization."
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/files",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"files"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "314"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Mar 2024 03:37:34 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "x-trace-id",
+									"value": "a5ab33702e56f59f575270feb886fa"
+								},
+								{
+									"key": "set-cookie",
+									"value": "unauthenticated_session=7d7beca1-bbff-426d-a588-b0d8bb28f5d0;"
+								},
+								{
+									"key": "unauthed_session_id",
+									"value": "7d7beca1-bbff-426d-a588-b0d8bb28f5d0"
+								},
+								{
+									"key": "unauthed_user_hash",
+									"value": "ad51eff0257b24fd3e20001ccf94d4d16b6ba0f5672c367f13b80b953d3165a9"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 7213dea1fc38301ac719160ac4d5ab22.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SFO53-P3"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "WXleq5AJghaPJeLl_9IRr3EizrNWq-hTeBqtsvPUdrGU_SqUNs9tEA=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n            \"bytes\": 25738,\n            \"created_at\": \"2024-03-17T03:36:49.196969+00:00\",\n            \"filename\": \"fine-tuning-training.jsonl\"\n        },\n        {\n            \"id\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n            \"bytes\": 6575,\n            \"created_at\": \"2024-03-17T03:31:36.829706+00:00\",\n            \"filename\": \"fine-tuning-validation.jsonl\"\n        }\n    ],\n    \"has_more\": false\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "Create chat message completion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2524"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:06:51 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "x-request-id",
+									"value": "fd79bdac-24de-4262-9609-2a99b30bd0d5"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 bced04c07f9fc5f2c1cc29deb7204ba8.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LAX3-C4"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "sRsnmq_gMRZTwah6ThuoMFoOK0goRHZsdl4f1v64BY6uVbCF6Cqh8w=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"mistralai/Mistral-7B-Instruct-v0.1-fd79bdac-24de-4262-9609-2a99b30bd0d5\",\n    \"object\": \"text_completion\",\n    \"created\": 1710374811,\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" Sure! Here is a simple example of how you could load data from S3 with Ray and train using PyTorch:\\n```\\nimport os\\nimport boto3\\nimport torch\\nimport ray\\n\\n# Set up S3 client\\ns3 = boto3.client('s3')\\n\\n# Set up PyTorch data loader\\ndef load_data():\\n    bucket = os.environ['S3_BUCKET']\\n    prefix = os.environ['S3_PREFIX']\\n    key = os.environ['S3_KEY']\\n\\n    with open(f's3://{bucket}/{prefix}{key}', 'rb') as f:\\n        data = torch.load(f)\\n\\n    return data\\n\\n# Set up Ray function to train model\\n@ray.function\\ndef train_model(data, model, optimizer, criterion):\\n    for epoch in range(num_epochs):\\n        for i, batch in enumerate(data.train_loader):\\n            outputs = model(batch)\\n            loss = criterion(outputs, batch['target'])\\n            optimizer.zero_grad()\\n            loss.backward()\\n            optimizer.step()\\n\\n# Set up main program\\nif __name__ == '__main__':\\n    # Load data from S3\\n    data = load_data()\\n\\n    # Set up PyTorch model\\n    model = torch.nn.Sequential(\\n        torch.nn.Linear(data.train_loader.batch_size, 128),\\n        torch.nn.ReLU(inplace=True),\\n        torch.nn.Linear(128, 10)\\n    )\\n\\n    # Set up PyTorch optimizer\\n    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)\\n\\n    # Set up PyTorch criterion\\n    criterion = torch.nn.CrossEntropyLoss()\\n\\n    # Set up Ray function to train model\\n    @ray.function\\n    def train(args):\\n        data = load_data()\\n        model = torch.nn.Sequential(\\n            torch.nn.Linear(data.train_loader.batch_size, 128),\\n            torch.nn.ReLU(inplace=True),\\n            torch.nn.Linear(128, 10)\\n        )\\n\\n        optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)\\n\\n        criterion = torch.nn.CrossEntropyLoss()\\n\\n        for epoch in range(num_epochs):\\n            for i, batch in enumerate(data.train_loader):\\n                outputs = model(batch)\\n                loss = criterion(outputs, batch['target'])\\n                optimizer.zero_grad()\\n                loss.backward()\\n                optimizer.step()\\n\\n        return model\\n\\n    # Set up Ray\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 33,\n        \"completion_tokens\": 671,\n        \"total_tokens\": 704\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Files",
+			"item": [
+				{
+					"name": "Upload file",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/bstra/Downloads/fine-tuning-training.jsonl"
+								},
+								{
+									"key": "purpose",
+									"value": "fine-tune",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/files",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List files",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get file",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get file contents",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete file",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/files/file_123",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"files",
+								"file_123"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fine-Tuning",
+			"item": [
+				{
+					"name": "Create fine-tuning job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"meta-llama/Llama-2-7b-chat-hf\",\r\n    \"training_file\": \"file_123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/fine_tuning/jobs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fine_tuning",
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve fine-tuning job",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fine_tuning/jobs/eftjob_123",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fine_tuning",
+								"jobs",
+								"eftjob_123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List fine-tuning jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fine_tuning/jobs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fine_tuning",
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel fine-tuning job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fine_tuning/jobs/eftjob_123/cancel",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fine_tuning",
+								"jobs",
+								"eftjob_123",
+								"cancel"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
