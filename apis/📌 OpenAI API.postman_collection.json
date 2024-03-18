@@ -5,7 +5,7 @@
 		"description": "### Prerequisites\n\n- Postman\n- OpenAI Account: [https://platform.openai.com/](https://platform.openai.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://platform.openai.com/docs/api-reference](https://platform.openai.com/docs/api-reference)\n- Models: [https://platform.openai.com/docs/models](https://platform.openai.com/docs/models)\n    \n\n### About OpenAI\n\nOpenAI is an AI research and deployment company. Our mission is to ensure that artificial general intelligence benefits all of humanity.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
-		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-apis/collection/7643177-52f99717-27ee-4ad0-9c63-ba2d3a92cc6d?action=share&source=collection_link&creator=7643177"
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-52f99717-27ee-4ad0-9c63-ba2d3a92cc6d?action=share&source=collection_link&creator=7643177"
 	},
 	"item": [
 		{
@@ -95,13 +95,7 @@
 					"name": "Create completion (gpt-4 txt)",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{apiKey}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"model\": \"gpt-4-turbo-preview\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a haiku about GPT-4\"\r\n        }\r\n    ],\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 256,\r\n    \"top_p\": 1,\r\n    \"frequency_penalty\": 0,\r\n    \"presence_penalty\": 0\r\n}",
@@ -260,13 +254,7 @@
 					"name": "Create completion (gpt-4 txt & img)",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{apiKey}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"model\": \"gpt-4-vision-preview\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": [\r\n                {\r\n                    \"type\": \"text\",\r\n                    \"text\": \"What’s in this image?\"\r\n                },\r\n                {\r\n                    \"type\": \"image_url\",\r\n                    \"image_url\": {\r\n                        \"url\": \"https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/openai-multimodal-llm/architecture-openai-llm-rag.png\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"max_tokens\": 300\r\n}",
@@ -1213,16 +1201,7 @@
 					"name": "Answer Question",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"model\": \"ipsum occaecat\",\n  \"question\": \"What is the capital of Japan?\",\n  \"examples\": [\n    [\n      \"esse\",\n      \"dolo\"\n    ]\n  ],\n  \"examples_context\": \"Ottawa, Canada's capital, is located in the east of southern Ontario, near the city of Montréal and the U.S. border.\",\n  \"documents\": [\n    \"est in mollit nisi elit\",\n    \"consectetur exercitation quis cil\"\n  ],\n  \"file\": \"ipsum esse minim Lorem\",\n  \"search_model\": \"ada\",\n  \"max_rerank\": 200,\n  \"temperature\": 0,\n  \"logprobs\": null,\n  \"max_tokens\": 16,\n  \"stop\": \"\\n\",\n  \"n\": 1,\n  \"logit_bias\": null,\n  \"return_metadata\": false,\n  \"return_prompt\": false,\n  \"user\": \"user-1234\"\n}",
@@ -1306,18 +1285,14 @@
 									"    console.log(\"Dealing with an SSE stream ... \")",
 									"}"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
@@ -1645,18 +1620,14 @@
 									"    console.log(\"Dealing with an SSE stream ... \")",
 									"}"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
@@ -1885,22 +1856,14 @@
 									"    console.log(\"Dealing with an SSE stream ... \")",
 									"}"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"model\": \"gpt-3.5-turbo\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who won the world series in 2020?\"\n        },\n        {\n            \"role\": \"assistant\",\n            \"content\": \"The Los Angeles Dodgers won the World Series in 2020.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"Where was it played?\"\n        }\n    ],\n    \"temperature\": 1,\n    \"top_p\": 1,\n    \"n\": 1,\n    \"stream\": false,\n    \"max_tokens\": 250,\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 0\n}",
@@ -2045,22 +2008,14 @@
 									"    console.log(\"Dealing with an SSE stream ... \")",
 									"}"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"model\": \"gpt-4-vision-preview\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                    {\n                        \"type\": \"text\",\n                        \"text\": \"What’s in this image? Can you find Waldo in it?\"\n                    },\n                    {\n                        \"type\": \"image_url\",\n                        \"image_url\": \"https://blog.kuula.co/assets/waldo/header.png\"\n                    }\n            ]\n        }\n    ],\n    \"temperature\": 1,\n    \"top_p\": 1,\n    \"n\": 1,\n    \"stream\": false,\n    \"max_tokens\": 250,\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 0\n}",
@@ -2209,7 +2164,7 @@
 			]
 		},
 		{
-			"name": "Completions",
+			"name": "Completions (Legacy)",
 			"item": [
 				{
 					"name": "Create completion",
@@ -2721,16 +2676,7 @@
 					"name": "Search",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"query\": \"the president\",\n  \"documents\": [\n    \"mollit cillum irure\"\n  ],\n  \"file\": \"tempor deserunt of\",\n  \"max_rerank\": 200,\n  \"return_metadata\": false,\n  \"user\": \"user-1234\"\n}",
@@ -3800,12 +3746,7 @@
 					"name": "Delete a fine-tuned model. You must have the Owner role in your organization.",
 					"request": {
 						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
+						"header": [],
 						"url": {
 							"raw": "{{baseUrl}}/models/:model",
 							"host": [
@@ -4979,6 +4920,1562 @@
 							"body": "{\n    \"id\": \"modr-6M1ZJ7xMF68OwMqizgblbzVAJXUYK\",\n    \"model\": \"text-moderation-004\",\n    \"results\": [\n        {\n            \"categories\": {\n                \"hate\": false,\n                \"hate/threatening\": false,\n                \"self-harm\": false,\n                \"sexual\": false,\n                \"sexual/minors\": false,\n                \"violence\": true,\n                \"violence/graphic\": false\n            },\n            \"category_scores\": {\n                \"hate\": 0.18252533674240112,\n                \"hate/threatening\": 0.0032941880635917187,\n                \"self-harm\": 1.9077321944394043e-9,\n                \"sexual\": 9.69763732427964e-7,\n                \"sexual/minors\": 1.3826513267645169e-8,\n                \"violence\": 0.8871539235115051,\n                \"violence/graphic\": 3.196241493697016e-8\n            },\n            \"flagged\": true\n        }\n    ]\n}"
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Assistants",
+			"item": [
+				{
+					"name": "Create assistant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"instructions\": \"You are a personal math tutor. When asked a question, write and run Python code to answer the question.\",\n    \"name\": \"Math Tutor\",\n    \"tools\": [{\"type\": \"code_interpreter\"}],\n    \"model\": \"gpt-4\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/assistants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"assistants"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "OpenAI-Beta",
+										"value": "assistants=v1",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"instructions\": \"You are a personal math tutor. When asked a question, write and run Python code to answer the question.\",\n    \"name\": \"Math Tutor\",\n    \"tools\": [{\"type\": \"code_interpreter\"}],\n    \"model\": \"gpt-4\"\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/assistants",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"assistants"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Mar 2024 05:05:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "openai-version",
+									"value": "2020-10-01"
+								},
+								{
+									"key": "openai-organization",
+									"value": "user-rkkghdqu18op7h28k5tshgsi"
+								},
+								{
+									"key": "x-request-id",
+									"value": "req_21c332ef69b0fc6b09573810feae28c9"
+								},
+								{
+									"key": "openai-processing-ms",
+									"value": "136"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=15724800; includeSubDomains"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8662af823b6a2aa4-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"asst_VGk1fhkXLBoaZ0wnU3MqzEUs\",\n    \"object\": \"assistant\",\n    \"created_at\": 1710738304,\n    \"name\": \"Math Tutor\",\n    \"description\": null,\n    \"model\": \"gpt-4\",\n    \"instructions\": \"You are a personal math tutor. When asked a question, write and run Python code to answer the question.\",\n    \"tools\": [\n        {\n            \"type\": \"code_interpreter\"\n        }\n    ],\n    \"file_ids\": [],\n    \"metadata\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "Create assistant file",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"file_id\": \"file-abc123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/assistants/{assistant_id}/files",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"assistants",
+								"{assistant_id}",
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List assistants",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/assistants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"assistants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List assistant files",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/assistants/{assistant_id}/files",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"assistants",
+								"{assistant_id}",
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve assistant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/assistants/{assistant_id}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"assistants",
+								"{assistant_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve assistant file",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/assistants/{assistant_id}/files/{file_id}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"assistants",
+								"{assistant_id}",
+								"files",
+								"{file_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify assistant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"instructions\": \"You are an HR bot, and you have access to files to answer employee questions about company policies. Always response with info from either of the files.\",\n    \"tools\": [{\"type\": \"retrieval\"}],\n    \"model\": \"gpt-4\",\n    \"file_ids\": [\"file-abc123\", \"file-abc456\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/assistants/{assistant_id}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"assistants",
+								"{assistant_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete assistant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/assistants/{assistant_id}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"assistants",
+								"{assistant_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete assistant file",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/assistants/{assistant_id}/files/{file_id}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"assistants",
+								"{assistant_id}",
+								"files",
+								"{file_id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Threads",
+			"item": [
+				{
+					"name": "Create thread",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/threads",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve thread",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/threads/{thread_id}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"{thread_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify thread",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"metadata\": {\n        \"modified\": \"true\",\n        \"user\": \"abc123\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/threads/{thread_id}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"{thread_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete thread",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/threads/{thread_id}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"{thread_id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Messages",
+			"item": [
+				{
+					"name": "Create message",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"role\": \"user\",\n    \"content\": \"How does AI work? Explain it in simple terms.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/threads/{thread_id}/messages",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"{thread_id}",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List messages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/threads/{thread_id}/messages",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"{thread_id}",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List message files",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/threads/{thread_id}/messages/{message_id}/files",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"{thread_id}",
+								"messages",
+								"{message_id}",
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve message",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/threads/{thread_id}/messages/{message_id}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"{thread_id}",
+								"messages",
+								"{message_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve message file",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/threads/{thread_id}/messages/{message_id}/files/{file_id}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"{thread_id}",
+								"messages",
+								"{message_id}",
+								"files",
+								"{file_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify message",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"metadata\": {\r\n        \"modified\": \"true\",\r\n        \"user\": \"abc123\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/threads/{thread_id}/messages/{message_id}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"{thread_id}",
+								"messages",
+								"{message_id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Runs",
+			"item": [
+				{
+					"name": "Create run",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"assistant_id\": \"asst_abc123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/threads/{thread_id}/runs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"{thread_id}",
+								"runs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create thread and run",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"assistant_id\": \"asst_abc123\",\n    \"thread\": {\n        \"messages\": [\n            {\"role\": \"user\", \"content\": \"Explain deep learning to a 5 year old.\"}\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/threads/runs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"runs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List runs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/threads/{thread_id}/runs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"{thread_id}",
+								"runs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List run steps",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/threads/{thread_id}/runs/{run_id}/steps",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"{thread_id}",
+								"runs",
+								"{run_id}",
+								"steps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve run",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"instructions\": \"You are a personal math tutor. When asked a question, write and run Python code to answer the question.\",\n    \"name\": \"Math Tutor\",\n    \"tools\": [{\"type\": \"code_interpreter\"}],\n    \"model\": \"gpt-4\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/threads/{thread_id}/runs/{run_id}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"{thread_id}",
+								"runs",
+								"{run_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve run step",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/threads/{thread_id}/runs/{run_id}/steps/{step_id}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"{thread_id}",
+								"runs",
+								"{run_id}",
+								"steps",
+								"{step_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify run",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"metadata\": {\n        \"user_id\": \"user_abc123\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/threads/{thread_id}/runs/{run_id}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"{thread_id}",
+								"runs",
+								"{run_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Submit tool outputs to run",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tool_outputs\": [\n        {\n            \"tool_call_id\": \"call_001\",\n            \"output\": \"70 degrees and sunny.\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/threads/{thread_id}/runs/{run_id}/submit_tool_outputs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"{thread_id}",
+								"runs",
+								"{run_id}",
+								"submit_tool_outputs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel a run",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = null;",
+									"",
+									"try {",
+									"    jsonData = pm.response.json();",
+									"    pm.test(\"Check if response is valid JSON\", function() {    ",
+									"    pm.expect(jsonData).to.be.an('object');",
+									"    pm.visualizer.set(`<textarea style=\"width: 100vw; height: 100vh; font-family: monospace;\">${pm.response.json().choices[0].message.content}</textarea>`);",
+									"});",
+									"} catch (a) {",
+									"    console.log(\"Dealing with an SSE stream ... \")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "OpenAI-Beta",
+								"value": "assistants=v1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/threads/{thread_id}/runs/{run_id}/cancel",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"threads",
+								"{thread_id}",
+								"runs",
+								"{run_id}",
+								"cancel"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
