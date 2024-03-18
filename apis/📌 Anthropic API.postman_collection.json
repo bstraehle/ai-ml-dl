@@ -5,7 +5,7 @@
 		"description": "### Prerequisites\n\n- Postman\n- Anthropic Account: [https://console.anthropic.com/](https://console.anthropic.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://www.anthropic.com/api](https://www.anthropic.com/api)\n- Models: [https://www.anthropic.com/claude](https://www.anthropic.com/claude)\n    \n\n### About Anthropic\n\nAI research and products that put safety at the frontier.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
-		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-apis/collection/7643177-2abea212-3a37-41f4-b008-32f40323fc30?action=share&source=collection_link&creator=7643177"
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-2abea212-3a37-41f4-b008-32f40323fc30?action=share&source=collection_link&creator=7643177"
 	},
 	"item": [
 		{
@@ -16,11 +16,6 @@
 					"request": {
 						"method": "POST",
 						"header": [
-							{
-								"key": "x-api-key",
-								"value": "{{apiKey}}",
-								"type": "text"
-							},
 							{
 								"key": "anthropic-version",
 								"value": "2023-06-01",
@@ -170,11 +165,6 @@
 						"method": "POST",
 						"header": [
 							{
-								"key": "x-api-key",
-								"value": "{{apiKey}}",
-								"type": "text"
-							},
-							{
 								"key": "anthropic-version",
 								"value": "2023-06-01",
 								"type": "text"
@@ -292,6 +282,21 @@
 			]
 		}
 	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{apiKey}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "x-api-key",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",
