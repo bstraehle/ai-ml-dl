@@ -1,1 +1,1 @@
-https://www.deeplearning.ai/short-courses/efficiently-serving-llms (Predibase)  
+https://www.deeplearning.ai/short-courses/efficiently-serving-llms/ (Predibase)  
