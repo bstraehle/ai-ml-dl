@@ -12,7 +12,7 @@
 			"name": "🚀 Get Started",
 			"item": [
 				{
-					"name": "Chat (gemma-7b-it)",
+					"name": "Chat (google/gemma-7b-it)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -102,7 +102,7 @@
 			"name": "Chat",
 			"item": [
 				{
-					"name": "Chat (mixtral-8x7b-instruct-v0.1)",
+					"name": "Chat (mistralai/Mixtral-8x7B-Instruct-v0.1)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -187,7 +187,7 @@
 					]
 				},
 				{
-					"name": "Chat (mistral-7b-instruct-v0.2)",
+					"name": "Chat (mistralai/Mistral-7B-Instruct-v0.2)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -272,7 +272,7 @@
 					]
 				},
 				{
-					"name": "Chat (llama-2-70b-chat-hf)",
+					"name": "Chat (meta-llama/Llama-2-70b-chat-hf)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -357,7 +357,7 @@
 					]
 				},
 				{
-					"name": "Chat (dolphin-2.6-mixtral-8x7b)",
+					"name": "Chat (cognitivecomputations/dolphin-2.6-mixtral-8x7b)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -442,7 +442,7 @@
 					]
 				},
 				{
-					"name": "Chat (lzlv_70b_fp16_hf)",
+					"name": "Chat (lizpreciatior/lzlv_70b_fp16_hf)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -527,7 +527,7 @@
 					]
 				},
 				{
-					"name": "Chat (gemma-7b-it)",
+					"name": "Chat (google/gemma-7b-it)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -612,7 +612,7 @@
 					]
 				},
 				{
-					"name": "Chat (openchat_3.5)",
+					"name": "Chat (openchat/openchat_3.5)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -697,7 +697,7 @@
 					]
 				},
 				{
-					"name": "Chat (llava-1.5-7b-hf)",
+					"name": "Chat (llava-hf/llava-1.5-7b-hf)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -782,7 +782,7 @@
 					]
 				},
 				{
-					"name": "Chat (starcoder2-15b)",
+					"name": "Chat (bigcode/starcoder2-15b)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -867,7 +867,7 @@
 					]
 				},
 				{
-					"name": "Chat (pygmalion-13b-4bit-128g)",
+					"name": "Chat (DeepInfra/pygmalion-13b-4bit-128g)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -952,7 +952,7 @@
 					]
 				},
 				{
-					"name": "Chat (codellama-70b-instruct-hf)",
+					"name": "Chat (codellama/CodeLlama-70b-Instruct-hf)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1037,7 +1037,7 @@
 					]
 				},
 				{
-					"name": "Chat (airoboros-70b)",
+					"name": "Chat (deepinfra/airoboros-70b)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1122,7 +1122,7 @@
 					]
 				},
 				{
-					"name": "Chat (llama-2-7b-chat-hf)",
+					"name": "Chat (meta-llama/Llama-2-7b-chat-hf)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1207,7 +1207,7 @@
 					]
 				},
 				{
-					"name": "Chat (yi-34b-chat)",
+					"name": "Chat (01-ai/Yi-34B-Chat)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1292,7 +1292,7 @@
 					]
 				},
 				{
-					"name": "Chat (chronos-hermes-13b-v2)",
+					"name": "Chat (Austism/chronos-hermes-13b-v2)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1377,7 +1377,7 @@
 					]
 				},
 				{
-					"name": "Chat (mythomax-l2-13b)",
+					"name": "Chat (Gryphe/MythoMax-L2-13b)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1462,7 +1462,7 @@
 					]
 				},
 				{
-					"name": "Chat (phind-codellama-34b-v2)",
+					"name": "Chat (Phind/Phind-CodeLlama-34B-v2)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1547,7 +1547,7 @@
 					]
 				},
 				{
-					"name": "Chat (codellama-34b-instruct-hf)",
+					"name": "Chat (codellama/CodeLlama-34b-Instruct-hf)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1632,7 +1632,7 @@
 					]
 				},
 				{
-					"name": "Chat (llama-2-13b-chat-hf)",
+					"name": "Chat (meta-llama/Llama-2-13b-chat-hf)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1717,7 +1717,7 @@
 					]
 				},
 				{
-					"name": "Chat (mistral-7b-instruct-v0.1)",
+					"name": "Chat (mistralai/Mistral-7B-Instruct-v0.1)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1807,7 +1807,7 @@
 			"name": "Inference",
 			"item": [
 				{
-					"name": "Inference (gpt-j-6b)",
+					"name": "Inference (EleutherAI/gpt-j-6B)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1892,7 +1892,7 @@
 					]
 				},
 				{
-					"name": "Inference (gpt-neo-1.3b)",
+					"name": "Inference (EleutherAI/gpt-neo-1.3B)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1977,7 +1977,7 @@
 					]
 				},
 				{
-					"name": "Inference (gpt-neo-125m)",
+					"name": "Inference (EleutherAI/gpt-neo-125M)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -2062,7 +2062,7 @@
 					]
 				},
 				{
-					"name": "Inference (pythia-12b)",
+					"name": "Inference (EleutherAI/pythia-12b)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -2147,7 +2147,7 @@
 					]
 				},
 				{
-					"name": "Inference (pythia-2.8b)",
+					"name": "Inference (EleutherAI/pythia-2.8b)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -2232,7 +2232,7 @@
 					]
 				},
 				{
-					"name": "Inference (codegen-16b-mono)",
+					"name": "Inference (Salesforce/codegen-16B-mono)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -2317,7 +2317,7 @@
 					]
 				},
 				{
-					"name": "Inference (starcoder)",
+					"name": "Inference (bigcode/starcoder)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -2490,7 +2490,7 @@
 			"name": "Completions",
 			"item": [
 				{
-					"name": "Completions",
+					"name": "Completions (google/gemma-7b-it)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -2578,7 +2578,7 @@
 			"name": "Embeddings",
 			"item": [
 				{
-					"name": "Embeddings",
+					"name": "Embeddings (thenlper/gte-large)",
 					"request": {
 						"method": "POST",
 						"header": [],
