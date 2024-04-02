@@ -140,129 +140,6 @@
 			"name": "Chat",
 			"item": [
 				{
-					"name": "Chat (codellama-7b-instruct)",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"messages\": [\n            {\n                \"role\": \"system\",\n                \"content\": \"You are a helpful assistant.\"\n            },\n            {\n                \"role\": \"user\",\n                \"content\": \"Hello world\"\n            }\n        ],\n        \"model\": \"codellama-7b-instruct\",\n        \"max_tokens\": 512,\n        \"presence_penalty\": 0,\n        \"temperature\": 0.1,\n        \"top_p\": 0.9\n    }",
-							"options": {
-								"raw": {
-									"headerFamily": "json",
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/chat/completions",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"chat",
-								"completions"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n        \"messages\": [\n            {\n                \"role\": \"system\",\n                \"content\": \"You are a helpful assistant.\"\n            },\n            {\n                \"role\": \"user\",\n                \"content\": \"Hello world\"\n            }\n        ],\n        \"model\": \"codellama-7b-instruct\",\n        \"max_tokens\": 512,\n        \"presence_penalty\": 0,\n        \"temperature\": 0.1,\n        \"top_p\": 0.9\n    }",
-									"options": {
-										"raw": {
-											"headerFamily": "json",
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/chat/completions",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"chat",
-										"completions"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Content-Length",
-									"value": "388"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "X-RateLimit-Limit-Second",
-									"value": "1000"
-								},
-								{
-									"key": "RateLimit-Limit",
-									"value": "1000"
-								},
-								{
-									"key": "RateLimit-Remaining",
-									"value": "999"
-								},
-								{
-									"key": "RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "X-RateLimit-Remaining-Second",
-									"value": "999"
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 20 Mar 2024 03:02:13 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "uvicorn"
-								},
-								{
-									"key": "Vary",
-									"value": "Origin"
-								},
-								{
-									"key": "X-User-Request-Id",
-									"value": ""
-								},
-								{
-									"key": "X-Kong-Upstream-Latency",
-									"value": "426"
-								},
-								{
-									"key": "X-Kong-Proxy-Latency",
-									"value": "0"
-								},
-								{
-									"key": "Via",
-									"value": "kong/3.2.2"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": \"chatcmpl-adac3f7baf354249aa0937d6c118b056\",\n    \"object\": \"chat.completion\",\n    \"created\": 1710903734,\n    \"model\": \"codellama-7b-instruct\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"  Hello! It's nice to meet you. Is there anything I can help you with today?\",\n                \"function_call\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 29,\n        \"completion_tokens\": 21,\n        \"total_tokens\": 50\n    }\n}"
-						}
-					]
-				},
-				{
 					"name": "Chat (gemma-7b-it)",
 					"request": {
 						"method": "POST",
@@ -505,6 +382,129 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": \"chatcmpl-1946249f6ea44b7bbd278f311e8a8313\",\n    \"object\": \"chat.completion\",\n    \"created\": 1710903759,\n    \"model\": \"llama-2-13b-chat\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"  Hello there! How can I assist you today? Do you have any questions or tasks you'd like me to help you with? I'm here to help with any information or assistance you may need. Please feel free to ask me anything!\",\n                \"function_call\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 29,\n        \"completion_tokens\": 51,\n        \"total_tokens\": 80\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (codellama-7b-instruct)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"messages\": [\n            {\n                \"role\": \"system\",\n                \"content\": \"You are a helpful assistant.\"\n            },\n            {\n                \"role\": \"user\",\n                \"content\": \"Hello world\"\n            }\n        ],\n        \"model\": \"codellama-7b-instruct\",\n        \"max_tokens\": 512,\n        \"presence_penalty\": 0,\n        \"temperature\": 0.1,\n        \"top_p\": 0.9\n    }",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"messages\": [\n            {\n                \"role\": \"system\",\n                \"content\": \"You are a helpful assistant.\"\n            },\n            {\n                \"role\": \"user\",\n                \"content\": \"Hello world\"\n            }\n        ],\n        \"model\": \"codellama-7b-instruct\",\n        \"max_tokens\": 512,\n        \"presence_penalty\": 0,\n        \"temperature\": 0.1,\n        \"top_p\": 0.9\n    }",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "388"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-RateLimit-Limit-Second",
+									"value": "1000"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "1000"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "999"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "X-RateLimit-Remaining-Second",
+									"value": "999"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Mar 2024 03:02:13 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "X-User-Request-Id",
+									"value": ""
+								},
+								{
+									"key": "X-Kong-Upstream-Latency",
+									"value": "426"
+								},
+								{
+									"key": "X-Kong-Proxy-Latency",
+									"value": "0"
+								},
+								{
+									"key": "Via",
+									"value": "kong/3.2.2"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-adac3f7baf354249aa0937d6c118b056\",\n    \"object\": \"chat.completion\",\n    \"created\": 1710903734,\n    \"model\": \"codellama-7b-instruct\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"  Hello! It's nice to meet you. Is there anything I can help you with today?\",\n                \"function_call\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 29,\n        \"completion_tokens\": 21,\n        \"total_tokens\": 50\n    }\n}"
 						}
 					]
 				},
