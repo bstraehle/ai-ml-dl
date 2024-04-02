@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "6da4d34d-dd01-423e-8b1e-588b52cf362a",
+		"name": "📌 Perplexity AI API",
+		"description": "### Prerequisites\n\n- Postman\n- Perplexity AI Account: [https://www.perplexity.ai/](https://www.perplexity.ai/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.perplexity.ai/reference](https://docs.perplexity.ai/reference)\n- Models: [https://docs.perplexity.ai/reference](https://docs.perplexity.ai/reference)\n    \n\n### About Perplexity AI\n\nPerplexity AI unlocks the power of knowledge with information discovery and sharing.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7643177",
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-6da4d34d-dd01-423e-8b1e-588b52cf362a?action=share&source=collection_link&creator=7643177"
+	},
+	"item": [
+		{
+			"name": "🚀 Get Started",
+			"item": [
+				{
+					"name": "Chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"mistral-7b-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"mistral-7b-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 25 Mar 2024 04:28:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "869c273e980edbd9-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"69fb3393-c7b0-4405-a68c-68a9db6b9623\",\n    \"model\": \"mistral-7b-instruct\",\n    \"created\": 5696308,\n    \"usage\": {\n        \"prompt_tokens\": 15,\n        \"completion_tokens\": 194,\n        \"total_tokens\": 209\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a question that has puzzled philosophers, theologians, and thinkers throughout history. There are many different perspectives and beliefs about what gives life meaning. Some people find meaning through relationships with others, through work or creativity, or through spiritual or religious beliefs. Others believe that life has no inherent meaning and that it is up to each individual to create their own purpose. Ultimately, the meaning of life may be a deeply personal and subjective question, and different people may find different answers that resonate with them. Some popular philosophical theories about the meaning of life include existentialism, which holds that life has no inherent meaning and that individuals must create their own purpose, and absolutism, which holds that there is a universal meaning or purpose to life that can be discovered through reason or revelation. Ultimately, the answer to the question of what gives life meaning may be a matter of personal belief and interpretation.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.perplexity.ai",
+			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "BringYourOwn",
+			"type": "string"
+		}
+	]
+}

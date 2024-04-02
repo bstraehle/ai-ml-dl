@@ -1,0 +1,650 @@
+{
+	"info": {
+		"_postman_id": "6a0ccfd6-ca7e-403e-91bc-40cad9906a1a",
+		"name": "📌 Lepton AI API",
+		"description": "### Prerequisites\n\n- Postman\n- Lepton AI Account: [https://dashboard.lepton.ai/](https://dashboard.lepton.ai/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://www.lepton.ai/references/llm_models](https://www.lepton.ai/references/llm_models)\n- Models: [https://www.lepton.ai/references/llm_models](https://www.lepton.ai/references/llm_models)\n    \n\n### About Lepton AI\n\nRun AI applications efficiently, at scale, and in minutes with a cloud native platform.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7643177",
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-6a0ccfd6-ca7e-403e-91bc-40cad9906a1a?action=share&source=collection_link&creator=7643177"
+	},
+	"item": [
+		{
+			"name": "🚀 Get Started",
+			"item": [
+				{
+					"name": "Chat (llama2-7b)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"llama2-7b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"say hello\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://llama2-7b.lepton.run/api/v1/chat/completions",
+							"protocol": "https",
+							"host": [
+								"llama2-7b",
+								"lepton",
+								"run"
+							],
+							"path": [
+								"api",
+								"v1",
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"llama2-7b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"say hello\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://llama2-7b.lepton.run/api/v1/chat/completions",
+									"protocol": "https",
+									"host": [
+										"llama2-7b",
+										"lepton",
+										"run"
+									],
+									"path": [
+										"api",
+										"v1",
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 25 Mar 2024 05:24:31 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "766"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "869c799c0e27dbba-LAX"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-XYtnmG3JYRQy4ZDrgWF72Q\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711344271,\n    \"model\": \"llama2-7b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"  Hello! *adjusts glasses* How may I assist you today?\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 10,\n        \"total_tokens\": 28,\n        \"completion_tokens\": 18\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "Chat (llama2-7b)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"llama2-7b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"say hello\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://llama2-7b.lepton.run/api/v1/chat/completions",
+							"protocol": "https",
+							"host": [
+								"llama2-7b",
+								"lepton",
+								"run"
+							],
+							"path": [
+								"api",
+								"v1",
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"llama2-7b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"say hello\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://llama2-7b.lepton.run/api/v1/chat/completions",
+									"protocol": "https",
+									"host": [
+										"llama2-7b",
+										"lepton",
+										"run"
+									],
+									"path": [
+										"api",
+										"v1",
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 25 Mar 2024 05:24:31 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "766"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "869c799c0e27dbba-LAX"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-XYtnmG3JYRQy4ZDrgWF72Q\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711344271,\n    \"model\": \"llama2-7b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"  Hello! *adjusts glasses* How may I assist you today?\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 10,\n        \"total_tokens\": 28,\n        \"completion_tokens\": 18\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (llama2-13b)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"llama2-13b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"say hello\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://llama2-13b.lepton.run/api/v1/chat/completions",
+							"protocol": "https",
+							"host": [
+								"llama2-13b",
+								"lepton",
+								"run"
+							],
+							"path": [
+								"api",
+								"v1",
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"llama2-13b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"say hello\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://llama2-13b.lepton.run/api/v1/chat/completions",
+									"protocol": "https",
+									"host": [
+										"llama2-13b",
+										"lepton",
+										"run"
+									],
+									"path": [
+										"api",
+										"v1",
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 25 Mar 2024 05:27:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "231"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "869c7dbb881d1013-LAX"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-oczH7kASTxj32G3RQYL4zd\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711344439,\n    \"model\": \"llama2-13b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"  Hello!\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 10,\n        \"total_tokens\": 14,\n        \"completion_tokens\": 4\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (llama2-70b)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"llama2-70b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"say hello\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://llama2-70b.lepton.run/api/v1/chat/completions",
+							"protocol": "https",
+							"host": [
+								"llama2-70b",
+								"lepton",
+								"run"
+							],
+							"path": [
+								"api",
+								"v1",
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"llama2-70b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"say hello\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://llama2-70b.lepton.run/api/v1/chat/completions",
+									"protocol": "https",
+									"host": [
+										"llama2-70b",
+										"lepton",
+										"run"
+									],
+									"path": [
+										"api",
+										"v1",
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 25 Mar 2024 05:28:28 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "299"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "869c7f68ff817ea1-LAX"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-eLkRuHfPepSf8s6wxn7rfT\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711344508,\n    \"model\": \"llama2-70b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"  Hello!\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 10,\n        \"total_tokens\": 14,\n        \"completion_tokens\": 4\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (mixtral-8x7b)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"mixtral-8x7b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"say hello\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://mixtral-8x7b.lepton.run/api/v1/chat/completions",
+							"protocol": "https",
+							"host": [
+								"mixtral-8x7b",
+								"lepton",
+								"run"
+							],
+							"path": [
+								"api",
+								"v1",
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"mixtral-8x7b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"say hello\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://mixtral-8x7b.lepton.run/api/v1/chat/completions",
+									"protocol": "https",
+									"host": [
+										"mixtral-8x7b",
+										"lepton",
+										"run"
+									],
+									"path": [
+										"api",
+										"v1",
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 25 Mar 2024 05:31:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "772"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "869c845fcc280fd4-LAX"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-XpNgu42nGbtVSdNvibuygj\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711344712,\n    \"model\": \"mixtral-8x7b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Hello! It's nice to meet you. Is there something you'd like to talk about or ask me? I'm here to help with any questions you have to the best of my ability.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 11,\n        \"total_tokens\": 54,\n        \"completion_tokens\": 43\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Images",
+			"item": [
+				{
+					"name": "Images",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"width\": 1024,\r\n    \"height\": 1024,\r\n    \"guidance_scale\": 5,\r\n    \"high_noise_frac\": 0.75,\r\n    \"seed\": 151886915,\r\n    \"steps\": 30,\r\n    \"use_refiner\": false,\r\n    \"prompt\": \"Astronaut on Mars during sunset\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://sdxl.lepton.run/run",
+							"protocol": "https",
+							"host": [
+								"sdxl",
+								"lepton",
+								"run"
+							],
+							"path": [
+								"run"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apiKey",
+			"value": "BringYourOwn",
+			"type": "string"
+		}
+	]
+}

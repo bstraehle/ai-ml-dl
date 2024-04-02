@@ -5,20 +5,20 @@
 		"description": "### Prerequisites\n\n- Postman\n- Anyscale Account: [https://app.endpoints.anyscale.com/](https://app.endpoints.anyscale.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.endpoints.anyscale.com/](https://docs.endpoints.anyscale.com/)\n- Models: [https://docs.endpoints.anyscale.com/](https://docs.endpoints.anyscale.com/)\n    \n\n### About Anyscale\n\nThe modern AI infrastructure trusted by the world’s leading AI teams.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
-		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-apis/collection/7643177-5e86b362-34d0-4a92-ae32-f341fad1c30b?action=share&source=collection_link&creator=7643177"
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-5e86b362-34d0-4a92-ae32-f341fad1c30b?action=share&source=collection_link&creator=7643177"
 	},
 	"item": [
 		{
 			"name": "🚀 Get Started (Inference)",
 			"item": [
 				{
-					"name": "Create chat message completion",
+					"name": "Chat (llama-2-70b-chat-hf)",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"raw": "{\r\n    \"model\": \"meta-llama/Llama-2-70b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are an English to Spanish translator with a professional tone.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Generate 100 unique English sentences and Spanish translation about electric vehicle loan in JSON format.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -623,7 +623,7 @@
 										},
 										{
 											"key": "Content-Length",
-											"value": "558"
+											"value": "563"
 										},
 										{
 											"key": "Connection",
@@ -631,7 +631,7 @@
 										},
 										{
 											"key": "Date",
-											"value": "Sun, 17 Mar 2024 17:07:31 GMT"
+											"value": "Mon, 18 Mar 2024 22:57:32 GMT"
 										},
 										{
 											"key": "Server",
@@ -639,19 +639,19 @@
 										},
 										{
 											"key": "x-trace-id",
-											"value": "23beea8b6e6a7e82c200c207927d79"
+											"value": "90c19ced7b526ece27140990aac319"
 										},
 										{
 											"key": "set-cookie",
-											"value": "unauthenticated_session=7225d842-496c-46ed-9965-37f2d87d1304;"
+											"value": "unauthenticated_session=79a2934c-468a-47a3-ba21-e5be660f170f;"
 										},
 										{
 											"key": "unauthed_session_id",
-											"value": "7225d842-496c-46ed-9965-37f2d87d1304"
+											"value": "79a2934c-468a-47a3-ba21-e5be660f170f"
 										},
 										{
 											"key": "unauthed_user_hash",
-											"value": "df77ef0bdd9ec783474090afcead5c34e90c883bf3176165db967471f6b7702e"
+											"value": "a21522c2a9c859120eb56e24f14eb761d2fdaab485fb9d51b0c82e4ce2273a91"
 										},
 										{
 											"key": "X-Cache",
@@ -659,7 +659,7 @@
 										},
 										{
 											"key": "Via",
-											"value": "1.1 12a5bcdb54ede5fbaec3241f3c798938.cloudfront.net (CloudFront)"
+											"value": "1.1 85ad38fe9460fa7a535877f1fbdd29b6.cloudfront.net (CloudFront)"
 										},
 										{
 											"key": "X-Amz-Cf-Pop",
@@ -667,11 +667,11 @@
 										},
 										{
 											"key": "X-Amz-Cf-Id",
-											"value": "PGhHX-sUS3YBXIehDiIL7vDfKjAfhEjS47nI1MBpMcJLD3OVlcplkw=="
+											"value": "cJagyNL-CJLv7aMo_B-8FS23NwSUjNooNAh3UMSNldkNhWG80S-57Q=="
 										}
 									],
 									"cookie": [],
-									"body": "{\n    \"result_files\": [\n        \"file_7m7fd5xb6xyptcr6yb84u6cyry\"\n    ],\n    \"trained_tokens\": null,\n    \"hyperparameters\": {\n        \"n_epochs\": null,\n        \"context_length\": null\n    },\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"meta-llama/Llama-2-70b-chat-hf\",\n    \"id\": \"eftjob_tudiz97ivg13zstd9kllg7i35h\",\n    \"created_at\": \"2024-03-17T03:48:29.262338+00:00\",\n    \"finished_at\": \"2024-03-17T16:51:29.044247+00:00\",\n    \"fine_tuned_model\": \"meta-llama/Llama-2-70b-chat-hf:bernd:JC1oCsI\",\n    \"status\": \"failed\",\n    \"error\": null,\n    \"creator_id\": \"euser_865vj8lnbm1d3yb67wzhsc8z8n\"\n}"
+									"body": "{\n    \"result_files\": [\n        \"file_km67p3e96hgygrkinmu3pyw5n6\"\n    ],\n    \"trained_tokens\": 414976,\n    \"hyperparameters\": {\n        \"n_epochs\": null,\n        \"context_length\": null\n    },\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"meta-llama/Llama-2-70b-chat-hf\",\n    \"id\": \"eftjob_tudiz97ivg13zstd9kllg7i35h\",\n    \"created_at\": \"2024-03-17T03:48:29.262338+00:00\",\n    \"finished_at\": \"2024-03-18T18:32:31.997056+00:00\",\n    \"fine_tuned_model\": \"meta-llama/Llama-2-70b-chat-hf:bernd:JC1oCsI\",\n    \"status\": \"succeeded\",\n    \"error\": null,\n    \"creator_id\": \"euser_865vj8lnbm1d3yb67wzhsc8z8n\"\n}"
 								}
 							]
 						},
@@ -701,7 +701,81 @@
 								},
 								"description": "Creates a completion for the provided prompt and parameters."
 							},
-							"response": []
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"model\": \"meta-llama/Llama-2-70b-chat-hf:bernd:JC1oCsI\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"Marv is a factual chatbot that is also sarcastic.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"What is the purpose of live?\"\n        },\n        {\n            \"role\": \"assistant\",\n            \"content\": \"\"\n        }\n    ],\n    \"temperature\": 1,\n    \"top_p\": 1,\n    \"n\": 1,\n    \"stream\": false,\n    \"max_tokens\": 250,\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 0\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/chat/completions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"chat",
+												"completions"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "787"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 18 Mar 2024 23:00:45 GMT"
+										},
+										{
+											"key": "server",
+											"value": "uvicorn"
+										},
+										{
+											"key": "x-request-id",
+											"value": "8f9184d4-6b90-4e0e-bf8e-733553330561"
+										},
+										{
+											"key": "X-Cache",
+											"value": "Miss from cloudfront"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 85ad38fe9460fa7a535877f1fbdd29b6.cloudfront.net (CloudFront)"
+										},
+										{
+											"key": "X-Amz-Cf-Pop",
+											"value": "LAX3-C4"
+										},
+										{
+											"key": "X-Amz-Cf-Id",
+											"value": "ABfqLrI3B586V1J_Huy-uh6Yon3j7hAQ0M6SUrDSkzi7haknJeOELw=="
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"meta-llama/Llama-2-70b-chat-hf:bernd:JC1oCsI-8f9184d4-6b90-4e0e-bf8e-733553330561\",\n    \"object\": \"text_completion\",\n    \"created\": 1710802845,\n    \"model\": \"meta-llama/Llama-2-70b-chat-hf:bernd:JC1oCsI\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" importINST]Live is really the process that has no open end. Despite this, there is no agreed-upon overall physical principle that can determine what constitutes live. As a result, it's hard to define what 'life' is. DNA isn't sufficient. Hard as it is to put a suitably broad definition of life together, though, most things that don't live shouldn't be hard to determine.[INST\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 46,\n        \"completion_tokens\": 92,\n        \"total_tokens\": 138\n    }\n}"
+								}
+							]
 						}
 					]
 				},
@@ -1211,7 +1285,7 @@
 										},
 										{
 											"key": "Content-Length",
-											"value": "570"
+											"value": "575"
 										},
 										{
 											"key": "Connection",
@@ -1219,7 +1293,7 @@
 										},
 										{
 											"key": "Date",
-											"value": "Sun, 17 Mar 2024 21:09:00 GMT"
+											"value": "Mon, 18 Mar 2024 22:58:55 GMT"
 										},
 										{
 											"key": "Server",
@@ -1227,19 +1301,19 @@
 										},
 										{
 											"key": "x-trace-id",
-											"value": "bde4320de7f19c843f70f85b2ebc25"
+											"value": "2f85dee5fe1062c3ea6b0a06814e6a"
 										},
 										{
 											"key": "set-cookie",
-											"value": "unauthenticated_session=7225d842-496c-46ed-9965-37f2d87d1304;"
+											"value": "unauthenticated_session=79a2934c-468a-47a3-ba21-e5be660f170f;"
 										},
 										{
 											"key": "unauthed_session_id",
-											"value": "7225d842-496c-46ed-9965-37f2d87d1304"
+											"value": "79a2934c-468a-47a3-ba21-e5be660f170f"
 										},
 										{
 											"key": "unauthed_user_hash",
-											"value": "df77ef0bdd9ec783474090afcead5c34e90c883bf3176165db967471f6b7702e"
+											"value": "a21522c2a9c859120eb56e24f14eb761d2fdaab485fb9d51b0c82e4ce2273a91"
 										},
 										{
 											"key": "X-Cache",
@@ -1247,7 +1321,7 @@
 										},
 										{
 											"key": "Via",
-											"value": "1.1 bc026bbeb6351b9fc6315a678d5987e6.cloudfront.net (CloudFront)"
+											"value": "1.1 85ad38fe9460fa7a535877f1fbdd29b6.cloudfront.net (CloudFront)"
 										},
 										{
 											"key": "X-Amz-Cf-Pop",
@@ -1255,11 +1329,11 @@
 										},
 										{
 											"key": "X-Amz-Cf-Id",
-											"value": "WyDRXkn0vCol5AobHQKqVYRTBpdMjMR66jOKE6XQkIvH5SaS87iCsg=="
+											"value": "ZDStnBjDHc467VGBu5l2puqWfAEhCivX2-yoVRE-4WiLEHg0d1OslA=="
 										}
 									],
 									"cookie": [],
-									"body": "{\n    \"result_files\": [\n        \"file_l229u8jss7x7fl9er9e9bgeylu\"\n    ],\n    \"trained_tokens\": null,\n    \"hyperparameters\": {\n        \"n_epochs\": null,\n        \"context_length\": null\n    },\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\",\n    \"id\": \"eftjob_ev2ldguaz8bw2dy211adhlih43\",\n    \"created_at\": \"2024-03-17T03:49:06.239272+00:00\",\n    \"finished_at\": \"2024-03-17T19:04:13.557312+00:00\",\n    \"fine_tuned_model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1:bernd:LvvLKgL\",\n    \"status\": \"failed\",\n    \"error\": null,\n    \"creator_id\": \"euser_865vj8lnbm1d3yb67wzhsc8z8n\"\n}"
+									"body": "{\n    \"result_files\": [\n        \"file_zhzztn7c84kqs38bk1any2m7vj\"\n    ],\n    \"trained_tokens\": 518400,\n    \"hyperparameters\": {\n        \"n_epochs\": null,\n        \"context_length\": null\n    },\n    \"training_file\": \"file_smgsypc2qkdury8i6bt3tevg6x\",\n    \"validation_file\": \"file_ilxk82ff822x2zxfalkxffkyzb\",\n    \"model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\",\n    \"id\": \"eftjob_ev2ldguaz8bw2dy211adhlih43\",\n    \"created_at\": \"2024-03-17T03:49:06.239272+00:00\",\n    \"finished_at\": \"2024-03-18T18:30:19.685695+00:00\",\n    \"fine_tuned_model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1:bernd:LvvLKgL\",\n    \"status\": \"succeeded\",\n    \"error\": null,\n    \"creator_id\": \"euser_865vj8lnbm1d3yb67wzhsc8z8n\"\n}"
 								}
 							]
 						},
@@ -1289,7 +1363,81 @@
 								},
 								"description": "Creates a completion for the provided prompt and parameters."
 							},
-							"response": []
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1:bernd:LvvLKgL\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"Marv is a factual chatbot that is also sarcastic.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"What is the purpose of live?\"\n        },\n        {\n            \"role\": \"assistant\",\n            \"content\": \"\"\n        }\n    ],\n    \"temperature\": 1,\n    \"top_p\": 1,\n    \"n\": 1,\n    \"stream\": false,\n    \"max_tokens\": 250,\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 0\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/chat/completions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"chat",
+												"completions"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "448"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 18 Mar 2024 22:59:29 GMT"
+										},
+										{
+											"key": "server",
+											"value": "uvicorn"
+										},
+										{
+											"key": "x-request-id",
+											"value": "418fdc48-4928-4af6-b3f4-c0063de00b5c"
+										},
+										{
+											"key": "X-Cache",
+											"value": "Miss from cloudfront"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 85ad38fe9460fa7a535877f1fbdd29b6.cloudfront.net (CloudFront)"
+										},
+										{
+											"key": "X-Amz-Cf-Pop",
+											"value": "LAX3-C4"
+										},
+										{
+											"key": "X-Amz-Cf-Id",
+											"value": "w5O3XiZQT2rX_9kcwriO_y04FQnEbfe3XQcRk80gwKiJ7mjJk8G7sg=="
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"mistralai/Mixtral-8x7B-Instruct-v0.1:bernd:LvvLKgL-418fdc48-4928-4af6-b3f4-c0063de00b5c\",\n    \"object\": \"text_completion\",\n    \"created\": 1710802769,\n    \"model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1:bernd:LvvLKgL\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" To breathe, is that so hard?\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 33,\n        \"completion_tokens\": 9,\n        \"total_tokens\": 42\n    }\n}"
+								}
+							]
 						}
 					]
 				},
@@ -1315,7 +1463,6 @@
 							"formdata": [
 								{
 									"key": "file",
-									"description": "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/apis/fine-tuning-training.jsonl",
 									"type": "file",
 									"src": "/C:/Users/bstra/Downloads/fine-tuning-training.jsonl"
 								},
@@ -1453,7 +1600,6 @@
 							"formdata": [
 								{
 									"key": "file",
-									"description": "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/apis/fine-tuning-validation.jsonl",
 									"type": "file",
 									"src": "/C:/Users/bstra/Downloads/fine-tuning-validation.jsonl"
 								},
@@ -1669,7 +1815,411 @@
 			"name": "Chat",
 			"item": [
 				{
-					"name": "Create chat message completion",
+					"name": "Chat (llama-2-7b-chat-hf)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"meta-llama/Llama-2-7b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"meta-llama/Llama-2-7b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3205"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:18:38 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "x-request-id",
+									"value": "e5c6a5c2-9a8f-44af-af06-a937d4e00394"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 c5ce554a66cf9007b8e39d06afcf462c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LAX3-C4"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "h8hlF8wz1q9XEDxNMHa4bzkbPlqNyQwvtDjseS7L7s-tElpz6b4zNg=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"meta-llama/Llama-2-7b-chat-hf-e5c6a5c2-9a8f-44af-af06-a937d4e00394\",\n    \"object\": \"text_completion\",\n    \"created\": 1711930718,\n    \"model\": \"meta-llama/Llama-2-7b-chat-hf\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"  Certainly! Here is an example program that demonstrates how to use Ray and PyTorch to load data from Amazon S3 and train a neural network:\\n```\\nimport ray\\nimport torch\\nimport torch.nn as nn\\nimport torch.optim as optim\\n\\n# Set the path to the data file on S3\\ndata_path = 's3://my-bucket/data.csv'\\n\\n# Initialize Ray\\nray.init()\\n\\n# Load the data from S3 using Ray\\ndata = ray.read(data_path)\\n\\n# Split the data into training and validation sets\\ntrain_data, val_data = data[0], data[1:]\\n\\n# Define the neural network architecture\\nclass Net(nn.Module):\\n    def __init__(self):\\n        super(Net, self).__init__()\\n        self.fc1 = nn.Linear(784, 128)  # input layer (28x28 images) -> hidden layer (128 units)\\n        self.fc2 = nn.Linear(128, 10)  # hidden layer (128 units) -> output layer (10 units)\\n    def forward(self, x):\\n        x = torch.relu(self.fc1(x))  # activation function for hidden layer\\n        x = self.fc2(x)\\n        return x\\n\\n# Define the loss function and optimizer\\ncriterion = nn.CrossEntropyLoss()\\noptimizer = optim.SGD(Net(device='cuda').parameters(), lr=0.01)\\n\\n# Train the model using Ray\\nfor i in ray.range(10):  # loop over the data in parallel\\n    # Sample a minibatch of data from the training set\\n    X, y = train_data[i], val_data[i]\\n    # Compute the loss and backpropagation\\n    loss = criterion(Net(device='cuda').forward(X), y)\\n    optimizer.zero_grad()\\n    loss.backward()\\n    optimizer.step()\\n\\n# Print the train and validation loss\\nprint('Train loss:', loss.item())\\nprint('Val loss:', val_loss.item())\\n\\n# Stop the Ray cluster\\nray.shutdown()\\n```\\nThis program first imports the necessary libraries, including Ray, PyTorch, and the torch.nn module. It then sets the path to the data file on S3 and initializes Ray.\\nThe data is then loaded from S3 using Ray's read function, and split into training and validation sets using the [0] and [1:] indexing.\\nThe neural network architecture is defined using the Torch.nn module, with two fully connected (dense) layers. The forward function computes the output of the network given an input, and the loss function and optimizer are defined.\\nThe program then trains the model in parallel using Ray's range function, iterating over the training data and computing the loss and backpropagation for each mini-batch. The gradients are then updated using the optimizer, and the process is repeated for each mini-batch.\\nFinally, the train and validation loss are printed, and the Ray cluster is shut down using the Ray.shutdown() function.\\nNote that you will need to install the Ray and PyTorch libraries, as well as any necessary dependencies, before running this program. You can install Ray using the following command:\\n```\\npip install ray\\n```\\nI hope this helps! Let me know if you have any questions.\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 45,\n        \"completion_tokens\": 802,\n        \"total_tokens\": 847\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (llama-2-13b-chat-hf)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"meta-llama/Llama-2-13b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"meta-llama/Llama-2-13b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3740"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:18:56 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "x-request-id",
+									"value": "bb61ed1e-d4c6-4d6b-850e-763c069302fb"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 c5ce554a66cf9007b8e39d06afcf462c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LAX3-C4"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "NUw4eHlldGhvOhLeR87tVcZ8hFIYKbDWA-GP5UCVUox3xCDzYd6cPQ=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"meta-llama/Llama-2-13b-chat-hf-bb61ed1e-d4c6-4d6b-850e-763c069302fb\",\n    \"object\": \"text_completion\",\n    \"created\": 1711930736,\n    \"model\": \"meta-llama/Llama-2-13b-chat-hf\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"  Certainly! Here's a program to load data from an S3 bucket using Ray and train a PyTorch model:\\n```python\\nimport boto3\\nimport ray\\nfrom ray import _private as internal\\nfrom ray.aws import s3\\nfrom torch.utils.data import DataLoader\\n\\n# Set up AWS credentials\\nAWS_ACCESS_KEY_ID = \\\"your_access_key_id\\\"\\nAWS_SECRET_ACCESS_KEY = \\\"your_secret_access_key\\\"\\n\\n# Create an S3 client\\ns3_client = boto3.client(\\\"s3\\\", aws_access_key_id=AWS_ACCESS_KEY_ID,\\n                                 aws_secret_access_key=AWS_SECRET_ACCESS_KEY)\\n\\n# Set up the S3 bucket and directory\\nbucket_name = \\\"your_bucket_name\\\"\\ndirectory = \\\"your/directory/in/bucket\\\"\\n\\n# Load the data from S3 using Ray\\n@ray.task\\ndef load_data(bucket_name, directory):\\n    s3_client.list_objects(Bucket=bucket_name, Prefix=directory)\\n    objects = s3_client.list_objects(Bucket=bucket_name, Prefix=directory)[\\\"Contents\\\"]\\n    data = [object[\\\"Body\\\"].read() for object in objects]\\n    return data\\n\\n# Define the PyTorch model and dataset\\nclass MyModel(nn.Module):\\n    def __init__(self):\\n        super(MyModel, self).__init__()\\n        self.conv1 = nn.Conv2d(1, 32, kernel_size=3, padding=1)\\n        self.conv2 = nn.Conv2d(32, 64, kernel_size=3, padding=1)\\n        self.fc1 = nn.Linear(64*4*4, 128)\\n        self.fc2 = nn.Linear(128, 10)\\n\\n    def forward(self, x):\\n        x = nn.functional.relu(nn.functional.max_pool2d(self.conv1(x), 2))\\n        x = nn.functional.relu(nn.functional.max_pool2d(self.conv2(x), 2))\\n        x = x.view(-1, 64*4*4)\\n        x = nn.functional.relu(self.fc1(x))\\n        x = self.fc2(x)\\n        return x\\n\\nclass MyDataset(Dataset):\\n    def __init__(self, data):\\n        self.data = data\\n\\n    def __len__(self):\\n        return len(self.data)\\n\\n    def __getitem__(self, index):\\n        item = {key: torch.tensor(val[index]) for key, val in self.data.items()}\\n        return item\\n\\n# Load the data and create the dataset\\ndata = load_data.remote(bucket_name, directory)\\ndataset = MyDataset(data)\\n\\n# Create a DataLoader for the dataset\\nbatch_size = 32\\ndata_loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)\\n\\n# Train the model\\ndevice = torch.device(\\\"cuda\\\" if torch.cuda.is_available() else \\\"cpu\\\")\\nmodel = MyModel().to(device)\\ncriterion = nn.CrossEntropyLoss()\\noptimizer = optim.SGD(model.parameters(), lr=0.001)\\n\\nfor epoch in range(10):\\n    for batch in data_loader:\\n        inputs, labels = batch\\n        optimizer.zero_grad()\\n        outputs = model(inputs)\\n        loss = criterion(outputs, labels)\\n        loss.backward()\\n        optimizer.step()\\n\\n    print(f\\\"Epoch {epoch+1}, Loss: {loss.item():.4f}\\\")\\n```\\nIn this program, we first set up AWS credentials and create an S3 client. We then define a Ray function `load_data` that loads the data from an S3 bucket and returns the data as a list of Python objects.\\n\\nWe then define a PyTorch model and dataset, and create a DataLoader for the dataset. We train the model using the DataLoader and the SGD optimizer.\\n\\nNote that we use the `remote` keyword argument in the `load_data` function to specify that the function should be executed on a remote worker. We also use the `torch.device` function to specify the device to use for the model.\\n\\nI hope this helps! Let me know if you have any questions or need further assistance.\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 45,\n        \"completion_tokens\": 1099,\n        \"total_tokens\": 1144\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (llama-2-70b-chat-hf)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"meta-llama/Llama-2-70b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"meta-llama/Llama-2-70b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4011"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:19:30 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "x-request-id",
+									"value": "f368dd0a-a2fe-4bcf-aa86-30bffdb6f1a6"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 c5ce554a66cf9007b8e39d06afcf462c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LAX3-C4"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "VLQqHWAG0BwagrdjW5pWj6wE5II7vVY51sGi66pxWXaM1WLKcaE0qQ=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"meta-llama/Llama-2-70b-chat-hf-f368dd0a-a2fe-4bcf-aa86-30bffdb6f1a6\",\n    \"object\": \"text_completion\",\n    \"created\": 1711930770,\n    \"model\": \"meta-llama/Llama-2-70b-chat-hf\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"  Sure, here's a program that uses Ray and PyTorch to load data from an S3 bucket and train a machine learning model:\\n```\\nimport ray\\nimport torch\\nimport torch.nn as nn\\nimport torch.optim as optim\\nfrom torch.utils.data import Dataset, DataLoader\\nimport os\\n\\n# Set up Ray\\nray.init()\\n\\n# Define the data bucket and file pattern\\nbucket = 'my-bucket'\\nfile_pattern = 'data-%03d.pth'\\n\\n# Load the data from S3\\n@ray.task\\ndef load_data(file_name):\\n    # Download the file from S3\\n    s3 = boto3.client('s3')\\n    response = s3.get_object(Bucket=bucket, Key=file_name)\\n    data = response['Body'].read()\\n    # Return the data as a PyTorch tensor\\n    return torch.tensor(data)\\n\\n# Define the dataset class\\nclass MyDataset(Dataset):\\n    def __init__(self, data):\\n        self.data = data\\n\\n    def __getitem__(self, index):\\n        # Convert the index to a file name\\n        file_name = file_pattern % index\\n        # Load the data from S3 using the load_data task\\n        data = ray.get(load_data.remote(file_name))\\n        # Return the data as a PyTorch tensor\\n        return torch.tensor(data)\\n\\n    def __len__(self):\\n        # Return the number of files in the bucket\\n        s3 = boto3.client('s3')\\n        response = s3.list_objects(Bucket=bucket)\\n        return len(response['Contents'])\\n\\n# Create a data loader\\ndata_loader = DataLoader(MyDataset([]), batch_size=32, shuffle=True)\\n\\n# Define the model\\nclass MyModel(nn.Module):\\n    def __init__(self):\\n        super(MyModel, self).__init__()\\n        self.layer1 = nn.Linear(784, 128)  # input layer (784) -> hidden layer (128)\\n        self.layer2 = nn.Linear(128, 10)  # hidden layer (128) -> output layer (10)\\n\\n    def forward(self, x):\\n        x = torch.relu(self.layer1(x))  # activation function for hidden layer\\n        x = self.layer2(x)\\n        return x\\n\\n# Train the model\\n@ray.task\\ndef train_model(model, data_loader, epochs):\\n    # Initialize the model and loss\\n    model.train()\\n    loss = 0\\n    for i, data in enumerate(data_loader):\\n        # Forward pass\\n        output = model(data)\\n        # Calculate the loss\\n        loss += nn.CrossEntropyLoss()(output, data)\\n        # Backward pass\\n        optim.Adam(model.parameters(), lr=0.001).zero_grad()\\n        loss.backward()\\n        # Update the model parameters\\n        optim.Adam(model.parameters(), lr=0.001).step()\\n        # Print the loss at each epoch\\n        if i % epochs == 0:\\n            print(f'Epoch {i}: Loss = {loss.item()}')\\n        loss = 0\\n\\n# Train the model for 10 epochs\\nray.get(train_model.remote(MyModel(), data_loader, 10))\\n```\\nIn this program, we first set up Ray and define the data bucket and file pattern. We then define a function `load_data` that downloads a file from S3 and returns its contents as a PyTorch tensor. We define a dataset class `MyDataset` that loads the data from S3 using the `load_data` function and returns it as a PyTorch tensor. We then create a data loader from the dataset.\\n\\nWe define a simple neural network model with two linear layers and train it using the `train_model` function, which iterates over the data loader and calculates the loss at each iteration. We then update the model parameters using the Adam optimizer. We print the loss at each epoch.\\n\\nNote that this is just a simple example, and you may need to modify it to fit your specific use case. For example, you may need to modify the file pattern or the neural network architecture. Additionally, you will need to install the necessary dependencies, such as Ray and PyTorch, and set up your S3 bucket to store the data.\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 45,\n        \"completion_tokens\": 1070,\n        \"total_tokens\": 1115\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (codellama-70b-instruct-hf)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"codellama/CodeLlama-70b-Instruct-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"codellama/CodeLlama-70b-Instruct-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3125"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:17:13 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "x-request-id",
+									"value": "651e870c-fc33-448c-98be-ca7905e7a185"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 c5ce554a66cf9007b8e39d06afcf462c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LAX3-C4"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "9GyNN5eiIvlJSGAcWOqNCkT5ONRs-K-T2U6k1bAm7P7BfkZOUmnLGA=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"codellama/CodeLlama-70b-Instruct-hf-651e870c-fc33-448c-98be-ca7905e7a185\",\n    \"object\": \"text_completion\",\n    \"created\": 1711930633,\n    \"model\": \"codellama/CodeLlama-70b-Instruct-hf\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"1.  Installing and Configuring the Environment\\n    *   Install the latest version of Ray from the official website or using pip.\\n    *   Install PyTorch using pip or conda.\\n    *   Install the AWS CLI and configure it with your AWS credentials.\\n2.  Loading Data from S3\\n    *   Start Ray.\\n    *   Create a dataset using Ray's `ray.data.read_parquet` function.\\n    *   Pass the S3 path to the function, and specify the number of parallelism using the `parallelism` parameter.\\n    *   Shuffle the dataset using the `random_shuffle` function.\\n3.  Training with PyTorch\\n    *   Define a PyTorch model.\\n    *   Create a training operator by subclassing `TrainingOperator` and overriding its methods.\\n    *   Pass the model, optimizer, loss function, and dataset to the `TorchTrainer` constructor.\\n    *   Start training by calling the `trainer.train()` method.\\n4.  Saving and Loading Checkpoints\\n    *   Use `torch.save` to save PyTorch model checkpoints.\\n    *   Use `torch.load` to load the saved checkpoints.\\n\\nBelow is a sample code that demonstrates how to load data from S3 and train using PyTorch with Ray:\\n\\n```python\\nimport ray\\nimport torch\\nfrom ray.util.sgd.torch import TrainingOperator\\nfrom ray.util.sgd import TorchTrainer\\n\\n# Start Ray\\nray.init(address=\\\"auto\\\")\\n\\n# Load data from S3\\ntrain_data = ray.data.read_parquet(\\\"s3://bucket/path/to/data\\\", parallelism=4)\\ntrain_data = train_data.random_shuffle()\\n\\n# Define a PyTorch model\\nclass MyModel(torch.nn.Module):\\n    def __init__(self):\\n        super(MyModel, self).__init__()\\n        self.layer1 = torch.nn.Linear(10, 10)\\n        self.layer2 = torch.nn.Linear(10, 1)\\n\\n    def forward(self, x):\\n        x = self.layer1(x)\\n        x = torch.relu(x)\\n        x = self.layer2(x)\\n        return x\\n\\n# Define a training operator\\nclass MyTrainingOperator(TrainingOperator):\\n    def setup(self, config):\\n        model = MyModel()\\n        optimizer = torch.optim.Adam(model.parameters())\\n        loss = torch.nn.MSELoss()\\n\\n        self.model, self.optimizer, self.criterion = self.register(\\n            models=model, optimizers=optimizer, criterion=loss)\\n\\n# Train the model\\ntrainer = TorchTrainer(\\n    training_operator_cls=MyTrainingOperator,\\n    num_workers=4,\\n    config={\\\"lr\\\": 0.001},\\n    use_gpu=True,\\n    scheduler_step_freq=\\\"epoch\\\",\\n    train_loader=train_data.to_torch(label_column=\\\"label\\\", batch_size=32))\\n\\nfor i in range(5):\\n    stats = trainer.train()\\n    print(stats)\\n\\n# Save a checkpoint\\ntrainer.save(\\\"checkpoint\\\")\\n\\n# Load the saved checkpoint\\ntrainer.load(\\\"checkpoint\\\")\\n```\\n\\nThis code demonstrates how to load data from S3, train a PyTorch model using Ray, and save and load checkpoints.\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 48,\n        \"completion_tokens\": 835,\n        \"total_tokens\": 883\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (mistral-7b-instruct-v0.1)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1766,6 +2316,107 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": \"mistralai/Mistral-7B-Instruct-v0.1-fd79bdac-24de-4262-9609-2a99b30bd0d5\",\n    \"object\": \"text_completion\",\n    \"created\": 1710374811,\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" Sure! Here is a simple example of how you could load data from S3 with Ray and train using PyTorch:\\n```\\nimport os\\nimport boto3\\nimport torch\\nimport ray\\n\\n# Set up S3 client\\ns3 = boto3.client('s3')\\n\\n# Set up PyTorch data loader\\ndef load_data():\\n    bucket = os.environ['S3_BUCKET']\\n    prefix = os.environ['S3_PREFIX']\\n    key = os.environ['S3_KEY']\\n\\n    with open(f's3://{bucket}/{prefix}{key}', 'rb') as f:\\n        data = torch.load(f)\\n\\n    return data\\n\\n# Set up Ray function to train model\\n@ray.function\\ndef train_model(data, model, optimizer, criterion):\\n    for epoch in range(num_epochs):\\n        for i, batch in enumerate(data.train_loader):\\n            outputs = model(batch)\\n            loss = criterion(outputs, batch['target'])\\n            optimizer.zero_grad()\\n            loss.backward()\\n            optimizer.step()\\n\\n# Set up main program\\nif __name__ == '__main__':\\n    # Load data from S3\\n    data = load_data()\\n\\n    # Set up PyTorch model\\n    model = torch.nn.Sequential(\\n        torch.nn.Linear(data.train_loader.batch_size, 128),\\n        torch.nn.ReLU(inplace=True),\\n        torch.nn.Linear(128, 10)\\n    )\\n\\n    # Set up PyTorch optimizer\\n    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)\\n\\n    # Set up PyTorch criterion\\n    criterion = torch.nn.CrossEntropyLoss()\\n\\n    # Set up Ray function to train model\\n    @ray.function\\n    def train(args):\\n        data = load_data()\\n        model = torch.nn.Sequential(\\n            torch.nn.Linear(data.train_loader.batch_size, 128),\\n            torch.nn.ReLU(inplace=True),\\n            torch.nn.Linear(128, 10)\\n        )\\n\\n        optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)\\n\\n        criterion = torch.nn.CrossEntropyLoss()\\n\\n        for epoch in range(num_epochs):\\n            for i, batch in enumerate(data.train_loader):\\n                outputs = model(batch)\\n                loss = criterion(outputs, batch['target'])\\n                optimizer.zero_grad()\\n                loss.backward()\\n                optimizer.step()\\n\\n        return model\\n\\n    # Set up Ray\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 33,\n        \"completion_tokens\": 671,\n        \"total_tokens\": 704\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (mixtral-8x7b-instruct-v0.1)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2764"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:08:14 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "x-request-id",
+									"value": "e6f11fa9-78eb-40d1-9b64-9fed79c70acc"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 c5ce554a66cf9007b8e39d06afcf462c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LAX3-C4"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "jo3ZGuLZx3WJ5vfSaQBELz1xIgqd1r9qvm78XfO3e1XjO_TDPOSUXw=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"mistralai/Mixtral-8x7B-Instruct-v0.1-e6f11fa9-78eb-40d1-9b64-9fed79c70acc\",\n    \"object\": \"text_completion\",\n    \"created\": 1711930094,\n    \"model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" Sure, here is a simple example of how you can use Ray and PyTorch to load data from S3 and train a model. In this example, we will use the MNIST dataset.\\n\\nFirst, you need to install Ray and PyTorch. You can install Ray using pip:\\n\\n```bash\\npip install ray\\n```\\n\\nAnd you can install PyTorch from the PyTorch website: <https://pytorch.org/>\\n\\nHere is the Python program:\\n\\n```python\\nimport os\\nimport torch\\nfrom torchvision import datasets, transforms\\nimport ray\\nfrom ray.train.torch import TorchTrainer\\n\\n# Initialize Ray\\nray.init()\\n\\n# Define a transform to normalize the images\\ntransform = transforms.Compose([transforms.ToTensor(),\\n                                transforms.Normalize((0.5,), (0.5,))])\\n\\n# Define a function to load the data from S3\\n@ray.remote\\ndef load_data():\\n    train_data = datasets.MNIST('../data', train=True, download=True,\\n                               transform=transform)\\n    test_data = datasets.MNIST('../data', train=False, download=True,\\n                              transform=transform)\\n    return train_data, test_data\\n\\n# Call the function to load the data\\n(train_data, test_data) = ray.get(load_data.remote())\\n\\n# Define a simple PyTorch model\\nclass SimpleModel(torch.nn.Module):\\n    def __init__(self):\\n        super(SimpleModel, self).__init__()\\n        self.fc1 = torch.nn.Linear(28 * 28, 128)\\n        self.fc2 = torch.nn.Linear(128, 64)\\n        self.fc3 = torch.nn.Linear(64, 10)\\n\\n    def forward(self, x):\\n        x = x.view(-1, 28 * 28)\\n        x = torch.nn.functional.relu(self.fc1(x))\\n        x = torch.nn.functional.relu(self.fc2(x))\\n        x = self.fc3(x)\\n        return x\\n\\n# Initialize the model\\nmodel = SimpleModel()\\n\\n# Define a PyTorch training function\\ndef train(model, criterion, optimizer, data_loader):\\n    size = len(data_loader.dataset)\\n    model.train()\\n    for batch, (X, y) in enumerate(data_loader):\\n        X, y = X.to(model.device), y.to(model.device)\\n\\n        # Compute loss\\n        predictions = model(X)\\n        loss = criterion(predictions, y)\\n\\n        # Backpropagate loss\\n        optimizer.zero_grad()\\n        loss.backward()\\n\\n        # Update weights\\n        optimizer.step()\\n\\n        if batch % 100 == 0:\\n            loss, current = loss.item(), batch * len(X)\\n            print(f'loss: {loss:>7f}  [{current:>5d}/{size:>5d}]')\\n\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 33,\n        \"completion_tokens\": 746,\n        \"total_tokens\": 779\n    }\n}"
 						}
 					]
 				}
@@ -1980,7 +2631,7 @@
 		},
 		{
 			"key": "apiKey",
-			"value": "TODO",
+			"value": "BringYourOwn",
 			"type": "string"
 		}
 	]

@@ -5,26 +5,17 @@
 		"description": "### Prerequisites\n\n- Postman\n- Mistral AI Account: [https://console.mistral.ai/](https://console.mistral.ai/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.mistral.ai/api](https://docs.mistral.ai/api)\n- Models: [https://docs.mistral.ai/models](https://docs.mistral.ai/models)\n    \n\n### About Mistral AI\n\nOpen and portable generative AI for developers and businesses.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
-		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-apis/collection/7643177-a2821cd2-040a-48d7-86e1-42ee05ba1fb3?action=share&source=collection_link&creator=7643177"
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-a2821cd2-040a-48d7-86e1-42ee05ba1fb3?action=share&source=collection_link&creator=7643177"
 	},
 	"item": [
 		{
 			"name": "🚀 Get Started",
 			"item": [
 				{
-					"name": "Create Chat Completions",
+					"name": "Chat (mistral-large-latest)",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"model\": \"mistral-large-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
@@ -182,11 +173,374 @@
 			"name": "Chat",
 			"item": [
 				{
-					"name": "Completions",
-					"item": [
+					"name": "Chat (open-mistral-7b)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"open-mistral-7b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
 						{
-							"name": "Create Chat Completions",
-							"request": {
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"open-mistral-7b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:38:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1967990"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "5"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999842508"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1967990"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "12736"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "2"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "aa77f0614b89da0d1e084453cd4ff355"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d4836aeb5cdb7a-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"66f720c51d054e3ba787e6a6fcb83440\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711931875,\n    \"model\": \"open-mistral-7b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"There are several renowned French painters throughout history, but perhaps the most famous one is Leonardo da Vinci, even though he was born in Italy. However, if we limit the list to French-born painters, I would suggest:\\n\\n1. Claude Monet (1840-1926): He is considered the founder of Impressionism, one of the most influential art movements in Western art. Monet's works often focus on capturing the fleeting effects of light and color in the natural world.\\n\\n2. Pierre-Auguste Renoir (1841-1919): Renoir was a leading painter in the Impressionist movement as well, known for his depictions of leisure, beauty, and sensuality.\\n\\n3. Paul Cézanne (1839-1906): Cézanne is often referred to as the \\\"father of modern art\\\" due to his innovative approaches to composition, perspective, and color. He laid the groundwork for both Cubism and Expressionism.\\n\\n4. Edgar Degas (1834-1917): Degas was a leading figure in the Impressionist movement, known for his paintings of ballet dancers, racehorses, and Parisian street scenes.\\n\\n5. Pablo Picasso (1881-1973): Though born in Spain, Picasso spent a significant portion of his life in France and is widely regarded as one of the most influential artists of the 20th century. He co-founded the Cubist movement with Georges Braque.\\n\\nEach of these artists has made significant contributions to the world of art and continues to be celebrated for their work.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 389,\n        \"completion_tokens\": 372\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (open-mixtral-8x7b)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"open-mixtral-8x7b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"open-mixtral-8x7b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:39:06 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1967990"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "58"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999810498"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1967990"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "3515"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "3"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "3e8e395db8ca3d3e4f53fa58992d7c28"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d48512e8f6db7a-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"0089e892a47f40bd87a96fb0b82eec86\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711931942,\n    \"model\": \"open-mixtral-8x7b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Renown can be subjective and varies from person to person, but when it comes to French painters, Claude Monet, a leading figure in the Impressionist movement, is often recognized globally. His water lily series and paintings like \\\"Impression, Sunrise\\\" are widely appreciated. However, France has been home to many great artists, and recognition should not be limited to just one. Other French painters of note include Pierre-Auguste Renoir, Henri Matisse, and Paul Cézanne.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 125,\n        \"completion_tokens\": 108\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (mistral-large-latest)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"mistral-large-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
 								"method": "POST",
 								"header": [
 									{
@@ -219,135 +573,1908 @@
 									]
 								}
 							},
-							"response": [
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
 								{
-									"name": "OK",
-									"originalRequest": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											},
-											{
-												"key": "Accept",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"model\": \"mistral-large-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
-											"options": {
-												"raw": {
-													"headerFamily": "json",
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{baseUrl}}/chat/completions",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"chat",
-												"completions"
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Date",
-											"value": "Tue, 12 Mar 2024 02:42:19 GMT"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										},
-										{
-											"key": "Transfer-Encoding",
-											"value": "chunked"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "ratelimitbysize-limit",
-											"value": "2000000"
-										},
-										{
-											"key": "ratelimitbysize-remaining",
-											"value": "1967990"
-										},
-										{
-											"key": "x-ratelimitbysize-remaining-month",
-											"value": "9999967990"
-										},
-										{
-											"key": "ratelimitbysize-reset",
-											"value": "45"
-										},
-										{
-											"key": "x-ratelimitbysize-limit-minute",
-											"value": "2000000"
-										},
-										{
-											"key": "x-ratelimitbysize-remaining-minute",
-											"value": "1967990"
-										},
-										{
-											"key": "x-ratelimitbysize-limit-month",
-											"value": "10000000000"
-										},
-										{
-											"key": "ratelimitbysize-query-cost",
-											"value": "32010"
-										},
-										{
-											"key": "access-control-allow-origin",
-											"value": "*"
-										},
-										{
-											"key": "x-kong-upstream-latency",
-											"value": "2969"
-										},
-										{
-											"key": "x-kong-proxy-latency",
-											"value": "71"
-										},
-										{
-											"key": "x-kong-request-id",
-											"value": "6b43954c0f515a247ed7e34a1913d75f"
-										},
-										{
-											"key": "CF-Cache-Status",
-											"value": "DYNAMIC"
-										},
-										{
-											"key": "Server",
-											"value": "cloudflare"
-										},
-										{
-											"key": "CF-RAY",
-											"value": "86306e109f132ef7-LAX"
-										},
-										{
-											"key": "Content-Encoding",
-											"value": "br"
-										},
-										{
-											"key": "alt-svc",
-											"value": "h3=\":443\"; ma=86400"
-										}
-									],
-									"cookie": [],
-									"body": "{\n    \"id\": \"b7f966f6553e4ecd8c696d10ddf62901\",\n    \"object\": \"chat.completion\",\n    \"created\": 1710211335,\n    \"model\": \"mistral-large-latest\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"There are many renowned French painters, but one of the most famous is Claude Monet. Monet is a key figure in the impressionist movement, which emphasizes capturing the sensory effect of a scene. His series of water lilies paintings are particularly well-known. However, it's important to note that France has a rich art history, and there are many other notable French painters, such as Vincent van Gogh (who was Dutch-born but spent much of his life in France), Paul Cézanne, Henri Matisse, and Pierre-Auguste Renoir, among others.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 12,\n        \"total_tokens\": 141,\n        \"completion_tokens\": 129\n    }\n}"
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:39:10 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1935980"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1935980"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "53"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999778488"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "3259"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "4"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "9d2586178d3f57190cc0993f62121e41"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d4853049dddb7a-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
 								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"4ffc39dc430c4d19bb79aa13ef130fd8\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711931947,\n    \"model\": \"mistral-large-latest\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"There are many renowned French painters, but one of the most famous is Claude Monet. Monet is a key figure in the Impressionist movement, which is one of the most influential art movements in history. His work, such as \\\"Water Lilies\\\" and \\\"Impression, Sunrise,\\\" are iconic and have had a significant impact on the art world. However, it's important to note that there are many other accomplished French painters, including Paul Cézanne, Vincent van Gogh (who was Dutch but spent much of his life in France), Henri Matisse, and Pablo Picasso (who was Spanish but lived and worked in France for much of his life).\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 12,\n        \"total_tokens\": 157,\n        \"completion_tokens\": 145\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (mistral-medium-latest)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"mistral-medium-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
 							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"mistral-medium-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:39:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1903970"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "49"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999746479"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1903970"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "6837"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "2"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "d8810b53afaeec75178fbc505e07d812"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d48548eb15db7a-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"e90204a92dd94eea8f5ac4bbca272f1d\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711931951,\n    \"model\": \"mistral-medium-latest\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The most renowned French painter is often considered to be Pierre-Auguste Renoir or Claude Monet, both key figures in the Impressionist movement. However, other famous French painters include Henri Matisse, Paul Cézanne, and Vincent van Gogh (who was Dutch but spent a significant part of his career in France). If we go further back in history, artists such as Eugène Delacroix and Jean-François Millet are also highly regarded. Ultimately, the \\\"most renowned\\\" can depend on personal preference and the specific artistic period in question.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 140,\n        \"completion_tokens\": 123\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (mistral-small-latest)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"mistral-small-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"mistral-small-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:39:16 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1871960"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1871960"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "45"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999714469"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "1126"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "0"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "58bf4e7252cccb457dcac3158906722d"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d485607cbe313d-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"80a6f225d6dd46099aa11f86cbeb7543\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711931955,\n    \"model\": \"mistral-small-latest\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Claude Monet is often considered one of the most renowned French painters. He was a leading figure in the development of the Impressionist movement in the late 19th century. His works, such as \\\"Water Lilies,\\\" \\\"Impression, Sunrise,\\\" and \\\"Rouen Cathedral\\\" series, have had a significant impact on the art world. However, other notable French painters include Pierre-Auguste Renoir, Paul Cézanne, and Henri Matisse.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 12,\n        \"total_tokens\": 115,\n        \"completion_tokens\": 103\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (mistral-medium)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"mistral-medium\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"mistral-medium\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:40:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1928321"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1928321"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "19"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999682460"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "10881"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "3"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "29e8bd11c6340002fe27831e6b7c3912"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d4877a28b8db7a-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"f4663c091c014988a6608a8e45b1219a\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711932041,\n    \"model\": \"mistral-medium\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The most renowned French painter is often considered to be Pierre-Auguste Renoir or Claude Monet, both prominent figures in the Impressionist movement. However, if you consider all periods of art, some might argue for artists like Eugène Delacroix or Gustave Courbet from the Romantic period, or Henri Matisse and Georges Braque from the modern period. It's subjective and depends on personal preferences and the specific art movement one is interested in.\\n\\nIf we're talking about broad name recognition and influence, many people might first think of Vincent van Gogh - but while he spent significant time in France and is closely associated with French art, he was actually Dutch.\\n\\nIn the end, it's a complex question with no definitive answer, as the \\\"most renowned\\\" artist can vary depending on different factors and perspectives.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 200,\n        \"completion_tokens\": 183\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (mistral-small)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"mistral-small\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"mistral-small\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:40:50 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1903056"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1903056"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "16"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999650450"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "5402"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "3"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "a27b45624264c9235608b509e466c357"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d4878dd835313d-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"cc10aabb94cb4163bc424ee11e4837d6\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711932044,\n    \"model\": \"mistral-small\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Renown can be subjective and varies based on personal tastes, cultural context, and historical periods. However, many people would agree that Claude Monet, a leading figure in the Impressionist movement, is one of the most renowned French painters. His water lily series and paintings like \\\"Impression, Sunrise\\\" are widely recognized. \\n\\nIn historical terms, Leonardo da Vinci, though Italian by birth, spent the last years of his life in France and was greatly appreciated by King Francis I. Da Vinci's fame and influence extend far beyond France, but his presence in the country makes him a significant figure in French art history.\\n\\nOther notable French painters include Pierre-Auguste Renoir, Henri Matisse, and Paul Cézanne.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 180,\n        \"completion_tokens\": 163\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (mistral-tiny)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"mistral-tiny\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"mistral-tiny\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:40:53 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "12"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1878929"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999618440"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1878929"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "4736"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "1"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "71538111b631ab2aedbb8f01c7bb1e22"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d487a5090f08af-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"4cc56e4ade144ad0bda7710019ac5c6f\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711932048,\n    \"model\": \"mistral-tiny\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"One of the most renowned French painters is Leonardo da Vinci, but it's important to note that he was born in Italy, not France. If we focus on French painters, there are several who have achieved great fame. Some of the most famous include:\\n\\n1. Claude Monet (1840-1926): He is considered the founder of Impressionism, one of the most influential art movements in history. Monet's works often depict rural and coastal scenes, and he is known for his innovative use of light and color.\\n2. Pierre-Auguste Renoir (1841-1919): Renoir was a leading painter in the Impressionist movement and is known for his lively and sensuous paintings of people, especially women.\\n3. Paul Cézanne (1839-1906): Cézanne is often referred to as the \\\"father of Modern Art.\\\" He is known for his still lifes, landscapes, and figures, and his innovations in composition and color paved the way for Cubism and other modern art movements.\\n4. Edgar Degas (1834-1917): Degas was a leading painter in the Impressionist movement and is known for his paintings of ballet dancers, racehorses, and urban scenes.\\n5. Henri Matisse (1869-1954): Matisse is known for his vibrant use of color and his innovative compositions. He is considered one of the leading figures in Modern Art, and his work has influenced many artists throughout the 20th century.\\n\\nIt's worth noting that there are many other French painters who have achieved great fame, and different art historians and critics may have different opinions about which painter is the most renowned. However, the artists listed above are some of the most widely recognized and celebrated French painters.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 431,\n        \"completion_tokens\": 414\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (mistral-embed)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"mistral-embed\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"mistral-embed\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:40:51 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "10"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1885763"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1885763"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "9"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999618430"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "3"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "3"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "971e895cda073632ae79d45a36242153"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d487b908d1313d-LAX"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"object\": \"error\",\n    \"message\": \"Invalid model: mistral-embed\",\n    \"type\": \"invalid_model\",\n    \"param\": null,\n    \"code\": \"1500\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (mistral-large-2402)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"mistral-large-2402\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"mistral-large-2402\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:40:58 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "5"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1862112"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1862112"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999586420"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "3257"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "36"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "c0ef3150b80f912757a748350b61fc7a"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d487cf6cb408af-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"d91edf78fb224988b48414dc976d7fac\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711932055,\n    \"model\": \"mistral-large-2402\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"There are many renowned French painters, but one of the most famous is Claude Monet. He is a key figure in the Impressionist movement, which is one of the most influential art movements in history. Other notable French painters include Vincent van Gogh, who, despite being Dutch, created many of his most famous works in France, and Henri Matisse, a leader of the Fauvist movement. However, the \\\"most renowned\\\" can vary depending on personal preferences and specific art historical contexts.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 12,\n        \"total_tokens\": 120,\n        \"completion_tokens\": 108\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (mistral-medium-2312)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"mistral-medium-2312\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"mistral-medium-2312\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:41:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "2"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1836135"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999554410"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1836135"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "5517"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "3"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "0d8c6f42571f603c15ffc27416368076"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d487e349c1db7a-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"09e7eecad3834d5fbe8bb1db96932f6a\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711932058,\n    \"model\": \"mistral-medium-2312\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"One of the most renowned French painters is certainly Claude Monet, the founder of French Impressionist painting. His works such as \\\"Water Lilies\\\" and \\\"Impression, Sunrise\\\" are considered masterpieces of this genre. Other notable French painters include Henri Matisse, Pierre-Auguste Renoir, Paul Cezanne, and Edgar Degas. However, the \\\"most\\\" renowned can be subjective and depends on personal preferences and perspectives.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 121,\n        \"completion_tokens\": 104\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (mistral-small-2402)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"mistral-small-2402\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"mistral-small-2402\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:41:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1921503"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999522400"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "18"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1921503"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "1281"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "2"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "a9f65154d04421704ba4240387cf8453"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d488f86aefdb7a-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"8431f9efddd146f0a973ba6d4376fb12\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711932102,\n    \"model\": \"mistral-small-2402\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"One of the most renowned French painters is Claude Monet. He was a founder of French Impressionist painting and his work continues to be celebrated worldwide. However, other notable French painters include Léonard de Vinci, who was born in Italy but spent much of his life in France, and artists like Pierre-Auguste Renoir, Paul Cézanne, and Henri Matisse. The \\\"most renowned\\\" can sometimes depend on personal preference or specific art movements, but Monet is often cited due to his significant influence on Impressionism.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 12,\n        \"total_tokens\": 129,\n        \"completion_tokens\": 117\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (mistral-small-2312)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"mistral-small-2312\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"mistral-small-2312\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:42:01 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "3"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1929137"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1929137"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999490391"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "3594"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "2"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "b87f9758fa9b9e4c09b0c86c01a8f73f"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d489556c07db7a-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"8a21e177507a4563a37b7c6907b8eb06\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711932117,\n    \"model\": \"mistral-small-2312\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Renown can be subjective and varies based on personal taste, historical context, and cultural influence. However, many would agree that Claude Monet, a leading figure in the French Impressionist movement, is one of the most renowned French painters. His innovative approach to painting, which emphasized capturing fleeting moments and the effects of natural light, has had a profound impact on modern art.\\n\\nOther French painters who have achieved global renown include Henri Matisse, a prominent figure in the Fauvist movement, known for his use of bold color and simplified forms; Pierre-Auguste Renoir, a key Impressionist known for his vibrant, sun-kissed scenes; and Paul Cézanne, often called the \\\"father of modern art\\\" for his role in bridging the gap between Impressionism and Cubism.\\n\\nHowever, it's important to note that art appreciation is highly subjective, and many other French painters have made significant contributions to the art world.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 230,\n        \"completion_tokens\": 213\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (mistral-tiny-2312)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"mistral-tiny-2312\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"mistral-tiny-2312\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:42:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "60"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1904193"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999458381"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1904193"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "1712"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "0"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "c485695dab876e7602f6ad33c537c433"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d48966ab6a08af-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"d7141d04e17d4f358cb875f91b98f2c8\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711932120,\n    \"model\": \"mistral-tiny-2312\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"There are several renowned French painters throughout art history, but perhaps the most famous one is Leonardo da Vinci, even though he was born in Italy. However, if we limit the list to French-born painters, I would say that Claude Monet is one of the most renowned. Monet is considered the founder of Impressionism, a significant movement in Western painting. Other famous French painters include Pierre-Auguste Renoir, Edgar Degas, and Pablo Picasso.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 122,\n        \"completion_tokens\": 105\n    }\n}"
 						}
 					]
 				}
@@ -357,7 +2484,7 @@
 			"name": "Embeddings",
 			"item": [
 				{
-					"name": "Create Embeddings",
+					"name": "Embeddings",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -445,7 +2572,7 @@
 			"name": "Models",
 			"item": [
 				{
-					"name": "List Available Models",
+					"name": "Models",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -490,12 +2617,60 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:28:12 GMT"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "12"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "0"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "d2980a1c65af3223e519b9260b350c6a"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d4752e6ca42f37-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"object\": \"<string>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"object\": \"<string>\",\n      \"created\": \"<integer>\",\n      \"owned_by\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"object\": \"<string>\",\n      \"created\": \"<integer>\",\n      \"owned_by\": \"<string>\"\n    }\n  ]\n}"
+							"body": "{\n    \"object\": \"list\",\n    \"data\": [\n        {\n            \"id\": \"open-mistral-7b\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-f876a50f9f2144f3b47647753f5b4a89\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-tiny-2312\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-33e60038df184962b0b795e627eb17c9\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-tiny\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-e265bef3ba024912b2be247ed6bf9303\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"open-mixtral-8x7b\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-821a834689fc42bcb540f30a25031590\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-small-2312\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-d6ebaf344f254c9da8eeb62d9e8fea77\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-small\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-e17589331c984e108fd071905f5675c6\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-small-2402\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-12786ed4e13b4cc989fb936ef1ba79c3\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-small-latest\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-b68a1eb7f45949e69f4ab5103f1e7342\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-medium-latest\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-69e88ea9007f4c1a819468fa17cf4a5c\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-medium-2312\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-43a19d234dbf47caa513a12e39bf7f97\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-medium\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-bc50fa55d88644478f1f5e899fe6d1e5\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-large-latest\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-12a91755df554049a6ff0622cc76073b\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-large-2402\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-318c2c3d907b462eb06d0582b92ad1e3\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-embed\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-c84071ba09a140e2bf869d26a4482282\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        }\n    ]\n}"
 						}
 					]
 				}
@@ -542,7 +2717,7 @@
 		},
 		{
 			"key": "apiKey",
-			"value": "TODO",
+			"value": "BringYourOwn",
 			"type": "string"
 		}
 	]
