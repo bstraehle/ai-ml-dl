@@ -5,7 +5,7 @@
 		"description": "### Prerequisites\n\n- Postman\n- Hugging Face Account: [https://huggingface.co/](https://huggingface.co/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests (on 503 due to model loading, retry)\n    \n\n### Documentation\n\n- API: [https://huggingface.co/docs/api-inference/index](https://huggingface.co/docs/api-inference/index)\n- Models: [https://huggingface.co/models](https://huggingface.co/models)\n    \n\n### About Hugging Face\n\nThe AI community building the future.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
-		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-apis/collection/7643177-674a76b6-ba6b-4c8a-b826-a514f331e962?action=share&source=collection_link&creator=7643177"
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-674a76b6-ba6b-4c8a-b826-a514f331e962?action=share&source=collection_link&creator=7643177"
 	},
 	"item": [
 		{
@@ -3548,7 +3548,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "{{access_token}}",
+				"value": "{{apiKey}}",
 				"type": "string"
 			}
 		]
@@ -3580,8 +3580,8 @@
 			"type": "string"
 		},
 		{
-			"key": "access_token",
-			"value": "TODO",
+			"key": "apiKey",
+			"value": "BringYourOwn",
 			"type": "string"
 		}
 	]

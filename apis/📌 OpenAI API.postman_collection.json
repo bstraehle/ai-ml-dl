@@ -432,7 +432,6 @@
 							"formdata": [
 								{
 									"key": "file",
-									"description": "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/apis/fine-tuning-training.jsonl",
 									"type": "file",
 									"src": "/C:/Users/bstra/Downloads/fine-tuning-training.jsonl"
 								},
@@ -579,7 +578,6 @@
 							"formdata": [
 								{
 									"key": "file",
-									"description": "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/apis/fine-tuning-validation.jsonl",
 									"type": "file",
 									"src": "/C:/Users/bstra/Downloads/fine-tuning-validation.jsonl"
 								},
@@ -6485,7 +6483,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "{{token}}",
+				"value": "{{apiKey}}",
 				"type": "string"
 			}
 		]
@@ -6518,8 +6516,8 @@
 			"value": "https://api.openai.com/v1"
 		},
 		{
-			"key": "token",
-			"value": "TODO"
+			"key": "apiKey",
+			"value": "BringYourOwn"
 		}
 	]
 }

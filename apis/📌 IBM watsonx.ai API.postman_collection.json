@@ -5,7 +5,7 @@
 		"description": "### Prerequisites\n\n- Postman\n- IBM Cloud Account: [https://dataplatform.cloud.ibm.com/login](https://dataplatform.cloud.ibm.com/login)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://cloud.ibm.com/apidocs/machine-learning](https://cloud.ibm.com/apidocs/machine-learning)\n- Models: [https://www.ibm.com/products/watsonx-ai/foundation-models](https://www.ibm.com/products/watsonx-ai/foundation-models)\n    \n\n### About IBM watsonx.ai\n\nThe AI and data platform that’s built for business.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
-		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-apis/collection/7643177-844c14d1-298b-419a-8db8-10c53d523d32?action=share&source=collection_link&creator=7643177"
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-844c14d1-298b-419a-8db8-10c53d523d32?action=share&source=collection_link&creator=7643177"
 	},
 	"item": [
 		{
@@ -31345,12 +31345,12 @@
 		},
 		{
 			"key": "apiKey",
-			"value": "TODO",
+			"value": "BringYourOwn",
 			"type": "string"
 		},
 		{
 			"key": "projectId",
-			"value": "TODO",
+			"value": "BringYourOwn",
 			"type": "string"
 		},
 		{

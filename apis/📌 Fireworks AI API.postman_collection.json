@@ -1,0 +1,1303 @@
+{
+	"info": {
+		"_postman_id": "814b9777-b195-49ef-ad3f-282d8dece895",
+		"name": "📌 Fireworks AI API",
+		"description": "### Prerequisites\n\n- Postman\n- Fireworks AI Account: [https://fireworks.ai/](https://fireworks.ai/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://readme.fireworks.ai/reference](https://readme.fireworks.ai/reference)\n- Models: [https://fireworks.ai/models](https://fireworks.ai/models)\n    \n\n### About Fireworks AI\n\nUse state-of-the-art, open-source LLMs and image models at blazing fast speed, or fine-tune and deploy your own at no additional cost with Fireworks.ai.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7643177",
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-814b9777-b195-49ef-ad3f-282d8dece895?action=share&source=collection_link&creator=7643177"
+	},
+	"item": [
+		{
+			"name": "🚀 Get Started",
+			"item": [
+				{
+					"name": "Chat (mixtral-8x7b-instruct)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/mixtral-8x7b-instruct\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/mixtral-8x7b-instruct\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Tue, 02 Apr 2024 00:21:33 GMT"
+								},
+								{
+									"key": "x-server-processing-time",
+									"value": "1.630"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1944"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google, 1.1 google"
+								},
+								{
+									"key": "x-request-id",
+									"value": "6ed2be77-f816-42d4-a4c7-05fca4100071"
+								},
+								{
+									"key": "x-accel-buffering",
+									"value": "no"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"6ed2be77-f816-42d4-a4c7-05fca4100071\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712017293,\n    \"model\": \"accounts/fireworks/models/mixtral-8x7b-instruct\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low latency large language models (LLMs) are important for a variety of applications, particularly those that require real-time or near real-time interaction with users. In these situations, even small delays in processing and generating responses can significantly degrade the user experience.\\n\\nFor example, in conversational AI systems such as chatbots and virtual assistants, low latency is essential for maintaining a natural and engaging conversation with users. If the system takes too long to process and respond to user inputs, it can disrupt the flow of the conversation and make it feel unnatural and unresponsive. This can lead to user frustration and a lack of trust in the system.\\n\\nSimilarly, in real-time applications such as online gaming, low latency is critical for providing a smooth and responsive user experience. If the system takes too long to process user inputs and generate responses, it can result in lag and delay, which can be frustrating for users and negatively impact their performance.\\n\\nFurthermore, low latency is also important for ensuring the accuracy and reliability of LLMs. When processing large amounts of data in real-time, even small delays can result in missed or outdated information, leading to inaccurate or unreliable responses.\\n\\nOverall, low latency is a critical factor in ensuring the usability, reliability, and performance of LLMs in real-world applications. By minimizing processing delays and generating responses in near real-time, LLMs can provide a more natural and engaging user experience, improve accuracy and reliability, and enhance overall system performance.\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 18,\n        \"total_tokens\": 353,\n        \"completion_tokens\": 335\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "Chat (gemma-7b-it)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/gemma-7b-it\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/gemma-7b-it\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Tue, 02 Apr 2024 00:27:41 GMT"
+								},
+								{
+									"key": "x-server-processing-time",
+									"value": "3.915"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2713"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google, 1.1 google"
+								},
+								{
+									"key": "x-request-id",
+									"value": "796add9e-743c-4b6b-b36d-9a7da8d3e0ea"
+								},
+								{
+									"key": "x-accel-buffering",
+									"value": "no"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"796add9e-743c-4b6b-b36d-9a7da8d3e0ea\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712017662,\n    \"model\": \"accounts/fireworks/models/gemma-7b-it\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"**Low Latency Language Large Language Models (LLMs)** are critically important for a number of reasons:\\n\\n**1. Real-Time Interactions:**\\n- Low latency LLMs enable real-time interactions, such as conversations, text editing, and code generation, with minimal delay.\\n- This is crucial for applications where responsiveness and quick decision-making are essential.\\n\\n**2. Improved Response Times:**\\n- LLMs with low latency can provide faster responses to queries and prompts, reducing waiting times and improving user experience.\\n\\n**3. Enhanced Data Processing:**\\n- Low latency LLMs can process data faster, allowing for real-time data analysis and insights.\\n\\n**4. Real-Time Decision-Making:**\\n- LLMs with low latency can facilitate real-time decision-making processes, such as in self-driving cars or financial trading systems.\\n\\n**5. Improved Accuracy:**\\n- Low latency LLMs can process data more quickly and accurately, leading to improved model performance and reduced errors.\\n\\n**6. Reduced Computational Costs:**\\n- Low latency LLMs can reduce computational costs by optimizing operations and reducing the need for expensive hardware resources.\\n\\n**7. Enhanced Security:**\\n- Low latency LLMs can be more secure than traditional LLMs, as they can detect and respond to security threats more quickly.\\n\\n**8. New Opportunities:**\\n- Low latency LLMs open up new opportunities for innovative applications and services that require fast and efficient language processing.\\n\\n**Examples:**\\n\\n- **Chatbots:** Low latency LLMs enable responsive and engaging chatbots that can interact with humans in real time.\\n- **Text Editing:** Low latency LLMs can provide instant suggestions and auto-complete features to enhance text editing efficiency.\\n- **Code Generation:** Low latency LLMs can generate code snippets and complete entire programs quickly, reducing development time.\\n- **Self-Driving Cars:** Low latency LLMs are essential for self-driving cars to navigate roads and respond to traffic.\\n\\n**Conclusion:**\\n\\nLow latency LLMs are a significant advancement in the field of language large language models. They offer numerous benefits, including improved response times, real-time interactions, enhanced accuracy, and reduced computational costs. As a result, low latency LLMs are enabling a wide range of new applications and services that require fast and efficient language processing.\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 492,\n        \"completion_tokens\": 475\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (mixtral-8x7b-instruct)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/mixtral-8x7b-instruct\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/mixtral-8x7b-instruct\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Tue, 02 Apr 2024 00:22:31 GMT"
+								},
+								{
+									"key": "x-server-processing-time",
+									"value": "2.044"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1927"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google, 1.1 google"
+								},
+								{
+									"key": "x-request-id",
+									"value": "74868879-0b20-401b-9172-d02fc13b1c14"
+								},
+								{
+									"key": "x-accel-buffering",
+									"value": "no"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"74868879-0b20-401b-9172-d02fc13b1c14\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712017352,\n    \"model\": \"accounts/fireworks/models/mixtral-8x7b-instruct\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low latency Large Language Models (LLMs) are important for a variety of applications, particularly those that require real-time or near real-time interactions. Here are a few reasons why low latency is important for LLMs:\\n\\n1. Improved user experience: Low latency LLMs can provide a more responsive and fluid user experience, particularly in applications such as chatbots, virtual assistants, and other interactive systems. Users are more likely to continue using a system that responds quickly and accurately to their inputs.\\n2. Better decision-making: In applications where LLMs are used to provide real-time recommendations or insights, low latency is critical. For example, in financial trading or autonomous vehicles, even a small delay in processing information can have significant consequences.\\n3. Enhanced safety: In safety-critical applications, such as healthcare or aviation, low latency LLMs can help ensure that critical decisions are made in a timely manner. Delays in processing information can lead to serious consequences, including loss of life.\\n4. Increased efficiency: Low latency LLMs can help increase the efficiency of applications by reducing the amount of time required to process information. This can lead to cost savings, improved productivity, and better overall performance.\\n\\nOverall, low latency is an important consideration for LLMs, particularly in applications where real-time or near real-time interactions are required. By reducing latency, LLMs can provide a more responsive, safe, and efficient user experience, which can lead to increased adoption and satisfaction.\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 18,\n        \"total_tokens\": 346,\n        \"completion_tokens\": 328\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (llama-v2-70b-chat)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/llama-v2-70b-chat\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/llama-v2-70b-chat\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Tue, 02 Apr 2024 00:25:29 GMT"
+								},
+								{
+									"key": "x-server-processing-time",
+									"value": "1.889"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2159"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google, 1.1 google"
+								},
+								{
+									"key": "x-request-id",
+									"value": "a81600f1-687b-465c-9ba0-1b8941372e46"
+								},
+								{
+									"key": "x-accel-buffering",
+									"value": "no"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"a81600f1-687b-465c-9ba0-1b8941372e46\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712017530,\n    \"model\": \"accounts/fireworks/models/llama-v2-70b-chat\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Hello! I'm here to help you understand the importance of low latency LLMs.\\n\\nLLMs, or Large Language Models, are artificial intelligence models that are trained on vast amounts of data to generate language outputs that are coherent and natural-sounding. Low latency LLMs are models that are designed to respond quickly and efficiently, often in real-time, to user input.\\n\\nThe importance of low latency LLMs lies in their ability to enable real-time communication and interaction between humans and machines. With low latency LLMs, it becomes possible to build conversational interfaces that can respond to user input in a timely and natural way, mimicking human conversation.\\n\\nThis has numerous applications, such as:\\n\\n1. Chatbots: Low latency LLMs can be used to build chatbots that can respond quickly and efficiently to customer inquiries, providing 24/7 support and improving customer satisfaction.\\n2. Virtual assistants: Low latency LLMs can be used to build virtual assistants that can assist users with tasks such as scheduling appointments, sending messages, and making recommendations.\\n3. Language translation: Low latency LLMs can be used to build language translation systems that can translate text or speech in real-time, allowing for more efficient communication between people who speak different languages.\\n4. Real-time analytics: Low latency LLMs can be used to analyze data in real-time, providing insights and alerts that can help businesses make informed decisions.\\n\\nIn summary, low latency LLMs are essential for building conversational interfaces that can facilitate real-time communication and interaction between humans and machines. They have numerous applications in various industries, including customer service, healthcare, finance, and more.\\n\\nI hope this helps! Is there anything else you'd like to know?\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 100,\n        \"total_tokens\": 511,\n        \"completion_tokens\": 411\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (dbrx-instruct)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/dbrx-instruct\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/dbrx-instruct\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Tue, 02 Apr 2024 00:27:15 GMT"
+								},
+								{
+									"key": "x-server-processing-time",
+									"value": "4.141"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1740"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google, 1.1 google"
+								},
+								{
+									"key": "x-request-id",
+									"value": "116ccf18-0f53-4863-9091-8c3b6c416a9e"
+								},
+								{
+									"key": "x-accel-buffering",
+									"value": "no"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"116ccf18-0f53-4863-9091-8c3b6c416a9e\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712017636,\n    \"model\": \"accounts/fireworks/models/dbrx-instruct\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low latency Language Models (LLMs) are essential for various applications due to their ability to provide quick and accurate responses. Here are some reasons why low latency LLMs are important:\\n\\n1. Improved user experience: Users expect quick and responsive systems. A low latency LLM ensures that users receive responses almost instantaneously, enhancing their overall experience and satisfaction.\\n2. Real-time applications: In scenarios where real-time responses are crucial, such as voice assistants, chatbots, or live translation services, low latency LLMs are essential to maintain the flow of conversation and ensure seamless interaction.\\n3. Increased efficiency: Low latency LLMs enable faster processing of large volumes of data, leading to improved efficiency and productivity in tasks such as text analysis, summarization, and classification.\\n4. Better decision making: Quick access to accurate information provided by low latency LLMs can aid in making informed decisions, especially in time-sensitive situations.\\n5. Competitive advantage: In industries where response time is a critical factor, implementing low latency LLMs can provide a competitive edge by offering superior performance and user experience.\\n\\nIn summary, low latency LLMs are essential for improving user experience, enabling real-time applications, increasing efficiency, aiding in better decision making, and providing a competitive advantage.\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 234,\n        \"total_tokens\": 490,\n        \"completion_tokens\": 256\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (firefunction-v1)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/firefunction-v1\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/firefunction-v1\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Tue, 02 Apr 2024 00:25:01 GMT"
+								},
+								{
+									"key": "x-server-processing-time",
+									"value": "2.604"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1605"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google, 1.1 google"
+								},
+								{
+									"key": "x-request-id",
+									"value": "0cb6d161-4e09-4b74-91bb-691dac60e987"
+								},
+								{
+									"key": "x-accel-buffering",
+									"value": "no"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"0cb6d161-4e09-4b74-91bb-691dac60e987\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712017503,\n    \"model\": \"accounts/fireworks/models/firefunction-v1\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low latency LLMs, or low latency machine learning models, are essential for real-time decision making in various applications such as autonomous vehicles, video streaming, gaming, and financial trading. These models can process data quickly and accurately, allowing for faster response times and better performance.\\n\\nOne of the primary benefits of low latency LLMs is that they can help reduce the time it takes for a system to react to new information. In situations where every millisecond counts, such as in financial trading, this can make a significant difference in terms of profitability.\\n\\nLow latency LLMs also enable real-time decision making in applications where response times are critical. For example, in autonomous vehicles, the ability to quickly process data and make decisions can mean the difference between avoiding an accident and being involved in one.\\n\\nIn addition to these benefits, low latency LLMs can also improve the overall user experience. In video streaming, for example, low latency models can reduce buffering and improve image quality, making for a more enjoyable viewing experience.\\n\\nOverall, the importance of low latency LLMs cannot be overstated. They are essential for a wide range of applications where fast and accurate decision making is critical.\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 69,\n        \"total_tokens\": 326,\n        \"completion_tokens\": 257\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (firellava-13b)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/firellava-13b\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/firellava-13b\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Tue, 02 Apr 2024 00:26:15 GMT"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1351"
+								},
+								{
+									"key": "x-server-processing-time",
+									"value": "2.284"
+								},
+								{
+									"key": "x-request-id",
+									"value": "3007e4ce-a069-4f8d-b694-3feef6edc68e"
+								},
+								{
+									"key": "x-accel-buffering",
+									"value": "no"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"09df28ce-1f05-41e4-9000-7b7ac38dfc1b\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712017573,\n    \"model\": \"accounts/fireworks/models/firellava-13b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low latency large language models (LLMs) are important for a variety of reasons. Firstly, low latency means that the model can process and respond to input in real-time, which is crucial for applications that require immediate responses such as chatbots, virtual assistants, and language translation tools.\\n\\nSecondly, low latency LLMs can improve the overall user experience by reducing wait times and increasing the responsiveness of the system. This can lead to higher user satisfaction and engagement.\\n\\nThirdly, low latency LLMs can enable more complex and sophisticated natural language processing tasks, such as understanding context and nuance in language, by allowing for more rapid and iterative processing of input.\\n\\nFinally, low latency LLMs can also be important for applications that require real-time analysis and processing of large amounts of data, such as financial trading or social media monitoring. By reducing latency, these applications can make more informed decisions and respond more quickly to changing conditions.\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 56,\n        \"total_tokens\": 273,\n        \"completion_tokens\": 217\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (hermes-2-pro-mistral-7b)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/hermes-2-pro-mistral-7b\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/hermes-2-pro-mistral-7b\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Tue, 02 Apr 2024 00:28:12 GMT"
+								},
+								{
+									"key": "x-server-processing-time",
+									"value": "1.942"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1094"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google, 1.1 google"
+								},
+								{
+									"key": "x-request-id",
+									"value": "11bf0cba-49f7-4ecb-bafa-5271df90c9ab"
+								},
+								{
+									"key": "x-accel-buffering",
+									"value": "no"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"11bf0cba-49f7-4ecb-bafa-5271df90c9ab\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712017693,\n    \"model\": \"accounts/fireworks/models/hermes-2-pro-mistral-7b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"\\n\",\n                \"tool_calls\": [\n                    {\n                        \"index\": 0,\n                        \"id\": \"call_EusFCT4b466SKEaPnmOCrA68\",\n                        \"type\": \"function\",\n                        \"function\": {\n                            \"name\": \"explain\",\n                            \"arguments\": \"{\\\"context\\\": \\\"The importance of low latency LLMs\\\"}\"\n                        }\n                    },\n                    {\n                        \"index\": 1,\n                        \"id\": \"call_1vNwKkQdaHheZ1jwOD7z2Eam\",\n                        \"type\": \"function\",\n                        \"function\": {\n                            \"name\": \"relate_topics\",\n                            \"arguments\": \"{\\\"related_topics\\\": [\\\"low latency\\\", \\\"LLMs\\\", \\\"natural language processing\\\", \\\"AI models\\\", \\\"performance\\\"]}\"\n                        }\n                    },\n                    {\n                        \"index\": 2,\n                        \"id\": \"call_7PIwqfTZJ3SySnE1PIm50JMs\",\n                        \"type\": \"function\",\n                        \"function\": {\n                            \"name\": \"provide_information\",\n                            \"arguments\": \"{\\\"context\\\": \\\"The importance of low latency in AI models\\\"}\"\n                        }\n                    },\n                    {\n                        \"index\": 3,\n                        \"id\": \"call_CtRhhaGy4sFdXH4pdmrW2gFy\",\n                        \"type\": \"function\",\n                        \"function\": {\n                            \"name\": \"list_benefits\",\n                            \"arguments\": \"{\\\"context\\\": \\\"Low latency LLMs and their benefits\\\"}\"\n                        }\n                    }\n                ]\n            },\n            \"finish_reason\": \"tool_calls\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 246,\n        \"total_tokens\": 417,\n        \"completion_tokens\": 171\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (mistral-7b-instruct-4k)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/mistral-7b-instruct-4k\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/mistral-7b-instruct-4k\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Tue, 02 Apr 2024 00:25:59 GMT"
+								},
+								{
+									"key": "x-server-processing-time",
+									"value": "2.068"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1792"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google, 1.1 google"
+								},
+								{
+									"key": "x-request-id",
+									"value": "bf853430-bfcb-408e-b216-3374c8dc8935"
+								},
+								{
+									"key": "x-accel-buffering",
+									"value": "no"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"bf853430-bfcb-408e-b216-3374c8dc8935\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712017560,\n    \"model\": \"accounts/fireworks/models/mistral-7b-instruct-4k\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low latency LLMs are important for several reasons. Firstly, low latency means that the model is able to respond quickly to user input, which can greatly improve the user experience. For example, in a chatbot setting, users expect quick and accurate responses to their queries. If the LLM has high latency, it may take longer to generate a response, which can lead to frustration and a negative user experience.\\n\\nSecondly, low latency can also be important in applications where real-time processing is required. For example, in a self-driving car, the LLM needs to be able to process and respond to sensory input in real-time in order to make safe driving decisions. If the LLM has high latency, it may not be able to respond quickly enough to changing road conditions, which could lead to accidents.\\n\\nFinally, low latency can also be important in applications where the LLM needs to be able to interact with other systems in real-time. For example, in a financial trading application, the LLM needs to be able to quickly analyze market data and make trading decisions based on that data. If the LLM has high latency, it may not be able to respond quickly enough to changing market conditions, which could lead to missed opportunities and financial losses.\\n\\nOverall, low latency is an important consideration when designing and implementing LLMs, as it can greatly improve the user experience, enable real-time processing, and facilitate interactions with other systems.\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 63,\n        \"total_tokens\": 375,\n        \"completion_tokens\": 312\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Completions",
+			"item": [
+				{
+					"name": "Completions (bleat-adapter)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"accounts/fireworks/models/bleat-adapter\",\r\n    \"max_tokens\": 512,\r\n    \"top_p\": 1,\r\n    \"top_k\": 40,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 0,\r\n    \"temperature\": 0.1,\r\n    \"prompt\": \"Explain the importance of low latency LLMs\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"accounts/fireworks/models/bleat-adapter\",\r\n    \"max_tokens\": 512,\r\n    \"top_p\": 1,\r\n    \"top_k\": 40,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 0,\r\n    \"temperature\": 0.1,\r\n    \"prompt\": \"Explain the importance of low latency LLMs\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Tue, 02 Apr 2024 00:31:27 GMT"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1768"
+								},
+								{
+									"key": "x-server-processing-time",
+									"value": "3.118"
+								},
+								{
+									"key": "x-request-id",
+									"value": "6a062ac8-0042-4316-b4b8-311a7214a5ec"
+								},
+								{
+									"key": "x-accel-buffering",
+									"value": "no"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"5d504419-5b05-47c0-a0fb-318af726bc52\",\n    \"object\": \"text_completion\",\n    \"created\": 1712017884,\n    \"model\": \"accounts/fireworks/models/bleat-adapter\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"text\": \" for real-time AI applications.\\n\\nLow latency LLMs are essential for real-time AI applications because they allow for faster processing and response times. This is particularly important in applications where decisions need to be made quickly, such as in autonomous vehicles, robots, and other real-time systems.\\n\\nFor example, in an autonomous vehicle, the LLM needs to be able to process sensor data in real-time in order to make decisions about steering, braking, and acceleration. If the LLM has a high latency, it may not be able to process the data quickly enough, which could lead to accidents.\\n\\nSimilarly, in a robotic system, a low latency LLM is necessary for the robot to be able to respond quickly to changes in its environment. If the LLM has a high latency, the robot may not be able to react in time to avoid obstacles or to complete tasks.\\n\\nIn addition to safety, low latency LLMs are also important for performance and efficiency. In many real-time AI applications, the system needs to be able to process large amounts of data quickly in order to make decisions. If the LLM has a high latency, it may not be able to process the data quickly enough, which could lead to slower performance and increased energy consumption.\\n\\nOverall, low latency LLMs are essential for real-time AI applications where fast processing and response times are critical. By using low latency LLMs, developers can create more safe, efficient, and performance-oriented AI systems.\",\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 12,\n        \"total_tokens\": 354,\n        \"completion_tokens\": 342\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Completions (chinese-llama-2-lora-7b)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"accounts/fireworks/models/chinese-llama-2-lora-7b\",\r\n    \"max_tokens\": 512,\r\n    \"top_p\": 1,\r\n    \"top_k\": 40,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 0,\r\n    \"temperature\": 0.1,\r\n    \"prompt\": \"Explain the importance of low latency LLMs\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"accounts/fireworks/models/chinese-llama-2-lora-7b\",\r\n    \"max_tokens\": 512,\r\n    \"top_p\": 1,\r\n    \"top_k\": 40,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 0,\r\n    \"temperature\": 0.1,\r\n    \"prompt\": \"Explain the importance of low latency LLMs\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Tue, 02 Apr 2024 00:32:43 GMT"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2662"
+								},
+								{
+									"key": "x-server-processing-time",
+									"value": "4.678"
+								},
+								{
+									"key": "x-request-id",
+									"value": "616c17a6-f325-4041-aa95-fd4db04165e9"
+								},
+								{
+									"key": "x-accel-buffering",
+									"value": "no"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"a0fb9e60-a870-4f2b-b7c8-3c72786fd0c5\",\n    \"object\": \"text_completion\",\n    \"created\": 1712017959,\n    \"model\": \"accounts/fireworks/models/chinese-llama-2-lora-7b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"text\": \" in real-world applications\\n\\nLow latency LLMs are critical in real-world applications where timely decision-making is crucial. Here are some reasons why:\\n\\n1. Real-time decision-making: In applications such as autonomous vehicles, robots, and real-time analytics, LLMs need to make decisions quickly to ensure the system operates efficiently and safely. Low latency LLMs can process data in real-time, enabling faster decision-making and improving overall system performance.\\n2. Time-sensitive applications: In applications such as financial trading, healthcare, and emergency response systems, decisions need to be made quickly to avoid significant consequences. Low latency LLMs can analyze data in real-time, enabling faster decision-making and improving the overall efficiency of these systems.\\n3. Reduced costs: Low latency LLMs can reduce costs by minimizing the time required to process data and make decisions. This can lead to significant cost savings in applications such as supply chain management, inventory management, and customer service.\\n4. Improved customer experience: In applications such as chatbots, virtual assistants, and recommendation systems, low latency LLMs can provide faster and more accurate responses to customer inquiries, leading to a better customer experience.\\n5. Competitive advantage: Organizations that adopt low latency LLMs can gain a competitive advantage in their respective markets. By providing faster and more accurate decision-making, they can improve their overall performance and gain a strategic edge over their competitors.\\n6. Enhanced security: Low latency LLMs can help detect and prevent cyber threats in real-time, enhancing the security of sensitive data and systems.\\n7. Better resource allocation: Low latency LLMs can analyze data in real-time, enabling better resource allocation and optimization of resources. This can lead to significant cost savings and improved overall efficiency.\\n8. Improved supply chain management: Low latency LLMs can analyze data in real-time, enabling better supply chain management and optimization of logistics. This can lead to improved delivery times, reduced costs, and improved customer satisfaction.\\n9. Enhanced customer insights: Low latency LLMs can provide real-time insights into customer behavior and preferences, enabling organizations to tailor their\",\n            \"logprobs\": null,\n            \"finish_reason\": \"length\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 12,\n        \"total_tokens\": 524,\n        \"completion_tokens\": 512\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Images",
+			"item": [
+				{
+					"name": "Images (stable-diffusion-xl-1024-v1-0)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"height\": 1024,\r\n    \"width\": 1024,\r\n    \"text_prompts\": [\r\n        {\r\n            \"text\": \"A lighthouse on a cliff\",\r\n            \"weight\": 1\r\n        }\r\n    ],\r\n    \"cfg_scale\": 7,\r\n    \"sampler\": \"K_DPMPP_2M\",\r\n    \"samples\": 1,\r\n    \"seed\": 0,\r\n    \"steps\": 75,\r\n    \"safety_check\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/image_generation/accounts/fireworks/models/stable-diffusion-xl-1024-v1-0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"image_generation",
+								"accounts",
+								"fireworks",
+								"models",
+								"stable-diffusion-xl-1024-v1-0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Images (SSD-1B)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"height\": 1024,\r\n    \"width\": 1024,\r\n    \"text_prompts\": [\r\n        {\r\n            \"text\": \"A lighthouse on a cliff\",\r\n            \"weight\": 1\r\n        }\r\n    ],\r\n    \"cfg_scale\": 7,\r\n    \"sampler\": \"K_DPMPP_2M\",\r\n    \"samples\": 1,\r\n    \"seed\": 0,\r\n    \"steps\": 75,\r\n    \"safety_check\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/image_generation/accounts/fireworks/models/SSD-1B",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"image_generation",
+								"accounts",
+								"fireworks",
+								"models",
+								"SSD-1B"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Images (playground-v2-1024px-aesthetic)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"height\": 1024,\r\n    \"width\": 1024,\r\n    \"text_prompts\": [\r\n        {\r\n            \"text\": \"A lighthouse on a cliff\",\r\n            \"weight\": 1\r\n        }\r\n    ],\r\n    \"cfg_scale\": 7,\r\n    \"sampler\": \"K_DPMPP_2M\",\r\n    \"samples\": 1,\r\n    \"seed\": 0,\r\n    \"steps\": 75,\r\n    \"safety_check\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/image_generation/accounts/fireworks/models/playground-v2-1024px-aesthetic",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"image_generation",
+								"accounts",
+								"fireworks",
+								"models",
+								"playground-v2-1024px-aesthetic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Images (japanese-stable-diffusion-xl)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"height\": 1024,\r\n    \"width\": 1024,\r\n    \"text_prompts\": [\r\n        {\r\n            \"text\": \"A lighthouse on a cliff\",\r\n            \"weight\": 1\r\n        }\r\n    ],\r\n    \"cfg_scale\": 7,\r\n    \"sampler\": \"K_DPMPP_2M\",\r\n    \"samples\": 1,\r\n    \"seed\": 0,\r\n    \"steps\": 75,\r\n    \"safety_check\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/image_generation/accounts/fireworks/models/japanese-stable-diffusion-xl",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"image_generation",
+								"accounts",
+								"fireworks",
+								"models",
+								"japanese-stable-diffusion-xl"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Embeddings",
+			"item": [
+				{
+					"name": "Embeddings",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input\": \"This is a test.\",\r\n    \"model\": \"nomic-ai/nomic-embed-text-v1.5\",\r\n    \"dimensions\": 2048\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/embeddings",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"embeddings"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"input\": \"This is a test.\",\r\n    \"model\": \"nomic-ai/nomic-embed-text-v1.5\",\r\n    \"dimensions\": 2048\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/embeddings",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"embeddings"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Tue, 02 Apr 2024 00:57:03 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "14475"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google, 1.1 google"
+								},
+								{
+									"key": "x-request-id",
+									"value": "425cc80d-f968-4887-9179-8a599bcd2b17"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"index\": 0,\n            \"embedding\": [\n                0.059234619140625,\n                0.031890869140625,\n                -0.17578125,\n                -0.03375244140625,\n                0.0751953125,\n                0.00614166259765625,\n                0.0318603515625,\n                -0.017547607421875,\n                0.0504150390625,\n                -0.0204925537109375,\n                0.009674072265625,\n                0.04815673828125,\n                -0.004169464111328125,\n                0.0125885009765625,\n                -0.037872314453125,\n                -0.05816650390625,\n                0.0517578125,\n                -0.10272216796875,\n                0.0257415771484375,\n                0.0157623291015625,\n                -0.00846099853515625,\n                -0.007648468017578125,\n                -0.076171875,\n                -0.006534576416015625,\n                0.1136474609375,\n                -0.020904541015625,\n                -0.061309814453125,\n                0.0200347900390625,\n                -0.02935791015625,\n                -0.01371002197265625,\n                0.030914306640625,\n                -0.04046630859375,\n                0.0494384765625,\n                -0.045135498046875,\n                -0.03533935546875,\n                -0.07318115234375,\n                -0.00955963134765625,\n                0.03857421875,\n                0.036102294921875,\n                -0.01105499267578125,\n                -0.0179901123046875,\n                0.041717529296875,\n                -0.0296478271484375,\n                -0.03106689453125,\n                0.07177734375,\n                0.007717132568359375,\n                0.03619384765625,\n                0.07977294921875,\n                0.0006623268127441406,\n                -0.0077056884765625,\n                -0.051361083984375,\n                -0.030609130859375,\n                0.00952911376953125,\n                0.0079498291015625,\n                0.06658935546875,\n                -0.0026340484619140625,\n                0.00534820556640625,\n                0.01219940185546875,\n                0.01751708984375,\n                -0.046142578125,\n                0.022705078125,\n                0.0223388671875,\n                -0.0570068359375,\n                0.0438232421875,\n                0.0247650146484375,\n                -0.0733642578125,\n                -0.0291290283203125,\n                0.019805908203125,\n                0.01232147216796875,\n                0.01103973388671875,\n                0.04833984375,\n                0.016448974609375,\n                0.062744140625,\n                0.003223419189453125,\n                -0.0024566650390625,\n                -0.025299072265625,\n                0.004425048828125,\n                -0.0085601806640625,\n                -0.04119873046875,\n                -0.01678466796875,\n                0.042236328125,\n                -0.039520263671875,\n                0.01261138916015625,\n                0.08197021484375,\n                0.09210205078125,\n                -0.0265655517578125,\n                -0.02587890625,\n                -0.04510498046875,\n                -0.023193359375,\n                0.05450439453125,\n                0.054962158203125,\n                0.0238494873046875,\n                0.0367431640625,\n                0.019195556640625,\n                -0.038726806640625,\n                0.0165863037109375,\n                -0.0022182464599609375,\n                0.05364990234375,\n                -0.0274810791015625,\n                0.0116424560546875,\n                -0.022552490234375,\n                0.009033203125,\n                -0.0239410400390625,\n                -0.0478515625,\n                0.0292205810546875,\n                0.01216888427734375,\n                -0.03277587890625,\n                0.00981903076171875,\n                -0.020782470703125,\n                -0.0182037353515625,\n                -0.04107666015625,\n                0.0496826171875,\n                -0.0443115234375,\n                -0.01457977294921875,\n                -0.0308074951171875,\n                0.000007092952728271484,\n                0.033355712890625,\n                -0.0255126953125,\n                -0.00414276123046875,\n                0.01255035400390625,\n                0.043365478515625,\n                0.040374755859375,\n                -0.01149749755859375,\n                0.0638427734375,\n                -0.04364013671875,\n                0.020263671875,\n                -0.06268310546875,\n                0.04058837890625,\n                0.03369140625,\n                -0.006969451904296875,\n                -0.0233612060546875,\n                0.0209503173828125,\n                -0.0167999267578125,\n                -0.03387451171875,\n                0.03692626953125,\n                0.0243072509765625,\n                0.0023937225341796875,\n                -0.0202789306640625,\n                -0.0305328369140625,\n                -0.02484130859375,\n                -0.03656005859375,\n                0.005786895751953125,\n                0.01541900634765625,\n                0.042388916015625,\n                0.03350830078125,\n                -0.00707244873046875,\n                0.0570068359375,\n                0.0002999305725097656,\n                -0.0098724365234375,\n                0.0086822509765625,\n                0.03717041015625,\n                -0.0178070068359375,\n                0.067138671875,\n                -0.00789642333984375,\n                0.0096588134765625,\n                -0.044036865234375,\n                0.0006608963012695312,\n                0.0174713134765625,\n                0.0533447265625,\n                0.058380126953125,\n                0.017181396484375,\n                -0.0160064697265625,\n                -0.047271728515625,\n                0.0052947998046875,\n                -0.036956787109375,\n                -0.04693603515625,\n                -0.0096588134765625,\n                0.08758544921875,\n                0.06524658203125,\n                -0.0199432373046875,\n                -0.07177734375,\n                -0.05560302734375,\n                -0.0108489990234375,\n                -0.0160064697265625,\n                -0.0269622802734375,\n                -0.0239105224609375,\n                0.0105438232421875,\n                -0.037322998046875,\n                0.033172607421875,\n                -0.0172271728515625,\n                0.0257415771484375,\n                -0.01666259765625,\n                0.01110076904296875,\n                0.01265716552734375,\n                -0.0125274658203125,\n                -0.034759521484375,\n                0.0179290771484375,\n                -0.0333251953125,\n                -0.01186370849609375,\n                -0.03985595703125,\n                0.00954437255859375,\n                -0.0283050537109375,\n                -0.05718994140625,\n                -0.030181884765625,\n                0.002498626708984375,\n                -0.049346923828125,\n                0.034637451171875,\n                0.004810333251953125,\n                0.043487548828125,\n                -0.0279693603515625,\n                -0.01549530029296875,\n                -0.015045166015625,\n                -0.033966064453125,\n                0.0266571044921875,\n                -0.0156402587890625,\n                0.0137939453125,\n                -0.03515625,\n                -0.056365966796875,\n                -0.00284576416015625,\n                -0.00008857250213623047,\n                0.07293701171875,\n                -0.017608642578125,\n                -0.0020923614501953125,\n                0.0184478759765625,\n                0.031341552734375,\n                0.0013675689697265625,\n                0.00569915771484375,\n                -0.0250091552734375,\n                -0.0203704833984375,\n                0.0184783935546875,\n                0.0228118896484375,\n                -0.01073455810546875,\n                -0.01776123046875,\n                -0.05010986328125,\n                0.02740478515625,\n                0.013092041015625,\n                -0.06988525390625,\n                -0.04791259765625,\n                -0.039520263671875,\n                -0.0186767578125,\n                0.04510498046875,\n                -0.0655517578125,\n                0.0645751953125,\n                0.007354736328125,\n                0.006237030029296875,\n                0.01090240478515625,\n                -0.028350830078125,\n                0.03045654296875,\n                -0.001674652099609375,\n                0.01279449462890625,\n                -0.0279083251953125,\n                0.0194854736328125,\n                -0.0200958251953125,\n                -0.0142364501953125,\n                -0.0303802490234375,\n                -0.006336212158203125,\n                0.0163726806640625,\n                -0.04144287109375,\n                0.038177490234375,\n                0.045440673828125,\n                -0.005138397216796875,\n                0.036346435546875,\n                0.032379150390625,\n                0.0302581787109375,\n                0.0237274169921875,\n                -0.01430511474609375,\n                0.00995635986328125,\n                -0.0045166015625,\n                -0.0191650390625,\n                -0.02459716796875,\n                0.01522064208984375,\n                -0.04833984375,\n                0.04547119140625,\n                -0.01605224609375,\n                -0.06207275390625,\n                -0.04827880859375,\n                -0.049346923828125,\n                -0.00933074951171875,\n                -0.01532745361328125,\n                -0.0210113525390625,\n                -0.0031566619873046875,\n                0.020111083984375,\n                0.043731689453125,\n                0.0191650390625,\n                0.00762176513671875,\n                -0.035614013671875,\n                0.005657196044921875,\n                -0.0211181640625,\n                0.02899169921875,\n                0.025909423828125,\n                0.0021610260009765625,\n                0.037994384765625,\n                -0.007030487060546875,\n                0.04266357421875,\n                0.00905609130859375,\n                0.04364013671875,\n                0.036102294921875,\n                -0.021087646484375,\n                -0.01505279541015625,\n                0.0200042724609375,\n                0.0195770263671875,\n                0.00418853759765625,\n                -0.0071563720703125,\n                0.0198516845703125,\n                -0.0173797607421875,\n                0.031707763671875,\n                0.092041015625,\n                -0.0411376953125,\n                0.01282501220703125,\n                0.003017425537109375,\n                -0.017578125,\n                0.003131866455078125,\n                0.06463623046875,\n                0.06988525390625,\n                0.0435791015625,\n                0.0019197463989257812,\n                0.056884765625,\n                -0.0723876953125,\n                0.047607421875,\n                -0.00450897216796875,\n                -0.0391845703125,\n                0.009063720703125,\n                -0.0328369140625,\n                -0.003108978271484375,\n                -0.04949951171875,\n                0.009674072265625,\n                0.03070068359375,\n                0.0129241943359375,\n                0.048065185546875,\n                -0.043487548828125,\n                0.033905029296875,\n                -0.03985595703125,\n                0.0101165771484375,\n                0.0006589889526367188,\n                -0.00933837890625,\n                0.007793426513671875,\n                0.03143310546875,\n                0.02899169921875,\n                -0.060516357421875,\n                -0.0247344970703125,\n                0.055450439453125,\n                0.0943603515625,\n                -0.0322265625,\n                -0.0307464599609375,\n                -0.015228271484375,\n                0.02899169921875,\n                0.016815185546875,\n                0.02728271484375,\n                -0.007572174072265625,\n                0.038787841796875,\n                0.06256103515625,\n                -0.07391357421875,\n                0.030792236328125,\n                -0.0285186767578125,\n                0.040069580078125,\n                -0.009307861328125,\n                -0.01316070556640625,\n                0.0100250244140625,\n                0.019805908203125,\n                0.007099151611328125,\n                -0.01390838623046875,\n                0.0106048583984375,\n                0.0011739730834960938,\n                -0.047698974609375,\n                0.025726318359375,\n                -0.00405120849609375,\n                0.045806884765625,\n                -0.011474609375,\n                0.0215911865234375,\n                -0.0191802978515625,\n                0.0275726318359375,\n                0.0237274169921875,\n                0.03326416015625,\n                -0.041046142578125,\n                0.023345947265625,\n                0.00492095947265625,\n                -0.00634765625,\n                0.038116455078125,\n                0.04473876953125,\n                0.0310516357421875,\n                -0.0333251953125,\n                -0.0142974853515625,\n                0.018585205078125,\n                0.082275390625,\n                0.08135986328125,\n                0.0294036865234375,\n                -0.07586669921875,\n                -0.01105499267578125,\n                -0.0297393798828125,\n                0.01507568359375,\n                0.0243682861328125,\n                0.0100250244140625,\n                -0.001255035400390625,\n                -0.01294708251953125,\n                0.0112152099609375,\n                -0.01306915283203125,\n                -0.00951385498046875,\n                -0.0159149169921875,\n                0.01528167724609375,\n                -0.0129241943359375,\n                -0.01207733154296875,\n                0.0164642333984375,\n                -0.07440185546875,\n                0.016632080078125,\n                -0.0182647705078125,\n                -0.01212310791015625,\n                0.03167724609375,\n                -0.041656494140625,\n                -0.042388916015625,\n                -0.004329681396484375,\n                -0.0150604248046875,\n                -0.025299072265625,\n                0.018463134765625,\n                -0.01094818115234375,\n                -0.02105712890625,\n                0.005908966064453125,\n                -0.024078369140625,\n                -0.041961669921875,\n                0.0232391357421875,\n                -0.002384185791015625,\n                0.0242767333984375,\n                -0.0177459716796875,\n                -0.03289794921875,\n                -0.0286712646484375,\n                -0.0036296844482421875,\n                0.0266571044921875,\n                0.036224365234375,\n                -0.00576019287109375,\n                -0.0186004638671875,\n                0.0218963623046875,\n                -0.007904052734375,\n                0.06585693359375,\n                0.00879669189453125,\n                -0.00958251953125,\n                -0.036224365234375,\n                -0.0048370361328125,\n                0.03656005859375,\n                0.08209228515625,\n                0.036407470703125,\n                -0.064453125,\n                -0.034027099609375,\n                -0.00734710693359375,\n                -0.0016565322875976562,\n                0.003753662109375,\n                0.01136016845703125,\n                0.06549072265625,\n                -0.027252197265625,\n                -0.01025390625,\n                0.00804901123046875,\n                0.0789794921875,\n                0.01062774658203125,\n                -0.04144287109375,\n                -0.0307159423828125,\n                0.013519287109375,\n                0.029266357421875,\n                0.1329345703125,\n                0.03460693359375,\n                -0.035888671875,\n                -0.04730224609375,\n                -0.0296478271484375,\n                -0.03167724609375,\n                0.03997802734375,\n                -0.012847900390625,\n                0.036041259765625,\n                0.0288543701171875,\n                -0.00945281982421875,\n                0.0540771484375,\n                -0.0011281967163085938,\n                -0.0181427001953125,\n                0.0826416015625,\n                0.015716552734375,\n                0.01003265380859375,\n                0.06304931640625,\n                0.0167236328125,\n                0.0297393798828125,\n                -0.0217742919921875,\n                0.016357421875,\n                -0.031341552734375,\n                0.0020294189453125,\n                0.0166168212890625,\n                -0.028900146484375,\n                -0.017059326171875,\n                0.055877685546875,\n                -0.0114288330078125,\n                -0.001171112060546875,\n                -0.0256805419921875,\n                -0.029205322265625,\n                0.013214111328125,\n                -0.01512908935546875,\n                0.0152740478515625,\n                0.036865234375,\n                0.004001617431640625,\n                -0.0273284912109375,\n                -0.056304931640625,\n                0.0296173095703125,\n                0.0168304443359375,\n                -0.00665283203125,\n                0.01190948486328125,\n                0.05340576171875,\n                -0.0214385986328125,\n                0.04473876953125,\n                0.0030460357666015625,\n                -0.004486083984375,\n                -0.0020580291748046875,\n                0.02117919921875,\n                -0.0286712646484375,\n                -0.0186767578125,\n                -0.0092010498046875,\n                0.0018339157104492188,\n                -0.037384033203125,\n                0.01499176025390625,\n                0.0321044921875,\n                0.01275634765625,\n                -0.0194549560546875,\n                -0.03076171875,\n                -0.009307861328125,\n                -0.018280029296875,\n                -0.0908203125,\n                -0.06085205078125,\n                -0.006439208984375,\n                -0.060516357421875,\n                0.006855010986328125,\n                0.0268707275390625,\n                0.0517578125,\n                0.03594970703125,\n                -0.0242767333984375,\n                0.0087432861328125,\n                -0.010498046875,\n                -0.035247802734375,\n                0.02325439453125,\n                0.0153045654296875,\n                0.0004353523254394531,\n                -0.0146484375,\n                -0.0421142578125,\n                -0.07421875,\n                0.0295562744140625,\n                -0.055206298828125,\n                -0.0052947998046875,\n                0.0838623046875,\n                0.0509033203125,\n                0.03668212890625,\n                0.0159454345703125,\n                -0.017120361328125,\n                -0.044921875,\n                -0.043182373046875,\n                -0.046844482421875,\n                -0.01324462890625,\n                0.010101318359375,\n                0.0203094482421875,\n                0.046783447265625,\n                -0.047271728515625,\n                0.0023193359375,\n                0.00170135498046875,\n                -0.0079345703125,\n                0.059356689453125,\n                0.00372314453125,\n                -0.08660888671875,\n                -0.00579071044921875,\n                -0.004364013671875,\n                -0.052459716796875,\n                -0.01140594482421875,\n                -0.04718017578125,\n                -0.056121826171875,\n                -0.0224609375,\n                0.036041259765625,\n                -0.036224365234375,\n                -0.016754150390625,\n                -0.0517578125,\n                -0.0281829833984375,\n                -0.05523681640625,\n                0.051910400390625,\n                0.02410888671875,\n                0.0017595291137695312,\n                -0.0273284912109375,\n                0.032989501953125,\n                -0.053619384765625,\n                -0.04156494140625,\n                0.0124969482421875,\n                -0.0033321380615234375,\n                0.025482177734375,\n                0.020538330078125,\n                -0.03338623046875,\n                -0.0014476776123046875,\n                -0.0367431640625,\n                -0.03839111328125,\n                0.02655029296875,\n                0.01244354248046875,\n                0.0716552734375,\n                0.00733184814453125,\n                -0.017578125,\n                0.09429931640625,\n                -0.039154052734375,\n                0.01267242431640625,\n                0.049652099609375,\n                0.0167236328125,\n                0.01152801513671875,\n                0.004291534423828125,\n                -0.03314208984375,\n                0.0160980224609375,\n                -0.0294342041015625,\n                -0.043853759765625,\n                -0.03289794921875,\n                -0.032196044921875,\n                -0.0322265625,\n                0.00982666015625,\n                -0.01381683349609375,\n                0.0013408660888671875,\n                -0.06976318359375,\n                0.006046295166015625,\n                0.0153045654296875,\n                -0.011138916015625,\n                -0.0013332366943359375,\n                0.00614166259765625,\n                -0.046356201171875,\n                -0.017242431640625,\n                0.053558349609375,\n                0.059967041015625,\n                0.0311279296875,\n                0.0235748291015625,\n                -0.0164642333984375,\n                0.013275146484375,\n                0.0162353515625,\n                -0.03826904296875,\n                0.0022029876708984375,\n                0.01385498046875,\n                -0.05780029296875,\n                0.067138671875,\n                -0.08489990234375,\n                -0.0138397216796875,\n                -0.040557861328125,\n                0.01506805419921875,\n                -0.035675048828125,\n                0.059967041015625,\n                -0.0188446044921875,\n                0.01241302490234375,\n                -0.004390716552734375,\n                -0.020721435546875,\n                0.0165252685546875,\n                0.023681640625,\n                0.037200927734375,\n                -0.0911865234375,\n                0.0236053466796875,\n                -0.07025146484375,\n                -0.04241943359375,\n                -0.05999755859375,\n                0.0171966552734375,\n                -0.0156097412109375,\n                0.0209808349609375,\n                0.043365478515625,\n                0.0565185546875,\n                0.04034423828125,\n                0.0114593505859375,\n                -0.041351318359375,\n                0.0032024383544921875,\n                0.003765106201171875,\n                0.0135040283203125,\n                0.033233642578125,\n                0.03515625,\n                0.045013427734375,\n                -0.045257568359375,\n                0.07354736328125,\n                0.076171875,\n                0.0016689300537109375,\n                -0.0465087890625,\n                0.00710296630859375,\n                0.045074462890625,\n                0.0704345703125,\n                0.017486572265625,\n                -0.01036834716796875,\n                -0.057098388671875,\n                -0.01323699951171875,\n                0.02471923828125,\n                -0.03790283203125,\n                -0.004741668701171875,\n                0.0110626220703125,\n                -0.00011599063873291016,\n                -0.034027099609375,\n                -0.0560302734375,\n                -0.0142059326171875,\n                -0.042938232421875,\n                0.06121826171875,\n                0.00605010986328125,\n                0.01456451416015625,\n                0.002666473388671875,\n                -0.019073486328125,\n                -0.00019884109497070312,\n                0.040863037109375,\n                0.040069580078125,\n                -0.005352020263671875,\n                -0.041778564453125,\n                -0.03173828125,\n                -0.0121917724609375,\n                0.064208984375,\n                0.019744873046875,\n                0.0294342041015625,\n                -0.078369140625,\n                0.0070343017578125,\n                -0.036285400390625,\n                -0.0426025390625,\n                -0.01473236083984375,\n                -0.0010967254638671875,\n                -0.00750732421875,\n                0.0159454345703125,\n                -0.042633056640625,\n                0.01318359375,\n                -0.005970001220703125,\n                0.051727294921875,\n                -0.037506103515625,\n                0.009857177734375,\n                0.02923583984375,\n                -0.04736328125,\n                0.04107666015625,\n                0.035888671875,\n                0.039947509765625,\n                -0.060089111328125,\n                -0.00763702392578125,\n                -0.003696441650390625,\n                -0.0262298583984375,\n                -0.04119873046875,\n                -0.0295257568359375,\n                0.036865234375,\n                0.034942626953125,\n                -0.0183258056640625,\n                0.054840087890625,\n                0.00299835205078125,\n                0.0147857666015625,\n                -0.0443115234375,\n                -0.07208251953125,\n                -0.00640869140625,\n                -0.0247344970703125,\n                0.0465087890625,\n                0.01448822021484375,\n                -0.0167083740234375,\n                -0.048095703125,\n                -0.026702880859375,\n                -0.046234130859375,\n                0.037261962890625,\n                -0.01528167724609375,\n                0.046844482421875,\n                -0.058135986328125,\n                -0.00635528564453125,\n                -0.024017333984375,\n                -0.022216796875,\n                -0.0018520355224609375,\n                -0.0311279296875,\n                -0.01358795166015625,\n                -0.004177093505859375,\n                0.0024814605712890625,\n                -0.0509033203125,\n                0.004215240478515625,\n                0.00139617919921875,\n                0.0185089111328125,\n                -0.03778076171875,\n                0.015960693359375,\n                0.03717041015625,\n                -0.0399169921875,\n                -0.033905029296875,\n                0.04852294921875,\n                0.0162200927734375,\n                -0.0183868408203125,\n                0.0277557373046875,\n                -0.029083251953125,\n                -0.025238037109375,\n                0.0200653076171875,\n                -0.01666259765625,\n                -0.022613525390625,\n                -0.03948974609375,\n                0.0357666015625,\n                0.1253662109375,\n                0.00737762451171875,\n                0.007904052734375,\n                -0.002490997314453125,\n                0.01812744140625,\n                0.0245361328125,\n                -0.031646728515625,\n                -0.038055419921875,\n                -0.0158843994140625,\n                -0.0011358261108398438\n            ],\n            \"object\": \"embedding\"\n        }\n    ],\n    \"model\": \"nomic-ai/nomic-embed-text-v1.5\",\n    \"object\": \"list\",\n    \"usage\": {\n        \"prompt_tokens\": 5,\n        \"total_tokens\": 5\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.fireworks.ai/inference/v1",
+			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "BringYourOwn",
+			"type": "string"
+		}
+	]
+}

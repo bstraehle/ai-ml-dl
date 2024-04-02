@@ -160,7 +160,7 @@
 					]
 				},
 				{
-					"name": "Text Completion",
+					"name": "Complete",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -327,7 +327,7 @@
 		},
 		{
 			"key": "apiKey",
-			"value": "TODO",
+			"value": "BringYourOwn",
 			"type": "string"
 		}
 	]

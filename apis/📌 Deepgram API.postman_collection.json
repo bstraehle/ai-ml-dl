@@ -5,14 +5,14 @@
 		"description": "### Prerequisites\n\n- Postman\n- Deepgram Account: [https://developers.deepgram.com/](https://developers.deepgram.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://developers.deepgram.com/reference/deepgram-api-overview](https://developers.deepgram.com/reference/deepgram-api-overview)\n- Models: [https://developers.deepgram.com/docs/model](https://developers.deepgram.com/docs/model)\n    \n\n### About Deepgram\n\nPower your apps with real-time speech-to-text and text-to-speech APIs powered by Deepgram's voice AI models.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
-		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-apis/collection/7643177-d89d0edb-3887-488a-be46-45669d347393?action=share&source=collection_link&creator=7643177"
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-d89d0edb-3887-488a-be46-45669d347393?action=share&source=collection_link&creator=7643177"
 	},
 	"item": [
 		{
 			"name": "🚀 Get Started",
 			"item": [
 				{
-					"name": "Analyze Text",
+					"name": "Summarization",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -132,7 +132,7 @@
 			"name": "Speech-to-Text",
 			"item": [
 				{
-					"name": "Transcribe - Local file",
+					"name": "Speech-to-Text (local file)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -226,7 +226,7 @@
 					]
 				},
 				{
-					"name": "Transcribe - Remote file",
+					"name": "Speech-to-Text (remote file)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -326,7 +326,7 @@
 			"name": "Text-to-Speech",
 			"item": [
 				{
-					"name": "Transform Text to Speech",
+					"name": "Text-to-Speech",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -363,7 +363,7 @@
 			"name": "Text-to-Text",
 			"item": [
 				{
-					"name": "Analyze Text",
+					"name": "Summarization",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -525,7 +525,7 @@
 		},
 		{
 			"key": "apiKey",
-			"value": "TODO",
+			"value": "BringYourOwn",
 			"type": "string"
 		}
 	]
