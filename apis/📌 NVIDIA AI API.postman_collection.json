@@ -12,7 +12,7 @@
 			"name": "🚀 Get Started",
 			"item": [
 				{
-					"name": "Chat (gemma-7b)",
+					"name": "Chat (google/gemma-7b)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -146,7 +146,7 @@
 			"name": "Chat",
 			"item": [
 				{
-					"name": "Chat (gemma-7b)",
+					"name": "Chat (google/gemma-7b)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -275,7 +275,7 @@
 					]
 				},
 				{
-					"name": "Chat (llama2-70b)",
+					"name": "Chat (meta/llama2-70b)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -404,7 +404,7 @@
 					]
 				},
 				{
-					"name": "Chat (mistral-7b-instruct-v0.2)",
+					"name": "Chat (mistralai/mistral-7b-instruct-v0.2)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -529,7 +529,7 @@
 					]
 				},
 				{
-					"name": "Chat (codellama-70b)",
+					"name": "Chat (meta/codellama-70b)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -663,7 +663,7 @@
 			"name": "Images",
 			"item": [
 				{
-					"name": "Images (sdxl-turbo)",
+					"name": "Images (stabilityai/sdxl-turbo)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -799,7 +799,7 @@
 			"name": "Video",
 			"item": [
 				{
-					"name": "Video (stable-video-diffusion)",
+					"name": "Video (stabilityai/stable-video-diffusion)",
 					"request": {
 						"method": "POST",
 						"header": [],

@@ -8307,7 +8307,7 @@
 			"name": "Embeddings",
 			"item": [
 				{
-					"name": "Embeddings (m2-bert-80M-2k-retrieval)",
+					"name": "Embeddings (togethercomputer/m2-bert-80M-2k-retrieval)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -8474,7 +8474,7 @@
 					]
 				},
 				{
-					"name": "Embeddings (m2-bert-80M-8k-retrieval)",
+					"name": "Embeddings (togethercomputer/m2-bert-80M-8k-retrieval)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -8641,7 +8641,7 @@
 					]
 				},
 				{
-					"name": "Embeddings (m2-bert-80M-32k-retrieval)",
+					"name": "Embeddings (togethercomputer/m2-bert-80M-32k-retrieval)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -8808,7 +8808,7 @@
 					]
 				},
 				{
-					"name": "Embeddings (uae-large-v1)",
+					"name": "Embeddings (WhereIsAI/UAE-Large-V1)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -8975,7 +8975,7 @@
 					]
 				},
 				{
-					"name": "Embeddings (bge-large-en-v1.5)",
+					"name": "Embeddings (BAAI/bge-large-en-v1.5)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -9138,7 +9138,7 @@
 					]
 				},
 				{
-					"name": "Embeddings (bge-base-en-v1.5)",
+					"name": "Embeddings (BAAI/bge-base-en-v1.5)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -9305,7 +9305,7 @@
 					]
 				},
 				{
-					"name": "Embeddings (msmarco-bert-base-dot-v5)",
+					"name": "Embeddings (sentence-transformers/msmarco-bert-base-dot-v5)",
 					"request": {
 						"method": "POST",
 						"header": [],
