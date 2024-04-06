@@ -10,7 +10,7 @@ def exec(input):
 
 desc = """<a href='https://www.gradio.app/'>Gradio</a> UI using the Hugging Face 
           <a href='https://huggingface.co/docs/transformers/en/index'>Transformers</a> library 
-          for image captioning (image-to-text) <a href='https://huggingface.co/tasks'>task</a>."""
+          for image captioning (image-to-text) <a href='https://huggingface.co/tasks'>tasks</a>."""
 
 demo = gr.Interface(exec,
                     inputs=gr.Image(type="pil",
