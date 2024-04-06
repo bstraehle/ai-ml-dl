@@ -32,7 +32,7 @@ def invoke(openai_api_key, prompt, rag_option):
     if (prompt == ""):
         raise gr.Error("Prompt is required.")
     if (rag_option is None):
-        raise gr.Error("Retrieval Augmented Generation is required.")
+        raise gr.Error("Retrieval-Augmented Generation is required.")
 
     os.environ["OPENAI_API_KEY"] = openai_api_key
     
