@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "5e86b362-34d0-4a92-ae32-f341fad1c30b",
 		"name": "📌 Anyscale API",
-		"description": "### Prerequisites\n\n- Postman\n- Anyscale Account: [https://app.endpoints.anyscale.com/](https://app.endpoints.anyscale.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.endpoints.anyscale.com/](https://docs.endpoints.anyscale.com/)\n- Models: [https://docs.endpoints.anyscale.com/](https://docs.endpoints.anyscale.com/)\n    \n\n### About Anyscale\n\nThe modern AI infrastructure trusted by the world’s leading AI teams.",
+		"description": "### Prerequisites\n\n- Postman\n- Anyscale Account: [https://app.endpoints.anyscale.com/](https://app.endpoints.anyscale.com/)\n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n\n### Documentation\n\n- API: [https://docs.endpoints.anyscale.com/](https://docs.endpoints.anyscale.com/)\n- Models: [https://docs.endpoints.anyscale.com/](https://docs.endpoints.anyscale.com/)\n    \n### Models\n\nModels include Llama & CodeLlama (by Meta AI, open-weight) and Mixtral (by Mistral AI, open-weight).\n\n### About Anyscale\n\nThe modern AI infrastructure trusted by the world’s leading AI teams.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
 		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-5e86b362-34d0-4a92-ae32-f341fad1c30b?action=share&source=collection_link&creator=7643177"
@@ -12,7 +12,7 @@
 			"name": "🚀 Get Started (Inference)",
 			"item": [
 				{
-					"name": "Chat (llama-2-70b-chat-hf)",
+					"name": "Chat (meta-llama/Llama-2-70b-chat-hf)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -235,7 +235,7 @@
 							]
 						},
 						{
-							"name": "Retrieve fine-tuning job",
+							"name": "Get fine-tuning job",
 							"event": [
 								{
 									"listen": "test",
@@ -345,7 +345,7 @@
 							]
 						},
 						{
-							"name": "Create chat message completion",
+							"name": "Chat (fine-tuned model)",
 							"request": {
 								"method": "POST",
 								"header": [],
@@ -566,7 +566,7 @@
 							]
 						},
 						{
-							"name": "Retrieve fine-tuning job",
+							"name": "Get fine-tuning job",
 							"event": [
 								{
 									"listen": "test",
@@ -676,7 +676,7 @@
 							]
 						},
 						{
-							"name": "Create chat message completion",
+							"name": "Chat (fine-tuned model)",
 							"request": {
 								"method": "POST",
 								"header": [],
@@ -897,7 +897,7 @@
 							]
 						},
 						{
-							"name": "Retrieve fine-tuning job",
+							"name": "Get fine-tuning job",
 							"event": [
 								{
 									"listen": "test",
@@ -1007,7 +1007,7 @@
 							]
 						},
 						{
-							"name": "Create chat message completion",
+							"name": "Chat (fine-tuned model)",
 							"request": {
 								"method": "POST",
 								"header": [],
@@ -1228,7 +1228,7 @@
 							]
 						},
 						{
-							"name": "Retrieve fine-tuning job",
+							"name": "Get fine-tuning job",
 							"event": [
 								{
 									"listen": "test",
@@ -1338,7 +1338,7 @@
 							]
 						},
 						{
-							"name": "Create chat message completion",
+							"name": "Chat (fine-tuned model)",
 							"request": {
 								"method": "POST",
 								"header": [],
@@ -1815,7 +1815,7 @@
 			"name": "Chat",
 			"item": [
 				{
-					"name": "Chat (llama-2-7b-chat-hf)",
+					"name": "meta-llama/Llama-2-7b-chat-hf",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1916,7 +1916,7 @@
 					]
 				},
 				{
-					"name": "Chat (llama-2-13b-chat-hf)",
+					"name": "meta-llama/Llama-2-13b-chat-hf",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -2017,7 +2017,7 @@
 					]
 				},
 				{
-					"name": "Chat (llama-2-70b-chat-hf)",
+					"name": "meta-llama/Llama-2-70b-chat-hf",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -2118,7 +2118,7 @@
 					]
 				},
 				{
-					"name": "Chat (codellama-70b-instruct-hf)",
+					"name": "codellama/CodeLlama-70b-Instruct-hf",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -2219,7 +2219,7 @@
 					]
 				},
 				{
-					"name": "Chat (mistral-7b-instruct-v0.1)",
+					"name": "mistralai/Mistral-7B-Instruct-v0.1",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -2320,7 +2320,7 @@
 					]
 				},
 				{
-					"name": "Chat (mixtral-8x7b-instruct-v0.1)",
+					"name": "mistralai/Mixtral-8x7B-Instruct-v0.1",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -2423,7 +2423,7 @@
 			]
 		},
 		{
-			"name": "Files",
+			"name": "File",
 			"item": [
 				{
 					"name": "Upload file",
@@ -2458,10 +2458,19 @@
 					"response": []
 				},
 				{
-					"name": "List files",
+					"name": "Get files",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/files",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"files"
+							]
+						}
 					},
 					"response": []
 				},
@@ -2469,7 +2478,23 @@
 					"name": "Get file",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/files/:file",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"files",
+								":file"
+							],
+							"variable": [
+								{
+									"key": "file",
+									"value": ""
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -2477,7 +2502,24 @@
 					"name": "Get file contents",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/files/:file/content",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"files",
+								":file",
+								"content"
+							],
+							"variable": [
+								{
+									"key": "file",
+									"value": ""
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -2487,13 +2529,19 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/files/file_123",
+							"raw": "{{baseUrl}}/files/:file",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"files",
-								"file_123"
+								":file"
+							],
+							"variable": [
+								{
+									"key": "file",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -2532,26 +2580,7 @@
 					"response": []
 				},
 				{
-					"name": "Retrieve fine-tuning job",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/fine_tuning/jobs/eftjob_123",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"fine_tuning",
-								"jobs",
-								"eftjob_123"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "List fine-tuning jobs",
+					"name": "Get fine-tuning jobs",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -2569,20 +2598,51 @@
 					"response": []
 				},
 				{
-					"name": "Cancel fine-tuning job",
+					"name": "Get fine-tuning job",
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/fine_tuning/jobs/eftjob_123/cancel",
+							"raw": "{{baseUrl}}/fine_tuning/jobs/:job",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"fine_tuning",
 								"jobs",
-								"eftjob_123",
+								":job"
+							],
+							"variable": [
+								{
+									"key": "job",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel fine-tuning job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fine_tuning/jobs/:job/cancel",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fine_tuning",
+								"jobs",
+								":job",
 								"cancel"
+							],
+							"variable": [
+								{
+									"key": "job",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -2631,7 +2691,7 @@
 		},
 		{
 			"key": "apiKey",
-			"value": "BringYourOwn",
+			"value": "<BringYourOwn>",
 			"type": "string"
 		}
 	]

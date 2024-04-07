@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "2abea212-3a37-41f4-b008-32f40323fc30",
 		"name": "📌 Anthropic API",
-		"description": "### Prerequisites\n\n- Postman\n- Anthropic Account: [https://console.anthropic.com/](https://console.anthropic.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://www.anthropic.com/api](https://www.anthropic.com/api)\n- Models: [https://www.anthropic.com/claude](https://www.anthropic.com/claude)\n    \n\n### About Anthropic\n\nAI research and products that put safety at the frontier.",
+		"description": "### Prerequisites\n\n- Postman\n- Anthropic Account: [https://console.anthropic.com/](https://console.anthropic.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://www.anthropic.com/api](https://www.anthropic.com/api)\n- Models: [https://www.anthropic.com/claude](https://www.anthropic.com/claude)\n    \n\n### Models\n\nClaude\n\n### About Anthropic\n\nAI research and products that put safety at the frontier.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
 		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-2abea212-3a37-41f4-b008-32f40323fc30?action=share&source=collection_link&creator=7643177"
@@ -12,7 +12,160 @@
 			"name": "🚀 Get Started",
 			"item": [
 				{
-					"name": "Messages",
+					"name": "Messages (claude-3-opus-20240229)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "anthropic-version",
+								"value": "2023-06-01",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"claude-3-opus-20240229\",\r\n    \"max_tokens\": 1024,\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Hello, world\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/messages",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"messages"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "anthropic-version",
+										"value": "2023-06-01",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"claude-3-opus-20240229\",\r\n    \"max_tokens\": 1024,\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Hello, world\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.anthropic.com/v1/messages",
+									"protocol": "https",
+									"host": [
+										"api",
+										"anthropic",
+										"com"
+									],
+									"path": [
+										"v1",
+										"messages"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Mar 2024 21:32:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "anthropic-ratelimit-requests-limit",
+									"value": "5"
+								},
+								{
+									"key": "anthropic-ratelimit-requests-remaining",
+									"value": "4"
+								},
+								{
+									"key": "anthropic-ratelimit-requests-reset",
+									"value": "2024-03-12T21:33:00Z"
+								},
+								{
+									"key": "anthropic-ratelimit-tokens-limit",
+									"value": "25000"
+								},
+								{
+									"key": "anthropic-ratelimit-tokens-remaining",
+									"value": "25000"
+								},
+								{
+									"key": "anthropic-ratelimit-tokens-reset",
+									"value": "2024-03-12T21:33:00Z"
+								},
+								{
+									"key": "request-id",
+									"value": "req_01FrbJBMQ5X4swj5SYCdgGem"
+								},
+								{
+									"key": "x-cloud-trace-context",
+									"value": "611499349cbe1a3c8afe8795afbc6071"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8636e5060ad20fd1-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"msg_01UCagXm2wPzX1UBmfCpDrCG\",\n    \"type\": \"message\",\n    \"role\": \"assistant\",\n    \"content\": [\n        {\n            \"type\": \"text\",\n            \"text\": \"Hello! How can I assist you today?\"\n        }\n    ],\n    \"model\": \"claude-3-opus-20240229\",\n    \"stop_reason\": \"end_turn\",\n    \"stop_sequence\": null,\n    \"usage\": {\n        \"input_tokens\": 10,\n        \"output_tokens\": 12\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Messages",
+			"item": [
+				{
+					"name": "claude-3-opus-20240229",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -160,7 +313,156 @@
 					]
 				},
 				{
-					"name": "Complete",
+					"name": "claude-3-opus-20240229 - Tool Use [BETA]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "anthropic-version",
+								"value": "2023-06-01",
+								"type": "text"
+							},
+							{
+								"key": "anthropic-beta",
+								"value": "tools-2024-04-04",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"claude-3-opus-20240229\",\r\n    \"max_tokens\": 1024,\r\n    \"tools\": [\r\n        {\r\n            \"name\": \"get_weather\",\r\n            \"description\": \"Get the current weather in a given location\",\r\n            \"input_schema\": {\r\n                \"type\": \"object\",\r\n                \"properties\": {\r\n                    \"location\": {\r\n                        \"type\": \"string\",\r\n                        \"description\": \"The city and state, e.g. San Francisco, CA\"\r\n                    },\r\n                    \"unit\": {\r\n                        \"type\": \"string\",\r\n                        \"enum\": [\r\n                            \"celsius\",\r\n                            \"fahrenheit\"\r\n                        ],\r\n                        \"description\": \"The unit of temperature, either \\\"celsius\\\" or \\\"fahrenheit\\\"\"\r\n                    }\r\n                },\r\n                \"required\": [\r\n                    \"location\"\r\n                ]\r\n            }\r\n        }\r\n    ],\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the weather like in San Francisco?\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/messages",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"messages"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "anthropic-version",
+										"value": "2023-06-01",
+										"type": "text"
+									},
+									{
+										"key": "anthropic-beta",
+										"value": "tools-2024-04-04",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"claude-3-opus-20240229\",\r\n    \"max_tokens\": 1024,\r\n    \"tools\": [\r\n        {\r\n            \"name\": \"get_weather\",\r\n            \"description\": \"Get the current weather in a given location\",\r\n            \"input_schema\": {\r\n                \"type\": \"object\",\r\n                \"properties\": {\r\n                    \"location\": {\r\n                        \"type\": \"string\",\r\n                        \"description\": \"The city and state, e.g. San Francisco, CA\"\r\n                    },\r\n                    \"unit\": {\r\n                        \"type\": \"string\",\r\n                        \"enum\": [\r\n                            \"celsius\",\r\n                            \"fahrenheit\"\r\n                        ],\r\n                        \"description\": \"The unit of temperature, either \\\"celsius\\\" or \\\"fahrenheit\\\"\"\r\n                    }\r\n                },\r\n                \"required\": [\r\n                    \"location\"\r\n                ]\r\n            }\r\n        }\r\n    ],\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the weather like in San Francisco?\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/messages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"messages"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 06 Apr 2024 15:45:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "anthropic-ratelimit-requests-limit",
+									"value": "5"
+								},
+								{
+									"key": "anthropic-ratelimit-requests-remaining",
+									"value": "5"
+								},
+								{
+									"key": "anthropic-ratelimit-requests-reset",
+									"value": "2024-04-06T15:46:00Z"
+								},
+								{
+									"key": "anthropic-ratelimit-tokens-limit",
+									"value": "10000"
+								},
+								{
+									"key": "anthropic-ratelimit-tokens-remaining",
+									"value": "10000"
+								},
+								{
+									"key": "anthropic-ratelimit-tokens-reset",
+									"value": "2024-04-06T15:46:00Z"
+								},
+								{
+									"key": "request-id",
+									"value": "req_01VzsuSquTAMsJSKkyZvR2Gm"
+								},
+								{
+									"key": "x-cloud-trace-context",
+									"value": "ea41faff105b3ea455d56d5c18ef0e6c"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8702e6e6cdee0fca-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"msg_012gRALsQC1P1oEYCBSE5M9J\",\n    \"type\": \"message\",\n    \"role\": \"assistant\",\n    \"content\": [\n        {\n            \"type\": \"text\",\n            \"text\": \"<thinking>\\nThe user has asked for the current weather in San Francisco. The relevant tool is get_weather, which takes a required \\\"location\\\" parameter and an optional \\\"unit\\\" parameter.\\n\\nThe user provided the location \\\"San Francisco\\\", so we have the required location parameter. \\n\\nHowever, the user did not specify a unit, which is an optional parameter. Since it is not required, we can proceed with the API call without asking the user for more information.\\n</thinking>\"\n        },\n        {\n            \"type\": \"tool_use\",\n            \"id\": \"toolu_01AfMLdkYuzJLKFLQ53q7pdw\",\n            \"name\": \"get_weather\",\n            \"input\": {\n                \"location\": \"San Francisco, CA\"\n            }\n        }\n    ],\n    \"model\": \"claude-3-opus-20240229\",\n    \"stop_reason\": \"tool_use\",\n    \"stop_sequence\": null,\n    \"usage\": {\n        \"input_tokens\": 527,\n        \"output_tokens\": 155\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "claude-3-sonnet-20240229",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -172,7 +474,290 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"model\": \"claude-2.1\",\r\n    \"max_tokens_to_sample\": 1024,\r\n    \"prompt\": \"\\n\\nHuman: Hello, Claude\\n\\nAssistant:\"\r\n}",
+							"raw": "{\r\n    \"model\": \"claude-3-sonnet-20240229\",\r\n    \"max_tokens\": 1024,\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Hello, world\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/messages",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"messages"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "anthropic-version",
+										"value": "2023-06-01",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"claude-3-sonnet-20240229\",\r\n    \"max_tokens\": 1024,\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Hello, world\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/messages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"messages"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 02 Apr 2024 02:37:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "anthropic-ratelimit-requests-limit",
+									"value": "5"
+								},
+								{
+									"key": "anthropic-ratelimit-requests-remaining",
+									"value": "4"
+								},
+								{
+									"key": "anthropic-ratelimit-requests-reset",
+									"value": "2024-04-02T02:38:00Z"
+								},
+								{
+									"key": "anthropic-ratelimit-tokens-limit",
+									"value": "20000"
+								},
+								{
+									"key": "anthropic-ratelimit-tokens-remaining",
+									"value": "20000"
+								},
+								{
+									"key": "anthropic-ratelimit-tokens-reset",
+									"value": "2024-04-02T02:38:00Z"
+								},
+								{
+									"key": "request-id",
+									"value": "req_01Q7xrf2hF9TBQs947APRmPw"
+								},
+								{
+									"key": "x-cloud-trace-context",
+									"value": "cac387650da5982cc770210a8ccaf9dd"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86dd70592fbc2b7f-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"msg_017uHg6RnpnZpYfC9z6eEt4A\",\n    \"type\": \"message\",\n    \"role\": \"assistant\",\n    \"content\": [\n        {\n            \"type\": \"text\",\n            \"text\": \"Hello! I'm Claude, an AI assistant created by Anthropic.\"\n        }\n    ],\n    \"model\": \"claude-3-sonnet-20240229\",\n    \"stop_reason\": \"end_turn\",\n    \"stop_sequence\": null,\n    \"usage\": {\n        \"input_tokens\": 10,\n        \"output_tokens\": 18\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "claude-3-haiku-20240307",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "anthropic-version",
+								"value": "2023-06-01",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"claude-3-haiku-20240307\",\r\n    \"max_tokens\": 1024,\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Hello, world\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/messages",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"messages"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "anthropic-version",
+										"value": "2023-06-01",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"claude-3-haiku-20240307\",\r\n    \"max_tokens\": 1024,\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Hello, world\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/messages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"messages"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 02 Apr 2024 02:38:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "anthropic-ratelimit-requests-limit",
+									"value": "5"
+								},
+								{
+									"key": "anthropic-ratelimit-requests-remaining",
+									"value": "4"
+								},
+								{
+									"key": "anthropic-ratelimit-requests-reset",
+									"value": "2024-04-02T02:39:00Z"
+								},
+								{
+									"key": "anthropic-ratelimit-tokens-limit",
+									"value": "25000"
+								},
+								{
+									"key": "anthropic-ratelimit-tokens-remaining",
+									"value": "25000"
+								},
+								{
+									"key": "anthropic-ratelimit-tokens-reset",
+									"value": "2024-04-02T02:39:00Z"
+								},
+								{
+									"key": "request-id",
+									"value": "req_01UCtZpf4tDJQBLVLXrtqWdD"
+								},
+								{
+									"key": "x-cloud-trace-context",
+									"value": "cd4127dc7e50a3acd8fc372fd91a158a"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86dd712b7c052b7f-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"msg_015KFVEZWi4dk3rZTASSpHW7\",\n    \"type\": \"message\",\n    \"role\": \"assistant\",\n    \"content\": [\n        {\n            \"type\": \"text\",\n            \"text\": \"Hello! It's nice to meet you.\"\n        }\n    ],\n    \"model\": \"claude-3-haiku-20240307\",\n    \"stop_reason\": \"end_turn\",\n    \"stop_sequence\": null,\n    \"usage\": {\n        \"input_tokens\": 10,\n        \"output_tokens\": 12\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Complete (Legacy)",
+			"item": [
+				{
+					"name": "claude-2.1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "anthropic-version",
+								"value": "2023-06-01",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"claude-2.1\",\r\n    \"max_tokens_to_sample\": 1024,\r\n    \"prompt\": \"\\n\\nHuman: Hello, Claude\\n\\nAssistant: \"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -278,6 +863,236 @@
 							"body": "{\n    \"type\": \"completion\",\n    \"id\": \"compl_01MkyGZUBp7TyQavs2dMC9r6\",\n    \"completion\": \" Hello!\",\n    \"stop_reason\": \"stop_sequence\",\n    \"model\": \"claude-2.1\",\n    \"stop\": \"\\n\\nHuman:\",\n    \"log_id\": \"compl_01MkyGZUBp7TyQavs2dMC9r6\"\n}"
 						}
 					]
+				},
+				{
+					"name": "claude-2.0",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "anthropic-version",
+								"value": "2023-06-01",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"claude-2.0\",\r\n    \"max_tokens_to_sample\": 1024,\r\n    \"prompt\": \"\\n\\nHuman: Hello, Claude\\n\\nAssistant: \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/complete",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"complete"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "anthropic-version",
+										"value": "2023-06-01",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"claude-2.0\",\r\n    \"max_tokens_to_sample\": 1024,\r\n    \"prompt\": \"\\n\\nHuman: Hello, Claude\\n\\nAssistant:\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/complete",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"complete"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 02 Apr 2024 02:41:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "request-id",
+									"value": "req_01XDkQTfoMYwXHojTsqgSoRy"
+								},
+								{
+									"key": "x-cloud-trace-context",
+									"value": "0ed3bdcab62290a71d111b3c3e0753ba"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86dd75354ea02b7f-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"completion\",\n    \"id\": \"compl_0153W5RXqNkvr4iBvsEQdzTf\",\n    \"completion\": \" Hello! My name is Claude.\",\n    \"stop_reason\": \"stop_sequence\",\n    \"model\": \"claude-2.0\",\n    \"stop\": \"\\n\\nHuman:\",\n    \"log_id\": \"compl_0153W5RXqNkvr4iBvsEQdzTf\"\n}"
+						}
+					]
+				},
+				{
+					"name": "claude-instant-1.2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "anthropic-version",
+								"value": "2023-06-01",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"claude-instant-1.2\",\r\n    \"max_tokens_to_sample\": 1024,\r\n    \"prompt\": \"\\n\\nHuman: Hello, Claude\\n\\nAssistant: \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/complete",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"complete"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "anthropic-version",
+										"value": "2023-06-01",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"claude-instant-1.2\",\r\n    \"max_tokens_to_sample\": 1024,\r\n    \"prompt\": \"\\n\\nHuman: Hello, Claude\\n\\nAssistant:\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/complete",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"complete"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 02 Apr 2024 02:41:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "request-id",
+									"value": "req_01GKZToPS4dG7TSXMYZTViPd"
+								},
+								{
+									"key": "x-cloud-trace-context",
+									"value": "1a97ed467895d76842925f7592138158"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86dd76484ac32b7f-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"completion\",\n    \"id\": \"compl_018sNkNZEJUW35NVReds342D\",\n    \"completion\": \" Hi there!\",\n    \"stop_reason\": \"stop_sequence\",\n    \"model\": \"claude-instant-1.2\",\n    \"stop\": \"\\n\\nHuman:\",\n    \"log_id\": \"compl_018sNkNZEJUW35NVReds342D\"\n}"
+						}
+					]
 				}
 			]
 		}
@@ -327,7 +1142,7 @@
 		},
 		{
 			"key": "apiKey",
-			"value": "BringYourOwn",
+			"value": "<BringYourOwn>",
 			"type": "string"
 		}
 	]

@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "6da4d34d-dd01-423e-8b1e-588b52cf362a",
 		"name": "📌 Perplexity AI API",
-		"description": "### Prerequisites\n\n- Postman\n- Perplexity AI Account: [https://www.perplexity.ai/](https://www.perplexity.ai/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.perplexity.ai/reference](https://docs.perplexity.ai/reference)\n- Models: [https://docs.perplexity.ai/reference](https://docs.perplexity.ai/reference)\n    \n\n### About Perplexity AI\n\nPerplexity AI unlocks the power of knowledge with information discovery and sharing.",
+		"description": "### Prerequisites\n\n- Postman\n- Perplexity AI Account: [https://www.perplexity.ai/](https://www.perplexity.ai/)\n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n\n### Documentation\n\n- API: [https://docs.perplexity.ai/reference](https://docs.perplexity.ai/reference)\n- Models: [https://docs.perplexity.ai/reference](https://docs.perplexity.ai/reference)\n    \n### Models\n\nModels include Mistral & Mixtral (by Mistral AI, open-weight) and SONAR (by Meta AI, open-weight).\n\n### About Perplexity AI\n\nPerplexity AI unlocks the power of knowledge with information discovery and sharing.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
 		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-6da4d34d-dd01-423e-8b1e-588b52cf362a?action=share&source=collection_link&creator=7643177"
@@ -110,379 +110,7 @@
 			"name": "Chat",
 			"item": [
 				{
-					"name": "Chat (sonar-small-chat)",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"model\": \"sonar-small-chat\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/chat/completions",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"chat",
-								"completions"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"model\": \"sonar-small-chat\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/chat/completions",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"chat",
-										"completions"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Tue, 02 Apr 2024 04:19:43 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "CF-Cache-Status",
-									"value": "DYNAMIC"
-								},
-								{
-									"key": "Server",
-									"value": "cloudflare"
-								},
-								{
-									"key": "CF-RAY",
-									"value": "86de05b079657c1b-LAX"
-								},
-								{
-									"key": "Content-Encoding",
-									"value": "gzip"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": \"8f0bb075-5ec6-449c-9d66-675d06165ca0\",\n    \"model\": \"sonar-small-chat\",\n    \"created\": 454316,\n    \"usage\": {\n        \"prompt_tokens\": 15,\n        \"completion_tokens\": 104,\n        \"total_tokens\": 119\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a philosophical question that has been debated throughout history. Different people, cultures, and religions have their own beliefs and interpretations of what the meaning of life is. Some people believe that the meaning of life is to seek happiness, fulfillment, and personal growth, while others believe that it is to serve a higher power or to fulfill a specific purpose or destiny. Ultimately, the meaning of life is a deeply personal and subjective question that each individual must answer for themselves.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
-						}
-					]
-				},
-				{
-					"name": "Chat (sonar-small-online)",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"model\": \"sonar-small-online\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/chat/completions",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"chat",
-								"completions"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"model\": \"sonar-small-online\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/chat/completions",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"chat",
-										"completions"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Tue, 02 Apr 2024 04:19:29 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "CF-Cache-Status",
-									"value": "DYNAMIC"
-								},
-								{
-									"key": "Server",
-									"value": "cloudflare"
-								},
-								{
-									"key": "CF-RAY",
-									"value": "86de05524b5f7c1b-LAX"
-								},
-								{
-									"key": "Content-Encoding",
-									"value": "gzip"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": \"396ce1e8-4207-4e44-9785-9444f71aec0f\",\n    \"model\": \"sonar-small-online\",\n    \"created\": 13153362,\n    \"usage\": {\n        \"prompt_tokens\": 37,\n        \"completion_tokens\": 106,\n        \"total_tokens\": 143\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a philosophical question that has been debated throughout history. Some people believe that life has no inherent meaning and that individuals must create their own purpose, while others argue that life has a predetermined purpose or that it is up to each person to decide what gives their life meaning. The search for the meaning of life has produced much philosophical, scientific, theological, and metaphysical speculation, and different cultures and ideologies have proposed various answers to this question.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
-						}
-					]
-				},
-				{
-					"name": "Chat (sonar-medium-chat)",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"model\": \"sonar-medium-chat\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/chat/completions",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"chat",
-								"completions"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"model\": \"sonar-medium-chat\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/chat/completions",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"chat",
-										"completions"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Tue, 02 Apr 2024 04:19:17 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "CF-Cache-Status",
-									"value": "DYNAMIC"
-								},
-								{
-									"key": "Server",
-									"value": "cloudflare"
-								},
-								{
-									"key": "CF-RAY",
-									"value": "86de0500fcb97c1b-LAX"
-								},
-								{
-									"key": "Content-Encoding",
-									"value": "gzip"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": \"c62c87d3-901a-49d2-9b30-1f4ea2aa4087\",\n    \"model\": \"sonar-medium-chat\",\n    \"created\": 10359900,\n    \"usage\": {\n        \"prompt_tokens\": 15,\n        \"completion_tokens\": 246,\n        \"total_tokens\": 261\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a question that has puzzled philosophers, theologians, and ordinary people for centuries. There are many different answers to this question, and ultimately, the meaning of life is a subjective concept that varies from person to person.\\n\\nFor some, the meaning of life may be found in the pursuit of knowledge, the creation of art, or the cultivation of personal relationships. Others may find meaning in the pursuit of wealth, power, or fame. Still, others may find meaning in the pursuit of spiritual enlightenment or the service of others.\\n\\nSome philosophical traditions, such as existentialism, suggest that life has no inherent meaning, and that it is up to each individual to create their own meaning through their choices and actions. Other traditions, such as many religious traditions, propose that life has a predetermined purpose or meaning that is revealed through divine revelation or the natural order of the universe.\\n\\nIn the end, the meaning of life is a deeply personal and subjective concept that is unique to each individual. It is up to each of us to discover and create our own meaning, based on our values, beliefs, and experiences.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
-						}
-					]
-				},
-				{
-					"name": "Chat (sonar-medium-online)",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"model\": \"sonar-medium-online\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/chat/completions",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"chat",
-								"completions"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"model\": \"sonar-medium-online\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/chat/completions",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"chat",
-										"completions"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Tue, 02 Apr 2024 04:19:02 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "CF-Cache-Status",
-									"value": "DYNAMIC"
-								},
-								{
-									"key": "Server",
-									"value": "cloudflare"
-								},
-								{
-									"key": "CF-RAY",
-									"value": "86de049bcd087c1b-LAX"
-								},
-								{
-									"key": "Content-Encoding",
-									"value": "gzip"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": \"9e616e1f-8ee1-4fcc-8641-df229714e2ec\",\n    \"model\": \"sonar-medium-online\",\n    \"created\": 270463,\n    \"usage\": {\n        \"prompt_tokens\": 36,\n        \"completion_tokens\": 395,\n        \"total_tokens\": 431\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a philosophical question that has been debated for centuries. It is a question that seeks to understand the purpose or significance of human existence. The search for the meaning of life can be a difficult and frustrating journey, but it is also a journey that can lead to greater well-being and happiness.\\n\\nOne way to approach the question of the meaning of life is to consider the concept of purpose. Purpose is the belief that you are alive in order to do something. It is the idea that your life has a direction and a goal. According to The Atlantic, purpose is often referred to as \\\"presence\\\" and the drive to look for it as \\\"search.\\\" Presence is highly correlated with well-being, but search seems to have no bearing on it. In other words, knowing your life's meaning is important, but searching for it too much could lead to dissatisfaction.\\n\\nAnother way to approach the question of the meaning of life is to consider the concept of meaning as a resource that we must cultivate in our lives. According to Mark Manson, meaning is not something that exists outside of ourselves, but rather something that we must continually find and nurture. Meaning is like the water of our psychological health. Without it, our hearts and minds will shrivel and die. And like water, meaning flows through us—what is important today is not what was important years ago, and what is important tomorrow will not be the same as what is important today.\\n\\nIn summary, the meaning of life is a complex and multifaceted concept that can be approached from different perspectives. It is a question that requires personal reflection and introspection. Whether it is through the concept of purpose or the concept of meaning as a resource, the search for the meaning of life is a journey that can lead to greater well-being and happiness.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
-						}
-					]
-				},
-				{
-					"name": "Chat (mistral-7b-instruct)",
+					"name": "mistral-7b-instruct",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -575,7 +203,7 @@
 					]
 				},
 				{
-					"name": "Chat (mixtral-8x7b-instruct)",
+					"name": "mixtral-8x7b-instruct",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -670,6 +298,378 @@
 							"body": "{\n    \"id\": \"699efb7a-efa6-487e-8ba0-87ebba9b58f9\",\n    \"model\": \"mixtral-8x7b-instruct\",\n    \"created\": 6690415,\n    \"usage\": {\n        \"prompt_tokens\": 15,\n        \"completion_tokens\": 148,\n        \"total_tokens\": 163\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a philosophical and metaphysical question related to the significance of living or existence in general. Many different people, cultures, and religions have different beliefs about the purpose and meaning of life. Some people believe that the meaning of life is to seek happiness, knowledge, or personal fulfillment, while others believe that it is to follow a set of religious or moral principles.\\n\\nThere are also those who believe that life has no inherent meaning, and that it is up to each individual to create their own purpose and meaning. Ultimately, the meaning of life is a deeply personal and subjective question, and each person must answer it for themselves based on their own experiences, beliefs, and values.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
 						}
 					]
+				},
+				{
+					"name": "sonar-small-chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"sonar-small-chat\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"sonar-small-chat\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 02 Apr 2024 04:19:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86de05b079657c1b-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"8f0bb075-5ec6-449c-9d66-675d06165ca0\",\n    \"model\": \"sonar-small-chat\",\n    \"created\": 454316,\n    \"usage\": {\n        \"prompt_tokens\": 15,\n        \"completion_tokens\": 104,\n        \"total_tokens\": 119\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a philosophical question that has been debated throughout history. Different people, cultures, and religions have their own beliefs and interpretations of what the meaning of life is. Some people believe that the meaning of life is to seek happiness, fulfillment, and personal growth, while others believe that it is to serve a higher power or to fulfill a specific purpose or destiny. Ultimately, the meaning of life is a deeply personal and subjective question that each individual must answer for themselves.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "sonar-small-online",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"sonar-small-online\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"sonar-small-online\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 02 Apr 2024 04:19:29 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86de05524b5f7c1b-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"396ce1e8-4207-4e44-9785-9444f71aec0f\",\n    \"model\": \"sonar-small-online\",\n    \"created\": 13153362,\n    \"usage\": {\n        \"prompt_tokens\": 37,\n        \"completion_tokens\": 106,\n        \"total_tokens\": 143\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a philosophical question that has been debated throughout history. Some people believe that life has no inherent meaning and that individuals must create their own purpose, while others argue that life has a predetermined purpose or that it is up to each person to decide what gives their life meaning. The search for the meaning of life has produced much philosophical, scientific, theological, and metaphysical speculation, and different cultures and ideologies have proposed various answers to this question.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "sonar-medium-chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"sonar-medium-chat\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"sonar-medium-chat\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 02 Apr 2024 04:19:17 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86de0500fcb97c1b-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"c62c87d3-901a-49d2-9b30-1f4ea2aa4087\",\n    \"model\": \"sonar-medium-chat\",\n    \"created\": 10359900,\n    \"usage\": {\n        \"prompt_tokens\": 15,\n        \"completion_tokens\": 246,\n        \"total_tokens\": 261\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a question that has puzzled philosophers, theologians, and ordinary people for centuries. There are many different answers to this question, and ultimately, the meaning of life is a subjective concept that varies from person to person.\\n\\nFor some, the meaning of life may be found in the pursuit of knowledge, the creation of art, or the cultivation of personal relationships. Others may find meaning in the pursuit of wealth, power, or fame. Still, others may find meaning in the pursuit of spiritual enlightenment or the service of others.\\n\\nSome philosophical traditions, such as existentialism, suggest that life has no inherent meaning, and that it is up to each individual to create their own meaning through their choices and actions. Other traditions, such as many religious traditions, propose that life has a predetermined purpose or meaning that is revealed through divine revelation or the natural order of the universe.\\n\\nIn the end, the meaning of life is a deeply personal and subjective concept that is unique to each individual. It is up to each of us to discover and create our own meaning, based on our values, beliefs, and experiences.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "sonar-medium-online",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"sonar-medium-online\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"sonar-medium-online\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 02 Apr 2024 04:19:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86de049bcd087c1b-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"9e616e1f-8ee1-4fcc-8641-df229714e2ec\",\n    \"model\": \"sonar-medium-online\",\n    \"created\": 270463,\n    \"usage\": {\n        \"prompt_tokens\": 36,\n        \"completion_tokens\": 395,\n        \"total_tokens\": 431\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a philosophical question that has been debated for centuries. It is a question that seeks to understand the purpose or significance of human existence. The search for the meaning of life can be a difficult and frustrating journey, but it is also a journey that can lead to greater well-being and happiness.\\n\\nOne way to approach the question of the meaning of life is to consider the concept of purpose. Purpose is the belief that you are alive in order to do something. It is the idea that your life has a direction and a goal. According to The Atlantic, purpose is often referred to as \\\"presence\\\" and the drive to look for it as \\\"search.\\\" Presence is highly correlated with well-being, but search seems to have no bearing on it. In other words, knowing your life's meaning is important, but searching for it too much could lead to dissatisfaction.\\n\\nAnother way to approach the question of the meaning of life is to consider the concept of meaning as a resource that we must cultivate in our lives. According to Mark Manson, meaning is not something that exists outside of ourselves, but rather something that we must continually find and nurture. Meaning is like the water of our psychological health. Without it, our hearts and minds will shrivel and die. And like water, meaning flows through us—what is important today is not what was important years ago, and what is important tomorrow will not be the same as what is important today.\\n\\nIn summary, the meaning of life is a complex and multifaceted concept that can be approached from different perspectives. It is a question that requires personal reflection and introspection. Whether it is through the concept of purpose or the concept of meaning as a resource, the search for the meaning of life is a journey that can lead to greater well-being and happiness.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
+						}
+					]
 				}
 			]
 		}
@@ -714,7 +714,7 @@
 		},
 		{
 			"key": "apiKey",
-			"value": "BringYourOwn",
+			"value": "<BringYourOwn>",
 			"type": "string"
 		}
 	]
