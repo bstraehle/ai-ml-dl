@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "814b9777-b195-49ef-ad3f-282d8dece895",
 		"name": "📌 Fireworks AI API",
-		"description": "### Prerequisites\n\n- Postman\n- Fireworks AI Account: [https://fireworks.ai/](https://fireworks.ai/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://readme.fireworks.ai/reference](https://readme.fireworks.ai/reference)\n- Models: [https://fireworks.ai/models](https://fireworks.ai/models)\n    \n\n### About Fireworks AI\n\nUse state-of-the-art, open-source LLMs and image models at blazing fast speed, or fine-tune and deploy your own at no additional cost with Fireworks.ai.",
+		"description": "### Prerequisites\n\n- Postman\n- Fireworks AI Account: [https://fireworks.ai/](https://fireworks.ai/)\n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n\n### Documentation\n\n- API: [https://readme.fireworks.ai/reference](https://readme.fireworks.ai/reference)\n- Models: [https://fireworks.ai/models](https://fireworks.ai/models)\n    \n### Models\n\nModels include Gemma (by Google, open-weight), Llama (by Meta AI, open-weight), Mistral & Mixtral (by Mistral AI, open-weight), and more.\n\n### About Fireworks AI\n\nUse state-of-the-art, open-source LLMs and image models at blazing fast speed, or fine-tune and deploy your own at no additional cost with Fireworks.ai.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
 		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-814b9777-b195-49ef-ad3f-282d8dece895?action=share&source=collection_link&creator=7643177"
@@ -110,286 +110,7 @@
 			"name": "Chat",
 			"item": [
 				{
-					"name": "Chat (gemma-7b-it)",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/gemma-7b-it\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/chat/completions",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"chat",
-								"completions"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/gemma-7b-it\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/chat/completions",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"chat",
-										"completions"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "date",
-									"value": "Tue, 02 Apr 2024 00:27:41 GMT"
-								},
-								{
-									"key": "x-server-processing-time",
-									"value": "3.915"
-								},
-								{
-									"key": "Content-Length",
-									"value": "2713"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json"
-								},
-								{
-									"key": "via",
-									"value": "1.1 google, 1.1 google"
-								},
-								{
-									"key": "x-request-id",
-									"value": "796add9e-743c-4b6b-b36d-9a7da8d3e0ea"
-								},
-								{
-									"key": "x-accel-buffering",
-									"value": "no"
-								},
-								{
-									"key": "Alt-Svc",
-									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": \"796add9e-743c-4b6b-b36d-9a7da8d3e0ea\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712017662,\n    \"model\": \"accounts/fireworks/models/gemma-7b-it\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"**Low Latency Language Large Language Models (LLMs)** are critically important for a number of reasons:\\n\\n**1. Real-Time Interactions:**\\n- Low latency LLMs enable real-time interactions, such as conversations, text editing, and code generation, with minimal delay.\\n- This is crucial for applications where responsiveness and quick decision-making are essential.\\n\\n**2. Improved Response Times:**\\n- LLMs with low latency can provide faster responses to queries and prompts, reducing waiting times and improving user experience.\\n\\n**3. Enhanced Data Processing:**\\n- Low latency LLMs can process data faster, allowing for real-time data analysis and insights.\\n\\n**4. Real-Time Decision-Making:**\\n- LLMs with low latency can facilitate real-time decision-making processes, such as in self-driving cars or financial trading systems.\\n\\n**5. Improved Accuracy:**\\n- Low latency LLMs can process data more quickly and accurately, leading to improved model performance and reduced errors.\\n\\n**6. Reduced Computational Costs:**\\n- Low latency LLMs can reduce computational costs by optimizing operations and reducing the need for expensive hardware resources.\\n\\n**7. Enhanced Security:**\\n- Low latency LLMs can be more secure than traditional LLMs, as they can detect and respond to security threats more quickly.\\n\\n**8. New Opportunities:**\\n- Low latency LLMs open up new opportunities for innovative applications and services that require fast and efficient language processing.\\n\\n**Examples:**\\n\\n- **Chatbots:** Low latency LLMs enable responsive and engaging chatbots that can interact with humans in real time.\\n- **Text Editing:** Low latency LLMs can provide instant suggestions and auto-complete features to enhance text editing efficiency.\\n- **Code Generation:** Low latency LLMs can generate code snippets and complete entire programs quickly, reducing development time.\\n- **Self-Driving Cars:** Low latency LLMs are essential for self-driving cars to navigate roads and respond to traffic.\\n\\n**Conclusion:**\\n\\nLow latency LLMs are a significant advancement in the field of language large language models. They offer numerous benefits, including improved response times, real-time interactions, enhanced accuracy, and reduced computational costs. As a result, low latency LLMs are enabling a wide range of new applications and services that require fast and efficient language processing.\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 492,\n        \"completion_tokens\": 475\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Chat (mixtral-8x7b-instruct)",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/mixtral-8x7b-instruct\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/chat/completions",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"chat",
-								"completions"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/mixtral-8x7b-instruct\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/chat/completions",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"chat",
-										"completions"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "date",
-									"value": "Tue, 02 Apr 2024 00:22:31 GMT"
-								},
-								{
-									"key": "x-server-processing-time",
-									"value": "2.044"
-								},
-								{
-									"key": "Content-Length",
-									"value": "1927"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json"
-								},
-								{
-									"key": "via",
-									"value": "1.1 google, 1.1 google"
-								},
-								{
-									"key": "x-request-id",
-									"value": "74868879-0b20-401b-9172-d02fc13b1c14"
-								},
-								{
-									"key": "x-accel-buffering",
-									"value": "no"
-								},
-								{
-									"key": "Alt-Svc",
-									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": \"74868879-0b20-401b-9172-d02fc13b1c14\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712017352,\n    \"model\": \"accounts/fireworks/models/mixtral-8x7b-instruct\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low latency Large Language Models (LLMs) are important for a variety of applications, particularly those that require real-time or near real-time interactions. Here are a few reasons why low latency is important for LLMs:\\n\\n1. Improved user experience: Low latency LLMs can provide a more responsive and fluid user experience, particularly in applications such as chatbots, virtual assistants, and other interactive systems. Users are more likely to continue using a system that responds quickly and accurately to their inputs.\\n2. Better decision-making: In applications where LLMs are used to provide real-time recommendations or insights, low latency is critical. For example, in financial trading or autonomous vehicles, even a small delay in processing information can have significant consequences.\\n3. Enhanced safety: In safety-critical applications, such as healthcare or aviation, low latency LLMs can help ensure that critical decisions are made in a timely manner. Delays in processing information can lead to serious consequences, including loss of life.\\n4. Increased efficiency: Low latency LLMs can help increase the efficiency of applications by reducing the amount of time required to process information. This can lead to cost savings, improved productivity, and better overall performance.\\n\\nOverall, low latency is an important consideration for LLMs, particularly in applications where real-time or near real-time interactions are required. By reducing latency, LLMs can provide a more responsive, safe, and efficient user experience, which can lead to increased adoption and satisfaction.\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 18,\n        \"total_tokens\": 346,\n        \"completion_tokens\": 328\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Chat (llama-v2-70b-chat)",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/llama-v2-70b-chat\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/chat/completions",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"chat",
-								"completions"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/llama-v2-70b-chat\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/chat/completions",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"chat",
-										"completions"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "date",
-									"value": "Tue, 02 Apr 2024 00:25:29 GMT"
-								},
-								{
-									"key": "x-server-processing-time",
-									"value": "1.889"
-								},
-								{
-									"key": "Content-Length",
-									"value": "2159"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json"
-								},
-								{
-									"key": "via",
-									"value": "1.1 google, 1.1 google"
-								},
-								{
-									"key": "x-request-id",
-									"value": "a81600f1-687b-465c-9ba0-1b8941372e46"
-								},
-								{
-									"key": "x-accel-buffering",
-									"value": "no"
-								},
-								{
-									"key": "Alt-Svc",
-									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": \"a81600f1-687b-465c-9ba0-1b8941372e46\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712017530,\n    \"model\": \"accounts/fireworks/models/llama-v2-70b-chat\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Hello! I'm here to help you understand the importance of low latency LLMs.\\n\\nLLMs, or Large Language Models, are artificial intelligence models that are trained on vast amounts of data to generate language outputs that are coherent and natural-sounding. Low latency LLMs are models that are designed to respond quickly and efficiently, often in real-time, to user input.\\n\\nThe importance of low latency LLMs lies in their ability to enable real-time communication and interaction between humans and machines. With low latency LLMs, it becomes possible to build conversational interfaces that can respond to user input in a timely and natural way, mimicking human conversation.\\n\\nThis has numerous applications, such as:\\n\\n1. Chatbots: Low latency LLMs can be used to build chatbots that can respond quickly and efficiently to customer inquiries, providing 24/7 support and improving customer satisfaction.\\n2. Virtual assistants: Low latency LLMs can be used to build virtual assistants that can assist users with tasks such as scheduling appointments, sending messages, and making recommendations.\\n3. Language translation: Low latency LLMs can be used to build language translation systems that can translate text or speech in real-time, allowing for more efficient communication between people who speak different languages.\\n4. Real-time analytics: Low latency LLMs can be used to analyze data in real-time, providing insights and alerts that can help businesses make informed decisions.\\n\\nIn summary, low latency LLMs are essential for building conversational interfaces that can facilitate real-time communication and interaction between humans and machines. They have numerous applications in various industries, including customer service, healthcare, finance, and more.\\n\\nI hope this helps! Is there anything else you'd like to know?\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 100,\n        \"total_tokens\": 511,\n        \"completion_tokens\": 411\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Chat (dbrx-instruct)",
+					"name": "dbrx-instruct",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -482,7 +203,7 @@
 					]
 				},
 				{
-					"name": "Chat (firefunction-v1)",
+					"name": "firefunction-v1",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -575,7 +296,7 @@
 					]
 				},
 				{
-					"name": "Chat (firellava-13b)",
+					"name": "firellava-13b",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -668,7 +389,100 @@
 					]
 				},
 				{
-					"name": "Chat (hermes-2-pro-mistral-7b)",
+					"name": "gemma-7b-it",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/gemma-7b-it\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/gemma-7b-it\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Tue, 02 Apr 2024 00:27:41 GMT"
+								},
+								{
+									"key": "x-server-processing-time",
+									"value": "3.915"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2713"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google, 1.1 google"
+								},
+								{
+									"key": "x-request-id",
+									"value": "796add9e-743c-4b6b-b36d-9a7da8d3e0ea"
+								},
+								{
+									"key": "x-accel-buffering",
+									"value": "no"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"796add9e-743c-4b6b-b36d-9a7da8d3e0ea\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712017662,\n    \"model\": \"accounts/fireworks/models/gemma-7b-it\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"**Low Latency Language Large Language Models (LLMs)** are critically important for a number of reasons:\\n\\n**1. Real-Time Interactions:**\\n- Low latency LLMs enable real-time interactions, such as conversations, text editing, and code generation, with minimal delay.\\n- This is crucial for applications where responsiveness and quick decision-making are essential.\\n\\n**2. Improved Response Times:**\\n- LLMs with low latency can provide faster responses to queries and prompts, reducing waiting times and improving user experience.\\n\\n**3. Enhanced Data Processing:**\\n- Low latency LLMs can process data faster, allowing for real-time data analysis and insights.\\n\\n**4. Real-Time Decision-Making:**\\n- LLMs with low latency can facilitate real-time decision-making processes, such as in self-driving cars or financial trading systems.\\n\\n**5. Improved Accuracy:**\\n- Low latency LLMs can process data more quickly and accurately, leading to improved model performance and reduced errors.\\n\\n**6. Reduced Computational Costs:**\\n- Low latency LLMs can reduce computational costs by optimizing operations and reducing the need for expensive hardware resources.\\n\\n**7. Enhanced Security:**\\n- Low latency LLMs can be more secure than traditional LLMs, as they can detect and respond to security threats more quickly.\\n\\n**8. New Opportunities:**\\n- Low latency LLMs open up new opportunities for innovative applications and services that require fast and efficient language processing.\\n\\n**Examples:**\\n\\n- **Chatbots:** Low latency LLMs enable responsive and engaging chatbots that can interact with humans in real time.\\n- **Text Editing:** Low latency LLMs can provide instant suggestions and auto-complete features to enhance text editing efficiency.\\n- **Code Generation:** Low latency LLMs can generate code snippets and complete entire programs quickly, reducing development time.\\n- **Self-Driving Cars:** Low latency LLMs are essential for self-driving cars to navigate roads and respond to traffic.\\n\\n**Conclusion:**\\n\\nLow latency LLMs are a significant advancement in the field of language large language models. They offer numerous benefits, including improved response times, real-time interactions, enhanced accuracy, and reduced computational costs. As a result, low latency LLMs are enabling a wide range of new applications and services that require fast and efficient language processing.\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 492,\n        \"completion_tokens\": 475\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "hermes-2-pro-mistral-7b",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -761,7 +575,100 @@
 					]
 				},
 				{
-					"name": "Chat (mistral-7b-instruct-4k)",
+					"name": "llama-v2-70b-chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/llama-v2-70b-chat\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/llama-v2-70b-chat\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Tue, 02 Apr 2024 00:25:29 GMT"
+								},
+								{
+									"key": "x-server-processing-time",
+									"value": "1.889"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2159"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google, 1.1 google"
+								},
+								{
+									"key": "x-request-id",
+									"value": "a81600f1-687b-465c-9ba0-1b8941372e46"
+								},
+								{
+									"key": "x-accel-buffering",
+									"value": "no"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"a81600f1-687b-465c-9ba0-1b8941372e46\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712017530,\n    \"model\": \"accounts/fireworks/models/llama-v2-70b-chat\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Hello! I'm here to help you understand the importance of low latency LLMs.\\n\\nLLMs, or Large Language Models, are artificial intelligence models that are trained on vast amounts of data to generate language outputs that are coherent and natural-sounding. Low latency LLMs are models that are designed to respond quickly and efficiently, often in real-time, to user input.\\n\\nThe importance of low latency LLMs lies in their ability to enable real-time communication and interaction between humans and machines. With low latency LLMs, it becomes possible to build conversational interfaces that can respond to user input in a timely and natural way, mimicking human conversation.\\n\\nThis has numerous applications, such as:\\n\\n1. Chatbots: Low latency LLMs can be used to build chatbots that can respond quickly and efficiently to customer inquiries, providing 24/7 support and improving customer satisfaction.\\n2. Virtual assistants: Low latency LLMs can be used to build virtual assistants that can assist users with tasks such as scheduling appointments, sending messages, and making recommendations.\\n3. Language translation: Low latency LLMs can be used to build language translation systems that can translate text or speech in real-time, allowing for more efficient communication between people who speak different languages.\\n4. Real-time analytics: Low latency LLMs can be used to analyze data in real-time, providing insights and alerts that can help businesses make informed decisions.\\n\\nIn summary, low latency LLMs are essential for building conversational interfaces that can facilitate real-time communication and interaction between humans and machines. They have numerous applications in various industries, including customer service, healthcare, finance, and more.\\n\\nI hope this helps! Is there anything else you'd like to know?\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 100,\n        \"total_tokens\": 511,\n        \"completion_tokens\": 411\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "mistral-7b-instruct-4k",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -852,6 +759,99 @@
 							"body": "{\n    \"id\": \"bf853430-bfcb-408e-b216-3374c8dc8935\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712017560,\n    \"model\": \"accounts/fireworks/models/mistral-7b-instruct-4k\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low latency LLMs are important for several reasons. Firstly, low latency means that the model is able to respond quickly to user input, which can greatly improve the user experience. For example, in a chatbot setting, users expect quick and accurate responses to their queries. If the LLM has high latency, it may take longer to generate a response, which can lead to frustration and a negative user experience.\\n\\nSecondly, low latency can also be important in applications where real-time processing is required. For example, in a self-driving car, the LLM needs to be able to process and respond to sensory input in real-time in order to make safe driving decisions. If the LLM has high latency, it may not be able to respond quickly enough to changing road conditions, which could lead to accidents.\\n\\nFinally, low latency can also be important in applications where the LLM needs to be able to interact with other systems in real-time. For example, in a financial trading application, the LLM needs to be able to quickly analyze market data and make trading decisions based on that data. If the LLM has high latency, it may not be able to respond quickly enough to changing market conditions, which could lead to missed opportunities and financial losses.\\n\\nOverall, low latency is an important consideration when designing and implementing LLMs, as it can greatly improve the user experience, enable real-time processing, and facilitate interactions with other systems.\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 63,\n        \"total_tokens\": 375,\n        \"completion_tokens\": 312\n    }\n}"
 						}
 					]
+				},
+				{
+					"name": "mixtral-8x7b-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/mixtral-8x7b-instruct\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"accounts/fireworks/models/mixtral-8x7b-instruct\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Tue, 02 Apr 2024 00:22:31 GMT"
+								},
+								{
+									"key": "x-server-processing-time",
+									"value": "2.044"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1927"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google, 1.1 google"
+								},
+								{
+									"key": "x-request-id",
+									"value": "74868879-0b20-401b-9172-d02fc13b1c14"
+								},
+								{
+									"key": "x-accel-buffering",
+									"value": "no"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"74868879-0b20-401b-9172-d02fc13b1c14\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712017352,\n    \"model\": \"accounts/fireworks/models/mixtral-8x7b-instruct\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low latency Large Language Models (LLMs) are important for a variety of applications, particularly those that require real-time or near real-time interactions. Here are a few reasons why low latency is important for LLMs:\\n\\n1. Improved user experience: Low latency LLMs can provide a more responsive and fluid user experience, particularly in applications such as chatbots, virtual assistants, and other interactive systems. Users are more likely to continue using a system that responds quickly and accurately to their inputs.\\n2. Better decision-making: In applications where LLMs are used to provide real-time recommendations or insights, low latency is critical. For example, in financial trading or autonomous vehicles, even a small delay in processing information can have significant consequences.\\n3. Enhanced safety: In safety-critical applications, such as healthcare or aviation, low latency LLMs can help ensure that critical decisions are made in a timely manner. Delays in processing information can lead to serious consequences, including loss of life.\\n4. Increased efficiency: Low latency LLMs can help increase the efficiency of applications by reducing the amount of time required to process information. This can lead to cost savings, improved productivity, and better overall performance.\\n\\nOverall, low latency is an important consideration for LLMs, particularly in applications where real-time or near real-time interactions are required. By reducing latency, LLMs can provide a more responsive, safe, and efficient user experience, which can lead to increased adoption and satisfaction.\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 18,\n        \"total_tokens\": 346,\n        \"completion_tokens\": 328\n    }\n}"
+						}
+					]
 				}
 			]
 		},
@@ -859,7 +859,7 @@
 			"name": "Completions",
 			"item": [
 				{
-					"name": "Completions (bleat-adapter)",
+					"name": "bleat-adapter",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -950,7 +950,7 @@
 					]
 				},
 				{
-					"name": "Completions (chinese-llama-2-lora-7b)",
+					"name": "chinese-llama-2-lora-7b",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1043,135 +1043,10 @@
 			]
 		},
 		{
-			"name": "Images",
-			"item": [
-				{
-					"name": "Images (stable-diffusion-xl-1024-v1-0)",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"height\": 1024,\r\n    \"width\": 1024,\r\n    \"text_prompts\": [\r\n        {\r\n            \"text\": \"A lighthouse on a cliff\",\r\n            \"weight\": 1\r\n        }\r\n    ],\r\n    \"cfg_scale\": 7,\r\n    \"sampler\": \"K_DPMPP_2M\",\r\n    \"samples\": 1,\r\n    \"seed\": 0,\r\n    \"steps\": 75,\r\n    \"safety_check\": false\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/image_generation/accounts/fireworks/models/stable-diffusion-xl-1024-v1-0",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"image_generation",
-								"accounts",
-								"fireworks",
-								"models",
-								"stable-diffusion-xl-1024-v1-0"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Images (SSD-1B)",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"height\": 1024,\r\n    \"width\": 1024,\r\n    \"text_prompts\": [\r\n        {\r\n            \"text\": \"A lighthouse on a cliff\",\r\n            \"weight\": 1\r\n        }\r\n    ],\r\n    \"cfg_scale\": 7,\r\n    \"sampler\": \"K_DPMPP_2M\",\r\n    \"samples\": 1,\r\n    \"seed\": 0,\r\n    \"steps\": 75,\r\n    \"safety_check\": false\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/image_generation/accounts/fireworks/models/SSD-1B",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"image_generation",
-								"accounts",
-								"fireworks",
-								"models",
-								"SSD-1B"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Images (playground-v2-1024px-aesthetic)",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"height\": 1024,\r\n    \"width\": 1024,\r\n    \"text_prompts\": [\r\n        {\r\n            \"text\": \"A lighthouse on a cliff\",\r\n            \"weight\": 1\r\n        }\r\n    ],\r\n    \"cfg_scale\": 7,\r\n    \"sampler\": \"K_DPMPP_2M\",\r\n    \"samples\": 1,\r\n    \"seed\": 0,\r\n    \"steps\": 75,\r\n    \"safety_check\": false\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/image_generation/accounts/fireworks/models/playground-v2-1024px-aesthetic",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"image_generation",
-								"accounts",
-								"fireworks",
-								"models",
-								"playground-v2-1024px-aesthetic"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Images (japanese-stable-diffusion-xl)",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"height\": 1024,\r\n    \"width\": 1024,\r\n    \"text_prompts\": [\r\n        {\r\n            \"text\": \"A lighthouse on a cliff\",\r\n            \"weight\": 1\r\n        }\r\n    ],\r\n    \"cfg_scale\": 7,\r\n    \"sampler\": \"K_DPMPP_2M\",\r\n    \"samples\": 1,\r\n    \"seed\": 0,\r\n    \"steps\": 75,\r\n    \"safety_check\": false\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/image_generation/accounts/fireworks/models/japanese-stable-diffusion-xl",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"image_generation",
-								"accounts",
-								"fireworks",
-								"models",
-								"japanese-stable-diffusion-xl"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "Embeddings",
 			"item": [
 				{
-					"name": "Embeddings",
+					"name": "nomic-ai/nomic-embed-text-v1.5",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1254,6 +1129,131 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Image Generation",
+			"item": [
+				{
+					"name": "stable-diffusion-xl-1024-v1-0",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"height\": 1024,\r\n    \"width\": 1024,\r\n    \"text_prompts\": [\r\n        {\r\n            \"text\": \"A lighthouse on a cliff\",\r\n            \"weight\": 1\r\n        }\r\n    ],\r\n    \"cfg_scale\": 7,\r\n    \"sampler\": \"K_DPMPP_2M\",\r\n    \"samples\": 1,\r\n    \"seed\": 0,\r\n    \"steps\": 75,\r\n    \"safety_check\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/image_generation/accounts/fireworks/models/stable-diffusion-xl-1024-v1-0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"image_generation",
+								"accounts",
+								"fireworks",
+								"models",
+								"stable-diffusion-xl-1024-v1-0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SSD-1B",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"height\": 1024,\r\n    \"width\": 1024,\r\n    \"text_prompts\": [\r\n        {\r\n            \"text\": \"A lighthouse on a cliff\",\r\n            \"weight\": 1\r\n        }\r\n    ],\r\n    \"cfg_scale\": 7,\r\n    \"sampler\": \"K_DPMPP_2M\",\r\n    \"samples\": 1,\r\n    \"seed\": 0,\r\n    \"steps\": 75,\r\n    \"safety_check\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/image_generation/accounts/fireworks/models/SSD-1B",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"image_generation",
+								"accounts",
+								"fireworks",
+								"models",
+								"SSD-1B"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "playground-v2-1024px-aesthetic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"height\": 1024,\r\n    \"width\": 1024,\r\n    \"text_prompts\": [\r\n        {\r\n            \"text\": \"A lighthouse on a cliff\",\r\n            \"weight\": 1\r\n        }\r\n    ],\r\n    \"cfg_scale\": 7,\r\n    \"sampler\": \"K_DPMPP_2M\",\r\n    \"samples\": 1,\r\n    \"seed\": 0,\r\n    \"steps\": 75,\r\n    \"safety_check\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/image_generation/accounts/fireworks/models/playground-v2-1024px-aesthetic",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"image_generation",
+								"accounts",
+								"fireworks",
+								"models",
+								"playground-v2-1024px-aesthetic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "japanese-stable-diffusion-xl",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"height\": 1024,\r\n    \"width\": 1024,\r\n    \"text_prompts\": [\r\n        {\r\n            \"text\": \"A lighthouse on a cliff\",\r\n            \"weight\": 1\r\n        }\r\n    ],\r\n    \"cfg_scale\": 7,\r\n    \"sampler\": \"K_DPMPP_2M\",\r\n    \"samples\": 1,\r\n    \"seed\": 0,\r\n    \"steps\": 75,\r\n    \"safety_check\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/image_generation/accounts/fireworks/models/japanese-stable-diffusion-xl",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"image_generation",
+								"accounts",
+								"fireworks",
+								"models",
+								"japanese-stable-diffusion-xl"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"auth": {
@@ -1296,7 +1296,7 @@
 		},
 		{
 			"key": "apiKey",
-			"value": "BringYourOwn",
+			"value": "<BringYourOwn>",
 			"type": "string"
 		}
 	]

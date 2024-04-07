@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "9730cbb3-9f2f-4e8c-b2fc-ed975ea41d36",
 		"name": "📌 Groq API",
-		"description": "### Prerequisites\n\n- Postman\n- Groq Account: [https://console.groq.com/](https://console.groq.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://console.groq.com/docs/quickstart](https://console.groq.com/docs/quickstart)\n- Models: [https://console.groq.com/docs/models](https://console.groq.com/docs/models)\n    \n\n### About Groq\n\nGroq is on a mission to set the standard for GenAI inference speed, helping real-time AI applications come to life today.",
+		"description": "### Prerequisites\n\n- Postman\n- Groq Account: [https://console.groq.com/](https://console.groq.com/)\n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n\n### Documentation\n\n- API: [https://console.groq.com/docs/quickstart](https://console.groq.com/docs/quickstart)\n- Models: [https://console.groq.com/docs/models](https://console.groq.com/docs/models)\n    \n### Models\n\nModels include Gemma (by Google, open-weight), Llama (by Meta AI, open-weight) and Mixtral (by Mistral AI, open-weight).\n\n### About Groq\n\nGroq is on a mission to set the standard for GenAI inference speed, helping real-time AI applications come to life today.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
 		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-9730cbb3-9f2f-4e8c-b2fc-ed975ea41d36?action=share&source=collection_link&creator=7643177"
@@ -154,7 +154,7 @@
 			"name": "Chat",
 			"item": [
 				{
-					"name": "Chat (gemma-7b-it)",
+					"name": "gemma-7b-it",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -291,7 +291,133 @@
 					]
 				},
 				{
-					"name": "Chat (llama2-70b-4096)",
+					"name": "mixtral-8x7b-32768",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"mixtral-8x7b-32768\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"mixtral-8x7b-32768\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.groq.com/openai/v1/chat/completions",
+									"protocol": "https",
+									"host": [
+										"api",
+										"groq",
+										"com"
+									],
+									"path": [
+										"openai",
+										"v1",
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 05 Mar 2024 18:56:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-request-id",
+									"value": "6afd2429-e5f4-98e5-9355-a07c786aa507"
+								},
+								{
+									"key": "cache-control",
+									"value": "private, max-age=0, no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "x-cloud-trace-context",
+									"value": "8b4de09f479aa2b94ae5875bb6c09fb5"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google, 1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=86400"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "85fc53e8d9856a2f-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"6afd2429-e5f4-98e5-9355-a07c786aa507\",\n    \"object\": \"chat.completion\",\n    \"created\": 1709665006,\n    \"model\": \"mixtral-8x7b-32768\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low latency Large Language Models (LLMs) are important for real-time applications where prompt response times are critical. In such applications, even small delays in processing and generating responses can significantly impact user experience.\\n\\nFor instance, in real-time chat or conversation systems, users expect quick and snappy responses from the model. High latency can result in a laggy and unresponsive user interface, leading to a poor user experience. Moreover, long delays can disrupt the natural flow of the conversation and make it difficult for users to maintain context.\\n\\nIn addition, low latency is also crucial for applications that require real-time decision-making, such as autonomous systems, financial trading systems, or online gaming. In these scenarios, even minor delays in processing and generating responses can result in significant losses or missed opportunities.\\n\\nTherefore, low latency LLMs are essential for building responsive and efficient systems that can handle real-time data processing, analysis, and decision-making tasks. By reducing the time it takes for LLMs to process and generate responses, developers can build more engaging, interactive, and efficient applications.\\n\\nMoreover, low latency LLMs can enable new use cases and applications that were previously not possible due to the limitations of high-latency models. For instance, low latency LLMs can power real-time translation services, live captioning, and other real-time language processing tasks.\\n\\nIn summary, low latency LLMs are important for building responsive, efficient, and engaging applications that require real-time data processing, analysis, and decision-making. By reducing the time it takes for LLMs to process and generate responses, developers can build more innovative and practical applications that can handle real-world scenarios.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 24,\n        \"prompt_time\": 0.016,\n        \"completion_tokens\": 368,\n        \"completion_time\": 0.837,\n        \"total_tokens\": 392,\n        \"total_time\": 0.853\n    },\n    \"system_fingerprint\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "llama2-70b-4096",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -426,132 +552,6 @@
 							"body": "{\n    \"id\": \"521d40e7-8944-971b-a405-ca95d78fba8e\",\n    \"object\": \"chat.completion\",\n    \"created\": 1710737334,\n    \"model\": \"llama2-70b-4096\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low latency large language models (LLMs) are crucial for several reasons:\\n\\n1. Real-time interactions: Low latency LLMs enable real-time interactions, which are essential for applications where immediate responses are required, such as chatbots, voice assistants, and real-time translation.\\n2. Improved user experience: Fast response times enhance the user experience by reducing the delay between input and output, making interactions feel more natural and responsive.\\n3. Real-time decision-making: In applications like autonomous vehicles, robots, or financial trading, fast and accurate language processing can be critical for timely decision-making.\\n4. Reduced costs: Low latency LLMs can reduce the cost and computational requirements of large language models, as they require fewer resources and can be deployed on less powerful hardware.\\n5. Enhanced privacy: By processing data closer to the user, low latency LLMs can reduce the need to transmit data to the cloud, which can help protect user privacy and reduce the risk of data breaches.\\n6. Enhanced collaboration: Low latency LLMs can enable more seamless collaboration in real-time, for example, in virtual meetings or remote work environments.\\n7. Gaming and virtual reality: Fast language processing can enhance gaming and virtual reality experiences by allowing for more natural language interactions with NPCs (non-player characters) and improving the overall immersion.\\n8. Accessibility: Low latency LLMs can help remove barriers to access to information and communication technologies for individuals with disabilities, such as those who rely on assistive technologies like screen readers.\\n9. Personalized experiences: Low latency LLMs can enable personalized experiences tailored to individual users, for example, in retail, healthcare, or education, where timely and accurate responses can enhance the effectiveness of services.\\n10. Competitive advantage: Organizations that adopt low latency LLMs can gain a competitive advantage in various industries, such as customer service, healthcare, finance, and e-commerce, where timely responses can lead to increased customer satisfaction and loyalty.\\n\\nIn summary, low latency LLMs are essential for providing seamless, real-time interactions, improving user experience, enhancing decision-making, reducing costs, and enhancing privacy, collaboration, accessibility, and personalized experiences.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 38,\n        \"prompt_time\": 0.021,\n        \"completion_tokens\": 526,\n        \"completion_time\": 1.819,\n        \"total_tokens\": 564,\n        \"total_time\": 1.8399999999999999\n    },\n    \"system_fingerprint\": null\n}"
 						}
 					]
-				},
-				{
-					"name": "Chat (mixtral-8x7b-32768)",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"mixtral-8x7b-32768\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/chat/completions",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"chat",
-								"completions"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"mixtral-8x7b-32768\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "https://api.groq.com/openai/v1/chat/completions",
-									"protocol": "https",
-									"host": [
-										"api",
-										"groq",
-										"com"
-									],
-									"path": [
-										"openai",
-										"v1",
-										"chat",
-										"completions"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Tue, 05 Mar 2024 18:56:46 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "vary",
-									"value": "Origin, Accept-Encoding"
-								},
-								{
-									"key": "access-control-allow-origin",
-									"value": "*"
-								},
-								{
-									"key": "x-request-id",
-									"value": "6afd2429-e5f4-98e5-9355-a07c786aa507"
-								},
-								{
-									"key": "cache-control",
-									"value": "private, max-age=0, no-store, no-cache, must-revalidate"
-								},
-								{
-									"key": "x-cloud-trace-context",
-									"value": "8b4de09f479aa2b94ae5875bb6c09fb5"
-								},
-								{
-									"key": "via",
-									"value": "1.1 google, 1.1 google"
-								},
-								{
-									"key": "Alt-Svc",
-									"value": "h3=\":443\"; ma=86400"
-								},
-								{
-									"key": "CF-Cache-Status",
-									"value": "DYNAMIC"
-								},
-								{
-									"key": "Server",
-									"value": "cloudflare"
-								},
-								{
-									"key": "CF-RAY",
-									"value": "85fc53e8d9856a2f-LAX"
-								},
-								{
-									"key": "Content-Encoding",
-									"value": "br"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": \"6afd2429-e5f4-98e5-9355-a07c786aa507\",\n    \"object\": \"chat.completion\",\n    \"created\": 1709665006,\n    \"model\": \"mixtral-8x7b-32768\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low latency Large Language Models (LLMs) are important for real-time applications where prompt response times are critical. In such applications, even small delays in processing and generating responses can significantly impact user experience.\\n\\nFor instance, in real-time chat or conversation systems, users expect quick and snappy responses from the model. High latency can result in a laggy and unresponsive user interface, leading to a poor user experience. Moreover, long delays can disrupt the natural flow of the conversation and make it difficult for users to maintain context.\\n\\nIn addition, low latency is also crucial for applications that require real-time decision-making, such as autonomous systems, financial trading systems, or online gaming. In these scenarios, even minor delays in processing and generating responses can result in significant losses or missed opportunities.\\n\\nTherefore, low latency LLMs are essential for building responsive and efficient systems that can handle real-time data processing, analysis, and decision-making tasks. By reducing the time it takes for LLMs to process and generate responses, developers can build more engaging, interactive, and efficient applications.\\n\\nMoreover, low latency LLMs can enable new use cases and applications that were previously not possible due to the limitations of high-latency models. For instance, low latency LLMs can power real-time translation services, live captioning, and other real-time language processing tasks.\\n\\nIn summary, low latency LLMs are important for building responsive, efficient, and engaging applications that require real-time data processing, analysis, and decision-making. By reducing the time it takes for LLMs to process and generate responses, developers can build more innovative and practical applications that can handle real-world scenarios.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 24,\n        \"prompt_time\": 0.016,\n        \"completion_tokens\": 368,\n        \"completion_time\": 0.837,\n        \"total_tokens\": 392,\n        \"total_time\": 0.853\n    },\n    \"system_fingerprint\": null\n}"
-						}
-					]
 				}
 			]
 		}
@@ -594,7 +594,7 @@
 		},
 		{
 			"key": "apiKey",
-			"value": "BringYourOwn",
+			"value": "<BringYourOwn>",
 			"type": "string"
 		}
 	]

@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "f88ef52e-e501-4b21-be80-2ded6940fc1f",
 		"name": "📌 NVIDIA AI API",
-		"description": "### Prerequisites\n\n- Postman\n- NVIDIA AI Account: [https://build.nvidia.com/explore/discover](https://build.nvidia.com/explore/discover)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://build.nvidia.com/explore/discover](https://build.nvidia.com/explore/discover)\n- Models: [https://build.nvidia.com/explore/discover](https://build.nvidia.com/explore/discover)\n    \n\n### About NVIDIA AI\n\nThe world's most advanced AI platform with full-stack innovation in computing, software, and AI models & services.",
+		"description": "### Prerequisites\n\n- Postman\n- NVIDIA AI Account: [https://build.nvidia.com/explore/discover](https://build.nvidia.com/explore/discover)\n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n\n### Documentation\n\n- API: [https://build.nvidia.com/explore/discover](https://build.nvidia.com/explore/discover)\n- Models: [https://build.nvidia.com/explore/discover](https://build.nvidia.com/explore/discover)\n\n### Models\n\nModels include Gemma (by Google, open-weight), Llama & CodeLlama (by Meta AI, open-weight), Mixtral (by Mistral AI, open-weight), SDXL Turbo & Stable Video Diffusion (by Stability AI), Kosmos (by Microsoft), Edify (by Getty Images), Edify 3D (by Shutterstock), and more.\n\n### About NVIDIA AI\n\nThe world's most advanced AI platform with full-stack innovation in computing, software, and AI models & services.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
 		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-f88ef52e-e501-4b21-be80-2ded6940fc1f?action=share&source=collection_link&creator=7643177"
@@ -146,7 +146,7 @@
 			"name": "Chat",
 			"item": [
 				{
-					"name": "Chat (google/gemma-7b)",
+					"name": "google/gemma-7b",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -275,7 +275,7 @@
 					]
 				},
 				{
-					"name": "Chat (meta/llama2-70b)",
+					"name": "meta/llama2-70b",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -404,132 +404,7 @@
 					]
 				},
 				{
-					"name": "Chat (mistralai/mistral-7b-instruct-v0.2)",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"model\": \"mistralai/mistral-7b-instruct-v0.2\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/chat/completions",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"chat",
-								"completions"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"model\": \"mistralai/mistral-7b-instruct-v0.2\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl2}}/chat/completions",
-									"host": [
-										"{{baseUrl2}}"
-									],
-									"path": [
-										"chat",
-										"completions"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Mon, 18 Mar 2024 23:18:45 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Content-Length",
-									"value": "1055"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Nvcf-Percent-Complete",
-									"value": "100"
-								},
-								{
-									"key": "Nvcf-Reqid",
-									"value": "58fb5bb4-7571-4304-9fae-45b0173ba108"
-								},
-								{
-									"key": "Nvcf-Status",
-									"value": "fulfilled"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "no-referrer"
-								},
-								{
-									"key": "Strict-Transport-Security",
-									"value": "max-age=31536000 ; includeSubDomains"
-								},
-								{
-									"key": "Vary",
-									"value": "Origin"
-								},
-								{
-									"key": "Vary",
-									"value": "Origin"
-								},
-								{
-									"key": "Vary",
-									"value": "Access-Control-Request-Method"
-								},
-								{
-									"key": "Vary",
-									"value": "Access-Control-Request-Headers"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "X-Xss-Protection",
-									"value": "0"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": \"chatcmpl-b8d0ff65-2afb-46de-a8b1-d7f958996b46\",\n    \"object\": \"chat.completion\",\n    \"created\": 1710803924,\n    \"model\": \"mistralai/mistral-7b-instruct-v0.2\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" The question of the purpose of life is a philosophical and metaphysical inquiry that has puzzled humans for centuries. Different cultures, religions, and philosophical traditions have offered various answers to this question. Some propose that the purpose of life is to seek happiness, knowledge, or personal growth. Others suggest that the purpose is to serve a higher power, contribute to the betterment of humanity, or seek spiritual enlightenment. Ultimately, the answer to this question is subjective and depends on one's personal beliefs and values. It is a question that each individual must answer for themselves based on their own experiences, reflections, and intuition.\"\n            },\n            \"logprobs\": {\n                \"text_offset\": [],\n                \"token_logprobs\": [\n                    0,\n                    0\n                ],\n                \"tokens\": [],\n                \"top_logprobs\": []\n            }\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 16,\n        \"total_tokens\": 152,\n        \"completion_tokens\": 136\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Chat (meta/codellama-70b)",
+					"name": "meta/codellama-70b",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -656,14 +531,139 @@
 							"body": "{\n    \"id\": \"chatcmpl-fa0c63bf-d01c-4617-937b-41dd801652a6\",\n    \"object\": \"chat.completion\",\n    \"created\": 1710804112,\n    \"model\": \"meta/codellama-70b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"1. Install the required libraries:\\n\\n    pip install flask\\n    pip install cryptography\\n2. Create a new file called `app.py` and add the following code:\\n\\n```python\\nfrom flask import Flask, request, render_template\\nfrom cryptography.fernet import Fernet\\n\\napp = Flask(__name__)\\n\\n@app.route('/', methods=['GET', 'POST'])\\ndef index():\\n    if request.method == 'POST':\\n        if request.form['submit'] == 'Encrypt':\\n            key = Fernet.generate_key()\\n            f = Fernet(key)\\n            token = f.encrypt(request.form['plaintext'].encode())\\n            return render_template('index.html', token=token.decode(), key=key.decode())\\n        elif request.form['submit'] == 'Decrypt':\\n            f = Fernet(request.form['key'].encode())\\n            plaintext = f.decrypt(request.form['token'].encode())\\n            return render_template('index.html', plaintext=plaintext.decode())\\n    return render_template('index.html')\\n\\nif __name__ == '__main__':\\n    app.run(debug=True)\\n```\\n\\n3. Create a new file called `templates/index.html` and add the following code:\\n\\n```html\\n<!DOCTYPE html>\\n<html lang=\\\"en\\\">\\n<head>\\n    <meta charset=\\\"UTF-8\\\">\\n    <title>Encryption and Decryption</title>\\n</head>\\n<body>\\n    <h1>Encryption and Decryption</h1>\\n    <form method=\\\"post\\\">\\n        <h2>Encryption</h2>\\n        <label for=\\\"plaintext\\\">Plaintext:</label>\\n        <input type=\\\"text\\\" id=\\\"plaintext\\\" name=\\\"plaintext\\\" size=\\\"50\\\">\\n        <input type=\\\"submit\\\" name=\\\"submit\\\" value=\\\"Encrypt\\\">\\n    </form>\\n    <p>Encrypted Text: {{ token }}</p>\\n    <p>Key: {{ key }}</p>\\n    <form method=\\\"post\\\">\\n        <h2>Decryption</h2>\\n        <label for=\\\"token\\\">Token:</label>\\n        <input type=\\\"text\\\" id=\\\"token\\\" name=\\\"token\\\" size=\\\"50\\\">\\n        <label for=\\\"key\\\">Key:</label>\\n        <input type=\\\"text\\\" id=\\\"key\\\" name=\\\"key\\\" size=\\\"50\\\">\\n        <input type=\\\"submit\\\" name=\\\"submit\\\" value=\\\"Decrypt\\\">\\n    </form>\\n    <p>Plaintext: {{ plaintext }}</p>\\n</body>\\n</html>\\n```\\n\\n4. Run the app:\\n\\n    flask run\\n5. Visit http://127.0.0.1:5000/ in your browser.\\n6. Enter a plaintext message in the top form and click the \\\"Encrypt\\\" button. The encrypted text and key will be displayed.\\n7. Enter the encrypted text and key in the bottom form and click the \\\"Decrypt\\\" button. The decrypted plaintext will be displayed.\\n\\nThis Flask app allows you to encrypt and decrypt text using Fernet encryption. The encrypted text and key are displayed for you to use later for decryption. The decryption form allows you to enter the encrypted text and key to decrypt the message.\"\n            },\n            \"logprobs\": {\n                \"text_offset\": [],\n                \"token_logprobs\": [\n                    0,\n                    0\n                ],\n                \"tokens\": [],\n                \"top_logprobs\": []\n            }\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 28,\n        \"total_tokens\": 796,\n        \"completion_tokens\": 768\n    }\n}"
 						}
 					]
+				},
+				{
+					"name": "mistralai/mistral-7b-instruct-v0.2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"mistralai/mistral-7b-instruct-v0.2\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"mistralai/mistral-7b-instruct-v0.2\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl2}}/chat/completions",
+									"host": [
+										"{{baseUrl2}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Mar 2024 23:18:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1055"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Nvcf-Percent-Complete",
+									"value": "100"
+								},
+								{
+									"key": "Nvcf-Reqid",
+									"value": "58fb5bb4-7571-4304-9fae-45b0173ba108"
+								},
+								{
+									"key": "Nvcf-Status",
+									"value": "fulfilled"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-b8d0ff65-2afb-46de-a8b1-d7f958996b46\",\n    \"object\": \"chat.completion\",\n    \"created\": 1710803924,\n    \"model\": \"mistralai/mistral-7b-instruct-v0.2\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" The question of the purpose of life is a philosophical and metaphysical inquiry that has puzzled humans for centuries. Different cultures, religions, and philosophical traditions have offered various answers to this question. Some propose that the purpose of life is to seek happiness, knowledge, or personal growth. Others suggest that the purpose is to serve a higher power, contribute to the betterment of humanity, or seek spiritual enlightenment. Ultimately, the answer to this question is subjective and depends on one's personal beliefs and values. It is a question that each individual must answer for themselves based on their own experiences, reflections, and intuition.\"\n            },\n            \"logprobs\": {\n                \"text_offset\": [],\n                \"token_logprobs\": [\n                    0,\n                    0\n                ],\n                \"tokens\": [],\n                \"top_logprobs\": []\n            }\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 16,\n        \"total_tokens\": 152,\n        \"completion_tokens\": 136\n    }\n}"
+						}
+					]
 				}
 			]
 		},
 		{
-			"name": "Images",
+			"name": "Image Generation",
 			"item": [
 				{
-					"name": "Images (stabilityai/sdxl-turbo)",
+					"name": "stabilityai/sdxl-turbo",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -796,10 +796,10 @@
 			]
 		},
 		{
-			"name": "Video",
+			"name": "Video Generation",
 			"item": [
 				{
-					"name": "Video (stabilityai/stable-video-diffusion)",
+					"name": "stabilityai/stable-video-diffusion",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -965,7 +965,7 @@
 		},
 		{
 			"key": "apiKey",
-			"value": "BringYourOwn",
+			"value": "<BringYourOwn>",
 			"type": "string"
 		}
 	]

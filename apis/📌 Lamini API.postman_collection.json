@@ -2,17 +2,17 @@
 	"info": {
 		"_postman_id": "048587c0-9980-4025-9c81-1934045e3fc0",
 		"name": "📌 Lamini API",
-		"description": "### Prerequisites\n\n- Postman\n- Lamini Account: [https://app.lamini.ai/](https://app.lamini.ai/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://lamini-ai.github.io/](https://lamini-ai.github.io/)\n- Models: [https://lamini-ai.github.io/inference/models_list](https://lamini-ai.github.io/inference/models_list)\n    \n\n### About Lamini\n\nLamini is the enterprise LLM platform for existing software teams to quickly develop and control their own LLMs.",
+		"description": "### Prerequisites\n\n- Postman\n- Lamini Account: [https://app.lamini.ai/](https://app.lamini.ai/)\n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n\n### Documentation\n\n- API: [https://lamini-ai.github.io/](https://lamini-ai.github.io/)\n- Models: [https://lamini-ai.github.io/inference/models_list](https://lamini-ai.github.io/inference/models_list)\n\n### Models\n\nModels include Hugging Face transformer-based models, Llama (by Meta AI, open-weight), Mistral (by Mistral AI, open-weight), and more.\n\n### About Lamini\n\nLamini is the enterprise LLM platform for existing software teams to quickly develop and control their own LLMs.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
 		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-048587c0-9980-4025-9c81-1934045e3fc0?action=share&source=collection_link&creator=7643177"
 	},
 	"item": [
 		{
-			"name": "🚀 Get Started (Inference)",
+			"name": "🚀 Get Started",
 			"item": [
 				{
-					"name": "Completions",
+					"name": "Completions (meta-llama/Llama-2-7b-chat-hf)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -89,14 +89,85 @@
 			]
 		},
 		{
-			"name": "🚀 Get Started (Fine-Tuning)",
-			"item": []
-		},
-		{
 			"name": "Completions",
 			"item": [
 				{
-					"name": "Completions",
+					"name": "meta-llama/Llama-2-7b-hf",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model_name\": \"meta-llama/Llama-2-7b-hf\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model_name\": \"meta-llama/Llama-2-7b-hf\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "7765"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 Apr 2024 21:17:56 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"output\": \" I hope you are well. I am writing to you from the beautiful city of Barcelona. I am here for a few days to attend the 2018 World Congress of the International Association of Facilitators.\\nI am here to learn and to share my knowledge and experience with other facilitators from around the world. I am also here to meet with my colleagues and friends from the IAF.\\nI am excited to be here and to learn from the best facilitators in the world. I am also looking forward to meeting with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for the opportunity to meet with my colleagues and friends from the IAF.\\nI am grateful for the opportunity to be here and to learn from the best facilitators in the world. I am also grateful for\"\n}"
+						}
+					]
+				},
+				{
+					"name": "meta-llama/Llama-2-7b-chat-hf",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -167,6 +238,529 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"output\": \" I hope you are doing well.\\nI am writing to you today to ask for your help. As you may know, I am a big fan of your work and I have been following your career for many years. I must say, you are an inspiration to me and many others.\\n\\nI am reaching out to you because I am in a bit of a difficult situation and I was hoping you could offer me some advice. You see, I have been struggling with [insert problem here] and I am not sure how to handle it. I have tried [insert solutions here] but they have not worked for me. I was hoping you could share some of your wisdom and experience with me.\\n\\nI know that you are a very busy person, but I would be forever grateful if you could take the time to respond to my message. I promise to keep your advice confidential and to use it to help me overcome my problem.\\n\\nThank you in advance for your time and consideration. I look forward to hearing from you soon.\\n\\nSincerely,\\n[Your Name]\"\n}"
+						}
+					]
+				},
+				{
+					"name": "meta-llama/Llama-2-13b-chat-hf",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model_name\": \"meta-llama/Llama-2-13b-chat-hf\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model_name\": \"meta-llama/Llama-2-13b-chat-hf\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "1196"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 Apr 2024 23:33:45 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"output\": \"\\n\\nI'm doing well, thank you for asking! How about you?\\n\\nI'm good, thanks for asking. So, what brings you here today?\\n\\nI was just wondering if you could help me with something. I'm trying to learn more about [insert topic here]. Do you know anything about it?\\n\\nWell, I actually have some experience with that topic. I'd be happy to help you out! Let me tell you a little bit about it...\\n\\nOh, that's great! Thank you so much for your help. I really appreciate it.\\n\\nNo problem at all! I'm always happy to help out with questions and problems. Is there anything else you'd like to know?\\n\\nActually, there is one more thing. Do you know where I might be able to find more information on this topic?\\n\\nWell, there are a few resources you might find helpful. Have you tried [insert resource here]? And if you're looking for more in-depth information, you might want to check out [insert resource here].\\n\\nThat's really helpful, thank you! I'll definitely take a look at those resources.\\n\\nYou're welcome! I hope you find what you're looking for. Let me know if you have any other questions or if there's anything else I can help with.\\n\\nI will, thank you! Have a great day!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "meta-llama/Llama-2-70b-chat-hf",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model_name\": \"meta-llama/Llama-2-70b-chat-hf\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model_name\": \"meta-llama/Llama-2-70b-chat-hf\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 Apr 2024 23:40:55 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"output\": \" I'm good, thanks for asking.\\n\\nI'\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Intel/neural-chat-7b-v3-1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model_name\": \"Intel/neural-chat-7b-v3-1\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model_name\": \"Intel/neural-chat-7b-v3-1\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "2102"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 Apr 2024 23:33:51 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"output\": \"\\n\\nI’m doing well, thank you.\\n\\nHow are you feeling?\\n\\nI’m feeling good.\\n\\nWhat are you doing these days?\\n\\nI’m working on a few projects, spending time with my family, and trying to stay active.\\n\\nWhat projects are you working on?\\n\\nI’m working on a couple of writing projects, including a novel and some short stories. I’m also involved in a few community initiatives, like organizing a local book club and volunteering at a local library.\\n\\nHow is your family doing?\\n\\nWe’re all doing well. My kids are growing up so fast, and we’re enjoying spending time together as a family. My husband and I are also trying to find ways to support each other in our personal and professional lives.\\n\\nHow are you staying active?\\n\\nI’m trying to incorporate physical activity into my daily routine. I go for walks or runs in the morning, and I also do some yoga and strength training exercises at home. I find that staying active helps me feel more energized and focused throughout the day.\\n\\nWhat are you reading these days?\\n\\nI’m currently reading a few books, including a non-fiction book about personal growth, a novel by a local author, and a book about writing techniques. I’m always looking for new books to read and learn from.\\n\\nWhat are you listening to these days?\\n\\nI’ve been enjoying a mix of music, podcasts, and audiobooks. I like to listen to a variety of genres, from classical music to indie rock, and I’m always discovering new podcasts that cover topics I’m interested in.\\n\\nWhat are you looking forward to in the future?\\n\\nI’m excited about the progress I’m making on my writing projects and the potential for them to be published one day. I’m also looking forward to seeing my kids grow and develop their own interests and passions.\\n\\nHow can people stay connected with you?\\n\\nYou can follow my blog and social media accounts to keep up with my latest updates. I also enjoy connecting with others through online communities and forums, where we can share ideas and support each other in our personal and professional endeavors.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "mistralai/Mistral-7B-Instruct-v0.1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model_name\": \"mistralai/Mistral-7B-Instruct-v0.1\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model_name\": \"mistralai/Mistral-7B-Instruct-v0.1\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "221"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 Apr 2024 23:40:01 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"output\": \"\\n\\nI'm just a computer program, so I don't have feelings or emotions like a human does. But I'm here to help you with any questions or problems you have. Is there something specific you'd like to talk about?\"\n}"
+						}
+					]
+				},
+				{
+					"name": "mistralai/Mistral-7B-Instruct-v0.2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model_name\": \"mistralai/Mistral-7B-Instruct-v0.2\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model_name\": \"mistralai/Mistral-7B-Instruct-v0.2\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"completions"
+									]
+								}
+							},
+							"code": 561,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "1145"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 Apr 2024 21:17:07 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"Currently this user has support for base models: ['hf-internal-testing/tiny-random-gpt2', 'EleutherAI/pythia-70m', 'EleutherAI/pythia-70m-deduped', 'EleutherAI/pythia-70m-v0', 'EleutherAI/pythia-70m-deduped-v0', 'EleutherAI/neox-ckpt-pythia-70m-deduped-v0', 'EleutherAI/neox-ckpt-pythia-70m-v1', 'EleutherAI/neox-ckpt-pythia-70m-deduped-v1', 'EleutherAI/gpt-neo-125m', 'EleutherAI/pythia-160m', 'EleutherAI/pythia-160m-deduped', 'EleutherAI/pythia-160m-deduped-v0', 'EleutherAI/neox-ckpt-pythia-70m', 'EleutherAI/neox-ckpt-pythia-160m', 'EleutherAI/neox-ckpt-pythia-160m-deduped-v1', 'EleutherAI/pythia-2.8b', 'EleutherAI/pythia-410m', 'EleutherAI/pythia-410m-v0', 'EleutherAI/pythia-410m-deduped', 'EleutherAI/pythia-410m-deduped-v0', 'EleutherAI/neox-ckpt-pythia-410m', 'EleutherAI/neox-ckpt-pythia-410m-deduped-v1', 'cerebras/Cerebras-GPT-111M', 'cerebras/Cerebras-GPT-256M', 'meta-llama/Llama-2-7b-hf', 'meta-llama/Llama-2-7b-chat-hf', 'meta-llama/Llama-2-13b-chat-hf', 'meta-llama/Llama-2-70b-chat-hf', 'Intel/neural-chat-7b-v3-1', 'mistralai/Mistral-7B-Instruct-v0.1', 'microsoft/phi-2']. Need help? Email us at info@lamini.ai\"\n}"
+						}
+					]
+				},
+				{
+					"name": "mistralai/Mixtral-8x7B-v0.1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model_name\": \"mistralai/Mixtral-8x7B-v0.1\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model_name\": \"mistralai/Mixtral-8x7B-v0.1\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"completions"
+									]
+								}
+							},
+							"code": 561,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "1145"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 Apr 2024 21:17:10 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"Currently this user has support for base models: ['hf-internal-testing/tiny-random-gpt2', 'EleutherAI/pythia-70m', 'EleutherAI/pythia-70m-deduped', 'EleutherAI/pythia-70m-v0', 'EleutherAI/pythia-70m-deduped-v0', 'EleutherAI/neox-ckpt-pythia-70m-deduped-v0', 'EleutherAI/neox-ckpt-pythia-70m-v1', 'EleutherAI/neox-ckpt-pythia-70m-deduped-v1', 'EleutherAI/gpt-neo-125m', 'EleutherAI/pythia-160m', 'EleutherAI/pythia-160m-deduped', 'EleutherAI/pythia-160m-deduped-v0', 'EleutherAI/neox-ckpt-pythia-70m', 'EleutherAI/neox-ckpt-pythia-160m', 'EleutherAI/neox-ckpt-pythia-160m-deduped-v1', 'EleutherAI/pythia-2.8b', 'EleutherAI/pythia-410m', 'EleutherAI/pythia-410m-v0', 'EleutherAI/pythia-410m-deduped', 'EleutherAI/pythia-410m-deduped-v0', 'EleutherAI/neox-ckpt-pythia-410m', 'EleutherAI/neox-ckpt-pythia-410m-deduped-v1', 'cerebras/Cerebras-GPT-111M', 'cerebras/Cerebras-GPT-256M', 'meta-llama/Llama-2-7b-hf', 'meta-llama/Llama-2-7b-chat-hf', 'meta-llama/Llama-2-13b-chat-hf', 'meta-llama/Llama-2-70b-chat-hf', 'Intel/neural-chat-7b-v3-1', 'mistralai/Mistral-7B-Instruct-v0.1', 'microsoft/phi-2']. Need help? Email us at info@lamini.ai\"\n}"
+						}
+					]
+				},
+				{
+					"name": "microsoft/phi-2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model_name\": \"microsoft/phi-2\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model_name\": \"microsoft/phi-2\",\r\n    \"prompt\": \"How are you?\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "219"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 Apr 2024 21:17:16 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"output\": \" I hope you are doing well. I miss you a lot and I can't wait to see you again. How is your family? How is your job? How is your dog? I have so much to tell you. Please write back soon. Love, Your friend.\\n\"\n}"
 						}
 					]
 				}
@@ -176,13 +770,13 @@
 			"name": "Embedding",
 			"item": [
 				{
-					"name": "Embedding",
+					"name": "sentence-transformers/all-MiniLM-L6-v2",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"prompt\": \"How are you?  Rate on a scale of 1 to 5.\"\r\n}",
+							"raw": "{\r\n    \"prompt\": \"How are you?  Rate on a scale of 1 to 5.\",\r\n    \"model_name\": \"sentence-transformers/all-MiniLM-L6-v2\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -255,10 +849,10 @@
 			]
 		},
 		{
-			"name": "Train",
+			"name": "Train Job",
 			"item": [
 				{
-					"name": "Train",
+					"name": "Create Train Job",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -284,7 +878,7 @@
 					"response": []
 				},
 				{
-					"name": "Train Jobs",
+					"name": "Get Train Jobs",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -303,12 +897,12 @@
 					"response": []
 				},
 				{
-					"name": "Train Job Status",
+					"name": "Get Train Job Status",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/lamini/train/jobs/{job_id}",
+							"raw": "{{baseUrl}}/lamini/train/jobs/:job",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -316,44 +910,25 @@
 								"lamini",
 								"train",
 								"jobs",
-								"{job_id}"
+								":job"
+							],
+							"variable": [
+								{
+									"key": "job",
+									"value": ""
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Train Job Cancel",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/train/jobs/{job_id}/cancel",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"train",
-								"jobs",
-								"{job_id}",
-								"cancel"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Eval",
-			"item": [
-				{
-					"name": "Eval",
+					"name": "Get Train Job Eval",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/lamini/train/jobs/{job_id}/eval",
+							"raw": "{{baseUrl}}/lamini/train/jobs/:job/eval",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -361,8 +936,40 @@
 								"lamini",
 								"train",
 								"jobs",
-								"{job_id}",
+								":job",
 								"eval"
+							],
+							"variable": [
+								{
+									"key": "job",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Train Job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/train/jobs/:job/cancel",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"train",
+								"jobs",
+								":job",
+								"cancel"
+							],
+							"variable": [
+								{
+									"key": "job",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -411,7 +1018,7 @@
 		},
 		{
 			"key": "apiKey",
-			"value": "BringYourOwn",
+			"value": "<BringYourOwn>",
 			"type": "string"
 		}
 	]

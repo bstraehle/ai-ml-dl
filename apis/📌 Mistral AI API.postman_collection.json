@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "a2821cd2-040a-48d7-86e1-42ee05ba1fb3",
 		"name": "📌 Mistral AI API",
-		"description": "### Prerequisites\n\n- Postman\n- Mistral AI Account: [https://console.mistral.ai/](https://console.mistral.ai/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.mistral.ai/api](https://docs.mistral.ai/api)\n- Models: [https://docs.mistral.ai/models](https://docs.mistral.ai/models)\n    \n\n### About Mistral AI\n\nOpen and portable generative AI for developers and businesses.",
+		"description": "### Prerequisites\n\n- Postman\n- Mistral AI Account: [https://console.mistral.ai/](https://console.mistral.ai/)\n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n\n### Documentation\n\n- API: [https://docs.mistral.ai/api](https://docs.mistral.ai/api)\n- Models: [https://docs.mistral.ai/models](https://docs.mistral.ai/models)\n\n### Models\n\nModels include Mistral and Mixtral.\n\n### About Mistral AI\n\nOpen and portable generative AI for developers and businesses.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
 		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-a2821cd2-040a-48d7-86e1-42ee05ba1fb3?action=share&source=collection_link&creator=7643177"
@@ -170,340 +170,119 @@
 			]
 		},
 		{
+			"name": "Models",
+			"item": [
+				{
+					"name": "Models",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/models",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/models",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:28:12 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "12"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "0"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "d2980a1c65af3223e519b9260b350c6a"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d4752e6ca42f37-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"object\": \"list\",\n    \"data\": [\n        {\n            \"id\": \"open-mistral-7b\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-f876a50f9f2144f3b47647753f5b4a89\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-tiny-2312\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-33e60038df184962b0b795e627eb17c9\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-tiny\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-e265bef3ba024912b2be247ed6bf9303\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"open-mixtral-8x7b\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-821a834689fc42bcb540f30a25031590\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-small-2312\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-d6ebaf344f254c9da8eeb62d9e8fea77\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-small\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-e17589331c984e108fd071905f5675c6\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-small-2402\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-12786ed4e13b4cc989fb936ef1ba79c3\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-small-latest\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-b68a1eb7f45949e69f4ab5103f1e7342\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-medium-latest\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-69e88ea9007f4c1a819468fa17cf4a5c\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-medium-2312\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-43a19d234dbf47caa513a12e39bf7f97\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-medium\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-bc50fa55d88644478f1f5e899fe6d1e5\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-large-latest\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-12a91755df554049a6ff0622cc76073b\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-large-2402\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-318c2c3d907b462eb06d0582b92ad1e3\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-embed\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-c84071ba09a140e2bf869d26a4482282\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "- mistral-embed\n- mistral-large-2402\n- mistral-large-latest\n- mistral-medium\n- mistral-medium-2312\n- mistral-medium-latest\n- mistral-small\n- mistral-small-2312\n- mistral-small-2402\n- mistral-small-latest\n- mistral-tiny\n- mistral-tiny-2312\n- open-mistral-7b\n- open-mixtral-8x7b"
+		},
+		{
 			"name": "Chat",
 			"item": [
 				{
-					"name": "Chat (open-mistral-7b)",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"model\": \"open-mistral-7b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
-							"options": {
-								"raw": {
-									"headerFamily": "json",
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/chat/completions",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"chat",
-								"completions"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Accept",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"model\": \"open-mistral-7b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
-									"options": {
-										"raw": {
-											"headerFamily": "json",
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/chat/completions",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"chat",
-										"completions"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Mon, 01 Apr 2024 00:38:07 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "x-ratelimitbysize-limit-month",
-									"value": "10000000000"
-								},
-								{
-									"key": "x-ratelimitbysize-remaining-minute",
-									"value": "1967990"
-								},
-								{
-									"key": "ratelimitbysize-reset",
-									"value": "5"
-								},
-								{
-									"key": "x-ratelimitbysize-remaining-month",
-									"value": "9999842508"
-								},
-								{
-									"key": "ratelimitbysize-query-cost",
-									"value": "32010"
-								},
-								{
-									"key": "ratelimitbysize-limit",
-									"value": "2000000"
-								},
-								{
-									"key": "ratelimitbysize-remaining",
-									"value": "1967990"
-								},
-								{
-									"key": "x-ratelimitbysize-limit-minute",
-									"value": "2000000"
-								},
-								{
-									"key": "access-control-allow-origin",
-									"value": "*"
-								},
-								{
-									"key": "x-kong-upstream-latency",
-									"value": "12736"
-								},
-								{
-									"key": "x-kong-proxy-latency",
-									"value": "2"
-								},
-								{
-									"key": "x-kong-request-id",
-									"value": "aa77f0614b89da0d1e084453cd4ff355"
-								},
-								{
-									"key": "CF-Cache-Status",
-									"value": "DYNAMIC"
-								},
-								{
-									"key": "Server",
-									"value": "cloudflare"
-								},
-								{
-									"key": "CF-RAY",
-									"value": "86d4836aeb5cdb7a-LAX"
-								},
-								{
-									"key": "Content-Encoding",
-									"value": "br"
-								},
-								{
-									"key": "alt-svc",
-									"value": "h3=\":443\"; ma=86400"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": \"66f720c51d054e3ba787e6a6fcb83440\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711931875,\n    \"model\": \"open-mistral-7b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"There are several renowned French painters throughout history, but perhaps the most famous one is Leonardo da Vinci, even though he was born in Italy. However, if we limit the list to French-born painters, I would suggest:\\n\\n1. Claude Monet (1840-1926): He is considered the founder of Impressionism, one of the most influential art movements in Western art. Monet's works often focus on capturing the fleeting effects of light and color in the natural world.\\n\\n2. Pierre-Auguste Renoir (1841-1919): Renoir was a leading painter in the Impressionist movement as well, known for his depictions of leisure, beauty, and sensuality.\\n\\n3. Paul Cézanne (1839-1906): Cézanne is often referred to as the \\\"father of modern art\\\" due to his innovative approaches to composition, perspective, and color. He laid the groundwork for both Cubism and Expressionism.\\n\\n4. Edgar Degas (1834-1917): Degas was a leading figure in the Impressionist movement, known for his paintings of ballet dancers, racehorses, and Parisian street scenes.\\n\\n5. Pablo Picasso (1881-1973): Though born in Spain, Picasso spent a significant portion of his life in France and is widely regarded as one of the most influential artists of the 20th century. He co-founded the Cubist movement with Georges Braque.\\n\\nEach of these artists has made significant contributions to the world of art and continues to be celebrated for their work.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 389,\n        \"completion_tokens\": 372\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Chat (open-mixtral-8x7b)",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"model\": \"open-mixtral-8x7b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
-							"options": {
-								"raw": {
-									"headerFamily": "json",
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/chat/completions",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"chat",
-								"completions"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Accept",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"model\": \"open-mixtral-8x7b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
-									"options": {
-										"raw": {
-											"headerFamily": "json",
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/chat/completions",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"chat",
-										"completions"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Mon, 01 Apr 2024 00:39:06 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "x-ratelimitbysize-limit-minute",
-									"value": "2000000"
-								},
-								{
-									"key": "x-ratelimitbysize-remaining-minute",
-									"value": "1967990"
-								},
-								{
-									"key": "ratelimitbysize-reset",
-									"value": "58"
-								},
-								{
-									"key": "x-ratelimitbysize-remaining-month",
-									"value": "9999810498"
-								},
-								{
-									"key": "ratelimitbysize-query-cost",
-									"value": "32010"
-								},
-								{
-									"key": "ratelimitbysize-limit",
-									"value": "2000000"
-								},
-								{
-									"key": "ratelimitbysize-remaining",
-									"value": "1967990"
-								},
-								{
-									"key": "x-ratelimitbysize-limit-month",
-									"value": "10000000000"
-								},
-								{
-									"key": "access-control-allow-origin",
-									"value": "*"
-								},
-								{
-									"key": "x-kong-upstream-latency",
-									"value": "3515"
-								},
-								{
-									"key": "x-kong-proxy-latency",
-									"value": "3"
-								},
-								{
-									"key": "x-kong-request-id",
-									"value": "3e8e395db8ca3d3e4f53fa58992d7c28"
-								},
-								{
-									"key": "CF-Cache-Status",
-									"value": "DYNAMIC"
-								},
-								{
-									"key": "Server",
-									"value": "cloudflare"
-								},
-								{
-									"key": "CF-RAY",
-									"value": "86d48512e8f6db7a-LAX"
-								},
-								{
-									"key": "Content-Encoding",
-									"value": "br"
-								},
-								{
-									"key": "alt-svc",
-									"value": "h3=\":443\"; ma=86400"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": \"0089e892a47f40bd87a96fb0b82eec86\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711931942,\n    \"model\": \"open-mixtral-8x7b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Renown can be subjective and varies from person to person, but when it comes to French painters, Claude Monet, a leading figure in the Impressionist movement, is often recognized globally. His water lily series and paintings like \\\"Impression, Sunrise\\\" are widely appreciated. However, France has been home to many great artists, and recognition should not be limited to just one. Other French painters of note include Pierre-Auguste Renoir, Henri Matisse, and Paul Cézanne.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 125,\n        \"completion_tokens\": 108\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Chat (mistral-large-latest)",
+					"name": "mistral-large-latest",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -668,7 +447,7 @@
 					]
 				},
 				{
-					"name": "Chat (mistral-medium-latest)",
+					"name": "mistral-medium-latest",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -833,7 +612,7 @@
 					]
 				},
 				{
-					"name": "Chat (mistral-small-latest)",
+					"name": "mistral-small-latest",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -998,7 +777,7 @@
 					]
 				},
 				{
-					"name": "Chat (mistral-medium)",
+					"name": "mistral-medium",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1163,7 +942,7 @@
 					]
 				},
 				{
-					"name": "Chat (mistral-small)",
+					"name": "mistral-small",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1328,7 +1107,7 @@
 					]
 				},
 				{
-					"name": "Chat (mistral-tiny)",
+					"name": "mistral-tiny",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1493,7 +1272,7 @@
 					]
 				},
 				{
-					"name": "Chat (mistral-embed)",
+					"name": "mistral-embed",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1654,7 +1433,7 @@
 					]
 				},
 				{
-					"name": "Chat (mistral-large-2402)",
+					"name": "mistral-large-2402",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1819,7 +1598,7 @@
 					]
 				},
 				{
-					"name": "Chat (mistral-medium-2312)",
+					"name": "mistral-medium-2312",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1984,7 +1763,7 @@
 					]
 				},
 				{
-					"name": "Chat (mistral-small-2402)",
+					"name": "mistral-small-2402",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -2149,7 +1928,7 @@
 					]
 				},
 				{
-					"name": "Chat (mistral-small-2312)",
+					"name": "mistral-small-2312",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -2314,7 +2093,7 @@
 					]
 				},
 				{
-					"name": "Chat (mistral-tiny-2312)",
+					"name": "mistral-tiny-2312",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -2477,14 +2256,9 @@
 							"body": "{\n    \"id\": \"d7141d04e17d4f358cb875f91b98f2c8\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711932120,\n    \"model\": \"mistral-tiny-2312\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"There are several renowned French painters throughout art history, but perhaps the most famous one is Leonardo da Vinci, even though he was born in Italy. However, if we limit the list to French-born painters, I would say that Claude Monet is one of the most renowned. Monet is considered the founder of Impressionism, a significant movement in Western painting. Other famous French painters include Pierre-Auguste Renoir, Edgar Degas, and Pablo Picasso.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 122,\n        \"completion_tokens\": 105\n    }\n}"
 						}
 					]
-				}
-			]
-		},
-		{
-			"name": "Embeddings",
-			"item": [
+				},
 				{
-					"name": "Embeddings",
+					"name": "open-mistral-7b",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -2499,7 +2273,333 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"model\": \"<string>\",\n  \"input\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"encoding_format\": \"float\"\n}",
+							"raw": "{\n    \"model\": \"open-mistral-7b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"open-mistral-7b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:38:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1967990"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "5"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999842508"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1967990"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "12736"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "2"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "aa77f0614b89da0d1e084453cd4ff355"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d4836aeb5cdb7a-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"66f720c51d054e3ba787e6a6fcb83440\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711931875,\n    \"model\": \"open-mistral-7b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"There are several renowned French painters throughout history, but perhaps the most famous one is Leonardo da Vinci, even though he was born in Italy. However, if we limit the list to French-born painters, I would suggest:\\n\\n1. Claude Monet (1840-1926): He is considered the founder of Impressionism, one of the most influential art movements in Western art. Monet's works often focus on capturing the fleeting effects of light and color in the natural world.\\n\\n2. Pierre-Auguste Renoir (1841-1919): Renoir was a leading painter in the Impressionist movement as well, known for his depictions of leisure, beauty, and sensuality.\\n\\n3. Paul Cézanne (1839-1906): Cézanne is often referred to as the \\\"father of modern art\\\" due to his innovative approaches to composition, perspective, and color. He laid the groundwork for both Cubism and Expressionism.\\n\\n4. Edgar Degas (1834-1917): Degas was a leading figure in the Impressionist movement, known for his paintings of ballet dancers, racehorses, and Parisian street scenes.\\n\\n5. Pablo Picasso (1881-1973): Though born in Spain, Picasso spent a significant portion of his life in France and is widely regarded as one of the most influential artists of the 20th century. He co-founded the Cubist movement with Georges Braque.\\n\\nEach of these artists has made significant contributions to the world of art and continues to be celebrated for their work.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 389,\n        \"completion_tokens\": 372\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "open-mixtral-8x7b",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"open-mixtral-8x7b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"open-mixtral-8x7b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 00:39:06 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1967990"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "58"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999810498"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1967990"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "3515"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "3"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "3e8e395db8ca3d3e4f53fa58992d7c28"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "86d48512e8f6db7a-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"0089e892a47f40bd87a96fb0b82eec86\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711931942,\n    \"model\": \"open-mixtral-8x7b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Renown can be subjective and varies from person to person, but when it comes to French painters, Claude Monet, a leading figure in the Impressionist movement, is often recognized globally. His water lily series and paintings like \\\"Impression, Sunrise\\\" are widely appreciated. However, France has been home to many great artists, and recognition should not be limited to just one. Other French painters of note include Pierre-Auguste Renoir, Henri Matisse, and Paul Cézanne.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 125,\n        \"completion_tokens\": 108\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Embeddings",
+			"item": [
+				{
+					"name": "mistral-embed",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"mistral-embed\",\n    \"input\": [\n        \"Testing 123\",\n        \"Testing 456\"\n    ],\n    \"encoding_format\": \"float\"\n}",
 							"options": {
 								"raw": {
 									"headerFamily": "json",
@@ -2567,114 +2667,6 @@
 					]
 				}
 			]
-		},
-		{
-			"name": "Models",
-			"item": [
-				{
-					"name": "Models",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/models",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"models"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/models",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"models"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Mon, 01 Apr 2024 00:28:12 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "access-control-allow-origin",
-									"value": "*"
-								},
-								{
-									"key": "x-kong-upstream-latency",
-									"value": "12"
-								},
-								{
-									"key": "x-kong-proxy-latency",
-									"value": "0"
-								},
-								{
-									"key": "x-kong-request-id",
-									"value": "d2980a1c65af3223e519b9260b350c6a"
-								},
-								{
-									"key": "CF-Cache-Status",
-									"value": "DYNAMIC"
-								},
-								{
-									"key": "Server",
-									"value": "cloudflare"
-								},
-								{
-									"key": "CF-RAY",
-									"value": "86d4752e6ca42f37-LAX"
-								},
-								{
-									"key": "Content-Encoding",
-									"value": "br"
-								},
-								{
-									"key": "alt-svc",
-									"value": "h3=\":443\"; ma=86400"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"object\": \"list\",\n    \"data\": [\n        {\n            \"id\": \"open-mistral-7b\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-f876a50f9f2144f3b47647753f5b4a89\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-tiny-2312\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-33e60038df184962b0b795e627eb17c9\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-tiny\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-e265bef3ba024912b2be247ed6bf9303\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"open-mixtral-8x7b\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-821a834689fc42bcb540f30a25031590\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-small-2312\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-d6ebaf344f254c9da8eeb62d9e8fea77\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-small\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-e17589331c984e108fd071905f5675c6\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-small-2402\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-12786ed4e13b4cc989fb936ef1ba79c3\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-small-latest\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-b68a1eb7f45949e69f4ab5103f1e7342\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-medium-latest\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-69e88ea9007f4c1a819468fa17cf4a5c\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-medium-2312\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-43a19d234dbf47caa513a12e39bf7f97\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-medium\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-bc50fa55d88644478f1f5e899fe6d1e5\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-large-latest\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-12a91755df554049a6ff0622cc76073b\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-large-2402\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-318c2c3d907b462eb06d0582b92ad1e3\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        },\n        {\n            \"id\": \"mistral-embed\",\n            \"object\": \"model\",\n            \"created\": 1711931292,\n            \"owned_by\": \"mistralai\",\n            \"root\": null,\n            \"parent\": null,\n            \"permission\": [\n                {\n                    \"id\": \"modelperm-c84071ba09a140e2bf869d26a4482282\",\n                    \"object\": \"model_permission\",\n                    \"created\": 1711931292,\n                    \"allow_create_engine\": false,\n                    \"allow_sampling\": true,\n                    \"allow_logprobs\": false,\n                    \"allow_search_indices\": false,\n                    \"allow_view\": true,\n                    \"allow_fine_tuning\": false,\n                    \"organization\": \"*\",\n                    \"group\": null,\n                    \"is_blocking\": false\n                }\n            ]\n        }\n    ]\n}"
-						}
-					]
-				}
-			]
 		}
 	],
 	"auth": {
@@ -2717,7 +2709,7 @@
 		},
 		{
 			"key": "apiKey",
-			"value": "BringYourOwn",
+			"value": "<BringYourOwn>",
 			"type": "string"
 		}
 	]

@@ -2,14 +2,14 @@
 	"info": {
 		"_postman_id": "bd265571-91dd-46c2-9ae3-b43aa865bd04",
 		"name": "📌 Cohere API",
-		"description": "### Prerequisites\n\n- Postman\n- Cohere Account: [https://cohere.com/](https://cohere.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.cohere.com/reference/about](https://docs.cohere.com/reference/about)\n- Models: [https://docs.cohere.com/docs/models](https://docs.cohere.com/docs/models)\n    \n\n### About Cohere\n\nCohere provides industry-leading large language models and RAG capabilities, tailored to meet the needs of enterprise use cases that solve real-world problems.",
+		"description": "### Prerequisites\n\n- Postman\n- Cohere Account: [https://cohere.com/](https://cohere.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.cohere.com/reference/about](https://docs.cohere.com/reference/about)\n- Models: [https://docs.cohere.com/docs/models](https://docs.cohere.com/docs/models)\n    \n\n### Models\n\nModels include Command, Embed, and Rerank.\n\n### About Cohere\n\nCohere provides industry-leading large language models and RAG capabilities, tailored to meet the needs of enterprise use cases that solve real-world problems.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
 		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-bd265571-91dd-46c2-9ae3-b43aa865bd04?action=share&source=collection_link&creator=7643177"
 	},
 	"item": [
 		{
-			"name": "🚀 Get Started (Inference)",
+			"name": "🚀 Get Started",
 			"item": [
 				{
 					"name": "Summarize",
@@ -18,7 +18,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"text\": \"Ice cream is a sweetened frozen food typically eaten as a snack or dessert. It may be made from milk or cream and is flavoured with a sweetener, either sugar or an alternative, and a spice, such as cocoa or vanilla, or with fruit such as strawberries or peaches. It can also be made by whisking a flavored cream base and liquid nitrogen together. Food coloring is sometimes added, in addition to stabilizers. The mixture is cooled below the freezing point of water and stirred to incorporate air spaces and to prevent detectable ice crystals from forming. The result is a smooth, semi-solid foam that is solid at very low temperatures (below 2 °C or 35 °F). It becomes more malleable as its temperature increases.\\n\\nThe meaning of the name \\\"ice cream\\\" varies from one country to another. In some countries, such as the United States, \\\"ice cream\\\" applies only to a specific variety, and most governments regulate the commercial use of the various terms according to the relative quantities of the main ingredients, notably the amount of cream. Products that do not meet the criteria to be called ice cream are sometimes labelled \\\"frozen dairy dessert\\\" instead. In other countries, such as Italy and Argentina, one word is used for all variants. Analogues made from dairy alternatives, such as goat's or sheep's milk, or milk substitutes (e.g., soy, cashew, coconut, almond milk or tofu), are available for those who are lactose intolerant, allergic to dairy protein or vegan.\"\n}",
+							"raw": "{\n    \"model\": \"command\",\n    \"text\": \"Ice cream is a sweetened frozen food typically eaten as a snack or dessert. It may be made from milk or cream and is flavoured with a sweetener, either sugar or an alternative, and a spice, such as cocoa or vanilla, or with fruit such as strawberries or peaches. It can also be made by whisking a flavored cream base and liquid nitrogen together. Food coloring is sometimes added, in addition to stabilizers. The mixture is cooled below the freezing point of water and stirred to incorporate air spaces and to prevent detectable ice crystals from forming. The result is a smooth, semi-solid foam that is solid at very low temperatures (below 2 °C or 35 °F). It becomes more malleable as its temperature increases.\\n\\nThe meaning of the name \\\"ice cream\\\" varies from one country to another. In some countries, such as the United States, \\\"ice cream\\\" applies only to a specific variety, and most governments regulate the commercial use of the various terms according to the relative quantities of the main ingredients, notably the amount of cream. Products that do not meet the criteria to be called ice cream are sometimes labelled \\\"frozen dairy dessert\\\" instead. In other countries, such as Italy and Argentina, one word is used for all variants. Analogues made from dairy alternatives, such as goat's or sheep's milk, or milk substitutes (e.g., soy, cashew, coconut, almond milk or tofu), are available for those who are lactose intolerant, allergic to dairy protein or vegan.\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -153,8 +153,119 @@
 			]
 		},
 		{
-			"name": "🚀 Get Started (Fine-Tuning)",
-			"item": []
+			"name": "Models",
+			"item": [
+				{
+					"name": "Models",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/models",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/models",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "access-control-expose-headers",
+									"value": "X-Debug-Trace-ID"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache, no-store, no-transform, must-revalidate, private, max-age=0"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "expires",
+									"value": "Thu, 01 Jan 1970 00:00:00 UTC"
+								},
+								{
+									"key": "pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-accel-expires",
+									"value": "0"
+								},
+								{
+									"key": "x-debug-trace-id",
+									"value": "9a5877ab31b12c3b61c4add5d7ad44f6"
+								},
+								{
+									"key": "x-endpoint-monthly-call-limit",
+									"value": "1000"
+								},
+								{
+									"key": "x-trial-endpoint-call-limit",
+									"value": "100"
+								},
+								{
+									"key": "x-trial-endpoint-call-remaining",
+									"value": "99"
+								},
+								{
+									"key": "date",
+									"value": "Sun, 17 Mar 2024 01:40:03 GMT"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "53"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"models\": [\n        {\n            \"name\": \"command-nightly\",\n            \"endpoints\": [\n                \"generate\",\n                \"chat\",\n                \"summarize\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 8192,\n            \"tokenizer\": \"command-v2\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/command-v2.json\"\n        },\n        {\n            \"name\": \"embed-english-light-v2.0\",\n            \"endpoints\": [\n                \"embed\",\n                \"classify\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 512,\n            \"tokenizer\": null,\n            \"tokenizer_url\": null\n        },\n        {\n            \"name\": \"embed-english-v2.0\",\n            \"endpoints\": [\n                \"embed\",\n                \"classify\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 512,\n            \"tokenizer\": null,\n            \"tokenizer_url\": null\n        },\n        {\n            \"name\": \"embed-multilingual-light-v3.0\",\n            \"endpoints\": [\n                \"embed\",\n                \"classify\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 512,\n            \"tokenizer\": \"embed-multilingual-v3\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/embed-multilingual-v3.json\"\n        },\n        {\n            \"name\": \"command-r\",\n            \"endpoints\": [\n                \"generate\",\n                \"chat\",\n                \"summarize\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 128000,\n            \"tokenizer\": \"command-v2\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/command-v2.json\"\n        },\n        {\n            \"name\": \"embed-multilingual-v3.0\",\n            \"endpoints\": [\n                \"embed\",\n                \"classify\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 512,\n            \"tokenizer\": \"embed-multilingual-v3\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/embed-multilingual-v3.json\"\n        },\n        {\n            \"name\": \"embed-multilingual-v2.0\",\n            \"endpoints\": [\n                \"embed\",\n                \"classify\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 256,\n            \"tokenizer\": \"embed-multilingual-v2\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/embed-multilingual-v2.json\"\n        },\n        {\n            \"name\": \"command-light-nightly\",\n            \"endpoints\": [\n                \"generate\",\n                \"summarize\",\n                \"chat\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 4096,\n            \"tokenizer\": \"command-v1\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/command-v1.json\"\n        },\n        {\n            \"name\": \"c4ai-aya\",\n            \"endpoints\": [\n                \"generate\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 4096,\n            \"tokenizer\": \"command-v2\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/command-v2.json\"\n        },\n        {\n            \"name\": \"rerank-multilingual-2\",\n            \"endpoints\": [\n                \"rerank\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 512,\n            \"tokenizer\": \"rerank-multilingual-v2\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/rerank-multilingual-v2.json\"\n        },\n        {\n            \"name\": \"embed-english-v3.0\",\n            \"endpoints\": [\n                \"embed\",\n                \"classify\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 512,\n            \"tokenizer\": \"embed-english-v3\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/embed-english-v3.json\"\n        },\n        {\n            \"name\": \"command\",\n            \"endpoints\": [\n                \"generate\",\n                \"summarize\",\n                \"chat\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 4096,\n            \"tokenizer\": \"command-v1\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/command-v1.json\"\n        },\n        {\n            \"name\": \"rerank-english-2\",\n            \"endpoints\": [\n                \"rerank\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 512,\n            \"tokenizer\": \"rerank-english-v2\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/rerank-english-v2.json\"\n        },\n        {\n            \"name\": \"command-light\",\n            \"endpoints\": [\n                \"generate\",\n                \"summarize\",\n                \"chat\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 4096,\n            \"tokenizer\": \"command-v1\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/command-v1.json\"\n        },\n        {\n            \"name\": \"embed-english-light-v3.0\",\n            \"endpoints\": [\n                \"embed\",\n                \"classify\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 512,\n            \"tokenizer\": \"embed-english-v3\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/embed-english-v3.json\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "- c4ai-aya\n- command\n- command-light\n- command-light-nightly\n- command-nightly\n- command-r\n- embed-english-light-v2.0\n- embed-english-light-v3.0\n- embed-english-v2.0\n- embed-english-v3.0\n- embed-multilingual-light-v3.0\n- embed-multilingual-v2.0\n- embed-multilingual-v3.0\n- rerank-english-2\n- rerank-multilingual-2"
 		},
 		{
 			"name": "Chat",
@@ -166,7 +277,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"chat_history\": [\n        {\n            \"role\": \"USER\",\n            \"message\": \"Who discovered gravity?\"\n        },\n        {\n            \"role\": \"CHATBOT\",\n            \"message\": \"The man who is widely credited with discovering gravity is Sir Isaac Newton\"\n        }\n    ],\n    \"message\": \"What year was he born?\",\n    \"connectors\": [\n        {\n            \"id\": \"web-search\"\n        }\n    ]\n}",
+							"raw": "{\n    \"model\": \"command\",\n    \"chat_history\": [\n        {\n            \"role\": \"USER\",\n            \"message\": \"Who discovered gravity?\"\n        },\n        {\n            \"role\": \"CHATBOT\",\n            \"message\": \"The man who is widely credited with discovering gravity is Sir Isaac Newton\"\n        }\n    ],\n    \"message\": \"What year was he born?\",\n    \"connectors\": [\n        {\n            \"id\": \"web-search\"\n        }\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -306,7 +417,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"inputs\": [\n        \"Confirm your email address\",\n        \"hey i need u to send some $\"\n    ],\n    \"examples\": [\n        {\n            \"text\": \"Dermatologists don't like her!\",\n            \"label\": \"Spam\"\n        },\n        {\n            \"text\": \"'Hello, open to this?'\",\n            \"label\": \"Spam\"\n        },\n        {\n            \"text\": \"I need help please wire me $1000 right now\",\n            \"label\": \"Spam\"\n        },\n        {\n            \"text\": \"Nice to know you ;)\",\n            \"label\": \"Spam\"\n        },\n        {\n            \"text\": \"Please help me?\",\n            \"label\": \"Spam\"\n        },\n        {\n            \"text\": \"Your parcel will be delivered today\",\n            \"label\": \"Not spam\"\n        },\n        {\n            \"text\": \"Review changes to our Terms and Conditions\",\n            \"label\": \"Not spam\"\n        },\n        {\n            \"text\": \"Weekly sync notes\",\n            \"label\": \"Not spam\"\n        },\n        {\n            \"text\": \"'Re: Follow up from today's meeting'\",\n            \"label\": \"Not spam\"\n        },\n        {\n            \"text\": \"Pre-read for tomorrow\",\n            \"label\": \"Not spam\"\n        }\n    ]\n}",
+							"raw": "{\n    \"model\": \"embed-english-v3.0\",\n    \"inputs\": [\n        \"Confirm your email address\",\n        \"hey i need u to send some $\"\n    ],\n    \"examples\": [\n        {\n            \"text\": \"Dermatologists don't like her!\",\n            \"label\": \"Spam\"\n        },\n        {\n            \"text\": \"'Hello, open to this?'\",\n            \"label\": \"Spam\"\n        },\n        {\n            \"text\": \"I need help please wire me $1000 right now\",\n            \"label\": \"Spam\"\n        },\n        {\n            \"text\": \"Nice to know you ;)\",\n            \"label\": \"Spam\"\n        },\n        {\n            \"text\": \"Please help me?\",\n            \"label\": \"Spam\"\n        },\n        {\n            \"text\": \"Your parcel will be delivered today\",\n            \"label\": \"Not spam\"\n        },\n        {\n            \"text\": \"Review changes to our Terms and Conditions\",\n            \"label\": \"Not spam\"\n        },\n        {\n            \"text\": \"Weekly sync notes\",\n            \"label\": \"Not spam\"\n        },\n        {\n            \"text\": \"'Re: Follow up from today's meeting'\",\n            \"label\": \"Not spam\"\n        },\n        {\n            \"text\": \"Pre-read for tomorrow\",\n            \"label\": \"Not spam\"\n        }\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -429,10 +540,36 @@
 			]
 		},
 		{
-			"name": "Connectors",
+			"name": "Connector",
 			"item": [
 				{
-					"name": "List Connectors",
+					"name": "Create Connector",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Example connector\",\r\n    \"url\": \"https://connector-example.com/search\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/connectors",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"connectors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Connectors",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -525,51 +662,31 @@
 					]
 				},
 				{
-					"name": "Create a Connector",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Example connector\",\r\n    \"url\": \"https://connector-example.com/search\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/connectors",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"connectors"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get a Connector",
+					"name": "Get Connector",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/connectors/id",
+							"raw": "{{baseUrl}}/connectors/:connector",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"connectors",
-								"id"
+								":connector"
+							],
+							"variable": [
+								{
+									"key": "connector",
+									"value": ""
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Update a Connector",
+					"name": "Update Connector",
 					"request": {
 						"method": "PATCH",
 						"header": [],
@@ -583,38 +700,50 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/connectors/id",
+							"raw": "{{baseUrl}}/connectors/:connector",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"connectors",
-								"id"
+								":connector"
+							],
+							"variable": [
+								{
+									"key": "connector",
+									"value": ""
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Delete a Connector",
+					"name": "Delete Connector",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/connectors/id",
+							"raw": "{{baseUrl}}/connectors/:connector",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"connectors",
-								"id"
+								":connector"
+							],
+							"variable": [
+								{
+									"key": "connector",
+									"value": ""
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Authorize with oAuth",
+					"name": "Authorize Connector",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -636,10 +765,10 @@
 			]
 		},
 		{
-			"name": "Datasets",
+			"name": "Dataset",
 			"item": [
 				{
-					"name": "Create a Dataset",
+					"name": "Create Dataset",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -654,7 +783,7 @@
 							]
 						},
 						"url": {
-							"raw": "{{baseUrl}}/datasets?name=my-dataset&type=generative-finetune-input",
+							"raw": "{{baseUrl}}/datasets?name=:dataset-name&type=generative-finetune-input",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -664,7 +793,7 @@
 							"query": [
 								{
 									"key": "name",
-									"value": "my-dataset"
+									"value": ":dataset-name"
 								},
 								{
 									"key": "type",
@@ -676,7 +805,7 @@
 					"response": []
 				},
 				{
-					"name": "List Datasets",
+					"name": "Get Datasets",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -693,7 +822,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Dataset Usage",
+					"name": "Get Datasets Usage",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -711,36 +840,48 @@
 					"response": []
 				},
 				{
-					"name": "Get a Dataset",
+					"name": "Get Dataset",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/datasets/id",
+							"raw": "{{baseUrl}}/datasets/:dataset",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"datasets",
-								"id"
+								":dataset"
+							],
+							"variable": [
+								{
+									"key": "dataset",
+									"value": ""
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Delete a Dataset",
+					"name": "Delete Dataset",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/datasets/id",
+							"raw": "{{baseUrl}}/datasets/:dataset",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"datasets",
-								"id"
+								":dataset"
+							],
+							"variable": [
+								{
+									"key": "dataset",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -1021,10 +1162,10 @@
 			]
 		},
 		{
-			"name": "Embed Jobs",
+			"name": "Embed Job",
 			"item": [
 				{
-					"name": "Create an Embed Job",
+					"name": "Create Embed Job",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1151,7 +1292,7 @@
 					]
 				},
 				{
-					"name": "List Embed Jobs",
+					"name": "Get Embed Jobs",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1260,18 +1401,24 @@
 					]
 				},
 				{
-					"name": "Fetch an Embed Job",
+					"name": "Get Embed Job",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/embed-jobs/id",
+							"raw": "{{baseUrl}}/embed-jobs/:embed-job",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"embed-jobs",
-								"id"
+								":embed-job"
+							],
+							"variable": [
+								{
+									"key": "embed-job",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -1371,19 +1518,25 @@
 					]
 				},
 				{
-					"name": "Cancel an Embed Job",
+					"name": "Cancel Embed Job",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/embed-jobs/id/cancel",
+							"raw": "{{baseUrl}}/embed-jobs/:embed-job/cancel",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"embed-jobs",
-								"id",
+								":embed-job",
 								"cancel"
+							],
+							"variable": [
+								{
+									"key": "embed-job",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -1489,25 +1642,7 @@
 			"name": "Fine-Tuning",
 			"item": [
 				{
-					"name": "List fine-tuned models",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/finetuning/finetuned-models",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"finetuning",
-								"finetuned-models"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Trains and deploys a fine-tuned model",
+					"name": "Create fine-tuned model",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1525,57 +1660,93 @@
 					"response": []
 				},
 				{
-					"name": "Updates a fine-tuned model",
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/finetuning/finetuned-models/id",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"finetuning",
-								"finetuned-models",
-								"id"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Returns a fine-tuned model by ID or name",
+					"name": "Get fine-tuned models",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/finetuning/finetuned-models/id",
+							"raw": "{{baseUrl}}/finetuning/finetuned-models",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"finetuning",
-								"finetuned-models",
-								"id"
+								"finetuned-models"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Deletes a fine-tuned model",
+					"name": "Get fine-tuned model",
 					"request": {
-						"method": "DELETE",
+						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/finetuning/finetuned-models/id",
+							"raw": "{{baseUrl}}/finetuning/finetuned-models/:finetuned-model",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"finetuning",
 								"finetuned-models",
-								"id"
+								":finetuned-model"
+							],
+							"variable": [
+								{
+									"key": "finetuned-model",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update fine-tuned model",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/finetuning/finetuned-models/:finetuned-model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"finetuning",
+								"finetuned-models",
+								":finetuned-model"
+							],
+							"variable": [
+								{
+									"key": "finetuned-model",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete fine-tuned model",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/finetuning/finetuned-models/:finetuned-model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"finetuning",
+								"finetuned-models",
+								":finetuned-model"
+							],
+							"variable": [
+								{
+									"key": "finetuned-model",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -1620,120 +1791,6 @@
 						}
 					},
 					"response": []
-				}
-			]
-		},
-		{
-			"name": "Models",
-			"item": [
-				{
-					"name": "Models",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/models",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"models"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{baseUrl}}/models",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"models"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "access-control-expose-headers",
-									"value": "X-Debug-Trace-ID"
-								},
-								{
-									"key": "cache-control",
-									"value": "no-cache, no-store, no-transform, must-revalidate, private, max-age=0"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json"
-								},
-								{
-									"key": "expires",
-									"value": "Thu, 01 Jan 1970 00:00:00 UTC"
-								},
-								{
-									"key": "pragma",
-									"value": "no-cache"
-								},
-								{
-									"key": "vary",
-									"value": "Origin"
-								},
-								{
-									"key": "x-accel-expires",
-									"value": "0"
-								},
-								{
-									"key": "x-debug-trace-id",
-									"value": "9a5877ab31b12c3b61c4add5d7ad44f6"
-								},
-								{
-									"key": "x-endpoint-monthly-call-limit",
-									"value": "1000"
-								},
-								{
-									"key": "x-trial-endpoint-call-limit",
-									"value": "100"
-								},
-								{
-									"key": "x-trial-endpoint-call-remaining",
-									"value": "99"
-								},
-								{
-									"key": "date",
-									"value": "Sun, 17 Mar 2024 01:40:03 GMT"
-								},
-								{
-									"key": "x-envoy-upstream-service-time",
-									"value": "53"
-								},
-								{
-									"key": "server",
-									"value": "envoy"
-								},
-								{
-									"key": "Via",
-									"value": "1.1 google"
-								},
-								{
-									"key": "Alt-Svc",
-									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"models\": [\n        {\n            \"name\": \"command-nightly\",\n            \"endpoints\": [\n                \"generate\",\n                \"chat\",\n                \"summarize\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 8192,\n            \"tokenizer\": \"command-v2\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/command-v2.json\"\n        },\n        {\n            \"name\": \"embed-english-light-v2.0\",\n            \"endpoints\": [\n                \"embed\",\n                \"classify\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 512,\n            \"tokenizer\": null,\n            \"tokenizer_url\": null\n        },\n        {\n            \"name\": \"embed-english-v2.0\",\n            \"endpoints\": [\n                \"embed\",\n                \"classify\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 512,\n            \"tokenizer\": null,\n            \"tokenizer_url\": null\n        },\n        {\n            \"name\": \"embed-multilingual-light-v3.0\",\n            \"endpoints\": [\n                \"embed\",\n                \"classify\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 512,\n            \"tokenizer\": \"embed-multilingual-v3\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/embed-multilingual-v3.json\"\n        },\n        {\n            \"name\": \"command-r\",\n            \"endpoints\": [\n                \"generate\",\n                \"chat\",\n                \"summarize\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 128000,\n            \"tokenizer\": \"command-v2\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/command-v2.json\"\n        },\n        {\n            \"name\": \"embed-multilingual-v3.0\",\n            \"endpoints\": [\n                \"embed\",\n                \"classify\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 512,\n            \"tokenizer\": \"embed-multilingual-v3\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/embed-multilingual-v3.json\"\n        },\n        {\n            \"name\": \"embed-multilingual-v2.0\",\n            \"endpoints\": [\n                \"embed\",\n                \"classify\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 256,\n            \"tokenizer\": \"embed-multilingual-v2\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/embed-multilingual-v2.json\"\n        },\n        {\n            \"name\": \"command-light-nightly\",\n            \"endpoints\": [\n                \"generate\",\n                \"summarize\",\n                \"chat\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 4096,\n            \"tokenizer\": \"command-v1\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/command-v1.json\"\n        },\n        {\n            \"name\": \"c4ai-aya\",\n            \"endpoints\": [\n                \"generate\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 4096,\n            \"tokenizer\": \"command-v2\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/command-v2.json\"\n        },\n        {\n            \"name\": \"rerank-multilingual-2\",\n            \"endpoints\": [\n                \"rerank\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 512,\n            \"tokenizer\": \"rerank-multilingual-v2\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/rerank-multilingual-v2.json\"\n        },\n        {\n            \"name\": \"embed-english-v3.0\",\n            \"endpoints\": [\n                \"embed\",\n                \"classify\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 512,\n            \"tokenizer\": \"embed-english-v3\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/embed-english-v3.json\"\n        },\n        {\n            \"name\": \"command\",\n            \"endpoints\": [\n                \"generate\",\n                \"summarize\",\n                \"chat\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 4096,\n            \"tokenizer\": \"command-v1\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/command-v1.json\"\n        },\n        {\n            \"name\": \"rerank-english-2\",\n            \"endpoints\": [\n                \"rerank\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 512,\n            \"tokenizer\": \"rerank-english-v2\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/rerank-english-v2.json\"\n        },\n        {\n            \"name\": \"command-light\",\n            \"endpoints\": [\n                \"generate\",\n                \"summarize\",\n                \"chat\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 4096,\n            \"tokenizer\": \"command-v1\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/command-v1.json\"\n        },\n        {\n            \"name\": \"embed-english-light-v3.0\",\n            \"endpoints\": [\n                \"embed\",\n                \"classify\"\n            ],\n            \"finetuned\": false,\n            \"context_length\": 512,\n            \"tokenizer\": \"embed-english-v3\",\n            \"tokenizer_url\": \"https://storage.googleapis.com/cohere-assets/tokenizers/embed-english-v3.json\"\n        }\n    ]\n}"
-						}
-					]
 				}
 			]
 		},
@@ -1879,7 +1936,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"text\": \"Ice cream is a sweetened frozen food typically eaten as a snack or dessert. It may be made from milk or cream and is flavoured with a sweetener, either sugar or an alternative, and a spice, such as cocoa or vanilla, or with fruit such as strawberries or peaches. It can also be made by whisking a flavored cream base and liquid nitrogen together. Food coloring is sometimes added, in addition to stabilizers. The mixture is cooled below the freezing point of water and stirred to incorporate air spaces and to prevent detectable ice crystals from forming. The result is a smooth, semi-solid foam that is solid at very low temperatures (below 2 °C or 35 °F). It becomes more malleable as its temperature increases.\\n\\nThe meaning of the name \\\"ice cream\\\" varies from one country to another. In some countries, such as the United States, \\\"ice cream\\\" applies only to a specific variety, and most governments regulate the commercial use of the various terms according to the relative quantities of the main ingredients, notably the amount of cream. Products that do not meet the criteria to be called ice cream are sometimes labelled \\\"frozen dairy dessert\\\" instead. In other countries, such as Italy and Argentina, one word is used for all variants. Analogues made from dairy alternatives, such as goat's or sheep's milk, or milk substitutes (e.g., soy, cashew, coconut, almond milk or tofu), are available for those who are lactose intolerant, allergic to dairy protein or vegan.\"\n}",
+							"raw": "{\n    \"model\": \"command\",\n    \"text\": \"Ice cream is a sweetened frozen food typically eaten as a snack or dessert. It may be made from milk or cream and is flavoured with a sweetener, either sugar or an alternative, and a spice, such as cocoa or vanilla, or with fruit such as strawberries or peaches. It can also be made by whisking a flavored cream base and liquid nitrogen together. Food coloring is sometimes added, in addition to stabilizers. The mixture is cooled below the freezing point of water and stirred to incorporate air spaces and to prevent detectable ice crystals from forming. The result is a smooth, semi-solid foam that is solid at very low temperatures (below 2 °C or 35 °F). It becomes more malleable as its temperature increases.\\n\\nThe meaning of the name \\\"ice cream\\\" varies from one country to another. In some countries, such as the United States, \\\"ice cream\\\" applies only to a specific variety, and most governments regulate the commercial use of the various terms according to the relative quantities of the main ingredients, notably the amount of cream. Products that do not meet the criteria to be called ice cream are sometimes labelled \\\"frozen dairy dessert\\\" instead. In other countries, such as Italy and Argentina, one word is used for all variants. Analogues made from dairy alternatives, such as goat's or sheep's milk, or milk substitutes (e.g., soy, cashew, coconut, almond milk or tofu), are available for those who are lactose intolerant, allergic to dairy protein or vegan.\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2182,7 +2239,7 @@
 		},
 		{
 			"key": "apiKey",
-			"value": "BringYourOwn",
+			"value": "<BringYourOwn>",
 			"type": "string"
 		}
 	]

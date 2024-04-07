@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "7d05b3f6-d260-4807-a3de-d40421739ea1",
 		"name": "📌 OctoAI API",
-		"description": "### Prerequisites\n\n- Postman\n- OctoAI Account: [https://octo.ai/](https://octo.ai/)\n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n\n### Documentation\n\n- API: [https://octo.ai/docs/api-reference](https://octo.ai/docs/api-reference)\n- Models: [https://octo.ai/models](https://octo.ai/models)\n\n### About OctoAI\n\nOctoAI delivers production-grade GenAI solutions running on the most efficient compute, empowering builders to launch the next generation of AI applications.",
+		"description": "### Prerequisites\n\n- Postman\n- OctoAI Account: [https://octo.ai/](https://octo.ai/)\n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n\n### Documentation\n\n- API: [https://octo.ai/docs/api-reference](https://octo.ai/docs/api-reference)\n- Models: [https://octo.ai/models](https://octo.ai/models)\n\n### Models\n\nModels include Gemma (by Google, open-weight), Llama & CodeLlama (by Meta AI, open-weight), Mistral & Mixtral (by Mistral AI, open-weight), SDXL & Stable Video Diffusion (by Stability AI), and more.\n\n### About OctoAI\n\nOctoAI delivers production-grade GenAI solutions running on the most efficient compute, empowering builders to launch the next generation of AI applications.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
 		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-7d05b3f6-d260-4807-a3de-d40421739ea1?action=share&source=collection_link&creator=7643177"
@@ -140,7 +140,7 @@
 			"name": "Chat",
 			"item": [
 				{
-					"name": "Chat (gemma-7b-it)",
+					"name": "gemma-7b-it",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -263,7 +263,7 @@
 					]
 				},
 				{
-					"name": "Chat (llama-2-13b-chat)",
+					"name": "llama-2-13b-chat",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -386,7 +386,7 @@
 					]
 				},
 				{
-					"name": "Chat (codellama-7b-instruct)",
+					"name": "codellama-7b-instruct",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -509,7 +509,7 @@
 					]
 				},
 				{
-					"name": "Chat (mistral-7b-instruct)",
+					"name": "mistral-7b-instruct",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -632,7 +632,7 @@
 					]
 				},
 				{
-					"name": "Chat (mixtral-8x7b-instruct)",
+					"name": "mixtral-8x7b-instruct",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -755,7 +755,7 @@
 					]
 				},
 				{
-					"name": "Chat (nous-hermes-2-mistral-7b-dpo)",
+					"name": "nous-hermes-2-mistral-7b-dpo",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -878,7 +878,7 @@
 					]
 				},
 				{
-					"name": "Chat (nous-hermes-2-mixtral-8x7b-dpo)",
+					"name": "nous-hermes-2-mixtral-8x7b-dpo",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1001,7 +1001,7 @@
 					]
 				},
 				{
-					"name": "Chat (smaug-72b-chat)",
+					"name": "smaug-72b-chat",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1129,7 +1129,7 @@
 			"name": "Completions",
 			"item": [
 				{
-					"name": "Completions (llamaguard-7b)",
+					"name": "llamaguard-7b",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1255,7 +1255,7 @@
 			"name": "Embeddings",
 			"item": [
 				{
-					"name": "Embeddings (gte-large)",
+					"name": "gte-large",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1378,10 +1378,10 @@
 			]
 		},
 		{
-			"name": "Images",
+			"name": "Image Generation",
 			"item": [
 				{
-					"name": "Images (sdxl)",
+					"name": "sdxl",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1504,7 +1504,7 @@
 					]
 				},
 				{
-					"name": "Images (ssd)",
+					"name": "ssd",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1627,7 +1627,7 @@
 					]
 				},
 				{
-					"name": "Images (svd)",
+					"name": "svd",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1797,7 +1797,7 @@
 		},
 		{
 			"key": "apiKey",
-			"value": "BringYourOwn",
+			"value": "<BringYourOwn>",
 			"type": "string"
 		}
 	]
