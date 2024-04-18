@@ -5,7 +5,7 @@ from openai import OpenAI
 
 config = {
     "max_tokens": 1000,
-    "model": "gpt-4-vision-preview",
+    "model": "gpt-4-turbo",
     "temperature": 0
 }
 
