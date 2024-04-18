@@ -13,4 +13,6 @@ https://www.kaggle.com/learn/
 
 https://www.wandb.courses/pages/w-b-courses/  
 
+https://github.com/aishwaryanr/awesome-generative-ai-guide?tab=readme-ov-file#book-list-of-free-genai-courses
+
 Book: <a href='https://www.amazon.com/Generative-AWS-Context-Aware-Multimodal-Applications/dp/1098159225/ref=sr_1_1'>Generative AI on AWS: Building Context-Aware Multimodal Reasoning Applications</a>  
