@@ -94,11 +94,11 @@ demo = gr.Interface(
     outputs = [gr.Textbox(label = "Completion", lines = 1)],
     title = "Context-Aware Reasoning Application",
     description = os.environ["DESCRIPTION"],
-    examples = [["", "What are GPT-4's media capabilities in 5 emojis and 1 sentence?", RAG_LLAMAINDEX],
-                ["", "List GPT-4's exam scores and benchmark results.", RAG_LANGCHAIN],
-                ["", "Compare GPT-4 to GPT-3.5 in markdown table format.", RAG_LLAMAINDEX],
-                ["", "Write a Python program that calls the GPT-4 API.", RAG_LANGCHAIN],
-                ["", "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format.", RAG_LLAMAINDEX]],
+    examples = [["sk-<BringYourOwn>", "What are GPT-4's media capabilities in 5 emojis and 1 sentence?", RAG_LLAMAINDEX],
+                ["sk-<BringYourOwn>", "List GPT-4's exam scores and benchmark results.", RAG_LANGCHAIN],
+                ["sk-<BringYourOwn>", "Compare GPT-4 to GPT-3.5 in markdown table format.", RAG_LLAMAINDEX],
+                ["sk-<BringYourOwn>", "Write a Python program that calls the GPT-4 API.", RAG_LANGCHAIN],
+                ["sk-<BringYourOwn>", "What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format.", RAG_LLAMAINDEX]],
                cache_examples = False
 )
 
