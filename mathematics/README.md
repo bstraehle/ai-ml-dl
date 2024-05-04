@@ -17,7 +17,7 @@ https://www.deeplearning.ai/courses/mathematics-for-machine-learning-and-data-sc
 
 ### Probability & Statistics
 
----
+### Notes
 
 See C2_W3_Lab_1: Regression with Perceptron
 
