@@ -5,7 +5,8 @@ Videos:
 - https://www.deeplearning.ai/courses/  
 - https://www.deeplearning.ai/short-courses/  
 - https://www.wandb.courses/pages/w-b-courses/  
-- https://www.coursera.org/professional-certificates/applied-artifical-intelligence-ibm-watson-ai  
+- https://www.coursera.org/professional-certificates/applied-artifical-intelligence-ibm-watson-ai/  
+- https://www.youtube.com/@AndrejKarpathy  
 
 Books:  
 
@@ -14,7 +15,7 @@ Books:
 
 Notebooks:  
 
-- https://huggingface.co/learn/cookbook/index  
+- https://huggingface.co/learn/cookbook/index/  
 
 ### Additional learning resources
 
@@ -22,5 +23,6 @@ Notebooks:
 
 ### Personal projects
 
-- https://github.com/bstraehle/ai-ml-dl/tree/main/apis  
-- https://github.com/bstraehle/ai-ml-dl/tree/main/hugging-face  
+- https://github.com/bstraehle/ai-ml-dl/tree/main/apis/  
+- https://github.com/bstraehle/ai-ml-dl/tree/main/hugging-face/  
+
