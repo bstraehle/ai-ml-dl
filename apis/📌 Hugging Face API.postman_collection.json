@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "24e561e6-da78-4398-b374-d85057a01335",
 		"name": "📌 Hugging Face API",
-		"description": "### Prerequisites\n\n- Postman\n- Hugging Face Account: [https://huggingface.co/](https://huggingface.co/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests (on 503 due to model loading, wait and retry)\n    \n\n### Documentation\n\n- API: [https://huggingface.co/docs/api-inference/index](https://huggingface.co/docs/api-inference/index)\n- Models: [https://huggingface.co/models](https://huggingface.co/models)\n    \n\n### Models\n\n500,000+ open models (open-source, open-data, and/or open-weight), including Gemma (by Google, open-weight), Llama (by Meta AI, open-weight), and Mixtral (by Mistral AI, open-weight).\n\nModels can be deployed via one or more of the following options:\n\n- Serverless Inference REST API\n- Transformer Python SDK\n- Dedicated Inference Endpoint (AWS, Azure, GCP)\n- Amazon SageMaker\n- Azure ML\n- Google Vertex AI\n- Hugging Face Space\n    \n\n### About Hugging Face\n\nThe AI community building the future.",
+		"description": "### Prerequisites\n\n- Postman\n- Hugging Face Account: [https://huggingface.co/](https://huggingface.co/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests (on 503 due to model loading, wait and retry)\n    \n\n### Documentation\n\n- API: [https://huggingface.co/docs/api-inference/index](https://huggingface.co/docs/api-inference/index)\n- Models: [https://huggingface.co/models](https://huggingface.co/models)\n    \n\n### Models\n\n1,000,000+ open models (open-source, open-data, and/or open-weight), including Gemma (by Google, open-weight), Llama (by Meta AI, open-weight), and Mixtral (by Mistral AI, open-weight).\n\nModels can be deployed via one or more of the following options:\n\n- Serverless Inference REST API\n- Transformer Python SDK\n- Dedicated Inference Endpoint (AWS, Azure, GCP)\n- Amazon SageMaker\n- Azure ML\n- Google Vertex AI\n- Hugging Face Space\n    \n\n### About Hugging Face\n\nThe AI community building the future.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
 		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-24e561e6-da78-4398-b374-d85057a01335?action=share&source=collection_link&creator=7643177"
@@ -37,11 +37,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "google/gemma-7b-it"
+									"value": "google/gemma-7b-it",
+									"uuid": "c69839f9-accb-4d2b-9792-067c977ac5fc"
 								}
 							]
-						},
-						"description": "**Summarization** models specialize in synopsizing longer text into shorter text.\n\nSee available [Summarization models](https://huggingface.co/models?pipeline_tag=summarization&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) | BART (large-sized model), fine-tuned on CNN Daily Mail |\n| [knkarthick/MEETING_SUMMARY](https://huggingface.co/knkarthick/MEETING_SUMMARY) | For meeting summarization |"
+						}
 					},
 					"response": [
 						{
@@ -167,6 +167,156 @@
 			"name": "Text Generation",
 			"item": [
 				{
+					"name": "CohereForAI/c4ai-command-r-plus",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "CohereForAI/c4ai-command-r-plus",
+									"uuid": "2af2c672-e500-4086-9303-09121202f2ab"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "CohereForAI/c4ai-command-r-plus"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 10 Apr 2024 21:20:22 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-generated-tokens",
+									"value": "100"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "41"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "8-a100"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-inference-time",
+									"value": "4141"
+								},
+								{
+									"key": "x-queue-time",
+									"value": "26"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "4.169196471"
+								},
+								{
+									"key": "x-prompt-tokens",
+									"value": "10"
+								},
+								{
+									"key": "x-validation-time",
+									"value": "1"
+								},
+								{
+									"key": "x-request-id",
+									"value": "3kQrOJHZ_d9PqXaa5WmDn"
+								},
+								{
+									"key": "vary",
+									"value": "origin, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "x-sha",
+									"value": "ba7f1d954c9d1609013677d87e4142ab95c34e62"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "28"
+								},
+								{
+									"key": "x-total-time",
+									"value": "4169"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"generated_text\": \"What is the purpose of life? This question won’t leave us alone from youth until old age… Is there an answer?\\nWe won’t leave until we find it.\\nWe can fill our days playing games, socializing, making money, being helpful, being grateful… Right… but still we have issues, still we have stress, conflict. So short answer – these are not the goals, but good attempts to fill ourselves with something until we find it.\\nWe can fill our days playing games, socializing, making\"\n    }\n]"
+						}
+					]
+				},
+				{
 					"name": "google/gemma-2b",
 					"request": {
 						"method": "POST",
@@ -192,11 +342,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "google/gemma-2b"
+									"value": "google/gemma-2b",
+									"uuid": "79cf96e4-c7d0-4495-a99b-ddaa4c676d64"
 								}
 							]
-						},
-						"description": "**Summarization** models specialize in synopsizing longer text into shorter text.\n\nSee available [Summarization models](https://huggingface.co/models?pipeline_tag=summarization&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) | BART (large-sized model), fine-tuned on CNN Daily Mail |\n| [knkarthick/MEETING_SUMMARY](https://huggingface.co/knkarthick/MEETING_SUMMARY) | For meeting summarization |"
+						}
 					},
 					"response": [
 						{
@@ -342,11 +492,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "google/gemma-2b-it"
+									"value": "google/gemma-2b-it",
+									"uuid": "ea8b2c30-9f89-4008-b97a-367961405cb2"
 								}
 							]
-						},
-						"description": "**Summarization** models specialize in synopsizing longer text into shorter text.\n\nSee available [Summarization models](https://huggingface.co/models?pipeline_tag=summarization&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) | BART (large-sized model), fine-tuned on CNN Daily Mail |\n| [knkarthick/MEETING_SUMMARY](https://huggingface.co/knkarthick/MEETING_SUMMARY) | For meeting summarization |"
+						}
 					},
 					"response": [
 						{
@@ -492,11 +642,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "google/gemma-7b"
+									"value": "google/gemma-7b",
+									"uuid": "24c3a725-121c-44c2-b3c2-efc7f6a8affc"
 								}
 							]
-						},
-						"description": "**Summarization** models specialize in synopsizing longer text into shorter text.\n\nSee available [Summarization models](https://huggingface.co/models?pipeline_tag=summarization&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) | BART (large-sized model), fine-tuned on CNN Daily Mail |\n| [knkarthick/MEETING_SUMMARY](https://huggingface.co/knkarthick/MEETING_SUMMARY) | For meeting summarization |"
+						}
 					},
 					"response": [
 						{
@@ -642,11 +792,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "google/gemma-7b-it"
+									"value": "google/gemma-7b-it",
+									"uuid": "9f9381ad-f68e-4fb1-b334-0556dfe057f9"
 								}
 							]
-						},
-						"description": "**Summarization** models specialize in synopsizing longer text into shorter text.\n\nSee available [Summarization models](https://huggingface.co/models?pipeline_tag=summarization&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) | BART (large-sized model), fine-tuned on CNN Daily Mail |\n| [knkarthick/MEETING_SUMMARY](https://huggingface.co/knkarthick/MEETING_SUMMARY) | For meeting summarization |"
+						}
 					},
 					"response": [
 						{
@@ -792,11 +942,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "HuggingFaceH4/zephyr-7b-alpha"
+									"value": "HuggingFaceH4/zephyr-7b-alpha",
+									"uuid": "44c7192a-af60-4b14-b2e3-edea3855e29d"
 								}
 							]
-						},
-						"description": "**Summarization** models specialize in synopsizing longer text into shorter text.\n\nSee available [Summarization models](https://huggingface.co/models?pipeline_tag=summarization&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) | BART (large-sized model), fine-tuned on CNN Daily Mail |\n| [knkarthick/MEETING_SUMMARY](https://huggingface.co/knkarthick/MEETING_SUMMARY) | For meeting summarization |"
+						}
 					},
 					"response": [
 						{
@@ -942,11 +1092,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "HuggingFaceH4/zephyr-7b-beta"
+									"value": "HuggingFaceH4/zephyr-7b-beta",
+									"uuid": "f0cc64db-9cfc-4ca9-9765-ca866246fba6"
 								}
 							]
-						},
-						"description": "**Summarization** models specialize in synopsizing longer text into shorter text.\n\nSee available [Summarization models](https://huggingface.co/models?pipeline_tag=summarization&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) | BART (large-sized model), fine-tuned on CNN Daily Mail |\n| [knkarthick/MEETING_SUMMARY](https://huggingface.co/knkarthick/MEETING_SUMMARY) | For meeting summarization |"
+						}
 					},
 					"response": [
 						{
@@ -1092,11 +1242,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "meta-llama/Llama-2-7b-hf"
+									"value": "meta-llama/Llama-2-7b-hf",
+									"uuid": "c74940be-f76e-41ca-8ef1-b9d06b761a80"
 								}
 							]
-						},
-						"description": "**Summarization** models specialize in synopsizing longer text into shorter text.\n\nSee available [Summarization models](https://huggingface.co/models?pipeline_tag=summarization&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) | BART (large-sized model), fine-tuned on CNN Daily Mail |\n| [knkarthick/MEETING_SUMMARY](https://huggingface.co/knkarthick/MEETING_SUMMARY) | For meeting summarization |"
+						}
 					},
 					"response": [
 						{
@@ -1194,11 +1344,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "meta-llama/Llama-2-7b-chat-hf"
+									"value": "meta-llama/Llama-2-7b-chat-hf",
+									"uuid": "a1bb452c-53ff-464d-9f18-1731493ec911"
 								}
 							]
-						},
-						"description": "**Summarization** models specialize in synopsizing longer text into shorter text.\n\nSee available [Summarization models](https://huggingface.co/models?pipeline_tag=summarization&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) | BART (large-sized model), fine-tuned on CNN Daily Mail |\n| [knkarthick/MEETING_SUMMARY](https://huggingface.co/knkarthick/MEETING_SUMMARY) | For meeting summarization |"
+						}
 					},
 					"response": [
 						{
@@ -1296,11 +1446,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "meta-llama/Llama-2-13b-chat-hf"
+									"value": "meta-llama/Llama-2-13b-chat-hf",
+									"uuid": "a0b85f64-7148-4c1c-9e68-49a8ce030079"
 								}
 							]
-						},
-						"description": "**Summarization** models specialize in synopsizing longer text into shorter text.\n\nSee available [Summarization models](https://huggingface.co/models?pipeline_tag=summarization&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) | BART (large-sized model), fine-tuned on CNN Daily Mail |\n| [knkarthick/MEETING_SUMMARY](https://huggingface.co/knkarthick/MEETING_SUMMARY) | For meeting summarization |"
+						}
 					},
 					"response": [
 						{
@@ -1398,11 +1548,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "meta-llama/Llama-2-70b-chat-hf"
+									"value": "meta-llama/Llama-2-70b-chat-hf",
+									"uuid": "2ac60799-314e-44e1-a863-82e815251780"
 								}
 							]
-						},
-						"description": "**Summarization** models specialize in synopsizing longer text into shorter text.\n\nSee available [Summarization models](https://huggingface.co/models?pipeline_tag=summarization&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) | BART (large-sized model), fine-tuned on CNN Daily Mail |\n| [knkarthick/MEETING_SUMMARY](https://huggingface.co/knkarthick/MEETING_SUMMARY) | For meeting summarization |"
+						}
 					},
 					"response": [
 						{
@@ -1475,6 +1625,258 @@
 					]
 				},
 				{
+					"name": "meta-llama/Meta-Llama-3-8B-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "meta-llama/Meta-Llama-3-8B-Instruct",
+									"uuid": "e78e0f27-d404-49e9-9b73-27debc2de761"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "meta-llama/Meta-Llama-3-8B-Instruct"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 25 Apr 2024 03:28:34 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "vary",
+									"value": "origin, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "x-generated-tokens",
+									"value": "100"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-queue-time",
+									"value": "0"
+								},
+								{
+									"key": "x-sha",
+									"value": "e5e23bbe8e749ef0efcf16cad411a7d23bd23298"
+								},
+								{
+									"key": "x-total-time",
+									"value": "1964"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "2-a10-g"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "28"
+								},
+								{
+									"key": "x-validation-time",
+									"value": "0"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "19"
+								},
+								{
+									"key": "x-prompt-tokens",
+									"value": "8"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "1.964613324"
+								},
+								{
+									"key": "x-inference-time",
+									"value": "1964"
+								},
+								{
+									"key": "x-request-id",
+									"value": "kLzwEIwBKCDBWJzTKN-5e"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"generated_text\": \"What is the purpose of life? The search for the purpose of life is a universal question that has puzzled philosophers, scholars, and ordinary individuals for centuries. There is no one answer that satisfies all people, as our purposes in life are shaped by our unique experiences, beliefs, values, and circumstances.\\nIn a conversation with my students, we discussed the concept of purpose and how it relates to their own lives. Some of them shared that their purpose in life is to make a difference, to help others, or to pursue their passions and\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "meta-llama/Meta-Llama-3-70B-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "meta-llama/Meta-Llama-3-70B-Instruct",
+									"uuid": "04271229-8b0d-4adf-8bda-a6bb75cf128f"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "meta-llama/Meta-Llama-3-70B-Instruct"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 25 Apr 2024 03:28:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "135"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "vary",
+									"value": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "x-request-id",
+									"value": "V-j7Os__VWtY7AKopPA3g"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Model requires a Pro subscription; check out hf.co/pricing to learn more. Make sure to include your HF token in your query.\"\n}"
+						}
+					]
+				},
+				{
 					"name": "microsoft/phi-1_5",
 					"request": {
 						"method": "POST",
@@ -1500,11 +1902,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "microsoft/phi-1_5"
+									"value": "microsoft/phi-1_5",
+									"uuid": "82d33db8-538a-4830-8344-48c50546d47b"
 								}
 							]
-						},
-						"description": "**Summarization** models specialize in synopsizing longer text into shorter text.\n\nSee available [Summarization models](https://huggingface.co/models?pipeline_tag=summarization&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) | BART (large-sized model), fine-tuned on CNN Daily Mail |\n| [knkarthick/MEETING_SUMMARY](https://huggingface.co/knkarthick/MEETING_SUMMARY) | For meeting summarization |"
+						}
 					},
 					"response": [
 						{
@@ -1601,6 +2003,156 @@
 					]
 				},
 				{
+					"name": "microsoft/Phi-3-mini-4k-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "microsoft/Phi-3-mini-4k-instruct",
+									"uuid": "cec07d8f-eccc-4f61-b568-780cdbb0d40a"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "microsoft/Phi-3-mini-4k-instruct"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 25 Apr 2024 03:33:35 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "18"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-total-time",
+									"value": "1854"
+								},
+								{
+									"key": "x-sha",
+									"value": "b86bcaf57ea4dfdec5dbe12a377028b2fab0d480"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "1-a10-g"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "28"
+								},
+								{
+									"key": "x-queue-time",
+									"value": "0"
+								},
+								{
+									"key": "x-generated-tokens",
+									"value": "100"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-inference-time",
+									"value": "1853"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "1.8541990080000001"
+								},
+								{
+									"key": "x-request-id",
+									"value": "AsmWzO9pQf2o1TBXFknci"
+								},
+								{
+									"key": "x-prompt-tokens",
+									"value": "8"
+								},
+								{
+									"key": "x-validation-time",
+									"value": "0"
+								},
+								{
+									"key": "vary",
+									"value": "origin, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"generated_text\": \"What is the purpose of life? What is the meaning of life? \\n <|assistant|> The purpose of life and its meaning are both deeply philosophical questions that vary greatly based on individual beliefs, cultures, and perspectives. Some people believe that the purpose of life is to seek happiness, while others think it's to fulfill personal dreams or achieve a sense of purpose through a connection to something greater, such as spirituality or nature. Remember, this is a personal reflection and might be different for each individual.\"\n    }\n]"
+						}
+					]
+				},
+				{
 					"name": "mistralai/Mistral-7B-v0.1",
 					"request": {
 						"method": "POST",
@@ -1626,11 +2178,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "mistralai/Mistral-7B-v0.1"
+									"value": "mistralai/Mistral-7B-v0.1",
+									"uuid": "61435225-046b-42f0-ab28-3b6ac9d89239"
 								}
 							]
-						},
-						"description": "**Summarization** models specialize in synopsizing longer text into shorter text.\n\nSee available [Summarization models](https://huggingface.co/models?pipeline_tag=summarization&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) | BART (large-sized model), fine-tuned on CNN Daily Mail |\n| [knkarthick/MEETING_SUMMARY](https://huggingface.co/knkarthick/MEETING_SUMMARY) | For meeting summarization |"
+						}
 					},
 					"response": [
 						{
@@ -1776,11 +2328,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "mistralai/Mistral-7B-Instruct-v0.1"
+									"value": "mistralai/Mistral-7B-Instruct-v0.1",
+									"uuid": "7f8799b5-600a-4bb0-b418-f055ee2c8697"
 								}
 							]
-						},
-						"description": "**Summarization** models specialize in synopsizing longer text into shorter text.\n\nSee available [Summarization models](https://huggingface.co/models?pipeline_tag=summarization&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) | BART (large-sized model), fine-tuned on CNN Daily Mail |\n| [knkarthick/MEETING_SUMMARY](https://huggingface.co/knkarthick/MEETING_SUMMARY) | For meeting summarization |"
+						}
 					},
 					"response": [
 						{
@@ -1926,11 +2478,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "mistralai/Mistral-7B-Instruct-v0.2"
+									"value": "mistralai/Mistral-7B-Instruct-v0.2",
+									"uuid": "f708e70a-f71d-428a-baed-ce650605b204"
 								}
 							]
-						},
-						"description": "**Summarization** models specialize in synopsizing longer text into shorter text.\n\nSee available [Summarization models](https://huggingface.co/models?pipeline_tag=summarization&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) | BART (large-sized model), fine-tuned on CNN Daily Mail |\n| [knkarthick/MEETING_SUMMARY](https://huggingface.co/knkarthick/MEETING_SUMMARY) | For meeting summarization |"
+						}
 					},
 					"response": [
 						{
@@ -2076,11 +2628,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "mistralai/Mixtral-8x7B-Instruct-v0.1"
+									"value": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+									"uuid": "3c005c86-6797-410c-8a7b-2cd3152074f9"
 								}
 							]
-						},
-						"description": "**Summarization** models specialize in synopsizing longer text into shorter text.\n\nSee available [Summarization models](https://huggingface.co/models?pipeline_tag=summarization&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) | BART (large-sized model), fine-tuned on CNN Daily Mail |\n| [knkarthick/MEETING_SUMMARY](https://huggingface.co/knkarthick/MEETING_SUMMARY) | For meeting summarization |"
+						}
 					},
 					"response": [
 						{
@@ -2231,13 +2783,146 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "facebook/fastspeech2-en-ljspeech"
+									"value": "facebook/fastspeech2-en-ljspeech",
+									"uuid": "e7517f8f-1bcc-4603-b63e-3d67b5b8cd82"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Speech-to-Text",
+			"item": [
+				{
+					"name": "openai/whisper-large-v3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "data-binary",
+									"type": "file",
+									"src": "postman-cloud:///1eef4fc4-db6d-4df0-94fc-ae3617d4a2f0"
 								}
 							]
 						},
-						"description": "**Audio Classification** models classify audio into one or more categories.\n\nAudio files can be sent as a binary data type.\n\nSee available Audio [Classification models](https://huggingface.co/models?pipeline_tag=audio-classification&sort=downloads)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/fastspeech2-en-ljspeech](https://huggingface.co/facebook/fastspeech2-en-ljspeech) | English, female voice |\n| [espnet/kan-bayashi_jsut_conformer_fastspeech2](https://huggingface.co/espnet/kan-bayashi_jsut_conformer_fastspeech2?text=これはテストです) | Japanese, female voice |"
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "openai/whisper-large-v3",
+									"uuid": "cc26d5fd-8966-47c1-9500-e1e8694dcf60"
+								}
+							]
+						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "data-binary",
+											"type": "file",
+											"src": "postman-cloud:///1eef4fc4-db6d-4df0-94fc-ae3617d4a2f0"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "openai/whisper-large-v3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 11 Apr 2024 03:53:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-request-id",
+									"value": "4_nnA_Qzs2e4oJLQiLWer"
+								},
+								{
+									"key": "x-compute-audio-length",
+									"value": "2.0375625"
+								},
+								{
+									"key": "vary",
+									"value": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "10.429"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "cpu"
+								},
+								{
+									"key": "access-control-expose-headers",
+									"value": "x-compute-type, x-compute-time"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "x-sha",
+									"value": "1ecca609f9a5ae2cd97a576a9725bc714c022a93"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"text\": \" Hello, how can I help you today?\"\n}"
+						}
+					]
 				}
 			]
 		},
@@ -2270,11 +2955,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "stabilityai/stable-diffusion-xl-base-1.0"
+									"value": "stabilityai/stable-diffusion-xl-base-1.0",
+									"uuid": "06f719e4-f0c7-4c59-9128-4cdd62ea2d9c"
 								}
 							]
-						},
-						"description": "**Summarization** models specialize in synopsizing longer text into shorter text.\n\nSee available [Summarization models](https://huggingface.co/models?pipeline_tag=summarization&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) | BART (large-sized model), fine-tuned on CNN Daily Mail |\n| [knkarthick/MEETING_SUMMARY](https://huggingface.co/knkarthick/MEETING_SUMMARY) | For meeting summarization |"
+						}
 					},
 					"response": []
 				}
@@ -2309,11 +2994,11 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "Salesforce/blip-image-captioning-large"
+									"value": "Salesforce/blip-image-captioning-large",
+									"uuid": "9bdca94e-ff00-44d9-b06a-dc26b7de259f"
 								}
 							]
-						},
-						"description": "**Image-to-Text** models provide text captions that describe images, or reproduce text that was submitted in an image format such as a PDF.\n\nImage can be a link or base64\n\nSee available [Image-to-Text models](https://huggingface.co/models?pipeline_tag=image-to-text&sort=trending)\n\n### Example models\n\n| model | description |\n| --- | --- |\n| [Salesforce/blip-image-captioning-large](https://huggingface.co/Salesforce/blip-image-captioning-large) | Image captions |\n| [facebook/nougat-base](https://huggingface.co/facebook/nougat-base) | PDF to markdown |\n| [nlpconnect/vit-gpt2-image-captioning](https://huggingface.co/nlpconnect/vit-gpt2-image-captioning) | Image captions |\n| [microsoft/trocr-small-handwritten](https://huggingface.co/microsoft/trocr-small-handwritten) | Handwriting intepretation |"
+						}
 					},
 					"response": [
 						{
@@ -2406,6 +3091,454 @@
 							],
 							"cookie": [],
 							"body": "[\n    {\n        \"generated_text\": \"there is a large body of water with rocks in the background\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Text-to-Audio",
+			"item": [
+				{
+					"name": "facebook/musicgen-small",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"liquid drum and bass, atmospheric synths, airy sounds\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "facebook/musicgen-small",
+									"uuid": "e578eb52-1dd5-47d6-883e-e44c7593ab7e"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "facebook/musicgen-stereo-large",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"liquid drum and bass, atmospheric synths, airy sounds\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "facebook/musicgen-stereo-large",
+									"uuid": "096f388c-4423-43cb-a503-72c7b926aa3d"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Object Detection",
+			"item": [
+				{
+					"name": "facebook/detr-resnet-50",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "postman-cloud:///1eef7bc6-00d9-4800-adae-18e3bb645edd"
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "facebook/detr-resnet-50",
+									"uuid": "cd0e3694-606c-441a-8a99-f760bb3d332e"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": "postman-cloud:///1eef7bc6-00d9-4800-adae-18e3bb645edd"
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "facebook/detr-resnet-50"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 11 Apr 2024 04:31:48 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "489"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "vary",
+									"value": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "x-sha",
+									"value": "1d5f47bd3bdd2c4bbfa585418ffe6da5028b4c0b"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "2b7wlHmnFagozsntqgfSk"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "0.779"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"score\": 0.9994643330574036,\n        \"label\": \"sports ball\",\n        \"box\": {\n            \"xmin\": 95,\n            \"ymin\": 444,\n            \"xmax\": 172,\n            \"ymax\": 515\n        }\n    },\n    {\n        \"score\": 0.9249405860900879,\n        \"label\": \"person\",\n        \"box\": {\n            \"xmin\": 109,\n            \"ymin\": 14,\n            \"xmax\": 497,\n            \"ymax\": 528\n        }\n    },\n    {\n        \"score\": 0.9990100860595703,\n        \"label\": \"person\",\n        \"box\": {\n            \"xmin\": 0,\n            \"ymin\": 47,\n            \"xmax\": 160,\n            \"ymax\": 373\n        }\n    },\n    {\n        \"score\": 0.9433854818344116,\n        \"label\": \"person\",\n        \"box\": {\n            \"xmin\": 537,\n            \"ymin\": 34,\n            \"xmax\": 643,\n            \"ymax\": 310\n        }\n    },\n    {\n        \"score\": 0.9989137649536133,\n        \"label\": \"person\",\n        \"box\": {\n            \"xmin\": 423,\n            \"ymin\": 67,\n            \"xmax\": 638,\n            \"ymax\": 493\n        }\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Summarization",
+			"item": [
+				{
+					"name": "facebook/bart-large-cnn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930. It was the first structure to reach a height of 300 metres. Due to the addition of a broadcasting aerial at the top of the tower in 1957, it is now taller than the Chrysler Building by 5.2 metres (17 ft). Excluding transmitters, the Eiffel Tower is the second tallest free-standing structure in France after the Millau Viaduct.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "facebook/bart-large-cnn",
+									"uuid": "5fbd593c-ec10-48a6-aa24-43837a79f79b"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"inputs\": \"The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930. It was the first structure to reach a height of 300 metres. Due to the addition of a broadcasting aerial at the top of the tower in 1957, it is now taller than the Chrysler Building by 5.2 metres (17 ft). Excluding transmitters, the Eiffel Tower is the second tallest free-standing structure in France after the Millau Viaduct.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "facebook/bart-large-cnn"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 11 Apr 2024 04:02:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "4.841"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "cpu"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "vary",
+									"value": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "access-control-expose-headers",
+									"value": "x-compute-type, x-compute-time"
+								},
+								{
+									"key": "x-sha",
+									"value": "37f520fa929c961707657b28798b30c003dd100b"
+								},
+								{
+									"key": "x-request-id",
+									"value": "vlzpyDS0B5HIAZOlgPzQt"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "743"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"summary_text\": \"The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world.\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Table Question Answering",
+			"item": [
+				{
+					"name": "microsoft/tapex-large-finetuned-wtq",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": {\n        \"query\": \"How many stars does the transformers repository have?\",\n        \"table\": {\n            \"Repository\": [\n                \"Transformers\",\n                \"Datasets\",\n                \"Tokenizers\"\n            ],\n            \"Stars\": [\n                \"36542\",\n                \"4512\",\n                \"3934\"\n            ],\n            \"Contributors\": [\n                \"651\",\n                \"77\",\n                \"34\"\n            ],\n            \"Programming language\": [\n                \"Python\",\n                \"Python\",\n                \"Rust, Python and NodeJS\"\n            ]\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "microsoft/tapex-large-finetuned-wtq",
+									"uuid": "1c22a4fb-a0ae-420c-adc9-cb3dd13506de"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"inputs\": {\n        \"query\": \"How many stars does the transformers repository have?\",\n        \"table\": {\n            \"Repository\": [\n                \"Transformers\",\n                \"Datasets\",\n                \"Tokenizers\"\n            ],\n            \"Stars\": [\n                \"36542\",\n                \"4512\",\n                \"3934\"\n            ],\n            \"Contributors\": [\n                \"651\",\n                \"77\",\n                \"34\"\n            ],\n            \"Programming language\": [\n                \"Python\",\n                \"Python\",\n                \"Rust, Python and NodeJS\"\n            ]\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "microsoft/tapex-large-finetuned-wtq"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 11 Apr 2024 04:08:22 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "138"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "0.307"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "cpu"
+								},
+								{
+									"key": "access-control-expose-headers",
+									"value": "x-compute-type, x-compute-time"
+								},
+								{
+									"key": "x-sha",
+									"value": "e7073dd4c5fcf2fe92c4c660c953575d6de2d1a6"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "vary",
+									"value": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "x-request-id",
+									"value": "jw5CINd5VUKWAhDzqbkfd"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"answer\": \" 36542\"\n}"
 						}
 					]
 				}

@@ -1377,6 +1377,176 @@
 					]
 				},
 				{
+					"name": "meta-llama/Meta-Llama-3-8B-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"meta-llama/Meta-Llama-3-8B-Instruct\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"meta-llama/Meta-Llama-3-8B-Instruct\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 30 Apr 2024 04:45:01 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3216"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "x-robots-tag",
+									"value": "noindex"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-afaf606342de448d82dd895bb7bbc9e4\",\n    \"object\": \"chat.completion\",\n    \"created\": 1714452301,\n    \"model\": \"meta-llama/Meta-Llama-3-8B-Instruct\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Large Language Models (LLMs) with low latency are crucial in various applications where timely and accurate responses are essential. Here are some reasons why low latency LLMs are important:\\n\\n1. **Real-time Conversations**: In chatbots, virtual assistants, and customer service applications, low latency LLMs enable real-time conversations. They can process user input quickly, providing instant responses and improving user experience.\\n2. **Time-Critical Decisions**: In applications like medical diagnosis, financial trading, or emergency response systems, low latency LLMs can analyze data and provide critical insights in real-time, enabling timely and informed decisions.\\n3. **Search and Retrieval**: Low latency LLMs can quickly search and retrieve relevant information from vast datasets, making them ideal for applications like search engines, recommendation systems, or knowledge graphs.\\n4. **Content Generation**: In content creation, low latency LLMs can generate text, summaries, or translations rapidly, allowing for faster content creation and publication.\\n5. **Game Development**: In games, low latency LLMs can be used for natural language processing, enabling features like chatbots, NPC conversations, or language-based gameplay mechanics.\\n6. **Accessibility**: Low latency LLMs can improve accessibility for individuals with disabilities, such as those who use speech-to-text systems or rely on assistive technologies for communication.\\n7. **Edge Computing**: With the increasing adoption of edge computing, low latency LLMs can be deployed closer to the user, reducing latency and improving performance in applications like autonomous vehicles, smart homes, or industrial control systems.\\n8. **Real-time Feedback**: In applications like language learning, education, or entertainment, low latency LLMs can provide instant feedback, enabling learners to adjust their behavior and improve their performance.\\n9. **Scalability**: Low latency LLMs can handle a large volume of requests and scale more efficiently, making them suitable for applications with high traffic or user engagement.\\n10. **Competitive Advantage**: In competitive industries like finance, e-commerce, or gaming, low latency LLMs can provide a competitive advantage by enabling faster and more accurate responses, leading to improved user experience and increased revenue.\\n\\nTo achieve low latency, LLMs can be optimized using various techniques, such as:\\n\\n1. Model pruning and quantization\\n2. Knowledge distillation\\n3. Model parallelism\\n4. Data parallelism\\n5. Optimizing hyperparameters\\n6. Using specialized hardware (e.g., TPUs, GPUs, or FPGAs)\\n\\nBy leveraging these techniques, developers can create LLMs that provide fast and accurate responses, leading to improved user experience and increased adoption in various applications.\",\n                \"name\": null,\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 20,\n        \"total_tokens\": 559,\n        \"completion_tokens\": 539,\n        \"estimated_cost\": 0.000044720000000000006\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "meta-llama/Meta-Llama-3-70B-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"meta-llama/Meta-Llama-3-70B-Instruct\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"meta-llama/Meta-Llama-3-70B-Instruct\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 30 Apr 2024 04:44:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3526"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "x-robots-tag",
+									"value": "noindex"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-bbd63cdd40ec431caaf4970a1982e4c2\",\n    \"object\": \"chat.completion\",\n    \"created\": 1714452261,\n    \"model\": \"meta-llama/Meta-Llama-3-70B-Instruct\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low-latency Large Language Models (LLMs) are crucial in various applications where real-time or near-real-time processing is essential. Here are some reasons why low-latency LLMs are important:\\n\\n1. **Conversational AI**: In conversational AI, such as chatbots, voice assistants, or dialogue systems, low latency is critical to create a natural and engaging user experience. Users expect quick responses to their queries, and high latency can lead to frustration and abandonment.\\n2. **Real-time Language Translation**: Low-latency LLMs enable real-time language translation, which is vital in applications like video conferencing, live subtitles, or simultaneous interpretation. This allows people to communicate effectively across language barriers.\\n3. **Speech Recognition**: Fast and accurate speech recognition is essential in applications like voice-controlled devices, virtual assistants, or transcription services. Low-latency LLMs can process audio inputs quickly, enabling timely responses and reducing errors.\\n4. **Content Generation**: Low-latency LLMs can generate content, such as text summaries or product descriptions, in real-time, which is important in e-commerce, news, or social media platforms where fresh content is essential.\\n5. **Question Answering**: In question-answering systems, low latency is crucial to provide timely and accurate responses to users' queries. This is particularly important in applications like customer support or search engines.\\n6. **Edge AI**: With the growth of edge AI, low-latency LLMs can be deployed on edge devices, such as smart home devices, autonomous vehicles, or robots, to enable real-time processing and decision-making.\\n7. **Latency-Sensitive Applications**: Certain applications, like gaming, virtual reality, or online trading, require low latency to ensure a seamless and responsive user experience. LLMs with low latency can enhance the overall performance of these applications.\\n8. **Improved User Experience**: Low-latency LLMs can lead to a better user experience by reducing waiting times, increasing responsiveness, and enabling more interactive and engaging experiences.\\n9. **Increased Productivity**: By reducing latency, LLMs can increase productivity in various industries, such as customer support, content creation, or language translation, where timely responses are critical.\\n10. **Competitive Advantage**: In a competitive market, low-latency LLMs can provide a significant advantage by enabling faster and more accurate processing, which can lead to increased customer satisfaction and loyalty.\\n\\nTo achieve low latency in LLMs, researchers and developers are exploring various techniques, including:\\n\\n1. Model pruning and knowledge distillation\\n2. Efficient neural network architectures\\n3. Quantization and binarization\\n4. Parallel processing and GPU acceleration\\n5. Caching and memoization\\n6. Optimized inference engines\\n\\nBy addressing the latency challenges in LLMs, we can unlock new possibilities for AI applications and create more responsive, efficient, and effective systems that can transform various industries and aspects of our lives.\",\n                \"name\": null,\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 20,\n        \"total_tokens\": 617,\n        \"completion_tokens\": 597,\n        \"estimated_cost\": 0.00048342999999999997\n    }\n}"
+						}
+					]
+				},
+				{
 					"name": "mistralai/Mistral-7B-Instruct-v0.1",
 					"request": {
 						"method": "POST",
@@ -2657,6 +2827,176 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"request_id\": \"RZCrwMbPSGmSkMNTEpjqfNsB\",\n    \"inference_status\": {\n        \"status\": \"succeeded\",\n        \"runtime_ms\": 5864,\n        \"cost\": 0,\n        \"tokens_generated\": null,\n        \"tokens_input\": null\n    },\n    \"results\": [\n        {\n            \"generated_text\": \"I have this dream to bring a happy and kind voice to the world of esports, which I believe is the largest, largest, largest group—I mean, because of the number of people who go crazy the way I go crazy when I say the word \\\"major\\\" and I mean, they'll be just like me. Because I'm only at [this] age, where I finally start to understand the importance of communication in esports. Because there is something that goes by my ear on esports that we're never exposed to—that in order for that to happen, we've gotta learn to move beyond talking and focusing on what's happening in the world. Because there's an argument in esports that just because you put your hand between your teeth right now and the microphone or the mic doesn't mean it came from the right, and that's not happening in esports today. So no matter what the situation, there's gonna be drama—I just can't imagine that happening in a game like Dota 2 because we're just playing—anyone that's been around a long time knows where we're supposed to go from here. That's the truth of it, you can either be excited or disappointed and that's what my goal is to do [with the project]. But to do it right, I want everyone to be comfortable who we are, and let a person be, so that, for me, is a positive thing for our future. I could even do it in an esports format, but I can't put something on that's what the public think of.\\\"\\n\\nIn the end, though, if you're going to be a champion in a scene that's bigger than Overwatch, why not put your best arm between your teeth and help get it going in Overwatch?\\n\\nToward that end, I think that the best thing I could do is to help people who are not super skilled because that's not gonna be something that they would even consider. I hope [my friend] Daniel, who runs [Team SoloMid], who's really kind of a champion in terms of his attitude and his personality…it's something the media would really want to cover, and hopefully I will be helping those people.\\n\\nSo the more time you dedicate to esports, the less it'll take you to say something before people know what's good and what's not.\\n\\nWe really wanted to make a statement that at the end of the day we feel like it's for both us and our teammates, because of how passionate we can be about the game,\"\n        }\n    ],\n    \"num_tokens\": null,\n    \"num_input_tokens\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "meta-llama/Meta-Llama-3-8B-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input\": \"I have this dream\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl2}}/meta-llama/Meta-Llama-3-8B-Instruct",
+							"host": [
+								"{{baseUrl2}}"
+							],
+							"path": [
+								"meta-llama",
+								"Meta-Llama-3-8B-Instruct"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"input\": \"I have this dream\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl2}}/meta-llama/Meta-Llama-3-8B-Instruct",
+									"host": [
+										"{{baseUrl2}}"
+									],
+									"path": [
+										"meta-llama",
+										"Meta-Llama-3-8B-Instruct"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 19 Apr 2024 20:25:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2742"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "x-robots-tag",
+									"value": "noindex"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"inference_status\": {\n        \"runtime_ms\": 4007,\n        \"cost\": 0.00005160000000000001,\n        \"tokens_generated\": 512,\n        \"tokens_input\": 4\n    },\n    \"results\": [\n        {\n            \"generated_text\": \" of a world where everyone has access to clean water, food, and shelter. Where everyone has the opportunity to thrive, regardless of their background or circumstances. It's a lofty goal, but I truly believe it's possible. And I believe it's our responsibility to work towards making it a reality.\\n\\nOf course, this dream isn't just mine. It's a shared vision that many people around the world are working towards. From non-profit organizations to governments, to individuals, we're all in this together. And I believe that together, we can make a difference.\\n\\nSo, what can we do to make this dream a reality? Well, there are many ways. We can support organizations that are working towards this goal, like the United Nations' Sustainable Development Goals. We can volunteer our time and skills to help make a difference. We can also make conscious choices in our daily lives to reduce our impact on the environment and to support sustainable practices.\\n\\nBut most importantly, we need to have the courage to dream big. We need to believe that we can make a difference, and that our individual actions can add up to create a collective impact. We need to be willing to take risks, to challenge the status quo, and to push for change.\\n\\nSo, let's make a pact to work towards this dream together. Let's make a pact to believe in ourselves, to believe in each other, and to believe that together, we can create a world where everyone has access to the basic necessities of life.\\n\\nThank you.\\\">]]\\n\\n    # Split the text into sentences\\n    sentences = text.split(\\\".\\\")\\n\\n    # Loop through each sentence\\n    for sentence in sentences:\\n        # Remove any leading or trailing whitespace\\n        sentence = sentence.strip()\\n\\n        # Check if the sentence is not empty\\n        if sentence:\\n            # Split the sentence into words\\n            words = sentence.split()\\n\\n            # Loop through each word\\n            for word in words:\\n                # Check if the word is a keyword\\n                if word.lower() in keywords:\\n                    # Increment the count for the keyword\\n                    keyword_counts[word.lower()] += 1\\n\\n    # Print the keyword counts\\n    for keyword, count in keyword_counts.items():\\n        print(f\\\"{keyword}: {count}\\\")\\n```\\n\\nThis code uses a dictionary to store the keyword counts, where the keys are the keywords and the values are the counts. It then loops through each sentence in the text, splits it into words, and checks if each word is a keyword. If it is, it increments the count\"\n        }\n    ],\n    \"num_tokens\": 512,\n    \"num_input_tokens\": 4\n}"
+						}
+					]
+				},
+				{
+					"name": "meta-llama/Meta-Llama-3-70B-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input\": \"I have this dream\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl2}}/meta-llama/Meta-Llama-3-70B-Instruct",
+							"host": [
+								"{{baseUrl2}}"
+							],
+							"path": [
+								"meta-llama",
+								"Meta-Llama-3-70B-Instruct"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"input\": \"I have this dream\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl2}}/meta-llama/Meta-Llama-3-70B-Instruct",
+									"host": [
+										"{{baseUrl2}}"
+									],
+									"path": [
+										"meta-llama",
+										"Meta-Llama-3-70B-Instruct"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 19 Apr 2024 20:25:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1368"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "x-robots-tag",
+									"value": "noindex"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"inference_status\": {\n        \"runtime_ms\": 17408,\n        \"cost\": 0.00021882,\n        \"tokens_generated\": 274,\n        \"tokens_input\": 4\n    },\n    \"results\": [\n        {\n            \"generated_text\": \" where I am in a library, where all the books are blank. No words, no sentences, no stories. Just blank pages. I try to read them, but there's nothing there. It's frustrating, because I know that there should be something there, but it's just... empty.\\n\\nI think this dream is a reflection of my fear of losing my creativity. As a writer, I rely on my imagination to come up with ideas and stories. But what if one day, I wake up and my imagination is gone? What if I'm left with nothing but blank pages?\\n\\nIt's a scary thought, but it's also a reminder that creativity is a muscle that needs to be exercised. The more I write, the more I challenge myself, the more I push myself to come up with new ideas, the stronger my imagination will become.\\n\\nSo, I'll keep writing, even when the words don't come easily. I'll keep pushing myself, even when it feels like I'm staring at a blank page. Because in the end, it's not about the words on the page, it's about the stories that I tell, and the emotions that I evoke.\\n\\nAnd who knows, maybe one day, I'll wake up and my imagination will be overflowing with ideas, and the blank pages will be filled with stories that will touch hearts and minds.\"\n        }\n    ],\n    \"num_tokens\": 274,\n    \"num_input_tokens\": 4\n}"
 						}
 					]
 				}

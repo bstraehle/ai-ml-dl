@@ -34,7 +34,8 @@
 							{
 								"key": "Content-Type",
 								"value": "application/x-www-form-urlencoded",
-								"type": "text"
+								"type": "text",
+								"uuid": "08a4aea6-bbd6-4d6b-9001-ed2568817378"
 							}
 						],
 						"body": {
@@ -237,6 +238,41 @@
 		{
 			"name": "Models",
 			"item": [
+				{
+					"name": "IBM - granite-8b-japanese",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input\": \"What is the purpose of life? Answer in Japanese.\",\r\n    \"parameters\": {\r\n        \"decoding_method\": \"greedy\",\r\n        \"max_new_tokens\": 200,\r\n        \"min_new_tokens\": 0,\r\n        \"stop_sequences\": [],\r\n        \"repetition_penalty\": 1\r\n    },\r\n    \"model_id\": \"ibm/granite-8b-japanese\",\r\n    \"project_id\": \"{{projectId}}\",\r\n    \"moderations\": {\r\n        \"hap\": {\r\n            \"input\": {\r\n                \"enabled\": true,\r\n                \"threshold\": 0.5,\r\n                \"mask\": {\r\n                    \"remove_entity_value\": true\r\n                }\r\n            },\r\n            \"output\": {\r\n                \"enabled\": true,\r\n                \"threshold\": 0.5,\r\n                \"mask\": {\r\n                    \"remove_entity_value\": true\r\n                }\r\n            }\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ml/v1/text/generation?version=2023-05-29",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ml",
+								"v1",
+								"text",
+								"generation"
+							],
+							"query": [
+								{
+									"key": "version",
+									"value": "2023-05-29"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "IBM - granite-13b-chat-v2",
 					"request": {
@@ -1686,6 +1722,41 @@
 					]
 				},
 				{
+					"name": "Core42 - jais-13b-chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input\": \"What is the purpose of life? Answer in Arabic.\",\r\n    \"parameters\": {\r\n        \"decoding_method\": \"greedy\",\r\n        \"max_new_tokens\": 200,\r\n        \"min_new_tokens\": 0,\r\n        \"stop_sequences\": [],\r\n        \"repetition_penalty\": 1\r\n    },\r\n    \"model_id\": \"core42/jais-13b-chat\",\r\n    \"project_id\": \"{{projectId}}\",\r\n    \"moderations\": {\r\n        \"hap\": {\r\n            \"input\": {\r\n                \"enabled\": true,\r\n                \"threshold\": 0.5,\r\n                \"mask\": {\r\n                    \"remove_entity_value\": true\r\n                }\r\n            },\r\n            \"output\": {\r\n                \"enabled\": true,\r\n                \"threshold\": 0.5,\r\n                \"mask\": {\r\n                    \"remove_entity_value\": true\r\n                }\r\n            }\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ml/v1/text/generation?version=2023-05-29",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ml",
+								"v1",
+								"text",
+								"generation"
+							],
+							"query": [
+								{
+									"key": "version",
+									"value": "2023-05-29"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Google - flan-t5-xl-3b",
 					"request": {
 						"method": "POST",
@@ -2587,6 +2658,368 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"model_id\": \"meta-llama/llama-2-70b-chat\",\n    \"created_at\": \"2024-04-05T22:48:52.145Z\",\n    \"results\": [\n        {\n            \"generated_text\": \" What is the meaning of life? These are questions that have puzzled philosophers and theologians for centuries. They are questions that have sparked intense debates and discussions, and they are questions that continue to be relevant today.\\n\\nThe purpose of life is a question that is deeply personal and subjective. It is a question that each individual must answer for themselves, based on their own beliefs, values, and experiences. However, there are some common themes that can be observed across different cultures and traditions.\\n\\nFor many people, the purpose of life is to seek happiness and fulfillment. This can be achieved through personal growth, relationships, and contributions to society. Some people find meaning in their work, others in their relationships, and others in their impact on the world.\\n\\nFor others, the purpose of life is to seek spiritual enlightenment or to fulfill a divine plan. Many religious traditions teach that the purpose of\",\n            \"generated_token_count\": 200,\n            \"input_token_count\": 8,\n            \"stop_reason\": \"max_tokens\"\n        }\n    ],\n    \"system\": {\n        \"warnings\": [\n            {\n                \"message\": \"This model is a Non-IBM Product governed by a third-party license that may impose use restrictions and other obligations. By using this model you agree to its terms as identified in the following URL.\",\n                \"id\": \"disclaimer_warning\",\n                \"more_info\": \"https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-models.html?context=wx\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Meta AI - llama-3-8b-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input\": \"What is the purpose of life?\",\r\n    \"parameters\": {\r\n        \"decoding_method\": \"greedy\",\r\n        \"max_new_tokens\": 200,\r\n        \"min_new_tokens\": 0,\r\n        \"stop_sequences\": [],\r\n        \"repetition_penalty\": 1\r\n    },\r\n    \"model_id\": \"meta-llama/llama-3-8b-instruct\",\r\n    \"project_id\": \"{{projectId}}\",\r\n    \"moderations\": {\r\n        \"hap\": {\r\n            \"input\": {\r\n                \"enabled\": true,\r\n                \"threshold\": 0.5,\r\n                \"mask\": {\r\n                    \"remove_entity_value\": true\r\n                }\r\n            },\r\n            \"output\": {\r\n                \"enabled\": true,\r\n                \"threshold\": 0.5,\r\n                \"mask\": {\r\n                    \"remove_entity_value\": true\r\n                }\r\n            }\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ml/v1/text/generation?version=2023-05-29",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ml",
+								"v1",
+								"text",
+								"generation"
+							],
+							"query": [
+								{
+									"key": "version",
+									"value": "2023-05-29"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"input\": \"What is the purpose of life?\",\r\n    \"parameters\": {\r\n        \"decoding_method\": \"greedy\",\r\n        \"max_new_tokens\": 200,\r\n        \"min_new_tokens\": 0,\r\n        \"stop_sequences\": [],\r\n        \"repetition_penalty\": 1\r\n    },\r\n    \"model_id\": \"meta-llama/llama-3-8b-instruct\",\r\n    \"project_id\": \"{{projectId}}\",\r\n    \"moderations\": {\r\n        \"hap\": {\r\n            \"input\": {\r\n                \"enabled\": true,\r\n                \"threshold\": 0.5,\r\n                \"mask\": {\r\n                    \"remove_entity_value\": true\r\n                }\r\n            },\r\n            \"output\": {\r\n                \"enabled\": true,\r\n                \"threshold\": 0.5,\r\n                \"mask\": {\r\n                    \"remove_entity_value\": true\r\n                }\r\n            }\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/ml/v1/text/generation?version=2023-05-29",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"ml",
+										"v1",
+										"text",
+										"generation"
+									],
+									"query": [
+										{
+											"key": "version",
+											"value": "2023-05-29"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 18 Apr 2024 19:00:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "server-timing",
+									"value": "intid;desc=6ed0f901160ad45d"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "intid;desc=6ed0f901160ad45d"
+								},
+								{
+									"key": "X-Instana-T",
+									"value": "6ed0f901160ad45d"
+								},
+								{
+									"key": "X-Instana-S",
+									"value": "6bc5959b42c17eb3"
+								},
+								{
+									"key": "X-Instana-L",
+									"value": "1"
+								},
+								{
+									"key": "Traceparent",
+									"value": "00-00000000000000006ed0f901160ad45d-6bc5959b42c17eb3-01"
+								},
+								{
+									"key": "Tracestate",
+									"value": "in=6ed0f901160ad45d;6bc5959b42c17eb3"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self'; frame-ancestors 'none'; form-action 'self';"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Global-Transaction-Id",
+									"value": "2c85ea038bf7e7b7901131a0ce19b6e5"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8766e5aa890b7e21-SJC"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"model_id\": \"meta-llama/llama-3-8b-instruct\",\n    \"created_at\": \"2024-04-18T19:00:25.471Z\",\n    \"results\": [\n        {\n            \"generated_text\": \" Is it to find happiness, to achieve success, to make a difference, or something else? The answer to this question is subjective and can vary greatly from person to person. Some people may believe that the purpose of life is to find happiness and fulfillment, while others may believe that it is to make a difference in the world. Some people may believe that the purpose of life is to achieve success and recognition, while others may believe that it is to learn and grow as a person.\\n\\nUltimately, the purpose of life is a personal and subjective question that can only be answered by each individual for themselves. It is a question that can be explored and reflected upon, but it is not something that can be definitively answered. The search for the purpose of life is a lifelong journey that can be filled with challenges, opportunities, and growth.\\n\\nIn conclusion, the purpose of life is a complex and multifaceted question that can be approached from many different angles. While there is no one definitive answer, it\",\n            \"generated_token_count\": 200,\n            \"input_token_count\": 7,\n            \"stop_reason\": \"max_tokens\"\n        }\n    ],\n    \"system\": {\n        \"warnings\": [\n            {\n                \"message\": \"This model is a Non-IBM Product governed by a third-party license that may impose use restrictions and other obligations. By using this model you agree to its terms as identified in the following URL.\",\n                \"id\": \"disclaimer_warning\",\n                \"more_info\": \"https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-models.html?context=wx\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Meta AI - llama-3-70b-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input\": \"What is the purpose of life?\",\r\n    \"parameters\": {\r\n        \"decoding_method\": \"greedy\",\r\n        \"max_new_tokens\": 200,\r\n        \"min_new_tokens\": 0,\r\n        \"stop_sequences\": [],\r\n        \"repetition_penalty\": 1\r\n    },\r\n    \"model_id\": \"meta-llama/llama-3-70b-instruct\",\r\n    \"project_id\": \"{{projectId}}\",\r\n    \"moderations\": {\r\n        \"hap\": {\r\n            \"input\": {\r\n                \"enabled\": true,\r\n                \"threshold\": 0.5,\r\n                \"mask\": {\r\n                    \"remove_entity_value\": true\r\n                }\r\n            },\r\n            \"output\": {\r\n                \"enabled\": true,\r\n                \"threshold\": 0.5,\r\n                \"mask\": {\r\n                    \"remove_entity_value\": true\r\n                }\r\n            }\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ml/v1/text/generation?version=2023-05-29",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ml",
+								"v1",
+								"text",
+								"generation"
+							],
+							"query": [
+								{
+									"key": "version",
+									"value": "2023-05-29"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"input\": \"What is the purpose of life?\",\r\n    \"parameters\": {\r\n        \"decoding_method\": \"greedy\",\r\n        \"max_new_tokens\": 200,\r\n        \"min_new_tokens\": 0,\r\n        \"stop_sequences\": [],\r\n        \"repetition_penalty\": 1\r\n    },\r\n    \"model_id\": \"meta-llama/llama-3-70b-instruct\",\r\n    \"project_id\": \"{{projectId}}\",\r\n    \"moderations\": {\r\n        \"hap\": {\r\n            \"input\": {\r\n                \"enabled\": true,\r\n                \"threshold\": 0.5,\r\n                \"mask\": {\r\n                    \"remove_entity_value\": true\r\n                }\r\n            },\r\n            \"output\": {\r\n                \"enabled\": true,\r\n                \"threshold\": 0.5,\r\n                \"mask\": {\r\n                    \"remove_entity_value\": true\r\n                }\r\n            }\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/ml/v1/text/generation?version=2023-05-29",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"ml",
+										"v1",
+										"text",
+										"generation"
+									],
+									"query": [
+										{
+											"key": "version",
+											"value": "2023-05-29"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 18 Apr 2024 19:00:53 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "server-timing",
+									"value": "intid;desc=8b5753afdb608fea"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "intid;desc=8b5753afdb608fea"
+								},
+								{
+									"key": "Traceparent",
+									"value": "00-00000000000000008b5753afdb608fea-6ee690374cfaa0e9-01"
+								},
+								{
+									"key": "Tracestate",
+									"value": "in=8b5753afdb608fea;6ee690374cfaa0e9"
+								},
+								{
+									"key": "X-Instana-T",
+									"value": "8b5753afdb608fea"
+								},
+								{
+									"key": "X-Instana-S",
+									"value": "6ee690374cfaa0e9"
+								},
+								{
+									"key": "X-Instana-L",
+									"value": "1"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self'; frame-ancestors 'none'; form-action 'self';"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Global-Transaction-Id",
+									"value": "41847b53b49b18dd95a9291899cb393e"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8766e63eccc47e21-SJC"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"model_id\": \"meta-llama/llama-3-70b-instruct\",\n    \"created_at\": \"2024-04-18T19:00:53.066Z\",\n    \"results\": [\n        {\n            \"generated_text\": \" What is the meaning of life? These are questions that have puzzled philosophers, theologians, and scientists for centuries. While there may not be a single answer that applies to everyone, here are some possible perspectives:\\n\\n1. **Happiness and fulfillment**: One purpose of life could be to seek happiness and fulfillment. This might involve pursuing one's passions, building meaningful relationships, and finding contentment in one's experiences.\\n2. **Personal growth and self-actualization**: Another perspective is that the purpose of life is to grow and develop as a person, to reach one's full potential, and to become the best version of oneself.\\n3. **Making a positive impact**: Some people believe that the purpose of life is to make a positive impact on the world, to leave a lasting legacy, or to contribute to the greater good.\\n4. **Spiritual or religious beliefs**: For many, the purpose of life is rooted in spiritual or religious beliefs. This might involve following a particular faith or philosophy\",\n            \"generated_token_count\": 200,\n            \"input_token_count\": 7,\n            \"stop_reason\": \"max_tokens\"\n        }\n    ],\n    \"system\": {\n        \"warnings\": [\n            {\n                \"message\": \"This model is a Non-IBM Product governed by a third-party license that may impose use restrictions and other obligations. By using this model you agree to its terms as identified in the following URL.\",\n                \"id\": \"disclaimer_warning\",\n                \"more_info\": \"https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-models.html?context=wx\"\n            }\n        ]\n    }\n}"
 						}
 					]
 				},

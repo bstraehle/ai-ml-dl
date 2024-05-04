@@ -386,6 +386,252 @@
 					]
 				},
 				{
+					"name": "meta-llama-3-8b-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"messages\": [\n            {\n                \"role\": \"system\",\n                \"content\": \"You are a helpful assistant.\"\n            },\n            {\n                \"role\": \"user\",\n                \"content\": \"Hello world\"\n            }\n        ],\n        \"model\": \"meta-llama-3-8b-instruct\",\n        \"max_tokens\": 512,\n        \"presence_penalty\": 0,\n        \"temperature\": 0.1,\n        \"top_p\": 0.9\n    }",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"messages\": [\n            {\n                \"role\": \"system\",\n                \"content\": \"You are a helpful assistant.\"\n            },\n            {\n                \"role\": \"user\",\n                \"content\": \"Hello world\"\n            }\n        ],\n        \"model\": \"meta-llama-3-8b-instruct\",\n        \"max_tokens\": 512,\n        \"presence_penalty\": 0,\n        \"temperature\": 0.1,\n        \"top_p\": 0.9\n    }",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "416"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "X-RateLimit-Limit-Second",
+									"value": "1000"
+								},
+								{
+									"key": "X-RateLimit-Remaining-Second",
+									"value": "999"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "1000"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "999"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Apr 2024 16:34:52 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "X-User-Request-Id",
+									"value": ""
+								},
+								{
+									"key": "X-Kong-Upstream-Latency",
+									"value": "555"
+								},
+								{
+									"key": "X-Kong-Proxy-Latency",
+									"value": "0"
+								},
+								{
+									"key": "Via",
+									"value": "kong/3.2.2"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-8d1ed1b53f0140248cfb2ce715e85b24\",\n    \"object\": \"chat.completion\",\n    \"created\": 1713803693,\n    \"model\": \"meta-llama-3-8b-instruct\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Hello there! It's nice to meet you. Is there something I can help you with or would you like to chat?\",\n                \"function_call\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 23,\n        \"completion_tokens\": 25,\n        \"total_tokens\": 48\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "meta-llama-3-70b-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"messages\": [\n            {\n                \"role\": \"system\",\n                \"content\": \"You are a helpful assistant.\"\n            },\n            {\n                \"role\": \"user\",\n                \"content\": \"Hello world\"\n            }\n        ],\n        \"model\": \"meta-llama-3-70b-instruct\",\n        \"max_tokens\": 512,\n        \"presence_penalty\": 0,\n        \"temperature\": 0.1,\n        \"top_p\": 0.9\n    }",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"messages\": [\n            {\n                \"role\": \"system\",\n                \"content\": \"You are a helpful assistant.\"\n            },\n            {\n                \"role\": \"user\",\n                \"content\": \"Hello world\"\n            }\n        ],\n        \"model\": \"meta-llama-3-70b-instruct\",\n        \"max_tokens\": 512,\n        \"presence_penalty\": 0,\n        \"temperature\": 0.1,\n        \"top_p\": 0.9\n    }",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "461"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "1000"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "999"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "X-RateLimit-Remaining-Second",
+									"value": "999"
+								},
+								{
+									"key": "X-RateLimit-Limit-Second",
+									"value": "1000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Apr 2024 16:37:33 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "X-User-Request-Id",
+									"value": ""
+								},
+								{
+									"key": "X-Kong-Upstream-Latency",
+									"value": "911"
+								},
+								{
+									"key": "X-Kong-Proxy-Latency",
+									"value": "0"
+								},
+								{
+									"key": "Via",
+									"value": "kong/3.2.2"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-f9587677b75c448798044584d91c5174\",\n    \"object\": \"chat.completion\",\n    \"created\": 1713803853,\n    \"model\": \"meta-llama-3-70b-instruct\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Hello there! It's nice to meet you! Is there something I can help you with or would you like to chat about something in particular? I'm all ears!\",\n                \"function_call\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 23,\n        \"completion_tokens\": 34,\n        \"total_tokens\": 57\n    }\n}"
+						}
+					]
+				},
+				{
 					"name": "codellama-7b-instruct",
 					"request": {
 						"method": "POST",
@@ -755,6 +1001,129 @@
 					]
 				},
 				{
+					"name": "mixtral-8x22b",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"messages\": [\n            {\n                \"role\": \"system\",\n                \"content\": \"You are a helpful assistant.\"\n            },\n            {\n                \"role\": \"user\",\n                \"content\": \"Hello world\"\n            }\n        ],\n        \"model\": \"mixtral-8x22b\",\n        \"max_tokens\": 512,\n        \"presence_penalty\": 0,\n        \"temperature\": 0.1,\n        \"top_p\": 0.9\n    }",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"messages\": [\n            {\n                \"role\": \"system\",\n                \"content\": \"You are a helpful assistant.\"\n            },\n            {\n                \"role\": \"user\",\n                \"content\": \"Hello world\"\n            }\n        ],\n        \"model\": \"mixtral-8x22b\",\n        \"max_tokens\": 512,\n        \"presence_penalty\": 0,\n        \"temperature\": 0.1,\n        \"top_p\": 0.9\n    }",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2008"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-RateLimit-Limit-Second",
+									"value": "1000"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "1000"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "999"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "X-RateLimit-Remaining-Second",
+									"value": "999"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Apr 2024 19:20:46 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "X-User-Request-Id",
+									"value": ""
+								},
+								{
+									"key": "X-Kong-Upstream-Latency",
+									"value": "10907"
+								},
+								{
+									"key": "X-Kong-Proxy-Latency",
+									"value": "1"
+								},
+								{
+									"key": "Via",
+									"value": "kong/3.2.2"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-c345215c3fdc4a15b9de63afbde97a75\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712863246,\n    \"model\": \"mixtral-8x22b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a helpful assistant.\\nHello world [/INST]\\n\\n[INST] You are a\",\n                \"function_call\": null\n            },\n            \"finish_reason\": \"length\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 18,\n        \"completion_tokens\": 512,\n        \"total_tokens\": 530\n    }\n}"
+						}
+					]
+				},
+				{
 					"name": "nous-hermes-2-mistral-7b-dpo",
 					"request": {
 						"method": "POST",
@@ -997,6 +1366,129 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": \"chatcmpl-7ba36ab8786d41b48e012ceeef5eede5\",\n    \"object\": \"chat.completion\",\n    \"created\": 1710904533,\n    \"model\": \"nous-hermes-2-mixtral-8x7b-dpo\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Hello! How can I help you today? If you have any questions or need assistance, feel free to ask.\",\n                \"function_call\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 24,\n        \"completion_tokens\": 23,\n        \"total_tokens\": 47\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "qwen1.5-32b-chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"messages\": [\n            {\n                \"role\": \"system\",\n                \"content\": \"You are a helpful assistant.\"\n            },\n            {\n                \"role\": \"user\",\n                \"content\": \"Hello world\"\n            }\n        ],\n        \"model\": \"qwen1.5-32b-chat\",\n        \"max_tokens\": 512,\n        \"presence_penalty\": 0,\n        \"temperature\": 0.1,\n        \"top_p\": 0.9\n    }",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"messages\": [\n            {\n                \"role\": \"system\",\n                \"content\": \"You are a helpful assistant.\"\n            },\n            {\n                \"role\": \"user\",\n                \"content\": \"Hello world\"\n            }\n        ],\n        \"model\": \"qwen1.5-32b-chat\",\n        \"max_tokens\": 512,\n        \"presence_penalty\": 0,\n        \"temperature\": 0.1,\n        \"top_p\": 0.9\n    }",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "445"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-RateLimit-Remaining-Second",
+									"value": "999"
+								},
+								{
+									"key": "X-RateLimit-Limit-Second",
+									"value": "1000"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "1000"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "999"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Apr 2024 01:25:14 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "X-User-Request-Id",
+									"value": ""
+								},
+								{
+									"key": "X-Kong-Upstream-Latency",
+									"value": "1300"
+								},
+								{
+									"key": "X-Kong-Proxy-Latency",
+									"value": "1"
+								},
+								{
+									"key": "Via",
+									"value": "kong/3.2.2"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-dcfd4e559af346f381c505528d7986d4\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712971514,\n    \"model\": \"qwen1.5-32b-chat\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Hello! It's nice to meet you. Is there something you would like to chat about or ask me? I'm here to help with any questions you may have.\",\n                \"function_call\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 21,\n        \"completion_tokens\": 34,\n        \"total_tokens\": 55\n    }\n}"
 						}
 					]
 				},

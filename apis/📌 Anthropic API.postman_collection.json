@@ -19,7 +19,8 @@
 							{
 								"key": "anthropic-version",
 								"value": "2023-06-01",
-								"type": "text"
+								"type": "text",
+								"uuid": "da78d049-cdc6-42d1-9759-078074a10129"
 							}
 						],
 						"body": {
@@ -172,7 +173,8 @@
 							{
 								"key": "anthropic-version",
 								"value": "2023-06-01",
-								"type": "text"
+								"type": "text",
+								"uuid": "899b37cb-f629-41e7-a9bd-9cdf1df0fde7"
 							}
 						],
 						"body": {
@@ -320,12 +322,14 @@
 							{
 								"key": "anthropic-version",
 								"value": "2023-06-01",
-								"type": "text"
+								"type": "text",
+								"uuid": "f3550fab-a1cf-409d-a609-4de7051436a1"
 							},
 							{
 								"key": "anthropic-beta",
 								"value": "tools-2024-04-04",
-								"type": "text"
+								"type": "text",
+								"uuid": "d8da8333-4677-4305-b74b-dac51441ea80"
 							}
 						],
 						"body": {
@@ -469,7 +473,8 @@
 							{
 								"key": "anthropic-version",
 								"value": "2023-06-01",
-								"type": "text"
+								"type": "text",
+								"uuid": "57d5f109-c5a9-4db0-a2e5-c31c6ca1c9c6"
 							}
 						],
 						"body": {
@@ -608,7 +613,8 @@
 							{
 								"key": "anthropic-version",
 								"value": "2023-06-01",
-								"type": "text"
+								"type": "text",
+								"uuid": "823c6083-ad1e-41b8-b6f0-4f6a302a920c"
 							}
 						],
 						"body": {
@@ -752,7 +758,8 @@
 							{
 								"key": "anthropic-version",
 								"value": "2023-06-01",
-								"type": "text"
+								"type": "text",
+								"uuid": "3ac2a51b-81d5-457c-8a94-d0746b0a1964"
 							}
 						],
 						"body": {
@@ -872,7 +879,8 @@
 							{
 								"key": "anthropic-version",
 								"value": "2023-06-01",
-								"type": "text"
+								"type": "text",
+								"uuid": "786b8c8b-8632-4720-9453-624fa4c8ff82"
 							}
 						],
 						"body": {
@@ -987,7 +995,8 @@
 							{
 								"key": "anthropic-version",
 								"value": "2023-06-01",
-								"type": "text"
+								"type": "text",
+								"uuid": "6920a216-ba4a-4dfa-9196-053ccfe451a5"
 							}
 						],
 						"body": {

@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "6da4d34d-dd01-423e-8b1e-588b52cf362a",
 		"name": "📌 Perplexity AI API",
-		"description": "### Prerequisites\n\n- Postman\n- Perplexity AI Account: [https://www.perplexity.ai/](https://www.perplexity.ai/)\n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n\n### Documentation\n\n- API: [https://docs.perplexity.ai/reference](https://docs.perplexity.ai/reference)\n- Models: [https://docs.perplexity.ai/reference](https://docs.perplexity.ai/reference)\n    \n### Models\n\nModels include Mistral & Mixtral (by Mistral AI, open-weight) and SONAR (by Meta AI, open-weight).\n\n### About Perplexity AI\n\nPerplexity AI unlocks the power of knowledge with information discovery and sharing.",
+		"description": "### Prerequisites\n\n- Postman\n- Perplexity AI Account: [https://www.perplexity.ai/](https://www.perplexity.ai/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.perplexity.ai/reference](https://docs.perplexity.ai/reference)\n- Models: [https://docs.perplexity.ai/docs/model-cards](https://docs.perplexity.ai/docs/model-cards)\n    \n\n### Models\n\nModels include Mistral & Mixtral (by Mistral AI, open-weight) and SONAR (by Meta AI, open-weight).\n\n### About Perplexity AI\n\nPerplexity AI unlocks the power of knowledge with information discovery and sharing.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
 		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-6da4d34d-dd01-423e-8b1e-588b52cf362a?action=share&source=collection_link&creator=7643177"
@@ -12,13 +12,13 @@
 			"name": "🚀 Get Started",
 			"item": [
 				{
-					"name": "Chat (mistral-7b-instruct)",
+					"name": "Chat (llama-3-8b-instruct)",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"model\": \"mistral-7b-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+							"raw": "{\r\n    \"model\": \"llama-3-8b-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -44,7 +44,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"model\": \"mistral-7b-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+									"raw": "{\r\n    \"model\": \"llama-3-8b-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -68,7 +68,104 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Mon, 25 Mar 2024 04:28:18 GMT"
+									"value": "Fri, 19 Apr 2024 04:00:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "__cf_bm=xg3sNrfIX3t6OolcgiUXhaWFx45vbi.6BxOy_YpcYLk-1713499200-1.0.1.1-D5oDy89uK8LwqObcQNaHChXQSdHo5s4V2nQhTmfwB1tJLOBsr7yqd_zMx34DjXsUxfHctJMpUQfW7cy_IOowjA; path=/; expires=Fri, 19-Apr-24 04:30:00 GMT; domain=.perplexity.ai; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8769fc118822526f-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"dbe5873b-26dd-482d-99ca-0331a361b5e3\",\n    \"model\": \"llama-3-8b-instruct\",\n    \"created\": 1921931,\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"completion_tokens\": 630,\n        \"total_tokens\": 647\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a question that has puzzled philosophers, scientists, and thinkers for centuries. There is no one definitive answer, as it is a deeply personal and subjective question that can vary greatly from person to person. However, here are some possible perspectives and insights that may help shed some light on this question:\\n\\n1. **Existentialism**: According to existentialist philosophers like Jean-Paul Sartre and Martin Heidegger, the meaning of life is not predetermined or given by external factors. Instead, it is created by individuals through their choices, actions, and experiences. In this view, the meaning of life is subjective and personal, and it is up to each individual to create their own meaning.\\n2. **Purpose**: Some people believe that the meaning of life is to find one's purpose or passion. This could be a career, a hobby, or a personal goal that brings fulfillment and satisfaction. According to this perspective, the meaning of life is to pursue one's passions and make a positive impact on the world.\\n3. **Happiness**: Another perspective is that the meaning of life is to seek happiness and well-being. This could involve pursuing pleasure, avoiding pain, or finding contentment and fulfillment in one's life.\\n4. **Spirituality**: For many people, the meaning of life is deeply connected to their spiritual beliefs and practices. This could involve seeking a higher power, connecting with nature, or finding inner peace and enlightenment.\\n5. **Evolutionary perspective**: From an evolutionary perspective, the meaning of life could be seen as the perpetuation of the species. According to this view, the meaning of life is to survive and reproduce, ensuring the continuation of the human species.\\n6. **Social connections**: Some researchers suggest that the meaning of life is closely tied to social connections and relationships. According to this perspective, the meaning of life is to form and maintain meaningful relationships with others, and to contribute to the well-being of those around us.\\n7. **Personal growth**: Another perspective is that the meaning of life is to continually grow and develop as individuals. This could involve learning new skills, overcoming challenges, and becoming the best version of oneself.\\n8. **The search for truth**: Some people believe that the meaning of life is to seek truth and understanding. This could involve exploring the mysteries of the universe, seeking wisdom, or uncovering the secrets of human existence.\\n9. **The pursuit of knowledge**: According to this perspective, the meaning of life is to acquire knowledge and understanding. This could involve studying the natural world, exploring the human condition, or seeking answers to life's biggest questions.\\n10. **The mystery of existence**: Finally, some people believe that the meaning of life is simply a mystery that cannot be fully understood or explained. According to this perspective, the meaning of life is a profound and eternal question that may never be fully answered.\\n\\nUltimately, the meaning of life is a deeply personal and subjective question that can vary greatly from person to person. While these perspectives may provide some insights and guidance, the search for meaning is a lifelong journey that each individual must undertake for themselves.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (llama-3-70b-instruct)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"llama-3-70b-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"llama-3-70b-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 19 Apr 2024 04:00:41 GMT"
 								},
 								{
 									"key": "Content-Type",
@@ -92,7 +189,7 @@
 								},
 								{
 									"key": "CF-RAY",
-									"value": "869c273e980edbd9-LAX"
+									"value": "8769fcdd1f15526f-LAX"
 								},
 								{
 									"key": "Content-Encoding",
@@ -100,7 +197,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": \"69fb3393-c7b0-4405-a68c-68a9db6b9623\",\n    \"model\": \"mistral-7b-instruct\",\n    \"created\": 5696308,\n    \"usage\": {\n        \"prompt_tokens\": 15,\n        \"completion_tokens\": 194,\n        \"total_tokens\": 209\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a question that has puzzled philosophers, theologians, and thinkers throughout history. There are many different perspectives and beliefs about what gives life meaning. Some people find meaning through relationships with others, through work or creativity, or through spiritual or religious beliefs. Others believe that life has no inherent meaning and that it is up to each individual to create their own purpose. Ultimately, the meaning of life may be a deeply personal and subjective question, and different people may find different answers that resonate with them. Some popular philosophical theories about the meaning of life include existentialism, which holds that life has no inherent meaning and that individuals must create their own purpose, and absolutism, which holds that there is a universal meaning or purpose to life that can be discovered through reason or revelation. Ultimately, the answer to the question of what gives life meaning may be a matter of personal belief and interpretation.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
+							"body": "{\n    \"id\": \"d16b14fb-08bf-4142-9de2-8d300585888b\",\n    \"model\": \"llama-3-70b-instruct\",\n    \"created\": 1921963,\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"completion_tokens\": 525,\n        \"total_tokens\": 542\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a question that has puzzled philosophers, theologians, scientists, and many others for centuries. It's a complex and deeply personal question that can have different answers for different people. Here are some possible perspectives:\\n\\n**Philosophical perspectives:**\\n\\n1. **Existentialism**: Life has no inherent meaning, and it's up to each individual to create their own purpose and meaning.\\n2. **Essentialism**: Life has an inherent meaning that is essential to human existence, such as seeking happiness, fulfillment, or self-actualization.\\n3. **Nihilism**: Life has no meaning, and it's a pointless, absurd existence.\\n\\n**Religious and spiritual perspectives:**\\n\\n1. **Theism**: Life's meaning is to serve and worship a higher power or deity, and to follow their teachings and commandments.\\n2. **Spiritualism**: Life's meaning is to connect with a higher power, the universe, or a spiritual realm, and to find inner peace and enlightenment.\\n3. **Buddhism**: Life's meaning is to end suffering and achieve enlightenment through the Eightfold Path and the Four Noble Truths.\\n\\n**Scientific perspectives:**\\n\\n1. **Evolutionary theory**: Life's meaning is to survive, reproduce, and pass on genes to the next generation.\\n2. **Biological perspective**: Life's meaning is to maintain homeostasis, grow, and respond to stimuli.\\n3. **Cosmological perspective**: Life's meaning is to exist as part of the universe, to observe and understand its workings, and to contribute to its evolution.\\n\\n**Personal perspectives:**\\n\\n1. **Hedonism**: Life's meaning is to seek pleasure, happiness, and enjoyment.\\n2. **Eudaimonia**: Life's meaning is to live a virtuous, fulfilling, and meaningful life, often through personal growth and self-actualization.\\n3. **Altruism**: Life's meaning is to help others, make a positive impact, and contribute to the greater good.\\n\\n**Other perspectives:**\\n\\n1. **Absurdism**: Life's meaning is to find meaning in the absurdity and uncertainty of existence.\\n2. **Humanism**: Life's meaning is to promote human dignity, well-being, and flourishing.\\n3. **Postmodernism**: Life's meaning is to create one's own meaning and narrative in a world without objective truth or universal values.\\n\\nUltimately, the meaning of life is a deeply personal and subjective question that each individual must answer for themselves. It may involve a combination of these perspectives, or something entirely unique.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
 						}
 					]
 				}
@@ -109,6 +206,289 @@
 		{
 			"name": "Chat",
 			"item": [
+				{
+					"name": "llama-3-8b-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"llama-3-8b-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"llama-3-8b-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 19 Apr 2024 04:00:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "__cf_bm=xg3sNrfIX3t6OolcgiUXhaWFx45vbi.6BxOy_YpcYLk-1713499200-1.0.1.1-D5oDy89uK8LwqObcQNaHChXQSdHo5s4V2nQhTmfwB1tJLOBsr7yqd_zMx34DjXsUxfHctJMpUQfW7cy_IOowjA; path=/; expires=Fri, 19-Apr-24 04:30:00 GMT; domain=.perplexity.ai; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8769fc118822526f-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"dbe5873b-26dd-482d-99ca-0331a361b5e3\",\n    \"model\": \"llama-3-8b-instruct\",\n    \"created\": 1921931,\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"completion_tokens\": 630,\n        \"total_tokens\": 647\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a question that has puzzled philosophers, scientists, and thinkers for centuries. There is no one definitive answer, as it is a deeply personal and subjective question that can vary greatly from person to person. However, here are some possible perspectives and insights that may help shed some light on this question:\\n\\n1. **Existentialism**: According to existentialist philosophers like Jean-Paul Sartre and Martin Heidegger, the meaning of life is not predetermined or given by external factors. Instead, it is created by individuals through their choices, actions, and experiences. In this view, the meaning of life is subjective and personal, and it is up to each individual to create their own meaning.\\n2. **Purpose**: Some people believe that the meaning of life is to find one's purpose or passion. This could be a career, a hobby, or a personal goal that brings fulfillment and satisfaction. According to this perspective, the meaning of life is to pursue one's passions and make a positive impact on the world.\\n3. **Happiness**: Another perspective is that the meaning of life is to seek happiness and well-being. This could involve pursuing pleasure, avoiding pain, or finding contentment and fulfillment in one's life.\\n4. **Spirituality**: For many people, the meaning of life is deeply connected to their spiritual beliefs and practices. This could involve seeking a higher power, connecting with nature, or finding inner peace and enlightenment.\\n5. **Evolutionary perspective**: From an evolutionary perspective, the meaning of life could be seen as the perpetuation of the species. According to this view, the meaning of life is to survive and reproduce, ensuring the continuation of the human species.\\n6. **Social connections**: Some researchers suggest that the meaning of life is closely tied to social connections and relationships. According to this perspective, the meaning of life is to form and maintain meaningful relationships with others, and to contribute to the well-being of those around us.\\n7. **Personal growth**: Another perspective is that the meaning of life is to continually grow and develop as individuals. This could involve learning new skills, overcoming challenges, and becoming the best version of oneself.\\n8. **The search for truth**: Some people believe that the meaning of life is to seek truth and understanding. This could involve exploring the mysteries of the universe, seeking wisdom, or uncovering the secrets of human existence.\\n9. **The pursuit of knowledge**: According to this perspective, the meaning of life is to acquire knowledge and understanding. This could involve studying the natural world, exploring the human condition, or seeking answers to life's biggest questions.\\n10. **The mystery of existence**: Finally, some people believe that the meaning of life is simply a mystery that cannot be fully understood or explained. According to this perspective, the meaning of life is a profound and eternal question that may never be fully answered.\\n\\nUltimately, the meaning of life is a deeply personal and subjective question that can vary greatly from person to person. While these perspectives may provide some insights and guidance, the search for meaning is a lifelong journey that each individual must undertake for themselves.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "llama-3-70b-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"llama-3-70b-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"llama-3-70b-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 19 Apr 2024 04:00:41 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8769fcdd1f15526f-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"d16b14fb-08bf-4142-9de2-8d300585888b\",\n    \"model\": \"llama-3-70b-instruct\",\n    \"created\": 1921963,\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"completion_tokens\": 525,\n        \"total_tokens\": 542\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a question that has puzzled philosophers, theologians, scientists, and many others for centuries. It's a complex and deeply personal question that can have different answers for different people. Here are some possible perspectives:\\n\\n**Philosophical perspectives:**\\n\\n1. **Existentialism**: Life has no inherent meaning, and it's up to each individual to create their own purpose and meaning.\\n2. **Essentialism**: Life has an inherent meaning that is essential to human existence, such as seeking happiness, fulfillment, or self-actualization.\\n3. **Nihilism**: Life has no meaning, and it's a pointless, absurd existence.\\n\\n**Religious and spiritual perspectives:**\\n\\n1. **Theism**: Life's meaning is to serve and worship a higher power or deity, and to follow their teachings and commandments.\\n2. **Spiritualism**: Life's meaning is to connect with a higher power, the universe, or a spiritual realm, and to find inner peace and enlightenment.\\n3. **Buddhism**: Life's meaning is to end suffering and achieve enlightenment through the Eightfold Path and the Four Noble Truths.\\n\\n**Scientific perspectives:**\\n\\n1. **Evolutionary theory**: Life's meaning is to survive, reproduce, and pass on genes to the next generation.\\n2. **Biological perspective**: Life's meaning is to maintain homeostasis, grow, and respond to stimuli.\\n3. **Cosmological perspective**: Life's meaning is to exist as part of the universe, to observe and understand its workings, and to contribute to its evolution.\\n\\n**Personal perspectives:**\\n\\n1. **Hedonism**: Life's meaning is to seek pleasure, happiness, and enjoyment.\\n2. **Eudaimonia**: Life's meaning is to live a virtuous, fulfilling, and meaningful life, often through personal growth and self-actualization.\\n3. **Altruism**: Life's meaning is to help others, make a positive impact, and contribute to the greater good.\\n\\n**Other perspectives:**\\n\\n1. **Absurdism**: Life's meaning is to find meaning in the absurdity and uncertainty of existence.\\n2. **Humanism**: Life's meaning is to promote human dignity, well-being, and flourishing.\\n3. **Postmodernism**: Life's meaning is to create one's own meaning and narrative in a world without objective truth or universal values.\\n\\nUltimately, the meaning of life is a deeply personal and subjective question that each individual must answer for themselves. It may involve a combination of these perspectives, or something entirely unique.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "codellama-70b-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"codellama-70b-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"codellama-70b-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 14 Apr 2024 17:39:23 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8745795fbb693110-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"4fe28f4f-6971-49e2-a468-c45f1507094b\",\n    \"model\": \"codellama-70b-instruct\",\n    \"created\": 1355278,\n    \"usage\": {\n        \"prompt_tokens\": 29,\n        \"completion_tokens\": 515,\n        \"total_tokens\": 544\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"🤔 Ah, the age-old question! 😄\\n\\nThe meaning of life is a subjective and philosophical concept that has been debated and explored by thinkers and philosophers throughout history. There is no single, definitive answer to this question, as it depends on one's personal values, beliefs, and perspectives.\\n\\nThat being said, here are some common interpretations and ideas about the meaning of life:\\n\\n1. **Existentialism**: The meaning of life is to find meaning and purpose in one's existence.\\n2. **Humanism**: The meaning of life is to strive for self-improvement, personal growth, and the betterment of humanity.\\n3. **Religion**: The meaning of life is to find spiritual fulfillment, often through a personal relationship with a higher power or deity.\\n4. **Ethics**: The meaning of life is to live a life of integrity, compassion, and respect for others.\\n5. **Purpose**: The meaning of life is to discover and fulfill one's unique purpose or calling.\\n6. **Love**: The meaning of life is to experience love, both in personal relationships and in the broader sense of caring for others.\\n7. **Happiness**: The meaning of life is to find happiness and contentment, often through personal growth, relationships, and meaningful work.\\n8. **Wisdom**: The meaning of life is to acquire wisdom, knowledge, and understanding, which can lead to a deeper understanding of the world and one's place in it.\\n9. **Freedom**: The meaning of life is to live freely, without constraints or limitations, and to express one's individuality.\\n10. **Mortality**: The meaning of life is to appreciate the fleeting nature of existence and to make the most of the time we have.\\n\\nThese interpretations are not mutually exclusive, and many people hold a combination of these beliefs. The meaning of life is a personal and subjective concept, and what is meaningful to one person may not be meaningful to another.\\n\\nUltimately, the meaning of life is a question that is best explored through introspection, self-reflection, and open-minded dialogue. 💡\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
 				{
 					"name": "mistral-7b-instruct",
 					"request": {
@@ -296,6 +676,196 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": \"699efb7a-efa6-487e-8ba0-87ebba9b58f9\",\n    \"model\": \"mixtral-8x7b-instruct\",\n    \"created\": 6690415,\n    \"usage\": {\n        \"prompt_tokens\": 15,\n        \"completion_tokens\": 148,\n        \"total_tokens\": 163\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a philosophical and metaphysical question related to the significance of living or existence in general. Many different people, cultures, and religions have different beliefs about the purpose and meaning of life. Some people believe that the meaning of life is to seek happiness, knowledge, or personal fulfillment, while others believe that it is to follow a set of religious or moral principles.\\n\\nThere are also those who believe that life has no inherent meaning, and that it is up to each individual to create their own purpose and meaning. Ultimately, the meaning of life is a deeply personal and subjective question, and each person must answer it for themselves based on their own experiences, beliefs, and values.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "pplx-7b-online",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"pplx-7b-online\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"pplx-7b-online\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 14 Apr 2024 17:32:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "__cf_bm=yV0.xKyX1L1ncpa9WMogYH.6w744bFXc5Xbw1WZz5Ds-1713115924-1.0.1.1-78xw09QNCR2ioRqy9k2SRTx_FZbk2WU7TX4HVQlsYY1LpUuVFl6WnFEMmrfAr5ZPYmrrC7RlEBtpDbCSDAz8Eg; path=/; expires=Sun, 14-Apr-24 18:02:04 GMT; domain=.perplexity.ai; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "87456ed4abc13110-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"bb3c10c7-22be-48b1-82eb-441ec9d4e3c3\",\n    \"model\": \"pplx-7b-online\",\n    \"created\": 11442922,\n    \"usage\": {\n        \"prompt_tokens\": 37,\n        \"completion_tokens\": 102,\n        \"total_tokens\": 139\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a philosophical question that has been debated throughout history. Some people believe that the meaning of life is to be alive and to create our own purpose, while others argue that life is inherently meaningless and that we must find our own meaning through personal growth, relationships, and helping others. Ultimately, the meaning of life is a subjective concept that varies from person to person and is influenced by individual beliefs, values, and experiences.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "pplx-70b-online",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"pplx-70b-online\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"pplx-70b-online\",\r\n    \"messages\": [\r\n        {\r\n            \"content\": \"What is the meaning of life?\",\r\n            \"role\": \"user\"\r\n        }\r\n    ],\r\n    \"max_tokens\": 0,\r\n    \"temperature\": 0.2,\r\n    \"top_p\": 0.9,\r\n    \"top_k\": 0,\r\n    \"stream\": false,\r\n    \"presence_penalty\": 0,\r\n    \"frequency_penalty\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 14 Apr 2024 17:39:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "87457a145ec93110-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"f10d8aaa-52e1-4718-9c39-26c4f72505da\",\n    \"model\": \"pplx-70b-online\",\n    \"created\": 11443732,\n    \"usage\": {\n        \"prompt_tokens\": 37,\n        \"completion_tokens\": 542,\n        \"total_tokens\": 579\n    },\n    \"object\": \"chat.completion\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The meaning of life is a philosophical and existential question that has been pondered throughout human history, and there is no universally agreed-upon answer. The search for life's meaning encompasses various aspects, including philosophical, religious, scientific, and personal interpretations. Here are some key points from the search results:\\n\\n1. **Philosophical and Religious Perspectives**: The meaning of life has been discussed in the context of philosophical and religious contemplation, with many different cultural and ideological backgrounds offering their own interpretations. Examples include Aristotle's human function, Kant's \\\"highest good,\\\" and various religious beliefs such as Zoroastrianism and Tenrikyo.\\n\\n2. **Purpose and Presence**: Some psychologists refer to knowing one's life's meaning as \\\"presence,\\\" and the drive to look for it as \\\"search.\\\" People who believe they know their life's meaning tend to enjoy greater well-being than those who don't.\\n\\n3. **Popular Views**: There are many popular answers to the question, including:\\n   - Realizing one's potential and ideals\\n   - Seeking happiness and flourishing\\n   - Evolving or achieving biological perfection\\n   - Seeking wisdom and knowledge\\n   - Following or submitting to destiny\\n   - Achieving eudaimonia, a flourishing of the human spirit.\\n\\n4. **Existentialism**: In the context of Existentialism, the meaning of life is subjective and personal. It is up to the individual to create meaning and purpose in their life.\\n\\n5. **Purpose and Meaning in Everyday Life**: Researchers define meaning in life as including the belief that one's life and contributions matter to others, and that there is a sense of purpose and coherence.\\n\\n6. **Contemporary Perspectives**: Contemporary perspectives suggest that the meaning of life is not a single, definitive answer, but rather a multifaceted experience found in relationships, work, spiritual and religious beliefs, and appreciating life itself.\\n\\nIn summary, the meaning of life is a subjective concept that varies among individuals and cultures. It is often found in the pursuit of personal values, relationships, work, spiritual beliefs, and the appreciation of life itself.\"\n            },\n            \"delta\": {\n                \"role\": \"assistant\",\n                \"content\": \"\"\n            }\n        }\n    ]\n}"
 						}
 					]
 				},

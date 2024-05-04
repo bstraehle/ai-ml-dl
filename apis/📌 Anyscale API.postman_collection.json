@@ -18,7 +18,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"model\": \"meta-llama/Llama-2-70b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are an English to Spanish translator with a professional tone.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Generate 100 unique English sentences and Spanish translation about electric vehicle loan in JSON format.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"raw": "{\r\n    \"model\": \"meta-llama/Llama-2-70b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -44,7 +44,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+									"raw": "{\r\n    \"model\": \"meta-llama/Llama-2-70b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -72,7 +72,7 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "2524"
+									"value": "3987"
 								},
 								{
 									"key": "Connection",
@@ -80,7 +80,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Thu, 14 Mar 2024 00:06:51 GMT"
+									"value": "Mon, 22 Apr 2024 16:30:12 GMT"
 								},
 								{
 									"key": "server",
@@ -88,7 +88,7 @@
 								},
 								{
 									"key": "x-request-id",
-									"value": "fd79bdac-24de-4262-9609-2a99b30bd0d5"
+									"value": "7821cf9d-03c6-4ff7-b99c-73c9799c93b7"
 								},
 								{
 									"key": "X-Cache",
@@ -96,7 +96,7 @@
 								},
 								{
 									"key": "Via",
-									"value": "1.1 bced04c07f9fc5f2c1cc29deb7204ba8.cloudfront.net (CloudFront)"
+									"value": "1.1 507f0bab9a1278d1632051db230c99d4.cloudfront.net (CloudFront)"
 								},
 								{
 									"key": "X-Amz-Cf-Pop",
@@ -104,11 +104,132 @@
 								},
 								{
 									"key": "X-Amz-Cf-Id",
-									"value": "sRsnmq_gMRZTwah6ThuoMFoOK0goRHZsdl4f1v64BY6uVbCF6Cqh8w=="
+									"value": "E0XqWa5zsuUMCoLHygjZIJWO8QifXJsGZn1bz4ZsyKdUQ3OGVpumNA=="
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": \"mistralai/Mistral-7B-Instruct-v0.1-fd79bdac-24de-4262-9609-2a99b30bd0d5\",\n    \"object\": \"text_completion\",\n    \"created\": 1710374811,\n    \"model\": \"mistralai/Mistral-7B-Instruct-v0.1\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" Sure! Here is a simple example of how you could load data from S3 with Ray and train using PyTorch:\\n```\\nimport os\\nimport boto3\\nimport torch\\nimport ray\\n\\n# Set up S3 client\\ns3 = boto3.client('s3')\\n\\n# Set up PyTorch data loader\\ndef load_data():\\n    bucket = os.environ['S3_BUCKET']\\n    prefix = os.environ['S3_PREFIX']\\n    key = os.environ['S3_KEY']\\n\\n    with open(f's3://{bucket}/{prefix}{key}', 'rb') as f:\\n        data = torch.load(f)\\n\\n    return data\\n\\n# Set up Ray function to train model\\n@ray.function\\ndef train_model(data, model, optimizer, criterion):\\n    for epoch in range(num_epochs):\\n        for i, batch in enumerate(data.train_loader):\\n            outputs = model(batch)\\n            loss = criterion(outputs, batch['target'])\\n            optimizer.zero_grad()\\n            loss.backward()\\n            optimizer.step()\\n\\n# Set up main program\\nif __name__ == '__main__':\\n    # Load data from S3\\n    data = load_data()\\n\\n    # Set up PyTorch model\\n    model = torch.nn.Sequential(\\n        torch.nn.Linear(data.train_loader.batch_size, 128),\\n        torch.nn.ReLU(inplace=True),\\n        torch.nn.Linear(128, 10)\\n    )\\n\\n    # Set up PyTorch optimizer\\n    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)\\n\\n    # Set up PyTorch criterion\\n    criterion = torch.nn.CrossEntropyLoss()\\n\\n    # Set up Ray function to train model\\n    @ray.function\\n    def train(args):\\n        data = load_data()\\n        model = torch.nn.Sequential(\\n            torch.nn.Linear(data.train_loader.batch_size, 128),\\n            torch.nn.ReLU(inplace=True),\\n            torch.nn.Linear(128, 10)\\n        )\\n\\n        optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)\\n\\n        criterion = torch.nn.CrossEntropyLoss()\\n\\n        for epoch in range(num_epochs):\\n            for i, batch in enumerate(data.train_loader):\\n                outputs = model(batch)\\n                loss = criterion(outputs, batch['target'])\\n                optimizer.zero_grad()\\n                loss.backward()\\n                optimizer.step()\\n\\n        return model\\n\\n    # Set up Ray\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 33,\n        \"completion_tokens\": 671,\n        \"total_tokens\": 704\n    }\n}"
+							"body": "{\n    \"id\": \"meta-llama/Llama-2-70b-chat-hf-7821cf9d-03c6-4ff7-b99c-73c9799c93b7\",\n    \"object\": \"text_completion\",\n    \"created\": 1713803412,\n    \"model\": \"meta-llama/Llama-2-70b-chat-hf\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"  Sure, here's an example program that uses Ray and PyTorch to load data from Amazon S3 and train a machine learning model:\\n```\\nimport ray\\nimport torch\\nimport torch.nn as nn\\nimport torch.optim as optim\\n\\n# Set up Ray\\nray.init(num_cpus=4)  # Use 4 CPUs for distributed training\\n\\n# Define the model and loss function\\nclass Net(nn.Module):\\n    def __init__(self):\\n        super(Net, self).__init__()\\n        self.fc1 = nn.Linear(784, 128)  # input layer (784) -> hidden layer (128)\\n        self.fc2 = nn.Linear(128, 10)  # hidden layer (128) -> output layer (10)\\n\\n    def forward(self, x):\\n        x = torch.relu(self.fc1(x))  # activation function for hidden layer\\n        x = self.fc2(x)\\n        return x\\n\\nnet = Net()\\n\\n# Define the loss function and optimizer\\ncriterion = nn.CrossEntropyLoss()\\noptimizer = optim.SGD(net.parameters(), lr=0.01)\\n\\n# Load the data from S3\\nbucket_name = \\\"your-bucket-name\\\"\\ndata_key = \\\"path/to/data.pth\\\"\\n\\n# Use Ray's S3 client to download the data\\ns3 = ray.experimental.s3.S3Client()\\ndata = s3.get_object(bucket_name, data_key)\\n\\n# Load the data into a PyTorch tensor\\ndata = torch.tensor(data)\\n\\n# Normalize the data\\nmean = data.mean(dim=0)\\nstd = data.std(dim=0)\\ndata = (data - mean) / std\\n\\n# Split the data into training and validation sets\\ntrain_size = int(0.8 * len(data))\\ntrain_data = data[:train_size]\\nval_data = data[train_size:]\\n\\n# Create a PyTorch DataLoader for the training data\\ntrain_loader = torch.utils.data.DataLoader(train_data, batch_size=32, shuffle=True)\\n\\n# Create a PyTorch DataLoader for the validation data\\nval_loader = torch.utils.data.DataLoader(val_data, batch_size=32, shuffle=False)\\n\\n# Train the model\\nfor epoch in range(10):  # loop over the dataset multiple times\\n    for i, batch in enumerate(train_loader):\\n        # Get the inputs and labels\\n        inputs, labels = batch\\n\\n        # Zero the gradients\\n        optimizer.zero_grad()\\n\\n        # Forward pass\\n        outputs = net(inputs)\\n\\n        # Compute the loss\\n        loss = criterion(outputs, labels)\\n\\n        # Backward pass\\n        loss.backward()\\n\\n        # Update the model parameters\\n        optimizer.step()\\n\\n        # Print the loss at each epoch\\n        if i % 100 == 0:\\n            print(f\\\"Epoch {epoch+1}, Batch {i}, Loss: {loss.item():.4f}\\\")\\n\\n    # Print the validation loss\\n    val_loss = 0\\n    correct = 0\\n    with torch.no_grad():\\n        for batch in val_loader:\\n            inputs, labels = batch\\n            outputs = net(inputs)\\n            loss = criterion(outputs, labels)\\n            val_loss += loss.item()\\n            _, predicted = torch.max(outputs, dim=1)\\n            correct += (predicted == labels).sum().item()\\n\\n    val_accuracy = correct / len(val_data)\\n    print(f\\\"Epoch {epoch+1}, Validation Loss: {val_loss.item():.4f}, Accuracy: {val_accuracy:.4f}\\\")\\n```\\nIn this example, we first set up Ray with 4 CPUs for distributed training. We then define a simple neural network model and loss function using PyTorch.\\n\\nNext, we load the data from an Amazon S3 bucket using Ray's S3 client. We normalize the data and split it into training and validation sets. We create PyTorch DataLoaders for both sets.\\n\\nWe then train the model for 10 epochs, printing the loss at each epoch and the validation loss and accuracy after each epoch.\\n\\nNote that this is just an example program and may not work as-is for your specific use case. You may need to modify the code to fit your specific needs, such as changing the model architecture, loss function, or hyperparameters.\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 45,\n        \"completion_tokens\": 1110,\n        \"total_tokens\": 1155\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (meta-llama/Llama-3-70b-chat-hf)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiKey}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"meta-llama/Llama-3-70b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.endpoints.anyscale.com/v1/chat/completions",
+							"protocol": "https",
+							"host": [
+								"api",
+								"endpoints",
+								"anyscale",
+								"com"
+							],
+							"path": [
+								"v1",
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"meta-llama/Llama-3-70b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.endpoints.anyscale.com/v1/chat/completions",
+									"protocol": "https",
+									"host": [
+										"api",
+										"endpoints",
+										"anyscale",
+										"com"
+									],
+									"path": [
+										"v1",
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4149"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Apr 2024 16:31:16 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "x-request-id",
+									"value": "2f684cae-7242-41b7-adaf-ffa9b2914ab8"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 a52dcb1fed052adbd58b868375961d24.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LAX3-C4"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "Ir7TgK-cL3yNM-3oVkHR6VZxzM1LtIFHx1nl8M9gWvekR8OLho8vkg=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"meta-llama/Llama-3-70b-chat-hf-2f684cae-7242-41b7-adaf-ffa9b2914ab8\",\n    \"object\": \"text_completion\",\n    \"created\": 1713803476,\n    \"model\": \"meta-llama/Llama-3-70b-chat-hf\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Here is an example program that loads data from Amazon S3 using Ray and trains a PyTorch model:\\n```\\nimport os\\nimport boto3\\nimport ray\\nfrom ray.data.datasource import S3DataSource\\nfrom ray.data.dataset import Dataset\\nimport torch\\nimport torch.nn as nn\\nimport torch.optim as optim\\n\\n# Initialize Ray\\nray.init()\\n\\n# Set up S3 credentials\\nAWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']\\nAWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']\\ns3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY_ID,\\n                         aws_secret_access_key=AWS_SECRET_ACCESS_KEY)\\n\\n# Define the S3 data source\\ns3_data_source = S3DataSource(bucket='my-bucket', prefix='data/')\\n\\n# Load the data from S3 into a Ray Dataset\\ndataset = Dataset(s3_data_source)\\n\\n# Define a PyTorch dataset class to load the data\\nclass MyDataset(torch.utils.data.Dataset):\\n    def __init__(self, dataset):\\n        self.dataset = dataset\\n\\n    def __len__(self):\\n        return len(self.dataset)\\n\\n    def __getitem__(self, idx):\\n        item = self.dataset[idx]\\n        # Assume the data is in CSV format\\n        data = item['data'].decode('utf-8').split(',')\\n        label = int(data[-1])\\n        data = torch.tensor([float(x) for x in data[:-1]])\\n        return data, label\\n\\n# Create a PyTorch dataset and data loader\\npytorch_dataset = MyDataset(dataset)\\nbatch_size = 32\\ndata_loader = torch.utils.data.DataLoader(pytorch_dataset, batch_size=batch_size, shuffle=True)\\n\\n# Define a PyTorch model\\nclass MyModel(nn.Module):\\n    def __init__(self):\\n        super(MyModel, self).__init__()\\n        self.fc1 = nn.Linear(784, 128)  # input layer (28x28 images) -> hidden layer (128 units)\\n        self.fc2 = nn.Linear(128, 10)  # hidden layer (128 units) -> output layer (10 units)\\n\\n    def forward(self, x):\\n        x = torch.relu(self.fc1(x))  # activation function for hidden layer\\n        x = self.fc2(x)\\n        return x\\n\\nmodel = MyModel()\\n\\n# Define a loss function and optimizer\\ncriterion = nn.CrossEntropyLoss()\\noptimizer = optim.SGD(model.parameters(), lr=0.01)\\n\\n# Train the model\\nfor epoch in range(10):  # loop over the dataset multiple times\\n    running_loss = 0.0\\n    for i, data in enumerate(data_loader, 0):\\n        inputs, labels = data\\n        optimizer.zero_grad()\\n\\n        # forward + backward + optimize\\n        outputs = model(inputs)\\n        loss = criterion(outputs, labels)\\n        loss.backward()\\n        optimizer.step()\\n\\n        running_loss += loss.item()\\n    print(f'Epoch {epoch+1}, Loss: {running_loss / i}')\\n\\n# Clean up\\nray.shutdown()\\n```\\nThis program assumes that you have already installed Ray and PyTorch, and that you have set up your AWS credentials as environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.\\n\\nHere's what the program does:\\n\\n1. It initializes Ray and sets up an S3 client using the `boto3` library.\\n2. It defines an S3 data source using the `S3DataSource` class from Ray, which loads data from an S3 bucket with a specific prefix.\\n3. It loads the data from S3 into a Ray `Dataset` object.\\n4. It defines a PyTorch dataset class `MyDataset` that loads the data from the Ray dataset and converts it into a format suitable for training a PyTorch model.\\n5. It creates a PyTorch dataset and data loader from the `MyDataset` object.\\n6. It defines a PyTorch model `MyModel`, a loss function, and an optimizer.\\n7. It trains the model using the data loader and optimizer.\\n8. Finally, it cleans up by shutting down Ray.\\n\\nNote that this is just an example program, and you will need to modify it to suit your specific use case. For example, you may need to modify the data loading and preprocessing steps, or change the architecture of the PyTorch model.\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 39,\n        \"completion_tokens\": 897,\n        \"total_tokens\": 936\n    }\n}"
 						}
 					]
 				}
@@ -2118,6 +2239,127 @@
 					]
 				},
 				{
+					"name": "meta-llama/Llama-3-70b-chat-hf",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiKey}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"meta-llama/Llama-3-70b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.endpoints.anyscale.com/v1/chat/completions",
+							"protocol": "https",
+							"host": [
+								"api",
+								"endpoints",
+								"anyscale",
+								"com"
+							],
+							"path": [
+								"v1",
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"meta-llama/Llama-3-70b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.endpoints.anyscale.com/v1/chat/completions",
+									"protocol": "https",
+									"host": [
+										"api",
+										"endpoints",
+										"anyscale",
+										"com"
+									],
+									"path": [
+										"v1",
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4149"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Apr 2024 16:31:16 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "x-request-id",
+									"value": "2f684cae-7242-41b7-adaf-ffa9b2914ab8"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 a52dcb1fed052adbd58b868375961d24.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LAX3-C4"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "Ir7TgK-cL3yNM-3oVkHR6VZxzM1LtIFHx1nl8M9gWvekR8OLho8vkg=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"meta-llama/Llama-3-70b-chat-hf-2f684cae-7242-41b7-adaf-ffa9b2914ab8\",\n    \"object\": \"text_completion\",\n    \"created\": 1713803476,\n    \"model\": \"meta-llama/Llama-3-70b-chat-hf\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Here is an example program that loads data from Amazon S3 using Ray and trains a PyTorch model:\\n```\\nimport os\\nimport boto3\\nimport ray\\nfrom ray.data.datasource import S3DataSource\\nfrom ray.data.dataset import Dataset\\nimport torch\\nimport torch.nn as nn\\nimport torch.optim as optim\\n\\n# Initialize Ray\\nray.init()\\n\\n# Set up S3 credentials\\nAWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']\\nAWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']\\ns3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY_ID,\\n                         aws_secret_access_key=AWS_SECRET_ACCESS_KEY)\\n\\n# Define the S3 data source\\ns3_data_source = S3DataSource(bucket='my-bucket', prefix='data/')\\n\\n# Load the data from S3 into a Ray Dataset\\ndataset = Dataset(s3_data_source)\\n\\n# Define a PyTorch dataset class to load the data\\nclass MyDataset(torch.utils.data.Dataset):\\n    def __init__(self, dataset):\\n        self.dataset = dataset\\n\\n    def __len__(self):\\n        return len(self.dataset)\\n\\n    def __getitem__(self, idx):\\n        item = self.dataset[idx]\\n        # Assume the data is in CSV format\\n        data = item['data'].decode('utf-8').split(',')\\n        label = int(data[-1])\\n        data = torch.tensor([float(x) for x in data[:-1]])\\n        return data, label\\n\\n# Create a PyTorch dataset and data loader\\npytorch_dataset = MyDataset(dataset)\\nbatch_size = 32\\ndata_loader = torch.utils.data.DataLoader(pytorch_dataset, batch_size=batch_size, shuffle=True)\\n\\n# Define a PyTorch model\\nclass MyModel(nn.Module):\\n    def __init__(self):\\n        super(MyModel, self).__init__()\\n        self.fc1 = nn.Linear(784, 128)  # input layer (28x28 images) -> hidden layer (128 units)\\n        self.fc2 = nn.Linear(128, 10)  # hidden layer (128 units) -> output layer (10 units)\\n\\n    def forward(self, x):\\n        x = torch.relu(self.fc1(x))  # activation function for hidden layer\\n        x = self.fc2(x)\\n        return x\\n\\nmodel = MyModel()\\n\\n# Define a loss function and optimizer\\ncriterion = nn.CrossEntropyLoss()\\noptimizer = optim.SGD(model.parameters(), lr=0.01)\\n\\n# Train the model\\nfor epoch in range(10):  # loop over the dataset multiple times\\n    running_loss = 0.0\\n    for i, data in enumerate(data_loader, 0):\\n        inputs, labels = data\\n        optimizer.zero_grad()\\n\\n        # forward + backward + optimize\\n        outputs = model(inputs)\\n        loss = criterion(outputs, labels)\\n        loss.backward()\\n        optimizer.step()\\n\\n        running_loss += loss.item()\\n    print(f'Epoch {epoch+1}, Loss: {running_loss / i}')\\n\\n# Clean up\\nray.shutdown()\\n```\\nThis program assumes that you have already installed Ray and PyTorch, and that you have set up your AWS credentials as environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.\\n\\nHere's what the program does:\\n\\n1. It initializes Ray and sets up an S3 client using the `boto3` library.\\n2. It defines an S3 data source using the `S3DataSource` class from Ray, which loads data from an S3 bucket with a specific prefix.\\n3. It loads the data from S3 into a Ray `Dataset` object.\\n4. It defines a PyTorch dataset class `MyDataset` that loads the data from the Ray dataset and converts it into a format suitable for training a PyTorch model.\\n5. It creates a PyTorch dataset and data loader from the `MyDataset` object.\\n6. It defines a PyTorch model `MyModel`, a loss function, and an optimizer.\\n7. It trains the model using the data loader and optimizer.\\n8. Finally, it cleans up by shutting down Ray.\\n\\nNote that this is just an example program, and you will need to modify it to suit your specific use case. For example, you may need to modify the data loading and preprocessing steps, or change the architecture of the PyTorch model.\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 39,\n        \"completion_tokens\": 897,\n        \"total_tokens\": 936\n    }\n}"
+						}
+					]
+				},
+				{
 					"name": "codellama/CodeLlama-70b-Instruct-hf",
 					"request": {
 						"method": "POST",
@@ -2419,6 +2661,107 @@
 							"body": "{\n    \"id\": \"mistralai/Mixtral-8x7B-Instruct-v0.1-e6f11fa9-78eb-40d1-9b64-9fed79c70acc\",\n    \"object\": \"text_completion\",\n    \"created\": 1711930094,\n    \"model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" Sure, here is a simple example of how you can use Ray and PyTorch to load data from S3 and train a model. In this example, we will use the MNIST dataset.\\n\\nFirst, you need to install Ray and PyTorch. You can install Ray using pip:\\n\\n```bash\\npip install ray\\n```\\n\\nAnd you can install PyTorch from the PyTorch website: <https://pytorch.org/>\\n\\nHere is the Python program:\\n\\n```python\\nimport os\\nimport torch\\nfrom torchvision import datasets, transforms\\nimport ray\\nfrom ray.train.torch import TorchTrainer\\n\\n# Initialize Ray\\nray.init()\\n\\n# Define a transform to normalize the images\\ntransform = transforms.Compose([transforms.ToTensor(),\\n                                transforms.Normalize((0.5,), (0.5,))])\\n\\n# Define a function to load the data from S3\\n@ray.remote\\ndef load_data():\\n    train_data = datasets.MNIST('../data', train=True, download=True,\\n                               transform=transform)\\n    test_data = datasets.MNIST('../data', train=False, download=True,\\n                              transform=transform)\\n    return train_data, test_data\\n\\n# Call the function to load the data\\n(train_data, test_data) = ray.get(load_data.remote())\\n\\n# Define a simple PyTorch model\\nclass SimpleModel(torch.nn.Module):\\n    def __init__(self):\\n        super(SimpleModel, self).__init__()\\n        self.fc1 = torch.nn.Linear(28 * 28, 128)\\n        self.fc2 = torch.nn.Linear(128, 64)\\n        self.fc3 = torch.nn.Linear(64, 10)\\n\\n    def forward(self, x):\\n        x = x.view(-1, 28 * 28)\\n        x = torch.nn.functional.relu(self.fc1(x))\\n        x = torch.nn.functional.relu(self.fc2(x))\\n        x = self.fc3(x)\\n        return x\\n\\n# Initialize the model\\nmodel = SimpleModel()\\n\\n# Define a PyTorch training function\\ndef train(model, criterion, optimizer, data_loader):\\n    size = len(data_loader.dataset)\\n    model.train()\\n    for batch, (X, y) in enumerate(data_loader):\\n        X, y = X.to(model.device), y.to(model.device)\\n\\n        # Compute loss\\n        predictions = model(X)\\n        loss = criterion(predictions, y)\\n\\n        # Backpropagate loss\\n        optimizer.zero_grad()\\n        loss.backward()\\n\\n        # Update weights\\n        optimizer.step()\\n\\n        if batch % 100 == 0:\\n            loss, current = loss.item(), batch * len(X)\\n            print(f'loss: {loss:>7f}  [{current:>5d}/{size:>5d}]')\\n\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 33,\n        \"completion_tokens\": 746,\n        \"total_tokens\": 779\n    }\n}"
 						}
 					]
+				},
+				{
+					"name": "mistralai/Mixtral-8x22B-Instruct-v0.1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"mistralai/Mixtral-8x22B-Instruct-v0.1\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"mistralai/Mixtral-8x22B-Instruct-v0.1\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are a helpful assistant.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a program to load data from S3 with Ray and train using PyTorch.\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3810"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 21 Apr 2024 03:47:14 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "x-request-id",
+									"value": "486ed6ac-0ba2-4fbf-b16a-c8d090decb1d"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 26a85c7937c20b15e763990333e888f0.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LAX3-C4"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "-QgjO9jXTwPsObS1EG9v5Qc82kOJgPgJFRwxxSEh46tVx1K5e2dYAw=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"mistralai/Mixtral-8x22B-Instruct-v0.1-486ed6ac-0ba2-4fbf-b16a-c8d090decb1d\",\n    \"object\": \"text_completion\",\n    \"created\": 1713671234,\n    \"model\": \"mistralai/Mixtral-8x22B-Instruct-v0.1\",\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" Sure, here is a basic example of how you might structure your program to load data from S3 using the `s3fs` library, and then use Ray for distributed training with PyTorch.\\n\\nFirst, you need to install the necessary libraries. You can do this using pip:\\n\\n```bash\\npip install ray torch torchvision s3fs\\n```\\n\\nHere is a basic structure of the program:\\n\\n```python\\nimport s3fs\\nimport torch\\nimport torch.distributed as dist\\nimport torch.multiprocessing as mp\\nimport torch.nn as nn\\nimport torch.optim as optim\\nimport torchvision.transforms as transforms\\nfrom torch.utils.data import DataLoader\\nfrom torchvision.datasets import ImageFolder\\nfrom torch.nn.parallel import DistributedDataParallel\\n\\nimport ray\\nfrom ray.util.queue import Queue\\nfrom ray.util.multiprocessing import Pool\\n\\nray.init()\\n\\n# Define your model\\nclass SimpleModel(nn.Module):\\n    def __init__(self):\\n        super(SimpleModel, self).__init__()\\n        self.conv1 = nn.Conv2d(3, 6, 5)\\n        self.pool = nn.MaxPool2d(2, 2)\\n        self.conv2 = nn.Conv2d(6, 16, 5)\\n        self.fc1 = nn.Linear(16 * 5 * 5, 120)\\n        self.fc2 = nn.Linear(120, 84)\\n        self.fc3 = nn.Linear(84, 10)\\n\\n    def forward(self, x):\\n        x = self.pool(F.relu(self.conv1(x)))\\n        x = self.pool(F.relu(self.conv2(x)))\\n        x = x.view(-1, 16 * 5 * 5)\\n        x = F.relu(self.fc1(x))\\n        x = F.relu(self.fc2(x))\\n        x = self.fc3(x)\\n        return x\\n\\ndef load_data(data_dir):\\n    fs = s3fs.S3FileSystem()\\n    transform=transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])\\n    dataset = ImageFolder(data_dir, transform=transform)\\n    return dataset\\n\\ndef train(rank, world_size, data_queue):\\n    model = SimpleModel()\\n    optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)\\n\\n    model = model.to(rank)\\n    model = DistributedDataParallel(model, device_ids=[rank], output_device=rank)\\n\\n    for epoch in range(10):\\n        for data in data_queue.get():\\n            inputs, labels = data\\n            inputs, labels = inputs.to(rank), labels.to(rank)\\n\\n            optimizer.zero_grad()\\n            outputs = model(inputs)\\n            loss = nn.functional.cross_entropy(outputs, labels)\\n            loss.backward()\\n            optimizer.step()\\n\\ndef main():\\n    world_size = 2  # Replace this with the number of GPUs you have\\n    data_dir = \\\"s3://my-bucket/my-data\\\"  # Replace this with your S3 data directory\\n\\n    dataset = load_data(data_dir)\\n    data_queue = Queue()\\n\\n    for data in DataLoader(dataset, batch_size=32, shuffle=True):\\n        data_queue.put(data)\\n\\n    mp.spawn(train, args=(world_size, data_queue), nprocs=world_size, join=True)\\n\\nif __name__ == \\\"__main__\\\":\\n    main()\\n```\\n\\nThis is a very basic example and might need to be adjusted to fit your specific use case. It assumes that you have a directory structure in S3 that matches what is expected by `ImageFolder`. It also assumes that you have set up your environment for distributed data parallelism as outlined in the PyTorch documentation.\\n\\nPlease replace `s3://my-bucket/my-data` with your actual S3 path, and adjust the `world_size` variable to match the number of GPUs you have available.\\n\\nAlso, please note that this example does not include any data validation or error handling, so you might want to add that in a production setting.\",\n                \"tool_calls\": null,\n                \"tool_call_id\": null\n            },\n            \"index\": 0,\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 28,\n        \"completion_tokens\": 1065,\n        \"total_tokens\": 1093\n    }\n}"
+						}
+					]
 				}
 			]
 		},
@@ -2491,7 +2834,8 @@
 							"variable": [
 								{
 									"key": "file",
-									"value": ""
+									"value": "",
+									"uuid": "e1e5dfef-c87c-44b8-83b9-03a08be26705"
 								}
 							]
 						}
@@ -2516,7 +2860,8 @@
 							"variable": [
 								{
 									"key": "file",
-									"value": ""
+									"value": "",
+									"uuid": "8d8f1ef9-0db5-43ac-9b0f-71b30928479f"
 								}
 							]
 						}
@@ -2540,7 +2885,8 @@
 							"variable": [
 								{
 									"key": "file",
-									"value": ""
+									"value": "",
+									"uuid": "e0caeb74-ccf3-49ad-8cf9-00af94e1e769"
 								}
 							]
 						}
@@ -2615,7 +2961,8 @@
 							"variable": [
 								{
 									"key": "job",
-									"value": ""
+									"value": "",
+									"uuid": "e2514568-c2fd-431f-88a7-da0d2206ad4c"
 								}
 							]
 						}
@@ -2641,7 +2988,8 @@
 							"variable": [
 								{
 									"key": "job",
-									"value": ""
+									"value": "",
+									"uuid": "340bd2e1-7b02-42f9-a910-3804f13b2697"
 								}
 							]
 						}

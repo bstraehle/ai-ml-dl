@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "0c4e9448-1031-4c77-b62b-f9b3b45cde48",
 		"name": "📌 AI21 Labs API",
-		"description": "### Prerequisites\n\n- Postman\n- AI21 Labs Account: [https://studio.ai21.com/](https://studio.ai21.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.ai21.com/reference](https://docs.ai21.com/reference)\n- Models: [https://studio.ai21.com/models](https://studio.ai21.com/models)\n    \n\n### Models\n\nJurrasic (j2-ultra, j2-mid, j2-light)\n\n### About AI21 Labs\n\nAI lab & product company whose mission is to reimagine the way we read and write by making the machine a thought partner to humans.",
+		"description": "### Prerequisites\n\n- Postman\n- AI21 Labs Account: [https://studio.ai21.com/](https://studio.ai21.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.ai21.com/reference](https://docs.ai21.com/reference)\n- Models: [https://studio.ai21.com/models](https://studio.ai21.com/models)\n    \n\n### Models\n\nJamba and Jurrasic (j2-ultra, j2-mid, j2-light)\n\n### About AI21 Labs\n\nAI lab & product company whose mission is to reimagine the way we read and write by making the machine a thought partner to humans.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
 		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-0c4e9448-1031-4c77-b62b-f9b3b45cde48?action=share&source=collection_link&creator=7643177"
@@ -232,6 +232,119 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": \"1cda3b91-25fe-41e3-5ade-d63756aa34f6\",\n    \"answerInContext\": true,\n    \"answer\": \"GPT-4 is a very large multimodal model with human-level performance on certain difficult professional and academic benchmarks.\",\n    \"sources\": [\n        {\n            \"fileId\": \"1101a596-7abd-4b7e-a4bb-5f646b5bf5ad\",\n            \"name\": \"GPT-4.pdf\",\n            \"highlights\": [\n                \"\\nWe report the development of GPT-4, a large-scale, multimodal model\\nwhich can accept image and text inputs and produce text outputs. While\\nless capable than humans in many real-world scenarios, GPT-4 exhibits\\nhuman-level performance on various professional and academic benchmarks,\\nincluding passing a simulated bar exam with a score around the top 10%\\nof test takers. GPT-4 is a Transformer- based model pre-trained to\\npredict the next token in a document. The post-training alignment\\nprocess results in improved performance on measures of factuality and\\nadherence to desired behavior. A core component of this project was\\ndeveloping infrastructure and optimization methods that behave\\npredictably across a wide range of scales. This allowed us to accurately\\npredict some aspects of GPT-4’s performance based on models trained with\\nno more than 1/1,000th the compute of GPT-4.\\n\",\n                \"\\nWe characterize GPT-4, a large multimodal model with human-level\\nperformance on certain difficult professional and academic benchmarks.\\nGPT-4 outperforms existing large language models on a collection of NLP\\ntasks, and exceeds the vast majority of reported state-of-the-art\\nsystems (which often include task-specific fine-tuning). We find that\\nimproved capabilities, whilst usually measured in English, can be\\ndemonstrated in many different languages. We highlight how predictable\\nscaling allowed us to make accurate predictions on the loss and\\ncapabilities of GPT-4.\\nGPT-4 presents new risks due to increased capability, and we discuss\\nsome of the methods and results taken to understand and improve its\\nsafety and alignment. Though there remains much work to be done, GPT-4\\nrepresents a significant step towards broadly useful and safely deployed\\nAI systems.\\n\",\n                \"\\nThis report focuses on the capabilities, limitations, and safety\\nproperties of GPT-4. GPT-4 is a Transformer-style model [39] pre-trained to predict the next token in a\\ndocument, using both publicly available data (such as internet data) and\\ndata licensed from third-party providers. The model was then fine-tuned\\nusing Reinforcement Learning from Human Feedback (RLHF) [40]. Given both the competitive landscape and\\nthe safety implications of large-scale models like GPT-4, this report\\ncontains no further details about the architecture (including model\\nsize), hardware, training compute, dataset construction, training\\nmethod, or similar.\\nWe are committed to independent auditing of our technologies, and\\nshared some initial steps and ideas in this area in the system card\\naccompanying this release.2 We plan\\nto make further technical details available to additional third parties\\nwho can advise us on how to weigh the competitive and safety\\nconsiderations above against the scientific value of further\\ntransparency.\\n\"\n            ],\n            \"publicUrl\": null,\n            \"labels\": []\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"jamba-instruct-preview\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"jamba-instruct-preview\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 03 May 2024 13:56:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "request-id",
+									"value": "2756a16e-fd68-ced8-e384-410a9bded37f"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=ZBVHPj17K4c%2BE2OA%2F1NVOVCSPOHqJVI3YEAluVtl1z8XzjUGxFPzf8LzKaX59QwXQFeZdDUrEKbT5a5dEvJmVtG2t21IfnTCZpplxDSnJRiWbpP%2BXl%2Fge3Pg8dZSRA%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "87e0c10eecfc320f-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"cmpl-c8b8e905a9e84be38253174671ddede4\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low latency large language models (LLMs) are important because they can process and generate responses quickly, which is essential for many real-time applications such as natural language processing, speech recognition, and machine translation. Low latency also allows for more efficient use of resources, as the model can process more requests in a shorter amount of time. Additionally, low latency can improve the user experience by reducing the delay between the user's input and the model's response.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 106,\n        \"completion_tokens\": 97,\n        \"total_tokens\": 203\n    }\n}"
 						}
 					]
 				}
@@ -640,7 +753,7 @@
 			"name": "Chat",
 			"item": [
 				{
-					"name": "Chat",
+					"name": "j2-ultra",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -749,6 +862,119 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": \"8af9756e-150f-b307-151c-3cfdcaa0bd83\",\n    \"outputs\": [\n        {\n            \"text\": \"As a business research AI assistant, I can provide information and guidance on crafting a market analysis tool specifically for fintech leaders. Firstly, it's essential to conduct a thorough analysis of your target market, including researching fintech industry trends, identifying key competitors, and conducting customer segmentation to identify potential users.\\n\\nNext, you'll need to gather relevant data and insights. This could include market statistics, financial metrics, customer preferences, regulatory changes, technological advancements, and market trends. This can be done through online surveys, focus groups, interviews, data analysis, and industry reports.\\n\\nOnce armed with this information, you can start creating your market analysis tool. This could include dashboards, graphs, charts, and tables that synthesize the data collected into actionable insights. The tool should be intuitive, easy to navigate, and provide clear recommendations for fintech leaders based on the data presented.\\n\\nFinally, it's important to regularly update and refine your market analysis tool. Fintech is a dynamic industry, and staying on top of the latest trends and developments is crucial for providing valuable guidance to fintech leaders.\",\n            \"role\": \"assistant\",\n            \"finishReason\": {\n                \"reason\": \"endoftext\",\n                \"length\": null,\n                \"sequence\": null\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "jamba-instruct-preview",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"jamba-instruct-preview\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"jamba-instruct-preview\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 03 May 2024 13:56:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "request-id",
+									"value": "2756a16e-fd68-ced8-e384-410a9bded37f"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=ZBVHPj17K4c%2BE2OA%2F1NVOVCSPOHqJVI3YEAluVtl1z8XzjUGxFPzf8LzKaX59QwXQFeZdDUrEKbT5a5dEvJmVtG2t21IfnTCZpplxDSnJRiWbpP%2BXl%2Fge3Pg8dZSRA%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "87e0c10eecfc320f-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"cmpl-c8b8e905a9e84be38253174671ddede4\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low latency large language models (LLMs) are important because they can process and generate responses quickly, which is essential for many real-time applications such as natural language processing, speech recognition, and machine translation. Low latency also allows for more efficient use of resources, as the model can process more requests in a shorter amount of time. Additionally, low latency can improve the user experience by reducing the delay between the user's input and the model's response.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 106,\n        \"completion_tokens\": 97,\n        \"total_tokens\": 203\n    }\n}"
 						}
 					]
 				}
@@ -1500,7 +1726,8 @@
 							"variable": [
 								{
 									"key": "custom_model",
-									"value": ""
+									"value": "",
+									"uuid": "6c7dbec8-e57e-40df-a6d8-29393deb37f1"
 								}
 							]
 						}
@@ -1534,7 +1761,8 @@
 							"variable": [
 								{
 									"key": "custom_model",
-									"value": ""
+									"value": "",
+									"uuid": "32ead504-3ea4-47b8-b726-5318903bdbc1"
 								}
 							]
 						}
@@ -1567,7 +1795,8 @@
 							"variable": [
 								{
 									"key": "custom_model",
-									"value": ""
+									"value": "",
+									"uuid": "06f40aa1-fc2b-4cfc-8e10-a6f144cb64b3"
 								}
 							]
 						}
