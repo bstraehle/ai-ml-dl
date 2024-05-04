@@ -1,1 +1,1 @@
-https://hf.co/chat/assistant/65c0273723688634d5f327fe  
+https://watsonx-assistant.s3.us-west-2.amazonaws.com/index.html  
