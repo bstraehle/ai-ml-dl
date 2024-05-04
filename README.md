@@ -1,16 +1,21 @@
 ### Learning resources I have used and recommend
 
-https://www.deeplearning.ai/courses/  
-https://www.deeplearning.ai/short-courses/  
+Videos:  
 
-https://www.wandb.courses/pages/w-b-courses/  
+- https://www.deeplearning.ai/courses/  
+- https://www.deeplearning.ai/short-courses/  
+- https://www.wandb.courses/pages/w-b-courses/  
+- https://www.coursera.org/professional-certificates/applied-artifical-intelligence-ibm-watson-ai  
 
-https://www.coursera.org/professional-certificates/applied-artifical-intelligence-ibm-watson-ai
+Books:  
 
-https://huggingface.co/learn/cookbook/index  
+- <a href='https://www.amazon.com/Generative-AWS-Context-Aware-Multimodal-Applications/dp/1098159225/ref=sr_1_1'>Generative AI on AWS: Building Context-Aware Multimodal Reasoning Applications</a>  
+- <a href='https://www.amazon.com/Conversational-AI-Chatbots-that-work'>Conversational AI: Chatbots that work</a>  
 
-Book: <a href='https://www.amazon.com/Generative-AWS-Context-Aware-Multimodal-Applications/dp/1098159225/ref=sr_1_1'>Generative AI on AWS: Building Context-Aware Multimodal Reasoning Applications</a>  
+Notebooks:  
+
+- https://huggingface.co/learn/cookbook/index  
 
 ### Additional learning resources
 
-https://github.com/aishwaryanr/awesome-generative-ai-guide?tab=readme-ov-file#book-list-of-free-genai-courses  
+- https://github.com/aishwaryanr/awesome-generative-ai-guide?tab=readme-ov-file#book-list-of-free-genai-courses  
