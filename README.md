@@ -19,3 +19,8 @@ Notebooks:
 ### Additional learning resources
 
 - https://github.com/aishwaryanr/awesome-generative-ai-guide?tab=readme-ov-file#book-list-of-free-genai-courses  
+
+### Personal projects
+
+- https://github.com/bstraehle/ai-ml-dl/tree/main/apis  
+- https://github.com/bstraehle/ai-ml-dl/tree/main/hugging-face  
