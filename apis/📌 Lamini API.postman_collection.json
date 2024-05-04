@@ -915,7 +915,8 @@
 							"variable": [
 								{
 									"key": "job",
-									"value": ""
+									"value": "",
+									"uuid": "35cd5aa5-5878-40a6-982e-40f356997518"
 								}
 							]
 						}
@@ -942,7 +943,8 @@
 							"variable": [
 								{
 									"key": "job",
-									"value": ""
+									"value": "",
+									"uuid": "89c335b7-8940-4f47-8353-1ff484cd416b"
 								}
 							]
 						}
@@ -968,7 +970,8 @@
 							"variable": [
 								{
 									"key": "job",
-									"value": ""
+									"value": "",
+									"uuid": "a54d7bee-5577-4e0b-89b1-19741440cdf0"
 								}
 							]
 						}

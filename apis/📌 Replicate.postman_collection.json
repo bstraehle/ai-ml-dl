@@ -1,0 +1,885 @@
+{
+	"info": {
+		"_postman_id": "9667bf7c-7af3-4cb8-bae6-9159d8ba2ce0",
+		"name": "📌 Replicate",
+		"description": "### Prerequisites\n\n- Postman\n- Replicate Account: [https://replicate.com/](https://replicate.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://replicate.com/docs/reference/http](https://replicate.com/docs/reference/http)\n- Models: [https://replicate.com/explore?utm_source=dashboard-models](https://replicate.com/explore?utm_source=dashboard-models)\n    \n\n### Models\n\n50+ models, including Llama (by Meta AI, open-weight) and Mixtral (by Mistral AI, open-weight).\n\n### About Replicate\n\nWe’re making machine learning accessible to every software developer.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7643177",
+		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-9667bf7c-7af3-4cb8-bae6-9159d8ba2ce0?action=share&source=collection_link&creator=7643177"
+	},
+	"item": [
+		{
+			"name": "meta/meta-llama-3-8b-instruct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"input\": {\r\n        \"top_p\": 0.9,\r\n        \"prompt\": \"Work through this problem step by step:\\n\\nQ: Sarah has 7 llamas. Her friend gives her 3 more trucks of llamas. Each truck has 5 llamas. How many llamas does Sarah have in total?\",\r\n        \"max_tokens\": 512,\r\n        \"min_tokens\": 0,\r\n        \"temperature\": 0.6,\r\n        \"prompt_template\": \"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n\",\r\n        \"presence_penalty\": 1.15,\r\n        \"frequency_penalty\": 0.2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/models/meta/meta-llama-3-8b-instruct/predictions",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"models",
+						"meta",
+						"meta-llama-3-8b-instruct",
+						"predictions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input\": {\r\n        \"top_p\": 0.9,\r\n        \"prompt\": \"Work through this problem step by step:\\n\\nQ: Sarah has 7 llamas. Her friend gives her 3 more trucks of llamas. Each truck has 5 llamas. How many llamas does Sarah have in total?\",\r\n        \"max_tokens\": 512,\r\n        \"min_tokens\": 0,\r\n        \"temperature\": 0.6,\r\n        \"prompt_template\": \"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n\",\r\n        \"presence_penalty\": 1.15,\r\n        \"frequency_penalty\": 0.2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/meta/meta-llama-3-8b-instruct/predictions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								"meta",
+								"meta-llama-3-8b-instruct",
+								"predictions"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 20 Apr 2024 18:01:49 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1031"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "ratelimit-remaining",
+							"value": "599"
+						},
+						{
+							"key": "ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "via",
+							"value": "1.1 google"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=yh8dTaD89LnfKa2fNMkJNCGWktoB%2F%2FkpFrs44%2FXtB1qScSPyofjtRszNUGiNPJK3xJkt6StTLBIA6hDOW7yAwEjM6T8iOhgXeAKDx3wXj3%2BhNrJd%2BPoXVF8ipSkToTBiA9ue\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "87770ab4fd312ad7-LAX"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"dhbnyxqdhhrgp0cezjnsfba77r\",\n    \"model\": \"replicate-internal/llama-3-8b-instruct-int8-triton\",\n    \"version\": \"dp-a557b7387b4940df25b23f779dc534c4\",\n    \"input\": {\n        \"frequency_penalty\": 0.2,\n        \"max_tokens\": 512,\n        \"min_tokens\": 0,\n        \"presence_penalty\": 1.15,\n        \"prompt\": \"Work through this problem step by step:\\n\\nQ: Sarah has 7 llamas. Her friend gives her 3 more trucks of llamas. Each truck has 5 llamas. How many llamas does Sarah have in total?\",\n        \"prompt_template\": \"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n\",\n        \"temperature\": 0.6,\n        \"top_p\": 0.9\n    },\n    \"logs\": \"\",\n    \"error\": null,\n    \"status\": \"starting\",\n    \"created_at\": \"2024-04-20T18:01:49.708Z\",\n    \"urls\": {\n        \"cancel\": \"https://api.replicate.com/v1/predictions/dhbnyxqdhhrgp0cezjnsfba77r/cancel\",\n        \"get\": \"https://api.replicate.com/v1/predictions/dhbnyxqdhhrgp0cezjnsfba77r\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "meta/meta-llama-3-8b-instruct",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.replicate.com/v1/predictions/:prediction_id",
+					"protocol": "https",
+					"host": [
+						"api",
+						"replicate",
+						"com"
+					],
+					"path": [
+						"v1",
+						"predictions",
+						":prediction_id"
+					],
+					"variable": [
+						{
+							"key": "prediction_id",
+							"value": "dhbnyxqdhhrgp0cezjnsfba77r",
+							"uuid": "5d6a57cb-22db-4517-b070-6fc3b7be92cb"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.replicate.com/v1/predictions/:prediction_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"replicate",
+								"com"
+							],
+							"path": [
+								"v1",
+								"predictions",
+								":prediction_id"
+							],
+							"variable": [
+								{
+									"key": "prediction_id",
+									"value": "dhbnyxqdhhrgp0cezjnsfba77r"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 20 Apr 2024 18:14:09 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "ratelimit-remaining",
+							"value": "59999"
+						},
+						{
+							"key": "ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "via",
+							"value": "1.1 google"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=kRH70Iu1LVNRZswNxoRQ7bgmakQFbG7XXndKlRTpYJ6tKajY8FxMjth7Ei4alCCXDYaObsGzCRJ8KV%2FXDKm9LmcCKU3ZgKV9MgKXBvZcxlqGANFoTQzca0Rf%2BiFag25gr3s7\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "87771cc6bb882b82-LAX"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"dhbnyxqdhhrgp0cezjnsfba77r\",\n    \"model\": \"replicate-internal/llama-3-8b-instruct-int8-triton\",\n    \"version\": \"dp-a557b7387b4940df25b23f779dc534c4\",\n    \"input\": {\n        \"frequency_penalty\": 0.2,\n        \"max_tokens\": 512,\n        \"min_tokens\": 0,\n        \"presence_penalty\": 1.15,\n        \"prompt\": \"Work through this problem step by step:\\n\\nQ: Sarah has 7 llamas. Her friend gives her 3 more trucks of llamas. Each truck has 5 llamas. How many llamas does Sarah have in total?\",\n        \"prompt_template\": \"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n\",\n        \"temperature\": 0.6,\n        \"top_p\": 0.9\n    },\n    \"logs\": \"Random seed used: `22331`\\nNote: Random seed will not impact output if greedy decoding is used.\\nFormatted prompt: `<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\nWork through this problem step by step:\\n\\nQ: Sarah has 7 llamas. Her friend gives her 3 more trucks of llamas. Each truck has 5 llamas. How many llamas does Sarah have in total?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n`Random seed used: `22331`\\nNote: Random seed will not impact output if greedy decoding is used.\\nFormatted prompt: `<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\nWork through this problem step by step:\\n\\nQ: Sarah has 7 llamas. Her friend gives her 3 more trucks of llamas. Each truck has 5 llamas. How many llamas does Sarah have in total?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n`\",\n    \"output\": [\n        \"Let\",\n        \"'s\",\n        \" break\",\n        \" down\",\n        \" the\",\n        \" problem\",\n        \" step\",\n        \" by\",\n        \" step\",\n        \":\\n\\n\",\n        \"1\",\n        \".\",\n        \" Sarah\",\n        \" initially\",\n        \" has\",\n        \" \",\n        \"7\",\n        \" ll\",\n        \"amas\",\n        \".\\n\",\n        \"2\",\n        \".\",\n        \" Her\",\n        \" friend\",\n        \" gives\",\n        \" her\",\n        \" \",\n        \"3\",\n        \" more\",\n        \" trucks\",\n        \" of\",\n        \" ll\",\n        \"amas\",\n        \".\\n\",\n        \"3\",\n        \".\",\n        \" Each\",\n        \" truck\",\n        \" has\",\n        \" \",\n        \"5\",\n        \" ll\",\n        \"amas\",\n        \",\",\n        \" so\",\n        \" the\",\n        \" total\",\n        \" number\",\n        \" of\",\n        \" ll\",\n        \"amas\",\n        \" in\",\n        \" the\",\n        \" \",\n        \"3\",\n        \" trucks\",\n        \" is\",\n        \":\\n\",\n        \"3\",\n        \" trucks\",\n        \" x\",\n        \" \",\n        \"5\",\n        \" ll\",\n        \"amas\",\n        \"/tr\",\n        \"uck\",\n        \" =\",\n        \" \",\n        \"15\",\n        \" ll\",\n        \"amas\",\n        \"\\n\",\n        \"4\",\n        \".\",\n        \" Adding\",\n        \" the\",\n        \" \",\n        \"15\",\n        \" ll\",\n        \"amas\",\n        \" from\",\n        \" the\",\n        \" \",\n        \"3\",\n        \" trucks\",\n        \" to\",\n        \" the\",\n        \" initial\",\n        \" \",\n        \"7\",\n        \" ll\",\n        \"amas\",\n        \",\",\n        \" Sarah\",\n        \" now\",\n        \" has\",\n        \" a\",\n        \" total\",\n        \" of\",\n        \":\\n\",\n        \"7\",\n        \" ll\",\n        \"amas\",\n        \" +\",\n        \" \",\n        \"15\",\n        \" ll\",\n        \"amas\",\n        \" =\",\n        \" \",\n        \"22\",\n        \" ll\",\n        \"amas\",\n        \"\\n\\n\",\n        \"Therefore\",\n        \",\",\n        \" Sarah\",\n        \" has\",\n        \" a\",\n        \" total\",\n        \" of\",\n        \" \",\n        \"22\",\n        \" ll\",\n        \"amas\",\n        \".\"\n    ],\n    \"error\": null,\n    \"status\": \"succeeded\",\n    \"created_at\": \"2024-04-20T18:01:49.708Z\",\n    \"started_at\": \"2024-04-20T18:01:49.707958628Z\",\n    \"completed_at\": \"2024-04-20T18:01:50.702741627Z\",\n    \"urls\": {\n        \"cancel\": \"https://api.replicate.com/v1/predictions/dhbnyxqdhhrgp0cezjnsfba77r/cancel\",\n        \"get\": \"https://api.replicate.com/v1/predictions/dhbnyxqdhhrgp0cezjnsfba77r\"\n    },\n    \"metrics\": {\n        \"input_token_count\": 54,\n        \"output_token_count\": 113,\n        \"time_to_first_token\": 0.030060459,\n        \"tokens_per_second\": 117.13212441958764\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "meta/meta-llama-3-70b-instruct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"input\": {\r\n        \"top_p\": 0.9,\r\n        \"prompt\": \"Work through this problem step by step:\\n\\nQ: Sarah has 7 llamas. Her friend gives her 3 more trucks of llamas. Each truck has 5 llamas. How many llamas does Sarah have in total?\",\r\n        \"max_tokens\": 512,\r\n        \"min_tokens\": 0,\r\n        \"temperature\": 0.6,\r\n        \"prompt_template\": \"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n\",\r\n        \"presence_penalty\": 1.15,\r\n        \"frequency_penalty\": 0.2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/models/meta/meta-llama-3-70b-instruct/predictions",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"models",
+						"meta",
+						"meta-llama-3-70b-instruct",
+						"predictions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input\": {\r\n        \"top_p\": 0.9,\r\n        \"prompt\": \"Work through this problem step by step:\\n\\nQ: Sarah has 7 llamas. Her friend gives her 3 more trucks of llamas. Each truck has 5 llamas. How many llamas does Sarah have in total?\",\r\n        \"max_tokens\": 512,\r\n        \"min_tokens\": 0,\r\n        \"temperature\": 0.6,\r\n        \"prompt_template\": \"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n\",\r\n        \"presence_penalty\": 1.15,\r\n        \"frequency_penalty\": 0.2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/meta/meta-llama-3-70b-instruct/predictions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								"meta",
+								"meta-llama-3-70b-instruct",
+								"predictions"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 20 Apr 2024 17:55:01 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1032"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "ratelimit-remaining",
+							"value": "599"
+						},
+						{
+							"key": "ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "via",
+							"value": "1.1 google"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=mU5a%2FQJ59tJPV3VpyADdKQGdhwagLHwbOcs7qC4Xqoc%2FSZ2mngOQxWmFSh1V0SvnKDKwKZX1yd1g5VX4iZ35txjKOK%2BiOZY%2Bj%2BlpasVdeO9XvSnM34ry9ZMT0gcP4W%2FWIb%2FW\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "877700bacbd22ad7-LAX"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"xvkxa35hrhrgp0cezjjtemdrbw\",\n    \"model\": \"replicate-internal/llama3-70b-chat-vllm-unquantized\",\n    \"version\": \"dp-cf04fe09351e25db628e8b6181276547\",\n    \"input\": {\n        \"frequency_penalty\": 0.2,\n        \"max_tokens\": 512,\n        \"min_tokens\": 0,\n        \"presence_penalty\": 1.15,\n        \"prompt\": \"Work through this problem step by step:\\n\\nQ: Sarah has 7 llamas. Her friend gives her 3 more trucks of llamas. Each truck has 5 llamas. How many llamas does Sarah have in total?\",\n        \"prompt_template\": \"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n\",\n        \"temperature\": 0.6,\n        \"top_p\": 0.9\n    },\n    \"logs\": \"\",\n    \"error\": null,\n    \"status\": \"starting\",\n    \"created_at\": \"2024-04-20T17:55:01.188Z\",\n    \"urls\": {\n        \"cancel\": \"https://api.replicate.com/v1/predictions/xvkxa35hrhrgp0cezjjtemdrbw/cancel\",\n        \"get\": \"https://api.replicate.com/v1/predictions/xvkxa35hrhrgp0cezjjtemdrbw\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "meta/meta-llama-3-70b-instruct",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.replicate.com/v1/predictions/:prediction_id",
+					"protocol": "https",
+					"host": [
+						"api",
+						"replicate",
+						"com"
+					],
+					"path": [
+						"v1",
+						"predictions",
+						":prediction_id"
+					],
+					"variable": [
+						{
+							"key": "prediction_id",
+							"value": "xvkxa35hrhrgp0cezjjtemdrbw",
+							"uuid": "b3637b07-1228-43a7-a206-cb055666d29c"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.replicate.com/v1/predictions/:prediction_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"replicate",
+								"com"
+							],
+							"path": [
+								"v1",
+								"predictions",
+								":prediction_id"
+							],
+							"variable": [
+								{
+									"key": "prediction_id",
+									"value": "dhbnyxqdhhrgp0cezjnsfba77r"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 20 Apr 2024 18:14:09 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "ratelimit-remaining",
+							"value": "59999"
+						},
+						{
+							"key": "ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "via",
+							"value": "1.1 google"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=kRH70Iu1LVNRZswNxoRQ7bgmakQFbG7XXndKlRTpYJ6tKajY8FxMjth7Ei4alCCXDYaObsGzCRJ8KV%2FXDKm9LmcCKU3ZgKV9MgKXBvZcxlqGANFoTQzca0Rf%2BiFag25gr3s7\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "87771cc6bb882b82-LAX"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"dhbnyxqdhhrgp0cezjnsfba77r\",\n    \"model\": \"replicate-internal/llama-3-8b-instruct-int8-triton\",\n    \"version\": \"dp-a557b7387b4940df25b23f779dc534c4\",\n    \"input\": {\n        \"frequency_penalty\": 0.2,\n        \"max_tokens\": 512,\n        \"min_tokens\": 0,\n        \"presence_penalty\": 1.15,\n        \"prompt\": \"Work through this problem step by step:\\n\\nQ: Sarah has 7 llamas. Her friend gives her 3 more trucks of llamas. Each truck has 5 llamas. How many llamas does Sarah have in total?\",\n        \"prompt_template\": \"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n\",\n        \"temperature\": 0.6,\n        \"top_p\": 0.9\n    },\n    \"logs\": \"Random seed used: `22331`\\nNote: Random seed will not impact output if greedy decoding is used.\\nFormatted prompt: `<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\nWork through this problem step by step:\\n\\nQ: Sarah has 7 llamas. Her friend gives her 3 more trucks of llamas. Each truck has 5 llamas. How many llamas does Sarah have in total?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n`Random seed used: `22331`\\nNote: Random seed will not impact output if greedy decoding is used.\\nFormatted prompt: `<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\nWork through this problem step by step:\\n\\nQ: Sarah has 7 llamas. Her friend gives her 3 more trucks of llamas. Each truck has 5 llamas. How many llamas does Sarah have in total?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n`\",\n    \"output\": [\n        \"Let\",\n        \"'s\",\n        \" break\",\n        \" down\",\n        \" the\",\n        \" problem\",\n        \" step\",\n        \" by\",\n        \" step\",\n        \":\\n\\n\",\n        \"1\",\n        \".\",\n        \" Sarah\",\n        \" initially\",\n        \" has\",\n        \" \",\n        \"7\",\n        \" ll\",\n        \"amas\",\n        \".\\n\",\n        \"2\",\n        \".\",\n        \" Her\",\n        \" friend\",\n        \" gives\",\n        \" her\",\n        \" \",\n        \"3\",\n        \" more\",\n        \" trucks\",\n        \" of\",\n        \" ll\",\n        \"amas\",\n        \".\\n\",\n        \"3\",\n        \".\",\n        \" Each\",\n        \" truck\",\n        \" has\",\n        \" \",\n        \"5\",\n        \" ll\",\n        \"amas\",\n        \",\",\n        \" so\",\n        \" the\",\n        \" total\",\n        \" number\",\n        \" of\",\n        \" ll\",\n        \"amas\",\n        \" in\",\n        \" the\",\n        \" \",\n        \"3\",\n        \" trucks\",\n        \" is\",\n        \":\\n\",\n        \"3\",\n        \" trucks\",\n        \" x\",\n        \" \",\n        \"5\",\n        \" ll\",\n        \"amas\",\n        \"/tr\",\n        \"uck\",\n        \" =\",\n        \" \",\n        \"15\",\n        \" ll\",\n        \"amas\",\n        \"\\n\",\n        \"4\",\n        \".\",\n        \" Adding\",\n        \" the\",\n        \" \",\n        \"15\",\n        \" ll\",\n        \"amas\",\n        \" from\",\n        \" the\",\n        \" \",\n        \"3\",\n        \" trucks\",\n        \" to\",\n        \" the\",\n        \" initial\",\n        \" \",\n        \"7\",\n        \" ll\",\n        \"amas\",\n        \",\",\n        \" Sarah\",\n        \" now\",\n        \" has\",\n        \" a\",\n        \" total\",\n        \" of\",\n        \":\\n\",\n        \"7\",\n        \" ll\",\n        \"amas\",\n        \" +\",\n        \" \",\n        \"15\",\n        \" ll\",\n        \"amas\",\n        \" =\",\n        \" \",\n        \"22\",\n        \" ll\",\n        \"amas\",\n        \"\\n\\n\",\n        \"Therefore\",\n        \",\",\n        \" Sarah\",\n        \" has\",\n        \" a\",\n        \" total\",\n        \" of\",\n        \" \",\n        \"22\",\n        \" ll\",\n        \"amas\",\n        \".\"\n    ],\n    \"error\": null,\n    \"status\": \"succeeded\",\n    \"created_at\": \"2024-04-20T18:01:49.708Z\",\n    \"started_at\": \"2024-04-20T18:01:49.707958628Z\",\n    \"completed_at\": \"2024-04-20T18:01:50.702741627Z\",\n    \"urls\": {\n        \"cancel\": \"https://api.replicate.com/v1/predictions/dhbnyxqdhhrgp0cezjnsfba77r/cancel\",\n        \"get\": \"https://api.replicate.com/v1/predictions/dhbnyxqdhhrgp0cezjnsfba77r\"\n    },\n    \"metrics\": {\n        \"input_token_count\": 54,\n        \"output_token_count\": 113,\n        \"time_to_first_token\": 0.030060459,\n        \"tokens_per_second\": 117.13212441958764\n    }\n}"
+				},
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.replicate.com/v1/predictions/:prediction_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"replicate",
+								"com"
+							],
+							"path": [
+								"v1",
+								"predictions",
+								":prediction_id"
+							],
+							"variable": [
+								{
+									"key": "prediction_id",
+									"value": "xvkxa35hrhrgp0cezjjtemdrbw"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 20 Apr 2024 18:15:48 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "ratelimit-remaining",
+							"value": "59999"
+						},
+						{
+							"key": "ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "via",
+							"value": "1.1 google"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=O5cw%2BuTwQAScHPx7swsltcXTYhw%2Bsk0tT8d2Y%2BhK6DLfYfLv8JvRrjVSELYR8rDQno7OR29aTzMUTHzfZ2ZQUxAZldFNzLYK1xDIE2wL3XLH2tGdwlyPXBB%2BqXe%2Fun1cjWpK\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "87771f303ec32b82-LAX"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"xvkxa35hrhrgp0cezjjtemdrbw\",\n    \"model\": \"replicate-internal/llama3-70b-chat-vllm-unquantized\",\n    \"version\": \"dp-cf04fe09351e25db628e8b6181276547\",\n    \"input\": {\n        \"frequency_penalty\": 0.2,\n        \"max_tokens\": 512,\n        \"min_tokens\": 0,\n        \"presence_penalty\": 1.15,\n        \"prompt\": \"Work through this problem step by step:\\n\\nQ: Sarah has 7 llamas. Her friend gives her 3 more trucks of llamas. Each truck has 5 llamas. How many llamas does Sarah have in total?\",\n        \"prompt_template\": \"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n\",\n        \"temperature\": 0.6,\n        \"top_p\": 0.9\n    },\n    \"logs\": \"\",\n    \"output\": [\n        \"Let\",\n        \"'s\",\n        \" break\",\n        \" this\",\n        \" problem\",\n        \" down\",\n        \" step\",\n        \" by\",\n        \" step\",\n        \".\\n\\n\",\n        \"Step\",\n        \" \",\n        \"1\",\n        \":\",\n        \" Sarah\",\n        \" already\",\n        \" has\",\n        \" \",\n        \"7\",\n        \" ll\",\n        \"amas\",\n        \".\\n\\n\",\n        \"Step\",\n        \" \",\n        \"2\",\n        \":\",\n        \" Her\",\n        \" friend\",\n        \" gives\",\n        \" her\",\n        \" \",\n        \"3\",\n        \" trucks\",\n        \" of\",\n        \" ll\",\n        \"amas\",\n        \".\",\n        \" Each\",\n        \" truck\",\n        \" has\",\n        \" \",\n        \"5\",\n        \" ll\",\n        \"amas\",\n        \",\",\n        \" so\",\n        \" we\",\n        \" need\",\n        \" to\",\n        \" find\",\n        \" out\",\n        \" how\",\n        \" many\",\n        \" ll\",\n        \"amas\",\n        \" are\",\n        \" in\",\n        \" all\",\n        \" \",\n        \"3\",\n        \" trucks\",\n        \".\\n\\n\",\n        \"Step\",\n        \" \",\n        \"3\",\n        \":\",\n        \" To\",\n        \" find\",\n        \" the\",\n        \" total\",\n        \" number\",\n        \" of\",\n        \" ll\",\n        \"amas\",\n        \" in\",\n        \" the\",\n        \" \",\n        \"3\",\n        \" trucks\",\n        \",\",\n        \" we\",\n        \" multiply\",\n        \" the\",\n        \" number\",\n        \" of\",\n        \" trucks\",\n        \" (\",\n        \"3\",\n        \")\",\n        \" by\",\n        \" the\",\n        \" number\",\n        \" of\",\n        \" ll\",\n        \"amas\",\n        \" per\",\n        \" truck\",\n        \" (\",\n        \"5\",\n        \"):\\n\\n\",\n        \"3\",\n        \" trucks\",\n        \" x\",\n        \" \",\n        \"5\",\n        \" ll\",\n        \"amas\",\n        \"/tr\",\n        \"uck\",\n        \" =\",\n        \" \",\n        \"15\",\n        \" ll\",\n        \"amas\",\n        \"\\n\\n\",\n        \"So\",\n        \",\",\n        \" there\",\n        \" are\",\n        \" \",\n        \"15\",\n        \" ll\",\n        \"amas\",\n        \" in\",\n        \" the\",\n        \" \",\n        \"3\",\n        \" trucks\",\n        \".\\n\\n\",\n        \"Step\",\n        \" \",\n        \"4\",\n        \":\",\n        \" Now\",\n        \",\",\n        \" we\",\n        \" need\",\n        \" to\",\n        \" add\",\n        \" the\",\n        \" ll\",\n        \"amas\",\n        \" Sarah\",\n        \" already\",\n        \" had\",\n        \" to\",\n        \" the\",\n        \" ll\",\n        \"amas\",\n        \" she\",\n        \" received\",\n        \" from\",\n        \" her\",\n        \" friend\",\n        \":\\n\\n\",\n        \"7\",\n        \" ll\",\n        \"amas\",\n        \" (\",\n        \"Sarah\",\n        \" already\",\n        \" had\",\n        \")\",\n        \" +\",\n        \" \",\n        \"15\",\n        \" ll\",\n        \"amas\",\n        \" (\",\n        \"from\",\n        \" the\",\n        \" \",\n        \"3\",\n        \" trucks\",\n        \")\",\n        \" =\",\n        \" ?\\n\\n\",\n        \"Step\",\n        \" \",\n        \"5\",\n        \":\",\n        \" Let\",\n        \"'s\",\n        \" add\",\n        \" them\",\n        \" up\",\n        \"!\\n\\n\",\n        \"7\",\n        \" +\",\n        \" \",\n        \"15\",\n        \" =\",\n        \" \",\n        \"22\",\n        \"\\n\\n\",\n        \"Therefore\",\n        \",\",\n        \" Sarah\",\n        \" has\",\n        \" a\",\n        \" total\",\n        \" of\",\n        \" \",\n        \"22\",\n        \" ll\",\n        \"amas\",\n        \".\",\n        \"\"\n    ],\n    \"error\": null,\n    \"status\": \"succeeded\",\n    \"created_at\": \"2024-04-20T17:55:01.188Z\",\n    \"started_at\": \"2024-04-20T17:55:01.18914715Z\",\n    \"completed_at\": \"2024-04-20T17:55:05.951759751Z\",\n    \"urls\": {\n        \"cancel\": \"https://api.replicate.com/v1/predictions/xvkxa35hrhrgp0cezjjtemdrbw/cancel\",\n        \"get\": \"https://api.replicate.com/v1/predictions/xvkxa35hrhrgp0cezjjtemdrbw\"\n    },\n    \"metrics\": {\n        \"input_token_count\": 54,\n        \"output_token_count\": 186,\n        \"time_to_first_token\": 0.057504995,\n        \"tokens_per_second\": 39.53150821945303\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "mistralai/mixtral-8x7b-instruct-v0.1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"input\": {\r\n        \"top_p\": 0.9,\r\n        \"prompt\": \"Work through this problem step by step:\\n\\nQ: Sarah has 7 llamas. Her friend gives her 3 more trucks of llamas. Each truck has 5 llamas. How many llamas does Sarah have in total?\",\r\n        \"max_tokens\": 512,\r\n        \"min_tokens\": 0,\r\n        \"temperature\": 0.6,\r\n        \"prompt_template\": \"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n\",\r\n        \"presence_penalty\": 1.15,\r\n        \"frequency_penalty\": 0.2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/models/mistralai/mixtral-8x7b-instruct-v0.1/predictions",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"models",
+						"mistralai",
+						"mixtral-8x7b-instruct-v0.1",
+						"predictions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input\": {\r\n        \"top_p\": 0.9,\r\n        \"prompt\": \"Work through this problem step by step:\\n\\nQ: Sarah has 7 llamas. Her friend gives her 3 more trucks of llamas. Each truck has 5 llamas. How many llamas does Sarah have in total?\",\r\n        \"max_tokens\": 512,\r\n        \"min_tokens\": 0,\r\n        \"temperature\": 0.6,\r\n        \"prompt_template\": \"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n\",\r\n        \"presence_penalty\": 1.15,\r\n        \"frequency_penalty\": 0.2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/mistralai/mixtral-8x7b-instruct-v0.1/predictions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								"mistralai",
+								"mixtral-8x7b-instruct-v0.1",
+								"predictions"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 20 Apr 2024 18:24:55 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1038"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "ratelimit-remaining",
+							"value": "599"
+						},
+						{
+							"key": "ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "via",
+							"value": "1.1 google"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=%2FKtViCgTar3PNS0O290OGKP4HXAc9yOs1%2BVaxEsP1HlSgmV7czh0cfyRnP8ytunYP4nPYBIPckp3yjUVb%2Bn4LLpjzXSMoOJOkSoS6NUzDyqiHNqj%2BcBtlsvqB4RW7ERNOfNv\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "87772c89291d102e-LAX"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"4n38t0rj2srgp0cezk0r89jhmw\",\n    \"model\": \"replicate-internal/mixtral-instruct-v0.1-fp16-triton-sm80\",\n    \"version\": \"dp-2cfebe59bfe31598594c7a2228e246ab\",\n    \"input\": {\n        \"frequency_penalty\": 0.2,\n        \"max_tokens\": 512,\n        \"min_tokens\": 0,\n        \"presence_penalty\": 1.15,\n        \"prompt\": \"Work through this problem step by step:\\n\\nQ: Sarah has 7 llamas. Her friend gives her 3 more trucks of llamas. Each truck has 5 llamas. How many llamas does Sarah have in total?\",\n        \"prompt_template\": \"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n\",\n        \"temperature\": 0.6,\n        \"top_p\": 0.9\n    },\n    \"logs\": \"\",\n    \"error\": null,\n    \"status\": \"starting\",\n    \"created_at\": \"2024-04-20T18:24:55.318Z\",\n    \"urls\": {\n        \"cancel\": \"https://api.replicate.com/v1/predictions/4n38t0rj2srgp0cezk0r89jhmw/cancel\",\n        \"get\": \"https://api.replicate.com/v1/predictions/4n38t0rj2srgp0cezk0r89jhmw\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "mistralai/mixtral-8x7b-instruct-v0.1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.replicate.com/v1/predictions/:prediction_id",
+					"protocol": "https",
+					"host": [
+						"api",
+						"replicate",
+						"com"
+					],
+					"path": [
+						"v1",
+						"predictions",
+						":prediction_id"
+					],
+					"variable": [
+						{
+							"key": "prediction_id",
+							"value": "4n38t0rj2srgp0cezk0r89jhmw",
+							"uuid": "e366f3bc-7d10-42dc-98b4-8304ba3d948b"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.replicate.com/v1/predictions/:prediction_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"replicate",
+								"com"
+							],
+							"path": [
+								"v1",
+								"predictions",
+								":prediction_id"
+							],
+							"variable": [
+								{
+									"key": "prediction_id",
+									"value": "xvkxa35hrhrgp0cezjjtemdrbw"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 20 Apr 2024 18:15:48 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "ratelimit-remaining",
+							"value": "59999"
+						},
+						{
+							"key": "ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "via",
+							"value": "1.1 google"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=O5cw%2BuTwQAScHPx7swsltcXTYhw%2Bsk0tT8d2Y%2BhK6DLfYfLv8JvRrjVSELYR8rDQno7OR29aTzMUTHzfZ2ZQUxAZldFNzLYK1xDIE2wL3XLH2tGdwlyPXBB%2BqXe%2Fun1cjWpK\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "87771f303ec32b82-LAX"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"xvkxa35hrhrgp0cezjjtemdrbw\",\n    \"model\": \"replicate-internal/llama3-70b-chat-vllm-unquantized\",\n    \"version\": \"dp-cf04fe09351e25db628e8b6181276547\",\n    \"input\": {\n        \"frequency_penalty\": 0.2,\n        \"max_tokens\": 512,\n        \"min_tokens\": 0,\n        \"presence_penalty\": 1.15,\n        \"prompt\": \"Work through this problem step by step:\\n\\nQ: Sarah has 7 llamas. Her friend gives her 3 more trucks of llamas. Each truck has 5 llamas. How many llamas does Sarah have in total?\",\n        \"prompt_template\": \"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n\",\n        \"temperature\": 0.6,\n        \"top_p\": 0.9\n    },\n    \"logs\": \"\",\n    \"output\": [\n        \"Let\",\n        \"'s\",\n        \" break\",\n        \" this\",\n        \" problem\",\n        \" down\",\n        \" step\",\n        \" by\",\n        \" step\",\n        \".\\n\\n\",\n        \"Step\",\n        \" \",\n        \"1\",\n        \":\",\n        \" Sarah\",\n        \" already\",\n        \" has\",\n        \" \",\n        \"7\",\n        \" ll\",\n        \"amas\",\n        \".\\n\\n\",\n        \"Step\",\n        \" \",\n        \"2\",\n        \":\",\n        \" Her\",\n        \" friend\",\n        \" gives\",\n        \" her\",\n        \" \",\n        \"3\",\n        \" trucks\",\n        \" of\",\n        \" ll\",\n        \"amas\",\n        \".\",\n        \" Each\",\n        \" truck\",\n        \" has\",\n        \" \",\n        \"5\",\n        \" ll\",\n        \"amas\",\n        \",\",\n        \" so\",\n        \" we\",\n        \" need\",\n        \" to\",\n        \" find\",\n        \" out\",\n        \" how\",\n        \" many\",\n        \" ll\",\n        \"amas\",\n        \" are\",\n        \" in\",\n        \" all\",\n        \" \",\n        \"3\",\n        \" trucks\",\n        \".\\n\\n\",\n        \"Step\",\n        \" \",\n        \"3\",\n        \":\",\n        \" To\",\n        \" find\",\n        \" the\",\n        \" total\",\n        \" number\",\n        \" of\",\n        \" ll\",\n        \"amas\",\n        \" in\",\n        \" the\",\n        \" \",\n        \"3\",\n        \" trucks\",\n        \",\",\n        \" we\",\n        \" multiply\",\n        \" the\",\n        \" number\",\n        \" of\",\n        \" trucks\",\n        \" (\",\n        \"3\",\n        \")\",\n        \" by\",\n        \" the\",\n        \" number\",\n        \" of\",\n        \" ll\",\n        \"amas\",\n        \" per\",\n        \" truck\",\n        \" (\",\n        \"5\",\n        \"):\\n\\n\",\n        \"3\",\n        \" trucks\",\n        \" x\",\n        \" \",\n        \"5\",\n        \" ll\",\n        \"amas\",\n        \"/tr\",\n        \"uck\",\n        \" =\",\n        \" \",\n        \"15\",\n        \" ll\",\n        \"amas\",\n        \"\\n\\n\",\n        \"So\",\n        \",\",\n        \" there\",\n        \" are\",\n        \" \",\n        \"15\",\n        \" ll\",\n        \"amas\",\n        \" in\",\n        \" the\",\n        \" \",\n        \"3\",\n        \" trucks\",\n        \".\\n\\n\",\n        \"Step\",\n        \" \",\n        \"4\",\n        \":\",\n        \" Now\",\n        \",\",\n        \" we\",\n        \" need\",\n        \" to\",\n        \" add\",\n        \" the\",\n        \" ll\",\n        \"amas\",\n        \" Sarah\",\n        \" already\",\n        \" had\",\n        \" to\",\n        \" the\",\n        \" ll\",\n        \"amas\",\n        \" she\",\n        \" received\",\n        \" from\",\n        \" her\",\n        \" friend\",\n        \":\\n\\n\",\n        \"7\",\n        \" ll\",\n        \"amas\",\n        \" (\",\n        \"Sarah\",\n        \" already\",\n        \" had\",\n        \")\",\n        \" +\",\n        \" \",\n        \"15\",\n        \" ll\",\n        \"amas\",\n        \" (\",\n        \"from\",\n        \" the\",\n        \" \",\n        \"3\",\n        \" trucks\",\n        \")\",\n        \" =\",\n        \" ?\\n\\n\",\n        \"Step\",\n        \" \",\n        \"5\",\n        \":\",\n        \" Let\",\n        \"'s\",\n        \" add\",\n        \" them\",\n        \" up\",\n        \"!\\n\\n\",\n        \"7\",\n        \" +\",\n        \" \",\n        \"15\",\n        \" =\",\n        \" \",\n        \"22\",\n        \"\\n\\n\",\n        \"Therefore\",\n        \",\",\n        \" Sarah\",\n        \" has\",\n        \" a\",\n        \" total\",\n        \" of\",\n        \" \",\n        \"22\",\n        \" ll\",\n        \"amas\",\n        \".\",\n        \"\"\n    ],\n    \"error\": null,\n    \"status\": \"succeeded\",\n    \"created_at\": \"2024-04-20T17:55:01.188Z\",\n    \"started_at\": \"2024-04-20T17:55:01.18914715Z\",\n    \"completed_at\": \"2024-04-20T17:55:05.951759751Z\",\n    \"urls\": {\n        \"cancel\": \"https://api.replicate.com/v1/predictions/xvkxa35hrhrgp0cezjjtemdrbw/cancel\",\n        \"get\": \"https://api.replicate.com/v1/predictions/xvkxa35hrhrgp0cezjjtemdrbw\"\n    },\n    \"metrics\": {\n        \"input_token_count\": 54,\n        \"output_token_count\": 186,\n        \"time_to_first_token\": 0.057504995,\n        \"tokens_per_second\": 39.53150821945303\n    }\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.replicate.com/v1",
+			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "<BringYourOwn>",
+			"type": "string"
+		}
+	]
+}

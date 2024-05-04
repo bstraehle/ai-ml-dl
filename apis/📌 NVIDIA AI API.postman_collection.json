@@ -275,6 +275,264 @@
 					]
 				},
 				{
+					"name": "google/recurrentgemma-2b",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"google/recurrentgemma-2b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"google/recurrentgemma-2b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 22 Apr 2024 19:27:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1174"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Nvcf-Percent-Complete",
+									"value": "100"
+								},
+								{
+									"key": "Nvcf-Reqid",
+									"value": "2643e0a3-3b01-46b0-b8f5-c276bf3bc2b7"
+								},
+								{
+									"key": "Nvcf-Status",
+									"value": "fulfilled"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"2643e0a3-3b01-46b0-b8f5-c276bf3bc2b7\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"**The purpose of life is a complex and multifaceted question that has been debated by philosophers, theologians, and individuals throughout history.**\\n\\n**Here are some common perspectives on the purpose of life:**\\n\\n**1. Spiritual or Religious View:**\\n\\n* Many religions believe that the purpose of life is to serve a higher power, fulfill a divine plan, or achieve enlightenment.\\n* This perspective often involves adhering to specific beliefs and practices, such as prayer, meditation, and following religious teachings.\\n\\n**2. Personal Growth and Self-Realization:**\\n\\n* Some individuals view life as a journey of personal growth and self-discovery.\\n* They aim to become better versions of themselves, acquire new skills, and experience various aspects of life.\\n\\n**3. Contributing to Society:**\\n\\n* Many people believe that their life has meaning when they contribute to something larger than themselves.\\n* This could involve working towards a cause, helping others, or leaving a positive impact on the world.\\n\\n**4. Finding Love and Meaningful Relationships:**\\n\\n* Love and meaningful relationships are often considered essential for a fulfilling life.\\n* This perspective focuses on cultivating healthy and fulfilling connections with others.\\n\\n**5. Personal Fulfillment and Happiness:**\\n\\n* Some individuals prioritize personal fulfillment and happiness as their primary goal.\\n* They seek activities and experiences that bring them joy, satisfaction, and a sense of purpose.\\n\\n**6. Embracing Mortality:**\\n\\n* Reflecting on one's mortality can inspire individuals to appreciate life more and live with intention.\\n* This perspective encourages people to make the most of their time and focus on what truly matters.\\n\\n**7. Experimentation and Exploration:**\\n\\n* Some people believe that the purpose of life is to experiment, explore different possibilities, and learn from experiences.\\n* They encourage a curious and open-minded approach to life, embracing new challenges and opportunities.\\n\\n**Ultimately, the purpose of life is a deeply personal question.** Each individual must find their own answer based on their values, beliefs, and life experiences.\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"completion_tokens\": 414,\n        \"prompt_tokens\": 16,\n        \"total_tokens\": 430\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "google/codegemma-7b",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"google/codegemma-7b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Develop a Flask app for encryption and decryption\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"google/codegemma-7b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Develop a Flask app for encryption and decryption\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 22 Apr 2024 19:27:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1422"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Nvcf-Percent-Complete",
+									"value": "100"
+								},
+								{
+									"key": "Nvcf-Reqid",
+									"value": "6d4a9931-8f53-4bd1-baca-554ef3063ab0"
+								},
+								{
+									"key": "Nvcf-Status",
+									"value": "fulfilled"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-668b65fc-a127-4910-b712-540f0d146d51\",\n    \"object\": \"chat.completion\",\n    \"created\": 1713814040,\n    \"model\": \"google/codegemma-7b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"## Flask App for Encryption and Decryption\\n\\nHere's a basic Flask app for encryption and decryption:\\n\\n**Note:** This app uses AES-256-CBC encryption with a hardcoded key. In a real-world application, you should use a secure key management system to store the encryption key.\\n\\n**Dependencies:**\\n\\n* Flask\\n* pycryptodome\\n\\n**Code:**\\n\\n```python\\nfrom flask import Flask, render_template, request\\nfrom cryptography.aes import AES\\nfrom cryptography.hazmat.primitives import padding\\nfrom cryptography.hazmat.primitives.ciphers import modes\\n\\napp = Flask(__name__)\\n\\n# Hardcoded encryption key\\nkey = b'your_secret_key_here'\\n\\n@app.route('/')\\ndef index():\\n    return render_template('index.html')\\n\\n@app.route('/encrypt', methods=['POST'])\\ndef encrypt():\\n    # Get the plaintext from the form\\n    plaintext = request.form['plaintext']\\n\\n    # Create an AES cipher object\\n    cipher = AES(key, mode=modes.CBC(b'initialization_vector'))\\n\\n    # Pad the plaintext\\n    padder = padding.PKCS7(128).padder()\\n    padded_plaintext = padder.update(plaintext.encode()) + padder.finalize()\\n\\n    # Encrypt the padded plaintext\\n    encrypted_text = cipher.encryptor().update(padded_plaintext) + cipher.encryptor().finalize()\\n\\n    # Return the encrypted text\\n    return render_template('result.html', result=encrypted_text.hex())\\n\\n@app.route('/decrypt', methods=['POST'])\\ndef decrypt():\\n    # Get the encrypted text from the form\\n    encrypted_text = bytes.fromhex(request.form['encrypted_text'])\\n\\n    # Create an AES cipher object\\n    cipher = AES(key, mode=modes.CBC(b'initialization_vector'))\\n\\n    # Decrypt the encrypted text\\n    decrypted_text = cipher.decryptor().update(encrypted_text) + cipher.decryptor().finalize()\\n\\n    # Unpad the decrypted text\\n    unpadder = padding.PKCS7(128).unpadder()\\n    plaintext = unpadder.update(decrypted_text) + unpadder.finalize()\\n\\n    # Return the decrypted text\\n    return render_template('result.html', result=plaintext.decode())\\n\\nif __name__ == '__main__':\\n    app.run(debug=True)\\n```\\n\\n**index.html:**\\n\\n```html\\n<!DOCTYPE html>\\n<html>\\n<head>\\n    <title>Encryption and Decryption</title>\\n</head>\\n<body>\\n    <h1>Encryption and Decryption</h1>\\n    <form action=\\\"/encrypt\\\" method=\\\"POST\\\">\\n        <label for=\\\"plaintext\\\">Plaintext:</label>\\n        <input type=\\\"text\\\" name=\\\"plaintext\\\" id=\\\"plaintext\\\">\\n        <br>\\n        <input type=\\\"submit\\\" value=\\\"Encrypt\\\">\\n    </form>\\n    <form action=\\\"/decrypt\\\" method=\\\"POST\\\">\\n        <label for=\\\"encrypted_text\\\">Encrypted Text:</label>\\n        <input type=\\\"text\\\" name=\\\"encrypted_text\\\" id=\\\"encrypted_text\\\">\\n        <br>\\n        <input type=\\\"submit\\\" value=\\\"Decrypt\\\">\\n    </form>\\n</body>\\n</html>\\n```\\n\\n**result.html:**\\n\\n```html\\n<!DOCTYPE html>\\n<html>\\n<head>\\n    <title>Result</title>\\n</head>\\n<body>\\n    <h1>Result</h1>\\n    <p>Result: {{ result }}</p>\\n</body>\\n</html>\\n```\\n\\n**Running the app:**\\n\\n1. Install the required dependencies: `pip install Flask pycryptodome`.\\n2. Run the app: `python app.py`.\\n3. Open `http://localhost:5000/` in your browser.\\n4. Enter plaintext in the \\\"Plaintext\\\" field and click \\\"Encrypt\\\".\\n5. Enter the encrypted text in the \\\"Encrypted Text\\\" field and click \\\"Decrypt\\\".\\n\\n**Note:** This is a simple example for demonstration purposes only. In a real-world application, you should use a more secure encryption algorithm and key management system.\"\n            },\n            \"logprobs\": {\n                \"text_offset\": [],\n                \"token_logprobs\": [\n                    0,\n                    0\n                ],\n                \"tokens\": [],\n                \"top_logprobs\": []\n            }\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 21,\n        \"total_tokens\": 941,\n        \"completion_tokens\": 920\n    }\n}"
+						}
+					]
+				},
+				{
 					"name": "meta/llama2-70b",
 					"request": {
 						"method": "POST",
@@ -400,6 +658,264 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": \"chatcmpl-9de82b5c-4e50-4eba-b375-44ec7dc9d5e0\",\n    \"object\": \"chat.completion\",\n    \"created\": 1710803680,\n    \"model\": \"meta/llama2-70b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"  The purpose of life is a deeply philosophical and personal question that has been debated and explored by individuals, societies, and cultures throughout human history. There is no one definitive answer to this question, as it ultimately depends on one's personal beliefs, values, and experiences. However, here are some possible purposes of life:\\n\\n1. To seek happiness and fulfillment: Many people believe that the ultimate purpose of life is to seek happiness and fulfillment. This can be achieved by pursuing one's passions, building meaningful relationships, and cultivating a sense of purpose and meaning.\\n2. To learn and grow: Life can be seen as an opportunity for personal growth and development. Through experiences and challenges, we can learn new skills, gain wisdom, and become better versions of ourselves.\\n3. To make a positive impact: Some people believe that the purpose of life is to make a positive impact on the world and the lives of others. This can be achieved through acts of kindness, volunteering, or working to make the world a better place in other ways.\\n4. To seek spiritual enlightenment: Many religious and philosophical traditions believe that the purpose of life is to seek spiritual enlightenment or union with a higher power. This can be achieved through practices such as meditation, prayer, or service to others.\\n5. To leave a legacy: Some people believe that the purpose of life is to leave a lasting legacy that will outlive them. This can be achieved through creating art, literature, music, or other forms of creative expression, or by building a lasting legacy through business or entrepreneurship.\\n6. To seek knowledge and understanding: Some people believe that the purpose of life is to seek knowledge and understanding, whether it be through science, philosophy, or personal exploration.\\n7. To build meaningful relationships: Many people believe that the purpose of life is to build meaningful relationships with others, whether it be through family, friends, or community.\\n8. To pursue one's passions: Some people believe that the purpose of life is to pursue one's passions and interests, whether it be through hobbies, career, or personal projects.\\n\\nUltimately, the purpose of life is a deeply personal and subjective question that each individual must answer for themselves. What gives your life meaning and purpose may be different from what gives someone else's life meaning and purpose. The important thing is to live a life that is true to your values, beliefs, and aspirations, and to find ways to make a positive impact on the world around you.\"\n            },\n            \"logprobs\": {\n                \"text_offset\": [],\n                \"token_logprobs\": [\n                    0,\n                    0\n                ],\n                \"tokens\": [],\n                \"top_logprobs\": []\n            }\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 15,\n        \"total_tokens\": 574,\n        \"completion_tokens\": 559\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "meta/llama3-8b",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"meta/llama3-8b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"meta/llama3-8b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 22 Apr 2024 19:27:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1362"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Nvcf-Percent-Complete",
+									"value": "100"
+								},
+								{
+									"key": "Nvcf-Reqid",
+									"value": "667c6bbd-131c-4651-a20d-744515973bc6"
+								},
+								{
+									"key": "Nvcf-Status",
+									"value": "fulfilled"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-9cc62052-6182-401c-bf8f-39c87d786124\",\n    \"object\": \"chat.completion\",\n    \"created\": 1713814025,\n    \"model\": \"meta/llama3-8b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"What a profound and complex question! The purpose of life is a topic of ongoing debate and exploration in various fields, including philosophy, psychology, spirituality, and science. While there may not be a single, definitive answer, here are some perspectives and insights that might shed some light:\\n\\n1. **Existential purpose**: From a philosophical perspective, the purpose of life is often seen as a personal and subjective question. It's about finding meaning, significance, and fulfillment in one's existence. This purpose can be shaped by individual values, beliefs, and experiences.\\n2. **Biological purpose**: From a biological perspective, the purpose of life is often viewed as the continuation of the species. In this sense, the purpose of life is to reproduce, ensure the survival of the species, and pass on genetic traits to future generations.\\n3. **Evolutionary purpose**: From an evolutionary perspective, the purpose of life is to adapt, evolve, and thrive in an ever-changing environment. This purpose is driven by the need to survive, reproduce, and pass on genetic information to ensure the survival of the species.\\n4. **Spiritual purpose**: From a spiritual perspective, the purpose of life is often seen as a journey of self-discovery, spiritual growth, and connection with a higher power or universal consciousness. This purpose can be shaped by religious beliefs, spiritual practices, and personal experiences.\\n5. **Psychological purpose**: From a psychological perspective, the purpose of life is often viewed as a quest for happiness, fulfillment, and personal growth. This purpose can be shaped by individual needs, desires, and values.\\n6. **Social purpose**: From a social perspective, the purpose of life is often seen as a contribution to the greater good, whether through relationships, community, or societal progress. This purpose can be shaped by social norms, cultural values, and collective goals.\\n7. **Universal purpose**: From a cosmological perspective, the purpose of life may be seen as a part of a larger, universal plan or design. This purpose can be shaped by our understanding of the universe, the laws of physics, and the mysteries of existence.\\n\\nSome possible answers to the question \\\"What is the purpose of life?\\\" might include:\\n\\n* To find happiness and fulfillment\\n* To pursue one's passions and interests\\n* To make a positive impact on the world\\n* To learn and grow as a person\\n* To connect with others and build meaningful relationships\\n* To contribute to the greater good\\n* To leave a lasting legacy\\n* To understand and appreciate the beauty and complexity of the universe\\n* To find meaning and purpose in the face of uncertainty and adversity\\n\\nUltimately, the purpose of life is a deeply personal and subjective question that can be shaped by individual experiences, values, and beliefs. While there may not be a single, definitive answer, exploring these perspectives can help us better understand ourselves and our place in the world.\"\n            },\n            \"logprobs\": {\n                \"content\": [\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    }\n                ]\n            }\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 602,\n        \"completion_tokens\": 585\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "meta/llama3-70b",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"meta/llama3-70b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"meta/llama3-70b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 22 Apr 2024 19:27:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1270"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Nvcf-Percent-Complete",
+									"value": "100"
+								},
+								{
+									"key": "Nvcf-Reqid",
+									"value": "6b056eb4-a8d7-495b-b57d-7f2133d81ea1"
+								},
+								{
+									"key": "Nvcf-Status",
+									"value": "fulfilled"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-0fc9ef31-aa79-4ee1-b334-6f0906fb12e2\",\n    \"object\": \"chat.completion\",\n    \"created\": 1713814031,\n    \"model\": \"meta/llama3-70b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The purpose of life is a question that has puzzled philosophers, theologians, scientists, and many others for centuries. While there is no one definitive answer, here are some possible perspectives:\\n\\n**Philosophical perspectives:**\\n\\n1. **Hedonistic**: The purpose of life is to seek pleasure, happiness, and fulfillment.\\n2. **Eudaimonic**: The purpose of life is to live a virtuous, meaningful, and fulfilling life, often tied to personal growth and self-actualization.\\n3. **Existentialist**: The purpose of life is to create one's own meaning and purpose, as there is no inherent or objective purpose.\\n\\n**Religious and spiritual perspectives:**\\n\\n1. **Theistic**: The purpose of life is to worship, obey, and serve a higher power or deity, often with the goal of achieving salvation or enlightenment.\\n2. **Buddhist**: The purpose of life is to attain enlightenment, or nirvana, through the Eightfold Path and the Four Noble Truths.\\n3. **Hindu**: The purpose of life is to achieve mokssha, or liberation, from the cycle of birth and death, through the pursuit of dharma (duty), artha (wealth), kama (pleasure), and mokssha.\\n\\n**Scientific and biological perspectives:**\\n\\n1. **Evolutionary**: The purpose of life is to survive, reproduce, and perpetuate one's genes, ensuring the continuation of the species.\\n2. **Biological**: The purpose of life is to maintain homeostasis, grow, respond to stimuli, reproduce, and adapt to one's environment.\\n\\n**Personal and individual perspectives:**\\n\\n1. **Self-actualization**: The purpose of life is to realize one's full potential, pursue one's passions, and become the best version of oneself.\\n2. **Relationships**: The purpose of life is to form meaningful connections with others, cultivate love, empathy, and understanding.\\n3. **Legacy**: The purpose of life is to leave a lasting impact, make a positive difference, and be remembered by future generations.\\n\\n**Other perspectives:**\\n\\n1. **Absurdist**: The purpose of life is to find meaning in a seemingly meaningless world, often through creative expression or rebellion.\\n2. **Nihilist**: The purpose of life is to acknowledge that there is no inherent purpose, and to find ways to cope with this existential reality.\\n\\nUltimately, the purpose of life is a deeply personal and subjective question, and each individual may have their own unique answer. It's a question that may evolve over time, and one that may require ongoing reflection, exploration, and self-discovery.\"\n            },\n            \"logprobs\": {\n                \"content\": [\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    }\n                ]\n            }\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 557,\n        \"completion_tokens\": 540\n    }\n}"
 						}
 					]
 				},
@@ -533,6 +1049,131 @@
 					]
 				},
 				{
+					"name": "microsoft/phi-3-mini-128k-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"microsoft/phi-3-mini-128k-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"microsoft/phi-3-mini-128k-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 30 Apr 2024 04:26:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1433"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Nvcf-Percent-Complete",
+									"value": "100"
+								},
+								{
+									"key": "Nvcf-Reqid",
+									"value": "9fa8ad90-ae93-4ecf-9b14-6f11a283604a"
+								},
+								{
+									"key": "Nvcf-Status",
+									"value": "fulfilled"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"9fa8ad90-ae93-4ecf-9b14-6f11a283604a\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The purpose of life is a profound philosophical question that has intrigued humans for centuries. Various cultures, religions, and individuals have provided different interpretations. Some common perspectives include:\\n\\n\\n1. Personal Fulfillment: Many believe the purpose of life is to seek personal happiness, self-improvement, and fulfillment. This often involves pursuing one's passions, developing skills, and building meaningful relationships.\\n\\n\\n2. Contribution to Society: Others see the purpose of life as contributing to the welfare of others, working towards the betterment of society, and making a positive impact on the world.\\n\\n\\n3. Spiritual Growth: For some, the purpose of life is to seek spiritual understanding, connect with a higher power, or achieve enlightenment.\\n\\n\\n4. Knowledge and Understanding: Many believe in the pursuit of knowledge and understanding of the universe as the purpose of life.\\n\\n\\n5. Legacy: Some people view the purpose of life as building a legacy that will live on after their death, whether through achievements, relationships, or influence.\\n\\n\\nIt's important to remember that the purpose of life is a deeply personal question and can vary greatly from person to person.\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"completion_tokens\": 273,\n        \"prompt_tokens\": 18,\n        \"total_tokens\": 291\n    }\n}"
+						}
+					]
+				},
+				{
 					"name": "mistralai/mistral-7b-instruct-v0.2",
 					"request": {
 						"method": "POST",
@@ -654,6 +1295,381 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": \"chatcmpl-b8d0ff65-2afb-46de-a8b1-d7f958996b46\",\n    \"object\": \"chat.completion\",\n    \"created\": 1710803924,\n    \"model\": \"mistralai/mistral-7b-instruct-v0.2\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" The question of the purpose of life is a philosophical and metaphysical inquiry that has puzzled humans for centuries. Different cultures, religions, and philosophical traditions have offered various answers to this question. Some propose that the purpose of life is to seek happiness, knowledge, or personal growth. Others suggest that the purpose is to serve a higher power, contribute to the betterment of humanity, or seek spiritual enlightenment. Ultimately, the answer to this question is subjective and depends on one's personal beliefs and values. It is a question that each individual must answer for themselves based on their own experiences, reflections, and intuition.\"\n            },\n            \"logprobs\": {\n                \"text_offset\": [],\n                \"token_logprobs\": [\n                    0,\n                    0\n                ],\n                \"tokens\": [],\n                \"top_logprobs\": []\n            }\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 16,\n        \"total_tokens\": 152,\n        \"completion_tokens\": 136\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "mistralai/mistral-large",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"mistralai/mistral-large\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"mistralai/mistral-large\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 30 Apr 2024 04:26:41 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "954"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Nvcf-Percent-Complete",
+									"value": "100"
+								},
+								{
+									"key": "Nvcf-Reqid",
+									"value": "781a7321-b351-496e-b470-638e2187f085"
+								},
+								{
+									"key": "Nvcf-Status",
+									"value": "fulfilled"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-362f5d33-f87f-4608-95c3-4a1527e7a936\",\n    \"object\": \"chat.completion\",\n    \"created\": 1714451201,\n    \"model\": \"mistralai/mistral-large\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" The purpose of life is a question that has puzzled humans for centuries and does not have one definitive answer, as it can vary greatly depending on one's personal beliefs, values, and experiences. Some people may believe the purpose of life is to seek happiness, knowledge, personal fulfillment, or to contribute to the betterment of humanity. Others may find purpose through religious or spiritual beliefs, or through relationships with family and friends. Ultimately, the purpose of life is a deeply personal and subjective question, and each individual may have their own unique answer.\"\n            },\n            \"logprobs\": {\n                \"text_offset\": [],\n                \"token_logprobs\": [\n                    0,\n                    0\n                ],\n                \"tokens\": [],\n                \"top_logprobs\": []\n            }\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 10,\n        \"total_tokens\": 124,\n        \"completion_tokens\": 114\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "mistralai/mixtral-8x22b-instruct-v0.1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"mistralai/mixtral-8x22b-instruct-v0.1\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"mistralai/mixtral-8x22b-instruct-v0.1\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 30 Apr 2024 04:26:54 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1022"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Nvcf-Percent-Complete",
+									"value": "100"
+								},
+								{
+									"key": "Nvcf-Reqid",
+									"value": "3bdc9f28-3b97-4698-8297-c45c9f402425"
+								},
+								{
+									"key": "Nvcf-Status",
+									"value": "fulfilled"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-76072693-ff19-4251-be08-181cb68c1ebf\",\n    \"object\": \"chat.completion\",\n    \"created\": 1714451214,\n    \"model\": \"mistralai/mixtral-8x22b-instruct-v0.1\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" The purpose of life is a philosophical and metaphysical question that has been asked for centuries. Different people, cultures, and religions have different beliefs about the purpose of life. Some people may believe that the purpose of life is to seek happiness, knowledge, personal growth, or fulfillment. Others may believe that the purpose of life is to serve others, to create a positive impact on the world, or to seek a spiritual connection with a higher power. Ultimately, the purpose of life is a deeply personal and subjective matter, and it is up to each individual to determine their own purpose and meaning in life.\"\n            },\n            \"logprobs\": {\n                \"content\": [\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    },\n                    {\n                        \"logprob\": 0\n                    }\n                ]\n            }\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 9,\n        \"total_tokens\": 136,\n        \"completion_tokens\": 127\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "snowflake/arctic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"snowflake/arctic\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"snowflake/arctic\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is the purpose of life?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"stream\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 30 Apr 2024 04:27:59 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "737"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Nvcf-Percent-Complete",
+									"value": "100"
+								},
+								{
+									"key": "Nvcf-Reqid",
+									"value": "4b80bafc-1006-4e51-812b-ef58f2bb150e"
+								},
+								{
+									"key": "Nvcf-Status",
+									"value": "fulfilled"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"cmpl-chatcmpl-b2ee8bda-35d7-473d-b3cb-189de877b7e1\",\n    \"object\": \"chat.completion\",\n    \"created\": 1714451278,\n    \"model\": \"snowflake/arctic\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The purpose of life is a deeply philosophical question that has been debated throughout human history. Different people and cultures have their own beliefs and interpretations. Some common purposes that people attribute to life include personal happiness, self-improvement, relationships, and pursuing a sense of purpose or meaning. Ultimately, the purpose of life is a personal journey and each individual may have their own unique purpose.\"\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 103,\n        \"completion_tokens\": 86\n    }\n}"
 						}
 					]
 				}

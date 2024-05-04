@@ -461,6 +461,117 @@
 					]
 				},
 				{
+					"name": "llama3-70b",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"llama3-70b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"say hello\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://llama3-70b.lepton.run/api/v1/chat/completions",
+							"protocol": "https",
+							"host": [
+								"llama3-70b",
+								"lepton",
+								"run"
+							],
+							"path": [
+								"api",
+								"v1",
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"llama3-70b\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"say hello\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://llama3-70b.lepton.run/api/v1/chat/completions",
+									"protocol": "https",
+									"host": [
+										"llama3-70b",
+										"lepton",
+										"run"
+									],
+									"path": [
+										"api",
+										"v1",
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 03 May 2024 13:52:50 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "392"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "87e0bbd869902eeb-LAX"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-sdgh8ykDzKLYGk5fCKEkdB\",\n    \"object\": \"chat.completion\",\n    \"created\": 1714744370,\n    \"model\": \"llama3-70b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Hello!\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"<|eot_id|>\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 12,\n        \"total_tokens\": 15,\n        \"completion_tokens\": 3\n    }\n}"
+						}
+					]
+				},
+				{
 					"name": "mixtral-8x7b",
 					"request": {
 						"method": "POST",

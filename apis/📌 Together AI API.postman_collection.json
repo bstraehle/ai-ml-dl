@@ -2963,6 +2963,143 @@
 					]
 				},
 				{
+					"name": "databricks/dbrx-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"databricks/dbrx-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are an expert travel guide\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Tell me fun things to do in San Francisco.\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"databricks/dbrx-instruct\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are an expert travel guide\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Tell me fun things to do in San Francisco.\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 11 Apr 2024 12:39:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-ratelimit-limit",
+									"value": "2"
+								},
+								{
+									"key": "x-ratelimit-remaining",
+									"value": "1"
+								},
+								{
+									"key": "x-ratelimit-reset",
+									"value": "2"
+								},
+								{
+									"key": "x-inference-version",
+									"value": "v2"
+								},
+								{
+									"key": "x-api-received",
+									"value": "2024-04-11T12:39:33.141Z"
+								},
+								{
+									"key": "x-api-call-start",
+									"value": "2024-04-11T12:39:33.148Z"
+								},
+								{
+									"key": "x-api-call-end",
+									"value": "2024-04-11T12:39:33.447Z"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"q8jukfusqeb4\""
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "872b0a3eaa7d2f34-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"872b0a3eaa7d2f34-LAX\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712839173,\n    \"model\": \"databricks/dbrx-instruct\",\n    \"prompt\": [],\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"logprobs\": null,\n            \"finish_reason\": \"length\",\n            \"stop_reason\": null,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"As an expert travel guide, I'm thrilled to suggest some fun activities for you\"\n            }\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 29,\n        \"total_tokens\": 45,\n        \"completion_tokens\": 16\n    }\n}"
+						}
+					]
+				},
+				{
 					"name": "meta-llama/Llama-2-70b-chat-hf",
 					"request": {
 						"method": "POST",
@@ -3470,6 +3607,344 @@
 					]
 				},
 				{
+					"name": "meta-llama/Llama-3-8b-chat-hf",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"meta-llama/Llama-3-8b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are an expert travel guide\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Tell me fun things to do in San Francisco.\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"meta-llama/Llama-3-8b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are an expert travel guide\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Tell me fun things to do in San Francisco.\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 19 Apr 2024 20:18:57 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-ratelimit-limit",
+									"value": "2"
+								},
+								{
+									"key": "x-ratelimit-remaining",
+									"value": "1"
+								},
+								{
+									"key": "x-ratelimit-reset",
+									"value": "2"
+								},
+								{
+									"key": "x-inference-version",
+									"value": "v2"
+								},
+								{
+									"key": "x-api-received",
+									"value": "2024-04-19T20:18:53.889Z"
+								},
+								{
+									"key": "x-api-call-start",
+									"value": "2024-04-19T20:18:53.896Z"
+								},
+								{
+									"key": "x-api-call-end",
+									"value": "2024-04-19T20:18:57.792Z"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "3536"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "242"
+								},
+								{
+									"key": "x-total-time",
+									"value": "3536"
+								},
+								{
+									"key": "x-validation-time",
+									"value": "0"
+								},
+								{
+									"key": "x-queue-time",
+									"value": "0"
+								},
+								{
+									"key": "x-inference-time",
+									"value": "3535"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "5"
+								},
+								{
+									"key": "x-hostname",
+									"value": "meta-llama-llama-3-8b-chat-hf-5bf5996447-4jqgx"
+								},
+								{
+									"key": "etag",
+									"value": "\"md4conaps02p5\""
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "876f961e8fe50fc9-LAX"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"876f961e8fe50fc9-LAX\",\n    \"object\": \"chat.completion\",\n    \"created\": 1713557937,\n    \"model\": \"meta-llama/Llama-3-8b-chat-hf\",\n    \"prompt\": [],\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null,\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"San Francisco! The City by the Bay is a treasure trove of exciting activities, stunning landmarks, and vibrant neighborhoods. As your expert travel guide, I'm thrilled to share some fun things to do in San Francisco:\\n\\n1. Explore Golden Gate Park: This 1,017-acre park is a must-visit, featuring the Japanese Tea Garden, the de Young Museum, the California Academy of Sciences, and the beautiful Conservatory of Flowers.\\n2. Take a Cable Car Ride: San Francisco's iconic cable cars are a classic way to see the city. Ride the Powell-Mason or Powell-Hyde lines for a scenic tour of the city's hills and neighborhoods.\\n3. Visit Alcatraz Island: Take a ferry to the infamous former prison turned national park, and explore the cellblock, listen to an audio tour, or take a guided tour.\\n4. Walk across the Golden Gate Bridge: For a breathtaking view of the city and the bay, walk or bike across the iconic Golden Gate Bridge. Be sure to wear layers, as it can get chilly and windy.\\n5. Discover Chinatown: San Francisco's Chinatown is one of the largest and oldest in the United States. Explore the vibrant streets, try delicious dim sum, and shop for unique souvenirs.\\n6. Visit Fisherman's Wharf: This bustling waterfront district offers stunning views of the Bay Bridge, Alcatraz, and the sea lions at Pier 39. Don't miss the fresh seafood and street performers.\\n7. Explore the Mission District: This vibrant neighborhood is known for its colorful murals, delicious Mexican cuisine, and lively nightlife. Visit the famous Mission Dolores and the vibrant Valencia Street.\\n8. Take a Food Tour: San Francisco is a foodie paradise! Join a guided tour to sample the city's famous sourdough bread, fresh seafood, and artisanal chocolates.\\n9. Visit the Painted Ladies: These iconic Victorian houses on Alamo Square are a must-see for their colorful facades and stunning views of the city.\\n10. Attend a Performance at the Orpheum Theatre: This historic theater hosts a variety of performances, including Broadway shows, concerts, and comedy acts.\\n11. Explore the Haight-Ashbury: This iconic neighborhood is the epicenter of the 1960s counterculture movement. Visit the famous Haight Street, explore the vintage shops, and grab a coffee at the iconic Buena Vista Cafe.\\n12. Visit the Exploratorium: This interactive science museum is a fun and educational experience for visitors of all ages. Explore the exhibits, play with the hands-on activities, and learn something new.\\n13. Take a Day Trip to Napa Valley: Just an hour's drive from San Francisco, Napa Valley is a world-renowned wine region. Visit wineries, enjoy a hot air balloon ride, and indulge in a gourmet lunch.\\n14. Visit the de Young Museum: This fine arts museum features a diverse collection of art and cultural exhibitions from around the world.\\n15. Attend a Giants Game at Oracle Park: Catch a baseball game at this state-of-the-art stadium, which offers stunning views of the Bay Bridge and the San Francisco skyline.\\n\\nThese are just a few of the many fun things to do in San Francisco. With its rich history, vibrant culture, and stunning natural beauty, there's always something new to explore in this amazing city!\"\n            }\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 31,\n        \"completion_tokens\": 687,\n        \"total_tokens\": 718\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "meta-llama/Llama-3-70b-chat-hf",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"meta-llama/Llama-3-70b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are an expert travel guide\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Tell me fun things to do in San Francisco.\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"meta-llama/Llama-3-70b-chat-hf\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are an expert travel guide\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Tell me fun things to do in San Francisco.\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 19 Apr 2024 20:18:56 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-ratelimit-limit",
+									"value": "2"
+								},
+								{
+									"key": "x-ratelimit-remaining",
+									"value": "1"
+								},
+								{
+									"key": "x-ratelimit-reset",
+									"value": "2"
+								},
+								{
+									"key": "x-inference-version",
+									"value": "v2"
+								},
+								{
+									"key": "x-api-received",
+									"value": "2024-04-19T20:18:50.151Z"
+								},
+								{
+									"key": "x-api-call-start",
+									"value": "2024-04-19T20:18:50.157Z"
+								},
+								{
+									"key": "x-api-call-end",
+									"value": "2024-04-19T20:18:56.492Z"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "6205"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "242"
+								},
+								{
+									"key": "x-total-time",
+									"value": "6205"
+								},
+								{
+									"key": "x-validation-time",
+									"value": "0"
+								},
+								{
+									"key": "x-queue-time",
+									"value": "37"
+								},
+								{
+									"key": "x-inference-time",
+									"value": "6167"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "10"
+								},
+								{
+									"key": "x-hostname",
+									"value": "meta-llama-llama-3-70b-chat-hf-5bb7f668-bdrwp"
+								},
+								{
+									"key": "etag",
+									"value": "\"cymi8d9hth279\""
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "876f960728d578ef-LAX"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"876f960728d578ef-LAX\",\n    \"object\": \"chat.completion\",\n    \"created\": 1713557936,\n    \"model\": \"meta-llama/Llama-3-70b-chat-hf\",\n    \"prompt\": [],\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null,\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"San Francisco, the City by the Bay! There's no shortage of fun things to do in this vibrant, eclectic, and iconic city. Here are some of my top picks:\\n\\n**Explore Iconic Landmarks**\\n\\n1. **Golden Gate Bridge**: Take a stroll or bike ride across the famous bridge, offering breathtaking views of the city and the Bay.\\n2. **Alcatraz Island**: Visit the former prison turned national park, and learn about its infamous history.\\n3. **Lombard Street**: Known as the \\\"crookedest street in the world,\\\" this scenic street offers stunning views of the city.\\n\\n**Neighborhood Adventures**\\n\\n1. **Fisherman's Wharf**: Sample fresh seafood, watch sea lions at Pier 39, and take in the lively atmosphere.\\n2. **Haight-Ashbury**: Explore the epicenter of the 1960s counterculture movement, now a hub for vintage shopping and eclectic eateries.\\n3. **Chinatown**: Wander through the vibrant streets, try authentic Chinese cuisine, and explore the colorful markets.\\n\\n**Outdoor Delights**\\n\\n1. **Golden Gate Park**: This massive urban park is home to several attractions, including the de Young Museum, California Academy of Sciences, and the Japanese Tea Garden.\\n2. **Ocean Beach**: Relax on the beach, take a sunset stroll, or try your hand at surfing.\\n3. **The Presidio**: Hike through this former military base turned national park, offering stunning views of the Golden Gate Bridge.\\n\\n**Foodie Fun**\\n\\n1. **Sourdough Bread**: Sample the famous bread at Boudin Bakery or Fisherman's Wharf.\\n2. **Fresh Seafood**: Enjoy a seafood feast at one of the many waterfront restaurants.\\n3. **Food Trucks**: Try a variety of cuisines at the many food trucks scattered throughout the city.\\n\\n**Unique Experiences**\\n\\n1. **Ride the Cable Cars**: Take a historic ride on one of the city's iconic cable cars.\\n2. **Visit the Painted Ladies**: Admire the colorful Victorian houses on Alamo Square.\\n3. **Take a Ferry to Sausalito**: Explore this charming waterfront town, known for its art galleries and stunning views.\\n\\n**Nightlife**\\n\\n1. **North Beach**: Experience the city's vibrant nightlife in this historic Italian-American neighborhood.\\n2. **The Castro**: Explore the heart of San Francisco's LGBTQ+ community, known for its lively bars and clubs.\\n3. **Comedy Clubs**: Catch a stand-up comedy show at one of the many clubs, such as Cobb's Comedy Club or the Punch Line.\\n\\nThese are just a few of the many fun things to do in San Francisco. With so much to see and do, you're sure to have an unforgettable experience in this incredible city!\"\n            }\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 31,\n        \"completion_tokens\": 568,\n        \"total_tokens\": 599\n    }\n}"
+						}
+					]
+				},
+				{
 					"name": "mistralai/Mistral-7B-Instruct-v0.1",
 					"request": {
 						"method": "POST",
@@ -3973,6 +4448,175 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": \"86de471258de0ff1-LAX\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712034264,\n    \"model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\",\n    \"prompt\": [],\n    \"choices\": [\n        {\n            \"finish_reason\": \"eos\",\n            \"logprobs\": null,\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" Absolutely, I'd be happy to help you discover some fun things to do in San Francisco! Here are a few suggestions:\\n\\n1. **Explore Golden Gate Park:** This urban park is larger than New York's Central Park and offers a variety of activities. You can visit the California Academy of Sciences, stroll through the Japanese Tea Garden, or rent a boat to paddle on Stow Lake.\\n\\n2. **Ride a Cable Car:** San Francisco's cable car system is a National Historic Landmark. It's not only a fun way to get around, but also offers great views of the city.\\n\\n3. **Visit the Ferry Building Marketplace:** This is a food lover's paradise. It's home to a variety of local food and artisan stalls. Don't miss the Farmer's Market on Saturdays!\\n\\n4. **Explore the Mission District:** This vibrant neighborhood is known for its colorful murals, hip bars, and delicious Mexican food.\\n\\n5. **Walk the Golden Gate Bridge:** The bridge is one of the most iconic sights in San Francisco. You can walk or bike across it for stunning views of the Bay Area.\\n\\n6. **Visit Alcatraz Island:** This former prison is now a museum. You can take a ferry to the island and tour the prison cells.\\n\\n7. **Explore the Exploratorium:** This museum makes science fun and accessible. It's full of interactive exhibits that are fun for all ages.\\n\\n8. **Visit the San Francisco Museum of Modern Art (SFMOMA):** If you're an art lover, don't miss SFMOMA. It's one of the largest modern and contemporary art museums in the United States.\\n\\n9. **Stroll through the Presidio:** This former military base is now a park with beautiful views, hiking trails, and historic sites.\\n\\n10. **Visit the Painted Ladies:** These Victorian houses are one of the most photographed sites in San Francisco. They're especially beautiful at sunset.\\n\\nRemember, San Francisco is a city with a lot to offer, so take your time to explore and enjoy!\"\n            }\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 36,\n        \"completion_tokens\": 488,\n        \"total_tokens\": 524\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "mistralai/Mixtral-8x22B-Instruct-v0.1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"mistralai/Mixtral-8x22B-Instruct-v0.1\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are an expert travel guide\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Tell me fun things to do in San Francisco.\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"mistralai/Mixtral-8x22B-Instruct-v0.1\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are an expert travel guide\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Tell me fun things to do in San Francisco.\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 23 Apr 2024 13:02:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-ratelimit-limit",
+									"value": "2"
+								},
+								{
+									"key": "x-ratelimit-remaining",
+									"value": "1"
+								},
+								{
+									"key": "x-ratelimit-reset",
+									"value": "2"
+								},
+								{
+									"key": "x-inference-version",
+									"value": "v2"
+								},
+								{
+									"key": "x-api-received",
+									"value": "2024-04-23T13:02:39.633Z"
+								},
+								{
+									"key": "x-api-call-start",
+									"value": "2024-04-23T13:02:39.639Z"
+								},
+								{
+									"key": "x-api-call-end",
+									"value": "2024-04-23T13:02:55.804Z"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "15370"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "110"
+								},
+								{
+									"key": "x-total-time",
+									"value": "15370"
+								},
+								{
+									"key": "x-validation-time",
+									"value": "0"
+								},
+								{
+									"key": "x-queue-time",
+									"value": "4615"
+								},
+								{
+									"key": "x-inference-time",
+									"value": "10754"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "26"
+								},
+								{
+									"key": "x-hostname",
+									"value": "mistralai-mixtral-8x22b-instruct-v0-1-74c86487c8-npnml"
+								},
+								{
+									"key": "etag",
+									"value": "\"xolvmyxg0s1gh\""
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "878e0c996f497c59-LAX"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"878e0c996f497c59-LAX\",\n    \"object\": \"chat.completion\",\n    \"created\": 1713877375,\n    \"model\": \"mistralai/Mixtral-8x22B-Instruct-v0.1\",\n    \"prompt\": [],\n    \"choices\": [\n        {\n            \"finish_reason\": \"eos\",\n            \"logprobs\": null,\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \" Absolutely, I'd be happy to help you explore San Francisco! Here are some fun things to do:\\n\\n1. **Golden Gate Bridge**: This iconic landmark is a must-visit. You can walk, bike, or drive across it for stunning views of the bay and the city.\\n\\n2. **Alcatraz Island**: Take a ferry to this historic island, which was once a federal prison. You can tour the cell house and learn about its infamous inmates.\\n\\n3. **Fisherman's Wharf**: This bustling area is known for its seafood, shops, and attractions like the sea lion colony at Pier 39 and the historic ships at Hyde Street Pier.\\n\\n4. **Cable Car Museum**: Learn about the history of San Francisco's famous cable cars at this free museum. You can also ride the cable cars around the city.\\n\\n5. **Chinatown**: Explore the largest Chinatown outside of Asia. You'll find delicious food, unique shops, and beautiful temples.\\n\\n6. **The Painted Ladies**: These Victorian houses are a famous San Francisco sight. You can see them from Alamo Square Park.\\n\\n7. **Museum of Modern Art**: If you're an art lover, don't miss this museum, which has a large collection of modern and contemporary art.\\n\\n8. **Exploratorium**: This interactive science museum is fun for all ages. It's located on the Embarcadero with great views of the bay.\\n\\n9. **Lombard Street**: Known as the \\\"crookedest\\\" street in the world, this is a fun spot to visit and take photos.\\n\\n10. **Golden Gate Park**: This large urban park has many attractions, including the California Academy of Sciences, the de Young Museum, and the Japanese Tea Garden.\"\n            }\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 31,\n        \"completion_tokens\": 411,\n        \"total_tokens\": 442\n    }\n}"
 						}
 					]
 				},

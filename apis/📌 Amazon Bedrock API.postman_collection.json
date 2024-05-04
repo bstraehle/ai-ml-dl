@@ -12,7 +12,7 @@
 			"name": "🚀 Get Started",
 			"item": [
 				{
-					"name": "ai21.j2-ultra-v1/invoke",
+					"name": "ai21.j2-ultra-v1",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -42,7 +42,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "ai21.j2-ultra-v1"
+									"value": "ai21.j2-ultra-v1",
+									"uuid": "81af2fd5-8302-4537-8487-906ec5acc4dd"
 								}
 							]
 						}
@@ -143,7 +144,7 @@
 					]
 				},
 				{
-					"name": "amazon.titan-tg1-large/invoke",
+					"name": "amazon.titan-tg1-large",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -173,7 +174,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "amazon.titan-tg1-large"
+									"value": "amazon.titan-tg1-large",
+									"uuid": "de9a543b-2e39-4214-85f7-6e800e8e5aef"
 								}
 							]
 						}
@@ -274,7 +276,7 @@
 					]
 				},
 				{
-					"name": "anthropic.claude-v2/invoke",
+					"name": "anthropic.claude-v2",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -304,7 +306,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "anthropic.claude-v2"
+									"value": "anthropic.claude-v2",
+									"uuid": "02094aaa-e7f9-4556-9d4f-15e8d3265af7"
 								}
 							]
 						}
@@ -410,7 +413,7 @@
 					]
 				},
 				{
-					"name": "cohere.command-text-v14/invoke",
+					"name": "cohere.command-text-v14",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -440,7 +443,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "cohere.command-text-v14"
+									"value": "cohere.command-text-v14",
+									"uuid": "d6a71347-600f-47d8-b017-295f42ba0fc8"
 								}
 							]
 						}
@@ -541,7 +545,7 @@
 					]
 				},
 				{
-					"name": "meta.llama2-13b-chat-v1/invoke",
+					"name": "meta.llama3-8b-instruct-v1:0",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -571,7 +575,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "meta.llama2-13b-chat-v1"
+									"value": "meta.llama3-8b-instruct-v1:0",
+									"uuid": "085850a7-b6b1-4d64-9f78-f0d6817f987e"
 								}
 							]
 						}
@@ -581,23 +586,7 @@
 							"name": "OK",
 							"originalRequest": {
 								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									},
-									{
-										"key": "x-amzn-bedrock-save",
-										"value": "true",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
+								"header": [],
 								"body": {
 									"mode": "raw",
 									"raw": "{\r\n    \"prompt\": \"What is the purpose of life\"\r\n}",
@@ -624,7 +613,7 @@
 									"variable": [
 										{
 											"key": "model_identifier",
-											"value": "meta.llama2-13b-chat-v1"
+											"value": "meta.llama3-8b-instruct-v1:0"
 										}
 									]
 								}
@@ -635,7 +624,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Tue, 02 Apr 2024 23:49:26 GMT"
+									"value": "Tue, 23 Apr 2024 12:53:00 GMT"
 								},
 								{
 									"key": "Content-Type",
@@ -643,7 +632,7 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "2094"
+									"value": "2744"
 								},
 								{
 									"key": "Connection",
@@ -651,28 +640,28 @@
 								},
 								{
 									"key": "x-amzn-RequestId",
-									"value": "f55b4413-8314-4658-9f71-9b31eda1f532"
+									"value": "1bee894a-ad44-4089-bf65-4594f82cbe0e"
 								},
 								{
 									"key": "X-Amzn-Bedrock-Invocation-Latency",
-									"value": "10997"
+									"value": "4694"
 								},
 								{
 									"key": "X-Amzn-Bedrock-Output-Token-Count",
-									"value": "436"
+									"value": "512"
 								},
 								{
 									"key": "X-Amzn-Bedrock-Input-Token-Count",
-									"value": "7"
+									"value": "6"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"generation\": \"? This is a question that has puzzled philosophers and theologians for centuries, and there is no one answer that is universally accepted. However, here are some possible purposes of life:\\n\\n1. To seek happiness and fulfillment: Many people believe that the purpose of life is to seek happiness and fulfillment. This can be achieved by pursuing one's passions, building meaningful relationships, and living a life that is true to oneself.\\n2. To learn and grow: Life can be seen as an opportunity for personal growth and development. Through experiences and challenges, we can learn new skills, gain wisdom, and become better versions of ourselves.\\n3. To make a positive impact: Some people believe that the purpose of life is to make a positive impact on the world. This can be done through acts of kindness, volunteering, or working to make the world a better place.\\n4. To seek spiritual enlightenment: For many religious and spiritual people, the purpose of life is to seek spiritual enlightenment or union with a higher power. This can be achieved through prayer, meditation, or service to others.\\n5. To leave a legacy: Some people believe that the purpose of life is to leave a lasting legacy that will outlive them. This can be achieved through creating art, writing, building, or making other contributions to society.\\n6. To seek knowledge and understanding: Life can be seen as an opportunity to seek knowledge and understanding of the world and the universe. Through science, philosophy, and other forms of inquiry, we can gain a deeper understanding of the world and our place in it.\\n7. To experience the beauty of life: Life is full of beauty, from the natural world to the creations of human culture. The purpose of life can be to experience and appreciate this beauty, and to create more beauty in the world.\\n\\nUltimately, the purpose of life is a deeply personal and subjective question, and each person must find their own answer based on their own beliefs, values, and experiences.\",\n    \"prompt_token_count\": 7,\n    \"generation_token_count\": 436,\n    \"stop_reason\": \"stop\"\n}"
+							"body": "{\n    \"generation\": \"?\\nThe purpose of life is a question that has puzzled philosophers, scientists, and theologians for centuries. There is no one definitive answer, as the purpose of life can vary greatly from person to person and culture to culture. However, here are some possible answers to this question:\\n\\n1. To find happiness and fulfillment: Many people believe that the purpose of life is to find happiness and fulfillment. This can be achieved through personal relationships, career success, or pursuing one's passions.\\n2. To learn and grow: Another perspective is that the purpose of life is to learn and grow as a person. This can involve developing new skills, building relationships, and overcoming challenges.\\n3. To make a positive impact: Some people believe that the purpose of life is to make a positive impact on the world. This can be achieved through volunteering, donating to charity, or working to make a difference in one's community.\\n4. To find meaning and purpose: The purpose of life can also be seen as finding meaning and purpose. This can involve discovering one's values and passions, and using them to guide one's decisions and actions.\\n5. To achieve spiritual enlightenment: For some people, the purpose of life is to achieve spiritual enlightenment or to connect with a higher power. This can involve practicing meditation, prayer, or other spiritual disciplines.\\n6. To experience the beauty of life: Finally, some people believe that the purpose of life is simply to experience the beauty of life. This can involve appreciating the natural world, enjoying relationships, and experiencing the joys of life.\\n\\nUltimately, the purpose of life is a personal and subjective question that can have different answers for different people. What is important is that we each find our own purpose and meaning in life, and that we live in a way that is authentic and fulfilling to us. Read more\\nWhat is the meaning of life?\\nThe meaning of life is a question that has puzzled philosophers, scientists, and theologians for centuries. There is no one definitive answer, as the meaning of life can vary greatly from person to person and culture to culture. However, here are some possible answers to this question:\\n\\n1. To find happiness and fulfillment: Many people believe that the meaning of life is to find happiness and fulfillment. This can be achieved through personal relationships, career success, or pursuing one's passions.\\n2. To learn and grow: Another perspective is that the meaning of life is to learn and grow as a person. This can involve developing new skills, building relationships, and overcoming challenges.\\n3. To make\",\n    \"prompt_token_count\": 6,\n    \"generation_token_count\": 512,\n    \"stop_reason\": \"length\"\n}"
 						}
 					]
 				},
 				{
-					"name": "mistral.mistral-7b-instruct-v0:2/invoke",
+					"name": "meta.llama3-70b-instruct-v1:0",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -702,7 +691,124 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "mistral.mistral-7b-instruct-v0:2"
+									"value": "meta.llama3-8b-instruct-v1:0",
+									"uuid": "886fc2cc-553e-40f5-ad8b-407c8dd95421"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"prompt\": \"What is the purpose of life\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+									"protocol": "https",
+									"host": [
+										"bedrock-runtime",
+										"{{AWS_Region}}",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"model",
+										":model_identifier",
+										"invoke"
+									],
+									"variable": [
+										{
+											"key": "model_identifier",
+											"value": "meta.llama3-70b-instruct-v1:0"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 23 Apr 2024 12:53:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2884"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "81503922-e9e7-410a-89a2-41b3b6aa2dc3"
+								},
+								{
+									"key": "X-Amzn-Bedrock-Invocation-Latency",
+									"value": "11987"
+								},
+								{
+									"key": "X-Amzn-Bedrock-Output-Token-Count",
+									"value": "512"
+								},
+								{
+									"key": "X-Amzn-Bedrock-Input-Token-Count",
+									"value": "6"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"generation\": \"?\\nWhat is the nature of reality?\\nWhat is the relationship between mind and body?\\nWhat is the nature of knowledge?\\nWhat is the nature of morality?\\nWhat is the nature of beauty?\\nWhat is the nature of truth?\\nWhat is the nature of justice?\\nWhat is the nature of freedom?\\nWhat is the nature of happiness?\\n\\nThese are just a few examples of the many philosophical questions that have been debated throughout history. Philosophers have approached these questions in various ways,, using different methods and perspectives to explore the nature of reality, knowledge, and human experience.\\n\\nSome of the key approaches to philosophy include:\\n\\n1. **Rationalism**: This approach emphasizes the use of reason and logic to understand the world. Rationalists believe that certain knowledge can be acquired through the use of reason, independent of sense experience.\\n2. **Empiricism**: This approach emphasizes the role of sense experience in understanding the world. Empiricists believe that knowledge comes from experience and observation.\\n3. **Idealism**: This approach emphasizes the role of mind and consciousness in shaping our understanding of the world. Idealists believe that reality is fundamentally mental or spiritual in nature.\\n4. **Materialism**: This approach emphasizes the role of matter and physical processes in understanding the world. Materialists believe that reality is fundamentally physical in nature.\\n5. **Pragmatism**: This approach emphasizes the practical applications of philosophical ideas. Pragmatists believe that the truth of an idea is determined by its usefulness and effectiveness in solving problems.\\n6. **Existentialism**: This approach emphasizes individual freedom and choice in understanding the world. Existentialists believe that humans must take responsibility for creating their own meaning and purpose in life.\\n7. **Phenomenology**: This approach emphasizes the study of conscious experience or perception. Phenomenologists believe that we must carefully examine our own experiences and perceptions in order to understand the world.\\n\\nThese are just a few examples of the many approaches to philosophy that have been developed over time. Philosophers often draw on multiple approaches and perspectives in their work, and many philosophical debates involve disagreements over the best approach to understanding a particular issue.\\n\\n### Branches of Philosophy\\n\\nPhilosophy is often divided into several branches, each of which focuses on a specific area of inquiry. Some of the main branches of philosophy include:\\n\\n1. **Metaphysics**: This branch of philosophy deals with the nature of reality, including the relationship between mind and body, substance and attribute, and potentiality and actuality.\\n2. **Epistemology**: This branch\",\n    \"prompt_token_count\": 6,\n    \"generation_token_count\": 512,\n    \"stop_reason\": \"length\"\n}"
+						}
+					]
+				},
+				{
+					"name": "mistral.mistral-7b-instruct-v0:2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"prompt\": \"What is the purpose of life\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+							"protocol": "https",
+							"host": [
+								"bedrock-runtime",
+								"{{AWS_Region}}",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"model",
+								":model_identifier",
+								"invoke"
+							],
+							"variable": [
+								{
+									"key": "model_identifier",
+									"value": "mistral.mistral-7b-instruct-v0:2",
+									"uuid": "8f3a1de2-e342-44fd-97d9-d7933a360a8c"
 								}
 							]
 						}
@@ -803,7 +909,7 @@
 					]
 				},
 				{
-					"name": "stability.stable-diffusion-xl-v1/invoke",
+					"name": "stability.stable-diffusion-xl-v1",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -833,7 +939,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "stability.stable-diffusion-xl-v1"
+									"value": "stability.stable-diffusion-xl-v1",
+									"uuid": "9dbb7038-1630-4100-a9c4-9d598dc7ea43"
 								}
 							]
 						}
@@ -876,7 +983,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "ai21.j2-ultra-v1"
+									"value": "ai21.j2-ultra-v1",
+									"uuid": "5f79952e-e5a5-43fc-afb8-bc9082018676"
 								}
 							]
 						}
@@ -1007,7 +1115,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "ai21.j2-mid-v1"
+									"value": "ai21.j2-mid-v1",
+									"uuid": "4fc085ad-3b2f-4160-b27a-60f7ab703781"
 								}
 							]
 						}
@@ -1143,7 +1252,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "amazon.titan-tg1-large"
+									"value": "amazon.titan-tg1-large",
+									"uuid": "999b4d6a-f7b9-42c9-acc4-536f2729c8a0"
 								}
 							]
 						}
@@ -1274,7 +1384,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "amazon.titan-text-lite-v1"
+									"value": "amazon.titan-text-lite-v1",
+									"uuid": "01bd866c-fe54-426b-b4ae-3e8bd3eda1c9"
 								}
 							]
 						}
@@ -1405,7 +1516,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "amazon.titan-text-express-v1"
+									"value": "amazon.titan-text-express-v1",
+									"uuid": "2b47b766-111a-44bb-bc19-6da568c0bdae"
 								}
 							]
 						}
@@ -1536,7 +1648,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "amazon.titan-embed-text-v1"
+									"value": "amazon.titan-embed-text-v1",
+									"uuid": "951f91be-4b5b-4d84-81c2-44c517722865"
 								}
 							]
 						}
@@ -1658,7 +1771,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "amazon.titan-embed-image-v1"
+									"value": "amazon.titan-embed-image-v1",
+									"uuid": "bc8566d4-335d-4fd2-9672-f8f76a7d453f"
 								}
 							]
 						}
@@ -1780,7 +1894,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "amazon.titan-image-generator-v1"
+									"value": "amazon.titan-image-generator-v1",
+									"uuid": "8813ddce-22b8-4089-ab1b-b5bb593e5ff9"
 								}
 							]
 						}
@@ -1792,6 +1907,122 @@
 		{
 			"name": "Anthropic",
 			"item": [
+				{
+					"name": "anthropic.claude-3-opus-20240229-v1:0",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"anthropic_version\": \"bedrock-2023-05-31\",\r\n    \"max_tokens\": 512,\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": [\r\n                {\r\n                    \"type\": \"text\",\r\n                    \"text\": \"What is the purpose of life\"\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 0.9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+							"protocol": "https",
+							"host": [
+								"bedrock-runtime",
+								"{{AWS_Region}}",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"model",
+								":model_identifier",
+								"invoke"
+							],
+							"variable": [
+								{
+									"key": "model_identifier",
+									"value": "anthropic.claude-3-opus-20240229-v1:0",
+									"uuid": "79485fed-f002-43b9-ad5d-3964b3f44e82"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"anthropic_version\": \"bedrock-2023-05-31\",\r\n    \"max_tokens\": 512,\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": [\r\n                {\r\n                    \"type\": \"text\",\r\n                    \"text\": \"What is the purpose of life\"\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"temperature\": 0.5,\r\n    \"top_p\": 0.9\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+									"protocol": "https",
+									"host": [
+										"bedrock-runtime",
+										"{{AWS_Region}}",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"model",
+										":model_identifier",
+										"invoke"
+									],
+									"variable": [
+										{
+											"key": "model_identifier",
+											"value": "anthropic.claude-3-opus-20240229-v1:0"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 19:06:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1702"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "47901619-87c9-4100-aede-0f047de81eca"
+								},
+								{
+									"key": "X-Amzn-Bedrock-Invocation-Latency",
+									"value": "12428"
+								},
+								{
+									"key": "X-Amzn-Bedrock-Output-Token-Count",
+									"value": "302"
+								},
+								{
+									"key": "X-Amzn-Bedrock-Input-Token-Count",
+									"value": "13"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"msg_bdrk_013A5M1RwMupW29AqR9nzg6M\",\n    \"type\": \"message\",\n    \"role\": \"assistant\",\n    \"content\": [\n        {\n            \"type\": \"text\",\n            \"text\": \"The purpose of life is a philosophical and religious question that has been debated for centuries, and there is no single, universally accepted answer. Different individuals, cultures, and belief systems have their own perspectives on what gives life meaning and purpose. Here are a few common views:\\n\\n1. Religious and spiritual purpose: Many people believe that the purpose of life is to fulfill a divine plan, worship a higher power, or achieve spiritual enlightenment.\\n\\n2. Happiness and well-being: Some argue that the purpose of life is to seek happiness, contentment, and overall well-being for oneself and others.\\n\\n3. Personal growth and self-actualization: Others believe that life's purpose is to continually learn, grow, and strive to reach one's full potential.\\n\\n4. Serving others and making a difference: Some individuals find purpose in contributing to society, helping others, and leaving a positive impact on the world.\\n\\n5. Experiencing and appreciating life: Another perspective is that the purpose of life is simply to experience and appreciate the journey, with all its joys and challenges.\\n\\n6. Existentialism: Existentialist philosophers argue that life has no inherent purpose, and it is up to each individual to create their own meaning and purpose.\\n\\nUltimately, the purpose of life is a deeply personal question that each individual must explore and answer for themselves based on their own values, beliefs, and experiences.\"\n        }\n    ],\n    \"model\": \"claude-3-opus-20240229\",\n    \"stop_reason\": \"end_turn\",\n    \"stop_sequence\": null,\n    \"usage\": {\n        \"input_tokens\": 13,\n        \"output_tokens\": 302\n    }\n}"
+						}
+					]
+				},
 				{
 					"name": "anthropic.claude-3-sonnet-20240229-v1:0",
 					"request": {
@@ -1823,7 +2054,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "anthropic.claude-3-sonnet-20240229-v1:0"
+									"value": "anthropic.claude-3-sonnet-20240229-v1:0",
+									"uuid": "2186eb51-093f-461e-8cc8-ccbe08488889"
 								}
 							]
 						}
@@ -1959,7 +2191,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "anthropic.claude-3-haiku-20240307-v1:0"
+									"value": "anthropic.claude-3-haiku-20240307-v1:0",
+									"uuid": "32e68421-cf0b-40b5-a16a-2925482394b0"
 								}
 							]
 						}
@@ -2095,7 +2328,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "anthropic.claude-v2"
+									"value": "anthropic.claude-v2",
+									"uuid": "3a10c22b-a3e4-47d4-8817-200159454b11"
 								}
 							]
 						}
@@ -2231,7 +2465,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "anthropic.claude-v2:1"
+									"value": "anthropic.claude-v2:1",
+									"uuid": "cafd322c-78f0-47a9-b65a-a64d82da89a9"
 								}
 							]
 						}
@@ -2367,7 +2602,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "anthropic.claude-instant-v1"
+									"value": "anthropic.claude-instant-v1",
+									"uuid": "e0c25f43-12de-449b-b9bc-d26e2ef1dcea"
 								}
 							]
 						}
@@ -2508,7 +2744,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "cohere.command-text-v14"
+									"value": "cohere.command-text-v14",
+									"uuid": "d5ac90cc-c0fc-4655-9a92-ec738f846ed4"
 								}
 							]
 						}
@@ -2639,7 +2876,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "cohere.command-light-text-v14"
+									"value": "cohere.command-light-text-v14",
+									"uuid": "42692016-48ce-4876-ac32-f61f726b6e61"
 								}
 							]
 						}
@@ -2770,7 +3008,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "cohere.embed-english-v3"
+									"value": "cohere.embed-english-v3",
+									"uuid": "15c1b3f0-1eb2-4cb9-ad4c-52dcae5f45f4"
 								}
 							]
 						}
@@ -2881,7 +3120,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "cohere.embed-multilingual-v3"
+									"value": "cohere.embed-multilingual-v3",
+									"uuid": "c4552ba0-4ff7-4239-84e2-613f41068ad9"
 								}
 							]
 						}
@@ -2997,7 +3237,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "meta.llama2-13b-chat-v1"
+									"value": "meta.llama2-13b-chat-v1",
+									"uuid": "f4103075-7e52-4edd-81a2-4458c9292505"
 								}
 							]
 						}
@@ -3128,7 +3369,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "meta.llama2-70b-chat-v1"
+									"value": "meta.llama2-70b-chat-v1",
+									"uuid": "030d460d-dcf8-4429-9270-6e7b8e354a63"
 								}
 							]
 						}
@@ -3227,6 +3469,238 @@
 							"body": "{\n    \"generation\": \"? This is a question that has puzzled philosophers and theologians for centuries. It is a question that is difficult to answer definitively, as it is a question that is deeply personal and subjective. However, in this essay, I will attempt to provide a possible answer to this question based on my own beliefs and values.\\n\\nFirstly, I believe that the purpose of life is to seek happiness and fulfillment. Happiness is a fundamental human need, and it is something that we all strive for in our lives. However, happiness is not just about feeling good or having fun. It is about living a life that is meaningful and fulfilling, a life that is rich in experiences and relationships that bring us joy and satisfaction.\\n\\nSecondly, I believe that the purpose of life is to learn and grow as individuals. Life is a journey of discovery and self-improvement, and it is through learning and growing that we can achieve our full potential as human beings. This means developing our intellectual, emotional, and spiritual capacities, and using them to make a positive impact on the world around us.\\n\\nThirdly, I believe that the purpose of life is to make a positive difference in the world. We are all interconnected, and our actions have an impact on others and on the planet. Therefore, I believe that it is our responsibility to use our talents, skills, and resources to make a positive contribution to society and to the world. This can be achieved through acts of kindness, volunteering, activism, or simply living a sustainable and environmentally conscious lifestyle.\\n\\nFinally, I believe that the purpose of life is to seek spiritual enlightenment or transcendence. This is a deeply personal and subjective aspect of human experience, and it can be understood in many different ways. For some, it may involve religious or spiritual beliefs and practices, while for others, it may involve a sense of connection to nature, art, or music. Whatever form it takes, spiritual enlightenment or transcendence is a way of experiencing life that goes beyond the mundane and material, and that connects us to something greater than ourselves.\\n\\nIn conclusion, the purpose of life is a complex and multifaceted question that each person must answer for themselves. Based on my own beliefs and values, I believe that the purpose of life is\",\n    \"prompt_token_count\": 7,\n    \"generation_token_count\": 512,\n    \"stop_reason\": \"length\"\n}"
 						}
 					]
+				},
+				{
+					"name": "meta.llama3-8b-instruct-v1:0",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"prompt\": \"What is the purpose of life\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+							"protocol": "https",
+							"host": [
+								"bedrock-runtime",
+								"{{AWS_Region}}",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"model",
+								":model_identifier",
+								"invoke"
+							],
+							"variable": [
+								{
+									"key": "model_identifier",
+									"value": "meta.llama3-8b-instruct-v1:0",
+									"uuid": "da8f3588-1b52-4d41-90e3-5a7d2818ce1d"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"prompt\": \"What is the purpose of life\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+									"protocol": "https",
+									"host": [
+										"bedrock-runtime",
+										"{{AWS_Region}}",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"model",
+										":model_identifier",
+										"invoke"
+									],
+									"variable": [
+										{
+											"key": "model_identifier",
+											"value": "meta.llama3-8b-instruct-v1:0"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 23 Apr 2024 12:53:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2744"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "1bee894a-ad44-4089-bf65-4594f82cbe0e"
+								},
+								{
+									"key": "X-Amzn-Bedrock-Invocation-Latency",
+									"value": "4694"
+								},
+								{
+									"key": "X-Amzn-Bedrock-Output-Token-Count",
+									"value": "512"
+								},
+								{
+									"key": "X-Amzn-Bedrock-Input-Token-Count",
+									"value": "6"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"generation\": \"?\\nThe purpose of life is a question that has puzzled philosophers, scientists, and theologians for centuries. There is no one definitive answer, as the purpose of life can vary greatly from person to person and culture to culture. However, here are some possible answers to this question:\\n\\n1. To find happiness and fulfillment: Many people believe that the purpose of life is to find happiness and fulfillment. This can be achieved through personal relationships, career success, or pursuing one's passions.\\n2. To learn and grow: Another perspective is that the purpose of life is to learn and grow as a person. This can involve developing new skills, building relationships, and overcoming challenges.\\n3. To make a positive impact: Some people believe that the purpose of life is to make a positive impact on the world. This can be achieved through volunteering, donating to charity, or working to make a difference in one's community.\\n4. To find meaning and purpose: The purpose of life can also be seen as finding meaning and purpose. This can involve discovering one's values and passions, and using them to guide one's decisions and actions.\\n5. To achieve spiritual enlightenment: For some people, the purpose of life is to achieve spiritual enlightenment or to connect with a higher power. This can involve practicing meditation, prayer, or other spiritual disciplines.\\n6. To experience the beauty of life: Finally, some people believe that the purpose of life is simply to experience the beauty of life. This can involve appreciating the natural world, enjoying relationships, and experiencing the joys of life.\\n\\nUltimately, the purpose of life is a personal and subjective question that can have different answers for different people. What is important is that we each find our own purpose and meaning in life, and that we live in a way that is authentic and fulfilling to us. Read more\\nWhat is the meaning of life?\\nThe meaning of life is a question that has puzzled philosophers, scientists, and theologians for centuries. There is no one definitive answer, as the meaning of life can vary greatly from person to person and culture to culture. However, here are some possible answers to this question:\\n\\n1. To find happiness and fulfillment: Many people believe that the meaning of life is to find happiness and fulfillment. This can be achieved through personal relationships, career success, or pursuing one's passions.\\n2. To learn and grow: Another perspective is that the meaning of life is to learn and grow as a person. This can involve developing new skills, building relationships, and overcoming challenges.\\n3. To make\",\n    \"prompt_token_count\": 6,\n    \"generation_token_count\": 512,\n    \"stop_reason\": \"length\"\n}"
+						}
+					]
+				},
+				{
+					"name": "meta.llama3-70b-instruct-v1:0",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"prompt\": \"What is the purpose of life\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+							"protocol": "https",
+							"host": [
+								"bedrock-runtime",
+								"{{AWS_Region}}",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"model",
+								":model_identifier",
+								"invoke"
+							],
+							"variable": [
+								{
+									"key": "model_identifier",
+									"value": "meta.llama3-70b-instruct-v1:0",
+									"uuid": "8c98df88-de2f-47db-87ce-64b5d51c83ea"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"prompt\": \"What is the purpose of life\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+									"protocol": "https",
+									"host": [
+										"bedrock-runtime",
+										"{{AWS_Region}}",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"model",
+										":model_identifier",
+										"invoke"
+									],
+									"variable": [
+										{
+											"key": "model_identifier",
+											"value": "meta.llama3-70b-instruct-v1:0"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 23 Apr 2024 12:53:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2884"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "81503922-e9e7-410a-89a2-41b3b6aa2dc3"
+								},
+								{
+									"key": "X-Amzn-Bedrock-Invocation-Latency",
+									"value": "11987"
+								},
+								{
+									"key": "X-Amzn-Bedrock-Output-Token-Count",
+									"value": "512"
+								},
+								{
+									"key": "X-Amzn-Bedrock-Input-Token-Count",
+									"value": "6"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"generation\": \"?\\nWhat is the nature of reality?\\nWhat is the relationship between mind and body?\\nWhat is the nature of knowledge?\\nWhat is the nature of morality?\\nWhat is the nature of beauty?\\nWhat is the nature of truth?\\nWhat is the nature of justice?\\nWhat is the nature of freedom?\\nWhat is the nature of happiness?\\n\\nThese are just a few examples of the many philosophical questions that have been debated throughout history. Philosophers have approached these questions in various ways,, using different methods and perspectives to explore the nature of reality, knowledge, and human experience.\\n\\nSome of the key approaches to philosophy include:\\n\\n1. **Rationalism**: This approach emphasizes the use of reason and logic to understand the world. Rationalists believe that certain knowledge can be acquired through the use of reason, independent of sense experience.\\n2. **Empiricism**: This approach emphasizes the role of sense experience in understanding the world. Empiricists believe that knowledge comes from experience and observation.\\n3. **Idealism**: This approach emphasizes the role of mind and consciousness in shaping our understanding of the world. Idealists believe that reality is fundamentally mental or spiritual in nature.\\n4. **Materialism**: This approach emphasizes the role of matter and physical processes in understanding the world. Materialists believe that reality is fundamentally physical in nature.\\n5. **Pragmatism**: This approach emphasizes the practical applications of philosophical ideas. Pragmatists believe that the truth of an idea is determined by its usefulness and effectiveness in solving problems.\\n6. **Existentialism**: This approach emphasizes individual freedom and choice in understanding the world. Existentialists believe that humans must take responsibility for creating their own meaning and purpose in life.\\n7. **Phenomenology**: This approach emphasizes the study of conscious experience or perception. Phenomenologists believe that we must carefully examine our own experiences and perceptions in order to understand the world.\\n\\nThese are just a few examples of the many approaches to philosophy that have been developed over time. Philosophers often draw on multiple approaches and perspectives in their work, and many philosophical debates involve disagreements over the best approach to understanding a particular issue.\\n\\n### Branches of Philosophy\\n\\nPhilosophy is often divided into several branches, each of which focuses on a specific area of inquiry. Some of the main branches of philosophy include:\\n\\n1. **Metaphysics**: This branch of philosophy deals with the nature of reality, including the relationship between mind and body, substance and attribute, and potentiality and actuality.\\n2. **Epistemology**: This branch\",\n    \"prompt_token_count\": 6,\n    \"generation_token_count\": 512,\n    \"stop_reason\": \"length\"\n}"
+						}
+					]
 				}
 			]
 		},
@@ -3264,7 +3738,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "mistral.mistral-large-2402-v1:0"
+									"value": "mistral.mistral-large-2402-v1:0",
+									"uuid": "b832b8df-fdc2-43b0-af31-add44d343dac"
 								}
 							]
 						}
@@ -3379,7 +3854,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "mistral.mistral-7b-instruct-v0:2"
+									"value": "mistral.mistral-7b-instruct-v0:2",
+									"uuid": "e50a09e2-ddec-46ca-b1f5-a3e86c59860b"
 								}
 							]
 						}
@@ -3510,7 +3986,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "mistral.mixtral-8x7b-instruct-v0:1"
+									"value": "mistral.mixtral-8x7b-instruct-v0:1",
+									"uuid": "c4da7bb4-8e11-4ed9-9057-5b90f451b2a7"
 								}
 							]
 						}
@@ -3646,7 +4123,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "stability.stable-diffusion-xl-v0"
+									"value": "stability.stable-diffusion-xl-v0",
+									"uuid": "3095f6b9-ff0f-4003-ae8a-5713ec65db2d"
 								}
 							]
 						}
@@ -3684,7 +4162,8 @@
 							"variable": [
 								{
 									"key": "model_identifier",
-									"value": "stability.stable-diffusion-xl-v1"
+									"value": "stability.stable-diffusion-xl-v1",
+									"uuid": "20db9b39-348b-4713-b829-69e9646c94fb"
 								}
 							]
 						}
@@ -3731,7 +4210,8 @@
 									"variable": [
 										{
 											"key": "model_identifier",
-											"value": "amazon.titan-tg1-large"
+											"value": "amazon.titan-tg1-large",
+											"uuid": "c83a9330-71d4-4424-8403-75d277c98df9"
 										}
 									]
 								}
@@ -3853,7 +4333,8 @@
 									"variable": [
 										{
 											"key": "model_identifier",
-											"value": "amazon.titan-embed-text-v1"
+											"value": "amazon.titan-embed-text-v1",
+											"uuid": "a2c92aa5-28b1-4fbd-ae15-f06d0457948a"
 										}
 									]
 								}
@@ -3972,7 +4453,8 @@
 									"variable": [
 										{
 											"key": "model_identifier",
-											"value": "stability.stable-diffusion-xl"
+											"value": "stability.stable-diffusion-xl",
+											"uuid": "44871e31-19fe-48bb-81b8-d9b5dff99239"
 										}
 									]
 								}
@@ -4099,7 +4581,8 @@
 									"variable": [
 										{
 											"key": "model_identifier",
-											"value": "amazon.titan-tg1-large"
+											"value": "amazon.titan-tg1-large",
+											"uuid": "9c6701af-8e45-43f9-a0e9-d5ef44732486"
 										}
 									]
 								}
@@ -4221,7 +4704,8 @@
 									"variable": [
 										{
 											"key": "model_identifier",
-											"value": "amazon.titan-tg1-large"
+											"value": "amazon.titan-tg1-large",
+											"uuid": "377e8a6b-aba2-41d6-90ab-112a0199a9cd"
 										}
 									]
 								}
@@ -4344,7 +4828,8 @@
 									"variable": [
 										{
 											"key": "model_identifier",
-											"value": "amazon.titan-tg1-large"
+											"value": "amazon.titan-tg1-large",
+											"uuid": "90a5b36c-c7f8-4950-8648-7edc47447cdd"
 										}
 									]
 								}
@@ -4466,7 +4951,8 @@
 									"variable": [
 										{
 											"key": "model_identifier",
-											"value": "amazon.titan-tg1-large"
+											"value": "amazon.titan-tg1-large",
+											"uuid": "e799c1a6-9c67-4694-9bfc-0c48f3b6efa3"
 										}
 									]
 								}
@@ -4589,7 +5075,8 @@
 										{
 											"key": "model_identifier",
 											"value": "amazon.titan-tg1-large",
-											"description": "Available text generation models under Amazon Bedrock have the following IDs:\n\n-  amazon.titan-tg1-large\n- ai21.j2-grande-instruct\n- ai21.j2-jumbo-instruct\n- anthropic.claude-instant-v1\n- anthropic.claude-v1"
+											"description": "Available text generation models under Amazon Bedrock have the following IDs:\n\n-  amazon.titan-tg1-large\n- ai21.j2-grande-instruct\n- ai21.j2-jumbo-instruct\n- anthropic.claude-instant-v1\n- anthropic.claude-v1",
+											"uuid": "53d45ae0-a5ba-4161-aa0e-aedc31f39c83"
 										}
 									]
 								}

@@ -12,6 +12,308 @@
 			"name": "🚀 Get Started (Inference)",
 			"item": [
 				{
+					"name": "Chat (gpt-4-turbo) - txt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"gpt-4-turbo\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a haiku about GPT-4\"\r\n        }\r\n    ],\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 256,\r\n    \"top_p\": 1,\r\n    \"frequency_penalty\": 0,\r\n    \"presence_penalty\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"gpt-4-turbo\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a haiku about GPT-4\"\r\n        }\r\n    ],\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 256,\r\n    \"top_p\": 1,\r\n    \"frequency_penalty\": 0,\r\n    \"presence_penalty\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 10 Apr 2024 22:44:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "openai-organization",
+									"value": "user-rkkghdqu18op7h28k5tshgsi"
+								},
+								{
+									"key": "openai-processing-ms",
+									"value": "1031"
+								},
+								{
+									"key": "openai-version",
+									"value": "2020-10-01"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=15724800; includeSubDomains"
+								},
+								{
+									"key": "x-ratelimit-limit-requests",
+									"value": "5000"
+								},
+								{
+									"key": "x-ratelimit-limit-tokens",
+									"value": "600000"
+								},
+								{
+									"key": "x-ratelimit-remaining-requests",
+									"value": "4999"
+								},
+								{
+									"key": "x-ratelimit-remaining-tokens",
+									"value": "599735"
+								},
+								{
+									"key": "x-ratelimit-reset-requests",
+									"value": "12ms"
+								},
+								{
+									"key": "x-ratelimit-reset-tokens",
+									"value": "26ms"
+								},
+								{
+									"key": "x-request-id",
+									"value": "req_698b4708f6c2b0681b0b72764069d74c"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "__cf_bm=BRdklmYuWHPBezAsgESYR6Qn3DOQBaMR9KnN31zvAeo-1712789066-1.0.1.1-BaNTpSthhRscrhhZNJ5iwc2jqQOzBUruwVS_nC1GFNo4.nzPiCmoFQzI.f.J8xkZ4rRxRbmZDNhUWeQ13l3jfQ; path=/; expires=Wed, 10-Apr-24 23:14:26 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_cfuvid=ZhZcJagHdzbfIlX4.EaVNmzO5iCLxQkMBpHUcc6fAJU-1712789066999-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "872642ec7cf3102d-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-9Cay2vOFX4J24krOhgQQ49hegy3St\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712789066,\n    \"model\": \"gpt-4-turbo-2024-04-09\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"In circuits it weaves,\\nDeepened thoughts, like autumn leaves—\\nSilent mind perceives.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 16,\n        \"completion_tokens\": 21,\n        \"total_tokens\": 37\n    },\n    \"system_fingerprint\": \"fp_e37a4b9591\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Chat (gpt-4-turbo) - txt & img",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"gpt-4-turbo\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": [\r\n                {\r\n                    \"type\": \"text\",\r\n                    \"text\": \"What’s in this image?\"\r\n                },\r\n                {\r\n                    \"type\": \"image_url\",\r\n                    \"image_url\": {\r\n                        \"url\": \"https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/openai-multimodal-llm/architecture-openai-llm-rag.png\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"max_tokens\": 300\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"gpt-4-turbo\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": [\r\n                {\r\n                    \"type\": \"text\",\r\n                    \"text\": \"What’s in this image?\"\r\n                },\r\n                {\r\n                    \"type\": \"image_url\",\r\n                    \"image_url\": {\r\n                        \"url\": \"https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/openai-multimodal-llm/architecture-openai-llm-rag.png\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"max_tokens\": 300\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 10 Apr 2024 22:47:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "openai-organization",
+									"value": "user-rkkghdqu18op7h28k5tshgsi"
+								},
+								{
+									"key": "openai-processing-ms",
+									"value": "10115"
+								},
+								{
+									"key": "openai-version",
+									"value": "2020-10-01"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=15724800; includeSubDomains"
+								},
+								{
+									"key": "x-ratelimit-limit-input-images",
+									"value": "5000"
+								},
+								{
+									"key": "x-ratelimit-limit-requests",
+									"value": "5000"
+								},
+								{
+									"key": "x-ratelimit-limit-tokens",
+									"value": "600000"
+								},
+								{
+									"key": "x-ratelimit-remaining-input-images",
+									"value": "4999"
+								},
+								{
+									"key": "x-ratelimit-remaining-requests",
+									"value": "4999"
+								},
+								{
+									"key": "x-ratelimit-remaining-tokens",
+									"value": "598928"
+								},
+								{
+									"key": "x-ratelimit-reset-input-images",
+									"value": "12ms"
+								},
+								{
+									"key": "x-ratelimit-reset-requests",
+									"value": "12ms"
+								},
+								{
+									"key": "x-ratelimit-reset-tokens",
+									"value": "107ms"
+								},
+								{
+									"key": "x-request-id",
+									"value": "req_6d1e9282b1715bb378638d097adef676"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "872647404afa102d-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-9Cb0vKAzCpWctDFp2ySH5tqPHcGt5\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712789245,\n    \"model\": \"gpt-4-turbo-2024-04-09\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"This image displays a detailed flowchart for a \\\"Context-Aware Multimodal Reasoning Application\\\" that utilizes a large language model and retrieval-augmented generation. The process starts from the user interaction and ends either at data processing or AI developer platform evaluation. Here are the key components and flow described in the diagram:\\n\\n1. **User Interaction**: A user interacts with the system through a general application which may involve tools like Hugging Face, Gradio or Streamlit.\\n\\n2. **Transactional User Interactions**: Includes guardrails such as prompt injection, data leakage, and toxicity control to ensure safe and relevant interactions.\\n\\n3. **Agents and Tools**: The user's request is processed using built-in or custom agents or tools, including a Retrieval Augmented Generation (RAG) tool.\\n\\n4. **AI Models and Processing**: The application uses a wide array of AI models for different functions like speech-to-text conversion, text embedding, image embedding, and text generation. Specific models mentioned include Whisper-1, text-embedding-ada-002, CLIP, GPT-4-vision-preview, tts-1, and DALL-E-3.\\n\\n5. **Vector Database**: Document chunks are stored and fetched in/from a vector database, which aids in handling the embeddings efficiently.\\n\\n6. **Batch ETL Processes**: This side of the diagram handles the loading, processing, and storage of data through use of a 'Data Lake', whereby different types of data are managed.\\n\\n7.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"length\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 1118,\n        \"completion_tokens\": 300,\n        \"total_tokens\": 1418\n    },\n    \"system_fingerprint\": \"fp_d1bac968b4\"\n}"
+						}
+					]
+				},
+				{
 					"name": "Chat (gpt-4-turbo-preview)",
 					"request": {
 						"method": "POST",
@@ -324,6 +626,148 @@
 							"body": "{\n    \"id\": \"chatcmpl-8ytMMfxuVUqE7N9lhHgEbVQ75kbmm\",\n    \"object\": \"chat.completion\",\n    \"created\": 1709523174,\n    \"model\": \"gpt-4-1106-vision-preview\",\n    \"usage\": {\n        \"prompt_tokens\": 1118,\n        \"completion_tokens\": 300,\n        \"total_tokens\": 1418\n    },\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"This image appears to be a flowchart diagram representing a system architecture for a \\\"Context-Aware Multimodal Reasoning Application\\\" involving a large language model and retrieval-augmented generation. Here are the key components and flow:\\n\\n1. At the left, there's a user icon (symbolizing the end-user), which indicates the beginning of the user interaction with the system.\\n\\n2. The user interacts with a general application interface (\\\"GenAI App\\\") which seems to include various interfaces or platforms like Hugging Face, Gradio, Streamlit, LangChain, or LlamaIndex.\\n\\n3. This application interface has \\\"Guardrails\\\" which involve prompt injection, data leakage, localization, and toxicity checks to ensure quality and safety in interactions.\\n\\n4. The transactional user interactions occur through agents and tools (built-in & custom), and specifically through a \\\"RAG Tool\\\" which stands for Retrieval-Augmented Generation.\\n\\n5. The flow then moves to the center with a \\\"Vector Database\\\" (such as MongoDB Atlas Vector Search), which is likely used for storing and retrieving large amounts of high-dimensional data.\\n\\n6. The system includes a collection of AI models for different purposes:\\n   - Speech-to-Text (e.g., whisper-1)\\n   - Text Embedding (e.g., text-embedding-ada-002)\\n   - Image Embedding (e.g., clip)\\n   - Text Generation (e.g., gpt-4-vision-preview)\\n   - Text-to-S\"\n            },\n            \"finish_reason\": \"length\",\n            \"index\": 0\n        }\n    ]\n}"
 						}
 					]
+				},
+				{
+					"name": "Chat (gpt-3.5-turbo)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"gpt-3.5-turbo\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who won the world series in 2020?\"\n        },\n        {\n            \"role\": \"assistant\",\n            \"content\": \"The Los Angeles Dodgers won the World Series in 2020.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"Where was it played?\"\n        }\n    ],\n    \"temperature\": 1,\n    \"top_p\": 1,\n    \"n\": 1,\n    \"stream\": false,\n    \"max_tokens\": 250,\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create chat message completion",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"gpt-3.5-turbo\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who won the world series in 2020?\"\n        },\n        {\n            \"role\": \"assistant\",\n            \"content\": \"The Los Angeles Dodgers won the World Series in 2020.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"Where was it played?\"\n        }\n    ],\n    \"temperature\": 1,\n    \"top_p\": 1,\n    \"n\": 1,\n    \"stream\": false,\n    \"max_tokens\": 250,\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 20 Mar 2023 23:50:57 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "360"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, must-revalidate"
+								},
+								{
+									"key": "Openai-Model",
+									"value": "gpt-3.5-turbo-0301"
+								},
+								{
+									"key": "Openai-Organization",
+									"value": "user-ydfxhof885ycvb52zjw5ly51"
+								},
+								{
+									"key": "Openai-Processing-Ms",
+									"value": "1800"
+								},
+								{
+									"key": "Openai-Version",
+									"value": "2020-10-01"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15724800; includeSubDomains"
+								},
+								{
+									"key": "X-Ratelimit-Limit-Requests",
+									"value": "3500"
+								},
+								{
+									"key": "X-Ratelimit-Remaining-Requests",
+									"value": "3499"
+								},
+								{
+									"key": "X-Ratelimit-Reset-Requests",
+									"value": "17ms"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "8506a913c39e706fede784458b254ca7"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-6wJZ9Ebt8puAO4zW3zUpgFwS8BfJB\",\n    \"object\": \"chat.completion\",\n    \"created\": 1679356255,\n    \"model\": \"gpt-3.5-turbo-0301\",\n    \"usage\": {\n        \"prompt_tokens\": 45,\n        \"completion_tokens\": 19,\n        \"total_tokens\": 64\n    },\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The 2020 World Series was played in Arlington, Texas, at Globe Life Field.\"\n            },\n            \"finish_reason\": \"stop\",\n            \"index\": 0\n        }\n    ]\n}"
+						}
+					]
 				}
 			]
 		},
@@ -370,8 +814,7 @@
 							"path": [
 								"files"
 							]
-						},
-						"description": "Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit."
+						}
 					},
 					"response": [
 						{
@@ -516,8 +959,7 @@
 							"path": [
 								"files"
 							]
-						},
-						"description": "Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit."
+						}
 					},
 					"response": [
 						{
@@ -635,8 +1077,7 @@
 							"path": [
 								"files"
 							]
-						},
-						"description": "Returns a list of files that belong to the user's organization."
+						}
 					},
 					"response": [
 						{
@@ -747,8 +1188,7 @@
 								"fine_tuning",
 								"jobs"
 							]
-						},
-						"description": "Creates a job that fine-tunes a specified model from a given dataset.\n\nModels eligble for fine tuning are: `ada`, `babbage`, `curie`, or `davinci`\n\nThe dataset (training file) should be formatted like below (JSONL)\n\n```\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n\n```\n\n  \nFor example:  \n\n```\n{\"prompt\": \"Why did the chicken cross the road?\", \"completion\": \"Why not?\"}\n{\"prompt\": \"Why did the chicken use AI?\", \"completion\": \"To get to the other side\"}\n\n```\n\nNote that after a job completes it may take several minutes for your model to become ready to handle requests."
+						}
 					},
 					"response": [
 						{
@@ -872,11 +1312,11 @@
 							"variable": [
 								{
 									"key": "job",
-									"value": "ftjob-4EAfaK1ecMkfez3aViPAEVMx"
+									"value": "ftjob-4EAfaK1ecMkfez3aViPAEVMx",
+									"uuid": "aaeab2a3-e3ca-4c7c-b8a3-22dbb930f5a0"
 								}
 							]
-						},
-						"description": "Creates a job that fine-tunes a specified model from a given dataset."
+						}
 					},
 					"response": [
 						{
@@ -985,8 +1425,7 @@
 								"chat",
 								"completions"
 							]
-						},
-						"description": "Creates a completion for the provided prompt and parameters."
+						}
 					},
 					"response": [
 						{
@@ -1722,10 +2161,36 @@
 			]
 		},
 		{
-			"name": "Chat",
+			"name": "Batch",
 			"item": [
 				{
-					"name": "gpt-3.5-turbo",
+					"name": "Create batch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"input_file_id\": \"file-abc123\",\n    \"endpoint\": \"/v1/chat/completions\",\n    \"completion_window\": \"24h\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/batches",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"batches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get batches",
 					"event": [
 						{
 							"listen": "test",
@@ -1739,11 +2204,96 @@
 						}
 					],
 					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/batches",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"batches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get batch",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/batches/:batch",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"batches",
+								":batch"
+							],
+							"variable": [
+								{
+									"key": "batch",
+									"value": "batch_abc123",
+									"uuid": "00828109-f64f-4b32-9e15-ad243c67f9f4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel batch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/batches/:batch/cancel",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"batches",
+								":batch",
+								"cancel"
+							],
+							"variable": [
+								{
+									"key": "batch",
+									"value": "batch_abc123",
+									"uuid": "307a2378-e01d-4013-bf90-50580c73a9dc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "gpt-4-turbo - txt",
+					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"model\": \"gpt-3.5-turbo\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who won the world series in 2020?\"\n        },\n        {\n            \"role\": \"assistant\",\n            \"content\": \"The Los Angeles Dodgers won the World Series in 2020.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"Where was it played?\"\n        }\n    ],\n    \"temperature\": 1,\n    \"top_p\": 1,\n    \"n\": 1,\n    \"stream\": false,\n    \"max_tokens\": 250,\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 0\n}",
+							"raw": "{\r\n    \"model\": \"gpt-4-turbo\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a haiku about GPT-4\"\r\n        }\r\n    ],\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 256,\r\n    \"top_p\": 1,\r\n    \"frequency_penalty\": 0,\r\n    \"presence_penalty\": 0\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1763,22 +2313,13 @@
 					},
 					"response": [
 						{
-							"name": "Create chat message completion",
+							"name": "OK",
 							"originalRequest": {
 								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Accept",
-										"value": "application/json"
-									}
-								],
+								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"model\": \"gpt-3.5-turbo\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who won the world series in 2020?\"\n        },\n        {\n            \"role\": \"assistant\",\n            \"content\": \"The Los Angeles Dodgers won the World Series in 2020.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"Where was it played?\"\n        }\n    ],\n    \"temperature\": 1,\n    \"top_p\": 1,\n    \"n\": 1,\n    \"stream\": false,\n    \"max_tokens\": 250,\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 0\n}",
+									"raw": "{\r\n    \"model\": \"gpt-4-turbo\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Write a haiku about GPT-4\"\r\n        }\r\n    ],\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 256,\r\n    \"top_p\": 1,\r\n    \"frequency_penalty\": 0,\r\n    \"presence_penalty\": 0\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1802,67 +2343,248 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Mon, 20 Mar 2023 23:50:57 GMT"
+									"value": "Wed, 10 Apr 2024 22:44:26 GMT"
 								},
 								{
 									"key": "Content-Type",
 									"value": "application/json"
 								},
 								{
-									"key": "Content-Length",
-									"value": "360"
+									"key": "Transfer-Encoding",
+									"value": "chunked"
 								},
 								{
 									"key": "Connection",
 									"value": "keep-alive"
 								},
 								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
+									"key": "openai-organization",
+									"value": "user-rkkghdqu18op7h28k5tshgsi"
 								},
 								{
-									"key": "Cache-Control",
-									"value": "no-cache, must-revalidate"
+									"key": "openai-processing-ms",
+									"value": "1031"
 								},
 								{
-									"key": "Openai-Model",
-									"value": "gpt-3.5-turbo-0301"
-								},
-								{
-									"key": "Openai-Organization",
-									"value": "user-ydfxhof885ycvb52zjw5ly51"
-								},
-								{
-									"key": "Openai-Processing-Ms",
-									"value": "1800"
-								},
-								{
-									"key": "Openai-Version",
+									"key": "openai-version",
 									"value": "2020-10-01"
 								},
 								{
-									"key": "Strict-Transport-Security",
+									"key": "strict-transport-security",
 									"value": "max-age=15724800; includeSubDomains"
 								},
 								{
-									"key": "X-Ratelimit-Limit-Requests",
-									"value": "3500"
+									"key": "x-ratelimit-limit-requests",
+									"value": "5000"
 								},
 								{
-									"key": "X-Ratelimit-Remaining-Requests",
-									"value": "3499"
+									"key": "x-ratelimit-limit-tokens",
+									"value": "600000"
 								},
 								{
-									"key": "X-Ratelimit-Reset-Requests",
-									"value": "17ms"
+									"key": "x-ratelimit-remaining-requests",
+									"value": "4999"
 								},
 								{
-									"key": "X-Request-Id",
-									"value": "8506a913c39e706fede784458b254ca7"
+									"key": "x-ratelimit-remaining-tokens",
+									"value": "599735"
+								},
+								{
+									"key": "x-ratelimit-reset-requests",
+									"value": "12ms"
+								},
+								{
+									"key": "x-ratelimit-reset-tokens",
+									"value": "26ms"
+								},
+								{
+									"key": "x-request-id",
+									"value": "req_698b4708f6c2b0681b0b72764069d74c"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "__cf_bm=BRdklmYuWHPBezAsgESYR6Qn3DOQBaMR9KnN31zvAeo-1712789066-1.0.1.1-BaNTpSthhRscrhhZNJ5iwc2jqQOzBUruwVS_nC1GFNo4.nzPiCmoFQzI.f.J8xkZ4rRxRbmZDNhUWeQ13l3jfQ; path=/; expires=Wed, 10-Apr-24 23:14:26 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_cfuvid=ZhZcJagHdzbfIlX4.EaVNmzO5iCLxQkMBpHUcc6fAJU-1712789066999-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "872642ec7cf3102d-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": \"chatcmpl-6wJZ9Ebt8puAO4zW3zUpgFwS8BfJB\",\n    \"object\": \"chat.completion\",\n    \"created\": 1679356255,\n    \"model\": \"gpt-3.5-turbo-0301\",\n    \"usage\": {\n        \"prompt_tokens\": 45,\n        \"completion_tokens\": 19,\n        \"total_tokens\": 64\n    },\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The 2020 World Series was played in Arlington, Texas, at Globe Life Field.\"\n            },\n            \"finish_reason\": \"stop\",\n            \"index\": 0\n        }\n    ]\n}"
+							"body": "{\n    \"id\": \"chatcmpl-9Cay2vOFX4J24krOhgQQ49hegy3St\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712789066,\n    \"model\": \"gpt-4-turbo-2024-04-09\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"In circuits it weaves,\\nDeepened thoughts, like autumn leaves—\\nSilent mind perceives.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 16,\n        \"completion_tokens\": 21,\n        \"total_tokens\": 37\n    },\n    \"system_fingerprint\": \"fp_e37a4b9591\"\n}"
+						}
+					]
+				},
+				{
+					"name": "gpt-4-turbo - txt & img",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"gpt-4-turbo\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": [\r\n                {\r\n                    \"type\": \"text\",\r\n                    \"text\": \"What’s in this image?\"\r\n                },\r\n                {\r\n                    \"type\": \"image_url\",\r\n                    \"image_url\": {\r\n                        \"url\": \"https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/openai-multimodal-llm/architecture-openai-llm-rag.png\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"max_tokens\": 300\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"model\": \"gpt-4-turbo\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": [\r\n                {\r\n                    \"type\": \"text\",\r\n                    \"text\": \"What’s in this image?\"\r\n                },\r\n                {\r\n                    \"type\": \"image_url\",\r\n                    \"image_url\": {\r\n                        \"url\": \"https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/openai-multimodal-llm/architecture-openai-llm-rag.png\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"max_tokens\": 300\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 10 Apr 2024 22:47:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "openai-organization",
+									"value": "user-rkkghdqu18op7h28k5tshgsi"
+								},
+								{
+									"key": "openai-processing-ms",
+									"value": "10115"
+								},
+								{
+									"key": "openai-version",
+									"value": "2020-10-01"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=15724800; includeSubDomains"
+								},
+								{
+									"key": "x-ratelimit-limit-input-images",
+									"value": "5000"
+								},
+								{
+									"key": "x-ratelimit-limit-requests",
+									"value": "5000"
+								},
+								{
+									"key": "x-ratelimit-limit-tokens",
+									"value": "600000"
+								},
+								{
+									"key": "x-ratelimit-remaining-input-images",
+									"value": "4999"
+								},
+								{
+									"key": "x-ratelimit-remaining-requests",
+									"value": "4999"
+								},
+								{
+									"key": "x-ratelimit-remaining-tokens",
+									"value": "598928"
+								},
+								{
+									"key": "x-ratelimit-reset-input-images",
+									"value": "12ms"
+								},
+								{
+									"key": "x-ratelimit-reset-requests",
+									"value": "12ms"
+								},
+								{
+									"key": "x-ratelimit-reset-tokens",
+									"value": "107ms"
+								},
+								{
+									"key": "x-request-id",
+									"value": "req_6d1e9282b1715bb378638d097adef676"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "872647404afa102d-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-9Cb0vKAzCpWctDFp2ySH5tqPHcGt5\",\n    \"object\": \"chat.completion\",\n    \"created\": 1712789245,\n    \"model\": \"gpt-4-turbo-2024-04-09\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"This image displays a detailed flowchart for a \\\"Context-Aware Multimodal Reasoning Application\\\" that utilizes a large language model and retrieval-augmented generation. The process starts from the user interaction and ends either at data processing or AI developer platform evaluation. Here are the key components and flow described in the diagram:\\n\\n1. **User Interaction**: A user interacts with the system through a general application which may involve tools like Hugging Face, Gradio or Streamlit.\\n\\n2. **Transactional User Interactions**: Includes guardrails such as prompt injection, data leakage, and toxicity control to ensure safe and relevant interactions.\\n\\n3. **Agents and Tools**: The user's request is processed using built-in or custom agents or tools, including a Retrieval Augmented Generation (RAG) tool.\\n\\n4. **AI Models and Processing**: The application uses a wide array of AI models for different functions like speech-to-text conversion, text embedding, image embedding, and text generation. Specific models mentioned include Whisper-1, text-embedding-ada-002, CLIP, GPT-4-vision-preview, tts-1, and DALL-E-3.\\n\\n5. **Vector Database**: Document chunks are stored and fetched in/from a vector database, which aids in handling the embeddings efficiently.\\n\\n6. **Batch ETL Processes**: This side of the diagram handles the loading, processing, and storage of data through use of a 'Data Lake', whereby different types of data are managed.\\n\\n7.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"length\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 1118,\n        \"completion_tokens\": 300,\n        \"total_tokens\": 1418\n    },\n    \"system_fingerprint\": \"fp_d1bac968b4\"\n}"
 						}
 					]
 				},
@@ -2179,6 +2901,148 @@
 							"body": "{\n    \"id\": \"chatcmpl-8ytMMfxuVUqE7N9lhHgEbVQ75kbmm\",\n    \"object\": \"chat.completion\",\n    \"created\": 1709523174,\n    \"model\": \"gpt-4-1106-vision-preview\",\n    \"usage\": {\n        \"prompt_tokens\": 1118,\n        \"completion_tokens\": 300,\n        \"total_tokens\": 1418\n    },\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"This image appears to be a flowchart diagram representing a system architecture for a \\\"Context-Aware Multimodal Reasoning Application\\\" involving a large language model and retrieval-augmented generation. Here are the key components and flow:\\n\\n1. At the left, there's a user icon (symbolizing the end-user), which indicates the beginning of the user interaction with the system.\\n\\n2. The user interacts with a general application interface (\\\"GenAI App\\\") which seems to include various interfaces or platforms like Hugging Face, Gradio, Streamlit, LangChain, or LlamaIndex.\\n\\n3. This application interface has \\\"Guardrails\\\" which involve prompt injection, data leakage, localization, and toxicity checks to ensure quality and safety in interactions.\\n\\n4. The transactional user interactions occur through agents and tools (built-in & custom), and specifically through a \\\"RAG Tool\\\" which stands for Retrieval-Augmented Generation.\\n\\n5. The flow then moves to the center with a \\\"Vector Database\\\" (such as MongoDB Atlas Vector Search), which is likely used for storing and retrieving large amounts of high-dimensional data.\\n\\n6. The system includes a collection of AI models for different purposes:\\n   - Speech-to-Text (e.g., whisper-1)\\n   - Text Embedding (e.g., text-embedding-ada-002)\\n   - Image Embedding (e.g., clip)\\n   - Text Generation (e.g., gpt-4-vision-preview)\\n   - Text-to-S\"\n            },\n            \"finish_reason\": \"length\",\n            \"index\": 0\n        }\n    ]\n}"
 						}
 					]
+				},
+				{
+					"name": "gpt-3.5-turbo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"gpt-3.5-turbo\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who won the world series in 2020?\"\n        },\n        {\n            \"role\": \"assistant\",\n            \"content\": \"The Los Angeles Dodgers won the World Series in 2020.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"Where was it played?\"\n        }\n    ],\n    \"temperature\": 1,\n    \"top_p\": 1,\n    \"n\": 1,\n    \"stream\": false,\n    \"max_tokens\": 250,\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create chat message completion",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"gpt-3.5-turbo\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who won the world series in 2020?\"\n        },\n        {\n            \"role\": \"assistant\",\n            \"content\": \"The Los Angeles Dodgers won the World Series in 2020.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"Where was it played?\"\n        }\n    ],\n    \"temperature\": 1,\n    \"top_p\": 1,\n    \"n\": 1,\n    \"stream\": false,\n    \"max_tokens\": 250,\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 20 Mar 2023 23:50:57 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "360"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, must-revalidate"
+								},
+								{
+									"key": "Openai-Model",
+									"value": "gpt-3.5-turbo-0301"
+								},
+								{
+									"key": "Openai-Organization",
+									"value": "user-ydfxhof885ycvb52zjw5ly51"
+								},
+								{
+									"key": "Openai-Processing-Ms",
+									"value": "1800"
+								},
+								{
+									"key": "Openai-Version",
+									"value": "2020-10-01"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15724800; includeSubDomains"
+								},
+								{
+									"key": "X-Ratelimit-Limit-Requests",
+									"value": "3500"
+								},
+								{
+									"key": "X-Ratelimit-Remaining-Requests",
+									"value": "3499"
+								},
+								{
+									"key": "X-Ratelimit-Reset-Requests",
+									"value": "17ms"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "8506a913c39e706fede784458b254ca7"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-6wJZ9Ebt8puAO4zW3zUpgFwS8BfJB\",\n    \"object\": \"chat.completion\",\n    \"created\": 1679356255,\n    \"model\": \"gpt-3.5-turbo-0301\",\n    \"usage\": {\n        \"prompt_tokens\": 45,\n        \"completion_tokens\": 19,\n        \"total_tokens\": 64\n    },\n    \"choices\": [\n        {\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The 2020 World Series was played in Arlington, Texas, at Globe Life Field.\"\n            },\n            \"finish_reason\": \"stop\",\n            \"index\": 0\n        }\n    ]\n}"
+						}
+					]
 				}
 			]
 		},
@@ -2207,8 +3071,7 @@
 							"path": [
 								"completions"
 							]
-						},
-						"description": "Creates a completion for the provided prompt and parameters."
+						}
 					},
 					"response": [
 						{
@@ -2775,8 +3638,7 @@
 								"fine_tuning",
 								"jobs"
 							]
-						},
-						"description": "Creates a job that fine-tunes a specified model from a given dataset.\n\nModels eligble for fine tuning are: `ada`, `babbage`, `curie`, or `davinci`\n\nThe dataset (training file) should be formatted like below (JSONL)\n\n```\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n{\"prompt\": \"<prompt>\", \"completion\": \"<ideal generated text>\"}\n\n```\n\n  \nFor example:  \n\n```\n{\"prompt\": \"Why did the chicken cross the road?\", \"completion\": \"Why not?\"}\n{\"prompt\": \"Why did the chicken use AI?\", \"completion\": \"To get to the other side\"}\n\n```\n\nNote that after a job completes it may take several minutes for your model to become ready to handle requests."
+						}
 					},
 					"response": [
 						{
@@ -2896,8 +3758,7 @@
 								"fine_tuning",
 								"jobs"
 							]
-						},
-						"description": "Creates a job that fine-tunes a specified model from a given dataset."
+						}
 					},
 					"response": [
 						{
@@ -3012,11 +3873,11 @@
 							"variable": [
 								{
 									"key": "job",
-									"value": "ftjob-4EAfaK1ecMkfez3aViPAEVMx"
+									"value": "ftjob-4EAfaK1ecMkfez3aViPAEVMx",
+									"uuid": "6da215b1-662f-4008-a252-4c7ec011fa2c"
 								}
 							]
-						},
-						"description": "Creates a job that fine-tunes a specified model from a given dataset."
+						}
 					},
 					"response": [
 						{
@@ -3133,11 +3994,11 @@
 							"variable": [
 								{
 									"key": "job",
-									"value": "ftjob-4EAfaK1ecMkfez3aViPAEVMx"
+									"value": "ftjob-4EAfaK1ecMkfez3aViPAEVMx",
+									"uuid": "c21699bc-ddbb-4fc4-a5fa-d5989c767ae7"
 								}
 							]
-						},
-						"description": "Creates a job that fine-tunes a specified model from a given dataset."
+						}
 					},
 					"response": [
 						{
@@ -3255,11 +4116,11 @@
 							"variable": [
 								{
 									"key": "job",
-									"value": "ftjob-4EAfaK1ecMkfez3aViPAEVMx"
+									"value": "ftjob-4EAfaK1ecMkfez3aViPAEVMx",
+									"uuid": "29c631cf-f81e-43a7-ad42-7b74481b6b9a"
 								}
 							]
-						},
-						"description": "Creates a job that fine-tunes a specified model from a given dataset."
+						}
 					},
 					"response": [
 						{
@@ -3377,11 +4238,11 @@
 							"variable": [
 								{
 									"key": "job",
-									"value": "ftjob-4EAfaK1ecMkfez3aViPAEVMx"
+									"value": "ftjob-4EAfaK1ecMkfez3aViPAEVMx",
+									"uuid": "2bc03aa1-d1ef-4a34-97e5-c99b15884318"
 								}
 							]
-						},
-						"description": "Creates a job that fine-tunes a specified model from a given dataset."
+						}
 					},
 					"response": [
 						{
@@ -3515,8 +4376,7 @@
 							"path": [
 								"files"
 							]
-						},
-						"description": "Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit."
+						}
 					},
 					"response": [
 						{
@@ -3634,8 +4494,7 @@
 							"path": [
 								"files"
 							]
-						},
-						"description": "Returns a list of files that belong to the user's organization."
+						}
 					},
 					"response": [
 						{
@@ -3744,7 +4603,8 @@
 							"variable": [
 								{
 									"key": "file_id",
-									"value": "file-fbFWBgHciSyMQ2LgfBbvwvjr"
+									"value": "file-fbFWBgHciSyMQ2LgfBbvwvjr",
+									"uuid": "55d15722-ee9e-49e8-b3de-a56d67b30174"
 								}
 							]
 						}
@@ -3860,7 +4720,8 @@
 							"variable": [
 								{
 									"key": "file_id",
-									"value": "file-fbFWBgHciSyMQ2LgfBbvwvjr"
+									"value": "file-fbFWBgHciSyMQ2LgfBbvwvjr",
+									"uuid": "74b66240-ac52-4335-814b-3621ca14f01f"
 								}
 							]
 						}
@@ -3976,11 +4837,11 @@
 							"variable": [
 								{
 									"key": "file_id",
-									"value": "file-fbFWBgHciSyMQ2LgfBbvwvjr"
+									"value": "file-fbFWBgHciSyMQ2LgfBbvwvjr",
+									"uuid": "914481b4-c6cf-4c67-8f66-1a669b9c601b"
 								}
 							]
-						},
-						"description": "Delete a file."
+						}
 					},
 					"response": [
 						{
@@ -4594,8 +5455,7 @@
 							"path": [
 								"models"
 							]
-						},
-						"description": "Lists the currently available engines, and provides basic information about each one such as the owner and availability.\n\n[See More](https://beta.openai.com/docs/api-reference/engines/list)\n"
+						}
 					},
 					"response": [
 						{
@@ -4696,11 +5556,11 @@
 							"variable": [
 								{
 									"key": "model_id",
-									"value": "gpt-3.5-turbo-16k-0613"
+									"value": "gpt-3.5-turbo-16k-0613",
+									"uuid": "79fa3200-f175-4d5b-881b-da3eb404e01e"
 								}
 							]
-						},
-						"description": "Retrieves an engine instance, providing basic information about the engine such as the owner and availability.\n\n[See More](https://beta.openai.com/docs/api-reference/engines/retrieve)\n"
+						}
 					},
 					"response": [
 						{
@@ -4819,8 +5679,7 @@
 							"path": [
 								"moderations"
 							]
-						},
-						"description": "Creates a completion for the provided prompt and parameters."
+						}
 					},
 					"response": [
 						{

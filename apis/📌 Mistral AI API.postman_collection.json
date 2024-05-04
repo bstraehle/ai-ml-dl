@@ -12,13 +12,24 @@
 			"name": "🚀 Get Started",
 			"item": [
 				{
-					"name": "Chat (mistral-large-latest)",
+					"name": "Chat (open-mixtral-8x22b)",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "0c0164f8-8adb-4838-94a4-e0d7a8d4ef18"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "a8854205-2c89-4e75-a5c4-4e259aad87f9"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"model\": \"mistral-large-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"raw": "{\n    \"model\": \"open-mixtral-8x22b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
 							"options": {
 								"raw": {
 									"headerFamily": "json",
@@ -54,7 +65,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"model\": \"mistral-large-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"raw": "{\n    \"model\": \"open-mixtral-8x22b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -79,7 +90,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Tue, 12 Mar 2024 02:42:19 GMT"
+									"value": "Sat, 20 Apr 2024 14:50:49 GMT"
 								},
 								{
 									"key": "Content-Type",
@@ -94,20 +105,20 @@
 									"value": "keep-alive"
 								},
 								{
-									"key": "ratelimitbysize-limit",
-									"value": "2000000"
+									"key": "ratelimitbysize-reset",
+									"value": "12"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999501225"
 								},
 								{
 									"key": "ratelimitbysize-remaining",
 									"value": "1967990"
-								},
-								{
-									"key": "x-ratelimitbysize-remaining-month",
-									"value": "9999967990"
-								},
-								{
-									"key": "ratelimitbysize-reset",
-									"value": "45"
 								},
 								{
 									"key": "x-ratelimitbysize-limit-minute",
@@ -118,12 +129,12 @@
 									"value": "1967990"
 								},
 								{
-									"key": "x-ratelimitbysize-limit-month",
-									"value": "10000000000"
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
 								},
 								{
-									"key": "ratelimitbysize-query-cost",
-									"value": "32010"
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
 								},
 								{
 									"key": "access-control-allow-origin",
@@ -131,15 +142,15 @@
 								},
 								{
 									"key": "x-kong-upstream-latency",
-									"value": "2969"
+									"value": "832"
 								},
 								{
 									"key": "x-kong-proxy-latency",
-									"value": "71"
+									"value": "19"
 								},
 								{
 									"key": "x-kong-request-id",
-									"value": "6b43954c0f515a247ed7e34a1913d75f"
+									"value": "76fd92262513de42b06c8b3dccfcfe5d"
 								},
 								{
 									"key": "CF-Cache-Status",
@@ -151,7 +162,7 @@
 								},
 								{
 									"key": "CF-RAY",
-									"value": "86306e109f132ef7-LAX"
+									"value": "8775f2e558940914-LAX"
 								},
 								{
 									"key": "Content-Encoding",
@@ -163,7 +174,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": \"b7f966f6553e4ecd8c696d10ddf62901\",\n    \"object\": \"chat.completion\",\n    \"created\": 1710211335,\n    \"model\": \"mistral-large-latest\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"There are many renowned French painters, but one of the most famous is Claude Monet. Monet is a key figure in the impressionist movement, which emphasizes capturing the sensory effect of a scene. His series of water lilies paintings are particularly well-known. However, it's important to note that France has a rich art history, and there are many other notable French painters, such as Vincent van Gogh (who was Dutch-born but spent much of his life in France), Paul Cézanne, Henri Matisse, and Pierre-Auguste Renoir, among others.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 12,\n        \"total_tokens\": 141,\n        \"completion_tokens\": 129\n    }\n}"
+							"body": "{\n    \"id\": \"04d1dc2a420846dbb5b84757c62aad89\",\n    \"object\": \"chat.completion\",\n    \"created\": 1713624648,\n    \"model\": \"open-mixtral-8x22b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The most renowned French painter is widely considered to be Claude Monet. He was a founder of the French Impressionist movement, and his works such as \\\"Water Lilies\\\" and \\\"Impression, Sunrise\\\" are considered masterpieces of the genre. His innovative use of color and light had a significant impact on the development of modern art.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 12,\n        \"total_tokens\": 84,\n        \"completion_tokens\": 72\n    }\n}"
 						}
 					]
 				}
@@ -179,7 +190,8 @@
 						"header": [
 							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "f7d45c0a-3315-42b8-b3fc-63745c5fb2c9"
 							}
 						],
 						"url": {
@@ -288,11 +300,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "3a219c6d-e366-4573-8e94-d54aecc46c2f"
 							},
 							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "84cb8f28-70dc-4c5d-be66-6e8e7c29a5b1"
 							}
 						],
 						"body": {
@@ -453,11 +467,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "161adca3-362c-4182-be3a-5bd75981ad24"
 							},
 							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "2a68a55e-c291-4af4-bf2b-8108c852d671"
 							}
 						],
 						"body": {
@@ -618,11 +634,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "90d8a191-628d-463f-ac23-b5ea3a6bde0b"
 							},
 							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "cde6bbe9-6d77-4b7e-863c-5966960ee4da"
 							}
 						],
 						"body": {
@@ -783,11 +801,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "b3682c8f-2585-4610-abbc-af838100b945"
 							},
 							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "d41bd5b5-dfbe-44bc-aeff-b9260b5f9d78"
 							}
 						],
 						"body": {
@@ -948,11 +968,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "00f83064-5bc9-474c-86d7-eb4d70c4d7fc"
 							},
 							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "4cedaca1-aa08-42b8-834c-24726864fa9b"
 							}
 						],
 						"body": {
@@ -1113,11 +1135,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "8cb4f915-5f75-4002-acdd-c132688fe94d"
 							},
 							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "bbbd8268-0d6a-42f5-b09c-ff8b11e2c6ab"
 							}
 						],
 						"body": {
@@ -1278,11 +1302,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "46211cb8-57b1-4183-bc64-94610970e053"
 							},
 							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "d0d700df-ec57-4f0f-bd73-27c252e6146e"
 							}
 						],
 						"body": {
@@ -1439,11 +1465,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "f2503b8f-d015-45de-b61d-de1150310bc8"
 							},
 							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "08120f8b-2bf9-4031-a86b-66d66bf9f9b7"
 							}
 						],
 						"body": {
@@ -1604,11 +1632,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "cf472621-af85-446a-a3c3-b68edc449321"
 							},
 							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "315f7618-c461-489a-92c2-5fbcdabf67d6"
 							}
 						],
 						"body": {
@@ -1769,11 +1799,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "793f9668-40a3-4360-a634-8efeeff54cf4"
 							},
 							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "83d5b973-8b2e-49d1-b841-62b2935ba95c"
 							}
 						],
 						"body": {
@@ -1934,11 +1966,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "91447ccf-78e7-4617-b912-8c04eaf30894"
 							},
 							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "1c012758-393c-4e9e-af4d-a82b359a8fd8"
 							}
 						],
 						"body": {
@@ -2099,11 +2133,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "0a271b11-8ccd-4139-ad9f-a8955ab09e59"
 							},
 							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "45e5d055-f1ed-4496-8431-9f6963887c1a"
 							}
 						],
 						"body": {
@@ -2264,11 +2300,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "12cbbcb1-6136-42a4-a192-d306aa35d0d8"
 							},
 							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "7229f870-a1bf-4cbf-add5-dccdf9b31430"
 							}
 						],
 						"body": {
@@ -2429,11 +2467,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "a2232376-4bc1-421c-8271-b4ccdecf166a"
 							},
 							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "application/json",
+								"uuid": "b600ec9e-865f-4c9e-a327-fdf377647df5"
 							}
 						],
 						"body": {
@@ -2584,6 +2624,173 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": \"0089e892a47f40bd87a96fb0b82eec86\",\n    \"object\": \"chat.completion\",\n    \"created\": 1711931942,\n    \"model\": \"open-mixtral-8x7b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Renown can be subjective and varies from person to person, but when it comes to French painters, Claude Monet, a leading figure in the Impressionist movement, is often recognized globally. His water lily series and paintings like \\\"Impression, Sunrise\\\" are widely appreciated. However, France has been home to many great artists, and recognition should not be limited to just one. Other French painters of note include Pierre-Auguste Renoir, Henri Matisse, and Paul Cézanne.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 17,\n        \"total_tokens\": 125,\n        \"completion_tokens\": 108\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "open-mixtral-8x22b",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "89a59d5d-0c9a-4991-a005-0d8a7e41f26e"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "030d2754-3f28-44ff-9459-7761b0098aed"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"open-mixtral-8x22b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"open-mixtral-8x22b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 20 Apr 2024 14:50:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "ratelimitbysize-reset",
+									"value": "12"
+								},
+								{
+									"key": "ratelimitbysize-query-cost",
+									"value": "32010"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-month",
+									"value": "9999501225"
+								},
+								{
+									"key": "ratelimitbysize-remaining",
+									"value": "1967990"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-minute",
+									"value": "2000000"
+								},
+								{
+									"key": "x-ratelimitbysize-remaining-minute",
+									"value": "1967990"
+								},
+								{
+									"key": "ratelimitbysize-limit",
+									"value": "2000000"
+								},
+								{
+									"key": "x-ratelimitbysize-limit-month",
+									"value": "10000000000"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-kong-upstream-latency",
+									"value": "832"
+								},
+								{
+									"key": "x-kong-proxy-latency",
+									"value": "19"
+								},
+								{
+									"key": "x-kong-request-id",
+									"value": "76fd92262513de42b06c8b3dccfcfe5d"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8775f2e558940914-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"04d1dc2a420846dbb5b84757c62aad89\",\n    \"object\": \"chat.completion\",\n    \"created\": 1713624648,\n    \"model\": \"open-mixtral-8x22b\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The most renowned French painter is widely considered to be Claude Monet. He was a founder of the French Impressionist movement, and his works such as \\\"Water Lilies\\\" and \\\"Impression, Sunrise\\\" are considered masterpieces of the genre. His innovative use of color and light had a significant impact on the development of modern art.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 12,\n        \"total_tokens\": 84,\n        \"completion_tokens\": 72\n    }\n}"
 						}
 					]
 				}
