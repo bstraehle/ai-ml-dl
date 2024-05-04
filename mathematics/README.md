@@ -19,7 +19,7 @@ https://www.deeplearning.ai/courses/mathematics-for-machine-learning-and-data-sc
 
 ### Notes
 
-See C2_W3_Lab_1: Regression with Perceptron
+Regression with Perceptron (C2_W3_Lab_1)
 
 ```
 for i in range(0, num_iterations):
@@ -35,7 +35,8 @@ for i in range(0, num_iterations):
     print ("Cost after iteration %i: %f" %(i, cost))
 ```
 
-See C2_W3_Lab_2: Classification with Perceptron  
+Classification with Perceptron (C2_W3_Lab_2)  
+
 ```
 for i in range(0, num_iterations):
     # Forward propagation. Inputs: "X, parameters". Outputs: "A".
