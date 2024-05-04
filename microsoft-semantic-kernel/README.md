@@ -1,5 +1,3 @@
-Semantic Kernel is an SDK that integrates LLMs with C#, Java, and Python.  
-
 https://www.deeplearning.ai/short-courses/microsoft-semantic-kernel/  
 
 https://learn.microsoft.com/en-us/collections/1n31t57k7k6r85
