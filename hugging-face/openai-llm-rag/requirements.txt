@@ -2,7 +2,7 @@ bs4
 chromadb
 langchain==0.0.354
 llama-hub==0.0.65
-llama-index==0.9.24
+llama-index==0.10.13
 openai
 pymongo
 pypdf
