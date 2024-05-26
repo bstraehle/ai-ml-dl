@@ -31,6 +31,8 @@ def agent_langchain(config, prompt):
         llm,
         agent = AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION,
         handle_parsing_errors = True,
+        max_iterations = 25,
+        max_execution_time = 120,
         verbose = True
     )
 
