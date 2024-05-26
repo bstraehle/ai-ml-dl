@@ -14,7 +14,7 @@ def today_tool(text: str) -> str:
 
 def agent_llamaindex(config, prompt):
     llm = OpenAI(
-        model = config["model"],
+        model = "gpt-4", # config["model"], # TODO: Upgrade LlamaIndex to support gpt-4o
         temperature = config["temperature"])
 
     tool_spec = OpenWeatherMapToolSpec(key = os.environ["OPENWEATHERMAP_API_KEY"])
@@ -23,9 +23,11 @@ def agent_llamaindex(config, prompt):
     date_tool = FunctionTool.from_defaults(fn = today_tool)
             
     agent = OpenAIAgent.from_tools(
-        [tools[0], # built-in tools
+        [tools[0],   # built-in tools
          date_tool], # custom tools
-        llm = llm, 
+        llm = llm,
+        max_iterations = 10,
+        max_execution_time = 60,
         verbose = True
     )
 
