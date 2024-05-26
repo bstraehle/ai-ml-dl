@@ -15,9 +15,7 @@ def invoke(openai_api_key, topic, word_count=1000):
 
     os.environ["OPENAI_API_KEY"] = openai_api_key
 
-    result = get_crew(LLM).kickoff(inputs={"topic": topic, "word_count": word_count})
-
-    return result
+    return get_crew(LLM).kickoff(inputs={"topic": topic, "word_count": word_count})
 
 gr.close_all()
 
