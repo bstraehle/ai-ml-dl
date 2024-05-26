@@ -14,11 +14,11 @@ AGENT_LANGCHAIN  = "LangChain"
 AGENT_LLAMAINDEX = "LlamaIndex"
 
 config = {
-    "model": "gpt-4-0613",
+    "model": "gpt-4o",
     "temperature": 0
 }
 
-logging.basicConfig(stream = sys.stdout, level = logging.INFO)
+logging.basicConfig(stream = sys.stdout, level = logging.DEBUG)
 logging.getLogger().addHandler(logging.StreamHandler(stream = sys.stdout))
 
 def invoke(openai_api_key, prompt, agent_option):
@@ -91,8 +91,8 @@ demo = gr.Interface(
               gr.Textbox(label = "Prompt", lines = 1, 
                          value = "How does current weather in San Francisco and Paris compare in metric and imperial system? Answer in JSON format and include today's date."),
               gr.Radio([AGENT_OFF, AGENT_LANGCHAIN, AGENT_LLAMAINDEX], label = "Use Agent", value = AGENT_LANGCHAIN)],
-    outputs = [gr.Textbox(label = "Completion", lines = 1)],
-    title = "Real-Time Reasoning Application",
+    outputs = [gr.Textbox(label = "Completion", value=os.environ["OUTPUT"])],
+    title = "Agentic Reasoning Application",
     description = os.environ["DESCRIPTION"]
 )
 
