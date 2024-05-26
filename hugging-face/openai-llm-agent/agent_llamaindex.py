@@ -26,8 +26,8 @@ def agent_llamaindex(config, prompt):
         [tools[0],   # built-in tools
          date_tool], # custom tools
         llm = llm,
-        max_iterations = 10,
-        max_execution_time = 60,
+        max_iterations = 25,
+        max_execution_time = 120,
         verbose = True
     )
 
