@@ -126,8 +126,8 @@ def run_multi_agent(model, topic):
     
     article = result['messages'][-1].content
     
-    print("---")
+    print("===")
     print(article)
-    print("---")
+    print("===")
     
     return article
