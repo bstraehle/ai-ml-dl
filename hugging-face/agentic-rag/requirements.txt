@@ -1,5 +1,6 @@
-agentops
-crewai==0.28.8
-crewai_tools==0.1.6
-langchain_community==0.0.29
+langchain==0.0.354
+llama-hub
+llama-index==0.9.24
 openai
+pyowm
+python-dotenv

@@ -23,6 +23,5 @@ Notebooks:
 
 ### Personal projects
 
-- https://github.com/bstraehle/ai-ml-dl/tree/main/apis/  
 - https://github.com/bstraehle/ai-ml-dl/tree/main/hugging-face/  
-
+- https://github.com/bstraehle/ai-ml-dl/tree/main/rest-apis/  

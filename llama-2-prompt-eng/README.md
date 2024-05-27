@@ -1,1 +1,1 @@
-https://www.deeplearning.ai/short-courses/prompt-engineering-with-llama-2/  
+https://www.deeplearning.ai/short-courses/prompt-engineering-with-llama-2/ (Meta AI)  
