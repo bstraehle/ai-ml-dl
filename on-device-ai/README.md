@@ -1,1 +1,1 @@
-https://www.deeplearning.ai/short-courses/introduction-to-on-device-ai/  
+https://www.deeplearning.ai/short-courses/introduction-to-on-device-ai/ (Qualcomm)  
