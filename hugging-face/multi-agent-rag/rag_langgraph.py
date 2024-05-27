@@ -14,8 +14,6 @@ from langchain_openai import ChatOpenAI
 
 from langgraph.graph import StateGraph, END
 
-LLM = "gpt-4o"
-
 class AgentState(TypedDict):
     messages: Annotated[Sequence[BaseMessage], operator.add]
     next: str
@@ -43,7 +41,7 @@ def today_tool(text: str) -> str:
        Any date mathematics should occur outside this function."""
     return (str(date.today()) + "\n\nIf you have completed all tasks, respond with FINAL ANSWER.")
     
-def create_graph(topic):
+def create_graph(model, topic):
     tavily_tool = TavilySearchResults(max_results=10)
     
     members = ["Researcher"]
@@ -88,7 +86,7 @@ def create_graph(topic):
         ]
     ).partial(options=str(options), members=", ".join(members))
     
-    llm = ChatOpenAI(model=LLM)
+    llm = ChatOpenAI(model=model)
     
     supervisor_chain = (
         prompt
@@ -117,15 +115,19 @@ def create_graph(topic):
     
     return workflow.compile()
 
-def run_multi_agent(topic):
-    graph = create_graph(topic)
+def run_multi_agent(model, topic):
+    graph = create_graph(model, topic)
+    
     result = graph.invoke({
         "messages": [
             HumanMessage(content=topic)
         ]
     })
+    
     article = result['messages'][-1].content
-    #print("***")
-    #print(article)
-    #print("***")
+    
+    print("***")
+    print(article)
+    print("***")
+    
     return article
