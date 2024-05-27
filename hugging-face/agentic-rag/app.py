@@ -5,7 +5,7 @@ from crew import get_crew
 
 LLM = "gpt-4o"
 
-def invoke(openai_api_key, topic, word_count=1000):
+def invoke(openai_api_key, topic):
     if (openai_api_key == ""):
         raise gr.Error("OpenAI API Key is required.")
     if (topic == ""):
@@ -15,16 +15,21 @@ def invoke(openai_api_key, topic, word_count=1000):
 
     os.environ["OPENAI_API_KEY"] = openai_api_key
 
-    return get_crew(LLM).kickoff(inputs={"topic": topic, "word_count": word_count})
+    article = get_crew(LLM).kickoff(inputs={"topic": topic})
+
+    print("===")
+    print(article)
+    print("===")
+
+    return article
 
 gr.close_all()
 
 demo = gr.Interface(fn = invoke, 
                     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
-                              gr.Textbox(label = "Topic", value=os.environ["TOPIC"], lines = 1),
-                              gr.Number(label = "Word Count", value=1000, minimum=500, maximum=5000)],
-                    outputs = [gr.Markdown(label = "Generated Blog Post", value=os.environ["OUTPUT"])],
-                    title = "Multi-Agent RAG: Blog Post Generation",
+                              gr.Textbox(label = "Topic", value=os.environ["TOPIC"], lines = 1)],
+                    outputs = [gr.Markdown(label = "Generated Article", value=os.environ["OUTPUT"])],
+                    title = "Multi-Agent RAG: Article Generation",
                     description = os.environ["DESCRIPTION"])
 
 demo.launch()
