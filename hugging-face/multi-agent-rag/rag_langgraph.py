@@ -46,12 +46,12 @@ def today_tool(text: str) -> str:
 def create_graph(topic):
     tavily_tool = TavilySearchResults(max_results=10)
     
-    members = ["Researcher", "Writer"]
+    members = ["Researcher"]
     
     system_prompt = (
-        "You are a manager tasked with managing a conversation between the"
-        " following workers: {members}. Given the following user request,"
-        " respond with the worker to act next. Each worker will perform a"
+        "You are a Manager tasked with managing a conversation between the"
+        " following agent(s): {members}. Given the following user request,"
+        " respond with the agent to act next. Each agent will perform a"
         " task and respond with their results and status. When finished,"
         " respond with FINISH."
     )
@@ -96,15 +96,14 @@ def create_graph(topic):
         | JsonOutputFunctionsParser()
     )
 
-    researcher_agent = create_agent(llm, [tavily_tool], system_prompt=f"Prioritizing research papers, research content on topic: {topic}.")
+    researcher_agent = create_agent(llm, [tavily_tool, today_tool], system_prompt="1. Research content on topic: " + topic + ", prioritizing research papers. "
+                                                                                  "2. Based on your research, write a 2000-word article on the topic. "
+                                                                                  "3. At the beginning of the article, add current date and author: Multi-AI-Agent System. "
+                                                                                  "4. At the end of the article, add a reference section with research papers.")
     researcher_node = functools.partial(agent_node, agent=researcher_agent, name="Researcher")
-
-    writer_agent = create_agent(llm, [today_tool], system_prompt=f"Write a 2000-word article on topic: {topic}, including a reference section with research papers. At the top, add current date and author: Multi-AI-Agent System based on GPT-4o.")
-    writer_node = functools.partial(agent_node, agent=writer_agent, name="Writer")
 
     workflow = StateGraph(AgentState)
     workflow.add_node("Researcher", researcher_node)
-    workflow.add_node("Writer", writer_node)
     workflow.add_node("Manager", supervisor_chain)
 
     for member in members:
@@ -125,4 +124,8 @@ def run_multi_agent(topic):
             HumanMessage(content=topic)
         ]
     })
-    return result['messages'][-1].content
+    article = result['messages'][-1].content
+    #print("***")
+    #print(article)
+    #print("***")
+    return article
