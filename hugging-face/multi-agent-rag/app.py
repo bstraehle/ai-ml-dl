@@ -6,6 +6,8 @@ from rag_langgraph import run_multi_agent
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_PROJECT"] = "langgraph-multi-agent"
 
+LLM = "gpt-4o"
+
 def invoke(openai_api_key, topic):
     if (openai_api_key == ""):
         raise gr.Error("OpenAI API Key is required.")
@@ -14,7 +16,7 @@ def invoke(openai_api_key, topic):
         
     os.environ["OPENAI_API_KEY"] = openai_api_key
    
-    return run_multi_agent(topic)
+    return run_multi_agent(LLM, topic)
 
 gr.close_all()
 
