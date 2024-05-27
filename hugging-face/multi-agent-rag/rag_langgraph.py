@@ -88,7 +88,7 @@ def create_graph(topic):
         ]
     ).partial(options=str(options), members=", ".join(members))
     
-    llm = ChatOpenAI(model=LLM, max_tokens=4096)
+    llm = ChatOpenAI(model=LLM)
     
     supervisor_chain = (
         prompt
@@ -99,7 +99,7 @@ def create_graph(topic):
     researcher_agent = create_agent(llm, [tavily_tool], system_prompt=f"Prioritizing research papers, research content on topic: {topic}.")
     researcher_node = functools.partial(agent_node, agent=researcher_agent, name="Researcher")
 
-    writer_agent = create_agent(llm, [today_tool], system_prompt=f"Write a 1000-word article on topic: {topic}, including a reference section with research papers. At the top, add current date and author: Multi-AI-Agent System based on GPT-4o.")
+    writer_agent = create_agent(llm, [today_tool], system_prompt=f"Write a 5000-word article on topic: {topic}, including a reference section with research papers. At the top, add current date and author: Multi-AI-Agent System based on GPT-4o.")
     writer_node = functools.partial(agent_node, agent=writer_agent, name="Writer")
 
     workflow = StateGraph(AgentState)
