@@ -1,4 +1,4 @@
-https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/ (Microsoft)  
+https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/ (Microsoft & PennState)  
 
 https://www.deeplearning.ai/short-courses/building-agentic-rag-with-llamaindex/ (LlamaIndex)  
 
