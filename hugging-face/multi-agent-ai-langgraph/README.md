@@ -1,5 +1,5 @@
 ---
-title: Multi-Agent RAG (LangGraph)
+title: Multi-Agent AI (LangGraph)
 emoji: 🧠
 colorFrom: pink
 colorTo: gray

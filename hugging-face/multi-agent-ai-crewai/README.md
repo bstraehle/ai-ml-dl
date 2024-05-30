@@ -1,12 +1,12 @@
 ---
-title: OpenAI - LLM & Agent
-emoji: 🔥
-colorFrom: red
+title: Multi-Agent AI (crewAI)
+emoji: 🧠
+colorFrom: pink
 colorTo: gray
 sdk: gradio
-sdk_version: 4.12.0
+sdk_version: 4.31.3
 app_file: app.py
-pinned: false
+pinned: true
 license: apache-2.0
 ---
 

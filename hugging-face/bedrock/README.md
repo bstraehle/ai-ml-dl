@@ -1,5 +1,5 @@
 ---
-title: Amazon Bedrock - LLM
+title: Amazon Bedrock
 emoji: 🚀
 colorFrom: green
 colorTo: gray
