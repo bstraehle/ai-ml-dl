@@ -9,3 +9,5 @@ https://www.youtube.com/playlist?list=PLfaIDFEXuae16n2TWUkKq5PgJ0w6Pkwtg (LangGr
 https://huggingface.co/spaces/bstraehle/multi-agent-rag/ (LangGraph, multi-agent)  
 https://huggingface.co/spaces/bstraehle/multi-agent-rag-2/ (crewAI, multi-agent)  
 https://huggingface.co/spaces/bstraehle/agentic-rag/ (LangChain & LlamaIndex, single agent)  
+
+https://github.com/microsoft/autogen/  
