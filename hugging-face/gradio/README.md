@@ -1,5 +1,5 @@
 ---
-title: OpenAI - LLM (Gradio)
+title: Gradio
 emoji: 🔥
 colorFrom: red
 colorTo: gray

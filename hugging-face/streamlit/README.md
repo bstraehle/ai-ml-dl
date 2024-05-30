@@ -1,5 +1,5 @@
 ---
-title: OpenAI - LLM (Streamlit)
+title: Streamlit
 emoji: 🔥
 colorFrom: red
 colorTo: gray
