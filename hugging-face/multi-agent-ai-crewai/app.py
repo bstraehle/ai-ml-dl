@@ -29,7 +29,7 @@ demo = gr.Interface(fn = invoke,
                     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
                               gr.Textbox(label = "Topic", value=os.environ["TOPIC"], lines = 1)],
                     outputs = [gr.Markdown(label = "Generated Article", value=os.environ["OUTPUT"])],
-                    title = "Multi-Agent RAG: Article Generation",
+                    title = "Multi-Agent AI: Article Generation",
                     description = os.environ["DESCRIPTION"])
 
 demo.launch()
