@@ -14,7 +14,7 @@ desc = """<a href='https://www.gradio.app/'>Gradio</a> UI using the Hugging Face
 
 demo = gr.Interface(exec,
                     inputs=gr.Image(type="pil",
-                                    value="https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/transformers/beach.jpg"),
+                                    value="https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/hugging-face/beach.jpg"),
                     outputs="text",
                     description=desc)
 
