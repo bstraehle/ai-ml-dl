@@ -1,7 +1,7 @@
 import gradio as gr
 import os
 
-from rag_langgraph import run_multi_agent
+from multi_agent import run_multi_agent
 
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_PROJECT"] = "langgraph-multi-agent"
