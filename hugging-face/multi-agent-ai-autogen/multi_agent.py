@@ -1,4 +1,4 @@
-import chess, chess.svg
+import chess, chess.svg, math
 from autogen import ConversableAgent, register_function
 from typing_extensions import Annotated
 
@@ -18,12 +18,12 @@ def make_move(move: Annotated[str, "A move in UCI format."]) -> Annotated[str, "
     global made_move
     made_move = True
 
-    svg = chess.svg.board(
+    board_svgs.append(chess.svg.board(
         board,
         arrows=[(move.from_square, move.to_square)],
         fill={move.from_square: "gray"},
         size=250
-    )
+    ))
 
     piece = board.piece_at(move.to_square)
     piece_symbol = piece.unicode_symbol()
@@ -32,22 +32,33 @@ def make_move(move: Annotated[str, "A move in UCI format."]) -> Annotated[str, "
         if piece_symbol.isupper()
         else chess.piece_name(piece.piece_type)
     )
-
-    board_svgs.append(svg)
-
+    
     return f"Moved {piece_name} ({piece_symbol}) from "\
-    f"{chess.SQUARE_NAMES[move.from_square]} to "\
-    f"{chess.SQUARE_NAMES[move.to_square]}."
+           f"{chess.SQUARE_NAMES[move.from_square]} to "\
+           f"{chess.SQUARE_NAMES[move.to_square]}."
 
 def check_made_move(msg):
     global made_move
+    
     if made_move:
         made_move = False
         return True
     else:
         return False
 
-def run_multi_agent(llm_white, llm_black, num_turns):   
+def get_num_turns(num_moves):
+    # Each turn includes two moves (one by each player)
+    # The first move by player black kicks off the chat
+    # The first move by player white starts the game 
+
+    num_turns = math.ceil(num_moves / 2)
+    
+    if num_moves % 2 == 0:
+        num_turns += 1
+        
+    return num_turns
+    
+def run_multi_agent(llm_white, llm_black, num_moves):   
     llm_config_white = {"model": llm_white}
     llm_config_black = {"model": llm_black}
     
@@ -61,21 +72,19 @@ def run_multi_agent(llm_white, llm_black, num_turns):
     
     player_white = ConversableAgent(
         name="Player White",
-        system_message="You are a chess player and you play as white. "
+        system_message="You are a chess Grandmaster and you play as white. "
         "First call get_legal_moves(), to get a list of legal moves. "
         "Then call make_move(move) to make a move. "
-        "After a move is made, analyze the move in 3 bullet points. Respond in format **Analysis:** move from/to, unordered list, your turn player black. "
-        "Then continue playing.",
+        "After a move is made, analyze the move in 3 bullet points. Respond in format **Analysis:** move from/to, unordered list.",
         llm_config=llm_config_white,
     )
     
     player_black = ConversableAgent(
         name="Player Black",
-        system_message="You are a chess player and you play as black. "
+        system_message="You are a chess Grandmaster and you play as black. "
         "First call get_legal_moves(), to get a list of legal moves. "
         "Then call make_move(move) to make a move. "
-        "After a move is made, analyze the move in 3 bullet points. Respond in format **Analysis:** move from/to, unordered list, your turn player white. "
-        "Then continue playing.",
+        "After a move is made, analyze the move in 3 bullet points. Respond in format **Analysis:** move from/to, unordered list.",
         llm_config=llm_config_black,
     )
     
@@ -85,7 +94,7 @@ def run_multi_agent(llm_white, llm_black, num_turns):
             caller=caller,
             executor=board_proxy,
             name="get_legal_moves",
-            description="Get legal moves.",
+            description="Call this tool to get legal moves.",
         )
     
         register_function(
@@ -103,7 +112,7 @@ def run_multi_agent(llm_white, llm_black, num_turns):
                 "sender": board_proxy,
                 "recipient": player_white,
                 "summary_method": "last_msg",
-                "silent": True,
+                "silent": False,
             }
         ],
     )
@@ -115,40 +124,48 @@ def run_multi_agent(llm_white, llm_black, num_turns):
                 "sender": board_proxy,
                 "recipient": player_black,
                 "summary_method": "last_msg",
-                "silent": True,
+                "silent": False,
             }
         ],
     )
-       
-    chat_result = player_black.initiate_chat(
-        player_white,
-        message="Let's play chess!",
-        max_turns=num_turns,
-        verbose=False
-    )
 
-    chat_history = chat_result.chat_history
+    chat_result = None
+    chat_history = []
+    
+    try:
+        chat_result = player_black.initiate_chat(
+            player_white,
+            message="Let's play chess!",
+            max_turns=get_num_turns(num_moves),
+            verbose=True
+        )
+    except Exception as e:
+        print(f"Error: {e}")
+    finally:
+        if chat_result != None:
+            chat_history = chat_result.chat_history
     
     result = ""
-    turn_num = 0
+    num_move = 0
 
     for chat in chat_history:
         player = ""
         
-        if turn_num % 2 == 0:
+        if num_move % 2 == 0:
             player = "Player Black"
         else:
             player = "Player White"
 
-        if turn_num > 0:
-            result += f"**{player}, Move {turn_num}**\n{chat.get('content')}\n{board_svgs[turn_num - 1]}\n\n"
+        if num_move > 0:
+            result += f"**{player}, Move {num_move}**<br>{chat.get('content')}<br>{board_svgs[num_move - 1]}<br><br>"
         
-        turn_num += 1
+        num_move += 1
 
-    result = result.rstrip("\n\n")
+        if num_moves % 2 == 0 and num_move == num_moves + 1:
+            break
 
-    print("###")
+    print("===")
     print(result)
-    print("###")
+    print("===")
     
     return result
