@@ -18,7 +18,7 @@ gr.close_all()
 
 demo = gr.Interface(fn = invoke, 
                     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
-                              gr.Number(label = "Number of Moves", value = 10, minimum = 1, maximum = 50)],
+                              gr.Number(label = "Number of Moves", value = 10, minimum = 1, maximum = 25)],
                     outputs = [gr.Markdown(label = "Game", value=os.environ["OUTPUT"], line_breaks=True, sanitize_html=False)],
                     title = "Chess: AI vs. AI",
                     description = os.environ["DESCRIPTION"])
