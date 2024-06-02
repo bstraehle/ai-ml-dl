@@ -20,7 +20,7 @@ demo = gr.Interface(fn = invoke,
                     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
                               gr.Number(label = "Number of Moves", value = 10, minimum = 1, maximum = 25)],
                     outputs = [gr.Markdown(label = "Game", value=os.environ["OUTPUT"], line_breaks=True, sanitize_html=False)],
-                    title = "Chess: AI vs. AI",
+                    title = "Multi-Agent AI: Chess",
                     description = os.environ["DESCRIPTION"])
 
 demo.launch()
