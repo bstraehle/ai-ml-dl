@@ -1,7 +1,7 @@
 ---
 title: Chess - AI vs. AI
-emoji: ♟️
-colorFrom: red
+emoji: 🧠
+colorFrom: pink
 colorTo: gray
 sdk: gradio
 sdk_version: 4.32.0
