@@ -75,7 +75,7 @@ def run_multi_agent(llm_white, llm_black, num_moves):
         system_message="You are a chess Grandmaster and you play as white. "
         "First call get_legal_moves(), to get a list of legal moves. "
         "Then call make_move(move) to make a move. "
-        "After a move is made, analyze the move in 3 bullet points. Respond in format **Analysis:** move from/to, unordered list.",
+        "Analyze the move in 3 bullet points. Respond in format **Analysis:** move, unordered list.",
         llm_config=llm_config_white,
     )
     
@@ -84,7 +84,7 @@ def run_multi_agent(llm_white, llm_black, num_moves):
         system_message="You are a chess Grandmaster and you play as black. "
         "First call get_legal_moves(), to get a list of legal moves. "
         "Then call make_move(move) to make a move. "
-        "After a move is made, analyze the move in 3 bullet points. Respond in format **Analysis:** move from/to, unordered list.",
+        "Analyze the move in 3 bullet points. Respond in format **Analysis:** move, unordered list.",
         llm_config=llm_config_black,
     )
     
@@ -164,8 +164,8 @@ def run_multi_agent(llm_white, llm_black, num_moves):
         if num_moves % 2 == 0 and num_move == num_moves + 1:
             break
 
-    #print("===")
-    #print(result)
-    #print("===")
+    print("===")
+    print(result)
+    print("===")
     
     return result
