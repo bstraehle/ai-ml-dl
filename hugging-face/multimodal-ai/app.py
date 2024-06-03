@@ -1,7 +1,9 @@
 import gradio as gr
-import base64, os
+import base64, os, threading
 
 from openai import OpenAI
+
+lock = threading.Lock()
 
 config = {
     "max_tokens": 1000,
@@ -21,33 +23,35 @@ def invoke(openai_api_key, prompt, image):
     if (image is None):
         raise gr.Error("Image is required.")
 
-    os.environ["OPENAI_API_KEY"] = openai_api_key
+    with lock:
+        os.environ["OPENAI_API_KEY"] = openai_api_key
+        
+        content = ""
+        
+        try:
+            client = OpenAI()
     
-    content = ""
+            img_b64 = get_img_b64(image)
     
-    try:
-        client = OpenAI()
-
-        img_b64 = get_img_b64(image)
-
-        completion = client.chat.completions.create(
-            max_tokens = config["max_tokens"],
-            messages = [{"role": "user",
-                         "content": [{"type": "text", 
-                                      "text": prompt},
-                                     {"type": "image_url",
-                                      "image_url": {"url": f"data:image/jpeg;base64,{img_b64}"}}]}],
-            model = config["model"],
-            temperature = config["temperature"]
-        )
+            completion = client.chat.completions.create(
+                max_tokens = config["max_tokens"],
+                messages = [{"role": "user",
+                             "content": [{"type": "text", 
+                                          "text": prompt},
+                                         {"type": "image_url",
+                                          "image_url": {"url": f"data:image/jpeg;base64,{img_b64}"}}]}],
+                model = config["model"],
+                temperature = config["temperature"]
+            )
+        
+            content = completion.choices[0].message.content
+        except Exception as e:
+            err_msg = e
+            raise gr.Error(e)
+        finally:
+            del os.environ["OPENAI_API_KEY"]        
     
-        content = completion.choices[0].message.content
-    except Exception as e:
-        err_msg = e
-
-        raise gr.Error(e)
-
-    return content
+        return content
 
 gr.close_all()
 
