@@ -2,10 +2,9 @@ import chess, chess.svg, math
 from autogen import ConversableAgent, register_function
 from typing_extensions import Annotated
 
-made_move = False
-
-board = chess.Board()
-board_svgs = []
+board = None
+board_svgs = None
+made_move = None
 
 def get_legal_moves() -> Annotated[str, "A list of legal moves in UCI format"]:
     return "Possible moves are: " + ",".join(
@@ -57,8 +56,16 @@ def get_num_turns(num_moves):
         num_turns += 1
         
     return num_turns
+
+def initialize():
+    global board, board_svgs, made_move
+    board = chess.Board()
+    board_svgs = []
+    made_move = False
+
+def run_multi_agent(llm_white, llm_black, num_moves):
+    initialize()
     
-def run_multi_agent(llm_white, llm_black, num_moves):   
     llm_config_white = {"model": llm_white}
     llm_config_black = {"model": llm_black}
     
