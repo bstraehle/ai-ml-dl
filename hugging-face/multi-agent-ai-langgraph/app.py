@@ -18,9 +18,9 @@ def invoke(openai_api_key, topic):
         
     with lock:
         os.environ["OPENAI_API_KEY"] = openai_api_key
-        result = run_multi_agent(LLM, topic)
+        article = run_multi_agent(LLM, topic)
         del os.environ["OPENAI_API_KEY"]
-        return result
+        return article
 
 gr.close_all()
 
