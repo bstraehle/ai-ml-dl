@@ -1,7 +1,9 @@
 import gradio as gr
-import agentops, os
+import agentops, os, threading
 
 from crew import get_crew
+
+lock = threading.Lock()
 
 LLM = "gpt-4o"
 
@@ -13,15 +15,18 @@ def invoke(openai_api_key, topic):
         
     agentops.init(os.environ["AGENTOPS_API_KEY"])
 
-    os.environ["OPENAI_API_KEY"] = openai_api_key
+    with lock:
+        os.environ["OPENAI_API_KEY"] = openai_api_key
+    
+        article = get_crew(LLM).kickoff(inputs={"topic": topic})
+    
+        #print("===")
+        #print(article)
+        #print("===")
 
-    article = get_crew(LLM).kickoff(inputs={"topic": topic})
-
-    print("===")
-    print(article)
-    print("===")
-
-    return article
+        del os.environ["OPENAI_API_KEY"]
+    
+        return article
 
 gr.close_all()
 
