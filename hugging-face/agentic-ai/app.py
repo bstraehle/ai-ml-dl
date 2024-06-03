@@ -1,5 +1,5 @@
 import gradio as gr
-import logging, os, sys, time
+import logging, os, sys, threading, time
 
 from agent_langchain import agent_langchain
 from agent_llamaindex import agent_llamaindex
@@ -8,6 +8,8 @@ from trace import trace_wandb
 
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
+
+lock = threading.Lock()
 
 AGENT_OFF = "Off"
 AGENT_LANGCHAIN  = "LangChain"
@@ -29,59 +31,62 @@ def invoke(openai_api_key, prompt, agent_option):
     if (agent_option is None):
         raise gr.Error("Use Agent is required.")
 
-    os.environ["OPENAI_API_KEY"] = openai_api_key
-
-    completion = ""
-    result = ""
-    callback = ""
-    err_msg = ""
+    with lock:
+        os.environ["OPENAI_API_KEY"] = openai_api_key
     
-    try:
-        start_time_ms = round(time.time() * 1000)
+        completion = ""
+        result = ""
+        callback = ""
+        err_msg = ""
         
-        if (agent_option == AGENT_LANGCHAIN):
-            completion, callback = agent_langchain(
-                config,
-                prompt
-            )
-    
-            result = completion["output"]
-        elif (agent_option == AGENT_LLAMAINDEX):
-            result = agent_llamaindex(
-                config,
-                prompt
-            )
-        else:
-            client = OpenAI()
-    
-            completion = client.chat.completions.create(
-                messages = [{"role": "user", "content": prompt}],
-                model = config["model"],
-                temperature = config["temperature"]
-            )
-
-            callback = completion.usage
-            result = completion.choices[0].message.content
-    except Exception as e:
-        err_msg = e
-
-        raise gr.Error(e)
-    finally:
-        end_time_ms = round(time.time() * 1000)
+        try:
+            start_time_ms = round(time.time() * 1000)
+            
+            if (agent_option == AGENT_LANGCHAIN):
+                completion, callback = agent_langchain(
+                    config,
+                    prompt
+                )
         
-        trace_wandb(
-            config,
-            agent_option,
-            prompt, 
-            completion, 
-            result,
-            callback,
-            err_msg, 
-            start_time_ms, 
-            end_time_ms
-        )
+                result = completion["output"]
+            elif (agent_option == AGENT_LLAMAINDEX):
+                result = agent_llamaindex(
+                    config,
+                    prompt
+                )
+            else:
+                client = OpenAI()
+        
+                completion = client.chat.completions.create(
+                    messages = [{"role": "user", "content": prompt}],
+                    model = config["model"],
+                    temperature = config["temperature"]
+                )
+    
+                callback = completion.usage
+                result = completion.choices[0].message.content
+        except Exception as e:
+            err_msg = e
+    
+            raise gr.Error(e)
+        finally:
+            end_time_ms = round(time.time() * 1000)
+            
+            trace_wandb(
+                config,
+                agent_option,
+                prompt, 
+                completion, 
+                result,
+                callback,
+                err_msg, 
+                start_time_ms, 
+                end_time_ms
+            )
 
-    return result
+            del os.environ["OPENAI_API_KEY"]
+    
+        return result
 
 gr.close_all()
 
