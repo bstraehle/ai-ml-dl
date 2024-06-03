@@ -3,8 +3,7 @@ import os, threading
 
 from openai import OpenAI
 
-openai_api_key_lock = threading.Lock()
-prompt_lock = threading.Lock()
+lock = threading.Lock()
 
 config = {
     "max_tokens": 1000,
@@ -13,37 +12,37 @@ config = {
 }
 
 def invoke(openai_api_key, prompt):
-    with openai_api_key_lock:
-        if not openai_api_key:
-            st.error("OpenAI API Key is required.", icon = "🚨")
-            return ""
+    if not openai_api_key:
+        st.error("OpenAI API Key is required.", icon = "🚨")
+        return ""
     
-    with prompt_lock:
-        if not prompt:
-            st.error("Prompt is required.", icon = "🚨")
-            return ""
-
-    with openai_api_key_lock:
-        os.environ["OPENAI_API_KEY"] = openai_api_key
-    
-    content = ""
-    
-    try:
-        client = OpenAI()
-    
-        completion = client.chat.completions.create(
-            max_tokens = config["max_tokens"],
-            messages = [{"role": "user", "content": prompt}],
-            model = config["model"],
-            temperature = config["temperature"])
-    
-        content = completion.choices[0].message.content
-    except Exception as e:
-        err_msg = e
-        st.error(e, icon = "🚨")
+    if not prompt:
+        st.error("Prompt is required.", icon = "🚨")
         return ""
 
-    return content
+    with lock:
+        os.environ["OPENAI_API_KEY"] = openai_api_key
+    
+        content = ""
+        
+        try:
+            client = OpenAI()
+        
+            completion = client.chat.completions.create(
+                max_tokens = config["max_tokens"],
+                messages = [{"role": "user", "content": prompt}],
+                model = config["model"],
+                temperature = config["temperature"])
+        
+            content = completion.choices[0].message.content
+        except Exception as e:
+            err_msg = e
+            st.error(e, icon = "🚨")
+            return ""
+        finally:
+            del os.environ["OPENAI_API_KEY"]
+    
+        return content
 
 st.title("Generative AI - LLM")
 st.write(os.environ["DESCRIPTION"])
