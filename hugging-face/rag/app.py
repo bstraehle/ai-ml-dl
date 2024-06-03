@@ -1,11 +1,13 @@
 import gradio as gr
-import logging, os, sys, time
+import logging, os, sys, threading, time
 
 from dotenv import load_dotenv, find_dotenv
 
 from rag_langchain import LangChainRAG
 from rag_llamaindex import LlamaIndexRAG
 from trace import trace_wandb
+
+lock = threading.Lock()
 
 _ = load_dotenv(find_dotenv())
 
@@ -34,64 +36,67 @@ def invoke(openai_api_key, prompt, rag_option):
     if (rag_option is None):
         raise gr.Error("Retrieval-Augmented Generation is required.")
 
-    os.environ["OPENAI_API_KEY"] = openai_api_key
-    
-    if (RAG_INGESTION):
-        if (rag_option == RAG_LANGCHAIN):
-            rag = LangChainRAG()
-            rag.ingestion(config)
-        elif (rag_option == RAG_LLAMAINDEX):
-            rag = LlamaIndexRAG()
-            rag.ingestion(config)
-
-    completion = ""
-    result = ""
-    callback = ""
-    err_msg = ""
-    
-    try:
-        start_time_ms = round(time.time() * 1000)
-
-        if (rag_option == RAG_LANGCHAIN):
-            rag = LangChainRAG()
-            completion, callback = rag.rag_chain(config, prompt)
-            result = completion["result"]
-        elif (rag_option == RAG_LLAMAINDEX):
-            rag = LlamaIndexRAG()
-            result, callback = rag.retrieval(config, prompt)
-        else:
-            rag = LangChainRAG()
-            completion, callback = rag.llm_chain(config, prompt)
-            result = completion.generations[0][0].text
-    except Exception as e:
-        err_msg = e
-
-        raise gr.Error(e)
-    finally:
-        end_time_ms = round(time.time() * 1000)
+    with lock:
+        os.environ["OPENAI_API_KEY"] = openai_api_key
         
-        trace_wandb(
-            config,
-            rag_option,
-            prompt, 
-            completion, 
-            result, 
-            callback, 
-            err_msg, 
-            start_time_ms, 
-            end_time_ms
-        )
+        if (RAG_INGESTION):
+            if (rag_option == RAG_LANGCHAIN):
+                rag = LangChainRAG()
+                rag.ingestion(config)
+            elif (rag_option == RAG_LLAMAINDEX):
+                rag = LlamaIndexRAG()
+                rag.ingestion(config)
+    
+        completion = ""
+        result = ""
+        callback = ""
+        err_msg = ""
+        
+        try:
+            start_time_ms = round(time.time() * 1000)
+    
+            if (rag_option == RAG_LANGCHAIN):
+                rag = LangChainRAG()
+                completion, callback = rag.rag_chain(config, prompt)
+                result = completion["result"]
+            elif (rag_option == RAG_LLAMAINDEX):
+                rag = LlamaIndexRAG()
+                result, callback = rag.retrieval(config, prompt)
+            else:
+                rag = LangChainRAG()
+                completion, callback = rag.llm_chain(config, prompt)
+                result = completion.generations[0][0].text
+        except Exception as e:
+            err_msg = e
+    
+            raise gr.Error(e)
+        finally:
+            end_time_ms = round(time.time() * 1000)
+            
+            trace_wandb(
+                config,
+                rag_option,
+                prompt, 
+                completion, 
+                result, 
+                callback, 
+                err_msg, 
+                start_time_ms, 
+                end_time_ms
+            )
 
-    return result
+            del os.environ["OPENAI_API_KEY"]
+    
+        return result
 
 gr.close_all()
 
 demo = gr.Interface(
     fn = invoke, 
     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1), 
-              gr.Textbox(label = "Prompt", value = "What are GPT-4's media capabilities in 5 emojis and 1 sentence?", lines = 1),
+              gr.Textbox(label = "Prompt", value = "List GPT-4's exam scores and benchmark results.", lines = 1),
               gr.Radio([RAG_OFF, RAG_LANGCHAIN, RAG_LLAMAINDEX], label = "Retrieval-Augmented Generation", value = RAG_LANGCHAIN)],
-    outputs = [gr.Textbox(label = "Completion", lines = 1)],
+    outputs = [gr.Textbox(label = "Completion")],
     title = "Context-Aware Reasoning Application",
     description = os.environ["DESCRIPTION"],
     examples = [["sk-<BringYourOwn>", "What are GPT-4's media capabilities in 5 emojis and 1 sentence?", RAG_LLAMAINDEX],
