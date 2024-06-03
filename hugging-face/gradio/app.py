@@ -1,21 +1,28 @@
 import gradio as gr
-import os
+import os, threading
 
 from openai import OpenAI
 
+openai_api_key_lock = threading.Lock()
+prompt_lock = threading.Lock()
+
 config = {
     "max_tokens": 1000,
-    "model": "gpt-4",
+    "model": "gpt-4o",
     "temperature": 0
 }
 
 def invoke(openai_api_key, prompt):
-    if (openai_api_key == ""):
-        raise gr.Error("OpenAI API Key is required.")
-    if (prompt == ""):
-        raise gr.Error("Prompt is required.")
+    with openai_api_key_lock:
+        if not openai_api_key:
+            raise gr.Error("OpenAI API Key is required.")
+    
+    with prompt_lock:
+        if not prompt:
+            raise gr.Error("Prompt is required.")
 
-    os.environ["OPENAI_API_KEY"] = openai_api_key
+    with openai_api_key_lock:
+        os.environ["OPENAI_API_KEY"] = openai_api_key
     
     content = ""
     
@@ -36,9 +43,6 @@ def invoke(openai_api_key, prompt):
 
     return content
 
-description = """<a href='https://www.gradio.app/'>Gradio</a> UI using the <a href='https://openai.com/'>OpenAI</a> SDK 
-                 with <a href='https://openai.com/research/gpt-4'>gpt-4</a> model."""
-
 gr.close_all()
 
 demo = gr.Interface(fn = invoke, 
@@ -46,6 +50,6 @@ demo = gr.Interface(fn = invoke,
                               gr.Textbox(label = "Prompt", lines = 1)],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
                     title = "Generative AI - LLM",
-                    description = description)
+                    description = os.environ["DESCRIPTION"])
 
 demo.launch()
