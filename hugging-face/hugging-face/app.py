@@ -2,13 +2,13 @@ import os, threading
 import gradio as gr
 from transformers import pipeline
 
-input_lock = threading.Lock()
+lock = threading.Lock()
 
 pipe = pipeline("image-to-text",
                 model="Salesforce/blip-image-captioning-base")
 
 def exec(input):
-    with input_lock:
+    with lock:
         out = pipe(input)
         return out[0]["generated_text"]
 
