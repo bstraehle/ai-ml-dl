@@ -1,23 +1,30 @@
 import streamlit as st
-import os
+import os, threading
 
 from openai import OpenAI
 
+openai_api_key_lock = threading.Lock()
+prompt_lock = threading.Lock()
+
 config = {
     "max_tokens": 1000,
-    "model": "gpt-4",
+    "model": "gpt-4o",
     "temperature": 0
 }
 
 def invoke(openai_api_key, prompt):
-    if (openai_api_key == ""):
-        st.error("OpenAI API Key is required.", icon = "🚨")
-        return ""
-    if (prompt == ""):
-        st.error("Prompt is required.", icon = "🚨")
-        return ""
+    with openai_api_key_lock:
+        if not openai_api_key:
+            st.error("OpenAI API Key is required.", icon = "🚨")
+            return ""
+    
+    with prompt_lock:
+        if not prompt:
+            st.error("Prompt is required.", icon = "🚨")
+            return ""
 
-    os.environ["OPENAI_API_KEY"] = openai_api_key
+    with openai_api_key_lock:
+        os.environ["OPENAI_API_KEY"] = openai_api_key
     
     content = ""
     
@@ -33,17 +40,13 @@ def invoke(openai_api_key, prompt):
         content = completion.choices[0].message.content
     except Exception as e:
         err_msg = e
-
         st.error(e, icon = "🚨")
         return ""
 
     return content
 
-description = """[Streamlit](https://streamlit.io/) UI using the [OpenAI](https://openai.com/) SDK 
-                 with [gpt-4](https://openai.com/research/gpt-4) model."""
-
 st.title("Generative AI - LLM")
-st.write(description)
+st.write(os.environ["DESCRIPTION"])
 completion = ""
 
 with st.form("myform"):
