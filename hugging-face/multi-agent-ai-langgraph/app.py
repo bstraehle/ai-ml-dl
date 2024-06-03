@@ -1,7 +1,9 @@
 import gradio as gr
-import os
+import os, threading
 
 from multi_agent import run_multi_agent
+
+lock = threading.Lock()
 
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_PROJECT"] = "langgraph-multi-agent"
@@ -14,9 +16,11 @@ def invoke(openai_api_key, topic):
     if (topic == ""):
         raise gr.Error("Topic is required.")
         
-    os.environ["OPENAI_API_KEY"] = openai_api_key
-   
-    return run_multi_agent(LLM, topic)
+    with lock:
+        os.environ["OPENAI_API_KEY"] = openai_api_key
+        result = run_multi_agent(LLM, topic)
+        del os.environ["OPENAI_API_KEY"]
+        return result
 
 gr.close_all()
 
