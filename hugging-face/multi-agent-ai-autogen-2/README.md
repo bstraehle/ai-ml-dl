@@ -1,5 +1,5 @@
 ---
-title: Multi-Agent AI (AutoGen) - Financial Analysis
+title: Multi-Agent AI (AutoGen) - Coding
 emoji: 🧠
 colorFrom: pink
 colorTo: gray
