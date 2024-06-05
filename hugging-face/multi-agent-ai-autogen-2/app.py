@@ -13,6 +13,8 @@ def invoke(openai_api_key, task):
 
     if not task:
         raise gr.Error("Task is required.")
+
+    raise gr.Error("Please clone space due to local code execution.")
     
     with lock:
         os.environ["OPENAI_API_KEY"] = openai_api_key
@@ -26,7 +28,7 @@ demo = gr.Interface(fn = invoke,
                     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
                               gr.Textbox(label = "Task", value = f"Today is {datetime.date.today()}. {os.environ['INPUT']}")],
                     outputs = [gr.Markdown(label = "Output", value = os.environ["OUTPUT"], line_breaks = True, sanitize_html = False)],
-                    title = "Multi-Agent AI: Financial Analysis",
+                    title = "Multi-Agent AI: Coding",
                     description = os.environ["DESCRIPTION"])
 
 demo.launch()
