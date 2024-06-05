@@ -89,8 +89,8 @@ def run_multi_agent(llm, message):
     #result = f"{markdown_code_png}\n\n{markdown_code_sh}\n\n{markdown_code_py}\n\n{chat}"
     result = f"{markdown_code_png}\n\n{chat}"
 
-    print("===")
-    print(result)
-    print("===")
+    #print("===")
+    #print(result)
+    #print("===")
     
     return result
