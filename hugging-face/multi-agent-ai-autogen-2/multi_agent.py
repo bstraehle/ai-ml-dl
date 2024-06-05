@@ -34,7 +34,7 @@ def run_multi_agent(llm, message):
         llm_config=False,
         code_execution_config={"executor": executor},
         human_input_mode="NEVER",
-        default_auto_reply="Please continue. If everything is done, reply 'TERMINATE'.",
+        default_auto_reply="TERMINATE",
     )
 
     code_writer_agent = AssistantAgent(
@@ -50,9 +50,15 @@ def run_multi_agent(llm, message):
         max_turns=10
     )
 
+    chat = ""
+    
+    for message in chat_result.chat_history:
+        chat += f"**{message['role'].replace('assistant', 'Code Executor').replace('user', 'Code Writer')}**\n{message['content']}\n\n"
+    
     image_data = read_image_file("/home/user/app/coding/ytd_stock_gains.png")
     markdown_code_png = generate_markdown_image(image_data)
 
+    '''
     file_name_py = ""
     file_name_sh = ""
     
@@ -78,11 +84,13 @@ def run_multi_agent(llm, message):
         print(f"Error reading file '{file_path_sh}': {e.strerror}")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
+    '''
+     
+    #result = f"{markdown_code_png}\n\n{markdown_code_sh}\n\n{markdown_code_py}\n\n{chat}"
+    result = f"{markdown_code_png}\n\n{chat}"
 
-    result = markdown_code_png + "\n" + markdown_code_sh + "\n" + markdown_code_py
-
-    #print("===")
-    #print(result)
-    #print("===")
+    print("===")
+    print(result)
+    print("===")
     
     return result
