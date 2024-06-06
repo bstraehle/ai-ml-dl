@@ -10,8 +10,8 @@ https://www.youtube.com/playlist?list=PLfaIDFEXuae16n2TWUkKq5PgJ0w6Pkwtg (LangGr
 
 https://huggingface.co/spaces/bstraehle/multi-agent-ai-autogen-chess/ (AutoGen, multi-agent)  
 https://huggingface.co/spaces/bstraehle/multi-agent-ai-autogen-coding/ (AutoGen, multi-agent)  
-https://huggingface.co/spaces/bstraehle/multi-agent-rag-langgraph/ (LangGraph, multi-agent)  
-https://huggingface.co/spaces/bstraehle/multi-agent-rag-crewai/ (crewAI, multi-agent)  
+https://huggingface.co/spaces/bstraehle/multi-agent-ai-langgraph/ (LangGraph, multi-agent)  
+https://huggingface.co/spaces/bstraehle/multi-agent-ai-crewai/ (crewAI, multi-agent)  
 https://huggingface.co/spaces/bstraehle/agentic-rag/ (LangChain & LlamaIndex, single agent)  
 
 https://github.com/microsoft/autogen/  
