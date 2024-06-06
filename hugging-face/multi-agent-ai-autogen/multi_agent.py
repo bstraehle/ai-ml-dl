@@ -164,15 +164,15 @@ def run_multi_agent(llm_white, llm_black, num_moves):
             player = "Player White"
 
         if num_move > 0:
-            result += f"**{player}, Move {num_move}**<br>{chat.get('content')}<br>{board_svgs[num_move - 1]}<br><br>"
+            result += f"**{player}, Move {num_move}**\n{chat.get('content')}\n{board_svgs[num_move - 1]}\n\n"
         
         num_move += 1
 
         if num_moves % 2 == 0 and num_move == num_moves + 1:
             break
 
-    #print("===")
-    #print(result)
-    #print("===")
+    print("===")
+    print(result)
+    print("===")
     
     return result
