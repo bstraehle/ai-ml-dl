@@ -51,9 +51,12 @@ def run_multi_agent(llm, message):
     )
 
     chat = ""
+    first_message = True
     
     for message in chat_result.chat_history:
-        chat += f"**{message['role'].replace('assistant', 'Code Executor').replace('user', 'Code Writer')}**\n{message['content']}\n\n"
+        if not first_message:
+            chat += f"**{message['role'].replace('assistant', 'Code Executor').replace('user', 'Code Writer')}**\n{message['content']}\n\n"
+        first_message = False
     
     image_data = read_image_file("/home/user/app/coding/ytd_stock_gains.png")
     markdown_code_png = generate_markdown_image(image_data)
