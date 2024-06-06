@@ -171,8 +171,8 @@ def run_multi_agent(llm_white, llm_black, num_moves):
         if num_moves % 2 == 0 and num_move == num_moves + 1:
             break
 
-    print("===")
-    print(result)
-    print("===")
+    #print("===")
+    #print(result)
+    #print("===")
     
     return result
