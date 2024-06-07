@@ -82,7 +82,7 @@ def run_multi_agent(llm_white, llm_black, num_moves):
         system_message="You are a chess Grandmaster and you play as white. "
         "First call get_legal_moves(), to get a list of legal moves. "
         "Then call make_move(move) to make a legal move. "
-        "Analyze the move in 3 bullet points. Respond in format **Analysis:** move in UCI format, unordered list.",
+        "Analyze the move in 3 bullet points. Respond in format **Analysis:** move in UCI format (piece emoji), unordered list.",
         llm_config=llm_config_white,
     )
     
@@ -91,7 +91,7 @@ def run_multi_agent(llm_white, llm_black, num_moves):
         system_message="You are a chess Grandmaster and you play as black. "
         "First call get_legal_moves(), to get a list of legal moves. "
         "Then call make_move(move) to make a legal move. "
-        "Analyze the move in 3 bullet points. Respond in format **Analysis:** move in UCI format, unordered list.",
+        "Analyze the move in 3 bullet points. Respond in format **Analysis:** move in UCI format (piece emoji), unordered list.",
         llm_config=llm_config_black,
     )
     
