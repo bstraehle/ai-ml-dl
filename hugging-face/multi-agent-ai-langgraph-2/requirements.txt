@@ -1,0 +1,6 @@
+chess==1.10.0
+langchain
+langchain_openai
+langchain_experimental
+langgraph
+langsmith
