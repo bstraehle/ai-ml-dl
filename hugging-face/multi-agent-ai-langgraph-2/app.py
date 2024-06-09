@@ -5,8 +5,8 @@ from multi_agent import run_multi_agent
 
 lock = threading.Lock()
 
-#os.environ["LANGCHAIN_TRACING_V2"] = "true"
-#os.environ["LANGCHAIN_PROJECT"] = "langgraph-multi-agent-chess"
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+os.environ["LANGCHAIN_PROJECT"] = "langgraph-multi-agent-chess"
 
 def invoke(openai_api_key, max_moves = 10):
     if not openai_api_key:
