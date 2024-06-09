@@ -20,6 +20,7 @@ board_svgs = None
 
 num_moves = 0
 move_num = 0
+
 legal_moves = ""
 
 class AgentState(TypedDict):
@@ -106,27 +107,20 @@ def make_move(move: Annotated[str, "A move in UCI format."]) -> Annotated[str, "
     except Exception as e:
         print(f"An error occurred in make_move: {e}")
         return f"Error: unable to make move {move}"
-
-def initialize():
-    global board, board_svgs
-    board = chess.Board()
-    board_svgs = []
     
 def create_graph():
     print("## create_graph")
-    
-    initialize()
     
     players = ["player_white", "player_black"]
     
     system_prompt = (
         "You are a Chess Board Proxy tasked with managing a game of chess "
         "between player_white and player_black. player_white makes the first move, "
-        "then the players take turns until no legal move is possible. "
-        "When finished (checkmate or stalemate), respond with FINISH."
+        "then the players take turns."
     )
 
-    options = ["FINISH"] + players
+    #options = ["FINISH"] + players
+    options = players
 
     function_def = {
         "name": "route",
@@ -154,7 +148,7 @@ def create_graph():
                 "system",
                 "If player_white made a move, player_black must make the next move. "
                 "If player_black made a move, player_white must make the next move. "
-                "After move 10, END. Select one of: {options}.",
+                "Select one of: {options}.",
             ),
         ]
     ).partial(options=str(options), members=", ".join(players), verbose=True)
@@ -172,39 +166,39 @@ def create_graph():
     player_white_agent = create_agent(llm_2, [get_legal_moves, make_move], system_prompt=
                                      "You are a chess Grandmaster and you play as white. "
                                      "1. First call get_legal_moves(), to get a list of legal moves. "
-                                     "2. Then call make_move(move) to make a move. ONLY make a move in the list returned by step 1. "
-                                     "3. Finally analyze the move in format: **Analysis:** move in UCI format, emoji of piece emoji, unordered list with 3 analysis items.")
+                                     "2. Then call make_move(move) to make a move. ONLY make a move in the list returned by step 1.")
+                                     #"3. Finally analyze the move in format: **Analysis:** move in UCI format, emoji of piece emoji, unordered list.")
     player_white_node = functools.partial(agent_node, agent=player_white_agent, name="player_white")
 
     player_black_agent = create_agent(llm_3, [get_legal_moves, make_move], system_prompt=
                                      "You are a chess Grandmaster and you play as black. "
                                      "1. First call get_legal_moves(), to get a list of legal moves. "
-                                     "2. Then call make_move(move) to make a move. ONLY make a move in the list returned by step 1. "
-                                     "3. Finally analyze the move in format: **Analysis:** move in UCI format, emoji of piece emoji, unordered list with 3 analysis items.")
+                                     "2. Then call make_move(move) to make a move. ONLY make a move in the list returned by step 1.")
+                                     #"3. Finally analyze the move in format: **Analysis:** move in UCI format, emoji of piece emoji, unordered list.")
     player_black_node = functools.partial(agent_node, agent=player_black_agent, name="player_black")
     
     graph = StateGraph(AgentState)
     graph.add_node("player_white", player_white_node)
     graph.add_node("player_black", player_black_node)
-    graph.add_node("manager", supervisor_chain)
+    graph.add_node("chess_board_proxy", supervisor_chain)
 
     graph.add_conditional_edges(
         "player_white", 
         should_continue, 
-        {"manager": "manager", END: END}
+        {"chess_board_proxy": "chess_board_proxy", END: END}
     )
 
     graph.add_conditional_edges(
         "player_black", 
         should_continue, 
-        {"manager": "manager", END: END}
+        {"chess_board_proxy": "chess_board_proxy", END: END}
     )
     
     conditional_map = {k: k for k in players}
     conditional_map["END"] = END
     
-    graph.add_conditional_edges("manager", lambda x: x["next"], conditional_map)
-    graph.set_entry_point("manager")
+    graph.add_conditional_edges("chess_board_proxy", lambda x: x["next"], conditional_map)
+    graph.set_entry_point("chess_board_proxy")
     
     return graph.compile()
 
@@ -212,20 +206,32 @@ def should_continue(state):
     print("#### should_continue")
     global move_num, num_moves, legal_moves
     if move_num == num_moves:
-        print("False")
+        print("False (move_num == num_moves)")
         return END # max moves reached
     if not legal_moves:
-        print("False")
+        print("False (not legal_moves)")
         return END # checkmate or stalemate
     print("True")
-    return "manager"
-    
-def run_multi_agent(moves_num):
-    global move_num, num_moves
+    return "chess_board_proxy"
 
+def initialize():
+    global board, board_svgs, num_moves, move_num, legal_moves
+
+    board = chess.Board()
+    board_svgs = []
+
+    num_moves = 0
     move_num = 0
-    num_moves = moves_num
+    
+    legal_moves = ""
 
+def run_multi_agent(moves_num):
+    initialize()
+
+    global num_moves
+
+    num_moves = moves_num
+    
     print("## START")
     print("## num_moves=" + str(num_moves))
     
@@ -234,11 +240,13 @@ def run_multi_agent(moves_num):
     result = ""
     
     try:
+        config = {"recursion_limit": 500}
+        
         result = graph.invoke({
             "messages": [
                 HumanMessage(content="Let's play chess, player_white starts.")
             ]
-        })
+        }, config=config)
     except Exception as e:
         print(f"An error occurred: {e}")
 
@@ -255,24 +263,25 @@ def run_multi_agent(moves_num):
                 print(message.content)
     """
 
-    print("### "+ type(result))
+    print("### "+ str(type(result)))
     print("### "+ str(len(result["messages"])))
     
-    for message in result["messages"]:
-        player = ""
-        
-        if num_move % 2 == 0:
-            player = "Player Black"
-        else:
-            player = "Player White"
-
-        if num_move > 0:
-            result2 += f"**{player}, Move {num_move}**\n{message.content}\n{board_svgs[num_move - 1]}\n\n"
-        
-        num_move += 1
-
-        if num_moves % 2 == 0 and num_move == num_moves + 1:
-            break
+    if "messages" in result:
+        for message in result["messages"]:
+            player = ""
+            
+            if num_move % 2 == 0:
+                player = "Player Black"
+            else:
+                player = "Player White"
+    
+            if num_move > 0:
+                result2 += f"**{player}, Move {num_move}**\n{message.content}\n{board_svgs[num_move - 1]}\n\n"
+            
+            num_move += 1
+    
+            if num_moves % 2 == 0 and num_move == num_moves + 1:
+                break
     
     print("===")
     print(str(result))
