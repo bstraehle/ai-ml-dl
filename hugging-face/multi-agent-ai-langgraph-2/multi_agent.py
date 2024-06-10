@@ -73,7 +73,6 @@ def make_move(move: Annotated[str, "A move in UCI format."]) -> Annotated[str, "
 class AgentState(TypedDict):
     messages: Annotated[Sequence[BaseMessage], operator.add]
     next: str
-    legal_moves: str
 
 def create_agent(llm: ChatOpenAI, tools: list, system_prompt: str):
     prompt = ChatPromptTemplate.from_messages(
@@ -93,26 +92,12 @@ def create_agent(llm: ChatOpenAI, tools: list, system_prompt: str):
                          verbose=True,
                          max_iterations=5) # get_legal_moves & make_move
 
-def extract_moves(data):
-    moves = ""
-
-    for action in data["intermediate_steps"]:
-        if isinstance(action, tuple):
-            moves = action[1]
-            break
-    
-    return moves
-    
 def agent_node(state, agent, name):
     try:
         print("## agent_node=" + name)
         result = agent.invoke(state)
         print("## result=" + str(result))
-        legal_moves = extract_moves(result)
-        print("## legal_moves="+str(legal_moves))
         print("## result['output']=" + result["output"])
-        state["legal_moves"] = str(legal_moves)
-        print("## state=" + str(state))
         return {
             "messages": [HumanMessage(content=result["output"], name=name)]
         }
@@ -250,7 +235,7 @@ def run_multi_agent(moves_num):
     result = ""
     
     try:
-        config = {"recursion_limit": 500}
+        config = {"recursion_limit": 100}
         
         result = graph.invoke({
             "messages": [
