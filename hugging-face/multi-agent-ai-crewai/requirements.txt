@@ -1,5 +1,5 @@
-agentops
+agentops==0.2.2
 crewai==0.28.8
 crewai_tools==0.1.6
 langchain_community==0.0.29
-openai
+openai==1.33.0
