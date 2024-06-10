@@ -26,7 +26,7 @@ def get_legal_moves() -> Annotated[str, "A list of legal moves in UCI format"]:
        The input should always be an empty string, 
        and this function will always return legal moves in UCI format."""
     try:
-        print("## get_legal_moves")
+        print("### get_legal_moves")
         global legal_moves
         legal_moves = ",".join([str(move) for move in board.legal_moves])
         return legal_moves
@@ -40,13 +40,13 @@ def make_move(move: Annotated[str, "A move in UCI format."]) -> Annotated[str, "
        The input should always be a move in UCI format, 
        and this function will always return the result of the move in UCI format."""
     try:
-        print("## make_move")
+        print("### make_move")
         move = chess.Move.from_uci(move)
         board.push_uci(str(move))
 
         global move_num
         move_num += 1
-        print("## move_num=" + str(move_num))
+        print("### move_num=" + str(move_num))
 
         board_svgs.append(chess.svg.board(
             board,
@@ -94,10 +94,9 @@ def create_agent(llm: ChatOpenAI, tools: list, system_prompt: str):
 
 def agent_node(state, agent, name):
     try:
-        print("## agent_node=" + name)
+        print("### node=" + name)
         result = agent.invoke(state)
-        print("## result=" + str(result))
-        print("## result['output']=" + result["output"])
+        print("### output=" + result["output"])
         return {
             "messages": [HumanMessage(content=result["output"], name=name)]
         }
@@ -114,7 +113,7 @@ def create_graph():
         "then the players take turns."
     )
 
-    options = players
+    #options = players
 
     function_def = {
         "name": "route",
@@ -126,7 +125,7 @@ def create_graph():
                 "next": {
                     "title": "Next",
                     "anyOf": [
-                        {"enum": options},
+                        {"enum": players},
                     ],
                 }
             },
@@ -145,7 +144,7 @@ def create_graph():
                 "Select one of: {options}.",
             ),
         ]
-    ).partial(options=str(options), members=", ".join(players), verbose=True)
+    ).partial(options=str(players), members=", ".join(players), verbose=True)
     
     llm_chess_board_proxy = ChatOpenAI(model="gpt-4o")
     llm_player_white = ChatOpenAI(model="gpt-4o")
@@ -224,11 +223,10 @@ def initialize():
     legal_moves = ""
 
 def run_multi_agent(moves_num):
-    initialize()
-
     global num_moves
-
     num_moves = moves_num
+    
+    initialize()
     
     graph = create_graph()
 
@@ -266,7 +264,7 @@ def run_multi_agent(moves_num):
                 break
     
     print("===")
-    print(str(result_md))
+    print(result_md)
     print("===")
     
     return result_md
