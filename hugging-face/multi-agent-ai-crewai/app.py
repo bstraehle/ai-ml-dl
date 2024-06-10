@@ -8,9 +8,9 @@ lock = threading.Lock()
 LLM = "gpt-4o"
 
 def invoke(openai_api_key, topic):
-    if (openai_api_key == ""):
+    if not openai_api_key:
         raise gr.Error("OpenAI API Key is required.")
-    if (topic == ""):
+    if not topic:
         raise gr.Error("Topic is required.")
         
     agentops.init(os.environ["AGENTOPS_API_KEY"])
