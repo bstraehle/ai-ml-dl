@@ -47,7 +47,7 @@ def create_agent(llm: ChatOpenAI, tools: list, system_prompt: str):
 
 def agent_node(state, agent, name):
     try:
-        print(f"### {name} ###")
+        print(f"### {name}")
         result = agent.invoke(state)
         return {"messages": [HumanMessage(content=result["output"], name=name)]}
     except Exception as e:
@@ -60,7 +60,6 @@ def get_legal_moves() -> Annotated[str, "A list of legal moves in UCI format"]:
        The input should always be an empty string, 
        and this function will always return legal moves in UCI format."""
     try:
-        #print("### get_legal_moves")
         global legal_moves
         legal_moves = ",".join([str(move) for move in board.legal_moves])
         return legal_moves
@@ -74,13 +73,12 @@ def make_move(move: Annotated[str, "A move in UCI format."]) -> Annotated[str, "
        The input should always be a move in UCI format, 
        and this function will always return the result of the move in UCI format."""
     try:
-        #print("### make_move")
         move = chess.Move.from_uci(move)
         board.push_uci(str(move))
 
         global move_num
         move_num += 1
-        print("### move_num=" + str(move_num))
+        print(f"### move_num={str(move_num)}")
         
         board_svgs.append(chess.svg.board(
             board,
@@ -176,7 +174,6 @@ def create_graph():
     graph.add_node("player_black", player_black_node)
 
     conditional_map = {k: k for k in players}
-    #conditional_map["END"] = END
     graph.add_conditional_edges("chess_board_proxy", lambda x: x["next"], conditional_map)
 
     graph.add_conditional_edges(
@@ -196,20 +193,14 @@ def create_graph():
     return graph.compile()
 
 def should_continue(state):
-    #print("### should_continue")
     global move_num, num_moves, legal_moves
-    #print("### move_num=" + str(move_num))
-    #print("### num_moves=" + str(num_moves))
     
     if move_num == num_moves:
-        #print("### max moves reached")
         return END # max moves reached
     
     if not legal_moves:
-        #print("### checkmate")
         return END # checkmate or stalemate
 
-    #print("### chess_board_proxy ###")
     return "chess_board_proxy"
 
 def initialize():
@@ -265,8 +256,8 @@ def run_multi_agent(moves_num):
             if num_moves % 2 == 0 and num_move == num_moves + 1:
                 break
     
-    print("===")
-    print(result_md)
-    print("===")
+    #print("===")
+    #print(result_md)
+    #print("===")
     
     return result_md
