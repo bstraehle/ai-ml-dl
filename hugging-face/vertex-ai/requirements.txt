@@ -1,2 +1,2 @@
-google-cloud-aiplatform
-python-dotenv
+google-cloud-aiplatform==1.54.1
+python-dotenv==1.0.1
