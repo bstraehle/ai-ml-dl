@@ -16,7 +16,7 @@ def get_write_task(model):
     return Task(
         description=(
             "1. Use the context to write a 2000-word article on topic: {topic}.\n"
-            "2. At the beginning of the article, add current date and author: Multi-AI-Agent System.\n"
+            "2. At the beginning of the article, add current date and author: Multi-Agent AI System.\n"
             "3. At the end of the article, add a references section with research papers."
         ),
         expected_output="An article on topic {topic}.",
