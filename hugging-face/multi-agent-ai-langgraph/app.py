@@ -5,8 +5,8 @@ from multi_agent import run_multi_agent
 
 lock = threading.Lock()
 
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_PROJECT"] = "langgraph-multi-agent"
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
 
 LLM = "gpt-4o"
 
