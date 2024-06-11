@@ -3,4 +3,3 @@ langchain_openai==0.1.8
 langchain_experimental==0.0.60
 langgraph==0.0.66
 langsmith==0.1.76
-pandas==2.2.2
