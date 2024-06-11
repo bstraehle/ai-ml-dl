@@ -94,10 +94,11 @@ def create_graph(model, topic):
         | JsonOutputFunctionsParser()
     )
 
-    researcher_agent = create_agent(llm, [tavily_tool, today_tool], system_prompt="1. Research content on topic: " + topic + ", prioritizing research papers. "
-                                                                                  "2. Based on your research, write a 2000-word article on the topic. "
-                                                                                  "3. At the beginning of the article, add current date and author: Multi-AI-Agent System. "
-                                                                                  "4. At the end of the article, add a references section with research papers.")
+    researcher_agent = create_agent(llm, [tavily_tool, today_tool], system_prompt=
+                                    "1. Research content on topic: " + topic + ", prioritizing research papers. "
+                                    "2. Based on your research, write a 2000-word article on the topic. "
+                                    "3. At the beginning of the article, add current date and author: Multi-Agent AI System. "
+                                    "4. At the end of the article, add a references section with research papers.")
     researcher_node = functools.partial(agent_node, agent=researcher_agent, name="Researcher")
 
     workflow = StateGraph(AgentState)
@@ -126,8 +127,8 @@ def run_multi_agent(model, topic):
     
     article = result['messages'][-1].content
     
-    print("===")
-    print(article)
-    print("===")
+    #print("===")
+    #print(article)
+    #print("===")
     
     return article
