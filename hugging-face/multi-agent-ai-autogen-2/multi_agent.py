@@ -1,4 +1,4 @@
-import base64, json, os
+import base64, datetime, json, os
 
 from autogen import ConversableAgent, AssistantAgent
 from autogen.coding import LocalCommandLineCodeExecutor
@@ -20,8 +20,26 @@ def format_as_markdown(code: str) -> str:
     markdown_code += code
     markdown_code += '\n```'
     return markdown_code
+
+def get_latest_file(directory, file_extension):
+    latest_file = None
+    latest_date = datetime.datetime.min
+
+    for file in os.listdir(directory):
+        if file:
+            _, file_ext = os.path.splitext(file)
+
+            if file_ext == file_extension:
+                file_path = os.path.join(directory, file)
+                file_date = datetime.datetime.fromtimestamp(os.path.getmtime(file_path))
+
+                if file_date > latest_date:
+                    latest_date = file_date
+                    latest_file = file
+
+    return latest_file
     
-def run_multi_agent(llm, message):
+def run_multi_agent(llm, task):
     llm_config = {"model": llm}
     
     executor = LocalCommandLineCodeExecutor(
@@ -46,7 +64,7 @@ def run_multi_agent(llm, message):
     
     chat_result = code_executor_agent.initiate_chat(
         code_writer_agent,
-        message=message,
+        message=task,
         max_turns=10
     )
 
@@ -57,39 +75,12 @@ def run_multi_agent(llm, message):
         if not first_message:
             chat += f"**{message['role'].replace('assistant', 'Code Executor').replace('user', 'Code Writer')}**\n{message['content']}\n\n"
         first_message = False
+
+    file_name_png = get_latest_file("coding", ".png")
     
-    image_data = read_image_file("/home/user/app/coding/ytd_stock_gains.png")
+    image_data = read_image_file(f"/home/user/app/coding/{file_name_png}")
     markdown_code_png = generate_markdown_image(image_data)
 
-    '''
-    file_name_py = ""
-    file_name_sh = ""
-    
-    for file in os.listdir("coding"):
-        if file:
-            _, file_extension = os.path.splitext(file)
-            if file_extension == ".py":
-                file_name_py = file
-            if file_extension == ".sh":
-                file_name_sh = file
-    
-    try:
-        file_path_py = "coding/" + file_name_py
-        code_py = read_file(file_path_py)
-        markdown_code_py = format_as_markdown(code_py)
-
-        file_path_sh = "coding/" + file_name_sh
-        code_sh = read_file(file_path_sh)
-        markdown_code_sh = format_as_markdown(code_sh)
-    except FileNotFoundError:
-        print(f"Error: File '{file_path_sh}' not found.")
-    except IOError as e:
-        print(f"Error reading file '{file_path_sh}': {e.strerror}")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
-    '''
-     
-    #result = f"{markdown_code_png}\n\n{markdown_code_sh}\n\n{markdown_code_py}\n\n{chat}"
     result = f"{markdown_code_png}\n\n{chat}"
 
     #print("===")
