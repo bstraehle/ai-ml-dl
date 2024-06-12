@@ -26,8 +26,10 @@ def create_agent(llm: ChatOpenAI, tools: list, system_prompt: str):
             MessagesPlaceholder(variable_name="agent_scratchpad"),
         ]
     )
+    
     agent = create_openai_tools_agent(llm, tools, prompt)
     executor = AgentExecutor(agent=agent, tools=tools)
+    
     return executor
 
 def agent_node(state, agent, name):
@@ -45,16 +47,15 @@ def create_graph(model, topic):
     tavily_tool = TavilySearchResults(max_results=10)
     
     members = ["Researcher"]
-    
-    system_prompt = (
-        "You are a Manager tasked with managing a conversation between the"
-        " following agent(s): {members}. Given the following user request,"
-        " respond with the agent to act next. Each agent will perform a"
-        " task and respond with their results and status. When finished,"
-        " respond with FINISH."
-    )
-
     options = ["FINISH"] + members
+   
+    system_prompt = (
+        "You are a Manager tasked with managing a conversation between the "
+        "following agent(s): {members}. Given the following user request, "
+        "respond with the agent to act next. Each agent will perform a "
+        "task and respond with their results and status. When finished, "
+        "respond with FINISH."
+    )
 
     function_def = {
         "name": "route",
@@ -80,8 +81,8 @@ def create_graph(model, topic):
             MessagesPlaceholder(variable_name="messages"),
             (
                 "system",
-                "Given the conversation above, who should act next?"
-                " Or should we FINISH? Select one of: {options}",
+                "Given the conversation above, who should act next? "
+                "Or should we FINISH? Select one of: {options}.",
             ),
         ]
     ).partial(options=str(options), members=", ".join(members))
@@ -102,16 +103,17 @@ def create_graph(model, topic):
     researcher_node = functools.partial(agent_node, agent=researcher_agent, name="Researcher")
 
     workflow = StateGraph(AgentState)
-    workflow.add_node("Researcher", researcher_node)
+
     workflow.add_node("Manager", supervisor_chain)
+    workflow.add_node("Researcher", researcher_node)
 
     for member in members:
         workflow.add_edge(member, "Manager")
 
     conditional_map = {k: k for k in members}
     conditional_map["FINISH"] = END
-    
     workflow.add_conditional_edges("Manager", lambda x: x["next"], conditional_map)
+    
     workflow.set_entry_point("Manager")
     
     return workflow.compile()
