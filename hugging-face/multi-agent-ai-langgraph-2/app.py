@@ -5,8 +5,8 @@ from multi_agent import run_multi_agent
 
 lock = threading.Lock()
 
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_PROJECT"] = "langgraph-multi-agent-chess"
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
 
 def invoke(openai_api_key, max_moves = 10):
     if not openai_api_key:
@@ -22,7 +22,7 @@ gr.close_all()
 
 demo = gr.Interface(fn = invoke, 
                     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
-                              gr.Number(label = "Maximum Number of Moves (1-25)", value = 10, minimum = 1, maximum = 25)],
+                              gr.Number(label = "Maximum Number of Moves", value = 10, minimum = 1, maximum = 50)],
                     outputs = [gr.Markdown(label = "Game", value=os.environ["OUTPUT"], line_breaks=True, sanitize_html=False)],
                     title = "Multi-Agent AI: Chess",
                     description = os.environ["DESCRIPTION"])
