@@ -4,16 +4,18 @@ from typing_extensions import Annotated
 
 board = None
 board_svgs = None
+
 made_move = None
 
 def get_legal_moves() -> Annotated[str, "A list of legal moves in UCI format"]:
-    return "Possible moves are: " + ",".join(
+    return "Legal moves are: " + ",".join(
         [str(move) for move in board.legal_moves]
-    )
+    ) + "."
 
 def make_move(move: Annotated[str, "A move in UCI format."]) -> Annotated[str, "Result of the move."]:
     move = chess.Move.from_uci(move)
     board.push_uci(str(move))
+
     global made_move
     made_move = True
 
@@ -59,8 +61,10 @@ def get_num_turns(num_moves):
 
 def initialize():
     global board, board_svgs, made_move
+
     board = chess.Board()
     board_svgs = []
+    
     made_move = False
 
 def run_multi_agent(llm_white, llm_black, num_moves):
@@ -80,18 +84,18 @@ def run_multi_agent(llm_white, llm_black, num_moves):
     player_white = ConversableAgent(
         name="Player White",
         system_message="You are a chess Grandmaster and you play as white. "
-        "First call get_legal_moves(), to get a list of legal moves. "
-        "Then call make_move(move) to make a legal move. "
-        "Analyze the move in 3 bullet points. Respond in format **Analysis:** move in UCI format (piece emoji), unordered list.",
+        "First call get_legal_moves() to get a list of legal moves. "
+        "Then study the returned moves and call make_move(move) to make the best move. "
+        "Finally analyze the move: **Analysis:** move in UCI format, emoji of piece, unordered list of 3 items.",
         llm_config=llm_config_white,
     )
     
     player_black = ConversableAgent(
         name="Player Black",
         system_message="You are a chess Grandmaster and you play as black. "
-        "First call get_legal_moves(), to get a list of legal moves. "
-        "Then call make_move(move) to make a legal move. "
-        "Analyze the move in 3 bullet points. Respond in format **Analysis:** move in UCI format (piece emoji), unordered list.",
+        "First call get_legal_moves() to get a list of legal moves. "
+        "Then study the returned moves and call make_move(move) to make the best move. "
+        "Finally analyze the move: **Analysis:** move in UCI format, emoji of piece, unordered list of 3 items.",
         llm_config=llm_config_black,
     )
     
