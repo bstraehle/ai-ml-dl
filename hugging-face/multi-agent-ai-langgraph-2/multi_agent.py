@@ -47,7 +47,7 @@ def create_agent(llm: ChatOpenAI, tools: list, system_prompt: str):
 
 def agent_node(state, agent, name):
     try:
-        print(f"### {name}")
+        #print(f"agent node: {name}")
         result = agent.invoke(state)
         return {"messages": [HumanMessage(content=result["output"], name=name)]}
     except Exception as e:
@@ -71,14 +71,14 @@ def get_legal_moves() -> Annotated[str, "A list of legal moves in UCI format"]:
 def make_move(move: Annotated[str, "A move in UCI format."]) -> Annotated[str, "Result of the move."]:
     """Makes a move. 
        The input should always be a move in UCI format, 
-       and this function will always return the result of the move in UCI format."""
+       and this function will always return the result of the move."""
     try:
         move = chess.Move.from_uci(move)
         board.push_uci(str(move))
 
         global move_num
         move_num += 1
-        print(f"### move_num={str(move_num)}")
+        print(f"move_num: {str(move_num)}")
         
         board_svgs.append(chess.svg.board(
             board,
@@ -102,13 +102,13 @@ def make_move(move: Annotated[str, "A move in UCI format."]) -> Annotated[str, "
         print(f"An error occurred in make_move: {e}")
         return f"Error: unable to make move {move}"
     
-def create_graph():
+def create_graph(llm_board, llm_white, llm_black):
     players = ["player_white", "player_black"]
     options = players
 
-    llm_board_proxy = ChatOpenAI(model="gpt-4o")
-    llm_player_white = ChatOpenAI(model="gpt-4o")
-    llm_player_black = ChatOpenAI(model="gpt-4o")
+    llm_board_proxy = ChatOpenAI(model=llm_board)
+    llm_player_white = ChatOpenAI(model=llm_white)
+    llm_player_black = ChatOpenAI(model=llm_black)
     
     system_prompt = (
         "You are a Chess Board Proxy tasked with managing a game of chess "
@@ -157,14 +157,14 @@ def create_graph():
                                      "You are a chess Grandmaster and you play as white. "
                                      "First call get_legal_moves() to get a list of legal moves. "
                                      "Then study the returned moves and call make_move(move) to make the best move. "
-                                     "Finally analyze the move in format: **Analysis:** move in UCI format, emoji of piece, unordered list of 3 items.")
+                                     "Finally analyze the move: **Analysis:** move in UCI format, emoji of piece, unordered list of 3 items.")
     player_white_node = functools.partial(agent_node, agent=player_white_agent, name="player_white")
 
     player_black_agent = create_agent(llm_player_black, [get_legal_moves, make_move], system_prompt=
                                      "You are a chess Grandmaster and you play as black. "
                                      "First call get_legal_moves() to get a list of legal moves. "
                                      "Then study the returned moves and call make_move(move) to make the best move. "
-                                     "Finally analyze the move in format: **Analysis:** move in UCI format, emoji of piece, unordered list of 3 items.")
+                                     "Finally analyze the move: **Analysis:** move in UCI format, emoji of piece, unordered list of 3 items.")
     player_black_node = functools.partial(agent_node, agent=player_black_agent, name="player_black")
     
     graph = StateGraph(AgentState)
@@ -214,13 +214,13 @@ def initialize():
     
     legal_moves = ""
 
-def run_multi_agent(moves_num):
+def run_multi_agent(llm_board, llm_white, llm_black, moves_num):
     initialize()
     
     global num_moves
     num_moves = moves_num
 
-    graph = create_graph()
+    graph = create_graph(llm_board, llm_white, llm_black)
 
     result = ""
     
@@ -237,7 +237,6 @@ def run_multi_agent(moves_num):
 
     result_md = ""
     num_move = 0
-
 
     if "messages" in result:
         for message in result["messages"]:
