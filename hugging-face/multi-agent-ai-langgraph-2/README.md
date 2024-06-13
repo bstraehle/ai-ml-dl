@@ -1,7 +1,7 @@
 ---
 title: Multi-Agent AI - Chess
-emoji: 🧠
-colorFrom: pink
+emoji: ♟️
+colorFrom: purple
 colorTo: gray
 sdk: gradio
 sdk_version: 4.36.1
