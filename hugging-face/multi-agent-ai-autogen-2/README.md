@@ -1,7 +1,7 @@
 ---
 title: Multi-Agent AI - Coding
-emoji: 🧠
-colorFrom: pink
+emoji: 🤖
+colorFrom: blue
 colorTo: gray
 sdk: gradio
 sdk_version: 4.36.1
