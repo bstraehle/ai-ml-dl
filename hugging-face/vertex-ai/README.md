@@ -1,7 +1,7 @@
 ---
 title: Google Vertex AI
-emoji: 🤖
-colorFrom: blue
+emoji: 🚀
+colorFrom: green
 colorTo: gray
 sdk: gradio
 sdk_version: 4.36.1
