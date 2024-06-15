@@ -1,10 +1,10 @@
 import os
 
 from datetime import date
-from llama_hub.tools.weather import OpenWeatherMapToolSpec
-from llama_index.agent import OpenAIAgent
-from llama_index.llms import OpenAI
-from llama_index.tools import FunctionTool
+from llama_index.agent.openai import OpenAIAgent
+from llama_index.llms.openai import OpenAI
+from llama_index.core.tools import FunctionTool
+from llama_index.tools.weather import OpenWeatherMapToolSpec
 
 def today_tool(text: str) -> str:
     """Returns today's date. Use this for any questions related to knowing today's date. 
@@ -14,7 +14,7 @@ def today_tool(text: str) -> str:
 
 def agent_llamaindex(config, prompt):
     llm = OpenAI(
-        model = "gpt-4", # config["model"], # TODO: Upgrade LlamaIndex to support gpt-4o
+        model = config["model"],
         temperature = config["temperature"])
 
     tool_spec = OpenWeatherMapToolSpec(key = os.environ["OPENWEATHERMAP_API_KEY"])
@@ -31,4 +31,4 @@ def agent_llamaindex(config, prompt):
         verbose = True
     )
 
-    return agent.chat(prompt)
+    return str(agent.chat(prompt))
