@@ -19,7 +19,11 @@ base_model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
 dataset = "gretelai/synthetic_text_to_sql"
 
 def prompt_model(model_id, system_prompt, user_prompt, schema):
-    pipe = pipeline("text-generation", model=model_id, model_kwargs={"torch_dtype": torch.bfloat16}, device_map="auto")
+    pipe = pipeline("text-generation", 
+                    model=model_id, 
+                    model_kwargs={"torch_dtype": torch.bfloat16}, 
+                    device_map="auto",
+                    max_new_tokens=1000)
     messages = [
       {"role": "system", "content": system_prompt.format(schema=schema)},
       {"role": "user", "content": user_prompt},
@@ -62,6 +66,7 @@ def replace_hf_profile(base_model_id):
     return f"{hf_profile}/{model_id}"
 
 def process(action, base_model_id, dataset, system_prompt, user_prompt, schema):
+    #raise gr.Error("Please clone and bring your own credentials.")
     if action == action_1:
         result = fine_tune_model(base_model_id)
     elif action == action_2:
@@ -76,5 +81,5 @@ demo = gr.Interface(fn=process,
                             gr.Textbox(label = "System Prompt", value = system_prompt, lines = 2),
                             gr.Textbox(label = "User Prompt", value = user_prompt, lines = 2),
                             gr.Textbox(label = "Schema", value = schema, lines = 2)],
-                    outputs=[gr.Textbox(label = "Completion")])
+                    outputs=[gr.Textbox(label = "Completion", value = os.environ["OUTPUT"])])
 demo.launch()
