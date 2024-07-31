@@ -1,2 +1,1 @@
-https://www.deeplearning.ai/short-courses/intro-to-federated-learning/  
-https://www.deeplearning.ai/short-courses/intro-to-federated-learning-c2/  
+https://www.deeplearning.ai/short-courses/intro-to-federated-learning/ (2 short courses)  
