@@ -82,7 +82,7 @@ def fine_tune_model(base_model_name, dataset_name):
     training_args = Seq2SeqTrainingArguments(
         output_dir=f"./{FT_MODEL_NAME}",
         num_train_epochs=3, # 37,500 steps
-        max_steps=3, # overwrites num_train_epochs
+        #max_steps=1, # overwrites num_train_epochs
         # TODO https://huggingface.co/docs/transformers/main_classes/trainer#transformers.Seq2SeqTrainingArguments
     )
 
