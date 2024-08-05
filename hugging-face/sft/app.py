@@ -16,22 +16,22 @@ SYSTEM_PROMPT = "You are a text to SQL query translator. Given a question in Eng
 USER_PROMPT = "How many new users joined from countries with stricter data privacy laws than the United States in the past month?"
 SQL_CONTEXT = "CREATE TABLE users (user_id INT, country VARCHAR(50), joined_date DATE); CREATE TABLE data_privacy_laws (country VARCHAR(50), privacy_level INT); INSERT INTO users (user_id, country, joined_date) VALUES (1, 'USA', '2023-02-15'), (2, 'Germany', '2023-02-27'); INSERT INTO data_privacy_laws (country, privacy_level) VALUES ('USA', 5), ('Germany', 8);"
 
-BASE_MODEL_NAME = "meta-llama/Meta-Llama-3.1-8B"
+PT_MODEL_NAME = "meta-llama/Meta-Llama-3.1-8B"
 FT_MODEL_NAME = "Meta-Llama-3.1-8B-text-to-sql"
 DATASET_NAME = "gretelai/synthetic_text_to_sql"
 
-def process(action, base_model_name, ft_model_name, dataset_name, system_prompt, user_prompt, sql_context):
+def process(action, pt_model_name, dataset_name, ft_model_name, system_prompt, user_prompt, sql_context):
     raise gr.Error("Please clone and bring your own Hugging Face credentials.")
     
     if action == ACTION_1:
-        result = prompt_model(base_model_name, system_prompt, user_prompt, sql_context)
+        result = prompt_model(pt_model_name, system_prompt, user_prompt, sql_context)
     elif action == ACTION_2:
-        result = fine_tune_model(base_model_name, dataset_name)
+        result = fine_tune_model(pt_model_name, dataset_name, ft_model_name)
     elif action == ACTION_3:
         result = prompt_model(ft_model_name, system_prompt, user_prompt, sql_context)
     return result
 
-def fine_tune_model(base_model_name, dataset_name):
+def fine_tune_model(pt_model_name, dataset_name, ft_model_name):
     # Load dataset
     
     dataset = load_dataset(dataset_name)
@@ -44,7 +44,7 @@ def fine_tune_model(base_model_name, dataset_name):
     
     # Load model
     
-    model, tokenizer = load_model(base_model_name)
+    model, tokenizer = load_model(pt_model_name)
 
     print("### Model")
     print(model)
@@ -80,7 +80,7 @@ def fine_tune_model(base_model_name, dataset_name):
     # Configure training arguments
 
     training_args = Seq2SeqTrainingArguments(
-        output_dir=f"./{FT_MODEL_NAME}",
+        output_dir=f"./{ft_model_name}",
         num_train_epochs=3, # 37,500 steps
         #max_steps=1, # overwrites num_train_epochs
         # TODO https://huggingface.co/docs/transformers/main_classes/trainer#transformers.Seq2SeqTrainingArguments
@@ -106,8 +106,8 @@ def fine_tune_model(base_model_name, dataset_name):
 
     # Push model and tokenizer to HF
 
-    model.push_to_hub(FT_MODEL_NAME)
-    tokenizer.push_to_hub(FT_MODEL_NAME)
+    model.push_to_hub(ft_model_name)
+    tokenizer.push_to_hub(ft_model_name)
     
 def prompt_model(model_name, system_prompt, user_prompt, sql_context):
     pipe = pipeline("text-generation", 
@@ -142,9 +142,9 @@ def load_model(model_name):
     
 demo = gr.Interface(fn=process, 
                     inputs=[gr.Radio([ACTION_1, ACTION_2, ACTION_3], label = "Action", value = ACTION_3),
-                            gr.Textbox(label = "Base Model Name", value = BASE_MODEL_NAME, lines = 1),
-                            gr.Textbox(label = "Fine-Tuned Model Name", value = f"{HF_ACCOUNT}/{FT_MODEL_NAME}", lines = 1),
+                            gr.Textbox(label = "Pre-Trained Model Name", value = PT_MODEL_NAME, lines = 1),
                             gr.Textbox(label = "Dataset Name", value = DATASET_NAME, lines = 1),
+                            gr.Textbox(label = "Fine-Tuned Model Name", value = f"{HF_ACCOUNT}/{FT_MODEL_NAME}", lines = 1),
                             gr.Textbox(label = "System Prompt", value = SYSTEM_PROMPT, lines = 2),
                             gr.Textbox(label = "User Prompt", value = USER_PROMPT, lines = 2),
                             gr.Textbox(label = "SQL Context", value = SQL_CONTEXT, lines = 4)],
