@@ -12,6 +12,7 @@ def create_assistant(client):
         name="Math Tutor",
         instructions="You are a personal math tutor. Answer questions briefly, in a sentence or less.",
         model="gpt-4-1106-preview",
+        tools=[{"type": "code_interpreter"}],
     )
     show_json("assistant", assistant)
     return assistant
@@ -48,6 +49,18 @@ def wait_on_run(client, thread, run):
     show_json("run", run)
     return run
 
+def list_run_steps(client, thread, run):
+    run_steps = client.beta.threads.runs.steps.list(
+        thread_id=thread.id,
+        run_id=run.id,
+        order="asc",
+    )
+    for step in run_steps.data:
+        step_details = step.step_details
+        #print(json.dumps(show_json("step_details", step_details), indent=4))
+        show_json("step_details", step_details)
+    return run_steps
+    
 def list_messages(client, thread):
     messages = client.beta.threads.messages.list(
         thread_id=thread.id
@@ -80,6 +93,8 @@ def chat(message, history, openai_api_key):
     # async
     run = create_run(_client, _assistant, _thread)
     run = wait_on_run(_client, _thread, run)
+
+    list_run_steps(_client, _thread, run)
     
     messages = list_messages(_client, _thread)
 
@@ -94,7 +109,8 @@ gr.ChatInterface(
     retry_btn=None,
     undo_btn=None,
     clear_btn="Clear",
-    examples=[["I need to solve the equation '2x + 10 = 7.5'. Can you help me?", "sk-<BringYourOwn>"]],
+    examples=[["I need to solve the equation '2x + 11 = 7.5'. Can you help me?", "sk-<BringYourOwn>"],
+              ["Generate the first 20 fibbonaci numbers with code.", "sk-<BringYourOwn>"]],
     cache_examples=False,
     additional_inputs=[
         gr.Textbox("sk-", label="OpenAI API Key", type = "password"),
