@@ -1,16 +1,18 @@
-# Multimodal message https://platform.openai.com/docs/assistants/tools/code-interpreter/passing-files-to-code-interpreter
-# File search https://platform.openai.com/docs/api-reference/messages/createMessage
-# Matlplotlib chart
-# Function: Tavily API
-# Multi-user thread
+# TODO:
+#
+# 1. Multi-user thread
+# 2. Tools: Function calling - https://platform.openai.com/docs/assistants/tools/function-calling
 
+# Reference:
+#
+# https://vimeo.com/990334325/56b552bc7a
 # https://platform.openai.com/playground/assistants
-# https://platform.openai.com/docs/api-reference/assistants/createAssistant
-# https://platform.openai.com/docs/assistants/tools/code-interpreter
 # https://cookbook.openai.com/examples/assistants_api_overview_python
+# https://platform.openai.com/docs/api-reference/assistants/createAssistant
+# https://platform.openai.com/docs/assistants/tools
 
 import gradio as gr
-import datetime, openai, os, time
+import openai, os, time
 
 from openai import OpenAI
 from utils import show_json
@@ -30,7 +32,6 @@ def create_assistant(client):
         model="gpt-4o",
         tools=[
                   {"type": "code_interpreter"},
-                  {"type": "file_search"},
               ],
     )
     
@@ -56,7 +57,7 @@ def create_message(client, thread, msg):
     message = client.beta.threads.messages.create(
         role="user",
         thread_id=thread.id,
-        content=msg["text"],
+        content=msg,
     )
     
     show_json("message", message)
@@ -98,10 +99,15 @@ def get_run_steps(client, thread, run):
     return run_steps
 
 def get_run_step_details(run_steps):
+    run_step_details = []
+    
     for step in run_steps.data:
         step_details = step.step_details
+        run_step_details.append(step_details)
         
         show_json("step_details", step_details)
+
+    return run_step_details
 
 def get_messages(client, thread):
     messages = client.beta.threads.messages.list(
@@ -111,16 +117,20 @@ def get_messages(client, thread):
     show_json("messages", messages)
     
     return messages
-    
+                        
 def extract_content_values(data):
-    content_values = []
+    text_values, image_values = [], []
     
     for item in data.data:
         for content in item.content:
             if content.type == "text":
-                content_values.append(content.text.value)
+                text_value = content.text.value
+                text_values.append(text_value)
+            if content.type == "image_file":
+                image_value = content.image_file.file_id
+                image_values.append(image_value)
     
-    return content_values
+    return text_values, image_values
 
 def chat(message, history):
     if not message:
@@ -140,36 +150,36 @@ def chat(message, history):
     run = wait_on_run(client, thread, run)
 
     run_steps = get_run_steps(client, thread, run)
-
+    
     get_run_step_details(run_steps)
     
     messages = get_messages(client, thread)
 
-    content_values = extract_content_values(messages)
+    text_values, image_values = extract_content_values(messages)
 
-    print("###")
-    print(content_values[0])
-    print("###")
+    download_link = ""
     
-    return content_values[0]
+    if len(image_values) > 0:
+        download_link = f"<p>Download: https://platform.openai.com/storage/files/{image_values[0]}</p>"
+    
+    return f"{text_values[0]}{download_link}"
 
 gr.ChatInterface(
         fn=chat,
         chatbot=gr.Chatbot(height=350),
-        textbox=gr.MultimodalTextbox(placeholder="Ask anything", container=False, scale=7),
+        textbox=gr.Textbox(placeholder="Ask anything", container=False, scale=7),
         title="Python Code Generator",
         description="The assistant can generate code, explain, fix, optimize, document, test, and generally help with code. It can also execute code.",
         clear_btn="Clear",
         retry_btn=None,
         undo_btn=None,
         examples=[
-                  [{"text": "Generate: Python code to fine-tune model meta-llama/Meta-Llama-3.1-8B on dataset gretelai/synthetic_text_to_sql using QLoRA", "files": []}],
-                  [{"text": "Explain: r\"^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\\W]).{8,}$\"", "files": []}],
-                  [{"text": "Fix: x = [5, 2, 1, 3, 4]; print(x.sort())", "files": []}],
-                  [{"text": "Optimize: x = []; for i in range(0, 10000): x.append(i)", "files": []}],
-                  [{"text": "Execute: First 25 Fibbonaci numbers", "files": []}],
-                  [{"text": "Execute: Chart showing stock gain YTD for NVDA, MSFT, AAPL, and GOOG, x-axis is 'Day' and y-axis is 'YTD Gain %'", "files": []}],
+                  ["Generate: Python code to fine-tune model meta-llama/Meta-Llama-3.1-8B on dataset gretelai/synthetic_text_to_sql using QLoRA"],
+                  ["Explain: r\"^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\\W]).{8,}$\""],
+                  ["Fix: x = [5, 2, 1, 3, 4]; print(x.sort())"],
+                  ["Optimize: x = []; for i in range(0, 10000): x.append(i)"],
+                  ["Execute: First 25 Fibbonaci numbers"],
+                  ["Generate: Chart showing stock gain YTD for NVDA, MSFT, AAPL, and GOOG, x-axis is 'Day' and y-axis is 'YTD Gain %'. Show the code and execute it using mock data."]
                  ],
         cache_examples=False,
-        multimodal=True,
     ).launch()
