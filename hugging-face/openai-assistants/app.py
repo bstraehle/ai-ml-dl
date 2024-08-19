@@ -1,7 +1,7 @@
 # TODO:
 #
-# 1. Multi-user thread
-# 2. Tools: Function calling - https://platform.openai.com/docs/assistants/tools/function-calling
+# 1. Gradio session / multi-user thread
+# 2. Function calling / Tavily API - https://platform.openai.com/docs/assistants/tools/function-calling
 
 # Reference:
 #
@@ -169,7 +169,7 @@ gr.ChatInterface(
         chatbot=gr.Chatbot(height=350),
         textbox=gr.Textbox(placeholder="Ask anything", container=False, scale=7),
         title="Python Code Generator",
-        description="The assistant can generate code, explain, fix, optimize, document, test, and generally help with code. It can also execute code.",
+        description="The assistant can generate, explain, fix, optimize, document, and test code. It can also execute code.",
         clear_btn="Clear",
         retry_btn=None,
         undo_btn=None,
