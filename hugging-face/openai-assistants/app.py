@@ -2,8 +2,7 @@
 #
 # 1. Gradio session / multi-user thread
 # 2. Function calling - https://platform.openai.com/docs/assistants/tools/function-calling
-#    - Date tool
-#    - Web scraping tool (Tavily API)
+#    - get_stock_price - yfinance
 
 # Reference:
 #
@@ -14,14 +13,25 @@
 # https://platform.openai.com/docs/assistants/tools
 
 import gradio as gr
-import openai, os, time
+import json, openai, os, time
 
+from datetime import date
 from openai import OpenAI
-from utils import show_json
+from utils import function_to_schema, show_json
 
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 assistant, thread = None, None
+
+def today_tool(text: str) -> str:
+    """Returns today's date. Use this for any questions related to knowing today's date. 
+       The input should always be an empty string, and this function will always return today's date. 
+       Any date mathematics should occur outside this function."""
+    return str(date.today())
+
+tools = {
+    "today_tool": today_tool,
+}
 
 def create_assistant(client):
     assistant = client.beta.assistants.create(
@@ -33,25 +43,28 @@ def create_assistant(client):
                      ),
         model="gpt-4o",
         tools=[
-                  {"type": "code_interpreter"},
-              ],
+            {"type": "code_interpreter"},
+            {"type": "function", "function": function_to_schema(today_tool)},
+        ],
     )
     
-    show_json("assistant", assistant)
+    #show_json("assistant", assistant)
     
     return assistant
 
 def load_assistant(client):
-    assistant = client.beta.assistants.retrieve("asst_kjO8BRHMREWBlY0LQ7WECfeD")
+    ASSISTANT_ID = "asst_TpZgBd2QYaxUxCwUy8J9m3Bq"
+    
+    assistant = client.beta.assistants.retrieve(ASSISTANT_ID)
 
-    show_json("assistant", assistant)
+    #show_json("assistant", assistant)
     
     return assistant
 
 def create_thread(client):
     thread = client.beta.threads.create()
     
-    show_json("thread", thread)
+    #show_json("thread", thread)
     
     return thread
 
@@ -62,7 +75,7 @@ def create_message(client, thread, msg):
         content=msg,
     )
     
-    show_json("message", message)
+    #show_json("message", message)
     
     return message
 
@@ -72,7 +85,7 @@ def create_run(client, assistant, thread):
         thread_id=thread.id,
     )
     
-    show_json("run", run)
+    #show_json("run", run)
     
     return run
 
@@ -85,7 +98,7 @@ def wait_on_run(client, thread, run):
     
         time.sleep(0.25)
     
-    show_json("run", run)
+    #show_json("run", run)
     
     return run
 
@@ -96,27 +109,43 @@ def get_run_steps(client, thread, run):
         order="asc",
     )
 
-    show_json("run_steps", run_steps)
+    #show_json("run_steps", run_steps)
     
     return run_steps
 
-def get_run_step_details(run_steps):
+def execute_tool_call(tool_call):
+    name = tool_call.function.name
+    args = json.loads(tool_call.function.arguments)
+    
+    return tools[name](**args)
+
+def execute_tool_calls(run_steps):
     run_step_details = []
+
+    tool_call_id = ""
+    tool_call_result = ""
     
     for step in run_steps.data:
         step_details = step.step_details
         run_step_details.append(step_details)
-        
         show_json("step_details", step_details)
+        
+        if hasattr(step_details, "tool_calls"):
+            for tool_call in step_details.tool_calls:
+                show_json("tool_call", tool_call)
+                
+                if hasattr(tool_call, "function"):
+                    tool_call_id = tool_call.id
+                    tool_call_result = execute_tool_call(tool_call)
 
-    return run_step_details
+    return tool_call_id, tool_call_result
 
 def get_messages(client, thread):
     messages = client.beta.threads.messages.list(
         thread_id=thread.id
     )
     
-    show_json("messages", messages)
+    #show_json("messages", messages)
     
     return messages
                         
@@ -141,7 +170,7 @@ def chat(message, history):
     global client, assistant, thread     
     
     if assistant == None:
-        assistant = load_assistant(client)
+        assistant = create_assistant(client)
     
     if thread == None or len(history) == 0:
         thread = create_thread(client)
@@ -153,7 +182,28 @@ def chat(message, history):
 
     run_steps = get_run_steps(client, thread, run)
     
-    get_run_step_details(run_steps)
+    tool_call_id, tool_call_result = execute_tool_calls(run_steps)
+
+    ### TODO
+    if tool_call_result:
+        print("### tool_call_id=" + tool_call_id)
+        print("### tool_call_result=" + tool_call_result)
+
+        run = client.beta.threads.runs.submit_tool_outputs(
+            thread_id=thread.id,
+            run_id=run.id,
+            tool_outputs=[
+                {
+                  "tool_call_id": tool_call_id,
+                  "output": tool_call_result
+                }
+            ]
+        )
+    
+        run = wait_on_run(client, thread, run)
+        run_steps = get_run_steps(client, thread, run)
+        tool_call_id, tool_call_result = execute_tool_calls(run_steps)
+    ###
     
     messages = get_messages(client, thread)
 
@@ -181,7 +231,7 @@ gr.ChatInterface(
                   ["Fix: x = [5, 2, 1, 3, 4]; print(x.sort())"],
                   ["Optimize: x = []; for i in range(0, 10000): x.append(i)"],
                   ["Execute: First 25 Fibbonaci numbers"],
-                  ["Execute using mock data: Chart showing stock gain YTD for NVDA, MSFT, AAPL, and GOOG, x-axis is 'Day' and y-axis is 'YTD Gain %'"]
+                  ["Get today's date, then generate a chart using mock data, showing stock gain YTD for NVDA, MSFT, AAPL, and GOOG, x-axis is 'Day' and y-axis is 'YTD Gain %'"]
                  ],
         cache_examples=False,
     ).launch()
