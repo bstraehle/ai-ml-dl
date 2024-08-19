@@ -1,7 +1,9 @@
 # TODO:
 #
 # 1. Gradio session / multi-user thread
-# 2. Function calling / Tavily API - https://platform.openai.com/docs/assistants/tools/function-calling
+# 2. Function calling - https://platform.openai.com/docs/assistants/tools/function-calling
+#    - Date tool
+#    - Web scraping tool (Tavily API)
 
 # Reference:
 #
