@@ -179,7 +179,7 @@ gr.ChatInterface(
                   ["Fix: x = [5, 2, 1, 3, 4]; print(x.sort())"],
                   ["Optimize: x = []; for i in range(0, 10000): x.append(i)"],
                   ["Execute: First 25 Fibbonaci numbers"],
-                  ["Generate: Chart showing stock gain YTD for NVDA, MSFT, AAPL, and GOOG, x-axis is 'Day' and y-axis is 'YTD Gain %'. Show the code and execute it using mock data."]
+                  ["Execute using mock data: Chart showing stock gain YTD for NVDA, MSFT, AAPL, and GOOG, x-axis is 'Day' and y-axis is 'YTD Gain %'"]
                  ],
         cache_examples=False,
     ).launch()
