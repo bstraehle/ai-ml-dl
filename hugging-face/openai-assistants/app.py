@@ -1,7 +1,4 @@
-# TODO:
-#
-# 1. Function calling - https://platform.openai.com/docs/assistants/tools/function-calling
-# 2. Gradio session / multi-user thread
+# TODO: Gradio session / multi-user thread
 
 # Reference:
 #
@@ -19,44 +16,57 @@ import json, openai, os, time
 
 from datetime import date
 from openai import OpenAI
+from tavily import TavilyClient
 from typing import List
 from utils import function_to_schema, show_json
 
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+openai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+tavily_client = TavilyClient(api_key=os.environ.get("TAVILY_API_KEY"))
+
+assistant_id = "asst_DbCpNsJ0vHSSdl6ePlkKZ8wG"
 
 assistant, thread = None, None
 
 def today_tool() -> str:
     """Returns today's date. Use this function for any questions related to knowing today's date. 
-       There is no input. This function always returns today's date."""
+       There should be no input. This function always returns today's date."""
     return str(date.today())
 
 def yf_download_tool(tickers: List[str], start_date: date, end_date: date) -> pd.DataFrame:
-    """Returns historical stock data for given tickers from a start date to an end date 
+    """Returns historical stock data for a list of given tickers from start date to end date 
        using the yfinance library download function. 
        Use this function for any questions related to getting historical stock data. 
        The input should be the tickers as a List of strings, a start date, and an end date. 
        This function always returns a pandas DataFrame."""
     return yf.download(tickers, start=start_date, end=end_date)
 
+def tavily_search_tool(query: str) -> str:
+    """Searches the web for a given query and returns an answer, "
+       ready for use as context in a RAG application, using the Tavily API. 
+       Use this function for any questions requiring knowledge not available to the model. 
+       The input should be the query string. This function always returns an answer string."""
+    return tavily_client.get_search_context(query=query, max_results=5)
+
 tools = {
     "today_tool": today_tool,
     "yf_download_tool": yf_download_tool,
+    "tavily_search_tool": tavily_search_tool,
 }
 
-def create_assistant(client):
-    assistant = client.beta.assistants.create(
-        name="Python Code Generator",
+def create_assistant(openai_client):
+    assistant = openai_client.beta.assistants.create(
+        name="Python Coding Assistant",
         instructions=(
-                         "You are a Python programming language expert that "
-                         "generates Pylint-compliant code and explains it. "
-                         "Execute code when explicitly asked to."
-                     ),
+             "You are a Python programming language expert that "
+             "generates Pylint-compliant code and explains it. "
+             "Execute code when explicitly asked to."
+        ),
         model="gpt-4o",
         tools=[
             {"type": "code_interpreter"},
             {"type": "function", "function": function_to_schema(today_tool)},
             {"type": "function", "function": function_to_schema(yf_download_tool)},
+            {"type": "function", "function": function_to_schema(tavily_search_tool)},
         ],
     )
     
@@ -64,72 +74,68 @@ def create_assistant(client):
     
     return assistant
 
-def load_assistant(client):
-    ASSISTANT_ID = "asst_ypbcWnilAd60bc2DQ8haDL5P"
-    
-    assistant = client.beta.assistants.retrieve(ASSISTANT_ID)
-
+def load_assistant(openai_client):   
+    assistant = openai_client.beta.assistants.retrieve(assistant_id)
     show_json("assistant", assistant)
-    
     return assistant
 
-def create_thread(client):
-    thread = client.beta.threads.create()
-    
+def create_thread(openai_client):
+    thread = openai_client.beta.threads.create()
     show_json("thread", thread)
-    
     return thread
 
-def create_message(client, thread, msg):        
-    message = client.beta.threads.messages.create(
+def create_message(openai_client, thread, msg):        
+    message = openai_client.beta.threads.messages.create(
         role="user",
         thread_id=thread.id,
         content=msg,
     )
     
     show_json("message", message)
-    
     return message
 
-def create_run(client, assistant, thread):
-    run = client.beta.threads.runs.create(
+def create_run(openai_client, assistant, thread):
+    run = openai_client.beta.threads.runs.create(
         assistant_id=assistant.id,
         thread_id=thread.id,
         parallel_tool_calls=False,
     )
     
     show_json("run", run)
-    
     return run
 
-def wait_on_run(client, thread, run):
+def wait_on_run(openai_client, thread, run):
     while run.status == "queued" or run.status == "in_progress":
-        print("### " + run.status)
-        run = client.beta.threads.runs.retrieve(
+        run = openai_client.beta.threads.runs.retrieve(
             thread_id=thread.id,
             run_id=run.id,
         )
-    
-        time.sleep(0.5)
+            
+        time.sleep(1)
     
     show_json("run", run)
-    
+
+    if hasattr(run, "last_error") and run.last_error:
+        raise gr.Error(run.last_error)
+
     return run
 
-def get_run_steps(client, thread, run):
-    run_steps = client.beta.threads.runs.steps.list(
+def get_run_steps(openai_client, thread, run):
+    run_steps = openai_client.beta.threads.runs.steps.list(
         thread_id=thread.id,
         run_id=run.id,
         order="asc",
     )
 
     show_json("run_steps", run_steps)
-    
     return run_steps
 
 def execute_tool_call(tool_call):
     name = tool_call.function.name
-    args = json.loads(tool_call.function.arguments)
+    args = {}
+
+    if len(tool_call.function.arguments) > 10:
+        args = json.loads(tool_call.function.arguments)
 
     return tools[name](**args)
 
@@ -154,13 +160,12 @@ def execute_tool_calls(run_steps):
 
     return tool_call_ids, tool_call_results
 
-def get_messages(client, thread):
-    messages = client.beta.threads.messages.list(
+def get_messages(openai_client, thread):
+    messages = openai_client.beta.threads.messages.list(
         thread_id=thread.id
     )
     
     show_json("messages", messages)
-    
     return messages
                         
 def extract_content_values(data):
@@ -189,21 +194,11 @@ def generate_tool_outputs(tool_call_ids, tool_call_results):
                 "tool_call_id": tool_call_id,
                 "output": tool_call_result.to_json()
             }
-
-            print("###")
-            print(tool_call_id)
-            print(tool_call_result.to_json())
-            print("###")
         except AttributeError:
             tool_output = {
                 "tool_call_id": tool_call_id,
                 "output": tool_call_result
             }
-
-            print("###")
-            print(tool_call_id)
-            print(tool_call_result)
-            print("###")
             
         tool_outputs.append(tool_output)
     
@@ -214,78 +209,78 @@ def chat(message, history):
     if not message:
         raise gr.Error("Message is required.")
     
-    global client, assistant, thread     
+    global assistant, thread     
     
     if assistant == None:
-        assistant = load_assistant(client)
+        #assistant = create_assistant(openai_client) # on first run, create assistant and update assistant_id
+                                                     # see https://platform.openai.com/playground/assistants
+        assistant = load_assistant(openai_client) # on subsequent runs, load assistant
     
     if thread == None or len(history) == 0:
-        thread = create_thread(client)
+        thread = create_thread(openai_client)
         
-    create_message(client, thread, message)
+    create_message(openai_client, thread, message)
 
-    run = create_run(client, assistant, thread)
-    run = wait_on_run(client, thread, run)
+    run = create_run(openai_client, assistant, thread)
 
-    run_steps = get_run_steps(client, thread, run)
-
-    tool_call_ids, tool_call_results = execute_tool_calls(run_steps)
+    run = wait_on_run(openai_client, thread, run)
+    run_steps = get_run_steps(openai_client, thread, run)
 
     ### TODO
-    print("###")
-    print(len(tool_call_ids))
-    print(tool_call_ids)
-    print(tool_call_ids[0])
-    print(tool_call_results)
-    print(tool_call_results[0])
-    print("###")
+    tool_call_ids, tool_call_results = execute_tool_calls(run_steps)
     
-    if tool_call_ids[0]:
+    if len(tool_call_ids) > 0:
         # https://platform.openai.com/docs/api-reference/runs/submitToolOutputs
-        run = client.beta.threads.runs.submit_tool_outputs(
+        tool_output = {}
+        
+        try:
+            tool_output = {
+                "tool_call_id": tool_call_ids[0],
+                "output": tool_call_results[0].to_json()
+            }
+        except AttributeError:
+            tool_output = {
+                "tool_call_id": tool_call_ids[0],
+                "output": tool_call_results[0]
+            }
+        
+        run = openai_client.beta.threads.runs.submit_tool_outputs(
             thread_id=thread.id,
             run_id=run.id,
-            #tool_outputs=generate_tool_outputs(tool_call_ids, tool_call_results)
-            tool_outputs=[
-                {
-                    "tool_call_id": tool_call_ids[0],
-                    "output": tool_call_results[0]
-                }
-            ]
+            tool_outputs=[tool_output]
         )
     
-        run = wait_on_run(client, thread, run)
-        run_steps = get_run_steps(client, thread, run)
+        run = wait_on_run(openai_client, thread, run)
+        run_steps = get_run_steps(openai_client, thread, run)
     ###
-    tool_call_ids, tool_call_results = execute_tool_calls(run_steps)
-
-    print("###")
-    print(len(tool_call_ids))
-    print(tool_call_ids)
-    print(tool_call_ids[1])
-    print(tool_call_results)
-    print(tool_call_results[1])
-    print("###")
-    
-    if tool_call_ids[1]:
-        # https://platform.openai.com/docs/api-reference/runs/submitToolOutputs
-        run = client.beta.threads.runs.submit_tool_outputs(
-            thread_id=thread.id,
-            run_id=run.id,
-            #tool_outputs=generate_tool_outputs(tool_call_ids, tool_call_results)
-            tool_outputs=[
-                {
+        tool_call_ids, tool_call_results = execute_tool_calls(run_steps)
+            
+        if len(tool_call_ids) > 1:
+            # https://platform.openai.com/docs/api-reference/runs/submitToolOutputs
+            tool_output = {}
+            
+            try:
+                tool_output = {
                     "tool_call_id": tool_call_ids[1],
                     "output": tool_call_results[1].to_json()
                 }
-            ]
-        )
-    
-        run = wait_on_run(client, thread, run)
-        run_steps = get_run_steps(client, thread, run)    
+            except AttributeError:
+                tool_output = {
+                    "tool_call_id": tool_call_ids[1],
+                    "output": tool_call_results[1]
+                }
+            
+            run = openai_client.beta.threads.runs.submit_tool_outputs(
+                thread_id=thread.id,
+                run_id=run.id,
+                tool_outputs=[tool_output]
+            )
+        
+            run = wait_on_run(openai_client, thread, run)
+            run_steps = get_run_steps(openai_client, thread, run)    
     ###
     
-    messages = get_messages(client, thread)
+    messages = get_messages(openai_client, thread)
 
     text_values, image_values = extract_content_values(messages)
 
@@ -294,15 +289,21 @@ def chat(message, history):
     if len(image_values) > 0:
         download_link = f"<p>Download: https://platform.openai.com/storage/files/{image_values[0]}</p>"
     
-    #return f"{text_values[0]}{download_link}"
-    return f"{'<br />---'.join(reversed(text_values))}{download_link}"
+    return f"{'<hr>'.join(list(reversed(text_values))[1:])}{download_link}"
 
 gr.ChatInterface(
         fn=chat,
         chatbot=gr.Chatbot(height=350),
         textbox=gr.Textbox(placeholder="Ask anything", container=False, scale=7),
-        title="Python Code Generator",
-        description="The assistant can generate, explain, fix, optimize, document, and test code. It can also execute code.",
+        title="Python Coding Assistant",
+        description=(
+            "The assistant can **generate, explain, fix, optimize,** and **document Python code, "
+            "create unit test cases,** and **answer general coding-related questions.** "
+            "It can also **execute code**. "
+            "The assistant has access to a <b>today tool</b> (get current date), to a "
+            "**yfinance download tool** (get stock data), and to a "
+            "**tavily search tool** (web search)."
+        ),
         clear_btn="Clear",
         retry_btn=None,
         undo_btn=None,
@@ -312,7 +313,8 @@ gr.ChatInterface(
                   ["Fix: x = [5, 2, 1, 3, 4]; print(x.sort())"],
                   ["Optimize: x = []; for i in range(0, 10000): x.append(i)"],
                   ["Execute: First 25 Fibbonaci numbers"],
-                  ["Create a plot showing stock gain QTD for NVDA and MSFT, x-axis is 'Day' and y-axis is 'QTD Gain %'"]
+                  ["Execute with tools: Create a plot showing stock gain QTD for NVDA and AMD, x-axis is \"Day\" and y-axis is \"Gain %\""],
+                  ["Execute with tools: Get key announcements from the latest OpenAI Dev Day"]
                  ],
         cache_examples=False,
     ).launch()
