@@ -1,5 +1,3 @@
-# TODO: Gradio session / multi-user thread
-
 # Reference:
 #
 # https://vimeo.com/990334325/56b552bc7a
@@ -10,7 +8,7 @@
 
 import gradio as gr
 
-import json
+import json, os
 
 from assistants import (
     openai_client,
@@ -31,6 +29,8 @@ from assistants import (
 def chat(message, history):
     if not message:
         raise gr.Error("Message is required.")
+
+    #raise gr.Error("Please clone and bring your own OpenAI and Tavily credentials.")
     
     global assistant, thread     
     
@@ -38,7 +38,8 @@ def chat(message, history):
         #assistant = create_assistant(openai_client) # on first run, create assistant and update assistant_id
                                                      # see https://platform.openai.com/playground/assistants
         assistant = load_assistant(openai_client) # on subsequent runs, load assistant
-    
+
+    # TODO: Gradio session / multi-user thread
     if thread == None or len(history) == 0:
         thread = create_thread(openai_client)
         
@@ -108,7 +109,8 @@ def chat(message, history):
     text_values, image_values = extract_content_values(messages)
 
     download_link = ""
-    
+
+    # TODO: Handle multiple images and other file types
     if len(image_values) > 0:
         download_link = f"<p>Download: https://platform.openai.com/storage/files/{image_values[0]}</p>"
     
@@ -119,14 +121,7 @@ gr.ChatInterface(
         chatbot=gr.Chatbot(height=350),
         textbox=gr.Textbox(placeholder="Ask anything", container=False, scale=7),
         title="Python Coding Assistant",
-        description=(
-            "The assistant can **generate, explain, fix, optimize,** and **document Python code, "
-            "create unit test cases,** and **answer general coding-related questions.** "
-            "It can also **execute code**. "
-            "The assistant has access to a <b>today tool</b> (get current date), to a "
-            "**yfinance download tool** (get stock data), and to a "
-            "**tavily search tool** (web search)."
-        ),
+        description=os.environ.get("DESCRIPTION"),
         clear_btn="Clear",
         retry_btn=None,
         undo_btn=None,
