@@ -162,6 +162,7 @@ def extract_content_values(data):
     
     for item in data.data:
         for content in item.content:
+            # TODO: Handle other file types
             if content.type == "text":
                 text_value = content.text.value
                 text_values.append(text_value)
