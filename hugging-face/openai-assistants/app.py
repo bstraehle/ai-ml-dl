@@ -295,7 +295,7 @@ def chat(message, history):
         download_link = f"<p>Download: https://platform.openai.com/storage/files/{image_values[0]}</p>"
     
     #return f"{text_values[0]}{download_link}"
-    return f"{'<br />'.join(text_values)}{download_link}"
+    return f"{'<br />---'.join(reversed(text_values))}{download_link}"
 
 gr.ChatInterface(
         fn=chat,
