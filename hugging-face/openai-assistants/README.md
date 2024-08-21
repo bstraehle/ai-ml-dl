@@ -7,7 +7,7 @@ sdk: gradio
 sdk_version: 4.41.0
 app_file: app.py
 license: apache-2.0
-#header: mini
+header: mini
 pinned: false
 short_description: Chatbot using the OpenAI Assistants API
 ---
