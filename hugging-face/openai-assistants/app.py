@@ -28,6 +28,8 @@ from assistants import (
 def chat(message, history):
     if not message:
         raise gr.Error("Message is required.")
+
+    raise gr.Error("Please clone and bring your own credentials.")
     
     global assistant, thread     
 
@@ -35,11 +37,8 @@ def chat(message, history):
     # see https://platform.openai.com/playground/assistants.
     # On subsequent runs, load assistant.
     if assistant == None:
-        try: 
-            #assistant = create_assistant()
-            assistant = load_assistant()
-        except:
-            raise gr.Error("Please clone and bring your own credentials.")
+        #assistant = create_assistant()
+        assistant = load_assistant()
 
     # TODO: Use Gradio session to support multiple users
     if thread == None or len(history) == 0:
@@ -58,7 +57,7 @@ def chat(message, history):
     # TODO: Handle multiple images and other file types
     if len(image_values) > 0:
         download_link = f"<hr>[Download](https://platform.openai.com/storage/files/{image_values[0]})"
-    
+
     #return f"{'<hr>'.join(list(reversed(text_values))[1:])}{download_link}"
     return f"{text_values[0]}{download_link}"
 
@@ -80,5 +79,5 @@ gr.ChatInterface(
                   ["1. Execute with tools: Create a plot showing stock gain QTD for NVDA and AMD, x-axis is \"Day\" and y-axis is \"Gain %\". 2. Show the code."],
                   ["1. Execute with tools: Get key announcements from latest OpenAI Dev Day. 2. Show the web references."]
                  ],
-        cache_examples=True,
+        cache_examples=False,
     ).launch()
