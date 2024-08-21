@@ -42,7 +42,7 @@ tools = {
     "tavily_search_tool": tavily_search_tool,
 }
 
-def create_assistant(openai_client):
+def create_assistant():
     assistant = openai_client.beta.assistants.create(
         name="Python Coding Assistant",
         instructions=(
@@ -63,17 +63,17 @@ def create_assistant(openai_client):
     
     return assistant
 
-def load_assistant(openai_client):   
+def load_assistant():   
     assistant = openai_client.beta.assistants.retrieve(assistant_id)
     show_json("assistant", assistant)
     return assistant
 
-def create_thread(openai_client):
+def create_thread():
     thread = openai_client.beta.threads.create()
     show_json("thread", thread)
     return thread
 
-def create_message(openai_client, thread, msg):        
+def create_message(thread, msg):        
     message = openai_client.beta.threads.messages.create(
         role="user",
         thread_id=thread.id,
@@ -83,7 +83,7 @@ def create_message(openai_client, thread, msg):
     show_json("message", message)
     return message
 
-def create_run(openai_client, assistant, thread):
+def create_run(assistant, thread):
     run = openai_client.beta.threads.runs.create(
         assistant_id=assistant.id,
         thread_id=thread.id,
@@ -93,7 +93,7 @@ def create_run(openai_client, assistant, thread):
     show_json("run", run)
     return run
 
-def wait_on_run(openai_client, thread, run):
+def wait_on_run(thread, run):
     while run.status == "queued" or run.status == "in_progress":
         run = openai_client.beta.threads.runs.retrieve(
             thread_id=thread.id,
@@ -109,7 +109,7 @@ def wait_on_run(openai_client, thread, run):
 
     return run
 
-def get_run_steps(openai_client, thread, run):
+def get_run_steps(thread, run):
     run_steps = openai_client.beta.threads.runs.steps.list(
         thread_id=thread.id,
         run_id=run.id,
@@ -124,13 +124,18 @@ def execute_tool_call(tool_call):
     args = {}
 
     if len(tool_call.function.arguments) > 10:
-        args = json.loads(tool_call.function.arguments)
+        args_json = ""
+
+        try:
+            args_json = tool_call.function.arguments
+            args = json.loads(args_json)
+        except json.JSONDecodeError as e:
+            print(f"Error parsing function name '{name}' function args '{args_json}': {e}")
 
     return tools[name](**args)
 
 def execute_tool_calls(run_steps):
     run_step_details = []
-
     tool_call_ids = []
     tool_call_results = []
     
@@ -149,7 +154,37 @@ def execute_tool_calls(run_steps):
 
     return tool_call_ids, tool_call_results
 
-def get_messages(openai_client, thread):
+def recurse_execute_tool_calls(thread, run, run_steps, iteration):
+    tool_call_ids, tool_call_results = execute_tool_calls(run_steps)
+    
+    if len(tool_call_ids) > iteration:
+        tool_output = {}
+        
+        try:
+            tool_output = {
+                "tool_call_id": tool_call_ids[iteration],
+                "output": tool_call_results[iteration].to_json()
+            }
+        except AttributeError:
+            tool_output = {
+                "tool_call_id": tool_call_ids[iteration],
+                "output": tool_call_results[iteration]
+            }
+        
+        # https://platform.openai.com/docs/api-reference/runs/submitToolOutputs
+        run = openai_client.beta.threads.runs.submit_tool_outputs(
+            thread_id=thread.id,
+            run_id=run.id,
+            tool_outputs=[tool_output]
+        )
+    
+        run = wait_on_run(thread, run)
+        run_steps = get_run_steps(thread, run)
+        recurse_execute_tool_calls(thread, run, run_steps, iteration + 1)
+    else:
+        return
+
+def get_messages(thread):
     messages = openai_client.beta.threads.messages.list(
         thread_id=thread.id
     )
@@ -171,26 +206,3 @@ def extract_content_values(data):
                 image_values.append(image_value)
     
     return text_values, image_values
-
-###
-def generate_tool_outputs(tool_call_ids, tool_call_results):
-    tool_outputs = []
-    
-    for tool_call_id, tool_call_result in zip(tool_call_ids, tool_call_results):
-        tool_output = {}
-        
-        try:
-            tool_output = {
-                "tool_call_id": tool_call_id,
-                "output": tool_call_result.to_json()
-            }
-        except AttributeError:
-            tool_output = {
-                "tool_call_id": tool_call_id,
-                "output": tool_call_result
-            }
-            
-        tool_outputs.append(tool_output)
-    
-    return tool_outputs
-###
