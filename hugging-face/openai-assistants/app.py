@@ -11,8 +11,11 @@ import gradio as gr
 import os
 
 from assistants import (
-    assistant,
-    thread,
+    set_openai_client,
+    get_assistant,
+    set_assistant,
+    get_thread,
+    set_thread,
     create_assistant,
     load_assistant,
     create_thread,
@@ -25,45 +28,45 @@ from assistants import (
     extract_content_values,
 )
 
-def chat(message, history):
+def chat(message, history, openai_api_key):
+    if not openai_api_key:
+        raise gr.Error("OpenAI API Key is required (see additional inputs below).")
     if not message:
         raise gr.Error("Message is required.")
 
-    raise gr.Error("Please clone and bring your own credentials.")
-    
-    global assistant, thread     
-
-    # On first run, create assistant and update assistant_id,
-    # see https://platform.openai.com/playground/assistants.
-    # On subsequent runs, load assistant.
-    if assistant == None:
-        #assistant = create_assistant()
-        assistant = load_assistant()
-
-    # TODO: Use Gradio session to support multiple users
-    if thread == None or len(history) == 0:
-        thread = create_thread()
-        
-    create_message(thread, message)
-    run = create_run(assistant, thread)
-    run = wait_on_run(thread, run)
-    run_steps = get_run_steps(thread, run)
-    recurse_execute_tool_calls(thread, run, run_steps, 0)
-    messages = get_messages(thread)
-    text_values, image_values = extract_content_values(messages)
-
+    text_values, image_values = [], []
     download_link = ""
 
-    # TODO: Handle multiple images and other file types
-    if len(image_values) > 0:
-        download_link = f"<hr>[Download](https://platform.openai.com/storage/files/{image_values[0]})"
+    try:
+        # TODO: Use Gradio session
+        if get_thread() == None or len(history) == 0:
+            set_openai_client(openai_api_key)
+            
+            #set_assistant(create_assistant()) # first run
+            set_assistant(load_assistant()) # subsequent runs
+    
+            set_thread(create_thread())
+            
+        create_message(get_thread(), message)
+        run = create_run(get_assistant(), get_thread())
+        run = wait_on_run(get_thread(), run)
+        run_steps = get_run_steps(get_thread(), run)
+        recurse_execute_tool_calls(get_thread(), run, run_steps, 0)
+        messages = get_messages(get_thread())
+        text_values, image_values = extract_content_values(messages)
+        
+        # TODO: Handle multiple images and other file types
+        if len(image_values) > 0:
+            download_link = f"<hr>[Download](https://platform.openai.com/storage/files/{image_values[0]})"
+    except Exception as e:
+        raise gr.Error(e)
 
-    #return f"{'<hr>'.join(list(reversed(text_values))[1:])}{download_link}"
-    return f"{text_values[0]}{download_link}"
+    return f"{'<hr>'.join(list(reversed(text_values))[1:])}{download_link}"
+    #return f"{text_values[0]}{download_link}"
 
 gr.ChatInterface(
         fn=chat,
-        chatbot=gr.Chatbot(height=350),
+        chatbot=gr.Chatbot(height=250),
         textbox=gr.Textbox(placeholder="Ask anything", container=False, scale=7),
         title="Python Coding Assistant",
         description=os.environ.get("DESCRIPTION"),
@@ -75,9 +78,12 @@ gr.ChatInterface(
                   ["Explain: r\"^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\\W]).{8,}$\""],
                   ["Fix: x = [5, 2, 1, 3, 4]; print(x.sort())"],
                   ["Optimize: x = []; for i in range(0, 10000): x.append(i)"],
-                  ["1. Execute: First 25 Fibbonaci numbers. 2. Show the code."],
+                  ["1. Execute: Calculate the first 25 Fibbonaci numbers. 2. Show the code."],
                   ["1. Execute with tools: Create a plot showing stock gain QTD for NVDA and AMD, x-axis is \"Day\" and y-axis is \"Gain %\". 2. Show the code."],
                   ["1. Execute with tools: Get key announcements from latest OpenAI Dev Day. 2. Show the web references."]
                  ],
         cache_examples=False,
+        additional_inputs=[
+            gr.Textbox("", label="OpenAI API Key")
+        ],
     ).launch()
