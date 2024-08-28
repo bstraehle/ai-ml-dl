@@ -9,12 +9,11 @@ from tavily import TavilyClient
 from typing import List
 from utils import function_to_schema, show_json
 
-openai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+openai_client, assistant, thread = None, None, None
+
 tavily_client = TavilyClient(api_key=os.environ.get("TAVILY_API_KEY"))
 
 assistant_id = "asst_DbCpNsJ0vHSSdl6ePlkKZ8wG"
-
-assistant, thread = None, None
 
 def today_tool() -> str:
     """Returns today's date. Use this function for any questions related to knowing today's date. 
@@ -41,6 +40,26 @@ tools = {
     "yf_download_tool": yf_download_tool,
     "tavily_search_tool": tavily_search_tool,
 }
+
+def set_openai_client(openai_api_key):
+    global openai_client
+    openai_client = OpenAI(api_key=openai_api_key)
+
+def set_assistant(a):
+    global assistant
+    assistant = a
+
+def get_assistant():
+    global assistant
+    return assistant
+    
+def set_thread(t):
+    global thread
+    thread = t
+
+def get_thread():
+    global thread
+    return thread
 
 def create_assistant():
     assistant = openai_client.beta.assistants.create(
