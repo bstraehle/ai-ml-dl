@@ -41,9 +41,9 @@ tools = {
     "tavily_search_tool": tavily_search_tool,
 }
 
-def set_openai_client(openai_api_key):
+def set_openai_client():
     global openai_client
-    openai_client = OpenAI(api_key=openai_api_key)
+    openai_client = OpenAI()
 
 def set_assistant(a):
     global assistant
