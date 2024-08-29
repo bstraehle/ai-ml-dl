@@ -89,6 +89,6 @@ gr.ChatInterface(
                  ],
         cache_examples=False,
         additional_inputs=[
-            gr.Textbox("", type="password", label="OpenAI API Key")
+            gr.Textbox("", label="OpenAI API Key", type="password")
         ],
     ).launch()
