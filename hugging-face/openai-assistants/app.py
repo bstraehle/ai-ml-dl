@@ -8,7 +8,7 @@
 
 import gradio as gr
 
-import os
+import os, threading
 
 from assistants import (
     set_openai_client,
@@ -28,43 +28,46 @@ from assistants import (
     extract_content_values,
 )
 
+lock = threading.Lock()
+
 def chat(message, history, openai_api_key):
     if not openai_api_key:
         raise gr.Error("OpenAI API Key is required (see additional inputs below).")
     if not message:
         raise gr.Error("Message is required.")
 
-    text_values, image_values = [], []
-    download_link = ""
+    with lock:
+        result_text, result_image = "", ""
+    
+        try:
+            if os.environ["OPENAI_API_KEY"] != openai_api_key:
+                os.environ["OPENAI_API_KEY"] = openai_api_key
+                
+                set_openai_client()
+                
+                #set_assistant(create_assistant()) # first run
+                set_assistant(load_assistant()) # subsequent runs
+                
+            if get_thread() == None or len(history) == 0:
+                set_thread(create_thread())
+                
+            create_message(get_thread(), message)
+            run = create_run(get_assistant(), get_thread())
+            run = wait_on_run(get_thread(), run)
+            run_steps = get_run_steps(get_thread(), run)
+            recurse_execute_tool_calls(get_thread(), run, run_steps, 0)
+            messages = get_messages(get_thread())
+            text_values, image_values = extract_content_values(messages)
+            
+            for text_value in list(reversed(text_values)):
+                result_text += f"{text_value}<br><br>"
 
-    try:
-        # TODO: Use Gradio session
-        if os.environ["OPENAI_API_KEY"] != openai_api_key:
-            os.environ["OPENAI_API_KEY"] = openai_api_key
-            
-            set_openai_client()
-            
-            #set_assistant(create_assistant()) # first run
-            set_assistant(load_assistant()) # subsequent runs
-            
-        if get_thread() == None or len(history) == 0:
-            set_thread(create_thread())
-            
-        create_message(get_thread(), message)
-        run = create_run(get_assistant(), get_thread())
-        run = wait_on_run(get_thread(), run)
-        run_steps = get_run_steps(get_thread(), run)
-        recurse_execute_tool_calls(get_thread(), run, run_steps, 0)
-        messages = get_messages(get_thread())
-        text_values, image_values = extract_content_values(messages)
-        
-        # TODO: Handle multiple images and other file types
-        if len(image_values) > 0:
-            download_link = f"<hr>[Download](https://platform.openai.com/storage/files/{image_values[0]})"
-    except Exception as e:
-        raise gr.Error(e)
+            if len(image_values) > 0:
+                result_image = f"[https://platform.openai.com/storage/files/{image_values[0]}](https://platform.openai.com/storage/files/{image_values[0]})"
+        except Exception as e:
+            raise gr.Error(e)
 
-    return f"{'<hr>'.join(list(reversed(text_values))[1:])}{download_link}"
+        return f"{result_text}{result_image}"
 
 gr.ChatInterface(
         fn=chat,
