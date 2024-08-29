@@ -39,12 +39,15 @@ def chat(message, history, openai_api_key):
 
     try:
         # TODO: Use Gradio session
-        if get_thread() == None or len(history) == 0:
-            set_openai_client(openai_api_key)
+        if os.environ["OPENAI_API_KEY"] != openai_api_key:
+            os.environ["OPENAI_API_KEY"] = openai_api_key
+            
+            set_openai_client()
             
             #set_assistant(create_assistant()) # first run
             set_assistant(load_assistant()) # subsequent runs
-    
+            
+        if get_thread() == None or len(history) == 0:
             set_thread(create_thread())
             
         create_message(get_thread(), message)
@@ -62,7 +65,6 @@ def chat(message, history, openai_api_key):
         raise gr.Error(e)
 
     return f"{'<hr>'.join(list(reversed(text_values))[1:])}{download_link}"
-    #return f"{text_values[0]}{download_link}"
 
 gr.ChatInterface(
         fn=chat,
