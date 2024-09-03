@@ -126,11 +126,26 @@ def rag_retrieval_advanced(openai_api_key,
     return retrieval_result
 
 def inference(openai_api_key, prompt):
-    content = f"Answer this user question: {prompt}"
+    content = (
+        "Answer the question.\n"
+        "If you don't know the answer, just say that you don't know, don't try to make up an answer.\n"
+        "Keep the answer as concise as possible.\n\n"
+        f"Question: {prompt}\n"
+        "Helpful Answer: "
+    )
+
     return invoke_llm(openai_api_key, content)
 
 def rag_inference(openai_api_key, prompt, retrieval_result):
-    content = f"Answer this user question: {prompt} with the following context:\n{retrieval_result}"
+    content = (
+        "Use the following pieces of context to answer the question at the end.\n"
+        "If you don't know the answer, just say that you don't know, don't try to make up an answer.\n"
+        "Keep the answer as concise as possible.\n\n"
+        f"{retrieval_result}\n\n"
+        f"Question: {prompt}\n"
+        "Helpful Answer: "
+    )
+
     return invoke_llm(openai_api_key, content)
 
 def invoke_llm(openai_api_key, content):
