@@ -1,0 +1,3 @@
+datasets==2.20.0
+openai==1.37.1
+pymongo==4.8.0
