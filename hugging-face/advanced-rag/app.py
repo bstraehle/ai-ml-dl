@@ -39,41 +39,44 @@ def invoke(openai_api_key,
         db, collection = connect_to_database()
 
         inference_result = ""
-        
-        if (RAG_INGESTION):
-            return rag_ingestion(collection)
-        elif rag_option == RAG_OFF:
-            inference_result = inference(
-                openai_api_key, 
-                prompt
-            )
-        elif rag_option == RAG_NAIVE:
-            retrieval_result = rag_retrieval_naive(
-                openai_api_key, 
-                prompt,
-                db, 
-                collection
-            )
-            inference_result = rag_inference(
-                openai_api_key, 
-                prompt, 
-                retrieval_result
-            )        
-        elif rag_option == RAG_ADVANCED:
-            retrieval_result = rag_retrieval_advanced(
-                openai_api_key, 
-                prompt, 
-                accomodates,
-                bedrooms,
-                db, 
-                collection
-            )
-            inference_result = rag_inference(
-                openai_api_key, 
-                prompt, 
-                retrieval_result
-            )
 
+        try:
+            if (RAG_INGESTION):
+                return rag_ingestion(collection)
+            elif rag_option == RAG_OFF:
+                inference_result = inference(
+                    openai_api_key, 
+                    prompt
+                )
+            elif rag_option == RAG_NAIVE:
+                retrieval_result = rag_retrieval_naive(
+                    openai_api_key, 
+                    prompt,
+                    db, 
+                    collection
+                )
+                inference_result = rag_inference(
+                    openai_api_key, 
+                    prompt, 
+                    retrieval_result
+                )        
+            elif rag_option == RAG_ADVANCED:
+                retrieval_result = rag_retrieval_advanced(
+                    openai_api_key, 
+                    prompt, 
+                    accomodates,
+                    bedrooms,
+                    db, 
+                    collection
+                )
+                inference_result = rag_inference(
+                    openai_api_key, 
+                    prompt, 
+                    retrieval_result
+                )
+        except Exception as e:
+            raise gr.Error(e)
+        
         print("###")
         print(inference_result)
         print("###")
