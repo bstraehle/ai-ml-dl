@@ -76,7 +76,7 @@ def invoke(openai_api_key,
                 )
         except Exception as e:
             raise gr.Error(e)
-        
+
         print("###")
         print(inference_result)
         print("###")
