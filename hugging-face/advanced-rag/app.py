@@ -1,5 +1,3 @@
-#TODO: Pydantic, image embedding, clean up data set
-
 import gradio as gr
 import logging, os, sys, threading
 
@@ -52,6 +50,8 @@ def invoke(openai_api_key,
                 retrieval_result = rag_retrieval_naive(
                     openai_api_key, 
                     prompt,
+                    accomodates,
+                    bedrooms,
                     db, 
                     collection
                 )
