@@ -4,6 +4,7 @@ https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag/ (Lla
 https://www.deeplearning.ai/short-courses/building-multimodal-search-and-rag/ (Weaviate)  
 https://www.deeplearning.ai/short-courses/knowledge-graphs-rag/ (Neo4j)  
 https://www.deeplearning.ai/short-courses/large-language-models-semantic-search/ (Cohere)  
+https://www.deeplearning.ai/short-courses/multimodal-rag-chat-with-videos/ (Intel)  
 https://www.deeplearning.ai/short-courses/vector-databases-embeddings-applications/ (Weaviate)  
 
 https://www.youtube.com/watch?v=yK64dws8f6A (LangChain)  
