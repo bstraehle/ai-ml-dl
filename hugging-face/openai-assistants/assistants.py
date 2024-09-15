@@ -1,3 +1,4 @@
+import gradio as gr
 import pandas as pd
 import yfinance as yf
 
@@ -141,7 +142,7 @@ def get_run_steps(thread, run):
 def execute_tool_call(tool_call):
     name = tool_call.function.name
     args = {}
-
+    
     if len(tool_call.function.arguments) > 10:
         args_json = ""
 
@@ -166,7 +167,9 @@ def execute_tool_calls(run_steps):
         if hasattr(step_details, "tool_calls"):
             for tool_call in step_details.tool_calls:
                 show_json("tool_call", tool_call)
-                
+
+                gr.Info(f"Tool call: {tool_call}")
+
                 if hasattr(tool_call, "function"):
                     tool_call_ids.append(tool_call.id)
                     tool_call_results.append(execute_tool_call(tool_call))
