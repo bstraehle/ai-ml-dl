@@ -1,7 +1,7 @@
 import inspect, json
 
-def show_json(str, obj):
-    print(f"=> {str}\n{json.loads(obj.model_dump_json())}")
+def get_json(str, obj):
+    return f"{str}\n{json.loads(obj.model_dump_json())}\n"
     
 def function_to_schema(func) -> dict:
     type_map = {
