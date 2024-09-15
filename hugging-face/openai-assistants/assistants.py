@@ -8,7 +8,7 @@ from datetime import date
 from openai import OpenAI
 from tavily import TavilyClient
 from typing import List
-from utils import function_to_schema, show_json
+from utils import function_to_schema, get_json
 
 openai_client, assistant, thread = None, None, None
 
@@ -85,12 +85,12 @@ def create_assistant():
 
 def load_assistant():   
     assistant = openai_client.beta.assistants.retrieve(assistant_id)
-    show_json("assistant", assistant)
+    print(get_json("assistant", assistant))
     return assistant
 
 def create_thread():
     thread = openai_client.beta.threads.create()
-    show_json("thread", thread)
+    print(get_json("thread", thread))
     return thread
 
 def create_message(thread, msg):        
@@ -100,7 +100,7 @@ def create_message(thread, msg):
         content=msg,
     )
     
-    show_json("message", message)
+    print(get_json("message", message))
     return message
 
 def create_run(assistant, thread):
@@ -110,7 +110,7 @@ def create_run(assistant, thread):
         parallel_tool_calls=False,
     )
     
-    show_json("run", run)
+    print(get_json("run", run))
     return run
 
 def wait_on_run(thread, run):
@@ -122,7 +122,7 @@ def wait_on_run(thread, run):
             
         time.sleep(1)
     
-    show_json("run", run)
+    print(get_json("run", run))
 
     if hasattr(run, "last_error") and run.last_error:
         raise gr.Error(run.last_error)
@@ -136,7 +136,7 @@ def get_run_steps(thread, run):
         order="asc",
     )
 
-    show_json("run_steps", run_steps)
+    print(get_json("run_steps", run_steps))
     return run_steps
 
 def execute_tool_call(tool_call):
@@ -155,25 +155,22 @@ def execute_tool_call(tool_call):
     return tools[name](**args)
 
 def execute_tool_calls(run_steps):
-    run_step_details = []
     tool_call_ids = []
     tool_call_results = []
     
     for step in run_steps.data:
         step_details = step.step_details
-        run_step_details.append(step_details)
-        show_json("step_details", step_details)
+        str = get_json("step_details", step_details)
+        print(str)
+        gr.Info(str)
         
         if hasattr(step_details, "tool_calls"):
             for tool_call in step_details.tool_calls:
-                show_json("tool_call", tool_call)
-
+                print(get_json("tool_call", tool_call))
+                
                 if hasattr(tool_call, "function"):
-                    gr.Info(f"Custom tool call: {tool_call}")
                     tool_call_ids.append(tool_call.id)
                     tool_call_results.append(execute_tool_call(tool_call))
-                else:
-                    gr.Info(f"Built-in tool call: {tool_call}")
     
     return tool_call_ids, tool_call_results
 
@@ -212,7 +209,7 @@ def get_messages(thread):
         thread_id=thread.id
     )
     
-    show_json("messages", messages)
+    print(get_json("messages", messages))
     return messages
                         
 def extract_content_values(data):
