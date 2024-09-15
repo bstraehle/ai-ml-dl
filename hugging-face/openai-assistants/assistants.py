@@ -162,7 +162,7 @@ def execute_tool_calls(run_steps):
         step_details = step.step_details
         str = get_json("step_details", step_details)
         print(str)
-        gr.Info(str)
+        gr.Info(str, duration=15)
         
         if hasattr(step_details, "tool_calls"):
             for tool_call in step_details.tool_calls:
