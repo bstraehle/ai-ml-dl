@@ -1,150 +1,127 @@
-Hugging Face's logo
-Hugging Face
-Search models, datasets, users...
-Models
-Datasets
-Spaces
-Posts
-Docs
-Solutions
-Pricing
-
-
-
-Spaces:
-
-bstraehle
-/
-openai-assistants
-
-
-like
-0
-
-Logs
-App
-Files
-Community
-Settings
-openai-assistants/
-assistants.py
-
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
 import gradio as gr
+import pandas as pd
+import yfinance as yf
+
+import json, openai, os, time
+
+from datetime import date
+from openai import OpenAI
+from tavily import TavilyClient
+from typing import List
+from utils import function_to_schema, show_json
+
+openai_client, assistant, thread = None, None, None
+
+tavily_client = TavilyClient(api_key=os.environ.get("TAVILY_API_KEY"))
+
+assistant_id = "asst_DbCpNsJ0vHSSdl6ePlkKZ8wG"
+
+def today_tool() -> str:
+    """Returns today's date. Use this function for any questions related to knowing today's date. 
+       There should be no input. This function always returns today's date."""
+    return str(date.today())
+
+def yf_download_tool(tickers: List[str], start_date: date, end_date: date) -> pd.DataFrame:
+    """Returns historical stock data for a list of given tickers from start date to end date 
+       using the yfinance library download function. 
+       Use this function for any questions related to getting historical stock data. 
+       The input should be the tickers as a List of strings, a start date, and an end date. 
+       This function always returns a pandas DataFrame."""
+    return yf.download(tickers, start=start_date, end=end_date)
+
+def tavily_search_tool(query: str) -> str:
+    """Searches the web for a given query and returns an answer, "
+       ready for use as context in a RAG application, using the Tavily API. 
+       Use this function for any questions requiring knowledge not available to the model. 
+       The input should be the query string. This function always returns an answer string."""
+    return tavily_client.get_search_context(query=query, max_results=5)
+
+tools = {
+    "today_tool": today_tool,
+    "yf_download_tool": yf_download_tool,
+    "tavily_search_tool": tavily_search_tool,
+}
+
+def set_openai_client():
+    global openai_client
+    openai_client = OpenAI()
+
+def set_assistant(a):
+    global assistant
+    assistant = a
+
+def get_assistant():
+    global assistant
+    return assistant
+    
+def set_thread(t):
+    global thread
+    thread = t
+
+def get_thread():
+    global thread
+    return thread
+
+def create_assistant():
+    assistant = openai_client.beta.assistants.create(
+        name="Python Coding Assistant",
+        instructions=(
+             "You are a Python programming language expert that "
+             "generates Pylint-compliant code and explains it. "
+             "Execute code when explicitly asked to."
+        ),
+        model="gpt-4o",
+        tools=[
+            {"type": "code_interpreter"},
+            {"type": "function", "function": function_to_schema(today_tool)},
+            {"type": "function", "function": function_to_schema(yf_download_tool)},
+            {"type": "function", "function": function_to_schema(tavily_search_tool)},
+        ],
+    )
+    
+    show_json("assistant", assistant)
+    
+    return assistant
+
+def load_assistant():   
+    assistant = openai_client.beta.assistants.retrieve(assistant_id)
+    show_json("assistant", assistant)
+    return assistant
+
+def create_thread():
+    thread = openai_client.beta.threads.create()
+    show_json("thread", thread)
+    return thread
+
+def create_message(thread, msg):        
+    message = openai_client.beta.threads.messages.create(
+        role="user",
+        thread_id=thread.id,
+        content=msg,
+    )
+    
+    show_json("message", message)
+    return message
+
+def create_run(assistant, thread):
+    run = openai_client.beta.threads.runs.create(
+        assistant_id=assistant.id,
+        thread_id=thread.id,
+        parallel_tool_calls=False,
+    )
+    
+    show_json("run", run)
+    return run
+
+def wait_on_run(thread, run):
+    while run.status == "queued" or run.status == "in_progress":
+        run = openai_client.beta.threads.runs.retrieve(
+            thread_id=thread.id,
+            run_id=run.id,
+        )
+            
+        time.sleep(1)
+    
     show_json("run", run)
 
     if hasattr(run, "last_error") and run.last_error:
@@ -239,13 +216,15 @@ def get_messages(thread):
     return messages
                         
 def extract_content_values(data):
-Commit directly to the
-main
-branch
-Open as a pull request to the
-main
-branch
-Commit changes
-Update assistants.py
-Add an extended description...
-Upload images, audio, and videos by dragging in the text input, pasting, or clicking here.
+    text_values, image_values = [], []
+    
+    for item in data.data:
+        for content in item.content:
+            if content.type == "text":
+                text_value = content.text.value
+                text_values.append(text_value)
+            if content.type == "image_file":
+                image_value = content.image_file.file_id
+                image_values.append(image_value)
+    
+    return text_values, image_values
