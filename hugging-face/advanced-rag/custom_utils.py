@@ -119,7 +119,7 @@ def invoke_llm(openai_api_key, content):
                 "content": content
             }
         ],
-        temperature=0.0
+        temperature=0.01
     )
 
     return completion.choices[0].message.content
