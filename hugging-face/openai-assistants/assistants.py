@@ -71,6 +71,7 @@ def create_assistant():
              "Execute code when explicitly asked to."
         ),
         model="gpt-4o",
+        temperature=0.01,
         tools=[
             {"type": "code_interpreter"},
             {"type": "function", "function": function_to_schema(today_tool)},
@@ -93,13 +94,13 @@ def create_thread():
     print(get_json("thread", thread))
     return thread
 
-def create_message(thread, msg):        
+def create_message(thread, msg):
     message = openai_client.beta.threads.messages.create(
         role="user",
         thread_id=thread.id,
         content=msg,
     )
-    
+
     print(get_json("message", message))
     return message
 
@@ -139,7 +140,7 @@ def get_run_steps(thread, run):
     print(get_json("run_steps", run_steps))
     return run_steps
 
-def execute_tool_call(tool_call):
+def execute_tool_call(step, tool_call):
     name = tool_call.function.name
     args = {}
     
@@ -151,7 +152,7 @@ def execute_tool_call(tool_call):
             args = json.loads(args_json)
         except json.JSONDecodeError as e:
             print(f"Error parsing function name '{name}' function args '{args_json}': {e}")
-
+    
     return tools[name](**args)
 
 def execute_tool_calls(run_steps):
@@ -160,18 +161,26 @@ def execute_tool_calls(run_steps):
     
     for step in run_steps.data:
         step_details = step.step_details
-        str = get_json("step_details", step_details)
-        print(str)
-        gr.Info(str, duration=15)
+        print(get_json("step_details", step_details))
+
+        if step.usage:
+            gr.Info(f"Step: {step_details.type}, {get_json('usage', step.usage)}", duration=30)
         
         if hasattr(step_details, "tool_calls"):
             for tool_call in step_details.tool_calls:
                 print(get_json("tool_call", tool_call))
-                
+              
                 if hasattr(tool_call, "function"):
                     tool_call_ids.append(tool_call.id)
-                    tool_call_results.append(execute_tool_call(tool_call))
-    
+                    tool_call_results.append(execute_tool_call(step, tool_call))
+
+                    if tool_call.function.output:
+                        gr.Info(f"Execute function call: {tool_call.function.name}, args: {tool_call.function.arguments}", duration=30)
+                    else:
+                        gr.Info(f"Generate function call: {tool_call.function.name}, args: {tool_call.function.arguments}", duration=30)
+                else:
+                    gr.Info(f"Tool: {tool_call.type}", duration=30)
+                
     return tool_call_ids, tool_call_results
 
 def recurse_execute_tool_calls(thread, run, run_steps, iteration):
@@ -190,7 +199,7 @@ def recurse_execute_tool_calls(thread, run, run_steps, iteration):
                 "tool_call_id": tool_call_ids[iteration],
                 "output": tool_call_results[iteration]
             }
-      
+   
         # https://platform.openai.com/docs/api-reference/runs/submitToolOutputs
         run = openai_client.beta.threads.runs.submit_tool_outputs(
             thread_id=thread.id,
