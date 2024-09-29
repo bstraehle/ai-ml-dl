@@ -7,5 +7,8 @@ https://www.deeplearning.ai/short-courses/large-language-models-semantic-search/
 https://www.deeplearning.ai/short-courses/multimodal-rag-chat-with-videos/ (Intel)  
 https://www.deeplearning.ai/short-courses/vector-databases-embeddings-applications/ (Weaviate)  
 
+https://www.wandb.courses/courses/rag-in-production  
+https://github.com/wandb/edu/tree/main/rag-advanced/notebooks  
+
 https://www.youtube.com/watch?v=yK64dws8f6A (LangChain)  
 https://www.youtube.com/watch?v=35RlrrgYDyU (LlamaIndex)  
