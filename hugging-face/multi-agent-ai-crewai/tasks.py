@@ -15,9 +15,9 @@ def get_research_task(model, temperature, verbose):
 def get_write_task(model, temperature, verbose):
     return Task(
         description=(
-            "1. Use the context to write a 2000-word article on topic '{topic}'.\n"
+            "1. Use the context to write a 2000-word article on topic '{topic}' in markdown format. Omit the triple backticks.\n"
             "2. At the beginning of the article, add current date and author: Multi-Agent AI System.\n"
-            "3. At the end of the article, add a references section with links to research papers."
+            "3. At the end of the article, add a references section with links to the research papers."
         ),
         expected_output="An article on topic {topic}.",
         agent=get_writer_agent(model, temperature, verbose),
