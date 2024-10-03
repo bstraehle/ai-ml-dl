@@ -97,9 +97,9 @@ def create_graph(model, topic):
 
     researcher_agent = create_agent(llm, [tavily_tool, today_tool], system_prompt=
                                     "1. Research content on topic: " + topic + ", prioritizing research papers. "
-                                    "2. Based on your research, write a 2000-word article on the topic. "
+                                    "2. Based on your research, write a 2000-word article on the topic in markdown format. "
                                     "3. At the beginning of the article, add current date and author: Multi-Agent AI System. "
-                                    "4. At the end of the article, add a references section with research papers.")
+                                    "4. At the end of the article, add a references section with links to research papers.")
     researcher_node = functools.partial(agent_node, agent=researcher_agent, name="Researcher")
 
     workflow = StateGraph(AgentState)
