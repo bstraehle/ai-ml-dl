@@ -58,6 +58,7 @@ def run_multi_agent(llm, task):
     code_writer_agent = AssistantAgent(
         name="code_writer_agent",
         llm_config=llm_config,
+        system_message="You are a Sr. Python Programmer, an expert in writing Pylint-compliant code.",
         code_execution_config=False,
         human_input_mode="NEVER",
     )
