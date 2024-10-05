@@ -72,7 +72,7 @@ def chat(message, history, openai_api_key):
 gr.ChatInterface(
         fn=chat,
         chatbot=gr.Chatbot(height=250),
-        textbox=gr.Textbox(placeholder="Ask anything", container=False, scale=7),
+        textbox=gr.Textbox(placeholder="Ask anything", value="First, execute with tools: Create a plot showing stock gain QTD for NVDA and AMD, x-axis is \"Day\" and y-axis is \"Gain %\". Second, show the code.", container=False, scale=7),
         title="Python Coding Assistant",
         description=os.environ.get("DESCRIPTION"),
         clear_btn="Clear",
