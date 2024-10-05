@@ -84,7 +84,6 @@ gr.ChatInterface(
                   ["Fix: x = [5, 2, 1, 3, 4]; print(x.sort())"],
                   ["Optimize: x = []; for i in range(0, 10000): x.append(i)"],
                   ["First, execute: Calculate the first 25 Fibbonaci numbers. Second, show the code."],
-                  ["First, execute with tools: Create a plot showing stock gain QTD for NVDA and AMD, x-axis is \"Day\" and y-axis is \"Gain %\". Second, show the code."],
                   ["First, execute with tools: Get key announcements from latest OpenAI Dev Day. Second, show the web references."]
                  ],
         cache_examples=False,
