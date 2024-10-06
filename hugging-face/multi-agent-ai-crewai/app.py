@@ -6,6 +6,7 @@ from crew import get_crew
 lock = threading.Lock()
 
 LLM = "gpt-4o"
+VERBOSE = False
 
 def invoke(openai_api_key, topic):
     if not openai_api_key:
@@ -18,11 +19,11 @@ def invoke(openai_api_key, topic):
     with lock:
         os.environ["OPENAI_API_KEY"] = openai_api_key
     
-        article = get_crew(LLM).kickoff(inputs={"topic": topic})
+        article = str(get_crew(LLM, VERBOSE).kickoff(inputs={"topic": topic}))
     
-        #print("===")
-        #print(article)
-        #print("===")
+        print("===")
+        print(article)
+        print("===")
 
         del os.environ["OPENAI_API_KEY"]
     
@@ -33,8 +34,8 @@ gr.close_all()
 demo = gr.Interface(fn = invoke, 
                     inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
                               gr.Textbox(label = "Topic", value=os.environ["TOPIC"], lines = 1)],
-                    outputs = [gr.Markdown(label = "Generated Article", value=os.environ["OUTPUT"])],
-                    title = "Multi-Agent AI: Article Generation",
+                    outputs = [gr.Markdown(label = "Article", value=os.environ["OUTPUT"], line_breaks = True, sanitize_html = False)],
+                    title = "Multi-Agent AI: Article Writing",
                     description = os.environ["DESCRIPTION"])
 
 demo.launch()
