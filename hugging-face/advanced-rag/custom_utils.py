@@ -41,7 +41,7 @@ def rag_retrieval_naive(openai_api_key,
     if not retrieval_result:
         return "No results found."
 
-    print(retrieval_result)
+    #print(retrieval_result)
     
     return retrieval_result
 
@@ -78,7 +78,7 @@ def rag_retrieval_advanced(openai_api_key,
     if not retrieval_result:
         return "No results found."
 
-    print(retrieval_result)
+    #print(retrieval_result)
     
     return retrieval_result
 
@@ -337,8 +337,8 @@ def get_millis_elapsed(db, collection, pipeline):
         verbosity="executionStats")
 
     explain_vector_search = explain_query_execution["stages"][0]["$vectorSearch"]
-    
-    return explain_vector_search["explain"]["collectStats"]["millisElapsed"]
+
+    return explain_vector_search["explain"]["collectStats"]["allCollectorStats"]["millisElapsed"]
 
 def get_text_embedding(openai_api_key, text):
     if not text or not isinstance(text, str):
