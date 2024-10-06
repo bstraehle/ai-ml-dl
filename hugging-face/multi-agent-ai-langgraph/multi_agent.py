@@ -98,7 +98,7 @@ def create_graph(model, max_tokens, temperature, topic):
     researcher_agent = create_agent(llm, [tavily_tool, today_tool], system_prompt=
                                     "You are a Sr. Research Scientist at an ivy league university. "
                                     "1. Research content on topic '" + topic + "'. "
-                                    "2. Based on your research, write an accurate, concise, and objective article in markdown format. "
+                                    "2. Based on your research, write an accurate, concise, and objective article in markdown format (omit the triple backticks). "
                                     "3. At the beginning of the article, add current date and author: Multi-Agent AI System. "
                                     "4. At the end of the article, add a references section with links to relevant content.")
     researcher_node = functools.partial(agent_node, agent=researcher_agent, name="Researcher")
