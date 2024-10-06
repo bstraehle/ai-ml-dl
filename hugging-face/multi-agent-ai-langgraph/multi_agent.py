@@ -43,7 +43,7 @@ def today_tool(text: str) -> str:
        Any date mathematics should occur outside this function."""
     return (str(date.today()) + "\n\nIf you have completed all tasks, respond with FINAL ANSWER.")
     
-def create_graph(model, max_tokens, temperature, topic):
+def create_graph(model, topic):
     tavily_tool = TavilySearchResults(max_results=10)
     
     members = ["Researcher"]
@@ -87,7 +87,7 @@ def create_graph(model, max_tokens, temperature, topic):
         ]
     ).partial(options=str(options), members=", ".join(members))
     
-    llm = ChatOpenAI(model=model, max_tokens=max_tokens, temperature=temperature)
+    llm = ChatOpenAI(model=model)
     
     supervisor_chain = (
         prompt
@@ -96,11 +96,11 @@ def create_graph(model, max_tokens, temperature, topic):
     )
 
     researcher_agent = create_agent(llm, [tavily_tool, today_tool], system_prompt=
-                                    "You are a Sr. Research Scientist at an ivy league university. "
-                                    "1. Research content on topic '" + topic + "'. "
-                                    "2. Based on your research, write an accurate, concise, and objective article in markdown format (omit the triple backticks). "
-                                    "3. At the beginning of the article, add current date and author: Multi-Agent AI System. "
-                                    "4. At the end of the article, add a references section with links to relevant content.")
+                                    "1. Research content on topic: " + topic + ". "
+                                    "2. Based on your research, write an in-depth article on the topic. " 
+                                    "3. The output must be in markdown format (omit the triple backticks). "
+                                    "4. At the beginning of the article, add current date and author: Multi-Agent AI System. "
+                                    "5. Also at the beginning of the article, add a references section with links to relevant content.")
     researcher_node = functools.partial(agent_node, agent=researcher_agent, name="Researcher")
 
     workflow = StateGraph(AgentState)
@@ -119,8 +119,8 @@ def create_graph(model, max_tokens, temperature, topic):
     
     return workflow.compile()
 
-def run_multi_agent(llm, max_tokens, temperature, topic):
-    graph = create_graph(llm, max_tokens, temperature, topic)
+def run_multi_agent(llm, topic):
+    graph = create_graph(llm, topic)
     
     result = graph.invoke({
         "messages": [
