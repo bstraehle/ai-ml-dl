@@ -87,7 +87,7 @@ def create_graph(model, topic):
         ]
     ).partial(options=str(options), members=", ".join(members))
     
-    llm = ChatOpenAI(model=model)
+    llm = ChatOpenAI(model=model, max_tokens=10000, temperature=0)
     
     supervisor_chain = (
         prompt
