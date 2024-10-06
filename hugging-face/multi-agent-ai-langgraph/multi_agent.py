@@ -96,10 +96,11 @@ def create_graph(model, topic):
     )
 
     researcher_agent = create_agent(llm, [tavily_tool, today_tool], system_prompt=
-                                    "1. Research content on topic: " + topic + ", prioritizing research papers. "
-                                    "2. Based on your research, write a 2000-word article on the topic in markdown format. "
+                                    "You are the chief research scientist at an ivy league university. "
+                                    "1. Research content on topic: " + topic + ", prioritizing academic papers. "
+                                    "2. Based on your research, write a 5000-word detailed paper on the topic in markdown format. "
                                     "3. At the beginning of the article, add current date and author: Multi-Agent AI System. "
-                                    "4. At the end of the article, add a references section with links to research papers.")
+                                    "4. At the end of the article, add a references section with links to academic papers.")
     researcher_node = functools.partial(agent_node, agent=researcher_agent, name="Researcher")
 
     workflow = StateGraph(AgentState)
@@ -129,8 +130,8 @@ def run_multi_agent(model, topic):
     
     article = result['messages'][-1].content
     
-    #print("===")
-    #print(article)
-    #print("===")
+    print("===")
+    print(article)
+    print("===")
     
     return article
