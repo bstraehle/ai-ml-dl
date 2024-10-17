@@ -8,6 +8,8 @@ https://www.deeplearning.ai/short-courses/building-your-own-database-agent/ (Lan
 
 https://www.deeplearning.ai/short-courses/multi-ai-agent-systems-with-crewai/ (crewAI)  
 
+https://www.deeplearning.ai/short-courses/serverless-agentic-workflows-with-amazon-bedrock/ (Amazon Bedrock)  
+
 https://www.youtube.com/playlist?list=PLfaIDFEXuae16n2TWUkKq5PgJ0w6Pkwtg (LangGraph)  
 
 https://huggingface.co/spaces/bstraehle/multi-agent-ai-autogen-chess/ (AutoGen, multi-agent)  
