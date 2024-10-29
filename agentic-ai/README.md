@@ -7,6 +7,7 @@ https://www.deeplearning.ai/short-courses/building-agentic-rag-with-llamaindex/ 
 https://www.deeplearning.ai/short-courses/building-your-own-database-agent/ (LangChain)
 
 https://www.deeplearning.ai/short-courses/multi-ai-agent-systems-with-crewai/ (crewAI)  
+https://www.deeplearning.ai/short-courses/practical-multi-ai-agents-and-advanced-use-cases-with-crewai/ (crewAI)  
 
 https://www.deeplearning.ai/short-courses/serverless-agentic-workflows-with-amazon-bedrock/ (Amazon Bedrock)  
 
