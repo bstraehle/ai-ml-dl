@@ -67,7 +67,7 @@ gr.close_all()
 
 demo = gr.Interface(fn = invoke, 
                     inputs = [gr.Textbox(label = "Prompt", value = "If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?", lines = 1)],
-                    outputs = [gr.Textbox(label = "Completion", lines = 1)],
+                    outputs = [gr.Textbox(label = "Completion", lines = 1, value = os.environ["COMPLETION"])],
                     description = description)
 
 demo.launch()
