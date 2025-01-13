@@ -9,7 +9,7 @@ project = os.environ["PROJECT"]
 
 config = {
     "max_output_tokens": 1000,
-    "model": "gemini-pro",
+    "model": "gemini-1.5-pro-preview-0514",
     "temperature": 0.1,
     "top_k": 40,
     "top_p": 1.0,
@@ -23,18 +23,20 @@ credentials = service_account.Credentials.from_service_account_info(credentials)
 if credentials.expired:
     credentials.refresh(Request())
 
-vertexai.init(project = project, 
-              location = "us-central1",
-              credentials = credentials
+vertexai.init(location = "us-central1",
+              credentials = credentials,
+              project = project
              )
 
 from vertexai.preview.generative_models import GenerativeModel
 generation_model = GenerativeModel(config["model"])
 
 def invoke(prompt):
-    if (prompt == ""):
+    if not prompt:
         raise gr.Error("Prompt is required.")
 
+    raise gr.Error("Please clone and bring your own credentials.")
+    
     completion = ""
     
     try:
@@ -54,15 +56,14 @@ def invoke(prompt):
     
     return completion
 
-description = """<a href='https://www.gradio.app/'>Gradio</a> UI using the <a href='https://cloud.google.com/vertex-ai'>Google Vertex AI</a> API 
-                 with Gemini Pro model."""
+description = """<a href='https://www.gradio.app/'>Gradio</a> UI using the <a href='https://cloud.google.com/vertex-ai'>Google Vertex AI</a> SDK 
+                 with Gemini 1.5 Pro model."""
 
 gr.close_all()
 
 demo = gr.Interface(fn = invoke, 
-                    inputs = [gr.Textbox(label = "Prompt", lines = 1)],
+                    inputs = [gr.Textbox(label = "Prompt", value = "If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?", lines = 1)],
                     outputs = [gr.Textbox(label = "Completion", lines = 1)],
-                    title = "Generative AI - LLM",
                     description = description)
 
 demo.launch()
