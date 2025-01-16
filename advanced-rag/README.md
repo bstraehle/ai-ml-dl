@@ -14,4 +14,3 @@ https://github.com/wandb/edu/tree/main/rag-advanced/notebooks
 
 https://www.youtube.com/watch?v=yK64dws8f6A (LangChain)  
 https://www.youtube.com/watch?v=35RlrrgYDyU (LlamaIndex)  
-x
