@@ -1,0 +1,3899 @@
+{
+	"info": {
+		"_postman_id": "cac6c6ef-9555-4756-8d84-884b3959cdaf",
+		"name": "📌 Azure AI API (GitHub Models)",
+		"description": "### About\n\nWe are enabling the rise of the AI engineer with GitHub Models – bringing the power of industry leading large and small language models to our more than 100 million users directly on GitHub.\n\n### Prerequisites\n\n- Postman Account\n    \n- GitHub Account: [https://github.com/](https://github.com/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n    \n\n### Documentation\n\n- API: [https://github.com/marketplace/models](https://github.com/marketplace/models)\n    \n- Models: [https://github.com/marketplace/models](https://github.com/marketplace/models)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7643177",
+		"_collection_link": "https://www.postman.com/ai-engineer/workspace/generative-ai-large-language-model-apis/collection/7643177-cac6c6ef-9555-4756-8d84-884b3959cdaf?action=share&source=collection_link&creator=7643177"
+	},
+	"item": [
+		{
+			"name": "🚀 Get Started",
+			"item": [
+				{
+					"name": "Chat (gpt-4o)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"gpt-4o\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"gpt-4o\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:03:15 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "x-ratelimit-remaining-tokens",
+									"value": "19973760"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "x-ms-region",
+									"value": "East US 2"
+								},
+								{
+									"key": "apim-request-id",
+									"value": "66296e2e-25a0-4a64-8251-30aa26d74909"
+								},
+								{
+									"key": "x-ratelimit-remaining-requests",
+									"value": "199994"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "539015c3-7a42-4016-b9b0-e343d5de12a8"
+								},
+								{
+									"key": "x-ms-client-request-id",
+									"value": "Not-Set"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "d082-20240922023947"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-02"
+								},
+								{
+									"key": "x-request-time",
+									"value": "1.042"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"logprobs\": null,\n            \"message\": {\n                \"content\": \"Drying multiple shirts in the sun typically takes the same amount of time as one shirt, assuming they have enough space and air circulation. So, it would still take about 1 hour to dry 3 shirts.\",\n                \"role\": \"assistant\"\n            }\n        }\n    ],\n    \"created\": 1728918194,\n    \"id\": \"chatcmpl-AIGtGi1lYmIJYEMGrCxXMoxohx1No\",\n    \"model\": \"gpt-4o-2024-08-06\",\n    \"object\": \"chat.completion\",\n    \"system_fingerprint\": \"fp_67802d9a6d\",\n    \"usage\": {\n        \"completion_tokens\": 43,\n        \"prompt_tokens\": 34,\n        \"total_tokens\": 77\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "gpt-4o",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"gpt-4o\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"gpt-4o\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:03:15 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "x-ratelimit-remaining-tokens",
+									"value": "19973760"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "x-ms-region",
+									"value": "East US 2"
+								},
+								{
+									"key": "apim-request-id",
+									"value": "66296e2e-25a0-4a64-8251-30aa26d74909"
+								},
+								{
+									"key": "x-ratelimit-remaining-requests",
+									"value": "199994"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "539015c3-7a42-4016-b9b0-e343d5de12a8"
+								},
+								{
+									"key": "x-ms-client-request-id",
+									"value": "Not-Set"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "d082-20240922023947"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-02"
+								},
+								{
+									"key": "x-request-time",
+									"value": "1.042"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"logprobs\": null,\n            \"message\": {\n                \"content\": \"Drying multiple shirts in the sun typically takes the same amount of time as one shirt, assuming they have enough space and air circulation. So, it would still take about 1 hour to dry 3 shirts.\",\n                \"role\": \"assistant\"\n            }\n        }\n    ],\n    \"created\": 1728918194,\n    \"id\": \"chatcmpl-AIGtGi1lYmIJYEMGrCxXMoxohx1No\",\n    \"model\": \"gpt-4o-2024-08-06\",\n    \"object\": \"chat.completion\",\n    \"system_fingerprint\": \"fp_67802d9a6d\",\n    \"usage\": {\n        \"completion_tokens\": 43,\n        \"prompt_tokens\": 34,\n        \"total_tokens\": 77\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "gpt-4o-mini",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"gpt-4o-mini\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"gpt-4o-mini\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:06:29 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "x-ratelimit-remaining-tokens",
+									"value": "1995435"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "x-ms-region",
+									"value": "East US"
+								},
+								{
+									"key": "apim-request-id",
+									"value": "44c02be9-43d8-44f4-9a21-d812e069f7fc"
+								},
+								{
+									"key": "x-ratelimit-remaining-requests",
+									"value": "19997"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "3289b3d8-697f-4d9b-8520-d6228ae49f26"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "d012-20240925101712"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "521"
+								},
+								{
+									"key": "x-ms-client-request-id",
+									"value": "Not-Set"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-02"
+								},
+								{
+									"key": "x-request-time",
+									"value": "1.063"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \"If one shirt takes 1 hour to dry in the sun, then drying 3 shirts will also take 1 hour, provided they have enough space and sunlight to dry simultaneously. The drying time does not increase with the number of shirts as long as they are all exposed to the sun properly.\",\n                \"role\": \"assistant\"\n            }\n        }\n    ],\n    \"created\": 1728918388,\n    \"id\": \"chatcmpl-AIGwOx16F92KK7sL8SgkIjI2GuFAu\",\n    \"model\": \"gpt-4o-mini\",\n    \"object\": \"chat.completion\",\n    \"system_fingerprint\": \"fp_878413d04d\",\n    \"usage\": {\n        \"completion_tokens\": 59,\n        \"prompt_tokens\": 34,\n        \"total_tokens\": 93\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Phi-3.5-MoE-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3.5-MoE-instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3.5-MoE-instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:07:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "offer-phi3-5-moe-128k-paygo"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "29"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "86"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "66da4554-8010-48cc-b92c-9d66645c0a87"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-phi35-moe-128k-240905182633"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-phi35-moe-128k-240905182633"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-02"
+								},
+								{
+									"key": "x-request-time",
+									"value": "4.218"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \" Drying multiple shirts simultaneously, as long as they have adequate space and exposure to sunlight, would still take approximately 1 hour. The key factor here is that the shirts are not drying sequentially (one after another), but rather all at the same time. So, drying 3 shirts at once should also take around 1 hour, given similar conditions.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": []\n            }\n        }\n    ],\n    \"created\": 1728918434,\n    \"id\": \"chat-098e7e3464b34f0884fc2f3901ac0b29\",\n    \"model\": \"phi35-moe-instruct\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 86,\n        \"prompt_tokens\": 29,\n        \"total_tokens\": 115\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Phi-3.5-mini-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3.5-mini-instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3.5-mini-instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:20:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "offer-phi3-5-mini-128k-paygo"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "29"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "211"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "0f5b2536-a9cc-4feb-9596-84d6f03abfb0"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-phi35-mini-128k-240816010505"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-phi35-mini-128k-240816010505"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "5.176"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \" Drying shirts in the sun does not depend on the number of shirts as long as they can all be exposed to sunlight at the same time. Assuming you have space to lay out all three shirts simultaneously and the sun's intensity is sufficient to dry one shirt in 1 hour, it would still take 1 hour to dry all three shirts together.\\n\\nHowever, if you can't lay out all three shirts at the same time due to space constraints, then you would need additional time. For example, if you can only dry 1 shirt at a time and each shirt takes 1 hour, drying 3 shirts would take 3 hours in total (1 hour per shirt).\\n\\nIn practice, drying time can also vary with conditions such as humidity, wind, and temperature, but under the assumption that all other conditions are ideal, the drying time for the shirts remains 1 hour collectively.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": []\n            }\n        }\n    ],\n    \"created\": 1728919221,\n    \"id\": \"chat-8189101ab7ed496cac6347fee83c876f\",\n    \"model\": \"phi35-mini-instruct\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 211,\n        \"prompt_tokens\": 29,\n        \"total_tokens\": 240\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Phi-3.5-vision-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3.5-vision-instruct\",\r\n    \"temperature\": 0,\r\n    \"max_tokens\": 2048,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3.5-vision-instruct\",\r\n    \"temperature\": 0,\r\n    \"max_tokens\": 2048,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 30 Dec 2024 04:05:28 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "offer-phi3-5-vision-128k-paygo"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "40"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "95"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "dc146bc2-d62d-4acb-9115-ae5c1cbdce86"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-phi35-v-128k-241101203337"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-phi35-v-128k-241101203337"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-02"
+								},
+								{
+									"key": "x-request-time",
+									"value": "2.100"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \" \\nIf drying one shirt takes 1 hour in the sun, then drying 3 shirts would still take 1 hour, assuming that the drying process for each shirt is independent of the others. This is because the drying time for each shirt is not affected by the number of shirts being dried simultaneously, as long as there is enough space and airflow to dry all of them at the same time.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": null\n            }\n        }\n    ],\n    \"created\": 1735531526,\n    \"id\": \"cmpl-c46d3614a2904d70be056c6b3baee106\",\n    \"model\": \"phi35-vision-instruct\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 95,\n        \"prompt_tokens\": 40,\n        \"total_tokens\": 135\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Phi-3-medium-128k-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3-medium-128k-instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3-medium-128k-instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:21:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "offer-phi3-medium-128k-paygo"
+								},
+								{
+									"key": "request-context",
+									"value": "appId=cid-v1:b80100f5-1286-423d-967f-3517f665186d"
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "29"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "243"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "f94fd86f-e4fa-4cc7-aa42-2d9fb0b00c38"
+								},
+								{
+									"key": "x-ms-client-request-id",
+									"value": "5bfe7d12-eb49-443c-90cb-dab970f0a68f"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-medium-128k-240809044141"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "12.314"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \" Drying multiple shirts at the same time does not necessarily mean that it will take longer than drying one shirt. If you have enough space to spread out all three shirts in the sun without overlapping and each shirt receives the same amount of sunlight as a single shirt would, then all three shirts will dry in the same amount of time as one shirt. Therefore, if you dry one shirt in 1 hour, drying three shirts could also take 1 hour, assuming there's enough space and they are all equally exposed to the sun. It's essentially a question of capacity and resources. If there's sufficient space and sunlight exposure, you can hang them out to dry simultaneously and they will all dry in 1 hour.\\n\\nHowever, if space is limited and you can't effectively dry all three shirts at once, then you may need to dry them in batches, meaning you might need 3 hours in total to dry all three shirts, with one hour per batch. If you can dry them all at once, it would still be just 1 hour.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": []\n            }\n        }\n    ],\n    \"created\": 1728919266,\n    \"id\": \"cmpl-cf537f14ce7c4a64906dce0008e216ef\",\n    \"model\": \"phi3-medium-128k\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 243,\n        \"prompt_tokens\": 29,\n        \"total_tokens\": 272\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Phi-3-medium-4k-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3-medium-4k-instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 2048,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3-medium-4k-instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 2048,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:31:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "offer-phi3-medium-4k-paygo"
+								},
+								{
+									"key": "request-context",
+									"value": "appId=cid-v1:b80100f5-1286-423d-967f-3517f665186d"
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "29"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "93"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "39d06023-700b-4692-8354-b4b93b8196a1"
+								},
+								{
+									"key": "x-ms-client-request-id",
+									"value": "41e8b484-f1e2-41e3-a86e-cb2bd8257f70"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-medium-4k-240809045237"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "2.211"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \" Assuming that drying each shirt independently and simultaneously, all three shirts will still take 1 hour to dry. Drying more shirts doesn't necessarily extend the drying time if they are all exposed to sun and air at the same time.\\n\\nHowever, if you can only dry one shirt at a time, then it would take 3 hours to dry all three shirts (1 hour per shirt).\",\n                \"role\": \"assistant\",\n                \"tool_calls\": []\n            }\n        }\n    ],\n    \"created\": 1728919860,\n    \"id\": \"cmpl-6c81211ecd554171a8018cf75ff0011b\",\n    \"model\": \"phi3-medium-4k\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 93,\n        \"prompt_tokens\": 29,\n        \"total_tokens\": 122\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Phi-3-mini-128k-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3-mini-128k-instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3-mini-128k-instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:22:27 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "offer-phi3-mini-128k-paygo"
+								},
+								{
+									"key": "request-context",
+									"value": "appId=cid-v1:b80100f5-1286-423d-967f-3517f665186d"
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "31"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "145"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "f9c179ea-2ed9-469b-ab73-64722c5dbff5"
+								},
+								{
+									"key": "x-ms-client-request-id",
+									"value": "90bd15cf-31d1-456f-8cd8-3959368308d8"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-mini-128k-240809045552"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "1.661"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \" If drying one shirt takes 1 hour, drying 3 shirts, assuming they can all be dried at the same time and there is enough space to lay them out without overlapping, would also take 1 hour. The drying time for multiple shirts doesn't necessarily increase as long as you have the space and conditions to accommodate them all simultaneously. However, if space limitation requires only drying one shirt at a time, then it would take 3 hours to dry all three shirts. Given that the typical scenario assumed here is efficient drying conditions and adequate space for all shirts, 1 hour is the most straightforward answer.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": []\n            }\n        }\n    ],\n    \"created\": 1728919346,\n    \"id\": \"cmpl-51e9cf7ca3284abaaa54161ddcf8116b\",\n    \"model\": \"phi3-mini-128k\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 145,\n        \"prompt_tokens\": 31,\n        \"total_tokens\": 176\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Phi-3-mini-4k-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3-mini-4k-instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 2048,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3-mini-4k-instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 2048,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:31:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "offer-phi3-mini-4k-paygo"
+								},
+								{
+									"key": "request-context",
+									"value": "appId=cid-v1:b80100f5-1286-423d-967f-3517f665186d"
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "31"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "105"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "4d6fc4d8-5faa-4b83-9fff-1cf2a2ea9f65"
+								},
+								{
+									"key": "x-ms-client-request-id",
+									"value": "8ef25cc6-9b61-4b3a-b5c4-0b93220091e8"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-mini-4k-240716193521"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "1.205"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \" Assuming all three shirts can be dried simultaneously and it's only the drying time that's being asked about, drying 3 shirts would still take 1 hour. Just as drying one shirt takes 1 hour, if you have 3 shirts and are drying them side by side under the sun, they will all complete the drying process in the same time it takes for one shirt to dry, provided weather conditions and other external factors remain constant.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": []\n            }\n        }\n    ],\n    \"created\": 1728919877,\n    \"id\": \"cmpl-96bf38928951430ba874377e68e1c34b\",\n    \"model\": \"phi3-mini-4k\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 105,\n        \"prompt_tokens\": 31,\n        \"total_tokens\": 136\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Phi-3-small-128k-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3-small-128k-instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3-small-128k-instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:26:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-small-128k-241003211714"
+								},
+								{
+									"key": "request-context",
+									"value": "appId=cid-v1:b80100f5-1286-423d-967f-3517f665186d"
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "34"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "65"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "4fd2403a-8e98-4de6-85e3-0a6a2d12c2c1"
+								},
+								{
+									"key": "x-ms-client-request-id",
+									"value": "ecab2f91-8f7d-460b-b8ca-421a66b1d36a"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "1.895"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \"If you hang three shirts to dry in the sun and there's enough space for all of them to receive equal sunlight and airflow, they should still take about 1 hour to dry. The drying time doesn't depend on the number of shirts but rather on the environmental conditions like sun intensity, humidity, and air circulation.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": []\n            }\n        }\n    ],\n    \"created\": 1728919614,\n    \"id\": \"chat-3455cf23acfb45e8b6c107585275f8a7\",\n    \"model\": \"phi3-small-128k\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 65,\n        \"prompt_tokens\": 34,\n        \"total_tokens\": 99\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Phi-3-small-8k-instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3-small-8k-instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Phi-3-small-8k-instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:27:51 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-small-8k-241003232202"
+								},
+								{
+									"key": "request-context",
+									"value": "appId=cid-v1:b80100f5-1286-423d-967f-3517f665186d"
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "34"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "88"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "be31ff40-afaf-424d-89dc-a3b64b675039"
+								},
+								{
+									"key": "x-ms-client-request-id",
+									"value": "fed19916-68eb-445f-81af-b3f86761e01f"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "2.177"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \"If you have enough space to lay out 3 shirts in the sun without overlapping and each shirt is in direct sunlight with adequate circulation of air, drying each shirt would still take 1 hour. This is because you're drying multiple shirts simultaneously, not sequentially. The drying time for fabrics under these conditions remains constant as long as there are enough resources (sunlight, space, air) to dry each shirt effectively at the same time.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": []\n            }\n        }\n    ],\n    \"created\": 1728919669,\n    \"id\": \"chat-435f637181ac4f5aa4165e860034202b\",\n    \"model\": \"phi3-small-8k\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 88,\n        \"prompt_tokens\": 34,\n        \"total_tokens\": 122\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "AI21-Jamba-1.5-Large",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"AI21-Jamba-1.5-Large\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"AI21-Jamba-1.5-Large\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:08:14 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "offer-ai21-1-5-large-paygo"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "33"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "75"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "73844a4c-1d27-4927-88a2-d9fe2c8e9ebe"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-ai21-eus-large-241001205341"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-ai21-eus-large-241001205341"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-02"
+								},
+								{
+									"key": "x-request-time",
+									"value": "4.178"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \" Drying one shirt in the sun takes 1 hour. If you dry three shirts simultaneously, it would still take 1 hour. The drying time for each shirt remains the same regardless of how many shirts you are drying at once, as long as they are all exposed to the same conditions.\\n\\nSo, 3 shirts will take 1 hour to dry.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": null\n            }\n        }\n    ],\n    \"created\": 1728918494,\n    \"id\": \"chat-38f416597dd34e16bc8b95376a93e164\",\n    \"model\": \"jamba-1.5-large\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 75,\n        \"prompt_tokens\": 33,\n        \"total_tokens\": 108\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "AI21-Jamba-1.5-Mini",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"AI21-Jamba-1.5-Mini\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"AI21-Jamba-1.5-Mini\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:08:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "offer-ai21-1-5-paygo"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "33"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "169"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "22213af7-c5d1-4659-9539-4c069b023ffb"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-ai21-eus2-mini-241001194034"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-ai21-eus2-mini-241001194034"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-02"
+								},
+								{
+									"key": "x-request-time",
+									"value": "2.657"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \" If drying one shirt in the sun takes Minutes, then drying 3 shirts will also take the same amount of time, Minutes.\\n\\nHowever, if you're asking about the drying time considering the effect of increased surface area or exposure to sunlight, the time it takes for 3 shirts to dry can vary. If we assume each shirt dries independently and the effect is simply additive, then you could multiply the time by the number of shirts.\\n\\nTherefore, 3 shirts would technically take 3 hours if the process is additive. However, assuming no other factors (like shading from other shirts or wind conditions changing), drying them together doesn't typically change the drying time linearly. Still, depending on the method used (e.g., drying them bundled together), you might have to adjust it accordingly.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": null\n            }\n        }\n    ],\n    \"created\": 1728918526,\n    \"id\": \"chat-522f3ab5b543426fa91ef7316c0e5208\",\n    \"model\": \"jamba-1.5-mini\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 169,\n        \"prompt_tokens\": 33,\n        \"total_tokens\": 202\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Cohere-command-r",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Cohere-command-r\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Cohere-command-r\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:09:27 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "offer-cohere-cmd-r-paygo"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "23"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "138"
+								},
+								{
+									"key": "x-request-id",
+									"value": "2e42cb21-bf2a-4687-a1f0-bd108596549f"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-eus-coh-cmdr-240717012420"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-eus-coh-cmdr-240717012420"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-02"
+								},
+								{
+									"key": "x-request-time",
+									"value": "1.684"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"d4e89afa-b5f6-4dfa-a55c-159d1de39974\",\n    \"object\": \"chat.completion\",\n    \"created\": 1728918567,\n    \"model\": \"Command R\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The time required to dry three shirts in the sun would not necessarily be three times longer than drying one shirt. Drying multiple shirts simultaneously may slightly increase the drying time due to increased fabric thickness and potential shading between the garments, but it's unlikely to scale linearly.\\n\\nLet's estimate the drying time for three shirts at around 1 hour and 20 minutes. Keep in mind that this is an approximation, and actual real-world results may vary based on factors such as sunlight intensity, humidity, airflow, and the fabric type and thickness of the shirts. Additionally, hanging the shirts in an efficient manner, ensuring adequate airflow around each garment, can also impact the drying time.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 23,\n        \"total_tokens\": 161,\n        \"completion_tokens\": 138\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Cohere-command-r-08-2024",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Cohere-command-r-08-2024\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Cohere-command-r-08-2024\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:14:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-eus-coh-cmdr-240930184433"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "23"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "44"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "7924de79-b37f-4137-b7ad-ed065316ed92"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-eus-coh-cmdr-240930184433"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "1.450"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \"If one shirt takes 1 hour to dry in the sun, then 3 shirts would take 3 hours to dry. This is because the time taken to dry the shirts is directly proportional to the number of shirts.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": null\n            }\n        }\n    ],\n    \"created\": 1728918850,\n    \"id\": \"b8efb405-bf75-4a67-8610-435597f393ca\",\n    \"model\": \"Cohere Command R\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 44,\n        \"prompt_tokens\": 23,\n        \"total_tokens\": 67\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Cohere-command-r-plus",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Cohere-command-r-plus\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Cohere-command-r-plus\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:14:37 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "offer-cohere-cmdrp-paygo"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "23"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "113"
+								},
+								{
+									"key": "x-request-id",
+									"value": "d7bfaa9e-b877-4996-8cce-5566391720d2"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-eus-coh-cmdrpl-240906174939"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-eus-coh-cmdrpl-240906174939"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "3.200"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"8fd3a64b-eb45-48d4-8e14-e35dfca29483\",\n    \"object\": \"chat.completion\",\n    \"created\": 1728918877,\n    \"model\": \"Cohere Command R+\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"If it takes 1 hour to dry one shirt in the sun, then it would take 3 hours to dry 3 shirts. This is because the drying time is directly proportional to the number of shirts. So, to find the time it takes to dry 3 shirts, we simply multiply the time for one shirt by the number of shirts: \\n3 shirts * 1 hour/shirt = 3 hours \\n\\nThis assumes that the environmental conditions, such as temperature, humidity, and wind speed, remain constant during the drying process for all three shirts.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 23,\n        \"total_tokens\": 136,\n        \"completion_tokens\": 113\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Cohere-command-r-plus-08-2024",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Cohere-command-r-plus-08-2024\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Cohere-command-r-plus-08-2024\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:15:01 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-eus-coh-cmdrpl-240930205240"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "23"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "46"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "f433ddfe-b4a2-4029-bfb7-bf604def6fbc"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-eus-coh-cmdrpl-240930205240"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "7.070"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \"Drying three shirts in the sun would take three hours. This is because the drying time for each shirt is one hour, so multiplying the number of shirts by the time to dry one shirt will give you the total time required.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": null\n            }\n        }\n    ],\n    \"created\": 1728918895,\n    \"id\": \"b77d8626-4a86-445a-a0a1-4b779f19a345\",\n    \"model\": \"Cohere Command R+\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 46,\n        \"prompt_tokens\": 23,\n        \"total_tokens\": 69\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Llama-3.2-11B-Vision-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Llama-3.2-11B-Vision-Instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Llama-3.2-11B-Vision-Instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:10:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "llama-3-2-11b-scaleset"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "38"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "38"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "fb6eb33f-c4ba-4739-8732-ed50ec576a56"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-11b-vision-240927003928"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-11b-vision-240927003928"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "0.554"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \"If one shirt dries in 1 hour, three shirts will take 3 times as long to dry. So, three shirts will take 3 hours to dry in the sun.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": []\n            }\n        }\n    ],\n    \"created\": 1728918652,\n    \"id\": \"chat-613271147e4147c18ead49e287061789\",\n    \"model\": \"Meta-Llama-3-2-90B-Vision-Instruct\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 38,\n        \"prompt_tokens\": 38,\n        \"total_tokens\": 76\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Llama-3.2-90B-Vision-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Llama-3.2-90B-Vision-Instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Llama-3.2-90B-Vision-Instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:16:20 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "llama-3-2-90b-scaleset"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "38"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "79"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "32dbac51-07c3-4686-adf2-5ae0e31b07e7"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-90b-vision-240927002124"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-90b-vision-240927002124"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "1.742"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \"Since the shirts are being dried one by one, the time it takes to dry 3 shirts is simply 3 times the time it takes to dry 1 shirt.\\n\\nSo, if 1 shirt takes 1 hour, 3 shirts will take:\\n\\n3 x 1 hour = 3 hours\\n\\nTherefore, it will take 3 hours to dry 3 shirts in the sun.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": []\n            }\n        }\n    ],\n    \"created\": 1728918978,\n    \"id\": \"chat-facd697c4a9b442eaab6620e98dc9baa\",\n    \"model\": \"Meta-Llama-3-2-90B-Vision-Instruct\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 79,\n        \"prompt_tokens\": 38,\n        \"total_tokens\": 117\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Meta-Llama-3.1-405B-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Meta-Llama-3.1-405B-Instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Meta-Llama-3.1-405B-Instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:16:42 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "llama-405b-fp8-tp8-scaleset"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "59"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "79"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "491b06aa-3d7e-4b2a-9a4d-ec83f916eb8e"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-405b-fp8-tp8-241002180946"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-405b-fp8-tp8-241002180946"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "3.641"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \"If it takes 1 hour to dry one shirt in the sun, it will also take 1 hour to dry three shirts, assuming the same environmental conditions and that the shirts aren't overlapping or blocking the sun from each other.\\n\\nThe reason for this is that the drying process occurs simultaneously for each shirt. The number of shirts does not affect the time it takes for an individual shirt to dry.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": null\n            }\n        }\n    ],\n    \"created\": 1728919002,\n    \"id\": \"491b06aa-3d7e-4b2a-9a4d-ec83f916eb8e\",\n    \"model\": \"Meta-Llama-3-405B-Instruct\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 79,\n        \"prompt_tokens\": 59,\n        \"total_tokens\": 138\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Meta-Llama-3.1-70B-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Meta-Llama-3.1-70B-Instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Meta-Llama-3.1-70B-Instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:17:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "offer-llama-3-1-70b-chat-paygo"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "38"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "81"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "b2e7ce4a-ccd7-442f-ae23-3aa53b17c271"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-3-70b-chat-240719182540"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-3-70b-chat-240719182540"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "3.271"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \"If one shirt takes 1 hour to dry in the sun, three shirts will take... still 1 hour!\\n\\nThe drying time is dependent on the sun's intensity and the ambient temperature, not on the number of shirts. As long as the shirts are laid out to receive the same amount of sunlight, they will all dry in about the same time.\\n\\nSo, the answer is 1 hour!\",\n                \"role\": \"assistant\",\n                \"tool_calls\": []\n            }\n        }\n    ],\n    \"created\": 1728919022,\n    \"id\": \"cmpl-0e1eeaede9fd4d7d9557316986966bb1\",\n    \"model\": \"Meta-Llama-3.1-70B-Instruct\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 81,\n        \"prompt_tokens\": 38,\n        \"total_tokens\": 119\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Meta-Llama-3.1-8B-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Meta-Llama-3.1-8B-Instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Meta-Llama-3.1-8B-Instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:17:23 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "offer-llama-3-1-8b-chat-paygo"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "38"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "24"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "b93a0160-5c43-4526-8067-0a9b930b1372"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-3-8b-chat-240717062944"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-3-8b-chat-240717062944"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "0.809"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \"If it takes 1 hour to dry one shirt, it will take 3 hours to dry 3 shirts.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": []\n            }\n        }\n    ],\n    \"created\": 1728919042,\n    \"id\": \"cmpl-1b21e88b7f474214b575c34deff65dc1\",\n    \"model\": \"Meta-Llama-3.1-8B-Instruct\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 24,\n        \"prompt_tokens\": 38,\n        \"total_tokens\": 62\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Meta-Llama-3-70B-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Meta-Llama-3-70B-Instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Meta-Llama-3-70B-Instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:17:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "offer-llama-3-70b-chat-paygo"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "38"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "53"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "28eee6ad-9d54-4031-b79a-7b769830910b"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-3-70b-chat-240626191516"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-3-70b-chat-240626191516"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "3.404"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \"The answer is still 1 hour. The time it takes to dry a shirt in the sun doesn't change just because you have more shirts. Each shirt will still take 1 hour to dry, so three shirts will also take 1 hour to dry.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": []\n            }\n        }\n    ],\n    \"created\": 1728919062,\n    \"id\": \"cmpl-e7c172453060454c99a1f1dc85396f91\",\n    \"model\": \"Meta-Llama-3-70B-Instruct\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 53,\n        \"prompt_tokens\": 38,\n        \"total_tokens\": 91\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Meta-Llama-3-8B-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Meta-Llama-3-8B-Instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Meta-Llama-3-8B-Instruct\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:18:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "offer-llama-3-8b-chat-paygo"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "38"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "73"
+								},
+								{
+									"key": "x-ms-rai-invoked",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "f352454e-69b0-4024-9d0f-27be21181708"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-3-8b-chat-240628033914"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-3-8b-chat-240628033914"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "1.088"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"message\": {\n                \"content\": \"To find the answer, we can use the concept of multiplication. Since 3 is three times 1, it takes three times as long to dry three shirts as it takes to dry one shirt.\\n\\nSo, if it takes 1 hour to dry one shirt, it will take:\\n\\n3 x 1 hour = 3 hours\\n\\nto dry three shirts.\",\n                \"role\": \"assistant\",\n                \"tool_calls\": []\n            }\n        }\n    ],\n    \"created\": 1728919082,\n    \"id\": \"cmpl-dcac6a0c3d0b4738ac552597fbb82875\",\n    \"model\": \"Meta-Llama-3-8B-Instruct\",\n    \"object\": \"chat.completion\",\n    \"usage\": {\n        \"completion_tokens\": 73,\n        \"prompt_tokens\": 38,\n        \"total_tokens\": 111\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Mistral-Nemo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Mistral-Nemo\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Mistral-Nemo\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:11:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "mistral-nemo-scaleset"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "26"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "69"
+								},
+								{
+									"key": "x-request-id",
+									"value": "cdd9ec13-0df8-4e21-949b-3dbcaf89f826"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-eus-mis-nemo-240913191252"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-eus-mis-nemo-240913191252"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "0.468"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"7bb47664b48d4d22a8786aec3fc08408\",\n    \"object\": \"chat.completion\",\n    \"created\": 1728918703,\n    \"model\": \"mistral-nemo\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"If one shirt takes 1 hour to dry in the sun, then 3 shirts would also take 1 hour to dry, assuming that they can all be dried simultaneously and none of them prevent the others from being exposed to the sun. This is because drying time in this scenario is not cumulative but rather dependent on the simultaneously available sun exposure.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 26,\n        \"total_tokens\": 95,\n        \"completion_tokens\": 69\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Mistral-large",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Mistral-large\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Mistral-large\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:12:23 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "offer-mistrallarge-paygo"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "27"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "160"
+								},
+								{
+									"key": "x-request-id",
+									"value": "6adc0b45-08d2-44c6-be2b-1bd9a1f58258"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-mistral-eus2-mistrallarge-6"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-mistral-eus2-mistrallarge-6"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "6.087"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"d8c93979ccc64eef8dd032640d5a9ebd\",\n    \"object\": \"chat.completion\",\n    \"created\": 1728918737,\n    \"model\": \"mistral-large\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"When drying clothes in the sun, it's important to note that the drying process typically happens individually for each item, and the drying time doesn't decrease or increase based on the number of items, given they all receive ample sunlight. So, if you have space to lay out all three shirts in the sun at the same time and they receive the same amount of sunlight, each shirt would still take approximately 1 hour to dry.\\n\\nHowever, if you're drying them one after the other, you would need to dry each shirt for 1 hour. Therefore, three shirts would take approximately 3 hours to dry in total. Always make sure to check the weather conditions, as factors like humidity and wind can affect the drying time.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\",\n            \"logprobs\": null\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 27,\n        \"total_tokens\": 187,\n        \"completion_tokens\": 160\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Mistral-large-2407",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Mistral-large-2407\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Mistral-large-2407\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:12:51 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "mistral-large-2407-scaleset"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "27"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "94"
+								},
+								{
+									"key": "x-request-id",
+									"value": "afbebd06-5219-48e2-a8e6-0e0af2de6a89"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-eus-mis-lar2407-240913210851"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-eus-mis-lar2407-240913210851"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "1.393"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"353d86d6b05a45299e19edf78a7de735\",\n    \"object\": \"chat.completion\",\n    \"created\": 1728918770,\n    \"model\": \"mistral-large-2407\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"If you can dry one shirt in the sun in 1 hour, theoretically, drying three shirts would also take 1 hour, assuming that you have enough space to lay out all three shirts simultaneously and that they all receive adequate sunlight. The drying time for multiple items placed together in the sun is typically the same as for a single item, as long as they are not stacked or overlapping, which could slow down the drying process.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 27,\n        \"total_tokens\": 121,\n        \"completion_tokens\": 94\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Mistral-small",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Mistral-small\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"Mistral-small\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 4096,\r\n    \"top_p\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 15:13:27 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "azureml-model-group",
+									"value": "offer-mistral-bundled-paygo"
+								},
+								{
+									"key": "request-context",
+									"value": "appId="
+								},
+								{
+									"key": "prompt_token_len",
+									"value": "27"
+								},
+								{
+									"key": "sampling_token_len",
+									"value": "100"
+								},
+								{
+									"key": "x-request-id",
+									"value": "aea0a848-ec33-465e-96cc-3f1d2d882d51"
+								},
+								{
+									"key": "azureml-model-deployment",
+									"value": "dep-eus-mis-bundle-240905055151"
+								},
+								{
+									"key": "azureml-model-session",
+									"value": "dep-eus-mis-bundle-240905055151"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-aml-cluster",
+									"value": "vienna-eastus2-01"
+								},
+								{
+									"key": "x-request-time",
+									"value": "1.829"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"86c761ef8b114565a1446769ee9dc692\",\n    \"object\": \"chat.completion\",\n    \"created\": 1728918806,\n    \"model\": \"mistral-small\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"If you're drying the shirts one at a time in the sun, then drying 3 shirts would take 3 hours, assuming the sun's intensity remains constant and there are no other variables affecting the drying time. However, if you are able to dry all 3 shirts at the same time (for example, by hanging them on separate clotheslines), then the drying time would still be approximately 1 hour, as the shirts can dry simultaneously.\",\n                \"tool_calls\": null\n            },\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 27,\n        \"total_tokens\": 127,\n        \"completion_tokens\": 100\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://models.inference.ai.azure.com/",
+			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "<BringYourOwn>",
+			"type": "string"
+		}
+	]
+}

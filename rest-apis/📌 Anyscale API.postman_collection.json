@@ -2,10 +2,10 @@
 	"info": {
 		"_postman_id": "5e86b362-34d0-4a92-ae32-f341fad1c30b",
 		"name": "📌 Anyscale API",
-		"description": "### Prerequisites\n\n- Postman\n- Anyscale Account: [https://app.endpoints.anyscale.com/](https://app.endpoints.anyscale.com/)\n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n\n### Documentation\n\n- API: [https://docs.endpoints.anyscale.com/](https://docs.endpoints.anyscale.com/)\n- Models: [https://docs.endpoints.anyscale.com/](https://docs.endpoints.anyscale.com/)\n    \n### Models\n\nModels include Llama & CodeLlama (by Meta AI, open-weight) and Mixtral (by Mistral AI, open-weight).\n\n### About Anyscale\n\nThe modern AI infrastructure trusted by the world’s leading AI teams.",
+		"description": "### About Anyscale\n\nThe modern AI infrastructure trusted by the world’s leading AI teams.\n\n### Prerequisites\n\n- Postman Account\n    \n- Anyscale Account: [https://console.anyscale.com/](https://console.anyscale.com/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.anyscale.com/](https://docs.anyscale.com/)\n    \n- Models: [https://docs.anyscale.com/category/serving](https://docs.anyscale.com/category/serving)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
-		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-5e86b362-34d0-4a92-ae32-f341fad1c30b?action=share&source=collection_link&creator=7643177"
+		"_collection_link": "https://www.postman.com/ai-engineer/workspace/generative-ai-large-language-model-apis/collection/7643177-5e86b362-34d0-4a92-ae32-f341fad1c30b?action=share&source=collection_link&creator=7643177"
 	},
 	"item": [
 		{
@@ -2834,8 +2834,7 @@
 							"variable": [
 								{
 									"key": "file",
-									"value": "",
-									"uuid": "e1e5dfef-c87c-44b8-83b9-03a08be26705"
+									"value": ""
 								}
 							]
 						}
@@ -2860,8 +2859,7 @@
 							"variable": [
 								{
 									"key": "file",
-									"value": "",
-									"uuid": "8d8f1ef9-0db5-43ac-9b0f-71b30928479f"
+									"value": ""
 								}
 							]
 						}
@@ -2885,8 +2883,7 @@
 							"variable": [
 								{
 									"key": "file",
-									"value": "",
-									"uuid": "e0caeb74-ccf3-49ad-8cf9-00af94e1e769"
+									"value": ""
 								}
 							]
 						}
@@ -2961,8 +2958,7 @@
 							"variable": [
 								{
 									"key": "job",
-									"value": "",
-									"uuid": "e2514568-c2fd-431f-88a7-da0d2206ad4c"
+									"value": ""
 								}
 							]
 						}
@@ -2988,8 +2984,7 @@
 							"variable": [
 								{
 									"key": "job",
-									"value": "",
-									"uuid": "340bd2e1-7b02-42f9-a910-3804f13b2697"
+									"value": ""
 								}
 							]
 						}
