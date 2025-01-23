@@ -1,1 +1,1 @@
-https://www.deeplearning.ai/short-courses/building-towards-computer-use-with-anthropic  
+https://www.deeplearning.ai/short-courses/building-towards-computer-use-with-anthropic/  
