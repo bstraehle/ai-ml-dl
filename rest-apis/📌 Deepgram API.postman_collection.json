@@ -2,10 +2,10 @@
 	"info": {
 		"_postman_id": "d89d0edb-3887-488a-be46-45669d347393",
 		"name": "📌 Deepgram API",
-		"description": "### Prerequisites\n\n- Postman\n- Deepgram Account: [https://developers.deepgram.com/](https://developers.deepgram.com/)\n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n\n### Documentation\n\n- API: [https://developers.deepgram.com/reference/deepgram-api-overview](https://developers.deepgram.com/reference/deepgram-api-overview)\n- Models: [https://developers.deepgram.com/docs/model](https://developers.deepgram.com/docs/model)\n    \n### Models\n\nModels include Nova, Enhanced, Base, Custom, and Whisper.\n\n### About Deepgram\n\nPower your apps with real-time speech-to-text and text-to-speech APIs powered by Deepgram's voice AI models.",
+		"description": "### About Deepgram\n\nPower your apps with real-time speech-to-text and text-to-speech APIs powered by Deepgram's voice AI models.\n\n### Prerequisites\n\n- Postman Account\n    \n- Deepgram Account: [https://developers.deepgram.com/](https://developers.deepgram.com/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n    \n\n### Documentation\n\n- API: [https://developers.deepgram.com/reference/deepgram-api-overview](https://developers.deepgram.com/reference/deepgram-api-overview)\n    \n- Models: [https://developers.deepgram.com/docs/model](https://developers.deepgram.com/docs/model)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
-		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-d89d0edb-3887-488a-be46-45669d347393?action=share&source=collection_link&creator=7643177"
+		"_collection_link": "https://www.postman.com/ai-engineer/workspace/generative-ai-large-language-model-apis/collection/7643177-d89d0edb-3887-488a-be46-45669d347393?action=share&source=collection_link&creator=7643177"
 	},
 	"item": [
 		{
