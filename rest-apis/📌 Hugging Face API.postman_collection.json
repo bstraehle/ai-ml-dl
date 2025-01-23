@@ -2,10 +2,10 @@
 	"info": {
 		"_postman_id": "24e561e6-da78-4398-b374-d85057a01335",
 		"name": "📌 Hugging Face API",
-		"description": "### Prerequisites\n\n- Postman\n- Hugging Face Account: [https://huggingface.co/](https://huggingface.co/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests (on 503 due to model loading, wait and retry)\n    \n\n### Documentation\n\n- API: [https://huggingface.co/docs/api-inference/index](https://huggingface.co/docs/api-inference/index)\n- Models: [https://huggingface.co/models](https://huggingface.co/models)\n    \n\n### Models\n\n1,000,000+ open models (open-source, open-data, and/or open-weight), including Gemma (by Google, open-weight), Llama (by Meta AI, open-weight), and Mixtral (by Mistral AI, open-weight).\n\nModels can be deployed via one or more of the following options:\n\n- Serverless Inference REST API\n- Transformer Python SDK\n- Dedicated Inference Endpoint (AWS, Azure, GCP)\n- Amazon SageMaker\n- Azure ML\n- Google Vertex AI\n- Hugging Face Space\n    \n\n### About Hugging Face\n\nThe AI community building the future.",
+		"description": "### About Hugging Face\n\nThe AI community building the future.\n\n### Prerequisites\n\n- Postman Account\n    \n- Hugging Face Account: [https://huggingface.co/](https://huggingface.co/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests (on 503 due to model loading, wait and retry)\n    \n\n### Documentation\n\n- API: [https://huggingface.co/docs/api-inference/index](https://huggingface.co/docs/api-inference/index)\n    \n- Models: [https://huggingface.co/models](https://huggingface.co/models)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
-		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-24e561e6-da78-4398-b374-d85057a01335?action=share&source=collection_link&creator=7643177"
+		"_collection_link": "https://www.postman.com/ai-engineer/workspace/generative-ai-large-language-model-apis/collection/7643177-24e561e6-da78-4398-b374-d85057a01335?action=share&source=collection_link&creator=7643177"
 	},
 	"item": [
 		{
@@ -37,8 +37,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "google/gemma-7b-it",
-									"uuid": "c69839f9-accb-4d2b-9792-067c977ac5fc"
+									"value": "google/gemma-7b-it"
 								}
 							]
 						}
@@ -192,8 +191,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "CohereForAI/c4ai-command-r-plus",
-									"uuid": "2af2c672-e500-4086-9303-09121202f2ab"
+									"value": "CohereForAI/c4ai-command-r-plus"
 								}
 							]
 						}
@@ -342,8 +340,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "google/gemma-2b",
-									"uuid": "79cf96e4-c7d0-4495-a99b-ddaa4c676d64"
+									"value": "google/gemma-2b"
 								}
 							]
 						}
@@ -492,8 +489,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "google/gemma-2b-it",
-									"uuid": "ea8b2c30-9f89-4008-b97a-367961405cb2"
+									"value": "google/gemma-2b-it"
 								}
 							]
 						}
@@ -642,8 +638,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "google/gemma-7b",
-									"uuid": "24c3a725-121c-44c2-b3c2-efc7f6a8affc"
+									"value": "google/gemma-7b"
 								}
 							]
 						}
@@ -792,8 +787,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "google/gemma-7b-it",
-									"uuid": "9f9381ad-f68e-4fb1-b334-0556dfe057f9"
+									"value": "google/gemma-7b-it"
 								}
 							]
 						}
@@ -917,6 +911,405 @@
 					]
 				},
 				{
+					"name": "google/gemma-2-2b-it",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "google/gemma-2-2b-it"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "google/gemma-2-2b-it"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 26 Sep 2024 22:57:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-total-time",
+									"value": "1561"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-validation-time",
+									"value": "0"
+								},
+								{
+									"key": "vary",
+									"value": "origin, access-control-request-method, access-control-request-headers, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "x-sha",
+									"value": "299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "28"
+								},
+								{
+									"key": "x-request-id",
+									"value": "LsDUrKta8sP-rVeYJrT_u"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "15"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "1.561598877"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-inference-time",
+									"value": "1561"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "1-a10-g"
+								},
+								{
+									"key": "x-generated-tokens",
+									"value": "100"
+								},
+								{
+									"key": "x-queue-time",
+									"value": "0"
+								},
+								{
+									"key": "x-prompt-tokens",
+									"value": "8"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"generated_text\": \"What is the purpose of life? The purpose of life? What a big, confusing question! Some might say there's no single, right answer - that it's up to each individual to discover their own meaning. \\n\\nMaybe it's like finding a perfect Spotify playlist, or tasting an exquisite cheese - a unique, individual experience to savor.  And maybe, to answer this age-old question honestly, that's exactly what it is:  a lengthy, fascinating journey of discovery, where each moment holds the\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "google/gemma-2-9b-it",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "google/gemma-2-9b-it"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "google/gemma-2-9b-it"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 01:38:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "1-a10-g"
+								},
+								{
+									"key": "x-generated-tokens",
+									"value": "100"
+								},
+								{
+									"key": "vary",
+									"value": "origin, access-control-request-method, access-control-request-headers, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "28"
+								},
+								{
+									"key": "x-queue-time",
+									"value": "0"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-total-time",
+									"value": "2740"
+								},
+								{
+									"key": "x-validation-time",
+									"value": "0"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "27"
+								},
+								{
+									"key": "x-request-id",
+									"value": "wYyEtdGSYropHg1aAonPd"
+								},
+								{
+									"key": "x-sha",
+									"value": "11c9b309abf73637e4b6f9a3fa1e92e615547819"
+								},
+								{
+									"key": "x-inference-time",
+									"value": "2740"
+								},
+								{
+									"key": "x-prompt-tokens",
+									"value": "8"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "2.74043104"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"generated_text\": \"What is the purpose of life?\\n\\nAs an AI, I don't have personal beliefs or experiences to draw upon, so I can't give you a definitive answer to the purpose of life. It's a deeply philosophical question that humans have been pondering for centuries.\\n\\nDifferent people find meaning and purpose in different things:\\n\\n* **Relationships:** Some find purpose in love, family, and community.\\n* **Creativity:** Others find it in expressing themselves through art, music, writing, or other creative pursuits.\\n\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "google/gemma-2-27b-it",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "google/gemma-2-27b-it"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "google/gemma-2-27b-it"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 27 Jun 2024 23:22:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "135"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "vary",
+									"value": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "x-request-id",
+									"value": "BMRjR9SKpjtKa3G-gLSA-"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Model requires a Pro subscription; check out hf.co/pricing to learn more. Make sure to include your HF token in your query.\"\n}"
+						}
+					]
+				},
+				{
 					"name": "HuggingFaceH4/zephyr-7b-alpha",
 					"request": {
 						"method": "POST",
@@ -942,8 +1335,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "HuggingFaceH4/zephyr-7b-alpha",
-									"uuid": "44c7192a-af60-4b14-b2e3-edea3855e29d"
+									"value": "HuggingFaceH4/zephyr-7b-alpha"
 								}
 							]
 						}
@@ -1092,8 +1484,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "HuggingFaceH4/zephyr-7b-beta",
-									"uuid": "f0cc64db-9cfc-4ca9-9765-ca866246fba6"
+									"value": "HuggingFaceH4/zephyr-7b-beta"
 								}
 							]
 						}
@@ -1217,6 +1608,453 @@
 					]
 				},
 				{
+					"name": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "HuggingFaceTB/SmolLM2-1.7B-Instruct"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "HuggingFaceTB/SmolLM2-1.7B-Instruct"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 29 Dec 2024 23:51:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "422"
+								},
+								{
+									"key": "x-validation-time",
+									"value": "0"
+								},
+								{
+									"key": "x-generated-tokens",
+									"value": "1"
+								},
+								{
+									"key": "vary",
+									"value": "origin, access-control-request-method, access-control-request-headers, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "x-queue-time",
+									"value": "0"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "0.423121075"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "74"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-sha",
+									"value": "1dfd32118ef11b4998e591ed60f2a0e978e15411"
+								},
+								{
+									"key": "x-request-id",
+									"value": "xVbZ_LrBhpcfi0ioOv8qW"
+								},
+								{
+									"key": "x-total-time",
+									"value": "423"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-inference-time",
+									"value": "422"
+								},
+								{
+									"key": "x-prompt-tokens",
+									"value": "23"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "cpu"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"generated_text\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "HuggingFaceTB/SmolLM2-360M-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "HuggingFaceTB/SmolLM2-360M-Instruct"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "HuggingFaceTB/SmolLM2-360M-Instruct"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 29 Dec 2024 23:51:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-validation-time",
+									"value": "0"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "74"
+								},
+								{
+									"key": "x-request-id",
+									"value": "_wSAiGglbVxa-NjNeYOEr"
+								},
+								{
+									"key": "x-prompt-tokens",
+									"value": "23"
+								},
+								{
+									"key": "x-total-time",
+									"value": "108"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "0.108287606"
+								},
+								{
+									"key": "x-inference-time",
+									"value": "107"
+								},
+								{
+									"key": "vary",
+									"value": "origin, access-control-request-method, access-control-request-headers, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "cpu"
+								},
+								{
+									"key": "x-queue-time",
+									"value": "0"
+								},
+								{
+									"key": "x-sha",
+									"value": "f794cd508df3bc77353d6cb4799e7bc42e5187ca"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "107"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-generated-tokens",
+									"value": "1"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"generated_text\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "HuggingFaceTB/SmolLM2-135M-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "HuggingFaceTB/SmolLM2-135M-Instruct"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "HuggingFaceTB/SmolLM2-135M-Instruct"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 29 Dec 2024 23:51:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-queue-time",
+									"value": "0"
+								},
+								{
+									"key": "x-sha",
+									"value": "45dead349c328fe92a861c5162de28c8c86754e1"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "74"
+								},
+								{
+									"key": "vary",
+									"value": "origin, access-control-request-method, access-control-request-headers, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "x-total-time",
+									"value": "54"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-request-id",
+									"value": "IivKCvgpK5cCiLo8_H1h3"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "54"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "cpu"
+								},
+								{
+									"key": "x-prompt-tokens",
+									"value": "23"
+								},
+								{
+									"key": "x-inference-time",
+									"value": "54"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "0.054750916"
+								},
+								{
+									"key": "x-validation-time",
+									"value": "0"
+								},
+								{
+									"key": "x-generated-tokens",
+									"value": "1"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"generated_text\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n    }\n]"
+						}
+					]
+				},
+				{
 					"name": "meta-llama/Llama-2-7b-hf",
 					"request": {
 						"method": "POST",
@@ -1242,8 +2080,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "meta-llama/Llama-2-7b-hf",
-									"uuid": "c74940be-f76e-41ca-8ef1-b9d06b761a80"
+									"value": "meta-llama/Llama-2-7b-hf"
 								}
 							]
 						}
@@ -1344,8 +2181,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "meta-llama/Llama-2-7b-chat-hf",
-									"uuid": "a1bb452c-53ff-464d-9f18-1731493ec911"
+									"value": "meta-llama/Llama-2-7b-chat-hf"
 								}
 							]
 						}
@@ -1446,8 +2282,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "meta-llama/Llama-2-13b-chat-hf",
-									"uuid": "a0b85f64-7148-4c1c-9e68-49a8ce030079"
+									"value": "meta-llama/Llama-2-13b-chat-hf"
 								}
 							]
 						}
@@ -1548,8 +2383,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "meta-llama/Llama-2-70b-chat-hf",
-									"uuid": "2ac60799-314e-44e1-a863-82e815251780"
+									"value": "meta-llama/Llama-2-70b-chat-hf"
 								}
 							]
 						}
@@ -1631,7 +2465,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+							"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1650,8 +2484,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "meta-llama/Meta-Llama-3-8B-Instruct",
-									"uuid": "e78e0f27-d404-49e9-9b73-27debc2de761"
+									"value": "meta-llama/Meta-Llama-3-8B-Instruct"
 								}
 							]
 						}
@@ -1664,7 +2497,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+									"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1694,7 +2527,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Thu, 25 Apr 2024 03:28:34 GMT"
+									"value": "Sun, 29 Dec 2024 23:53:15 GMT"
 								},
 								{
 									"key": "Content-Type",
@@ -1709,16 +2542,40 @@
 									"value": "keep-alive"
 								},
 								{
+									"key": "x-validation-time",
+									"value": "0"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "74"
+								},
+								{
+									"key": "x-request-id",
+									"value": "C9KCkFZo7NWs2vVhbpKo_"
+								},
+								{
+									"key": "x-total-time",
+									"value": "2027"
+								},
+								{
+									"key": "x-prompt-tokens",
+									"value": "24"
+								},
+								{
 									"key": "vary",
-									"value": "origin, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+									"value": "origin, access-control-request-method, access-control-request-headers, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
 								},
 								{
-									"key": "x-generated-tokens",
-									"value": "100"
+									"key": "x-inference-time",
+									"value": "2027"
 								},
 								{
-									"key": "access-control-allow-origin",
-									"value": "*"
+									"key": "x-compute-time",
+									"value": "2.027772307"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "2-a10-g"
 								},
 								{
 									"key": "x-queue-time",
@@ -1726,62 +2583,38 @@
 								},
 								{
 									"key": "x-sha",
-									"value": "e5e23bbe8e749ef0efcf16cad411a7d23bd23298"
-								},
-								{
-									"key": "x-total-time",
-									"value": "1964"
-								},
-								{
-									"key": "x-compute-type",
-									"value": "2-a10-g"
-								},
-								{
-									"key": "x-compute-characters",
-									"value": "28"
-								},
-								{
-									"key": "x-validation-time",
-									"value": "0"
-								},
-								{
-									"key": "x-time-per-token",
-									"value": "19"
-								},
-								{
-									"key": "x-prompt-tokens",
-									"value": "8"
-								},
-								{
-									"key": "x-compute-time",
-									"value": "1.964613324"
-								},
-								{
-									"key": "x-inference-time",
-									"value": "1964"
-								},
-								{
-									"key": "x-request-id",
-									"value": "kLzwEIwBKCDBWJzTKN-5e"
+									"value": "5f0b02c75b57c5855da9ae460ce51323ea669d8a"
 								},
 								{
 									"key": "access-control-allow-credentials",
 									"value": "true"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "20"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-generated-tokens",
+									"value": "100"
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"generated_text\": \"What is the purpose of life? The search for the purpose of life is a universal question that has puzzled philosophers, scholars, and ordinary individuals for centuries. There is no one answer that satisfies all people, as our purposes in life are shaped by our unique experiences, beliefs, values, and circumstances.\\nIn a conversation with my students, we discussed the concept of purpose and how it relates to their own lives. Some of them shared that their purpose in life is to make a difference, to help others, or to pursue their passions and\"\n    }\n]"
+							"body": "[\n    {\n        \"generated_text\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?? No, it's not 3 hours, it's not 9 hours...?\\nThink about it... You can dry them all in the same spot in the sun, right? It's not like you need to have 3 shirts all over the house to dry them. You can just put one, two, three shirts there... When all of them are done, they are all done! So, if it takes 1 hour to dry 1 shirt, it takes 1 hour to\"\n    }\n]"
 						}
 					]
 				},
 				{
-					"name": "meta-llama/Meta-Llama-3-70B-Instruct",
+					"name": "meta-llama/Llama-3.2-1B-Instruct",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+							"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1800,21 +2633,20 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "meta-llama/Meta-Llama-3-70B-Instruct",
-									"uuid": "04271229-8b0d-4adf-8bda-a6bb75cf128f"
+									"value": "meta-llama/Llama-3.2-1B-Instruct"
 								}
 							]
 						}
 					},
 					"response": [
 						{
-							"name": "Bad Request",
+							"name": "OK",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"inputs\": \"What is the purpose of life?\"\n}",
+									"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1833,46 +2665,392 @@
 									"variable": [
 										{
 											"key": "model",
-											"value": "meta-llama/Meta-Llama-3-70B-Instruct"
+											"value": "meta-llama/Llama-3.2-1B-Instruct"
 										}
 									]
 								}
 							},
-							"status": "Bad Request",
-							"code": 400,
+							"status": "OK",
+							"code": 200,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
 									"key": "Date",
-									"value": "Thu, 25 Apr 2024 03:28:55 GMT"
+									"value": "Thu, 17 Oct 2024 14:02:21 GMT"
 								},
 								{
 									"key": "Content-Type",
 									"value": "application/json"
 								},
 								{
-									"key": "Content-Length",
-									"value": "135"
+									"key": "Transfer-Encoding",
+									"value": "chunked"
 								},
 								{
 									"key": "Connection",
 									"value": "keep-alive"
 								},
 								{
-									"key": "vary",
-									"value": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+									"key": "x-inference-time",
+									"value": "729"
+								},
+								{
+									"key": "x-generated-tokens",
+									"value": "100"
 								},
 								{
 									"key": "x-request-id",
-									"value": "V-j7Os__VWtY7AKopPA3g"
+									"value": "RohpEkyd8D1mid5e5pC8Z"
 								},
 								{
 									"key": "access-control-allow-credentials",
 									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-sha",
+									"value": "e9f8effbab1cbdc515c11ee6e098e3d5a9f51e14"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "74"
+								},
+								{
+									"key": "x-total-time",
+									"value": "729"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "1-a10-g"
+								},
+								{
+									"key": "x-prompt-tokens",
+									"value": "24"
+								},
+								{
+									"key": "x-validation-time",
+									"value": "0"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "0.729716473"
+								},
+								{
+									"key": "x-queue-time",
+									"value": "0"
+								},
+								{
+									"key": "vary",
+									"value": "origin, access-control-request-method, access-control-request-headers, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "7"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"error\": \"Model requires a Pro subscription; check out hf.co/pricing to learn more. Make sure to include your HF token in your query.\"\n}"
+							"body": "[\n    {\n        \"generated_text\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take? 1 hour?\\n\\n## Step 1: Understand the rate of drying for one shirt\\nDrying one shirt in one hour means that one shirt takes one hour to dry.\\n\\n## Step 2: Calculate the drying time for three shirts\\nTo find the time it takes for three shirts to dry, multiply the time it takes for one shirt to dry (one hour) by the number of shirts (three). three_shirts_dry_time = 1 hour * 3.\\n\\n## Step 3\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "meta-llama/Llama-3.2-3B-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "meta-llama/Llama-3.2-3B-Instruct"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "meta-llama/Llama-3.2-3B-Instruct"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 17 Oct 2024 14:02:35 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-generated-tokens",
+									"value": "100"
+								},
+								{
+									"key": "x-validation-time",
+									"value": "0"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "16"
+								},
+								{
+									"key": "x-inference-time",
+									"value": "1629"
+								},
+								{
+									"key": "vary",
+									"value": "origin, access-control-request-method, access-control-request-headers, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "74"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "1-a10-g"
+								},
+								{
+									"key": "x-queue-time",
+									"value": "0"
+								},
+								{
+									"key": "x-prompt-tokens",
+									"value": "24"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-sha",
+									"value": "392a143b624368100f77a3eafaa4a2468ba50a72"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "1.630335358"
+								},
+								{
+									"key": "x-request-id",
+									"value": "NOE2lDlkmYdfzSOMPmvp6"
+								},
+								{
+									"key": "x-total-time",
+									"value": "1630"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"generated_text\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take? 2 shirts take 2 hours\\nThe total amount of time in hours is the sum of the time it takes to dry one shirt and again for each of the additional 2 shirts, so it is either equal to 3 or 4.\\nIf 3 shirts take 3 hours, it would take 1 hour to finish drying the sun of a shirt, which would take all afternoon.\\nWhen 3 shirts take 4 hours and 4 banners team Jacks feeding streaming fork?\\nIf\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "meta-llama/Llama-3.2-11B-Vision-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "meta-llama/Llama-3.2-11B-Vision-Instruct"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "meta-llama/Llama-3.2-11B-Vision-Instruct"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 17 Oct 2024 14:02:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-total-time",
+									"value": "2109"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-prompt-tokens",
+									"value": "24"
+								},
+								{
+									"key": "x-queue-time",
+									"value": "657"
+								},
+								{
+									"key": "x-inference-time",
+									"value": "1451"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "74"
+								},
+								{
+									"key": "x-generated-tokens",
+									"value": "100"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "14"
+								},
+								{
+									"key": "x-validation-time",
+									"value": "0"
+								},
+								{
+									"key": "vary",
+									"value": "origin, access-control-request-method, access-control-request-headers, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "x-request-id",
+									"value": "xhqJoxCqKV-MaLNFmJXUS"
+								},
+								{
+									"key": "x-sha",
+									"value": "cee5b78e6faed15d5f2e6d8a654fd5b247c0d5ca"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "4-a10-g"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "2.109400274"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"generated_text\": \" A) 4 hours B) 5 hours C) 7 hours D) 10 hours\\nThe correct answer is C) 7 hours.\\nIf it takes 1 hour to dry one shirt and you need to dry 3 shirts, you can assume that the 3 shirts will form a single unit, known in math as a \\\"solid\\\" or \\\"bar.\\\" Each shirt may now take a variable amount of time to dry, depending on where it originally was and how close it is\"\n    }\n]"
 						}
 					]
 				},
@@ -1902,8 +3080,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "microsoft/phi-1_5",
-									"uuid": "82d33db8-538a-4830-8344-48c50546d47b"
+									"value": "microsoft/phi-1_5"
 								}
 							]
 						}
@@ -2028,8 +3205,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "microsoft/Phi-3-mini-4k-instruct",
-									"uuid": "cec07d8f-eccc-4f61-b568-780cdbb0d40a"
+									"value": "microsoft/Phi-3-mini-4k-instruct"
 								}
 							]
 						}
@@ -2153,6 +3329,39 @@
 					]
 				},
 				{
+					"name": "microsoft/phi-4",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "microsoft/phi-4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "mistralai/Mistral-7B-v0.1",
 					"request": {
 						"method": "POST",
@@ -2178,8 +3387,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "mistralai/Mistral-7B-v0.1",
-									"uuid": "61435225-046b-42f0-ab28-3b6ac9d89239"
+									"value": "mistralai/Mistral-7B-v0.1"
 								}
 							]
 						}
@@ -2328,8 +3536,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "mistralai/Mistral-7B-Instruct-v0.1",
-									"uuid": "7f8799b5-600a-4bb0-b418-f055ee2c8697"
+									"value": "mistralai/Mistral-7B-Instruct-v0.1"
 								}
 							]
 						}
@@ -2478,8 +3685,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "mistralai/Mistral-7B-Instruct-v0.2",
-									"uuid": "f708e70a-f71d-428a-baed-ce650605b204"
+									"value": "mistralai/Mistral-7B-Instruct-v0.2"
 								}
 							]
 						}
@@ -2628,8 +3834,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "mistralai/Mixtral-8x7B-Instruct-v0.1",
-									"uuid": "3c005c86-6797-410c-8a7b-2cd3152074f9"
+									"value": "mistralai/Mixtral-8x7B-Instruct-v0.1"
 								}
 							]
 						}
@@ -2751,6 +3956,304 @@
 							"body": "[\n    {\n        \"generated_text\": \"What is the purpose of life? How can we find real happiness? Why are we here? When are we living and when are we just existing? Do we realize life in full joy to experience her wonders, or just at a time when we are alone? Are we all looking for our place in life? Do we know what it is? How many times in life have to experience depression to learn that we are on the right path, that things are not as complicated as we thought and that the answer can actually be so simple\"\n    }\n]"
 						}
 					]
+				},
+				{
+					"name": "Qwen/Qwen2.5-Coder-32B-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "Qwen/Qwen2.5-Coder-32B-Instruct"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "Qwen/Qwen2.5-Coder-32B-Instruct"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 01:43:22 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-generated-tokens",
+									"value": "67"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "74"
+								},
+								{
+									"key": "x-prompt-tokens",
+									"value": "23"
+								},
+								{
+									"key": "x-validation-time",
+									"value": "0"
+								},
+								{
+									"key": "x-total-time",
+									"value": "1559"
+								},
+								{
+									"key": "x-sha",
+									"value": "d7a414c7c6297f60dcf1b5a14b7e5f25864e3181"
+								},
+								{
+									"key": "x-request-id",
+									"value": "4Y2ghrn6P3KTL7eGrnFJU"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "4-a100"
+								},
+								{
+									"key": "x-queue-time",
+									"value": "8"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "1.559279978"
+								},
+								{
+									"key": "vary",
+									"value": "origin, access-control-request-method, access-control-request-headers, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-inference-time",
+									"value": "1550"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "23"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"generated_text\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take? Assuming all 3 shirts can dry simultaneously without affecting each other, drying three shirts in the sun would still take just 1 hour. Each shirt dries independently, so the time required doesn't increase with the number of shirts, as long as they are all exposed to the same conditions (sunlight, air flow, etc.).\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Qwen/Qwen2.5-72B-Instruct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "Qwen/Qwen2.5-72B-Instruct"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"inputs\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "Qwen/Qwen2.5-72B-Instruct"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 17 Oct 2024 14:01:29 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-sha",
+									"value": "d3d951150c1e5848237cd6a7ad11df4836aee842"
+								},
+								{
+									"key": "vary",
+									"value": "origin, access-control-request-method, access-control-request-headers, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "4-a100"
+								},
+								{
+									"key": "x-generated-tokens",
+									"value": "100"
+								},
+								{
+									"key": "x-total-time",
+									"value": "3613"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-prompt-tokens",
+									"value": "23"
+								},
+								{
+									"key": "x-compute-characters",
+									"value": "74"
+								},
+								{
+									"key": "x-request-id",
+									"value": "tQTwzoLItAD0uFNUs6JeO"
+								},
+								{
+									"key": "x-inference-time",
+									"value": "3596"
+								},
+								{
+									"key": "x-validation-time",
+									"value": "0"
+								},
+								{
+									"key": "x-queue-time",
+									"value": "16"
+								},
+								{
+									"key": "x-time-per-token",
+									"value": "35"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "3.613261179"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"generated_text\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take? Drying clothes in the sun doesn't depend on the number of shirts, assuming they all have enough space and air circulation. If you can spread out all 3 shirts so that they are not overlapping and each has adequate exposure to the sun and air, they will all dry in about 1 hour.\\n\\nHowever, if the space is limited and the shirts are bunched together or overlapping, they might take longer to dry. But under optimal conditions, 3 shirts will also take 1 hour to\"\n    }\n]"
+						}
+					]
 				}
 			]
 		},
@@ -2783,8 +4286,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "facebook/fastspeech2-en-ljspeech",
-									"uuid": "e7517f8f-1bcc-4603-b63e-3d67b5b8cd82"
+									"value": "facebook/fastspeech2-en-ljspeech"
 								}
 							]
 						}
@@ -2823,8 +4325,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "openai/whisper-large-v3",
-									"uuid": "cc26d5fd-8966-47c1-9500-e1e8694dcf60"
+									"value": "openai/whisper-large-v3"
 								}
 							]
 						}
@@ -2923,6 +4424,133 @@
 							"body": "{\n    \"text\": \" Hello, how can I help you today?\"\n}"
 						}
 					]
+				},
+				{
+					"name": "openai/whisper-large-v3-turbo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "data-binary",
+									"type": "file",
+									"src": "postman-cloud:///1ef86bd4-3ec8-4650-843d-344333e34c48"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "openai/whisper-large-v3-turbo"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "data-binary",
+											"type": "file",
+											"src": "postman-cloud:///1ef86bd4-3ec8-4650-843d-344333e34c48"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/models/:model",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"models",
+										":model"
+									],
+									"variable": [
+										{
+											"key": "model",
+											"value": "openai/whisper-large-v3-turbo"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 10 Oct 2024 04:07:58 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "access-control-expose-headers",
+									"value": "x-compute-type, x-compute-time"
+								},
+								{
+									"key": "x-compute-time",
+									"value": "0.283"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "x-compute-audio-length",
+									"value": "2.0375625"
+								},
+								{
+									"key": "vary",
+									"value": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+								},
+								{
+									"key": "x-sha",
+									"value": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-request-id",
+									"value": "SIZQndjP9iLoPGFul6I6L"
+								},
+								{
+									"key": "x-compute-type",
+									"value": "gpu"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"text\": \" Hello, how can I help you today?\"\n}"
+						}
+					]
 				}
 			]
 		},
@@ -2930,13 +4558,13 @@
 			"name": "Text-to-Image",
 			"item": [
 				{
-					"name": "stabilityai/stable-diffusion-xl-base-1.0",
+					"name": "black-forest-labs/FLUX.1-dev",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"inputs\": \"Astronaut riding a horse\"\n}",
+							"raw": "{\n    \"inputs\": \"Expressionist painting of an astronaut walking on an alien planet with colorful balloons floating in the background. The scene is lit by soft lighting from the stars accentuating the presence of the astronaut in the vastness of space.\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2955,8 +4583,172 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "stabilityai/stable-diffusion-xl-base-1.0",
-									"uuid": "06f719e4-f0c7-4c59-9128-4cdd62ea2d9c"
+									"value": "black-forest-labs/FLUX.1-dev"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "black-forest-labs/FLUX.1-schnell",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"Expressionist painting of an astronaut walking on an alien planet with colorful balloons floating in the background. The scene is lit by soft lighting from the stars accentuating the presence of the astronaut in the vastness of space.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "black-forest-labs/FLUX.1-schnell"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "stabilityai/stable-diffusion-xl-base-1.0",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"Expressionist painting of an astronaut walking on an alien planet with colorful balloons floating in the background. The scene is lit by soft lighting from the stars accentuating the presence of the astronaut in the vastness of space.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "stabilityai/stable-diffusion-xl-base-1.0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "stabilityai/stable-diffusion-3.5-large",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"Expressionist painting of an astronaut walking on an alien planet with colorful balloons floating in the background. The scene is lit by soft lighting from the stars accentuating the presence of the astronaut in the vastness of space.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "stabilityai/stable-diffusion-3.5-large"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "stabilityai/stable-diffusion-3.5-large-turbo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"Expressionist painting of an astronaut walking on an alien planet with colorful balloons floating in the background. The scene is lit by soft lighting from the stars accentuating the presence of the astronaut in the vastness of space.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "stabilityai/stable-diffusion-3.5-large-turbo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "stabilityai/stable-diffusion-3.5-medium",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputs\": \"Expressionist painting of an astronaut walking on an alien planet with colorful balloons floating in the background. The scene is lit by soft lighting from the stars accentuating the presence of the astronaut in the vastness of space.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/models/:model",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"models",
+								":model"
+							],
+							"variable": [
+								{
+									"key": "model",
+									"value": "stabilityai/stable-diffusion-3.5-medium"
 								}
 							]
 						}
@@ -2994,8 +4786,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "Salesforce/blip-image-captioning-large",
-									"uuid": "9bdca94e-ff00-44d9-b06a-dc26b7de259f"
+									"value": "Salesforce/blip-image-captioning-large"
 								}
 							]
 						}
@@ -3125,8 +4916,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "facebook/musicgen-small",
-									"uuid": "e578eb52-1dd5-47d6-883e-e44c7593ab7e"
+									"value": "facebook/musicgen-small"
 								}
 							]
 						}
@@ -3159,8 +4949,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "facebook/musicgen-stereo-large",
-									"uuid": "096f388c-4423-43cb-a503-72c7b926aa3d"
+									"value": "facebook/musicgen-stereo-large"
 								}
 							]
 						}
@@ -3195,8 +4984,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "facebook/detr-resnet-50",
-									"uuid": "cd0e3694-606c-441a-8a99-f760bb3d332e"
+									"value": "facebook/detr-resnet-50"
 								}
 							]
 						}
@@ -3311,8 +5099,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "facebook/bart-large-cnn",
-									"uuid": "5fbd593c-ec10-48a6-aa24-43837a79f79b"
+									"value": "facebook/bart-large-cnn"
 								}
 							]
 						}
@@ -3442,8 +5229,7 @@
 							"variable": [
 								{
 									"key": "model",
-									"value": "microsoft/tapex-large-finetuned-wtq",
-									"uuid": "1c22a4fb-a0ae-420c-adc9-cb3dd13506de"
+									"value": "microsoft/tapex-large-finetuned-wtq"
 								}
 							]
 						}

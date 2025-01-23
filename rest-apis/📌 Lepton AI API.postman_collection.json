@@ -2,10 +2,10 @@
 	"info": {
 		"_postman_id": "6a0ccfd6-ca7e-403e-91bc-40cad9906a1a",
 		"name": "📌 Lepton AI API",
-		"description": "### Prerequisites\n\n- Postman\n- Lepton AI Account: [https://dashboard.lepton.ai/](https://dashboard.lepton.ai/)\n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n\n### Documentation\n\n- API: [https://www.lepton.ai/references/llm_models](https://www.lepton.ai/references/llm_models)\n- Models: [https://www.lepton.ai/references/llm_models](https://www.lepton.ai/references/llm_models)\n\n### Models\n\nModels include Llama (by Meta AI, open-weight), Mixtral (by Mistral AI, open-weight), SDXL (by Stability AI), and more.\n\n### About Lepton AI\n\nRun AI applications efficiently, at scale, and in minutes with a cloud native platform.",
+		"description": "### About Lepton AI\n\nRun AI applications efficiently, at scale, and in minutes with a cloud native platform.\n\n### Prerequisites\n\n- Postman Account\n    \n- Lepton AI Account: [https://portal.lepton.ai/login](https://portal.lepton.ai/login)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n    \n\n### Documentation\n\n- API: [https://www.lepton.ai/references/llm_models](https://www.lepton.ai/references/llm_models)\n    \n- Models: [https://www.lepton.ai/references/llm_models#model-list](https://www.lepton.ai/references/llm_models#model-list)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
-		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-6a0ccfd6-ca7e-403e-91bc-40cad9906a1a?action=share&source=collection_link&creator=7643177"
+		"_collection_link": "https://www.postman.com/ai-engineer/workspace/generative-ai-large-language-model-apis/collection/7643177-6a0ccfd6-ca7e-403e-91bc-40cad9906a1a?action=share&source=collection_link&creator=7643177"
 	},
 	"item": [
 		{

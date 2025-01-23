@@ -2,10 +2,10 @@
 	"info": {
 		"_postman_id": "9730cbb3-9f2f-4e8c-b2fc-ed975ea41d36",
 		"name": "📌 Groq API",
-		"description": "### Prerequisites\n\n- Postman\n- Groq Account: [https://console.groq.com/](https://console.groq.com/)\n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n\n### Documentation\n\n- API: [https://console.groq.com/docs/quickstart](https://console.groq.com/docs/quickstart)\n- Models: [https://console.groq.com/docs/models](https://console.groq.com/docs/models)\n    \n### Models\n\nModels include Gemma (by Google, open-weight), Llama (by Meta AI, open-weight) and Mixtral (by Mistral AI, open-weight).\n\n### About Groq\n\nGroq is on a mission to set the standard for GenAI inference speed, helping real-time AI applications come to life today.",
+		"description": "### About\n\nGroq is on a mission to set the standard for GenAI inference speed, helping real-time AI applications come to life today.\n\n### Prerequisites\n\n- Postman Account\n    \n- Groq Account: [https://console.groq.com/](https://console.groq.com/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n    \n\n### Documentation\n\n- API: [https://console.groq.com/docs/quickstart](https://console.groq.com/docs/quickstart)\n    \n- Models: [https://console.groq.com/docs/models](https://console.groq.com/docs/models)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
-		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-9730cbb3-9f2f-4e8c-b2fc-ed975ea41d36?action=share&source=collection_link&creator=7643177"
+		"_collection_link": "https://www.postman.com/ai-engineer/workspace/generative-ai-large-language-model-apis/collection/7643177-9730cbb3-9f2f-4e8c-b2fc-ed975ea41d36?action=share&source=collection_link&creator=7643177"
 	},
 	"item": [
 		{
@@ -969,6 +969,859 @@
 					]
 				},
 				{
+					"name": "llama-3.1-8b-instant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"llama-3.1-8b-instant\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"llama-3.1-8b-instant\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 03:17:10 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "private, max-age=0, no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-ratelimit-limit-requests",
+									"value": "14400"
+								},
+								{
+									"key": "x-ratelimit-limit-tokens",
+									"value": "131072"
+								},
+								{
+									"key": "x-ratelimit-remaining-requests",
+									"value": "14399"
+								},
+								{
+									"key": "x-ratelimit-remaining-tokens",
+									"value": "131057"
+								},
+								{
+									"key": "x-ratelimit-reset-requests",
+									"value": "6s"
+								},
+								{
+									"key": "x-ratelimit-reset-tokens",
+									"value": "6.866455ms"
+								},
+								{
+									"key": "x-request-id",
+									"value": "req_01j3hbw7xgf2frvg69afq6khyq"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "__cf_bm=U4hs94qCSJZhWielJE_Ab6I91SAMWyNOrU33qAfa8sM-1721791030-1.0.1.1-D8NkqC1BQtMsNmoV58nxP5QJjn5QO_asQOzxly.8CMQeIP.Wd_ocd7ro5DvacE1_aLU2dk1VxmclY2gg9_OICA; path=/; expires=Wed, 24-Jul-24 03:47:10 GMT; domain=.groq.com; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8a80c16c1f0b2b58-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-f7c83628-8db7-4ac8-83c0-8744cb85b033\",\n    \"object\": \"chat.completion\",\n    \"created\": 1721791030,\n    \"model\": \"llama-3.1-8b-instant\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low-latency Large Language Models (LLMs) are a type of artificial intelligence (AI) model that can process and respond to user input in real-time, or near-real-time. The importance of low-latency LLMs lies in their ability to enable fast and efficient human-computer interaction, which has numerous applications in various fields. Here are some key reasons why low-latency LLMs are crucial:\\n\\n1. **Real-time conversation**: Low-latency LLMs enable real-time conversation, allowing users to engage in natural-sounding dialogue with the AI model. This is particularly important in applications like customer service, where rapid response times are critical.\\n2. **Improved user experience**: Fast response times create a more engaging and interactive experience for users. This is especially important in applications like virtual assistants, chatbots, and language translation tools.\\n3. **Increased productivity**: Low-latency LLMs can automate routine tasks, freeing up human time for more complex and creative work. For example, in customer service, AI-powered chatbots can handle simple inquiries, reducing the workload for human customer support agents.\\n4. **Enhanced decision-making**: Low-latency LLMs can provide real-time insights and recommendations, enabling users to make informed decisions quickly. This is particularly important in applications like finance, healthcare, and education.\\n5. **Competitive advantage**: Companies that deploy low-latency LLMs can gain a competitive advantage over those that do not. This is because fast and efficient human-computer interaction can lead to increased customer satisfaction, loyalty, and revenue growth.\\n6. **Scalability**: Low-latency LLMs can handle high volumes of user input, making them ideal for applications with a large user base, such as social media platforms, online marketplaces, and gaming platforms.\\n7. **Edge computing**: Low-latency LLMs can be deployed on edge devices, such as smartphones, tablets, and smart home devices, enabling faster processing and reduced latency.\\n8. **Improved accessibility**: Low-latency LLMs can provide equal access to language models for people with disabilities, such as those with motor impairments or visual impairments.\\n9. **New business models**: Low-latency LLMs can enable new business models, such as real-time language translation, conversational commerce, and interactive storytelling.\\n10. **Scientific research**: Low-latency LLMs can facilitate scientific research in areas like cognitive psychology, neuroscience, and linguistics, by enabling researchers to collect and analyze large amounts of data in real-time.\\n\\nTo achieve low latency, LLMs can be optimized using various techniques, such as:\\n\\n1. **Model pruning**: Removing unnecessary parameters to reduce computational overhead.\\n2. **Knowledge distillation**: Transferring knowledge from a large model to a smaller one.\\n3. **Quantization**: Reducing the precision of model weights and activations.\\n4. **Parallel processing**: Utilizing multiple processing units to speed up computations.\\n5. **Caching**: Storing frequently accessed data in memory to reduce latency.\\n\\nIn summary, low-latency LLMs are essential for enabling fast and efficient human-computer interaction, which has numerous applications in various fields. The importance of low-latency LLMs lies in their ability to improve user experience, increase productivity, and provide competitive advantage.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 20,\n        \"prompt_time\": 0.005524544,\n        \"completion_tokens\": 671,\n        \"completion_time\": 0.894666667,\n        \"total_tokens\": 691,\n        \"total_time\": 0.900191211\n    },\n    \"system_fingerprint\": \"fp_9cb648b966\",\n    \"x_groq\": {\n        \"id\": \"req_01j3hbw7xgf2frvg69afq6khyq\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "llama-3.1-70b-versatile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"llama-3.1-70b-versatile\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Explain the importance of low latency LLMs\"\r\n        }\r\n    ],\r\n    \"model\": \"llama-3.1-70b-versatile\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 03:17:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "private, max-age=0, no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-ratelimit-limit-requests",
+									"value": "14400"
+								},
+								{
+									"key": "x-ratelimit-limit-tokens",
+									"value": "131072"
+								},
+								{
+									"key": "x-ratelimit-remaining-requests",
+									"value": "14399"
+								},
+								{
+									"key": "x-ratelimit-remaining-tokens",
+									"value": "131057"
+								},
+								{
+									"key": "x-ratelimit-reset-requests",
+									"value": "6s"
+								},
+								{
+									"key": "x-ratelimit-reset-tokens",
+									"value": "6.866455ms"
+								},
+								{
+									"key": "x-request-id",
+									"value": "req_01j3hbwcpje0xbzh0m2rv1rhkp"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8a80c18ac9412b58-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-67704876-b0d2-46a1-9669-731b0d662747\",\n    \"object\": \"chat.completion\",\n    \"created\": 1721791050,\n    \"model\": \"llama-3.1-70b-versatile\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low-latency Large Language Models (LLMs) are crucial in various applications where real-time or near-real-time responses are necessary. The importance of low-latency LLMs can be understood from several perspectives:\\n\\n1. **Real-time Applications**: In applications like conversational AI, customer service chatbots, or virtual assistants, users expect immediate responses. Low-latency LLMs ensure that these systems can provide quick answers, improving user experience and engagement.\\n\\n2. **Efficient Resource Utilization**: High-latency models can lead to inefficiencies in resource utilization. For instance, if a model takes too long to respond, it may require additional infrastructure or computing power to handle the workload, increasing operational costs. Low-latency models help in optimizing resource utilization by providing faster responses.\\n\\n3. **Enhanced User Experience**: Fast response times are essential for maintaining user interest and engagement. Low-latency LLMs enable applications to provide instant feedback, enhancing the overall user experience and encouraging users to continue interacting with the system.\\n\\n4. **Competitive Advantage**: In a competitive market, applications with faster response times can gain a significant advantage. Low-latency LLMs enable businesses to differentiate themselves by providing faster and more responsive services.\\n\\n5. **Improved Accessibility**: Low-latency LLMs can improve accessibility for users with disabilities. For instance, in speech-to-text applications, fast response times can facilitate real-time communication for individuals who rely on these systems.\\n\\n6. **Critical Applications**: In critical applications like emergency services, healthcare, or finance, low-latency LLMs are essential for timely decision-making. Delayed responses can have severe consequences in these domains, making low-latency models a necessity.\\n\\n7. **Scalability**: Low-latency LLMs can handle a large volume of requests more efficiently, making them suitable for large-scale applications. This scalability is critical for businesses that experience sudden spikes in traffic or usage.\\n\\nTo achieve low latency, LLMs can be optimized through various techniques, including:\\n\\n* **Model pruning**: Removing redundant or unnecessary model components to reduce computational requirements.\\n* **Knowledge distillation**: Transferring knowledge from a larger model to a smaller, more efficient model.\\n* **Quantization**: Representing model weights and activations using lower-precision data types to reduce computational requirements.\\n* **Specialized hardware**: Utilizing specialized hardware, like graphics processing units (GPUs) or tensor processing units (TPUs), to accelerate model inference.\\n\\nIn summary, low-latency LLMs are crucial for various applications where fast response times are essential. By providing quick and efficient responses, low-latency models can enhance user experience, improve accessibility, and offer a competitive advantage in the market.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 20,\n        \"prompt_time\": 0.010104623,\n        \"completion_tokens\": 546,\n        \"completion_time\": 2.184254008,\n        \"total_tokens\": 566,\n        \"total_time\": 2.194358631\n    },\n    \"system_fingerprint\": \"fp_b3ae7e594e\",\n    \"x_groq\": {\n        \"id\": \"req_01j3hbwcpje0xbzh0m2rv1rhkp\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "llama-3.2-1b-preview",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"llama-3.2-1b-preview\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"llama-3.2-1b-preview\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 27 Sep 2024 00:40:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "private, max-age=0, no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-ratelimit-limit-requests",
+									"value": "7000"
+								},
+								{
+									"key": "x-ratelimit-limit-tokens",
+									"value": "7000"
+								},
+								{
+									"key": "x-ratelimit-remaining-requests",
+									"value": "6999"
+								},
+								{
+									"key": "x-ratelimit-remaining-tokens",
+									"value": "6977"
+								},
+								{
+									"key": "x-ratelimit-reset-requests",
+									"value": "12.342857142s"
+								},
+								{
+									"key": "x-ratelimit-reset-tokens",
+									"value": "197.142857ms"
+								},
+								{
+									"key": "x-request-id",
+									"value": "req_01j8rer7reep0azpghf0x9vjgw"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8c97716b185408f0-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-40b0e8d9-90f0-472c-b746-a75655e03a2c\",\n    \"object\": \"chat.completion\",\n    \"created\": 1727397633,\n    \"model\": \"llama-3.2-1b-preview\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"If one shirt takes 1 hour to dry in the sun, you can calculate the time it takes to dry 3 shirts by multiplying the time it takes to dry one shirt by 3.\\n\\n1 hour * 3 = 3 hours\\n\\nSo, it would take 3 hours to dry 3 shirts.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"queue_time\": 0.0017541049999999989,\n        \"prompt_tokens\": 58,\n        \"prompt_time\": 0.009800114,\n        \"completion_tokens\": 64,\n        \"completion_time\": 0.031309867,\n        \"total_tokens\": 122,\n        \"total_time\": 0.041109981\n    },\n    \"system_fingerprint\": \"fp_e9a4952513\",\n    \"x_groq\": {\n        \"id\": \"req_01j8rer7reep0azpghf0x9vjgw\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "llama-3.2-3b-preview",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"llama-3.2-3b-preview\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"llama-3.2-3b-preview\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 26 Sep 2024 01:04:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "private, max-age=0, no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-ratelimit-limit-requests",
+									"value": "7000"
+								},
+								{
+									"key": "x-ratelimit-limit-tokens",
+									"value": "7000"
+								},
+								{
+									"key": "x-ratelimit-remaining-requests",
+									"value": "6999"
+								},
+								{
+									"key": "x-ratelimit-remaining-tokens",
+									"value": "6977"
+								},
+								{
+									"key": "x-ratelimit-reset-requests",
+									"value": "12.342857142s"
+								},
+								{
+									"key": "x-ratelimit-reset-tokens",
+									"value": "197.142857ms"
+								},
+								{
+									"key": "x-request-id",
+									"value": "req_01j8nxq0rhe94t1ftfhknjz8da"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8c8f56d7ff087c2a-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-18588e56-0c21-48e6-a025-6b04eeb70a26\",\n    \"object\": \"chat.completion\",\n    \"created\": 1727312659,\n    \"model\": \"llama-3.2-3b-preview\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"To find the time it takes to dry 3 shirts in the sun, we need to multiply the time it takes to dry 1 shirt by 3.\\n\\nTime to dry 1 shirt = 1 hour\\nTime to dry 3 shirts = 1 hour * 3\\nTime to dry 3 shirts = 3 hours\\n\\nSo, it would take 3 hours to dry 3 shirts in the sun.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"queue_time\": 0.0028672740000000013,\n        \"prompt_tokens\": 58,\n        \"prompt_time\": 0.010438336,\n        \"completion_tokens\": 86,\n        \"completion_time\": 0.060691471,\n        \"total_tokens\": 144,\n        \"total_time\": 0.071129807\n    },\n    \"system_fingerprint\": \"fp_a926bfdce1\",\n    \"x_groq\": {\n        \"id\": \"req_01j8nxq0rhe94t1ftfhknjz8da\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "llama-3.2-11b-vision-preview",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": [\r\n                {\r\n                    \"type\": \"text\",\r\n                    \"text\": \"What's in this image?\"\r\n                },\r\n                {\r\n                    \"type\": \"image_url\",\r\n                    \"image_url\": {\r\n                        \"url\": \"https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/multimodal-ai/architecture.png\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"role\": \"assistant\",\r\n            \"content\": \"\"\r\n        }\r\n    ],\r\n    \"model\": \"llama-3.2-11b-vision-preview\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": [\r\n                {\r\n                    \"type\": \"text\",\r\n                    \"text\": \"What's in this image?\"\r\n                },\r\n                {\r\n                    \"type\": \"image_url\",\r\n                    \"image_url\": {\r\n                        \"url\": \"https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/multimodal-ai/architecture.png\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"role\": \"assistant\",\r\n            \"content\": \"\"\r\n        }\r\n    ],\r\n    \"model\": \"llama-3.2-11b-vision-preview\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 13 Oct 2024 03:19:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "private, max-age=0, no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-ratelimit-limit-requests",
+									"value": "7000"
+								},
+								{
+									"key": "x-ratelimit-limit-tokens",
+									"value": "7000"
+								},
+								{
+									"key": "x-ratelimit-remaining-requests",
+									"value": "6999"
+								},
+								{
+									"key": "x-ratelimit-remaining-tokens",
+									"value": "6985"
+								},
+								{
+									"key": "x-ratelimit-reset-requests",
+									"value": "12.342857142s"
+								},
+								{
+									"key": "x-ratelimit-reset-tokens",
+									"value": "128.571428ms"
+								},
+								{
+									"key": "x-request-id",
+									"value": "req_01ja1y6ekte1mr9mpyqkg7zm8a"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8d1c2ffd5e46524b-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-80f22015-e097-4817-bd63-d1d9bc5a116f\",\n    \"object\": \"chat.completion\",\n    \"created\": 1728789560,\n    \"model\": \"llama-3.2-11b-vision-preview\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"This image appears to be an explanation of the functionality and components of the concept of contextual awareness. The image appears to explain this concept in the context of a multilayered, diagram-like flowchart.\\n\\nThe structure starts at the top of the image, with \\\"Context-Aware Multimodal Reasoning Application\\\" written above a box containing the words \\\"Large Language Model & Retrieval-Augmented Generation.\\\"\\nThe diagram then moves through a series of more specific boxes corresponding to some broad functional categories. \\n\\nPlease note: No copyright information is present in this image.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"queue_time\": 0.6862451700000001,\n        \"prompt_tokens\": 17,\n        \"prompt_time\": 0.000741064,\n        \"completion_tokens\": 113,\n        \"completion_time\": 0.206241857,\n        \"total_tokens\": 130,\n        \"total_time\": 0.206982921\n    },\n    \"system_fingerprint\": \"fp_fa3d3d25b0\",\n    \"x_groq\": {\n        \"id\": \"req_01ja1y6ekte1mr9mpyqkg7zm8a\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "llama-3.2-90b-vision-preview",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": [\r\n                {\r\n                    \"type\": \"text\",\r\n                    \"text\": \"What's in this image?\"\r\n                },\r\n                {\r\n                    \"type\": \"image_url\",\r\n                    \"image_url\": {\r\n                        \"url\": \"https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/multimodal-ai/architecture.png\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"role\": \"assistant\",\r\n            \"content\": \"\"\r\n        }\r\n    ],\r\n    \"model\": \"llama-3.2-90b-vision-preview\",\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "llama-3.3-70b-versatile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"llama-3.3-70b-versatile\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"llama-3.3-70b-versatile\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 30 Dec 2024 05:29:06 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Ray",
+									"value": "8f9fa156892ef7d3-LAX"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "private, max-age=0, no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								},
+								{
+									"key": "x-groq-region",
+									"value": "us-west-1"
+								},
+								{
+									"key": "x-ratelimit-limit-requests",
+									"value": "1000"
+								},
+								{
+									"key": "x-ratelimit-limit-tokens",
+									"value": "6000"
+								},
+								{
+									"key": "x-ratelimit-remaining-requests",
+									"value": "999"
+								},
+								{
+									"key": "x-ratelimit-remaining-tokens",
+									"value": "5977"
+								},
+								{
+									"key": "x-ratelimit-reset-requests",
+									"value": "1m26.4s"
+								},
+								{
+									"key": "x-ratelimit-reset-tokens",
+									"value": "230ms"
+								},
+								{
+									"key": "x-request-id",
+									"value": "req_01jgb0m4hwf2aasjqs8zw67btq"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "__cf_bm=t7hGuY2_UIIfCeIM9CDE_FXx7LccfZ4nZak_ObzYaqY-1735536546-1.0.1.1-t0m6M0jj5G6LNtq1QJ8fLfe2GQt7snH43691lK7V0tysMK31pK0VTg8dT9su1OtkMvFPMkQDkG5sEuyrg2kPew; path=/; expires=Mon, 30-Dec-24 05:59:06 GMT; domain=.groq.com; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chatcmpl-a6f18921-409b-4cca-804c-1e993c4b4982\",\n    \"object\": \"chat.completion\",\n    \"created\": 1735536546,\n    \"model\": \"llama-3.3-70b-versatile\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"The answer is still 1 hour. The number of shirts doesn't affect the drying time, as they can all be dried simultaneously in the sun. So, it will take the same amount of time, 1 hour, to dry 3 shirts as it does to dry 1 shirt.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"queue_time\": 0.017791139,\n        \"prompt_tokens\": 58,\n        \"prompt_time\": 0.009419567,\n        \"completion_tokens\": 60,\n        \"completion_time\": 0.218181818,\n        \"total_tokens\": 118,\n        \"total_time\": 0.227601385\n    },\n    \"system_fingerprint\": \"fp_fcc3b74982\",\n    \"x_groq\": {\n        \"id\": \"req_01jgb0m4hwf2aasjqs8zw67btq\"\n    }\n}"
+						}
+					]
+				},
+				{
 					"name": "mixtral-8x7b-32768",
 					"request": {
 						"method": "POST",
@@ -1091,6 +1944,548 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": \"6afd2429-e5f4-98e5-9355-a07c786aa507\",\n    \"object\": \"chat.completion\",\n    \"created\": 1709665006,\n    \"model\": \"mixtral-8x7b-32768\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low latency Large Language Models (LLMs) are important for real-time applications where prompt response times are critical. In such applications, even small delays in processing and generating responses can significantly impact user experience.\\n\\nFor instance, in real-time chat or conversation systems, users expect quick and snappy responses from the model. High latency can result in a laggy and unresponsive user interface, leading to a poor user experience. Moreover, long delays can disrupt the natural flow of the conversation and make it difficult for users to maintain context.\\n\\nIn addition, low latency is also crucial for applications that require real-time decision-making, such as autonomous systems, financial trading systems, or online gaming. In these scenarios, even minor delays in processing and generating responses can result in significant losses or missed opportunities.\\n\\nTherefore, low latency LLMs are essential for building responsive and efficient systems that can handle real-time data processing, analysis, and decision-making tasks. By reducing the time it takes for LLMs to process and generate responses, developers can build more engaging, interactive, and efficient applications.\\n\\nMoreover, low latency LLMs can enable new use cases and applications that were previously not possible due to the limitations of high-latency models. For instance, low latency LLMs can power real-time translation services, live captioning, and other real-time language processing tasks.\\n\\nIn summary, low latency LLMs are important for building responsive, efficient, and engaging applications that require real-time data processing, analysis, and decision-making. By reducing the time it takes for LLMs to process and generate responses, developers can build more innovative and practical applications that can handle real-world scenarios.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 24,\n        \"prompt_time\": 0.016,\n        \"completion_tokens\": 368,\n        \"completion_time\": 0.837,\n        \"total_tokens\": 392,\n        \"total_time\": 0.853\n    },\n    \"system_fingerprint\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Speech-to-Text",
+			"item": [
+				{
+					"name": "whisper-large-v3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1ef86bd4-3ec8-4650-843d-344333e34c48"
+								},
+								{
+									"key": "model",
+									"value": "whisper-large-v3",
+									"type": "text"
+								},
+								{
+									"key": "temperature",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "response_format",
+									"value": "json",
+									"type": "text"
+								},
+								{
+									"key": "language",
+									"value": "en",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/audio/transcriptions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"audio",
+								"transcriptions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1ef86bd4-3ec8-4650-843d-344333e34c48"
+										},
+										{
+											"key": "model",
+											"value": "whisper-large-v3",
+											"type": "text"
+										},
+										{
+											"key": "temperature",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "response_format",
+											"value": "json",
+											"type": "text"
+										},
+										{
+											"key": "language",
+											"value": "en",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/audio/transcriptions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"audio",
+										"transcriptions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 13 Oct 2024 03:14:37 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "private, max-age=0, no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-ratelimit-limit-audio-seconds",
+									"value": "7200"
+								},
+								{
+									"key": "x-ratelimit-limit-requests",
+									"value": "2000"
+								},
+								{
+									"key": "x-ratelimit-remaining-audio-seconds",
+									"value": "7198"
+								},
+								{
+									"key": "x-ratelimit-remaining-requests",
+									"value": "1999"
+								},
+								{
+									"key": "x-ratelimit-reset-audio-seconds",
+									"value": "1s"
+								},
+								{
+									"key": "x-ratelimit-reset-requests",
+									"value": "43.2s"
+								},
+								{
+									"key": "x-request-id",
+									"value": "req_01ja1xxtxce4eb01kn7cbr89fr"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8d1c2918db9d2aa3-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"text\": \" Hello, how can I help you today?\",\n    \"x_groq\": {\n        \"id\": \"req_01ja1xxtxce4eb01kn7cbr89fr\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "whisper-large-v3-turbo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1ef86bd4-3ec8-4650-843d-344333e34c48"
+								},
+								{
+									"key": "model",
+									"value": "whisper-large-v3-turbo",
+									"type": "text"
+								},
+								{
+									"key": "temperature",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "response_format",
+									"value": "json",
+									"type": "text"
+								},
+								{
+									"key": "language",
+									"value": "en",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/audio/transcriptions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"audio",
+								"transcriptions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1ef86bd4-3ec8-4650-843d-344333e34c48"
+										},
+										{
+											"key": "model",
+											"value": "whisper-large-v3-turbo",
+											"type": "text"
+										},
+										{
+											"key": "temperature",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "response_format",
+											"value": "json",
+											"type": "text"
+										},
+										{
+											"key": "language",
+											"value": "en",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/audio/transcriptions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"audio",
+										"transcriptions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 13 Oct 2024 03:13:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "private, max-age=0, no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-ratelimit-limit-audio-seconds",
+									"value": "7200"
+								},
+								{
+									"key": "x-ratelimit-limit-requests",
+									"value": "2000"
+								},
+								{
+									"key": "x-ratelimit-remaining-audio-seconds",
+									"value": "7198"
+								},
+								{
+									"key": "x-ratelimit-remaining-requests",
+									"value": "1999"
+								},
+								{
+									"key": "x-ratelimit-reset-audio-seconds",
+									"value": "1s"
+								},
+								{
+									"key": "x-ratelimit-reset-requests",
+									"value": "43.2s"
+								},
+								{
+									"key": "x-request-id",
+									"value": "req_01ja1xvmxfe8askwnkr31p45nv"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8d1c2758df2c7be6-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"text\": \" Hello, how can I help you today?\",\n    \"x_groq\": {\n        \"id\": \"req_01ja1xvmxfe8askwnkr31p45nv\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "distil-whisper-large-v3-en",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1ef86bd4-3ec8-4650-843d-344333e34c48"
+								},
+								{
+									"key": "model",
+									"value": "distil-whisper-large-v3-en",
+									"type": "text"
+								},
+								{
+									"key": "temperature",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "response_format",
+									"value": "json",
+									"type": "text"
+								},
+								{
+									"key": "language",
+									"value": "en",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/audio/transcriptions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"audio",
+								"transcriptions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1ef86bd4-3ec8-4650-843d-344333e34c48"
+										},
+										{
+											"key": "model",
+											"value": "distil-whisper-large-v3-en",
+											"type": "text"
+										},
+										{
+											"key": "temperature",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "response_format",
+											"value": "json",
+											"type": "text"
+										},
+										{
+											"key": "language",
+											"value": "en",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/audio/transcriptions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"audio",
+										"transcriptions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 13 Oct 2024 03:15:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "private, max-age=0, no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-ratelimit-limit-audio-seconds",
+									"value": "7200"
+								},
+								{
+									"key": "x-ratelimit-limit-requests",
+									"value": "2000"
+								},
+								{
+									"key": "x-ratelimit-remaining-audio-seconds",
+									"value": "7198"
+								},
+								{
+									"key": "x-ratelimit-remaining-requests",
+									"value": "1999"
+								},
+								{
+									"key": "x-ratelimit-reset-audio-seconds",
+									"value": "1s"
+								},
+								{
+									"key": "x-ratelimit-reset-requests",
+									"value": "43.2s"
+								},
+								{
+									"key": "x-request-id",
+									"value": "req_01ja1y03trewhsb6q7caafptjb"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8d1c2aeb8caf2ae0-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"text\": \" Hello, how can I help you today?\",\n    \"x_groq\": {\n        \"id\": \"req_01ja1y03trewhsb6q7caafptjb\"\n    }\n}"
 						}
 					]
 				}
