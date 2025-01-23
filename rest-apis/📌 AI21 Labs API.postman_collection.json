@@ -2,10 +2,10 @@
 	"info": {
 		"_postman_id": "0c4e9448-1031-4c77-b62b-f9b3b45cde48",
 		"name": "📌 AI21 Labs API",
-		"description": "### Prerequisites\n\n- Postman\n- AI21 Labs Account: [https://studio.ai21.com/](https://studio.ai21.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.ai21.com/reference](https://docs.ai21.com/reference)\n- Models: [https://studio.ai21.com/models](https://studio.ai21.com/models)\n    \n\n### Models\n\nJamba and Jurrasic (j2-ultra, j2-mid, j2-light)\n\n### About AI21 Labs\n\nAI lab & product company whose mission is to reimagine the way we read and write by making the machine a thought partner to humans.",
+		"description": "### About AI21 Labs\n\nAI lab & product company whose mission is to reimagine the way we read and write by making the machine a thought partner to humans.\n\n### Prerequisites\n\n- Postman Account\n    \n- AI21 Labs Account: [https://studio.ai21.com/](https://studio.ai21.com/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.ai21.com/reference](https://docs.ai21.com/reference)\n    \n- Models: [https://studio.ai21.com/models](https://studio.ai21.com/models)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
-		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-0c4e9448-1031-4c77-b62b-f9b3b45cde48?action=share&source=collection_link&creator=7643177"
+		"_collection_link": "https://www.postman.com/ai-engineer/workspace/generative-ai-large-language-model-apis/collection/7643177-0c4e9448-1031-4c77-b62b-f9b3b45cde48?action=share&source=collection_link&creator=7643177"
 	},
 	"item": [
 		{
@@ -977,6 +977,216 @@
 							"body": "{\n    \"id\": \"cmpl-c8b8e905a9e84be38253174671ddede4\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"Low latency large language models (LLMs) are important because they can process and generate responses quickly, which is essential for many real-time applications such as natural language processing, speech recognition, and machine translation. Low latency also allows for more efficient use of resources, as the model can process more requests in a shorter amount of time. Additionally, low latency can improve the user experience by reducing the delay between the user's input and the model's response.\"\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 106,\n        \"completion_tokens\": 97,\n        \"total_tokens\": 203\n    }\n}"
 						}
 					]
+				},
+				{
+					"name": "jamba-1.5-mini",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"jamba-1.5-mini\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"jamba-1.5-mini\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 26 Sep 2024 22:30:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "request-id",
+									"value": "2e6160e1-97b1-ed37-0ff4-ca56ef196cfa"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8c96b223e9647ee4-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chat-8715f077efde4bbc92c23e8cdfa7044f\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"If one shirt takes 1 hour to dry in the sun, the time it takes for multiple shirts depends on whether the drying process is sequential or simultaneous.\\n\\n1. **Sequential Drying**: If you dry the shirts one after another, it will take 3 hours because each shirt takes 1 hour.\\n\\n\\n2. **Simultaneous Drying**: If you dry the shirts at the same time, it will still take 1 hour because the number of shirts does not affect the drying time per shirt as long as they are dried together.\\n\\n\\nAssuming you meant simultaneous drying, it will still take **1 hour**.\",\n                \"tool_calls\": null\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 33,\n        \"completion_tokens\": 133,\n        \"total_tokens\": 166\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "jamba-1.5-large",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"jamba-1.5-large\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chat/completions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\r\n        }\r\n    ],\r\n    \"model\": \"jamba-1.5-large\",\r\n    \"temperature\": 0.5,\r\n    \"max_tokens\": 1024,\r\n    \"top_p\": 1,\r\n    \"stream\": false,\r\n    \"stop\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chat/completions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chat",
+										"completions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 26 Sep 2024 22:30:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "request-id",
+									"value": "829d28f2-fdd6-3553-54b7-5996746d0cfa"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8c96b2901b267ee4-LAX"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"chat-75628b42d6b444919350f9ec55881337\",\n    \"choices\": [\n        {\n            \"index\": 0,\n            \"message\": {\n                \"role\": \"assistant\",\n                \"content\": \"If it takes 1 hour to dry one shirt in the sun, then drying 3 shirts would also take 1 hour. This is because the drying time for each shirt is independent of the others, assuming there is enough space and sunlight for all three shirts to dry simultaneously.\",\n                \"tool_calls\": null\n            },\n            \"logprobs\": null,\n            \"finish_reason\": \"stop\"\n        }\n    ],\n    \"usage\": {\n        \"prompt_tokens\": 33,\n        \"completion_tokens\": 57,\n        \"total_tokens\": 90\n    }\n}"
+						}
+					]
 				}
 			]
 		},
@@ -1726,8 +1936,7 @@
 							"variable": [
 								{
 									"key": "custom_model",
-									"value": "",
-									"uuid": "6c7dbec8-e57e-40df-a6d8-29393deb37f1"
+									"value": ""
 								}
 							]
 						}
@@ -1761,8 +1970,7 @@
 							"variable": [
 								{
 									"key": "custom_model",
-									"value": "",
-									"uuid": "32ead504-3ea4-47b8-b726-5318903bdbc1"
+									"value": ""
 								}
 							]
 						}
@@ -1795,8 +2003,7 @@
 							"variable": [
 								{
 									"key": "custom_model",
-									"value": "",
-									"uuid": "06f40aa1-fc2b-4cfc-8e10-a6f144cb64b3"
+									"value": ""
 								}
 							]
 						}
