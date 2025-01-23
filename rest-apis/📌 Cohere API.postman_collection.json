@@ -2,10 +2,10 @@
 	"info": {
 		"_postman_id": "bd265571-91dd-46c2-9ae3-b43aa865bd04",
 		"name": "📌 Cohere API",
-		"description": "### Prerequisites\n\n- Postman\n- Cohere Account: [https://cohere.com/](https://cohere.com/)\n    \n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.cohere.com/reference/about](https://docs.cohere.com/reference/about)\n- Models: [https://docs.cohere.com/docs/models](https://docs.cohere.com/docs/models)\n    \n\n### Models\n\nModels include Command, Embed, and Rerank.\n\n### About Cohere\n\nCohere provides industry-leading large language models and RAG capabilities, tailored to meet the needs of enterprise use cases that solve real-world problems.",
+		"description": "### About\n\nCohere provides industry-leading large language models and RAG capabilities, tailored to meet the needs of enterprise use cases that solve real-world problems.\n\n### Prerequisites\n\n- Postman Account\n    \n- Cohere Account: [https://cohere.com/](https://cohere.com/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n    \n\n### Documentation\n\n- API: [https://docs.cohere.com/reference/about](https://docs.cohere.com/reference/about)\n    \n- Models: [https://docs.cohere.com/docs/models](https://docs.cohere.com/docs/models)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
-		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-bd265571-91dd-46c2-9ae3-b43aa865bd04?action=share&source=collection_link&creator=7643177"
+		"_collection_link": "https://www.postman.com/ai-engineer/workspace/generative-ai-large-language-model-apis/collection/7643177-bd265571-91dd-46c2-9ae3-b43aa865bd04?action=share&source=collection_link&creator=7643177"
 	},
 	"item": [
 		{
@@ -3610,6 +3610,387 @@
 			"name": "Rerank (rerank)",
 			"item": [
 				{
+					"name": "rerank-v3.5",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"rerank-v3.5\",\n    \"query\": \"What is the capital of the United States?\",\n    \"top_n\": 3,\n    \"documents\": [\n        \"Carson City is the capital city of the American state of Nevada.\",\n        \"The Commonwealth of the Northern Mariana Islands is a group of islands in the Pacific Ocean. Its capital is Saipan.\",\n        \"Washington, D.C. (also known as simply Washington or D.C., and officially as the District of Columbia) is the capital of the United States. It is a federal district.\",\n        \"Capital punishment (the death penalty) has existed in the United States since beforethe United States was a country. As of 2017, capital punishment is legal in 30 of the 50 states.\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/rerank",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"rerank"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"rerank-v3.5\",\n    \"query\": \"What is the capital of the United States?\",\n    \"top_n\": 3,\n    \"documents\": [\n        \"Carson City is the capital city of the American state of Nevada.\",\n        \"The Commonwealth of the Northern Mariana Islands is a group of islands in the Pacific Ocean. Its capital is Saipan.\",\n        \"Washington, D.C. (also known as simply Washington or D.C., and officially as the District of Columbia) is the capital of the United States. It is a federal district.\",\n        \"Capital punishment (the death penalty) has existed in the United States since beforethe United States was a country. As of 2017, capital punishment is legal in 30 of the 50 states.\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/rerank",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"rerank"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "access-control-expose-headers",
+									"value": "X-Debug-Trace-ID"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache, no-store, no-transform, must-revalidate, private, max-age=0"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "expires",
+									"value": "Thu, 01 Jan 1970 00:00:00 UTC"
+								},
+								{
+									"key": "pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-accel-expires",
+									"value": "0"
+								},
+								{
+									"key": "x-debug-trace-id",
+									"value": "05821097993c45df7d7b71a3220df968"
+								},
+								{
+									"key": "x-endpoint-monthly-call-limit",
+									"value": "1000"
+								},
+								{
+									"key": "x-trial-endpoint-call-limit",
+									"value": "40"
+								},
+								{
+									"key": "x-trial-endpoint-call-remaining",
+									"value": "39"
+								},
+								{
+									"key": "date",
+									"value": "Sun, 22 Dec 2024 01:35:09 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "252"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "53"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"ae046ba4-d2f5-4c48-b996-21970d4168bb\",\n    \"results\": [\n        {\n            \"index\": 2,\n            \"relevance_score\": 0.8742601\n        },\n        {\n            \"index\": 0,\n            \"relevance_score\": 0.17275754\n        },\n        {\n            \"index\": 3,\n            \"relevance_score\": 0.12318644\n        }\n    ],\n    \"meta\": {\n        \"api_version\": {\n            \"version\": \"1\"\n        },\n        \"billed_units\": {\n            \"search_units\": 1\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "rerank-english-v3.0",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"rerank-english-v3.0\",\n    \"query\": \"What is the capital of the United States?\",\n    \"top_n\": 3,\n    \"documents\": [\n        \"Carson City is the capital city of the American state of Nevada.\",\n        \"The Commonwealth of the Northern Mariana Islands is a group of islands in the Pacific Ocean. Its capital is Saipan.\",\n        \"Washington, D.C. (also known as simply Washington or D.C., and officially as the District of Columbia) is the capital of the United States. It is a federal district.\",\n        \"Capital punishment (the death penalty) has existed in the United States since beforethe United States was a country. As of 2017, capital punishment is legal in 30 of the 50 states.\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/rerank",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"rerank"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"rerank-english-v3.0\",\n    \"query\": \"What is the capital of the United States?\",\n    \"top_n\": 3,\n    \"documents\": [\n        \"Carson City is the capital city of the American state of Nevada.\",\n        \"The Commonwealth of the Northern Mariana Islands is a group of islands in the Pacific Ocean. Its capital is Saipan.\",\n        \"Washington, D.C. (also known as simply Washington or D.C., and officially as the District of Columbia) is the capital of the United States. It is a federal district.\",\n        \"Capital punishment (the death penalty) has existed in the United States since beforethe United States was a country. As of 2017, capital punishment is legal in 30 of the 50 states.\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/rerank",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"rerank"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "access-control-expose-headers",
+									"value": "X-Debug-Trace-ID"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache, no-store, no-transform, must-revalidate, private, max-age=0"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "expires",
+									"value": "Thu, 01 Jan 1970 00:00:00 UTC"
+								},
+								{
+									"key": "pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-accel-expires",
+									"value": "0"
+								},
+								{
+									"key": "x-debug-trace-id",
+									"value": "dd3714b957be6022108f6393fca6b70f"
+								},
+								{
+									"key": "x-endpoint-monthly-call-limit",
+									"value": "1000"
+								},
+								{
+									"key": "x-trial-endpoint-call-limit",
+									"value": "40"
+								},
+								{
+									"key": "x-trial-endpoint-call-remaining",
+									"value": "38"
+								},
+								{
+									"key": "date",
+									"value": "Sun, 22 Dec 2024 01:36:36 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "251"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "360"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"a69396af-6c6c-470b-bfc5-7f456b51c5d8\",\n    \"results\": [\n        {\n            \"index\": 2,\n            \"relevance_score\": 0.999071\n        },\n        {\n            \"index\": 3,\n            \"relevance_score\": 0.78695047\n        },\n        {\n            \"index\": 0,\n            \"relevance_score\": 0.32852942\n        }\n    ],\n    \"meta\": {\n        \"api_version\": {\n            \"version\": \"1\"\n        },\n        \"billed_units\": {\n            \"search_units\": 1\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "rerank-multilingual-v3.0",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"rerank-multilingual-v3.0\",\n    \"query\": \"What is the capital of the United States?\",\n    \"top_n\": 3,\n    \"documents\": [\n        \"Carson City is the capital city of the American state of Nevada.\",\n        \"The Commonwealth of the Northern Mariana Islands is a group of islands in the Pacific Ocean. Its capital is Saipan.\",\n        \"Washington, D.C. (also known as simply Washington or D.C., and officially as the District of Columbia) is the capital of the United States. It is a federal district.\",\n        \"Capital punishment (the death penalty) has existed in the United States since beforethe United States was a country. As of 2017, capital punishment is legal in 30 of the 50 states.\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/rerank",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"rerank"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\": \"rerank-multilingual-v3.0\",\n    \"query\": \"What is the capital of the United States?\",\n    \"top_n\": 3,\n    \"documents\": [\n        \"Carson City is the capital city of the American state of Nevada.\",\n        \"The Commonwealth of the Northern Mariana Islands is a group of islands in the Pacific Ocean. Its capital is Saipan.\",\n        \"Washington, D.C. (also known as simply Washington or D.C., and officially as the District of Columbia) is the capital of the United States. It is a federal district.\",\n        \"Capital punishment (the death penalty) has existed in the United States since beforethe United States was a country. As of 2017, capital punishment is legal in 30 of the 50 states.\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/rerank",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"rerank"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "access-control-expose-headers",
+									"value": "X-Debug-Trace-ID"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache, no-store, no-transform, must-revalidate, private, max-age=0"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "expires",
+									"value": "Thu, 01 Jan 1970 00:00:00 UTC"
+								},
+								{
+									"key": "pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-accel-expires",
+									"value": "0"
+								},
+								{
+									"key": "x-debug-trace-id",
+									"value": "e3d3527eed9e10b31b9ed74c551f2d41"
+								},
+								{
+									"key": "x-endpoint-monthly-call-limit",
+									"value": "1000"
+								},
+								{
+									"key": "x-trial-endpoint-call-limit",
+									"value": "40"
+								},
+								{
+									"key": "x-trial-endpoint-call-remaining",
+									"value": "38"
+								},
+								{
+									"key": "date",
+									"value": "Sun, 22 Dec 2024 01:37:10 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "253"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "55"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"061afc8d-0b8c-40dd-a6e4-59f1e444b8ac\",\n    \"results\": [\n        {\n            \"index\": 2,\n            \"relevance_score\": 0.99996996\n        },\n        {\n            \"index\": 0,\n            \"relevance_score\": 0.6788595\n        },\n        {\n            \"index\": 1,\n            \"relevance_score\": 0.009936418\n        }\n    ],\n    \"meta\": {\n        \"api_version\": {\n            \"version\": \"1\"\n        },\n        \"billed_units\": {\n            \"search_units\": 1\n        }\n    }\n}"
+						}
+					]
+				},
+				{
 					"name": "rerank-english-v2.0",
 					"request": {
 						"method": "POST",
@@ -4004,8 +4385,7 @@
 							"variable": [
 								{
 									"key": "connector",
-									"value": "",
-									"uuid": "449aeddb-3fed-4d6f-bfe5-bb39a71e2997"
+									"value": ""
 								}
 							]
 						}
@@ -4038,8 +4418,7 @@
 							"variable": [
 								{
 									"key": "connector",
-									"value": "",
-									"uuid": "6fb1a41f-d78f-456f-913b-500419e74056"
+									"value": ""
 								}
 							]
 						}
@@ -4063,8 +4442,7 @@
 							"variable": [
 								{
 									"key": "connector",
-									"value": "",
-									"uuid": "aeb942e6-0632-4989-a11e-f09c7d3d5316"
+									"value": ""
 								}
 							]
 						}
@@ -4185,8 +4563,7 @@
 							"variable": [
 								{
 									"key": "dataset",
-									"value": "",
-									"uuid": "5359fc3f-ec0b-4907-83e0-30f570b7f851"
+									"value": ""
 								}
 							]
 						}
@@ -4210,8 +4587,7 @@
 							"variable": [
 								{
 									"key": "dataset",
-									"value": "",
-									"uuid": "c5bf371f-0e78-42b7-9026-c6e040ffc08c"
+									"value": ""
 								}
 							]
 						}
@@ -4608,8 +4984,7 @@
 							"variable": [
 								{
 									"key": "embed-job",
-									"value": "",
-									"uuid": "a698815c-662b-488f-9316-c22283f31ba9"
+									"value": ""
 								}
 							]
 						}
@@ -4727,8 +5102,7 @@
 							"variable": [
 								{
 									"key": "embed-job",
-									"value": "",
-									"uuid": "99d31eba-45b6-4195-920c-2c9ffadef500"
+									"value": ""
 								}
 							]
 						}
@@ -4888,8 +5262,7 @@
 							"variable": [
 								{
 									"key": "finetuned-model",
-									"value": "",
-									"uuid": "fe6f3c96-fbe2-418e-b44a-4c283553230d"
+									"value": ""
 								}
 							]
 						}
@@ -4914,8 +5287,7 @@
 							"variable": [
 								{
 									"key": "finetuned-model",
-									"value": "",
-									"uuid": "4c0aa9ab-9914-4d60-8f57-38e7fc6522b6"
+									"value": ""
 								}
 							]
 						}
@@ -4940,8 +5312,7 @@
 							"variable": [
 								{
 									"key": "finetuned-model",
-									"value": "",
-									"uuid": "3c7ec632-38a0-4f79-a12c-efcd7b8158d9"
+									"value": ""
 								}
 							]
 						}

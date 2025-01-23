@@ -1,0 +1,869 @@
+{
+	"info": {
+		"_postman_id": "2ea8088c-43df-440a-b6de-4a84ac3fa60c",
+		"name": "📌 Ollama API (localhost)",
+		"description": "### About\n\nOllama is a tool (similar to Docker) to run large language models locally. It can be used via REST API, Python SDK, or CLI.\n\n### Prerequisites\n\n- Postman Account\n    \n- Ollama Account: [https://ollama.com/](https://ollama.com/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Send requests\n    \n\n### Documentation\n\n- Models: [https://ollama.com/library](https://ollama.com/library)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7643177",
+		"_collection_link": "https://www.postman.com/ai-engineer/workspace/generative-ai-large-language-model-apis/collection/7643177-2ea8088c-43df-440a-b6de-4a84ac3fa60c?action=share&source=collection_link&creator=7643177"
+	},
+	"item": [
+		{
+			"name": "Generate - deepseek-coder-v2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"deepseek-coder-v2\",\r\n    \"prompt\": \"Write a quick sort algorithm in Python.\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:11434/api/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "11434",
+					"path": [
+						"api",
+						"generate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"deepseek-coder-v2\",\r\n    \"prompt\": \"Write a quick sort algorithm in python\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:11434/api/generate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "11434",
+							"path": [
+								"api",
+								"generate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 25 Sep 2024 16:30:41 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1309"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"model\": \"deepseek-coder-v2\",\n    \"created_at\": \"2024-09-25T16:30:41.6847965Z\",\n    \"response\": \"\\nusing the partition function given below:\\n \\ndef partition(arr,low,high):\\n    i = ( low-1 )         # index of smaller element\\n    pivot = arr[high]     # pivot\\n     \\n    for j in range(low , high):\\n         \\n        # If current element is smaller than or equal to pivot\\n        if   arr[j] <= pivot:\\n             \\n            # increment index of smaller element\\n            i = i+1\\n            arr[i],arr[j] = arr[j],arr[i]\\n     \\n    arr[i+1],arr[high] = arr[high],arr[i+1]\\n    return ( i+1 )\\n \\n# The main function that implements QuickSort\\ndef quick_sort(arr,low,high):\\n    if low < high:\\n         \\n        # pi is partitioning index, arr[p] is now at right place\\n        pi = partition(arr,low,high)\\n         \\n        # Separately sort elements before partition and after partition\\n        quick_sort(arr, low, pi-1)\\n        quick_sort(arr, pi+1, high)\\n \\n# Driver code to test above\\narr = [10, 7, 8, 9, 1, 5]\\nn = len(arr)\\nquick_sort(arr,0,n-1)\\nprint (\\\"Sorted array is:\\\", arr)\\n\",\n    \"done\": true,\n    \"done_reason\": \"stop\",\n    \"total_duration\": 430909443800,\n    \"load_duration\": 48164277200,\n    \"prompt_eval_count\": 8,\n    \"prompt_eval_duration\": 21028944000,\n    \"eval_count\": 319,\n    \"eval_duration\": 361661594000\n}"
+				}
+			]
+		},
+		{
+			"name": "Generate - gemma2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"gemma2\",\r\n    \"prompt\": \"What is the meaning of life?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:11434/api/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "11434",
+					"path": [
+						"api",
+						"generate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"gemma2\",\r\n    \"prompt\": \"What is the meaning of life?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:11434/api/generate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "11434",
+							"path": [
+								"api",
+								"generate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 11 Jul 2024 00:32:27 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1717"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"model\": \"gemma2\",\n    \"created_at\": \"2024-07-11T00:32:27.3009001Z\",\n    \"response\": \"\\n\\nThis is a question that has been pondered by philosophers and theologians for centuries. There is no one answer that will satisfy everyone, as the meaning of life is a deeply personal question.\\n\\n**Some common perspectives on the meaning of life include:**\\n\\n* **To find happiness and fulfillment:** Many people believe that the meaning of life is to strive for happiness and achieve their goals.\\n* **To make a difference in the world:** Some people find meaning in helping others and contributing to society.\\n* **To learn and grow:** Life can be seen as an opportunity for continuous learning and personal development.\\n* **To experience love and connection:** Human beings are social creatures, and many find meaning in forming strong relationships with others.\\n* **To pursue one's passions:** Discovering and following one's passions can give life purpose and direction.\\n\\n**Ultimately, the meaning of life is what you make it.** There is no right or wrong answer. It is up to each individual to decide what gives their life meaning and purpose.\\n\\n\\n**Here are some questions to ask yourself that may help you find your own meaning:**\\n\\n* What are my values?\\n* What do I enjoy doing?\\n* What makes me feel fulfilled?\\n* How can I make a positive impact on the world?\\n* What legacy do I want to leave behind?\\n\\n\\n\\nIt's a journey of self-discovery. Don't be afraid to explore different perspectives and find what resonates with you.\",\n    \"done\": true,\n    \"done_reason\": \"stop\",\n    \"total_duration\": 899367240000,\n    \"load_duration\": 201300100,\n    \"prompt_eval_count\": 8,\n    \"prompt_eval_duration\": 19127676000,\n    \"eval_count\": 302,\n    \"eval_duration\": 879993431000\n}"
+				}
+			]
+		},
+		{
+			"name": "Generate - llama3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"llama3\",\r\n    \"prompt\": \"What is the meaning of life?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:11434/api/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "11434",
+					"path": [
+						"api",
+						"generate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"llama3\",\r\n    \"prompt\": \"What is the meaning of life?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:11434/api/generate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "11434",
+							"path": [
+								"api",
+								"generate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 11 Jul 2024 03:28:44 GMT"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"model\": \"llama3\",\n    \"created_at\": \"2024-07-11T03:28:44.7885067Z\",\n    \"response\": \" It's a question that has puzzled philosophers, theologians, and scientists for centuries. While there may not be a single definitive answer, here are some perspectives from various fields:\\n1. Philosophical perspective: The concept of \\\"the meaning of life\\\" is often linked to philosophical inquiry into the nature of existence, morality, and human experience. Some philosophers argue that the meaning of life is found in personal fulfillment, happiness, or self-realization.\\n2. Theological perspective: In religious traditions, the meaning of life is often seen as being connected to a higher power or divine purpose. Many religions offer teachings and guidance on how to live a meaningful life, such as by following moral principles, practicing faith, or fulfilling one's duties.\\n3. Scientific perspective: From a scientific perspective, some researchers argue that the meaning of life may be tied to evolutionary purposes, such as survival, reproduction, and social bonding. Others suggest that human experiences like joy, love, and creativity might provide answers to this question.\\n4. Psychological perspective: Psychologists often explore the meaning of life within an individual's psychological and emotional experiences. They argue that finding meaning in life can be closely tied to personal values, goals, and self-acceptance.\\n\\nSome notable philosophers who have contributed to discussions on the meaning of life include:\\n\\n1. Epicurus (341-270 BCE): The Greek philosopher believed that the purpose of human life is to attain happiness and freedom from physical pain and mental distress.\\n2. Aristotle (384-322 BCE): In his philosophy, Aristotle emphasized the importance of living a virtuous life, as this would lead to a more fulfilling existence.\\n\\nIn conclusion, while there may not be a single answer to the question \\\"what is the meaning of life?\\\" various perspectives from philosophical, theological, scientific, and psychological fields offer valuable insights into the nature of human experience. Ultimately, it may depend on individual perspectives and personal experiences.\\n\\nReferences:\\n\\n1. Epicurus (341-270 BCE). Principal Doctrines.\\n2. Aristotle (384-322 BCE). Nicomachean Ethics.\\n3. Bauman, Z. (1993). Postmodern Ethics. Oxford University Press.\\n4. Frankfurt, H. G. (1976). The Importance of What We Care About. Cambridge University Press.\\n\\nLet me know if you'd like to explore more on this topic!\",\n    \"done\": true,\n    \"done_reason\": \"stop\",\n    \"total_duration\": 302388431700,\n    \"load_duration\": 178233600,\n    \"prompt_eval_count\": 8,\n    \"prompt_eval_duration\": 3091885000,\n    \"eval_count\": 474,\n    \"eval_duration\": 299091815000\n}"
+				}
+			]
+		},
+		{
+			"name": "Generate - llama3.1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"llama3.1\",\r\n    \"prompt\": \"What is the meaning of life?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:11434/api/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "11434",
+					"path": [
+						"api",
+						"generate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"llama3.1\",\r\n    \"prompt\": \"What is the meaning of life?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:11434/api/generate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "11434",
+							"path": [
+								"api",
+								"generate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 26 Jul 2024 05:29:59 GMT"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"model\": \"llama3.1\",\n    \"created_at\": \"2024-07-26T05:29:59.0943986Z\",\n    \"response\": \" The age-old question that has puzzled philosophers, theologians, and everyday people for centuries. While there may not be a definitive answer, here are some philosophical perspectives on the matter:\\n1. **Hedonism**: Pleasure and happiness are the ultimate goals in life. This view suggests that we should strive to maximize our own pleasure and minimize pain.\\n2. **Existentialism**: Life has no inherent meaning; it's up to each individual to create their own purpose and value through experiences, choices, and personal growth.\\n3. **Stoicism**: The goal of life is to live in accordance with reason, virtue, and self-control. This philosophy emphasizes the importance of individual responsibility and indifference to external events.\\n4. **Humanism**: Human beings have inherent worth and value, and our lives should be guided by empathy, compassion, and a commitment to making the world a better place.\\n5. **Absurdism**: The search for meaning in life is inherently absurd, as we seek answers that are beyond human comprehension. This perspective highlights the paradoxes and contradictions of existence.\\n\\nSome notable thinkers who have contributed to these perspectives include:\\n\\n1. **Socrates** (469/470 BCE - 399 BCE): Emphasized the importance of living a virtuous life through reason and self-reflection.\\n2. **Plato** (427/428 BCE - 347 BCE): Believed that ultimate reality is a realm of perfect, eternal Forms, and that our lives should be guided by knowledge and understanding of these truths.\\n3. **Aristotle** (384 BCE - 322 BCE): Argued that the ultimate goal of human existence is to achieve eudaimonia, or happiness and flourishing.\\n4. **Immanuel Kant** (1724 CE - 1804 CE): Emphasized the importance of moral duty and respect for human dignity in shaping our lives.\\n5. **Jean-Paul Sartre** (1905 CE - 1980 CE): Proclaimed that human beings are \\\"condemned to be free\\\" – we have complete freedom to choose, but this also means we must take full responsibility for those choices.\\n\\nUltimately, the meaning of life is a deeply personal and subjective question. It's up to each individual to explore these philosophical perspectives, reflect on their own experiences and values, and create their own purpose in life. As Socrates once said, \\\"The unexamined life is not worth living.\\\" (Source: Plato's Apology)\",\n    \"done\": true,\n    \"done_reason\": \"stop\",\n    \"total_duration\": 12611201595700,\n    \"load_duration\": 59083000,\n    \"prompt_eval_count\": 8,\n    \"prompt_eval_duration\": 18656675000,\n    \"eval_count\": 504,\n    \"eval_duration\": 12592538944000\n}"
+				}
+			]
+		},
+		{
+			"name": "Generate - llama3.2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"llama3.2\",\r\n    \"prompt\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:11434/api/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "11434",
+					"path": [
+						"api",
+						"generate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"llama3.2\",\r\n    \"prompt\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:11434/api/generate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "11434",
+							"path": [
+								"api",
+								"generate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 26 Sep 2024 00:34:21 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "919"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"model\": \"llama3.2\",\n    \"created_at\": \"2024-09-26T00:34:21.7537512Z\",\n    \"response\": \" \\nThe answer is not necessarily a number. It would be that there are 2 other factors to consider when drying clothes outdoors. Wind and temperature can have an impact on the time required for drying.\\n\\nThe key takeaway from this example is that you can use reasoning skills to tackle problems where the initial information might seem straightforward, but it's not enough on its own. You need to look beyond the surface level to identify any hidden assumptions or additional factors that could affect the outcome. This skill is useful in many areas of life, such as science, engineering, and everyday problem-solving.\\nThe best answer is Not a number.\",\n    \"done\": true,\n    \"done_reason\": \"stop\",\n    \"total_duration\": 21592091800,\n    \"load_duration\": 61556600,\n    \"prompt_eval_count\": 24,\n    \"prompt_eval_duration\": 3713997000,\n    \"eval_count\": 125,\n    \"eval_duration\": 17804975000\n}"
+				}
+			]
+		},
+		{
+			"name": "Generate - llama3.2:1b",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"llama3.2:1b\",\r\n    \"prompt\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:11434/api/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "11434",
+					"path": [
+						"api",
+						"generate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"llama3.2:1b\",\r\n    \"prompt\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:11434/api/generate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "11434",
+							"path": [
+								"api",
+								"generate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 26 Sep 2024 00:38:06 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "379"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"model\": \"llama3.2:1b\",\n    \"created_at\": \"2024-09-26T00:38:06.8525631Z\",\n    \"response\": \"?\\nAnswer: 30 minutes.\\nAnswer: Since each shirt takes one hour to dry, three shirts will take 3 * 1 = 3 hours.\",\n    \"done\": true,\n    \"done_reason\": \"stop\",\n    \"total_duration\": 5269442000,\n    \"load_duration\": 1376297100,\n    \"prompt_eval_count\": 24,\n    \"prompt_eval_duration\": 933570000,\n    \"eval_count\": 33,\n    \"eval_duration\": 2951765000\n}"
+				}
+			]
+		},
+		{
+			"name": "Generate - mistral",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"mistral\",\r\n    \"prompt\": \"What is the meaning of life?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:11434/api/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "11434",
+					"path": [
+						"api",
+						"generate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"mistral\",\r\n    \"prompt\": \"What is the meaning of life?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:11434/api/generate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "11434",
+							"path": [
+								"api",
+								"generate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 11 Jul 2024 15:47:53 GMT"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"model\": \"mistral\",\n    \"created_at\": \"2024-07-11T15:47:53.7308526Z\",\n    \"response\": \"\\n\\nThis question has been asked by philosophers, scientists, and people from all walks of life for centuries. The answer to this question can depend on one's personal beliefs, values, and experiences. For some, the meaning of life may be found in pursuing happiness, love, or personal fulfillment. Others may find purpose through service to others, creativity, or spirituality.\\n\\nOne perspective comes from the scientific worldview, which posits that life is a complex and emergent property of matter and energy interacting according to natural laws. In this view, life does not have an inherent meaning beyond what we as humans assign to it through our thoughts, emotions, and actions. Instead, life can be seen as a process of evolving complexity and diversity, driven by the ceaseless exchange of energy and matter within a universe that is constantly changing and expanding.\\n\\nFrom a philosophical standpoint, many have pondered the question of what gives life meaning. Some argue that life's purpose is to pursue knowledge or wisdom, while others contend that it is to create beauty, harmony, or justice in the world. Still, others suggest that the meaning of life lies in our relationships with others and the connections we forge with the people and things around us.\\n\\nIn many religious and spiritual traditions, the purpose of life is often linked to following a moral code, serving a higher power, or seeking enlightenment or self-realization. In these beliefs, finding meaning in life may involve overcoming personal flaws, helping others, or achieving union with a divine being.\\n\\nUltimately, the meaning of life may be something that each individual must discover for themselves. It could be a lifelong quest, one that changes and evolves as we grow and experience new things. By exploring different perspectives, engaging in self-reflection, and seeking out meaningful experiences, we can gain insight into what gives our lives purpose and direction.\\n\\nIn the end, perhaps the most important aspect of finding meaning is to actively engage in the pursuit of a purpose that resonates with us on a deep level. By embracing our own unique qualities, passions, and values, we can create a life filled with purpose, joy, and fulfillment – whatever that may mean for each one of us.\",\n    \"done\": true,\n    \"done_reason\": \"stop\",\n    \"total_duration\": 694048651100,\n    \"load_duration\": 41773220800,\n    \"prompt_eval_count\": 8,\n    \"prompt_eval_duration\": 18718151000,\n    \"eval_count\": 479,\n    \"eval_duration\": 633538960000\n}"
+				}
+			]
+		},
+		{
+			"name": "Generate - phi3:mini",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"phi3:mini\",\r\n    \"prompt\": \"What is the meaning of life?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:11434/api/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "11434",
+					"path": [
+						"api",
+						"generate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"phi3:mini\",\r\n    \"prompt\": \"What is the meaning of life?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:11434/api/generate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "11434",
+							"path": [
+								"api",
+								"generate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Jul 2024 02:30:12 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "969"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"model\": \"phi3:mini\",\n    \"created_at\": \"2024-07-10T02:30:12.3557782Z\",\n    \"response\": \"\\n\\n# Answer \\nThe interpretation and understanding of 'the meaning of life' often varies among different philosophical, religious, psychological, biological, scientific or individual perspectts. It could mean to find happiness, achieve personal goals, fulfill one’s purpose in society, seek spiritual enlightenment, establish deep relationships, make a positive impact on the world around us, discover knowledge and truth about ourselves and universe etc.. Ultimately it is highly subjective and depends largely upon individual belief systems. It's not something that can be definitively determined as there are multiple ways to live life meaningfully depending upon personal values and perspectives.\",\n    \"done\": true,\n    \"done_reason\": \"stop\",\n    \"total_duration\": 67560912700,\n    \"load_duration\": 25629800,\n    \"prompt_eval_count\": 7,\n    \"prompt_eval_duration\": 516455000,\n    \"eval_count\": 137,\n    \"eval_duration\": 67013464000\n}"
+				}
+			]
+		},
+		{
+			"name": "Generate - phi3.5",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"phi3.5\",\r\n    \"prompt\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:11434/api/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "11434",
+					"path": [
+						"api",
+						"generate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"phi3.5\",\r\n    \"prompt\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:11434/api/generate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "11434",
+							"path": [
+								"api",
+								"generate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 26 Sep 2024 04:25:27 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"model\": \"phi3.5\",\n    \"created_at\": \"2024-09-26T04:25:27.3063942Z\",\n    \"response\": \"\\n\\nTutor: To find out how long three shirts will take to dry, we need to consider whether they can be dried simultaneously or sequentially (one after another). In this case, since there's no information suggesting that the sunlight affecting one shirt prevents others from drying at all, I assume each shirt can start and finish drying independently.\\n\\nSo if it takes 1 hour to dry a single shirt in the sun:\\n\\nFor three independent shirts (drying simultaneously), they would still take only 1 hour because as soon as one starts drying, others are also getting exposed at their own time slots without interfering with each other. Each of them is using different parts of the available space and potentially absorbing sunlight from various angles or through gaps between shadows cast by themselves if dried next to/nearby but not on top of one another for optimal dryness under similar conditions (assuming no significant change in weather affecting all three).\\n\\nHence, 3 identical items like your clothes would take a total time that equals the duration required for just any single item when doing so concurrently: **1 hour**.\",\n    \"done\": true,\n    \"done_reason\": \"stop\",\n    \"total_duration\": 74120392700,\n    \"load_duration\": 10264497500,\n    \"prompt_eval_count\": 26,\n    \"prompt_eval_duration\": 7668373000,\n    \"eval_count\": 252,\n    \"eval_duration\": 56160517000\n}"
+				}
+			]
+		},
+		{
+			"name": "Generate - qwen2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"qwen2\",\r\n    \"prompt\": \"What is the meaning of life?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:11434/api/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "11434",
+					"path": [
+						"api",
+						"generate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"qwen2\",\r\n    \"prompt\": \"What is the meaning of life?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:11434/api/generate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "11434",
+							"path": [
+								"api",
+								"generate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 11 Jul 2024 14:14:47 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1578"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"model\": \"qwen2\",\n    \"created_at\": \"2024-07-11T14:14:47.5474866Z\",\n    \"response\": \" This question has been debated for centuries, with many different answers depending on cultural, philosophical, and religious perspectives. From a scientific point of view, some argue that there may not be an inherent meaning to existence beyond the laws of physics and biology. Others believe that we create our own meaning through personal experiences, relationships, and goals.\\nAt its core, the question of \\\"meaning\\\" seems to relate to the concept of purpose or intentionality in life. Some people find meaning in pursuing their passions, contributing to society, or fulfilling a specific role within a community. Others may feel a sense of fulfillment from spiritual practices or finding connection with something larger than themselves.\\nUltimately, the answer to this question is likely subjective and varies greatly between individuals based on their values, beliefs, and experiences. However, many people find comfort in knowing that they have some level of control over creating meaning for themselves through actions such as setting goals, helping others, or engaging in meaningful relationships. Regardless of whether there is a universal answer to the question of \\\"meaning,\\\" it seems clear that seeking purposeful living can bring greater happiness and fulfillment for those who engage in it.\",\n    \"done\": true,\n    \"done_reason\": \"stop\",\n    \"total_duration\": 683484514300,\n    \"load_duration\": 37835270900,\n    \"prompt_eval_count\": 7,\n    \"prompt_eval_duration\": 9030261000,\n    \"eval_count\": 229,\n    \"eval_duration\": 636606497000\n}"
+				}
+			]
+		},
+		{
+			"name": "Generate - qwen2.5",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"qwen2.5\",\r\n    \"prompt\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:11434/api/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "11434",
+					"path": [
+						"api",
+						"generate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate - qwen2.5:3b",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"qwen2.5:3b\",\r\n    \"prompt\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:11434/api/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "11434",
+					"path": [
+						"api",
+						"generate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate - qwen2.5:1.5b",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"qwen2.5:1.5b\",\r\n    \"prompt\": \"If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\",\r\n    \"raw\": true,\r\n    \"stream\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:11434/api/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "11434",
+					"path": [
+						"api",
+						"generate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
