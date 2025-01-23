@@ -2,10 +2,10 @@
 	"info": {
 		"_postman_id": "048587c0-9980-4025-9c81-1934045e3fc0",
 		"name": "📌 Lamini API",
-		"description": "### Prerequisites\n\n- Postman\n- Lamini Account: [https://app.lamini.ai/](https://app.lamini.ai/)\n\n### Usage\n\n1. Create a fork\n2. Update collection variables\n3. Send requests\n\n### Documentation\n\n- API: [https://lamini-ai.github.io/](https://lamini-ai.github.io/)\n- Models: [https://lamini-ai.github.io/inference/models_list](https://lamini-ai.github.io/inference/models_list)\n\n### Models\n\nModels include Hugging Face transformer-based models, Llama (by Meta AI, open-weight), Mistral (by Mistral AI, open-weight), and more.\n\n### About Lamini\n\nLamini is the enterprise LLM platform for existing software teams to quickly develop and control their own LLMs.",
+		"description": "### About\n\nLamini is the enterprise LLM platform for existing software teams to quickly develop and control their own LLMs.\n\n### Prerequisites\n\n- Postman Account\n    \n- Lamini Account: [https://app.lamini.ai/](https://app.lamini.ai/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n    \n\n### Documentation\n\n- API: [https://lamini-ai.github.io/rest_api/completions](https://lamini-ai.github.io/rest_api/completions)\n    \n- Models: [https://lamini-ai.github.io/models](https://lamini-ai.github.io/models)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7643177",
-		"_collection_link": "https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/collection/7643177-048587c0-9980-4025-9c81-1934045e3fc0?action=share&source=collection_link&creator=7643177"
+		"_collection_link": "https://www.postman.com/ai-engineer/workspace/generative-ai-large-language-model-apis/collection/7643177-048587c0-9980-4025-9c81-1934045e3fc0?action=share&source=collection_link&creator=7643177"
 	},
 	"item": [
 		{
@@ -915,8 +915,7 @@
 							"variable": [
 								{
 									"key": "job",
-									"value": "",
-									"uuid": "35cd5aa5-5878-40a6-982e-40f356997518"
+									"value": ""
 								}
 							]
 						}
@@ -943,8 +942,7 @@
 							"variable": [
 								{
 									"key": "job",
-									"value": "",
-									"uuid": "89c335b7-8940-4f47-8353-1ff484cd416b"
+									"value": ""
 								}
 							]
 						}
@@ -970,8 +968,7 @@
 							"variable": [
 								{
 									"key": "job",
-									"value": "",
-									"uuid": "a54d7bee-5577-4e0b-89b1-19741440cdf0"
+									"value": ""
 								}
 							]
 						}
