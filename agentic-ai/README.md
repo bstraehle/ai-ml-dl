@@ -13,6 +13,8 @@ https://www.deeplearning.ai/short-courses/practical-multi-ai-agents-and-advanced
 
 https://www.deeplearning.ai/short-courses/serverless-agentic-workflows-with-amazon-bedrock/ (Amazon Bedrock)  
 
+https://www.deeplearning.ai/short-courses/build-apps-with-windsurfs-ai-coding-agents/ (Codeium Windsurf AI IDE)  
+
 https://www.youtube.com/playlist?list=PLfaIDFEXuae16n2TWUkKq5PgJ0w6Pkwtg (LangGraph)  
 
 https://huggingface.co/spaces/bstraehle/multi-agent-ai-autogen-chess/ (AutoGen, multi-agent)  
