@@ -9,6 +9,8 @@ https://www.deeplearning.ai/short-courses/building-your-own-database-agent/ (Lan
 
 https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/ (LangGraph)  
 
+https://www.deeplearning.ai/short-courses/long-term-agentic-memory-with-langgraph/ (LangMem)  
+
 https://www.deeplearning.ai/short-courses/llms-as-operating-systems-agent-memory/ (Letta)  
 
 https://www.deeplearning.ai/short-courses/building-agentic-rag-with-llamaindex/ (LlamaIndex)  
