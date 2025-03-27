@@ -18,6 +18,8 @@ https://www.deeplearning.ai/short-courses/event-driven-agentic-document-workflow
 
 https://www.deeplearning.ai/short-courses/build-apps-with-windsurfs-ai-coding-agents/ (Codeium Windsurf AI IDE)  
 
+https://www.deeplearning.ai/short-courses/vibe-coding-101-with-replit/ (Replit)  
+
 https://www.youtube.com/playlist?list=PLfaIDFEXuae16n2TWUkKq5PgJ0w6Pkwtg (LangGraph)  
 
 https://huggingface.co/spaces/bstraehle/multi-agent-ai-autogen-chess/ (AutoGen, multi-agent)  
