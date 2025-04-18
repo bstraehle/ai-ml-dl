@@ -1,5 +1,3 @@
-https://www.deeplearning.ai/short-courses/building-ai-browser-agents/ (AGI Inc)  
-
 https://www.deeplearning.ai/short-courses/serverless-agentic-workflows-with-amazon-bedrock/ (Amazon Bedrock)  
 
 https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/ (AutoGen)  
@@ -18,11 +16,16 @@ https://www.deeplearning.ai/short-courses/llms-as-operating-systems-agent-memory
 https://www.deeplearning.ai/short-courses/building-agentic-rag-with-llamaindex/ (LlamaIndex)  
 https://www.deeplearning.ai/short-courses/event-driven-agentic-document-workflows/ (LlamaIndex)  
 
+---
+https://www.deeplearning.ai/short-courses/building-ai-browser-agents/ (AGI Inc)  
+
 https://www.deeplearning.ai/short-courses/build-apps-with-windsurfs-ai-coding-agents/ (Codeium Windsurf AI IDE)  
 
 https://www.deeplearning.ai/short-courses/vibe-coding-101-with-replit/ (Replit)  
 
 https://www.youtube.com/playlist?list=PLfaIDFEXuae16n2TWUkKq5PgJ0w6Pkwtg (LangGraph)  
+
+---
 
 https://huggingface.co/spaces/bstraehle/multi-agent-ai-autogen-chess/ (AutoGen, multi-agent)  
 https://huggingface.co/spaces/bstraehle/multi-agent-ai-autogen-coding/ (AutoGen, multi-agent)  
@@ -31,4 +34,3 @@ https://huggingface.co/spaces/bstraehle/multi-agent-ai-langgraph/ (LangGraph, mu
 https://huggingface.co/spaces/bstraehle/agentic-rag/ (LangChain & LlamaIndex, single agent)  
 
 https://github.com/microsoft/autogen/  
-
