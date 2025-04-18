@@ -23,7 +23,7 @@ https://www.deeplearning.ai/short-courses/vibe-coding-101-with-replit/ (Replit)
 
 ---
 
-https://github.com/microsoft/autogen/  
+https://github.com/microsoft/autogen/ (AutoGen)  
 
 https://www.youtube.com/playlist?list=PLfaIDFEXuae16n2TWUkKq5PgJ0w6Pkwtg (LangGraph)  
 
