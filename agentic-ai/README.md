@@ -1,3 +1,5 @@
+https://www.deeplearning.ai/short-courses/building-ai-browser-agents/ (AGI Inc)  
+
 https://www.deeplearning.ai/short-courses/serverless-agentic-workflows-with-amazon-bedrock/ (Amazon Bedrock)  
 
 https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/ (AutoGen)  
