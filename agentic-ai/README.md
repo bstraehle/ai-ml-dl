@@ -6,9 +6,7 @@ https://www.deeplearning.ai/short-courses/multi-ai-agent-systems-with-crewai/ (c
 https://www.deeplearning.ai/short-courses/practical-multi-ai-agents-and-advanced-use-cases-with-crewai/ (crewAI)  
 
 https://www.deeplearning.ai/short-courses/building-your-own-database-agent/ (LangChain)  
-
 https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/ (LangGraph)  
-
 https://www.deeplearning.ai/short-courses/long-term-agentic-memory-with-langgraph/ (LangMem)  
 
 https://www.deeplearning.ai/short-courses/llms-as-operating-systems-agent-memory/ (Letta)  
@@ -23,6 +21,10 @@ https://www.deeplearning.ai/short-courses/build-apps-with-windsurfs-ai-coding-ag
 
 https://www.deeplearning.ai/short-courses/vibe-coding-101-with-replit/ (Replit)  
 
+---
+
+https://github.com/microsoft/autogen/  
+
 https://www.youtube.com/playlist?list=PLfaIDFEXuae16n2TWUkKq5PgJ0w6Pkwtg (LangGraph)  
 
 ---
@@ -32,5 +34,3 @@ https://huggingface.co/spaces/bstraehle/multi-agent-ai-autogen-coding/ (AutoGen,
 https://huggingface.co/spaces/bstraehle/multi-agent-ai-crewai/ (crewAI, multi-agent)  
 https://huggingface.co/spaces/bstraehle/multi-agent-ai-langgraph/ (LangGraph, multi-agent)  
 https://huggingface.co/spaces/bstraehle/agentic-rag/ (LangChain & LlamaIndex, single agent)  
-
-https://github.com/microsoft/autogen/  
