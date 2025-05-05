@@ -2,8 +2,9 @@ import os
 import pandas as pd
 from google import genai
 
-def get_questions(file_path):
+def get_questions(file_path, level):
     df = pd.read_json(file_path, lines=True)
+    df = df[df["Level"] == level]
     
     result=[]
     
