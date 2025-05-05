@@ -1,3 +1,4 @@
+---
 title: General AI Assistant (GAIA)
 emoji: 🧠
 colorFrom: blue
@@ -8,3 +9,6 @@ app_file: app.py
 pinned: true
 license: apache-2.0
 short_description: Multi-Agent Multi-Modal Multi-Model AI Assistant
+---
+
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
