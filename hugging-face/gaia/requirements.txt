@@ -1,0 +1,5 @@
+arize-phoenix-otel==0.9.2
+crewai==0.118.0
+crewai[tools]==0.118.0
+google-genai==1.13.0
+openinference-instrumentation-crewai==0.1.9
