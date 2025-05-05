@@ -25,6 +25,7 @@ IMAGE_ANALYSIS_MODEL    = "gemini-2.5-flash-preview-04-17"
 AUDIO_ANALYSIS_MODEL    = "gemini-2.5-flash-preview-04-17"
 VIDEO_ANALYSIS_MODEL    = "gemini-2.5-flash-preview-04-17"
 YOUTUBE_ANALYSIS_MODEL  = "gemini-2.5-flash-preview-04-17"
+DOCUMENT_ANALYSIS_MODEL    = "gemini-2.5-flash-preview-04-17"
 CODE_GENERATION_MODEL   = "gemini-2.5-flash-preview-04-17"
 CODE_EXECUTION_MODEL    = "gemini-2.5-flash-preview-04-17"
 
@@ -152,6 +153,33 @@ def run_crew(question, file_path):
             return response.text
         except Exception as e:
             raise RuntimeError(f"Processing failed: {str(e)}")
+
+    @tool("Document Analysis Tool")
+    def document_analysis_tool(question: str, file_path: str) -> str:
+        """Given a question and document file, analyze the document to answer the question.
+    
+           Args:
+               question (str): Question about a document file
+               file_path (str): The document file path
+                
+           Returns:
+               str: Answer to the question about the document file
+                
+           Raises:
+               RuntimeError: If processing fails"""
+        try:
+            client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+            
+            file = client.files.upload(file=file_path)
+
+            response = client.models.generate_content(
+                model=DOCUMENT_ANALYSIS_MODEL,
+                contents=[file, question]
+            )
+          
+            return response.text
+        except Exception as e:
+            raise RuntimeError(f"Processing failed: {str(e)}")
             
     @tool("YouTube Analysis Tool")
     def youtube_analysis_tool(question: str, url: str) -> str:
@@ -178,14 +206,14 @@ def run_crew(question, file_path):
             )
         except Exception as e:
             raise RuntimeError(f"Processing failed: {str(e)}")
-
+    
     @tool("Code Generation Tool")
-    def code_generation_tool(question: str, json_data: str) -> str:
-        """Given a question and JSON data, generate and execute code to answer the question.
+    def code_generation_tool(question: str, file_path: str) -> str:
+        """Given a question and data file, generate and execute code to answer the question.
 
            Args:
                question (str): Question to answer
-               json_data (str): The JSON data
+                file_path (str): The data file path
 
            Returns:
                str: Answer to the question
@@ -195,9 +223,11 @@ def run_crew(question, file_path):
         try:
             client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
+            file_data = read_file(file_path)
+            
             response = client.models.generate_content(
                 model=CODE_GENERATION_MODEL,
-                contents=[f"{question}\n{json_data}"],
+                contents=[f"{question}\n{file_data}"],
                 config=types.GenerateContentConfig(
                     tools=[types.Tool(code_execution=types.ToolCodeExecution)]
                 ),
@@ -298,9 +328,20 @@ def run_crew(question, file_path):
         verbose=True
     )
 
+    document_analysis_agent = Agent(
+        role="Document Analysis Agent",
+        goal="Given a question and document file, analyze the document and answer the question: {question}",
+        backstory="As an expert document analysis assistant, you analyze the document to answer the question.",
+        allow_delegation=False,
+        llm=AGENT_MODEL,
+        max_iter=2,
+        tools=[document_analysis_tool],
+        verbose=True
+    )
+    
     code_generation_agent = Agent(
         role="Code Generation Agent",
-        goal="Given a question and JSON data, generate and execute code to answer the question: {question}",
+        goal="Given a question and data file, generate and execute code to answer the question: {question}",
         backstory="As an expert Python code generation assistant, you generate and execute code to answer the question.",
         allow_delegation=False,
         llm=AGENT_MODEL,
@@ -334,14 +375,15 @@ def run_crew(question, file_path):
 
     manager_task = Task(
         agent=manager_agent,
-        description="Answer the following question. If needed, delegate to one of your coworkers: "
-                    "- Web Search Agent requires a question only. "
-                    "- Image Analysis Agent requires a question and **image file**. "
-                    "- Audio Analysis Agent requires a question and **audio file**. "
-                    "- Video Analysis Agent requires a question and **video file**. "
-                    "- YouTube Analysis Agent requires a question and **YouTube URL**. "
-                    "- Code Generation Agent requires a question and **JSON data**. "
-                    "- Code Execution Agent requires a question and **Python file**. "
+        description="Answer the following question. If needed, delegate to one of your coworkers:\n"
+                    "- Web Search Agent requires a question only.\n"
+                    "- Image Analysis Agent requires a question and **.png, .jpeg, .webp, .heic, or .heif image file**.\n"
+                    "- Audio Analysis Agent requires a question and **.wav, .mp3, .aiff, .aac, .ogg, or .flac audio file**.\n"
+                    "- Video Analysis Agent requires a question and **.mp4, .mpeg, .mov, .avi, .x-flv, .mpg, .webm, .wmv, or .3gpp video file**.\n"
+                    "- Document Analysis Agent requires a question and **.pdf, .txt, .html, css, .js, .md, .xml, or .rtf document file**.\n"
+                    "- YouTube Analysis Agent requires a question and **YouTube URL**.\n"
+                    "- Code Generation Agent requires a question and **.csv, .xls, .xlsx, .json, or .jsonl data file**.\n"
+                    "- Code Execution Agent requires a question and **.py Python file**.\n"
                     "Question: {question}",
         expected_output="The answer to the question."
     )
@@ -354,7 +396,8 @@ def run_crew(question, file_path):
                 audio_analysis_agent, 
                 video_analysis_agent, 
                 youtube_analysis_agent, 
-                code_generation_agent,
+                document_analysis_agent, 
+                code_generation_agent, 
                 code_execution_agent],
         manager_agent=manager_agent,
         tasks=[manager_task],
@@ -364,12 +407,7 @@ def run_crew(question, file_path):
     # Process
 
     if file_path:
-        file_data = read_file(file_path)
-
-        if file_data:
-            question = f"{question} JSON data: {file_data}" # sandbox contraints
-        else:
-            question = f"{question} File path: {file_path}."
+        question = f"{question} File path: {file_path}."
 
     initial_answer = crew.kickoff(inputs={"question": question})
     final_answer = get_final_answer(FINAL_ANSWER_MODEL, question, str(initial_answer))
