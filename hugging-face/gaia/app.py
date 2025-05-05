@@ -3,7 +3,7 @@ import gradio as gr
 from crew import run_crew
 from util import get_questions
 
-QUESTION_FILE_PATH = "data/gaia_validation.jsonl"
+QUESTION_FILE_PATH = "data/gaia_validation_20.jsonl"
 QUESTION_LEVEL     = 1
 
 def invoke(level, question, file_name, ground_truth, openai_api_key, gemini_api_key):
