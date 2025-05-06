@@ -1,6 +1,7 @@
 import os
 import pandas as pd
-from google import genai
+from docx import Document
+from pptx import Presentation
 
 def get_questions(file_path, level):
     df = pd.read_json(file_path, lines=True)
@@ -13,10 +14,13 @@ def get_questions(file_path, level):
 
     return result
 
+def is_ext(file_path, ext):
+    return os.path.splitext(file_path)[1].lower() == ext.lower()
+    
 def read_file(file_path):
-    df = None
-
     ext = os.path.splitext(file_path)[1].lower()
+
+    df = None
 
     if ext == ".csv":
         df = pd.read_csv(file_path)
@@ -27,38 +31,42 @@ def read_file(file_path):
 
     return "" if df is None else df.to_json()
 
-def get_final_answer(model, question, answer):
-    prompt_template = """
-        You are an expert question answering assistant. Given a question and an initial answer, your task is to provide the final answer.
-        Your final answer must be a number and/or string OR as few words as possible OR a comma-separated list of numbers and/or strings.
-        If you are asked for a number, don't use comma to write your number neither use units such as USD, $, percent, or % unless specified otherwise.
-        If you are asked for a string, don't use articles, neither abbreviations (for example cities), and write the digits in plain text unless specified otherwise.
-        If you are asked for a comma-separated list, apply the above rules depending of whether the element to be put in the list is a number or a string.
-        If the final answer is a number, use a number not a word.
-        If the final answer is a word, start with an uppercase character.
-        If the final answer is a comma-separated list of numbers, use a space character after each comma.
-        If the final answer is a comma-separated list of strings, use a space character after each comma and start with a lowercase character.
-        Do not add any content to the final answer that is not in the initial answer.
-
-        **Question:** """ + question + """
-        
-        **Initial answer:** """ + answer + """
-        
-        **Example 1:** How many 'r's are in strawberry? 3
-        **Example 2:** What is the opposite of black? White
-        **Example 3:** What is the biggest city in California? Los Angeles
-        **Example 4:** What is the superlative of good? Best
-        **Example 5:** What are the first 10 numbers in the Fibonacci sequence? 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
-        
-        **Final answer:** 
-
-        """
-
-    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
-
-    response = client.models.generate_content(
-        model=model, 
-        contents=[prompt_template]
-    )
+def read_docx(file_path):
+    doc = Document(file_path)
     
-    return response.text
+    text = []
+
+    for block in doc.element.body:
+        if block.tag.endswith("p"):
+            for paragraph in doc.paragraphs:
+                if paragraph._element == block:
+                    if paragraph.style.name.startswith("Heading"):
+                        text.append("\n**" + paragraph.text + "**\n")
+                    elif paragraph.text:
+                        text.append(paragraph.text)
+        elif block.tag.endswith("tbl"):
+            for table in doc.tables:
+                if table._element == block:
+                    for row in table.rows:
+                        row_text = []
+                        for cell in row.cells:
+                            row_text.append(cell.text.strip())
+                        text.append(" | ".join(row_text))
+            
+    return "\n".join(text)
+
+def read_pptx(file_path):
+    prs = Presentation(file_path)
+    
+    text = []
+    
+    for slide in prs.slides:
+        slide_text = []
+
+        for shape in slide.shapes:
+            if hasattr(shape, "text"):
+                slide_text.append(shape.text)
+        
+        text.append("\n".join(slide_text))
+    
+    return "\n\n".join(text)
