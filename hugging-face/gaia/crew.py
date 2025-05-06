@@ -11,7 +11,7 @@ from google import genai
 from google.genai import types
 from openinference.instrumentation.crewai import CrewAIInstrumentor
 from phoenix.otel import register
-from util import read_file, get_final_answer
+from util import read_file, read_docx, read_pptx, is_ext
 
 ## LLMs
 
@@ -25,7 +25,7 @@ IMAGE_ANALYSIS_MODEL    = "gemini-2.5-flash-preview-04-17"
 AUDIO_ANALYSIS_MODEL    = "gemini-2.5-flash-preview-04-17"
 VIDEO_ANALYSIS_MODEL    = "gemini-2.5-flash-preview-04-17"
 YOUTUBE_ANALYSIS_MODEL  = "gemini-2.5-flash-preview-04-17"
-DOCUMENT_ANALYSIS_MODEL    = "gemini-2.5-flash-preview-04-17"
+DOCUMENT_ANALYSIS_MODEL = "gemini-2.5-flash-preview-04-17"
 CODE_GENERATION_MODEL   = "gemini-2.5-flash-preview-04-17"
 CODE_EXECUTION_MODEL    = "gemini-2.5-flash-preview-04-17"
 
@@ -41,7 +41,7 @@ tracer_provider = register(
     project_name="gaia"
 )
 
-CrewAIInstrumentor().instrument(tracer_provider=tracer_provider)
+#CrewAIInstrumentor().instrument(tracer_provider=tracer_provider)
 
 def run_crew(question, file_path):
     # Tools
@@ -153,33 +153,6 @@ def run_crew(question, file_path):
             return response.text
         except Exception as e:
             raise RuntimeError(f"Processing failed: {str(e)}")
-
-    @tool("Document Analysis Tool")
-    def document_analysis_tool(question: str, file_path: str) -> str:
-        """Given a question and document file, analyze the document to answer the question.
-    
-           Args:
-               question (str): Question about a document file
-               file_path (str): The document file path
-                
-           Returns:
-               str: Answer to the question about the document file
-                
-           Raises:
-               RuntimeError: If processing fails"""
-        try:
-            client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
-            
-            file = client.files.upload(file=file_path)
-
-            response = client.models.generate_content(
-                model=DOCUMENT_ANALYSIS_MODEL,
-                contents=[file, question]
-            )
-          
-            return response.text
-        except Exception as e:
-            raise RuntimeError(f"Processing failed: {str(e)}")
             
     @tool("YouTube Analysis Tool")
     def youtube_analysis_tool(question: str, url: str) -> str:
@@ -206,7 +179,44 @@ def run_crew(question, file_path):
             )
         except Exception as e:
             raise RuntimeError(f"Processing failed: {str(e)}")
+
+    @tool("Document Analysis Tool")
+    def document_analysis_tool(question: str, file_path: str) -> str:
+        """Given a question and document file, analyze the document to answer the question.
     
+           Args:
+               question (str): Question about a document file
+               file_path (str): The document file path
+                
+           Returns:
+               str: Answer to the question about the document file
+                
+           Raises:
+               RuntimeError: If processing fails"""
+        try:
+            client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+
+            contents = []
+            
+            if is_ext(file_path, ".docx"):
+                file_data = read_docx(file_path)
+                contents = [f"{question}\n{file_data}"]
+            elif is_ext(file_path, ".pptx"):
+                file_data = read_pptx(file_path)
+                contents = [f"{question}\n{file_data}"]
+            else:
+                file = client.files.upload(file=file_path)
+                contents = [file, question]
+            
+            response = client.models.generate_content(
+                model=DOCUMENT_ANALYSIS_MODEL,
+                contents=contents
+            )
+          
+            return response.text
+        except Exception as e:
+            raise RuntimeError(f"Processing failed: {str(e)}")
+
     @tool("Code Generation Tool")
     def code_generation_tool(question: str, file_path: str) -> str:
         """Given a question and data file, generate and execute code to answer the question.
@@ -380,7 +390,7 @@ def run_crew(question, file_path):
                     "- Image Analysis Agent requires a question and **.png, .jpeg, .webp, .heic, or .heif image file**.\n"
                     "- Audio Analysis Agent requires a question and **.wav, .mp3, .aiff, .aac, .ogg, or .flac audio file**.\n"
                     "- Video Analysis Agent requires a question and **.mp4, .mpeg, .mov, .avi, .x-flv, .mpg, .webm, .wmv, or .3gpp video file**.\n"
-                    "- Document Analysis Agent requires a question and **.pdf, .txt, .html, css, .js, .md, .xml, or .rtf document file**.\n"
+                    "- Document Analysis Agent requires a question and **.docx, .pptx, .pdf, .txt, .html, css, .js, .md, .xml, or .rtf document file**.\n"
                     "- YouTube Analysis Agent requires a question and **YouTube URL**.\n"
                     "- Code Generation Agent requires a question and **.csv, .xls, .xlsx, .json, or .jsonl data file**.\n"
                     "- Code Execution Agent requires a question and **.py Python file**.\n"
@@ -419,3 +429,39 @@ def run_crew(question, file_path):
     print("###")
     
     return final_answer
+
+def get_final_answer(model, question, answer):
+    prompt_template = """
+        You are an expert question answering assistant. Given a question and an initial answer, your task is to provide the final answer.
+        Your final answer must be a number and/or string OR as few words as possible OR a comma-separated list of numbers and/or strings.
+        If you are asked for a number, don't use comma to write your number neither use units such as USD, $, percent, or % unless specified otherwise.
+        If you are asked for a string, don't use articles, neither abbreviations (for example cities), and write the digits in plain text unless specified otherwise.
+        If you are asked for a comma-separated list, apply the above rules depending of whether the element to be put in the list is a number or a string.
+        If the final answer is a number, use a number not a word.
+        If the final answer is a string, start with an uppercase character.
+        If the final answer is a comma-separated list of numbers, use a space character after each comma.
+        If the final answer is a comma-separated list of strings, use a space character after each comma and start with a lowercase character.
+        Do not add any content to the final answer that is not in the initial answer.
+
+        **Question:** """ + question + """
+        
+        **Initial answer:** """ + answer + """
+        
+        **Example 1:** What is the biggest city in California? Los Angeles
+        **Example 2:** How many 'r's are in strawberry? 3
+        **Example 3:** What is the opposite of black? White
+        **Example 4:** What are the first 5 numbers in the Fibonacci sequence? 0, 1, 1, 2, 3
+        **Example 5:** What is the opposite of bad, worse, worst? good, better, best
+        
+        **Final answer:** 
+
+        """
+
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+
+    response = client.models.generate_content(
+        model=model, 
+        contents=[prompt_template]
+    )
+    
+    return response.text
