@@ -41,13 +41,13 @@ gr.close_all()
 
 demo = gr.Interface(fn=invoke, 
                     inputs=[gr.Radio([1, 2, 3], label="Level", value=int(os.environ["INPUT_LEVEL"])),
-                            gr.Textbox(label="Question *", value=os.environ["INPUT_QUESTION"]),
+                            gr.Markdown(label="Question *", value=os.environ["INPUT_QUESTION"]),
                             gr.Textbox(label="File Name"),
                             gr.Textbox(label="Ground Truth", value=os.environ["INPUT_GROUND_TRUTH"]),
                             gr.Textbox(label="OpenAI API Key *", type="password"),
                             gr.Textbox(label="Gemini API Key *", type="password")],
                     outputs=[gr.Textbox(label="Answer", lines=1, interactive=False, value=os.environ["OUTPUT"])],
-                    title="General AI Assistant 🤖🤝🤖",
+                    title="General AI Assistant - GAIA 🤖🤝🤖",
                     description=os.environ["DESCRIPTION"],
                     examples=get_questions(QUESTION_FILE_PATH, QUESTION_LEVEL),
                     cache_examples=False
