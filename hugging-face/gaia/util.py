@@ -17,7 +17,7 @@ def get_questions(file_path, level):
 def is_ext(file_path, ext):
     return os.path.splitext(file_path)[1].lower() == ext.lower()
     
-def read_file(file_path):
+def read_file_json(file_path):
     ext = os.path.splitext(file_path)[1].lower()
 
     df = None
@@ -31,7 +31,7 @@ def read_file(file_path):
 
     return "" if df is None else df.to_json()
 
-def read_docx(file_path):
+def read_docx_text(file_path):
     doc = Document(file_path)
     
     text = []
@@ -55,7 +55,7 @@ def read_docx(file_path):
             
     return "\n".join(text)
 
-def read_pptx(file_path):
+def read_pptx_text(file_path):
     prs = Presentation(file_path)
     
     text = []
