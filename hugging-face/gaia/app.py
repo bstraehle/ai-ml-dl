@@ -3,7 +3,7 @@ import gradio as gr
 from crew import run_crew
 from util import get_questions
 
-QUESTION_FILE_PATH = "data/gaia_validation_20.jsonl"
+QUESTION_FILE_PATH = "data/gaia_validation.jsonl"
 QUESTION_LEVEL     = 1
 
 def invoke(level, question, file_name, ground_truth, openai_api_key, gemini_api_key):
@@ -47,7 +47,7 @@ demo = gr.Interface(fn=invoke,
                             gr.Textbox(label="OpenAI API Key *", type="password"),
                             gr.Textbox(label="Gemini API Key *", type="password")],
                     outputs=[gr.Textbox(label="Answer", lines=1, interactive=False, value=os.environ["OUTPUT"])],
-                    title="General AI Assistant (GAIA) 🤖🤝🤖",
+                    title="General AI Assistant 🤖🤝🤖",
                     description=os.environ["DESCRIPTION"],
                     examples=get_questions(QUESTION_FILE_PATH, QUESTION_LEVEL),
                     cache_examples=False
