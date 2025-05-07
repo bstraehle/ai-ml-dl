@@ -62,11 +62,9 @@ def read_pptx(file_path):
     
     for slide in prs.slides:
         slide_text = []
-
         for shape in slide.shapes:
             if hasattr(shape, "text"):
                 slide_text.append(shape.text)
-        
         text.append("\n".join(slide_text))
     
     return "\n\n".join(text)
