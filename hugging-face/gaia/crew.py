@@ -11,7 +11,7 @@ from google import genai
 from google.genai import types
 from openinference.instrumentation.crewai import CrewAIInstrumentor
 from phoenix.otel import register
-from util import read_file, read_docx, read_pptx, is_ext
+from util import read_file_json, read_docx_text, read_pptx_text, is_ext
 
 ## LLMs
 
@@ -199,11 +199,13 @@ def run_crew(question, file_path):
             contents = []
             
             if is_ext(file_path, ".docx"):
-                file_data = read_docx(file_path)
-                contents = [f"{question}\n{file_data}"]
+                text_data = read_docx_text(file_path)
+                contents = [f"{question}\n{text_data}"]
+                print(f"=> Text data:\n{text_data}")
             elif is_ext(file_path, ".pptx"):
-                file_data = read_pptx(file_path)
-                contents = [f"{question}\n{file_data}"]
+                text_data = read_pptx_text(file_path)
+                contents = [f"{question}\n{text_data}"]
+                print(f"=> Text data:\n{text_data}")
             else:
                 file = client.files.upload(file=file_path)
                 contents = [file, question]
@@ -218,12 +220,12 @@ def run_crew(question, file_path):
             raise RuntimeError(f"Processing failed: {str(e)}")
 
     @tool("Code Generation Tool")
-    def code_generation_tool(question: str, file_path: str) -> str:
-        """Given a question and data file, generate and execute code to answer the question.
+    def code_generation_tool(question: str, json_data: str) -> str:
+        """Given a question and json data, generate and execute code to answer the question.
 
            Args:
                question (str): Question to answer
-                file_path (str): The data file path
+                file_path (str): The JSON data
 
            Returns:
                str: Answer to the question
@@ -232,12 +234,10 @@ def run_crew(question, file_path):
                RuntimeError: If processing fails"""
         try:
             client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
-
-            file_data = read_file(file_path)
-            
+                    
             response = client.models.generate_content(
                 model=CODE_GENERATION_MODEL,
-                contents=[f"{question}\n{file_data}"],
+                contents=[f"{question}\n{json_data}"],
                 config=types.GenerateContentConfig(
                     tools=[types.Tool(code_execution=types.ToolCodeExecution)]
                 ),
@@ -392,8 +392,8 @@ def run_crew(question, file_path):
                     "- Video Analysis Agent requires a question and **.mp4, .mpeg, .mov, .avi, .x-flv, .mpg, .webm, .wmv, or .3gpp video file**.\n"
                     "- Document Analysis Agent requires a question and **.docx, .pptx, .pdf, .txt, .html, css, .js, .md, .xml, or .rtf document file**.\n"
                     "- YouTube Analysis Agent requires a question and **YouTube URL**.\n"
-                    "- Code Generation Agent requires a question and **.csv, .xls, .xlsx, .json, or .jsonl data file**.\n"
-                    "- Code Execution Agent requires a question and **.py Python file**.\n"
+                    "- Code Generation Agent requires a question and **JSON data**.\n"
+                    "- Code Execution Agent requires a question and **Python file**.\n"
                     "Question: {question}",
         expected_output="The answer to the question."
     )
@@ -416,17 +416,22 @@ def run_crew(question, file_path):
 
     # Process
 
+    final_question = question
+    
     if file_path:
-        question = f"{question} File path: {file_path}."
+        if is_ext(file_path, ".csv") or is_ext(file_path, ".xls") or is_ext(file_path, ".xlsx") or is_ext(file_path, ".json") or is_ext(file_path, ".jsonl"):
+            json_data = read_file_json(file_path)
+            final_question = f"{question} JSON data:\n{json_data}."
+        else:
+            final_question = f"{question} File path: {file_path}."
+    
+    answer = crew.kickoff(inputs={"question": final_question})
+    final_answer = get_final_answer(FINAL_ANSWER_MODEL, question, str(answer))
 
-    initial_answer = crew.kickoff(inputs={"question": question})
-    final_answer = get_final_answer(FINAL_ANSWER_MODEL, question, str(initial_answer))
-
-    print("###")
-    print(f"Question: {question}")
-    print(f"Initial answer: {initial_answer}")
-    print(f"Final answer: {final_answer}")
-    print("###")
+    print(f"=> Initial question: {question}")
+    print(f"=> Final question: {final_question}")
+    print(f"=> Initial answer: {answer}")
+    print(f"=> Final answer: {final_answer}")
     
     return final_answer
 
