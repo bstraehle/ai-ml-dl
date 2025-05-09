@@ -249,37 +249,7 @@ def run_crew(question, file_path):
             return response.text
         except Exception as e:
             raise RuntimeError(f"Processing failed: {str(e)}")
-    
-    @tool("Code Generation Tool")
-    def code_generation_tool(question: str, json_data: str) -> str:
-        """Given a question and JSON data, generate and execute code to answer the question.
 
-           Args:
-               question (str): Question to answer
-                file_path (str): The JSON data
-
-           Returns:
-               str: Answer to the question
-               
-           Raises:
-               RuntimeError: If processing fails"""
-        try:
-            client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
-                    
-            response = client.models.generate_content(
-                model=CODE_GENERATION_MODEL,
-                contents=[f"{question}\n{json_data}"],
-                config=types.GenerateContentConfig(
-                    tools=[types.Tool(code_execution=types.ToolCodeExecution)]
-                ),
-            )
-            
-            for part in response.candidates[0].content.parts:
-                if part.code_execution_result is not None:
-                    return part.code_execution_result.output
-        except Exception as e:
-            raise RuntimeError(f"Processing failed: {str(e)}")
-            
     @tool("Code Execution Tool")
     def code_execution_tool(question: str, file_path: str) -> str:
         """Given a question and Python file, execute the file to answer the question.
@@ -311,7 +281,37 @@ def run_crew(question, file_path):
                     return part.code_execution_result.output
         except Exception as e:
             raise RuntimeError(f"Processing failed: {str(e)}")
+
+    @tool("Code Generation Tool")
+    def code_generation_tool(question: str, json_data: str) -> str:
+        """Given a question and JSON data, generate and execute code to answer the question.
+
+           Args:
+               question (str): Question to answer
+                file_path (str): The JSON data
+
+           Returns:
+               str: Answer to the question
+               
+           Raises:
+               RuntimeError: If processing fails"""
+        try:
+            client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+                    
+            response = client.models.generate_content(
+                model=CODE_GENERATION_MODEL,
+                contents=[f"{question}\n{json_data}"],
+                config=types.GenerateContentConfig(
+                    tools=[types.Tool(code_execution=types.ToolCodeExecution)]
+                ),
+            )
             
+            for part in response.candidates[0].content.parts:
+                if part.code_execution_result is not None:
+                    return part.code_execution_result.output
+        except Exception as e:
+            raise RuntimeError(f"Processing failed: {str(e)}")
+                        
     # Agents
 
     web_search_agent = Agent(
@@ -390,18 +390,7 @@ def run_crew(question, file_path):
         tools=[arithmetic_tool],
         verbose=True
     )
-    
-    code_generation_agent = Agent(
-        role="Code Generation Agent",
-        goal="Given a question and JSON data, generate and execute code to answer the question: {question}",
-        backstory="As an expert Python code generation assistant, you generate and execute code to answer the question.",
-        allow_delegation=False,
-        llm=AGENT_MODEL,
-        max_iter=3,
-        tools=[code_generation_tool],
-        verbose=True
-    )
-    
+        
     code_execution_agent = Agent(
         role="Code Execution Agent",
         goal="Given a question and Python file, execute the file to answer the question: {question}",
@@ -410,6 +399,17 @@ def run_crew(question, file_path):
         llm=AGENT_MODEL,
         max_iter=3,
         tools=[code_execution_tool],
+        verbose=True
+    )
+
+    code_generation_agent = Agent(
+        role="Code Generation Agent",
+        goal="Given a question and JSON data, generate and execute code to answer the question: {question}",
+        backstory="As an expert Python code generation assistant, you generate and execute code to answer the question.",
+        allow_delegation=False,
+        llm=AGENT_MODEL,
+        max_iter=3,
+        tools=[code_generation_tool],
         verbose=True
     )
 
@@ -432,12 +432,12 @@ def run_crew(question, file_path):
                     "- Image Analysis Agent requires a question and **.png, .jpeg, .webp, .heic, or .heif image file**.\n"
                     "- Audio Analysis Agent requires a question and **.wav, .mp3, .aiff, .aac, .ogg, or .flac audio file**.\n"
                     "- Video Analysis Agent requires a question and **.mp4, .mpeg, .mov, .avi, .x-flv, .mpg, .webm, .wmv, or .3gpp video file**.\n"
+                    "- YouTube Analysis Agent requires a question and **YouTube URL**.\n"
                     "- Document Analysis Agent requires a question and **.docx, .pptx, .pdf, .txt, .html, css, .js, .md, .xml, or .rtf document file**.\n"
                     "- Arithmetic Agent requires a question and **two numbers to add, subtract, multiply, divide, or get the modulus**. "
                     "  In case there are more than two numbers, use the Code Generation Agent instead.\n"
-                    "- YouTube Analysis Agent requires a question and **YouTube URL**.\n"
-                    "- Code Generation Agent requires a question and **JSON data**.\n"
                     "- Code Execution Agent requires a question and **Python file**.\n"
+                    "- Code Generation Agent requires a question and **JSON data**.\n"
                     "In case you cannot answer the question and there is not a good coworker, delegate to the Code Generation Agent.\n"
                     "Question: {question}",
         expected_output="The answer to the question."
@@ -452,9 +452,9 @@ def run_crew(question, file_path):
                 video_analysis_agent, 
                 youtube_analysis_agent, 
                 document_analysis_agent, 
-                arithmetic_agent,
-                code_generation_agent, 
-                code_execution_agent],
+                arithmetic_agent, 
+                code_execution_agent, 
+                code_generation_agent],
         manager_agent=manager_agent,
         tasks=[manager_task],
         verbose=True
