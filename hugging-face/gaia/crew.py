@@ -11,7 +11,8 @@ from google import genai
 from google.genai import types
 from openinference.instrumentation.crewai import CrewAIInstrumentor
 from phoenix.otel import register
-from util import read_file_json, read_docx_text, read_pptx_text, is_ext
+from tools import add, subtract, multiply, divide, modulus
+from utils import read_file_json, read_docx_text, read_pptx_text, is_ext
 
 ## LLMs
 
@@ -26,6 +27,7 @@ AUDIO_ANALYSIS_MODEL    = "gemini-2.5-flash-preview-04-17"
 VIDEO_ANALYSIS_MODEL    = "gemini-2.5-flash-preview-04-17"
 YOUTUBE_ANALYSIS_MODEL  = "gemini-2.5-flash-preview-04-17"
 DOCUMENT_ANALYSIS_MODEL = "gemini-2.5-flash-preview-04-17"
+ARITHMETIC_MODEL        = "gemini-2.5-flash-preview-04-17"
 CODE_GENERATION_MODEL   = "gemini-2.5-flash-preview-04-17"
 CODE_EXECUTION_MODEL    = "gemini-2.5-flash-preview-04-17"
 
@@ -219,9 +221,38 @@ def run_crew(question, file_path):
         except Exception as e:
             raise RuntimeError(f"Processing failed: {str(e)}")
 
+    @tool("Arithmetic Tool")
+    def arithmetic_tool(question: str, a: float, b: float) -> float:
+        """Given a question and two numbers, perform the calculation to answer the question.
+    
+           Args:
+               question (str): Question to answer
+               a (float): First number
+               b (float): Second number
+                
+           Returns:
+               float: Result number
+                
+           Raises:
+               RuntimeError: If processing fails"""
+        try:
+            client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+            
+            response = client.models.generate_content(
+                model=ARITHMETIC_MODEL,
+                contents=question,
+                config=types.GenerateContentConfig(
+                    tools=[add, subtract, multiply, divide, modulus]
+                )
+            )
+
+            return response.text
+        except Exception as e:
+            raise RuntimeError(f"Processing failed: {str(e)}")
+    
     @tool("Code Generation Tool")
     def code_generation_tool(question: str, json_data: str) -> str:
-        """Given a question and json data, generate and execute code to answer the question.
+        """Given a question and JSON data, generate and execute code to answer the question.
 
            Args:
                question (str): Question to answer
@@ -348,10 +379,21 @@ def run_crew(question, file_path):
         tools=[document_analysis_tool],
         verbose=True
     )
+
+    arithmetic_agent = Agent(
+        role="Arithmetic Agent",
+        goal="Given a question and two numbers, perform the calculation and answer the question: {question}",
+        backstory="As an expert arithmetic assistant, you perform the calculation to answer the question.",
+        allow_delegation=False,
+        llm=AGENT_MODEL,
+        max_iter=2,
+        tools=[arithmetic_tool],
+        verbose=True
+    )
     
     code_generation_agent = Agent(
         role="Code Generation Agent",
-        goal="Given a question and data file, generate and execute code to answer the question: {question}",
+        goal="Given a question and JSON data, generate and execute code to answer the question: {question}",
         backstory="As an expert Python code generation assistant, you generate and execute code to answer the question.",
         allow_delegation=False,
         llm=AGENT_MODEL,
@@ -391,9 +433,12 @@ def run_crew(question, file_path):
                     "- Audio Analysis Agent requires a question and **.wav, .mp3, .aiff, .aac, .ogg, or .flac audio file**.\n"
                     "- Video Analysis Agent requires a question and **.mp4, .mpeg, .mov, .avi, .x-flv, .mpg, .webm, .wmv, or .3gpp video file**.\n"
                     "- Document Analysis Agent requires a question and **.docx, .pptx, .pdf, .txt, .html, css, .js, .md, .xml, or .rtf document file**.\n"
+                    "- Arithmetic Agent requires a question and **two numbers to add, subtract, multiply, divide, or get the modulus**. "
+                    "  In case there are more than two numbers, use the Code Generation Agent instead.\n"
                     "- YouTube Analysis Agent requires a question and **YouTube URL**.\n"
                     "- Code Generation Agent requires a question and **JSON data**.\n"
                     "- Code Execution Agent requires a question and **Python file**.\n"
+                    "In case you cannot answer the question and there is not a good coworker, delegate to the Code Generation Agent.\n"
                     "Question: {question}",
         expected_output="The answer to the question."
     )
@@ -407,6 +452,7 @@ def run_crew(question, file_path):
                 video_analysis_agent, 
                 youtube_analysis_agent, 
                 document_analysis_agent, 
+                arithmetic_agent,
                 code_generation_agent, 
                 code_execution_agent],
         manager_agent=manager_agent,
