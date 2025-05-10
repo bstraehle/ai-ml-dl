@@ -43,7 +43,7 @@ def today_tool(text: str) -> str:
        Any date mathematics should occur outside this function."""
     return (str(date.today()) + "\n\nIf you have completed all tasks, respond with FINAL ANSWER.")
     
-def create_graph(model, topic):
+def create_graph(llm, topic):
     tavily_tool = TavilySearchResults(max_results=10)
     
     members = ["Researcher"]
@@ -87,7 +87,7 @@ def create_graph(model, topic):
         ]
     ).partial(options=str(options), members=", ".join(members))
     
-    llm = ChatOpenAI(model=model)
+    llm = ChatOpenAI(model=llm)
     
     supervisor_chain = (
         prompt
@@ -97,10 +97,11 @@ def create_graph(model, topic):
 
     researcher_agent = create_agent(llm, [tavily_tool, today_tool], system_prompt=
                                     "1. Research content on topic: " + topic + ". "
-                                    "2. Based on your research, write an in-depth article on the topic. " 
-                                    "3. The output must be in markdown format (omit the triple backticks). "
-                                    "4. At the beginning of the article, add current date and author: Multi-Agent AI System. "
-                                    "5. Also at the beginning of the article, add a references section with links to relevant content.")
+                                    "2. Based on your research, write a long and in-depth article on the topic. " 
+                                    "3. The output must be in markdown format (omit the triple backticks), including lists. "
+                                    "4. At the beginning of the article below the title, add current date and author: Multi-Agent AI System. "
+                                    "5. At the end of the article, add a references section with distinct links to relevant content. "
+                                    "6. Include inline references to the links, for example: [1].")
     researcher_node = functools.partial(agent_node, agent=researcher_agent, name="Researcher")
 
     workflow = StateGraph(AgentState)
