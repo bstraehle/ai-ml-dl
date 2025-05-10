@@ -17,11 +17,16 @@ https://www.deeplearning.ai/short-courses/building-agentic-rag-with-llamaindex/ 
 https://www.deeplearning.ai/short-courses/event-driven-agentic-document-workflows/ (LlamaIndex)  
 
 ---
+
 https://www.deeplearning.ai/short-courses/building-ai-browser-agents/ (AGI Inc)  
 
 https://www.deeplearning.ai/short-courses/build-apps-with-windsurfs-ai-coding-agents/ (Codeium Windsurf AI IDE)  
 
 https://www.deeplearning.ai/short-courses/vibe-coding-101-with-replit/ (Replit)  
+
+---
+
+https://www.deeplearning.ai/short-courses/building-ai-voice-agents-for-production/ (LiveKit)
 
 ---
 
