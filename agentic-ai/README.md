@@ -26,7 +26,7 @@ https://www.deeplearning.ai/short-courses/vibe-coding-101-with-replit/ (Replit)
 
 ---
 
-https://www.deeplearning.ai/short-courses/building-ai-voice-agents-for-production/ (LiveKit)
+https://www.deeplearning.ai/short-courses/building-ai-voice-agents-for-production/ (RealAvatar)
 
 ---
 
