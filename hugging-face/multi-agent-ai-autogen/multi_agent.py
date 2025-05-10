@@ -23,7 +23,7 @@ def make_move(move: Annotated[str, "A move in UCI format."]) -> Annotated[str, "
         board,
         arrows=[(move.from_square, move.to_square)],
         fill={move.from_square: "gray"},
-        size=250
+        size=600
     ))
 
     piece = board.piece_at(move.to_square)
