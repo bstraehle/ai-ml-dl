@@ -84,7 +84,7 @@ def make_move(move: Annotated[str, "A move in UCI format."]) -> Annotated[str, "
             board,
             arrows=[(move.from_square, move.to_square)],
             fill={move.from_square: "gray"},
-            size=250
+            size=600
         ))
 
         piece = board.piece_at(move.to_square)
@@ -254,9 +254,5 @@ def run_multi_agent(llm_board, llm_white, llm_black, moves_num):
     
             if num_moves % 2 == 0 and num_move == num_moves + 1:
                 break
-    
-    #print("===")
-    #print(result_md)
-    #print("===")
-    
+                    
     return result_md
