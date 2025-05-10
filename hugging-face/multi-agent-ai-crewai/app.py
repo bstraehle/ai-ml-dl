@@ -5,7 +5,8 @@ from crew import get_crew
 
 lock = threading.Lock()
 
-LLM = "gpt-4o"
+LLM_MANAGER = "gpt-4-mini"
+LLM_AGENTS = "gpt-4.1"
 VERBOSE = False
 
 def invoke(openai_api_key, topic):
@@ -19,7 +20,7 @@ def invoke(openai_api_key, topic):
     with lock:
         os.environ["OPENAI_API_KEY"] = openai_api_key
     
-        article = str(get_crew(LLM, VERBOSE).kickoff(inputs={"topic": topic}))
+        article = str(get_crew(LLM_MANAGER, LLM_AGENTS, VERBOSE).kickoff(inputs={"topic": topic}))
     
         print("===")
         print(article)
@@ -29,13 +30,37 @@ def invoke(openai_api_key, topic):
     
         return article
 
+def clear():
+    return ""
+
 gr.close_all()
 
-demo = gr.Interface(fn = invoke, 
-                    inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
-                              gr.Textbox(label = "Topic", value=os.environ["TOPIC"], lines = 1)],
-                    outputs = [gr.Markdown(label = "Article", value=os.environ["OUTPUT"], line_breaks = True, sanitize_html = False)],
-                    title = "Multi-Agent AI: Article Writing",
-                    description = os.environ["DESCRIPTION"])
+with gr.Blocks() as assistant:
+    gr.Markdown("## Multi-Agent AI: Article Writing")
+    gr.Markdown(os.environ.get("DESCRIPTION"))
 
-demo.launch()
+    with gr.Row():
+        with gr.Column(scale=1):
+            with gr.Row():
+                openai_api_key = gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1)
+                topic = gr.Textbox(label = "Topic", value=os.environ["TOPIC"], lines = 1)            
+            with gr.Row():
+                clear_btn = gr.ClearButton(
+                    components=[openai_api_key, topic]
+                )
+                submit_btn = gr.Button("Submit", variant="primary")
+        with gr.Column(scale=3):
+            article = gr.Markdown(label = "Article", value=os.environ["OUTPUT"], line_breaks = True, sanitize_html = False)
+
+    clear_btn.click(
+        fn=clear,
+        outputs=article
+    )
+    
+    submit_btn.click(
+        fn=invoke,
+        inputs=[openai_api_key, topic],
+        outputs=article
+    )
+
+assistant.launch()
