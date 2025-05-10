@@ -1,12 +1,12 @@
 import os, threading
 import gradio as gr
 from crew import run_crew
-from util import get_questions
+from utils import get_questions
 
 QUESTION_FILE_PATH = "data/gaia_validation.jsonl"
 QUESTION_LEVEL     = 1
 
-def invoke(level, question, file_name, ground_truth, openai_api_key, gemini_api_key):
+def invoke(question, level, ground_truth, file_name, openai_api_key, gemini_api_key):
     if not question:
         raise gr.Error("Question is required.")
 
@@ -37,20 +37,78 @@ def invoke(level, question, file_name, ground_truth, openai_api_key, gemini_api_
         
         return answer
 
+def clear():
+    return ""
+
 gr.close_all()
 
-demo = gr.Interface(fn=invoke, 
-                    inputs=[gr.Radio([1, 2, 3], label="Level", value=int(os.environ["INPUT_LEVEL"])),
-                            gr.Markdown(label="Question *", value=os.environ["INPUT_QUESTION"]),
-                            gr.Textbox(label="File Name"),
-                            gr.Textbox(label="Ground Truth", value=os.environ["INPUT_GROUND_TRUTH"]),
-                            gr.Textbox(label="OpenAI API Key *", type="password"),
-                            gr.Textbox(label="Gemini API Key *", type="password")],
-                    outputs=[gr.Textbox(label="Answer", lines=1, interactive=False, value=os.environ["OUTPUT"])],
-                    title="General AI Assistant - GAIA 🤖🤝🤖",
-                    description=os.environ["DESCRIPTION"],
-                    examples=get_questions(QUESTION_FILE_PATH, QUESTION_LEVEL),
-                    cache_examples=False
-                   )
+examples = get_questions(QUESTION_FILE_PATH, QUESTION_LEVEL)
 
-demo.launch()
+with gr.Blocks(title="GAIA") as gaia:
+    gr.Markdown("## General AI Assistant - GAIA 🤖🤝🤖")
+    gr.Markdown(os.environ.get("DESCRIPTION"))
+
+    with gr.Row():
+        with gr.Column(scale=3):
+            with gr.Row():
+                question = gr.Textbox(
+                    label="Question *",
+                    value=os.environ.get("INPUT_QUESTION", "")
+                )
+            with gr.Row():
+                level = gr.Radio(
+                    choices=[1, 2, 3],
+                    label="Level",
+                    value=int(os.environ.get("INPUT_LEVEL", 1)),
+                    scale=1
+                )
+                ground_truth = gr.Textbox(
+                    label="Ground Truth",
+                    value=os.environ.get("INPUT_GROUND_TRUTH", ""),
+                    scale=1
+                )
+                file_name = gr.Textbox(
+                    label="File Name",
+                    scale=2
+                )
+            with gr.Row():
+                openai_api_key = gr.Textbox(
+                    label="OpenAI API Key *",
+                    type="password"
+                )
+                gemini_api_key = gr.Textbox(
+                    label="Gemini API Key *",
+                    type="password"
+                )
+            with gr.Row():
+                clear_btn = gr.ClearButton(
+                    components=[question, level, ground_truth, file_name, openai_api_key, gemini_api_key]
+                )
+                submit_btn = gr.Button("Submit", variant="primary")
+        with gr.Column(scale=1):
+            answer = gr.Textbox(
+                label="Answer",
+                lines=1,
+                interactive=False,
+                value=os.environ.get("OUTPUT", "")
+            )
+
+    clear_btn.click(
+        fn=clear,
+        outputs=answer
+    )
+    
+    submit_btn.click(
+        fn=invoke,
+        inputs=[question, level, ground_truth, file_name, openai_api_key, gemini_api_key],
+        outputs=answer
+    )
+    
+    gr.Examples(
+        examples=examples,
+        inputs=[question, level, ground_truth, file_name, openai_api_key, gemini_api_key],
+        outputs=answer,
+        cache_examples=False
+    )
+
+gaia.launch()
