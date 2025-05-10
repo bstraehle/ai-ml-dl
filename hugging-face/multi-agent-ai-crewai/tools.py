@@ -1,4 +1,5 @@
-from crewai_tools import BaseTool, ScrapeWebsiteTool, SerperDevTool
+from crewai.tools import BaseTool
+from crewai_tools import ScrapeWebsiteTool, SerperDevTool
 
 from datetime import date
 
