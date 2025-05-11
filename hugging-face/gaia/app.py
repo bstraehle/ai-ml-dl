@@ -6,7 +6,19 @@ from utils import get_questions
 QUESTION_FILE_PATH = "data/gaia_validation.jsonl"
 QUESTION_LEVEL     = 1
 
-def invoke(question, level, ground_truth, file_name, openai_api_key, gemini_api_key):
+def _run(question, openai_api_key, gemini_api_key, file_name = ""):
+    """
+    Run GAIA General AI Assistant to answer a question.
+
+    Args:
+        question (str): The question to answer
+        openai_api_key (str): OpenAI API key
+        gemini_api_key (str): Gemini API key
+        file_name (str): Optional file name
+
+    Returns:
+        str: The answer to the question
+    """
     if not question:
         raise gr.Error("Question is required.")
 
@@ -37,14 +49,11 @@ def invoke(question, level, ground_truth, file_name, openai_api_key, gemini_api_
         
         return answer
 
-def clear():
-    return ""
-
 gr.close_all()
 
 examples = get_questions(QUESTION_FILE_PATH, QUESTION_LEVEL)
 
-with gr.Blocks(title="GAIA") as gaia:
+with gr.Blocks() as gaia:
     gr.Markdown("## General AI Assistant - GAIA 🤖🤝🤖")
     gr.Markdown(os.environ.get("DESCRIPTION"))
 
@@ -94,13 +103,13 @@ with gr.Blocks(title="GAIA") as gaia:
             )
 
     clear_btn.click(
-        fn=clear,
+        fn=lambda: "",
         outputs=answer
     )
     
     submit_btn.click(
-        fn=invoke,
-        inputs=[question, level, ground_truth, file_name, openai_api_key, gemini_api_key],
+        fn=_run,
+        inputs=[question, openai_api_key, gemini_api_key, file_name],
         outputs=answer
     )
     
@@ -111,4 +120,4 @@ with gr.Blocks(title="GAIA") as gaia:
         cache_examples=False
     )
 
-gaia.launch()
+gaia.launch(mcp_server=True)
