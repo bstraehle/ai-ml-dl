@@ -2,6 +2,7 @@ arize-phoenix-otel==0.9.2
 crewai==0.118.0
 crewai[tools]==0.118.0
 google-genai==1.13.0
+gradio[mcp]==5.29.0
 openinference-instrumentation-crewai==0.1.9
 python-docx==1.1.2
 python-pptx==1.0.2
