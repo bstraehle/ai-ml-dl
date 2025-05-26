@@ -4,7 +4,6 @@ from crew import run_crew
 from utils import get_questions
 
 QUESTION_FILE_PATH = "data/gaia_validation.jsonl"
-QUESTION_LEVEL     = 1
 
 def _run(question, openai_api_key, gemini_api_key, file_name = ""):
     """
@@ -51,29 +50,28 @@ def _run(question, openai_api_key, gemini_api_key, file_name = ""):
 
 gr.close_all()
 
-examples = get_questions(QUESTION_FILE_PATH, QUESTION_LEVEL)
+examples_1 = get_questions(QUESTION_FILE_PATH, 1)
+examples_2 = get_questions(QUESTION_FILE_PATH, 2)
+examples_3 = get_questions(QUESTION_FILE_PATH, 3)
 
 with gr.Blocks() as gaia:
-    gr.Markdown("## General AI Assistant - GAIA 🤖🤝🤖")
+    gr.Markdown("## General AI Assistant 🧠")
     gr.Markdown(os.environ.get("DESCRIPTION"))
 
     with gr.Row():
         with gr.Column(scale=3):
             with gr.Row():
                 question = gr.Textbox(
-                    label="Question *",
-                    value=os.environ.get("INPUT_QUESTION", "")
+                    label="Question *"
                 )
             with gr.Row():
                 level = gr.Radio(
                     choices=[1, 2, 3],
                     label="Level",
-                    value=int(os.environ.get("INPUT_LEVEL", 1)),
                     scale=1
                 )
                 ground_truth = gr.Textbox(
                     label="Ground Truth",
-                    value=os.environ.get("INPUT_GROUND_TRUTH", ""),
                     scale=1
                 )
                 file_name = gr.Textbox(
@@ -98,14 +96,13 @@ with gr.Blocks() as gaia:
             answer = gr.Textbox(
                 label="Answer",
                 lines=1,
-                interactive=False,
-                value=os.environ.get("OUTPUT", "")
+                interactive=False
             )
 
-    clear_btn.click(
-        fn=lambda: "",
-        outputs=answer
-    )
+    #clear_btn.click(
+    #    fn=lambda: "",
+    #    outputs=answer
+    #)
     
     submit_btn.click(
         fn=_run,
@@ -114,7 +111,24 @@ with gr.Blocks() as gaia:
     )
     
     gr.Examples(
-        examples=examples,
+        label="Level 1",
+        examples=examples_1,
+        inputs=[question, level, ground_truth, file_name, openai_api_key, gemini_api_key],
+        outputs=answer,
+        cache_examples=False
+    )
+
+    gr.Examples(
+        label="Level 2",
+        examples=examples_2,
+        inputs=[question, level, ground_truth, file_name, openai_api_key, gemini_api_key],
+        outputs=answer,
+        cache_examples=False
+    )
+
+    gr.Examples(
+        label="Level 3",
+        examples=examples_3,
         inputs=[question, level, ground_truth, file_name, openai_api_key, gemini_api_key],
         outputs=answer,
         cache_examples=False
