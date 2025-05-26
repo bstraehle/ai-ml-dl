@@ -7,6 +7,7 @@ import os
 import pandas as pd
 from crewai import Agent, Crew, Process, Task
 from crewai.tools import tool
+from crewai_tools import BrowserbaseLoadTool
 from google import genai
 from google.genai import types
 from openinference.instrumentation.crewai import CrewAIInstrumentor
@@ -48,6 +49,8 @@ tracer_provider = register(
 def run_crew(question, file_path):
     # Tools
 
+    web_browser_tool = BrowserbaseLoadTool()
+    
     @tool("Web Search Tool")
     def web_search_tool(question: str) -> str:
         """Given a question only, search the web to answer the question.
@@ -313,7 +316,7 @@ def run_crew(question, file_path):
             raise RuntimeError(f"Processing failed: {str(e)}")
                         
     # Agents
-
+    
     web_search_agent = Agent(
         role="Web Search Agent",
         goal="Given a question only, search the web and answer the question: {question}",
@@ -325,6 +328,17 @@ def run_crew(question, file_path):
         verbose=True
     )
 
+    web_browser_agent = Agent(
+        role="Web Browser Agent",
+        goal="Given a question and URL, act, extract, navigate, observe, and answer the question: {question}",
+        backstory="As an expert browser assistant, you use a URL and act, extract, navigate, observe to answer the question.",
+        allow_delegation=False,
+        llm=AGENT_MODEL,
+        max_iter=2,
+        tools=[web_browser_tool],
+        verbose=True
+    )
+    
     image_analysis_agent = Agent(
         role="Image Analysis Agent",
         goal="Given a question and image file, analyze the image and answer the question: {question}",
@@ -429,6 +443,7 @@ def run_crew(question, file_path):
         agent=manager_agent,
         description="Answer the following question. If needed, delegate to one of your coworkers:\n"
                     "- Web Search Agent requires a question only.\n"
+                    "- Web Browser Agent requires a question and **URL**.\n"
                     "- Image Analysis Agent requires a question and **.png, .jpeg, .webp, .heic, or .heif image file**.\n"
                     "- Audio Analysis Agent requires a question and **.wav, .mp3, .aiff, .aac, .ogg, or .flac audio file**.\n"
                     "- Video Analysis Agent requires a question and **.mp4, .mpeg, .mov, .avi, .x-flv, .mpg, .webm, .wmv, or .3gpp video file**.\n"
@@ -447,6 +462,7 @@ def run_crew(question, file_path):
     
     crew = Crew(
         agents=[web_search_agent, 
+                web_browser_agent, 
                 image_analysis_agent, 
                 audio_analysis_agent, 
                 video_analysis_agent, 
