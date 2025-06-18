@@ -5,6 +5,8 @@ https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autoge
 https://www.deeplearning.ai/short-courses/multi-ai-agent-systems-with-crewai/ (crewAI)  
 https://www.deeplearning.ai/short-courses/practical-multi-ai-agents-and-advanced-use-cases-with-crewai/ (crewAI)  
 
+https://www.deeplearning.ai/short-courses/dspy-build-optimize-agentic-apps/ (DSPy)
+
 https://www.deeplearning.ai/short-courses/building-code-agents-with-hugging-face-smolagents/ (Hugging Face)  
 
 https://www.deeplearning.ai/short-courses/building-your-own-database-agent/ (LangChain)  
