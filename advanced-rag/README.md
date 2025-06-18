@@ -1,3 +1,4 @@
+https://www.deeplearning.ai/short-courses/orchestrating-workflows-for-genai-applications/ (Astronomer)
 https://www.deeplearning.ai/short-courses/advanced-retrieval-for-ai/ (Chroma)  
 https://www.deeplearning.ai/short-courses/building-applications-vector-databases/ (Pinecone)  
 https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag/ (LlamaIndex, TruEra)  
