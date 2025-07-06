@@ -6,7 +6,7 @@ Videos:
 - https://www.wandb.courses/pages/w-b-courses/  
 - https://www.coursera.org/professional-certificates/applied-artifical-intelligence-ibm-watson-ai/  
 - https://www.youtube.com/@AndrejKarpathy
-- https://academy.openai.com/home  
+- https://academy.openai.com/  
 
 Books:  
 
