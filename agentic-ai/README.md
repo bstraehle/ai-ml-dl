@@ -47,3 +47,7 @@ https://huggingface.co/spaces/bstraehle/multi-agent-ai-autogen-coding/ (AutoGen,
 https://huggingface.co/spaces/bstraehle/multi-agent-ai-crewai/ (crewAI, multi-agent)  
 https://huggingface.co/spaces/bstraehle/multi-agent-ai-langgraph/ (LangGraph, multi-agent)  
 https://huggingface.co/spaces/bstraehle/agentic-rag/ (LangChain & LlamaIndex, single agent)  
+
+---
+
+https://docs.google.com/document/d/1JU8w-E4LlseFZm-ag22GSBU5A2rp2nb7iFGBNAbFL7k/ (Context Engineering)  
