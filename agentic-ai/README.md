@@ -34,6 +34,8 @@ https://www.deeplearning.ai/short-courses/building-ai-voice-agents-for-productio
 
 ---
 
+https://www.anthropic.com/engineering/building-effective-agents/ (Anthropic)  
+
 https://github.com/microsoft/autogen/ (AutoGen)  
 
 https://www.youtube.com/playlist?list=PLfaIDFEXuae16n2TWUkKq5PgJ0w6Pkwtg (LangGraph)  
