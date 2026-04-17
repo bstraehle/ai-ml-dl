@@ -1,6 +1,6 @@
 chess==1.10.0
 langchain==0.2.3
-langchain_openai==0.1.8
+langchain_openai==1.1.14
 langchain_experimental==0.0.60
 langgraph==0.0.66
 langsmith==0.1.76
