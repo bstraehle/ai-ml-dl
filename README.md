@@ -6,7 +6,7 @@ Courses I've worked through, the labs that came with them, my notes, and my own 
 
 ## Learning paths by role
 
-Each path is an ordered list of topics in this repo. Skip what you already know.
+Each path is an ordered list of topics in this repo. Skip what you already know. Not sure which role fits? See [AI careers](12-careers/ai-careers/).
 
 ### AI engineer: building LLM apps and agents
 
@@ -14,7 +14,7 @@ Each path is an ordered list of topics in this repo. Skip what you already know.
 2. [Function calling](04-building-with-llms/function-calling/) and [Structured output](04-building-with-llms/llm-structured-output/)
 3. [Embedding models](05-rag-and-data/embedding-models/), then [Advanced RAG](05-rag-and-data/advanced-rag/) and [Unstructured data](05-rag-and-data/unstructured-data-for-llm-apps/)
 4. [Agentic AI](06-agents/agentic-ai/) and [MCP](06-agents/mcp/)
-5. [Quality & safety](08-evaluation-and-safety/quality-safety-llm-apps/), [Guardrails](08-evaluation-and-safety/guardrails/), [Red teaming](08-evaluation-and-safety/red-teaming-llm-apps/)
+5. [LLM evals](08-evaluation-and-safety/llm-evals/), then [Quality & safety](08-evaluation-and-safety/quality-safety-llm-apps/), [Guardrails](08-evaluation-and-safety/guardrails/), [Red teaming](08-evaluation-and-safety/red-teaming-llm-apps/) and [AI security](08-evaluation-and-safety/ai-security/)
 6. [LLMOps](09-ops-and-deployment/llm-ops/) and [Serving LLMs efficiently](09-ops-and-deployment/efficiently-serving-llms/)
 7. Build something: see [my projects](#my-projects) for examples
 
@@ -40,7 +40,8 @@ Each path is an ordered list of topics in this repo. Skip what you already know.
 1. [Generative AI for everyone](02-llm-fundamentals/gen-ai-for-everyone/)
 2. [How LLMs work](02-llm-fundamentals/gen-ai-llms/), the first week is enough
 3. The *Key concepts* sections of [Advanced RAG](05-rag-and-data/advanced-rag/), [Agentic AI](06-agents/agentic-ai/) and [MCP](06-agents/mcp/)
-4. Risks and costs: [Quality & safety](08-evaluation-and-safety/quality-safety-llm-apps/), [Red teaming](08-evaluation-and-safety/red-teaming-llm-apps/), [Carbon-aware computing](09-ops-and-deployment/carbon-aware-computing/)
+4. Measuring quality: [LLM evals](08-evaluation-and-safety/llm-evals/)
+5. Risks, rules and costs: [AI governance](08-evaluation-and-safety/ai-governance/), [AI security](08-evaluation-and-safety/ai-security/), [Quality & safety](08-evaluation-and-safety/quality-safety-llm-apps/), [Carbon-aware computing](09-ops-and-deployment/carbon-aware-computing/)
 
 ## Browse by topic
 
@@ -49,16 +50,17 @@ Topics are grouped into numbered folders, roughly in learning order. Each folder
 | Area | Topics |
 |---|---|
 | [Foundations](01-foundations/) | [Mathematics](01-foundations/mathematics/) · [Machine learning](01-foundations/machine-learning/) · [Deep learning](01-foundations/deep-learning/) · [Practical data science](01-foundations/practical-data-science/) · [Kaggle](01-foundations/kaggle/) |
-| [How LLMs work](02-llm-fundamentals/) | [Generative AI for everyone](02-llm-fundamentals/gen-ai-for-everyone/) · [Generative AI with LLMs](02-llm-fundamentals/gen-ai-llms/) · [Attention in transformers](02-llm-fundamentals/attention-in-transformers/) · [Pretraining LLMs](02-llm-fundamentals/pretraining-llms/) |
+| [How LLMs work](02-llm-fundamentals/) | [Generative AI for everyone](02-llm-fundamentals/gen-ai-for-everyone/) · [Generative AI with LLMs](02-llm-fundamentals/gen-ai-llms/) · [Attention in transformers](02-llm-fundamentals/attention-in-transformers/) · [Pretraining LLMs](02-llm-fundamentals/pretraining-llms/) · [Reasoning models](02-llm-fundamentals/reasoning-models/) |
 | [Adapting models](03-adapting-models/) | [Fine-tuning](03-adapting-models/finetuning-llms/) · [RLHF](03-adapting-models/rlhf/) · [Quantization](03-adapting-models/quantization/) |
 | [Building with LLMs](04-building-with-llms/) | [Prompt engineering](04-building-with-llms/prompt-eng/) · [Function calling](04-building-with-llms/function-calling/) · [Structured output](04-building-with-llms/llm-structured-output/) · [Pair programming with LLMs](04-building-with-llms/pair-programming-llm/) · [Gradio](04-building-with-llms/gradio/) · [AI-powered game](04-building-with-llms/ai-powered-game/) |
 | [RAG and data](05-rag-and-data/) | [Embedding models](05-rag-and-data/embedding-models/) · [Advanced RAG](05-rag-and-data/advanced-rag/) · [Unstructured data](05-rag-and-data/unstructured-data-for-llm-apps/) |
 | [Agents](06-agents/) | [Agentic AI](06-agents/agentic-ai/) · [MCP](06-agents/mcp/) · [Computer use](06-agents/anthropic-computer-use/) |
 | [Multimodal](07-multimodal/) | [Vision models](07-multimodal/vision-models/) · [Diffusion models](07-multimodal/diffusion-models/) |
-| [Evaluation and safety](08-evaluation-and-safety/) | [Quality & safety](08-evaluation-and-safety/quality-safety-llm-apps/) · [Guardrails](08-evaluation-and-safety/guardrails/) · [Red teaming](08-evaluation-and-safety/red-teaming-llm-apps/) |
+| [Evaluation, safety and governance](08-evaluation-and-safety/) | [LLM evals](08-evaluation-and-safety/llm-evals/) · [Quality & safety](08-evaluation-and-safety/quality-safety-llm-apps/) · [Guardrails](08-evaluation-and-safety/guardrails/) · [Red teaming](08-evaluation-and-safety/red-teaming-llm-apps/) · [AI security](08-evaluation-and-safety/ai-security/) · [AI governance](08-evaluation-and-safety/ai-governance/) |
 | [Ops and deployment](09-ops-and-deployment/) | [LLMOps](09-ops-and-deployment/llm-ops/) · [MLOps](09-ops-and-deployment/machine-learning-eng/) · [Serving LLMs](09-ops-and-deployment/efficiently-serving-llms/) · [On-device AI](09-ops-and-deployment/on-device-ai/) · [Federated learning](09-ops-and-deployment/federated-learning/) · [Carbon-aware computing](09-ops-and-deployment/carbon-aware-computing/) · [Weights & Biases](09-ops-and-deployment/wandb/) |
 | [Platforms and model providers](10-platforms/) | [Open-source models (Hugging Face)](10-platforms/open-source-models/) · [Amazon Bedrock](10-platforms/amazon-bedrock/) · [Amazon SageMaker](10-platforms/amazon-sagemaker/) · [Google Vertex AI](10-platforms/google-vertex-ai/) · [IBM watsonx](10-platforms/ibm-watsonx/) · [OpenAI](10-platforms/openai/) · [Mistral](10-platforms/mistral/) · [Llama](10-platforms/llama/) |
 | [Frameworks](11-frameworks/) | [LangChain](11-frameworks/langchain/) · [Haystack](11-frameworks/haystack/) · [Semantic Kernel](11-frameworks/microsoft-semantic-kernel/) |
+| [Careers](12-careers/) | [AI careers](12-careers/ai-careers/) |
 | [My projects](projects/) | [Hugging Face apps](projects/hugging-face/) · [Gen AI REST APIs](projects/rest-apis/) |
 
 ## Resources I recommend
