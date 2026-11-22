@@ -1,0 +1,1259 @@
+{
+  "info": {
+    "_postman_id": "eb0f663d-6a95-4f28-bc22-52a3a7669590",
+    "name": "📌 Nebius AI API",
+    "description": "### About\n\n\"Build and scale faster on the purpose-built AI cloud, engineered from silicon to API.\"\n\nNebius runs open models from other labs, such as DeepSeek, Qwen and GLM, through OpenAI-compatible Chat and Responses APIs. On the workspace overview it is listed under **Inference hosts**.\n\n### Prerequisites\n\n- Postman Account\n    \n- Nebius AI Account: [https://tokenfactory.nebius.com/](https://tokenfactory.nebius.com/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `nebius_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:nebius_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://docs.tokenfactory.nebius.com/quickstart](https://docs.tokenfactory.nebius.com/quickstart)\n    \n- Models: [https://tokenfactory.nebius.com/](https://tokenfactory.nebius.com/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2025-02-16T17:15:51.000Z",
+    "updatedAt": "2026-10-12T23:53:44.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-eb0f663d-6a95-4f28-bc22-52a3a7669590"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Chat (deepseek-ai/DeepSeek-V4.1-Flash-1017)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "c7d7f143-bdfd-45d7-9864-e96bdfc3a2dc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"deepseek-ai/DeepSeek-V4.1-Flash-1017\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [
+            {
+              "id": "6c452b2b-2330-0e12-34ac-6fda27d26337",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"deepseek-ai/DeepSeek-V4.1-Flash\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/chat/completions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "value": "Sat, 14 Nov 2026 17:41:46 GMT",
+                  "key": "Date"
+                },
+                {
+                  "value": "application/json",
+                  "key": "Content-Type"
+                },
+                {
+                  "value": "1692",
+                  "key": "Content-Length"
+                },
+                {
+                  "value": "close",
+                  "key": "Connection"
+                },
+                {
+                  "value": "Accept-Encoding",
+                  "key": "Vary"
+                },
+                {
+                  "value": "Origin",
+                  "key": "vary"
+                },
+                {
+                  "value": "1000",
+                  "key": "x-ratelimit-limit-requests"
+                },
+                {
+                  "value": "2000000",
+                  "key": "x-ratelimit-limit-tokens"
+                },
+                {
+                  "value": "999",
+                  "key": "x-ratelimit-remaining-requests"
+                },
+                {
+                  "value": "1999464",
+                  "key": "x-ratelimit-remaining-tokens"
+                },
+                {
+                  "value": "1s",
+                  "key": "x-ratelimit-reset-requests"
+                },
+                {
+                  "value": "1s",
+                  "key": "x-ratelimit-reset-tokens"
+                },
+                {
+                  "value": "1.00",
+                  "key": "x-ratelimit-dynamic-scale-requests"
+                },
+                {
+                  "value": "1.00",
+                  "key": "x-ratelimit-dynamic-scale-tokens"
+                },
+                {
+                  "value": "329s",
+                  "key": "x-ratelimit-dynamic-period-remaining"
+                },
+                {
+                  "value": "0%",
+                  "key": "x-ratelimit-dynamic-period-usage-requests"
+                },
+                {
+                  "value": "0%",
+                  "key": "x-ratelimit-dynamic-period-usage-tokens"
+                },
+                {
+                  "value": "chatcmpl-b0d30f92cfa3ddef",
+                  "key": "x-inference-id"
+                },
+                {
+                  "value": "*",
+                  "key": "access-control-allow-origin"
+                },
+                {
+                  "value": "true",
+                  "key": "access-control-allow-credentials"
+                },
+                {
+                  "value": "9396a8ccf4ab73b73505ea96df5c6cc6",
+                  "key": "x-request-id"
+                },
+                {
+                  "value": "max-age=31536000; includeSubDomains",
+                  "key": "strict-transport-security"
+                },
+                {
+                  "value": "67d2c39b40339868a0cdcde5756634dc",
+                  "key": "x-trace-id"
+                },
+                {
+                  "value": "api.tokenfactory.us-north1.nebius.com",
+                  "key": "x-served-by"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "1678",
+              "body": "{\n  \"id\": \"chatcmpl-b0d30f92cfa3ddef\",\n  \"choices\": [\n    {\n      \"finish_reason\": \"stop\",\n      \"index\": 0,\n      \"logprobs\": null,\n      \"message\": {\n        \"content\": \"A large language model is trained primarily to predict and generate text, giving it broad language and knowledge capabilities. A reasoning model is optimized to spend extra computation on intermediate problem-solving steps, often through reinforcement learning or deliberate reasoning, to improve performance on complex tasks.\",\n        \"refusal\": null,\n        \"role\": \"assistant\",\n        \"annotations\": null,\n        \"audio\": null,\n        \"function_call\": null,\n        \"tool_calls\": null,\n        \"reasoning\": \"We need answer two sentences. Need distinguish LLM vs reasoning model. Need concise. Large language model predicts next tokens trained on text, broad language generation. Reasoning model specifically trained/optimized to spend extra computation on intermediate reasoning steps, often via RL or chain-of-thought, for complex problem solving. Two sentences. Ensure not overclaim.\"\n      },\n      \"stop_reason\": null,\n      \"token_ids\": null,\n      \"routed_experts\": null,\n      \"weight_versions\": null\n    }\n  ],\n  \"created\": 1794678105,\n  \"model\": \"deepseek-ai/DeepSeek-V4.1-Flash-1017\",\n  \"object\": \"chat.completion\",\n  \"moderation\": null,\n  \"service_tier\": null,\n  \"system_fingerprint\": \"vllm-0.1.dev1+g2d75a0ca0.d20261029-dp2-ep-e45251ae\",\n  \"usage\": {\n    \"completion_tokens\": 122,\n    \"prompt_tokens\": 48,\n    \"total_tokens\": 170,\n    \"completion_tokens_details\": {\n      \"accepted_prediction_tokens\": null,\n      \"audio_tokens\": null,\n      \"reasoning_tokens\": 69,\n      \"rejected_prediction_tokens\": null\n    },\n    \"prompt_tokens_details\": {\n      \"audio_tokens\": null,\n      \"cached_tokens\": 0,\n      \"created_cache_tokens\": 0,\n      \"multimodal_tokens\": null\n    }\n  },\n  \"prompt_logprobs\": null,\n  \"prompt_token_ids\": null,\n  \"prompt_text\": null,\n  \"kv_transfer_params\": null,\n  \"ec_transfer_params\": null,\n  \"metrics\": null\n}",
+              "createdAt": "2026-10-17T18:04:12.000Z",
+              "updatedAt": "2026-11-14T17:42:00.000Z",
+              "uid": "7643177-6c452b2b-2330-0e12-34ac-6fda27d26337"
+            }
+          ],
+          "createdAt": "2025-02-16T18:24:24.000Z",
+          "updatedAt": "2026-11-14T17:41:58.000Z",
+          "uid": "7643177-c7d7f143-bdfd-45d7-9864-e96bdfc3a2dc"
+        }
+      ],
+      "id": "39b80d97-bba4-4d47-a961-cf9025d7f7a7",
+      "createdAt": "2025-02-16T18:23:55.000Z",
+      "updatedAt": "2025-02-16T18:24:28.000Z",
+      "uid": "7643177-39b80d97-bba4-4d47-a961-cf9025d7f7a7"
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "type": "text/javascript",
+                "packages": [],
+                "requests": [],
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "type": "text/javascript",
+                "packages": [],
+                "requests": [],
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "id": "bb340c47-f2ee-e227-f9db-c96b34c80c41",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"deepseek-ai/DeepSeek-V4.1-Flash-1017\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-24T17:01:16.000Z",
+          "updatedAt": "2026-10-24T17:01:16.000Z",
+          "uid": "7643177-bb340c47-f2ee-e227-f9db-c96b34c80c41"
+        },
+        {
+          "name": "meta-llama/Llama-3.3-70B-Instruct",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "1a665823-f642-41f0-8925-c3e234932d59",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"meta-llama/Llama-3.3-70B-Instruct\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2025-02-16T17:42:31.000Z",
+          "updatedAt": "2026-10-17T18:19:56.000Z",
+          "uid": "7643177-1a665823-f642-41f0-8925-c3e234932d59"
+        },
+        {
+          "name": "meta-models/muse-spark-open",
+          "event": [
+            {
+              "script": {
+                "packages": [],
+                "exec": [
+                  ""
+                ],
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "type": "text/javascript",
+                "requests": []
+              },
+              "listen": "test"
+            },
+            {
+              "script": {
+                "packages": [],
+                "exec": [
+                  ""
+                ],
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "type": "text/javascript",
+                "requests": []
+              },
+              "listen": "prerequest"
+            }
+          ],
+          "id": "27c7895d-a17f-0c7f-dc28-426c2a48873f",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"meta-models/muse-spark-open\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-24T17:01:20.000Z",
+          "updatedAt": "2026-10-24T17:01:20.000Z",
+          "uid": "7643177-27c7895d-a17f-0c7f-dc28-426c2a48873f"
+        },
+        {
+          "name": "MiniMaxAI/MiniMax-M3",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "requests": [],
+                "packages": [],
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "requests": [],
+                "packages": [],
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "12aa758d-71ff-0610-9935-6d333002566a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"MiniMaxAI/MiniMax-M3\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2026-10-12T03:14:33.000Z",
+          "updatedAt": "2026-10-17T18:19:56.000Z",
+          "uid": "7643177-12aa758d-71ff-0610-9935-6d333002566a"
+        },
+        {
+          "name": "MiniMaxAI/MiniMax-M3.1-Flash",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "type": "text/javascript",
+                "packages": [],
+                "requests": [],
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "type": "text/javascript",
+                "packages": [],
+                "requests": [],
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "id": "3431be53-a059-4e91-74af-36d7b317ffd6",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"MiniMaxAI/MiniMax-M3.1-Flash\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-24T17:01:15.000Z",
+          "updatedAt": "2026-10-24T17:01:15.000Z",
+          "uid": "7643177-3431be53-a059-4e91-74af-36d7b317ffd6"
+        },
+        {
+          "name": "moonshotai/Kimi-K3",
+          "event": [
+            {
+              "script": {
+                "requests": [],
+                "type": "text/javascript",
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  ""
+                ],
+                "packages": []
+              },
+              "listen": "test"
+            },
+            {
+              "script": {
+                "requests": [],
+                "type": "text/javascript",
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "packages": []
+              },
+              "listen": "prerequest"
+            }
+          ],
+          "id": "e8761fdc-7732-3b45-ebc0-c1a4b174b1a9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"moonshotai/Kimi-K3\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2026-10-12T03:14:37.000Z",
+          "updatedAt": "2026-10-17T18:19:56.000Z",
+          "uid": "7643177-e8761fdc-7732-3b45-ebc0-c1a4b174b1a9"
+        },
+        {
+          "name": "moonshotai/Kimi-K3.1-Pro",
+          "event": [
+            {
+              "script": {
+                "requests": [],
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": [],
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61"
+              },
+              "listen": "test"
+            },
+            {
+              "script": {
+                "requests": [],
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": [],
+                "id": "f017909f-40b4-43ff-b396-509751240b2a"
+              },
+              "listen": "prerequest"
+            }
+          ],
+          "id": "0ca1e17c-ce01-d326-b993-5e4ccd3101c3",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"moonshotai/Kimi-K3.1-Pro\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-11-14T17:35:55.000Z",
+          "updatedAt": "2026-11-14T17:35:55.000Z",
+          "uid": "7643177-0ca1e17c-ce01-d326-b993-5e4ccd3101c3"
+        },
+        {
+          "name": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "event": [
+            {
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "packages": [],
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ],
+                "requests": []
+              },
+              "listen": "test"
+            },
+            {
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "packages": [],
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ],
+                "requests": []
+              },
+              "listen": "prerequest"
+            }
+          ],
+          "id": "ba8dfef2-2c21-1dc6-9f09-d4ecf4ab70d2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"nvidia/Nemotron-3-Ultra-550b-a55b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2026-10-12T03:14:13.000Z",
+          "updatedAt": "2026-10-17T18:19:56.000Z",
+          "uid": "7643177-ba8dfef2-2c21-1dc6-9f09-d4ecf4ab70d2"
+        },
+        {
+          "name": "nvidia/Nemotron-3.5-Super-VL",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "requests": [],
+                "packages": [],
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "requests": [],
+                "packages": [],
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "472f052e-8728-2403-6914-bc1807ca044c",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"nvidia/Nemotron-3.5-Super-VL\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-24T17:01:19.000Z",
+          "updatedAt": "2026-10-24T17:01:19.000Z",
+          "uid": "7643177-472f052e-8728-2403-6914-bc1807ca044c"
+        },
+        {
+          "name": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "9d3a4827-727f-4ae5-9c92-61385d98eb8b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2026-01-15T03:13:05.000Z",
+          "updatedAt": "2026-10-17T18:19:56.000Z",
+          "uid": "7643177-9d3a4827-727f-4ae5-9c92-61385d98eb8b"
+        },
+        {
+          "name": "openai/gpt-oss-120b",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "3316c4f0-5b6d-42f5-93b2-a59e8d17898f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"openai/gpt-oss-120b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2026-01-15T03:10:54.000Z",
+          "updatedAt": "2026-10-17T18:19:56.000Z",
+          "uid": "7643177-3316c4f0-5b6d-42f5-93b2-a59e8d17898f"
+        },
+        {
+          "name": "reflection/beam",
+          "event": [
+            {
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "packages": [],
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "type": "text/javascript",
+                "requests": []
+              },
+              "listen": "test"
+            },
+            {
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "packages": [],
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "type": "text/javascript",
+                "requests": []
+              },
+              "listen": "prerequest"
+            }
+          ],
+          "id": "da704987-e81f-7047-b3a1-b736782e7b36",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"reflection/beam\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-24T17:01:18.000Z",
+          "updatedAt": "2026-10-24T17:01:18.000Z",
+          "uid": "7643177-da704987-e81f-7047-b3a1-b736782e7b36"
+        },
+        {
+          "name": "thinkingmachines/Inkling-2-Small",
+          "event": [
+            {
+              "script": {
+                "requests": [],
+                "packages": [],
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "test"
+            },
+            {
+              "script": {
+                "requests": [],
+                "packages": [],
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "prerequest"
+            }
+          ],
+          "id": "7ef03b25-45ba-1ffc-aa6e-dd4f4cca85f2",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"thinkingmachines/Inkling-2-Small\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-11-14T17:41:02.000Z",
+          "updatedAt": "2026-11-14T17:41:02.000Z",
+          "uid": "7643177-7ef03b25-45ba-1ffc-aa6e-dd4f4cca85f2"
+        },
+        {
+          "name": "zai-org/GLM-5.3",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "type": "text/javascript",
+                "requests": [],
+                "exec": [
+                  ""
+                ],
+                "packages": []
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "type": "text/javascript",
+                "requests": [],
+                "exec": [
+                  ""
+                ],
+                "packages": []
+              }
+            }
+          ],
+          "id": "bb8c10ed-9636-e4fb-aec9-8cb92d8616ab",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"zai-org/GLM-5.3\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2026-10-12T03:14:41.000Z",
+          "updatedAt": "2026-10-17T18:19:56.000Z",
+          "uid": "7643177-bb8c10ed-9636-e4fb-aec9-8cb92d8616ab"
+        }
+      ],
+      "id": "ba89a0c7-06f8-4d9a-a160-7434709ce713",
+      "createdAt": "2025-02-16T17:15:52.000Z",
+      "updatedAt": "2026-11-14T17:41:33.000Z",
+      "uid": "7643177-ba89a0c7-06f8-4d9a-a160-7434709ce713"
+    },
+    {
+      "name": "Models",
+      "item": [
+        {
+          "name": "Models",
+          "id": "0c9e0cc5-c583-4698-9850-020c6bf559c7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/models",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-16T17:15:52.000Z",
+          "updatedAt": "2026-10-17T18:19:56.000Z",
+          "uid": "7643177-0c9e0cc5-c583-4698-9850-020c6bf559c7"
+        }
+      ],
+      "id": "8a46c615-b698-452c-9473-c9d11f7d285c",
+      "createdAt": "2025-02-16T17:15:52.000Z",
+      "updatedAt": "2025-02-16T18:24:54.000Z",
+      "uid": "7643177-8a46c615-b698-452c-9473-c9d11f7d285c"
+    },
+    {
+      "name": "Responses",
+      "item": [
+        {
+          "name": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": [],
+                "requests": [],
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "packages": [],
+                "requests": [],
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "id": "6e4fc84c-e607-be84-cb14-b6421e918594",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"deepseek-ai/DeepSeek-V4.1-Flash-1017\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2026-10-12T20:30:13.000Z",
+          "updatedAt": "2026-11-14T17:41:38.000Z",
+          "uid": "7643177-6e4fc84c-e607-be84-cb14-b6421e918594"
+        }
+      ],
+      "id": "e839630d-1b4f-b1da-0234-c3d8324d1a3c",
+      "createdAt": "2026-10-12T20:30:07.000Z",
+      "updatedAt": "2026-10-12T20:30:13.000Z",
+      "uid": "7643177-e839630d-1b4f-b1da-0234-c3d8324d1a3c"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vault:nebius_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "377f5c00-6a86-40c2-bc63-569d7b94b276",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "d9c776ce-d674-4350-b0a1-639a1ae5073d",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.studio.nebius.ai/v1",
+      "type": "string"
+    }
+  ]
+}

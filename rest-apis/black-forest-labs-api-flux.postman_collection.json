@@ -1,0 +1,387 @@
+{
+  "info": {
+    "_postman_id": "ea504c9b-ec09-4957-8c9b-3eb457e0080d",
+    "name": "📌 Black Forest Labs API (FLUX)",
+    "description": "### About Black Forest Labs\n\n\"Black Forest Labs is building visual intelligence: models that understand, reason, and act in the world.\"\n\nBlack Forest Labs builds the FLUX image and video models and serves them through its own API. On the workspace overview it is listed under **Image & video**.\n\n### Prerequisites\n\n- Postman Account\n    \n- Black Forest Labs Account: [https://bfl.ai/](https://bfl.ai/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `black_forest_labs_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:black_forest_labs_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://docs.bfl.ml/flux_3/flux3_image_overview](https://docs.bfl.ml/flux_3/flux3_image_overview)\n    \n- Models: [https://docs.bfl.ml/flux_3/flux3_overview](https://docs.bfl.ml/flux_3/flux3_overview)\n\n### Notes\n\nGeneration is asynchronous: send a request, then **Results / Get result** polls `temp.polling_url` until `status` is `Ready`.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-11T21:25:59.000Z",
+    "updatedAt": "2026-10-12T23:53:02.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-ea504c9b-ec09-4957-8c9b-3eb457e0080d"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Image Generation (flux-3-image)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"temp.polling_url\", body.polling_url);"
+                ]
+              }
+            }
+          ],
+          "id": "dc18ba19-23da-487f-a82f-e085fe3208ad",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\",\n    \"aspect_ratio\": \"16:9\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/flux-3-image",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "flux-3-image"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fc6117f5-3ca2-3624-bfe3-59ef183b4ded",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\",\n    \"aspect_ratio\": \"16:9\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/flux-3-image",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "flux-3-image"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "value": "Sat, 17 Oct 2026 18:01:31 GMT",
+                  "key": "Date"
+                },
+                {
+                  "value": "application/json",
+                  "key": "Content-Type"
+                },
+                {
+                  "value": "182",
+                  "key": "Content-Length"
+                },
+                {
+                  "value": "close",
+                  "key": "Connection"
+                },
+                {
+                  "value": "1",
+                  "key": "x-concurrency-current"
+                },
+                {
+                  "value": "8",
+                  "key": "x-concurrency-limit"
+                },
+                {
+                  "value": "nosniff",
+                  "key": "x-content-type-options"
+                },
+                {
+                  "value": "20261017T180130Z-15c55f57985lgwvmhC1LAX38mc00000002h0000000005xqk",
+                  "key": "x-azure-ref"
+                },
+                {
+                  "value": "CONFIG_NOCACHE",
+                  "key": "X-Cache"
+                },
+                {
+                  "value": "bytes",
+                  "key": "Accept-Ranges"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2045",
+              "body": "{\n  \"id\": \"4727eb7a-b2a8-4fde-85d9-6eb11adc64a1\",\n  \"polling_url\": \"https://api.us7.bfl.ai/v1/get_result?id=4727eb7a-b2a8-4fde-85d9-6eb11adc64a1\",\n  \"cost\": 4.8,\n  \"input_mp\": null,\n  \"output_mp\": null\n}",
+              "createdAt": "2026-10-17T18:01:32.000Z",
+              "updatedAt": "2026-10-17T18:01:32.000Z",
+              "uid": "7643177-fc6117f5-3ca2-3624-bfe3-59ef183b4ded"
+            }
+          ],
+          "createdAt": "2026-10-11T21:26:00.000Z",
+          "updatedAt": "2026-10-17T18:01:34.000Z",
+          "uid": "7643177-dc18ba19-23da-487f-a82f-e085fe3208ad"
+        }
+      ],
+      "id": "3967a8a4-dfda-42f0-a001-b7f1754f68b7",
+      "createdAt": "2026-10-11T21:26:00.000Z",
+      "updatedAt": "2026-10-11T21:26:00.000Z",
+      "uid": "7643177-3967a8a4-dfda-42f0-a001-b7f1754f68b7"
+    },
+    {
+      "name": "Image",
+      "item": [
+        {
+          "name": "flux-3-image",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"temp.polling_url\", body.polling_url);"
+                ]
+              }
+            }
+          ],
+          "id": "cbd00760-12ee-4183-8921-48004cef697d",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\",\n    \"aspect_ratio\": \"16:9\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/flux-3-image",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "flux-3-image"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:00.000Z",
+          "updatedAt": "2026-10-17T18:17:16.000Z",
+          "uid": "7643177-cbd00760-12ee-4183-8921-48004cef697d"
+        }
+      ],
+      "id": "2b42156a-f83f-415b-bb31-03f9b80fd22d",
+      "createdAt": "2026-10-11T21:26:00.000Z",
+      "updatedAt": "2026-10-11T21:26:00.000Z",
+      "uid": "7643177-2b42156a-f83f-415b-bb31-03f9b80fd22d"
+    },
+    {
+      "name": "Results",
+      "item": [
+        {
+          "name": "Get result",
+          "id": "72fd0ad6-da25-40f6-b687-a629a8568b9d",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{temp.polling_url}}",
+              "host": [
+                "{{temp.polling_url}}"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:00.000Z",
+          "updatedAt": "2026-10-17T18:17:16.000Z",
+          "uid": "7643177-72fd0ad6-da25-40f6-b687-a629a8568b9d"
+        }
+      ],
+      "id": "8d371591-cc78-4f5d-a44f-e38df0e79990",
+      "createdAt": "2026-10-11T21:26:00.000Z",
+      "updatedAt": "2026-10-11T21:26:00.000Z",
+      "uid": "7643177-8d371591-cc78-4f5d-a44f-e38df0e79990"
+    },
+    {
+      "name": "Video",
+      "item": [
+        {
+          "name": "flux-3-video",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"temp.polling_url\", body.polling_url);"
+                ]
+              }
+            }
+          ],
+          "id": "cae6e87f-28b4-44cd-8179-e035dabc2050",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"mode\": \"t2v\",\n    \"prompt\": \"A small robot walks through a field of wildflowers at sunrise, cinematic slow camera pan.\",\n    \"duration\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/flux-3-video",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "flux-3-video"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:00.000Z",
+          "updatedAt": "2026-10-17T18:17:16.000Z",
+          "uid": "7643177-cae6e87f-28b4-44cd-8179-e035dabc2050"
+        }
+      ],
+      "id": "2d07100b-31af-4c77-b94f-420b0482135e",
+      "createdAt": "2026-10-11T21:26:00.000Z",
+      "updatedAt": "2026-10-11T21:26:00.000Z",
+      "uid": "7643177-2d07100b-31af-4c77-b94f-420b0482135e"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "value",
+        "value": "{{vault:black_forest_labs_api_key}}",
+        "type": "string"
+      },
+      {
+        "key": "key",
+        "value": "x-key",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "f525186f-a726-457e-8933-1f80c0852fa5",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "d0bb6e86-6efc-41b9-8995-9d4971f1682d",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.bfl.ai/v1",
+      "type": "string"
+    }
+  ]
+}

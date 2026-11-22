@@ -1,42 +1,24 @@
-import os
+from langchain.agents import create_agent
+from langchain_community.tools.openweathermap import OpenWeatherMapQueryRun
+from langchain_community.utilities.openweathermap import OpenWeatherMapAPIWrapper
+from langchain_core.tools import tool
+from langchain_openai import ChatOpenAI
 
-from datetime import date
-from langchain.agents import AgentType, initialize_agent, load_tools, tool
-from langchain.callbacks import get_openai_callback
-from langchain.chat_models import ChatOpenAI
+from common import MODEL, REASONING_EFFORT, TIMEOUT, openweathermap_api_key, today
 
-os.environ["LANGCHAIN_ENDPOINT"]   = "https://api.smith.langchain.com"
-os.environ["LANGCHAIN_PROJECT"]    = "openai-llm-agent"
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
+# Each agent step is a model call plus a tool call, so this allows about 25 steps
+RECURSION_LIMIT = 50
 
-@tool
-def today_tool(text: str) -> str:
-    """Returns today's date. Use this for any questions related to knowing today's date. 
-       The input should always be an empty string, and this function will always return today's date. 
-       Any date mathematics should occur outside this function."""
-    return str(date.today())
 
-def agent_langchain(config, prompt):
+async def agent_langchain(openai_api_key: str, prompt: str) -> str:
     llm = ChatOpenAI(
-        model_name = config["model"],
-        temperature = config["temperature"])
-
-    OPENWEATHERMAP_API_KEY = os.environ["OPENWEATHERMAP_API_KEY"]
-    
-    tools = load_tools(["openweathermap-api"])
-
-    agent = initialize_agent(
-        tools +       # built-in tools
-        [today_tool], # custom tools
-        llm,
-        agent = AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION,
-        handle_parsing_errors = True,
-        max_iterations = 25,
-        max_execution_time = 60,
-        verbose = True
+        model=MODEL,
+        api_key=openai_api_key,
+        use_responses_api=True,
+        reasoning={"effort": REASONING_EFFORT},
+        timeout=TIMEOUT,
     )
-
-    with get_openai_callback() as callback:
-        completion = agent(prompt)
-
-    return completion, callback
+    weather = OpenWeatherMapQueryRun(api_wrapper=OpenWeatherMapAPIWrapper(openweathermap_api_key=openweathermap_api_key()))
+    agent = create_agent(llm, tools=[weather, tool(today)])
+    result = await agent.ainvoke({"messages": [{"role": "user", "content": prompt}]}, {"recursion_limit": RECURSION_LIMIT})
+    return result["messages"][-1].text

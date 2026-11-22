@@ -91,11 +91,13 @@ Top picks (DeepLearning.AI short courses were free to enroll when this page was 
 
 ## My projects
 
-- [Multi-agent chess with AutoGen](https://huggingface.co/spaces/bstraehle/multi-agent-ai-autogen-chess/)
-- [Multi-agent coding with AutoGen](https://huggingface.co/spaces/bstraehle/multi-agent-ai-autogen-coding/)
-- [Multi-agent article generation with crewAI](https://huggingface.co/spaces/bstraehle/multi-agent-ai-crewai/)
-- [Multi-agent article generation with LangGraph](https://huggingface.co/spaces/bstraehle/multi-agent-ai-langgraph/)
-- [Agentic RAG with LangChain and LlamaIndex](../hugging-face/agentic-ai/) (source code)
+Each links to the live Space and its source in [hugging-face/](../hugging-face/).
+
+- [General AI Assistant](https://huggingface.co/spaces/bstraehle/gaia): a multi-agent system with MCP client and server that solves GAIA benchmark and Humanity's Last Exam problems ([source](../hugging-face/gaia/))
+- [Agentic AI](https://huggingface.co/spaces/bstraehle/agentic-ai): agentic RAG with LangChain and LlamaIndex ([source](../hugging-face/agentic-ai/))
+- Deep research: [crewAI](https://huggingface.co/spaces/bstraehle/multi-agent-ai-crewai-deep-research) ([source](../hugging-face/multi-agent-ai-crewai-deep-research/)) · [LangGraph](https://huggingface.co/spaces/bstraehle/multi-agent-ai-langgraph-deep-research) ([source](../hugging-face/multi-agent-ai-langgraph-deep-research/))
+- Chess: [LangGraph](https://huggingface.co/spaces/bstraehle/multi-agent-ai-langgraph-chess) ([source](../hugging-face/multi-agent-ai-langgraph-chess/)) · [Microsoft Agent Framework](https://huggingface.co/spaces/bstraehle/multi-agent-ai-microsoft-chess) ([source](../hugging-face/multi-agent-ai-microsoft-chess/))
+- Coding: [Microsoft Agent Framework](https://huggingface.co/spaces/bstraehle/multi-agent-ai-microsoft-coding) ([source](../hugging-face/multi-agent-ai-microsoft-coding/))
 
 ## Next steps
 

@@ -1,0 +1,548 @@
+{
+  "info": {
+    "_postman_id": "c38f1247-1d41-4001-9945-865affeb20d9",
+    "name": "📌 DeepSeek API",
+    "description": "### About\n\n\"DeepSeek is an AI research company focused on building world-leading general artificial intelligence.\"\n\nDeepSeek builds its own open-weight DeepSeek models and serves them through OpenAI-compatible Chat and Responses APIs. On the workspace overview it is listed under **Model makers**.\n\n### Prerequisites\n\n- Postman Account\n    \n- DeepSeek Account: [https://platform.deepseek.com/](https://platform.deepseek.com/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `deepseek_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:deepseek_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://api-docs.deepseek.com/](https://api-docs.deepseek.com/)\n    \n- Models: [https://api-docs.deepseek.com/quick_start/pricing](https://api-docs.deepseek.com/quick_start/pricing)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2025-02-01T05:43:02.000Z",
+    "updatedAt": "2026-10-12T23:53:10.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-c38f1247-1d41-4001-9945-865affeb20d9"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Chat (deepseek-flash)",
+          "id": "89bdc488-7566-4958-aab4-13f7a7916d86",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"deepseek-flash\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "34b02fbf-4207-2745-49d6-cf167a9ddb9a",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"deepseek-flash\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/chat/completions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 17 Oct 2026 18:02:09 GMT"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Server",
+                  "value": "elb"
+                },
+                {
+                  "key": "vary",
+                  "value": "accept-encoding"
+                },
+                {
+                  "key": "vary",
+                  "value": "origin, access-control-request-method, access-control-request-headers"
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "x-ds-trace-id",
+                  "value": "8ecede60b465ce98642f142258b70948"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains; preload"
+                },
+                {
+                  "key": "X-Cache",
+                  "value": "Miss from cloudfront"
+                },
+                {
+                  "key": "Via",
+                  "value": "1.1 ae33f629b316ed04089a480fd5bcedd2.cloudfront.net (CloudFront)"
+                },
+                {
+                  "key": "X-Amz-Cf-Pop",
+                  "value": "LAX53-P5"
+                },
+                {
+                  "key": "X-Amz-Cf-Id",
+                  "value": "xad-g3HLLdIpDG4tOsdyyZpd7i4H3VNztj7cxRchWSpluEaZutCLMw=="
+                }
+              ],
+              "cookie": [],
+              "responseTime": "1360",
+              "body": "{\n  \"id\": \"352275b7-4cd1-4f2f-9a12-e25832a70f68\",\n  \"object\": \"chat.completion\",\n  \"created\": 1792260129,\n  \"model\": \"deepseek-flash\",\n  \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"A large language model is trained mainly to predict the next token, giving broad language fluency but not necessarily deliberate multi-step problem-solving. A reasoning model is trained or optimized to spend extra computation on intermediate steps, self-checking, and structured problem-solving before producing an answer.\",\n        \"reasoning_content\": \"We need answer two sentences difference LLM vs reasoning model. Need concise. Need clarify. Large language model predicts next tokens from patterns, broad fluency. Reasoning model trained/optimized to spend compute on intermediate steps, self-checking, multi-step problems. Two sentences.\"\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 54,\n    \"completion_tokens\": 109,\n    \"total_tokens\": 163,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 54\n    },\n    \"prompt_cache_hit_tokens\": 0,\n    \"prompt_cache_miss_tokens\": 54\n  },\n  \"system_fingerprint\": \"e72d3c7f663d3e1383b00b3884cb4501\"\n}",
+              "createdAt": "2026-10-17T18:02:12.000Z",
+              "updatedAt": "2026-10-17T18:02:12.000Z",
+              "uid": "7643177-34b02fbf-4207-2745-49d6-cf167a9ddb9a"
+            }
+          ],
+          "createdAt": "2026-10-12T04:58:56.000Z",
+          "updatedAt": "2026-10-17T18:02:14.000Z",
+          "uid": "7643177-89bdc488-7566-4958-aab4-13f7a7916d86"
+        }
+      ],
+      "id": "54800904-29ac-d009-403b-819bd2f7222b",
+      "createdAt": "2026-10-12T04:58:55.000Z",
+      "updatedAt": "2026-10-12T04:58:56.000Z",
+      "uid": "7643177-54800904-29ac-d009-403b-819bd2f7222b"
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "deepseek-chat",
+          "id": "5014c4c0-3e61-403d-b930-b92848ce890a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"deepseek-chat\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-06T02:52:08.000Z",
+          "updatedAt": "2026-10-17T18:18:24.000Z",
+          "uid": "7643177-5014c4c0-3e61-403d-b930-b92848ce890a"
+        },
+        {
+          "name": "deepseek-flash",
+          "id": "b0351713-1a4a-0664-8085-5dcc5a129749",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"deepseek-flash\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T22:40:57.000Z",
+          "updatedAt": "2026-10-17T18:18:24.000Z",
+          "uid": "7643177-b0351713-1a4a-0664-8085-5dcc5a129749"
+        },
+        {
+          "name": "deepseek-reasoner",
+          "id": "98e8176a-e2ee-4b5b-a4af-e6ed81df9bfb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"deepseek-reasoner\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-06T03:05:48.000Z",
+          "updatedAt": "2026-10-17T18:18:24.000Z",
+          "uid": "7643177-98e8176a-e2ee-4b5b-a4af-e6ed81df9bfb"
+        },
+        {
+          "name": "deepseek-v4-flash",
+          "id": "bbc3e130-5f91-4363-84c6-29351d2358f7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"deepseek-v4-flash\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-04-29T23:15:01.000Z",
+          "updatedAt": "2026-10-17T18:18:24.000Z",
+          "uid": "7643177-bbc3e130-5f91-4363-84c6-29351d2358f7"
+        },
+        {
+          "name": "deepseek-v4-pro",
+          "id": "274fa158-39b1-4596-8477-bd22beea4f4a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"deepseek-v4-pro\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-04-29T23:13:43.000Z",
+          "updatedAt": "2026-10-17T18:18:24.000Z",
+          "uid": "7643177-274fa158-39b1-4596-8477-bd22beea4f4a"
+        }
+      ],
+      "id": "ea603992-21e0-c043-a31a-6959ba12bcf8",
+      "createdAt": "2026-10-12T17:45:26.000Z",
+      "updatedAt": "2026-10-12T19:47:28.000Z",
+      "uid": "7643177-ea603992-21e0-c043-a31a-6959ba12bcf8"
+    },
+    {
+      "name": "Models",
+      "item": [
+        {
+          "name": "Models",
+          "id": "55cadf7d-7aa1-48d1-bb15-9b2e78a85093",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/models",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-14T05:46:48.000Z",
+          "updatedAt": "2026-10-17T18:18:25.000Z",
+          "uid": "7643177-55cadf7d-7aa1-48d1-bb15-9b2e78a85093"
+        }
+      ],
+      "id": "0be0a89f-537f-8623-2cb2-576b38359b7b",
+      "createdAt": "2026-10-12T17:45:30.000Z",
+      "updatedAt": "2026-10-12T17:45:31.000Z",
+      "uid": "7643177-0be0a89f-537f-8623-2cb2-576b38359b7b"
+    },
+    {
+      "name": "Responses",
+      "item": [
+        {
+          "name": "deepseek-flash",
+          "id": "42aa7875-3b68-e10f-b8b7-37ea3eb9ad60",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"deepseek-flash\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T20:28:47.000Z",
+          "updatedAt": "2026-10-17T18:18:24.000Z",
+          "uid": "7643177-42aa7875-3b68-e10f-b8b7-37ea3eb9ad60"
+        },
+        {
+          "name": "deepseek-v4-pro",
+          "id": "8a941b86-309f-5a08-346a-699ca1bb640e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"deepseek-v4-pro\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T20:29:05.000Z",
+          "updatedAt": "2026-10-17T18:18:26.000Z",
+          "uid": "7643177-8a941b86-309f-5a08-346a-699ca1bb640e"
+        }
+      ],
+      "id": "a72e252b-e5e4-2d5d-4806-5393a69c14b1",
+      "createdAt": "2026-10-12T20:28:42.000Z",
+      "updatedAt": "2026-10-12T20:29:05.000Z",
+      "uid": "7643177-a72e252b-e5e4-2d5d-4806-5393a69c14b1"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vault:deepseek_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "fd42fe4f-3ad6-4e0c-bee0-cac6b3c8b6e4",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "e4dacf76-8b58-472b-b374-0854546d773f",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.deepseek.com/v1",
+      "type": "string"
+    }
+  ]
+}

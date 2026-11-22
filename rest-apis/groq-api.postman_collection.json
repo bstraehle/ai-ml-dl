@@ -1,0 +1,773 @@
+{
+  "info": {
+    "_postman_id": "9730cbb3-9f2f-4e8c-b2fc-ed975ea41d36",
+    "name": "📌 Groq API ⚡",
+    "description": "### About\n\n\"Groq is the premier neocloud for fast inference.\"\n\nGroq runs open models from other labs, such as gpt-oss and Qwen, on its own LPU hardware through OpenAI-compatible Chat and Responses APIs. On the workspace overview it is listed under **Inference hosts**.\n\n### Prerequisites\n\n- Postman Account\n    \n- Groq Account: [https://console.groq.com/](https://console.groq.com/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `groq_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:groq_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://console.groq.com/docs/quickstart](https://console.groq.com/docs/quickstart)\n    \n- Models: [https://console.groq.com/docs/models](https://console.groq.com/docs/models)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2024-03-12T04:19:17.000Z",
+    "updatedAt": "2026-10-12T23:53:29.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-9730cbb3-9f2f-4e8c-b2fc-ed975ea41d36"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Chat (openai/gpt-oss-120b)",
+          "id": "9f57f9fc-95e3-4ebf-95db-35ef8967268f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"openai/gpt-oss-120b\",\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1a34344f-912d-de73-8044-50aa3f00e0f1",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"openai/gpt-oss-120b\",\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/chat/completions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "value": "Sat, 17 Oct 2026 18:03:02 GMT",
+                  "key": "Date"
+                },
+                {
+                  "value": "application/json",
+                  "key": "Content-Type"
+                },
+                {
+                  "value": "1432",
+                  "key": "Content-Length"
+                },
+                {
+                  "value": "close",
+                  "key": "Connection"
+                },
+                {
+                  "value": "private, max-age=0, no-store, no-cache, must-revalidate",
+                  "key": "Cache-Control"
+                },
+                {
+                  "value": "cloudflare",
+                  "key": "Server"
+                },
+                {
+                  "value": "Origin",
+                  "key": "vary"
+                },
+                {
+                  "value": "msp",
+                  "key": "x-groq-region"
+                },
+                {
+                  "value": "1000",
+                  "key": "x-ratelimit-limit-requests"
+                },
+                {
+                  "value": "8000",
+                  "key": "x-ratelimit-limit-tokens"
+                },
+                {
+                  "value": "999",
+                  "key": "x-ratelimit-remaining-requests"
+                },
+                {
+                  "value": "7644",
+                  "key": "x-ratelimit-remaining-tokens"
+                },
+                {
+                  "value": "1m26.4s",
+                  "key": "x-ratelimit-reset-requests"
+                },
+                {
+                  "value": "2.67s",
+                  "key": "x-ratelimit-reset-tokens"
+                },
+                {
+                  "value": "req_01m55gg4g5ezt9eg86ngjxmz16",
+                  "key": "x-request-id"
+                },
+                {
+                  "value": "max-age=15552000",
+                  "key": "Strict-Transport-Security"
+                },
+                {
+                  "value": "DYNAMIC",
+                  "key": "cf-cache-status"
+                },
+                {
+                  "value": "a4c137bcad7c4403-DFW",
+                  "key": "CF-RAY"
+                },
+                {
+                  "value": "h3=\":443\"; ma=86400",
+                  "key": "alt-svc"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "764",
+              "body": "{\n  \"id\": \"chatcmpl-f3efd466-beeb-4190-9032-ff1913447956\",\n  \"object\": \"chat.completion\",\n  \"created\": 1792260182,\n  \"model\": \"openai/gpt-oss-120b\",\n  \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"A large language model predicts the next token based on statistical patterns it learned from massive text corpora, excelling at fluent generation but without guaranteed logical consistency. A reasoning model, by contrast, is engineered (often on top of an LLM) to perform explicit inference steps, chain‑of‑thought or symbolic manipulation, aiming to produce conclusions that follow from given premises.\",\n        \"reasoning\": \"The user asks: \\\"In two sentences, what is the difference between a large language model and a reasoning model?\\\" So answer succinctly in two sentences. Provide clear distinction. Provide maybe: LLM generates text based on statistical patterns; reasoning model is designed to perform logical inference or chain-of-thought, often built on LLM but with additional mechanisms. Two sentences.\"\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"queue_time\": 0.094756777,\n    \"prompt_tokens\": 89,\n    \"prompt_time\": 0.014036904,\n    \"completion_tokens\": 158,\n    \"completion_time\": 0.327057062,\n    \"total_tokens\": 247,\n    \"total_time\": 0.341093966,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 75\n    }\n  },\n  \"usage_breakdown\": null,\n  \"system_fingerprint\": \"fp_90620edd96\",\n  \"x_groq\": {\n    \"id\": \"req_01m55gg4g5ezt9eg86ngjxmz16\",\n    \"seed\": 93534709\n  },\n  \"service_tier\": \"on_demand\"\n}",
+              "createdAt": "2026-10-17T18:03:04.000Z",
+              "updatedAt": "2026-10-17T18:03:04.000Z",
+              "uid": "7643177-1a34344f-912d-de73-8044-50aa3f00e0f1"
+            }
+          ],
+          "createdAt": "2024-04-19T20:15:55.000Z",
+          "updatedAt": "2026-10-17T18:03:04.000Z",
+          "uid": "7643177-9f57f9fc-95e3-4ebf-95db-35ef8967268f"
+        }
+      ],
+      "id": "4573c033-c9fe-4220-bebf-2fcaa00e5dda",
+      "createdAt": "2024-03-12T04:19:18.000Z",
+      "updatedAt": "2025-07-12T13:30:00.000Z",
+      "uid": "7643177-4573c033-c9fe-4220-bebf-2fcaa00e5dda"
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "allam-2-7b",
+          "id": "5875c9be-a7be-04f8-a5a6-dde340aa8877",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"allam-2-7b\",\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T23:15:59.000Z",
+          "updatedAt": "2026-10-17T18:18:36.000Z",
+          "uid": "7643177-5875c9be-a7be-04f8-a5a6-dde340aa8877"
+        },
+        {
+          "name": "meta-llama/llama-prompt-guard-2-22m",
+          "id": "6aff8b63-568b-48bd-b4a8-0fb2163f3e58",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"meta-llama/llama-prompt-guard-2-22m\",\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-06-23T01:58:48.000Z",
+          "updatedAt": "2026-10-17T18:18:36.000Z",
+          "uid": "7643177-6aff8b63-568b-48bd-b4a8-0fb2163f3e58"
+        },
+        {
+          "name": "meta-llama/llama-prompt-guard-2-86m",
+          "id": "48b6180a-9144-44c7-92d2-9155921cd7b7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"meta-llama/llama-prompt-guard-2-86m\",\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-06-23T01:58:56.000Z",
+          "updatedAt": "2026-10-17T18:18:36.000Z",
+          "uid": "7643177-48b6180a-9144-44c7-92d2-9155921cd7b7"
+        },
+        {
+          "name": "openai/gpt-oss-20b",
+          "id": "9691a540-03c0-4ef3-b5b2-8f10fec34ccb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"openai/gpt-oss-20b\",\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-08-06T04:47:25.000Z",
+          "updatedAt": "2026-10-17T18:18:36.000Z",
+          "uid": "7643177-9691a540-03c0-4ef3-b5b2-8f10fec34ccb"
+        },
+        {
+          "name": "openai/gpt-oss-120b",
+          "id": "0637368c-eb4a-4411-8f31-37edb8c5181f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"openai/gpt-oss-120b\",\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-08-06T04:48:03.000Z",
+          "updatedAt": "2026-10-17T18:18:36.000Z",
+          "uid": "7643177-0637368c-eb4a-4411-8f31-37edb8c5181f"
+        },
+        {
+          "name": "openai/gpt-oss-safeguard-20b",
+          "id": "2aa553d8-d83b-46f5-80ec-c1f4707aea43",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"openai/gpt-oss-safeguard-20b\",\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T23:16:17.000Z",
+          "updatedAt": "2026-10-17T18:18:36.000Z",
+          "uid": "7643177-2aa553d8-d83b-46f5-80ec-c1f4707aea43"
+        },
+        {
+          "name": "qwen/qwen3.8-27b",
+          "id": "e8f7d3a0-d357-053e-6971-bf3018a54003",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"qwen/qwen3.8-27b\",\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T23:16:20.000Z",
+          "updatedAt": "2026-10-17T18:18:37.000Z",
+          "uid": "7643177-e8f7d3a0-d357-053e-6971-bf3018a54003"
+        }
+      ],
+      "id": "d0cdd17e-0f36-46d4-9ef1-8c72150dbd2a",
+      "createdAt": "2024-04-02T01:30:11.000Z",
+      "updatedAt": "2026-10-12T19:49:54.000Z",
+      "uid": "7643177-d0cdd17e-0f36-46d4-9ef1-8c72150dbd2a"
+    },
+    {
+      "name": "Responses",
+      "item": [
+        {
+          "name": "openai/gpt-oss-120b",
+          "id": "746ee6a5-2f60-e599-29ad-92e549d2a715",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"openai/gpt-oss-120b\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T20:29:37.000Z",
+          "updatedAt": "2026-10-17T18:18:37.000Z",
+          "uid": "7643177-746ee6a5-2f60-e599-29ad-92e549d2a715"
+        },
+        {
+          "name": "qwen/qwen3.8-27b",
+          "id": "d59a793c-b8a3-705b-212f-51dadac8c079",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"qwen/qwen3.8-27b\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T20:29:43.000Z",
+          "updatedAt": "2026-10-17T18:18:38.000Z",
+          "uid": "7643177-d59a793c-b8a3-705b-212f-51dadac8c079"
+        }
+      ],
+      "id": "cfe4916b-b8cf-e80b-baeb-8e6f876e7b6b",
+      "createdAt": "2026-10-12T20:29:33.000Z",
+      "updatedAt": "2026-10-12T20:29:43.000Z",
+      "uid": "7643177-cfe4916b-b8cf-e80b-baeb-8e6f876e7b6b"
+    },
+    {
+      "name": "Speech-to-Text",
+      "item": [
+        {
+          "name": "distil-whisper-large-v3-en",
+          "id": "848a3653-a99b-4dc1-b42e-22a54aa6b0c6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "postman-cloud:///1ef86bd4-3ec8-4650-843d-344333e34c48"
+                },
+                {
+                  "key": "model",
+                  "value": "distil-whisper-large-v3-en",
+                  "type": "text"
+                },
+                {
+                  "key": "temperature",
+                  "value": "0",
+                  "type": "text"
+                },
+                {
+                  "key": "response_format",
+                  "value": "json",
+                  "type": "text"
+                },
+                {
+                  "key": "language",
+                  "value": "en",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/audio/transcriptions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "audio",
+                "transcriptions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-10-13T03:15:17.000Z",
+          "updatedAt": "2026-10-17T18:18:37.000Z",
+          "uid": "7643177-848a3653-a99b-4dc1-b42e-22a54aa6b0c6"
+        },
+        {
+          "name": "whisper-large-v3",
+          "id": "28e04df8-b75e-4477-ae42-48ace319e5a2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "postman-cloud:///1ef86bd4-3ec8-4650-843d-344333e34c48"
+                },
+                {
+                  "key": "model",
+                  "value": "whisper-large-v3",
+                  "type": "text"
+                },
+                {
+                  "key": "temperature",
+                  "value": "0",
+                  "type": "text"
+                },
+                {
+                  "key": "response_format",
+                  "value": "json",
+                  "type": "text"
+                },
+                {
+                  "key": "language",
+                  "value": "en",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/audio/transcriptions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "audio",
+                "transcriptions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-10-13T03:13:58.000Z",
+          "updatedAt": "2026-10-17T18:18:38.000Z",
+          "uid": "7643177-28e04df8-b75e-4477-ae42-48ace319e5a2"
+        },
+        {
+          "name": "whisper-large-v3-turbo",
+          "id": "1d965acd-d215-4697-8052-03dda94d1d79",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "postman-cloud:///1ef86bd4-3ec8-4650-843d-344333e34c48"
+                },
+                {
+                  "key": "model",
+                  "value": "whisper-large-v3-turbo",
+                  "type": "text"
+                },
+                {
+                  "key": "temperature",
+                  "value": "0",
+                  "type": "text"
+                },
+                {
+                  "key": "response_format",
+                  "value": "json",
+                  "type": "text"
+                },
+                {
+                  "key": "language",
+                  "value": "en",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/audio/transcriptions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "audio",
+                "transcriptions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-10-13T03:07:54.000Z",
+          "updatedAt": "2026-10-17T18:18:37.000Z",
+          "uid": "7643177-1d965acd-d215-4697-8052-03dda94d1d79"
+        }
+      ],
+      "id": "e5b3902e-f613-4132-964a-787681f5f7d8",
+      "createdAt": "2024-10-13T03:07:39.000Z",
+      "updatedAt": "2026-10-12T19:49:56.000Z",
+      "uid": "7643177-e5b3902e-f613-4132-964a-787681f5f7d8"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vault:groq_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "fcd281af-44ef-4124-a4fc-2aa7d1beab04",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "0c235810-e282-404c-967c-c05e46e69062",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.groq.com/openai/v1",
+      "type": "string"
+    }
+  ]
+}

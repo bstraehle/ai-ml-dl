@@ -1,0 +1,5 @@
+gradio[mcp]==6.32.0
+langchain==1.5.0
+langchain-openai==1.8.0
+langgraph==1.2.22
+openai==3.49.0

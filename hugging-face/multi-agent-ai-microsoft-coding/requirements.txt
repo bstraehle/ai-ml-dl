@@ -1,0 +1,5 @@
+agent-framework-core==1.26.0
+agent-framework-openai==1.18.2
+gradio[mcp]==6.32.0
+openai==3.49.0
+yfinance==1.8.0

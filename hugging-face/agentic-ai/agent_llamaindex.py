@@ -1,34 +1,21 @@
-import os
-
-from datetime import date
-from llama_index.agent.openai import OpenAIAgent
-from llama_index.llms.openai import OpenAI
+from llama_index.core.agent.workflow import FunctionAgent
 from llama_index.core.tools import FunctionTool
+from llama_index.llms.openai import OpenAIResponses
 from llama_index.tools.weather import OpenWeatherMapToolSpec
 
-def today_tool(text: str) -> str:
-    """Returns today's date. Use this for any questions related to knowing today's date. 
-       The input should always be an empty string, and this function will always return today's date. 
-       Any date mathematics should occur outside this function."""
-    return str(date.today())
+from common import MODEL, REASONING_EFFORT, TIMEOUT, openweathermap_api_key, today
 
-def agent_llamaindex(config, prompt):
-    llm = OpenAI(
-        model = config["model"],
-        temperature = config["temperature"])
+MAX_ITERATIONS = 10
 
-    tool_spec = OpenWeatherMapToolSpec(key = os.environ["OPENWEATHERMAP_API_KEY"])
-    tools = tool_spec.to_tool_list()
-    
-    date_tool = FunctionTool.from_defaults(fn = today_tool)
-            
-    agent = OpenAIAgent.from_tools(
-        [tools[0],   # built-in tools
-         date_tool], # custom tools
-        llm = llm,
-        max_iterations = 10,
-        max_execution_time = 60,
-        verbose = True
+
+async def agent_llamaindex(openai_api_key: str, prompt: str) -> str:
+    llm = OpenAIResponses(
+        model=MODEL,
+        api_key=openai_api_key,
+        reasoning_options={"effort": REASONING_EFFORT},
+        timeout=TIMEOUT,
     )
-
-    return str(agent.chat(prompt))
+    weather = OpenWeatherMapToolSpec(key=openweathermap_api_key()).to_tool_list(spec_functions=["weather_at_location"])
+    agent = FunctionAgent(tools=[*weather, FunctionTool.from_defaults(fn=today)], llm=llm, streaming=False)
+    response = await agent.run(user_msg=prompt, max_iterations=MAX_ITERATIONS)
+    return str(response)

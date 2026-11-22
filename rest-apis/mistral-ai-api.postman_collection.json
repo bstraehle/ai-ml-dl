@@ -1,0 +1,3057 @@
+{
+  "info": {
+    "_postman_id": "a2821cd2-040a-48d7-86e1-42ee05ba1fb3",
+    "name": "📌 Mistral AI API",
+    "description": "### About Mistral AI\n\n\"Frontier open-weight models you own and control.\"\n\nMistral AI builds its own open-weight Mistral models and serves them through its own API. On the workspace overview it is listed under **Model makers**.\n\n### Prerequisites\n\n- Postman Account\n    \n- Mistral AI Account: [https://console.mistral.ai/](https://console.mistral.ai/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `mistral_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:mistral_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://docs.mistral.ai/api](https://docs.mistral.ai/api)\n    \n- Models: [https://docs.mistral.ai/models](https://docs.mistral.ai/models)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2024-03-12T04:19:16.000Z",
+    "updatedAt": "2026-10-12T23:53:41.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-a2821cd2-040a-48d7-86e1-42ee05ba1fb3"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Chat (mistral-large-4)",
+          "id": "33da2a9a-acc1-422a-984e-f026b4dc2a62",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-large-4\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b70079c4-af85-7139-2c5c-5d1fe9c742a6",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"mistral-large-4\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/chat/completions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "value": "Sat, 17 Oct 2026 18:03:41 GMT",
+                  "key": "Date"
+                },
+                {
+                  "value": "application/json",
+                  "key": "Content-Type"
+                },
+                {
+                  "value": "2256",
+                  "key": "Content-Length"
+                },
+                {
+                  "value": "close",
+                  "key": "Connection"
+                },
+                {
+                  "value": "01a14b08-99fd-77bf-bd35-8cd8019c707f",
+                  "key": "mistral-correlation-id"
+                },
+                {
+                  "value": "01a14b08-99fd-77bf-bd35-8cd8019c707f",
+                  "key": "x-kong-request-id"
+                },
+                {
+                  "value": "false",
+                  "key": "x-max-retry-attempts-reached"
+                },
+                {
+                  "value": "10000000",
+                  "key": "x-ratelimit-limit-tokens-minute"
+                },
+                {
+                  "value": "9999638",
+                  "key": "x-ratelimit-remaining-tokens-minute"
+                },
+                {
+                  "value": "362",
+                  "key": "x-ratelimit-tokens-query-cost"
+                },
+                {
+                  "value": "500",
+                  "key": "x-ratelimit-limit-req-minute"
+                },
+                {
+                  "value": "499",
+                  "key": "x-ratelimit-remaining-req-minute"
+                },
+                {
+                  "value": "4289",
+                  "key": "x-envoy-upstream-service-time"
+                },
+                {
+                  "value": "cloudflare",
+                  "key": "Server"
+                },
+                {
+                  "value": "*",
+                  "key": "access-control-allow-origin"
+                },
+                {
+                  "value": "4290",
+                  "key": "x-kong-upstream-latency"
+                },
+                {
+                  "value": "18",
+                  "key": "x-kong-proxy-latency"
+                },
+                {
+                  "value": "DYNAMIC",
+                  "key": "cf-cache-status"
+                },
+                {
+                  "value": "max-age=15552000; includeSubDomains; preload",
+                  "key": "Strict-Transport-Security"
+                },
+                {
+                  "value": "nosniff",
+                  "key": "X-Content-Type-Options"
+                },
+                {
+                  "value": "a4c13895cf79476c-DFW",
+                  "key": "CF-RAY"
+                },
+                {
+                  "value": "h3=\":443\"; ma=86400",
+                  "key": "alt-svc"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "4720",
+              "body": "{\n  \"id\": \"b749d9607efe443fa7620a54a93af336\",\n  \"created\": 1792260217,\n  \"model\": \"mistral-large-4\",\n  \"usage\": {\n    \"prompt_tokens\": 21,\n    \"total_tokens\": 362,\n    \"completion_tokens\": 341,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 278\n    },\n    \"service_tier\": \"standard\"\n  },\n  \"object\": \"chat.completion\",\n  \"choices\": [\n    {\n      \"index\": 0,\n      \"finish_reason\": \"stop\",\n      \"message\": {\n        \"role\": \"assistant\",\n        \"tool_calls\": null,\n        \"content\": [\n          {\n            \"type\": \"thinking\",\n            \"thinking\": [\n              {\n                \"type\": \"text\",\n                \"text\": \"The user wants a concise, two-sentence explanation of the difference between a large language model (LLM) and a reasoning model.\\n\\nKey points to cover:\\n- LLMs (like GPT-4 base or Claude) are primarily about predicting the next token based on patterns learned from training data - they're \\\"fast thinking\\\" or pattern matching\\n- Reasoning models (like OpenAI's o1, DeepSeek-R1, etc.) are designed to think step-by-step, break down problems, use chain-of-thought, and deliberate before answering - they're \\\"slow thinking\\\" or analytical\\n\\nNeed to keep it to exactly two sentences.\\n\\nDraft:\\nLarge language models predict the next token by pattern-matching on training data to generate fluent text, operating as fast, intuitive systems. Reasoning models, by contrast, are trained or prompted to work through problems step-by-step using chain-of-thought processes, allowing them to tackle complex logic and math by \\\"thinking\\\" before answering.\\n\\nOr shorter:\\nA large language model predicts the next word based on statistical patterns to generate fluent text quickly. A reasoning model takes a step-by-step, chain-of-thought approach to break down complex problems, trading speed for deliberate analysis and accuracy.\\n\\nThat looks good. It captures the core distinction: pattern matching/fluency vs. step-by-step reasoning/deliberation. And it's exactly two sentences.\"\n              }\n            ],\n            \"closed\": true\n          },\n          {\n            \"type\": \"text\",\n            \"text\": \"A large language model predicts the next token by pattern-matching on training data to generate fluent text quickly and intuitively. A reasoning model, by contrast, uses step-by-step chain-of-thought processes to break down complex problems, trading speed for deliberate analysis and improved accuracy on logic and math tasks.\"\n          }\n        ]\n      },\n      \"logprobs\": null,\n      \"prompt_logprobs\": null\n    }\n  ]\n}",
+              "createdAt": "2026-10-17T18:03:43.000Z",
+              "updatedAt": "2026-10-17T18:03:43.000Z",
+              "uid": "7643177-b70079c4-af85-7139-2c5c-5d1fe9c742a6"
+            }
+          ],
+          "createdAt": "2024-04-20T14:51:21.000Z",
+          "updatedAt": "2026-10-17T18:03:44.000Z",
+          "uid": "7643177-33da2a9a-acc1-422a-984e-f026b4dc2a62"
+        }
+      ],
+      "id": "b1f75120-78f9-4a4e-90f1-cbd4eecd96ad",
+      "createdAt": "2024-03-12T04:19:17.000Z",
+      "updatedAt": "2024-04-20T14:51:41.000Z",
+      "uid": "7643177-b1f75120-78f9-4a4e-90f1-cbd4eecd96ad"
+    },
+    {
+      "name": "Agents",
+      "item": [
+        {
+          "name": "Create Agent (Simple)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0c38d537-52b0-4bbf-96d4-b488b5f7a5c6",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.agent_id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "1a6c443b-3469-4565-8169-b8fc84c9e551",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-medium-latest\",\n    \"name\": \"Simple Agent\",\n    \"description\": \"A simple Agent with persistent state.\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/agents",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "agents"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-05-31T04:21:39.000Z",
+          "updatedAt": "2026-10-17T18:19:48.000Z",
+          "uid": "7643177-1a6c443b-3469-4565-8169-b8fc84c9e551"
+        },
+        {
+          "name": "Create Agent (Web Search)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0c38d537-52b0-4bbf-96d4-b488b5f7a5c6",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.agent_id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "1fa30d2d-e62a-4bcc-8650-e8544490295b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-medium-2505\",\n    \"name\": \"Websearch Agent\",\n    \"description\": \"Agent able to search information over the web, such as news, weather, sport results...\",\n    \"instructions\": \"You have the ability to perform web searches with `web_search` to find up-to-date information.\",\n    \"tools\": [\n        {\n            \"type\": \"web_search\"\n        }\n    ],\n    \"completion_args\": {\n        \"temperature\": 0.3,\n        \"top_p\": 0.95\n    }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/agents",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "agents"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-05-31T04:31:24.000Z",
+          "updatedAt": "2026-10-17T18:19:48.000Z",
+          "uid": "7643177-1fa30d2d-e62a-4bcc-8650-e8544490295b"
+        },
+        {
+          "name": "Create Agent (Code Interpreter)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0c38d537-52b0-4bbf-96d4-b488b5f7a5c6",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.agent_id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "2262dfb3-b318-4e18-b6a9-c1d11ce7dd91",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-medium-2505\",\n    \"name\": \"Coding Agent\",\n    \"description\": \"Agent used to execute code using the interpreter tool.\",\n    \"instructions\": \"Use the code interpreter tool when you have to run code.\",\n    \"tools\": [\n        {\n            \"type\": \"code_interpreter\"\n        }\n    ],\n    \"completion_args\": {\n        \"temperature\": 0.3,\n        \"top_p\": 0.95\n    }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/agents",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "agents"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-05-31T04:33:39.000Z",
+          "updatedAt": "2026-10-17T18:19:48.000Z",
+          "uid": "7643177-2262dfb3-b318-4e18-b6a9-c1d11ce7dd91"
+        },
+        {
+          "name": "Create Agent (Image Generation)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0c38d537-52b0-4bbf-96d4-b488b5f7a5c6",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.agent_id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "8257beca-37c3-4ce3-9396-c99affc48b6b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-medium-2505\",\n    \"name\": \"Image Generation Agent\",\n    \"description\": \"Agent used to generate images.\",\n    \"instructions\": \"Use the image generation tool when you have to create images.\",\n    \"tools\": [\n        {\n            \"type\": \"image_generation\"\n        }\n    ],\n    \"completion_args\": {\n        \"temperature\": 0.3,\n        \"top_p\": 0.95\n    }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/agents",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "agents"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-05-31T04:34:50.000Z",
+          "updatedAt": "2026-10-17T18:19:48.000Z",
+          "uid": "7643177-8257beca-37c3-4ce3-9396-c99affc48b6b"
+        },
+        {
+          "name": "Create Agent (Document Library)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0c38d537-52b0-4bbf-96d4-b488b5f7a5c6",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.agent_id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "01185a19-34da-4a26-b915-5ff615832097",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-medium-2505\",\n    \"name\": \"Library Agent\",\n    \"description\": \"Agent able to search information in your library...\",\n    \"instructions\": \"You have the ability to perform searches with `document_library` to find relevant information.\",\n    \"tools\": [\n        {\n            \"type\": \"document_library\",\n            \"library_ids\": [\n                \"<library_id>\"\n            ]\n        }\n    ],\n    \"completion_args\": {\n        \"temperature\": 0.3,\n        \"top_p\": 0.95\n    }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/agents",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "agents"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-05-31T04:36:53.000Z",
+          "updatedAt": "2026-10-17T18:19:48.000Z",
+          "uid": "7643177-01185a19-34da-4a26-b915-5ff615832097"
+        },
+        {
+          "name": "Create Agent (Function Calling)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0c38d537-52b0-4bbf-96d4-b488b5f7a5c6",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.agent_id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "896a8ff7-7f06-4a09-927d-23a4a46d28cb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-medium-2505\",\n    \"name\": \"ecb-interest-rate-agent\",\n    \"description\": \"Can find the current interest rate of the European central bank\",\n    \"instructions\": \"You can provide interest rate and information regarding the European central bank.\",\n    \"tools\": [\n        {\n            \"function\": {\n                \"name\": \"get_european_central_bank_interest_rate\",\n                \"parameters\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"date\": {\n                            \"type\": \"string\"\n                        }\n                    },\n                    \"required\": [\n                        \"date\"\n                    ]\n                },\n                \"description\": \"Retrieve the real interest rate of European central bank.\"\n            },\n            \"type\": \"function\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/agents",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "agents"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-05-31T04:38:34.000Z",
+          "updatedAt": "2026-10-17T18:19:49.000Z",
+          "uid": "7643177-896a8ff7-7f06-4a09-927d-23a4a46d28cb"
+        },
+        {
+          "name": "Handoffs",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0c38d537-52b0-4bbf-96d4-b488b5f7a5c6",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.agent_id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "97107fd4-d4a4-450e-bc05-f134b67fc52c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"handoffs\": [\n        \"<agent_id_1>\",\n        \"<agent_id_2>\"\n    ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/agents/{{temp.agent_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "agents",
+                "{{temp.agent_id}}"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-05-31T04:40:45.000Z",
+          "updatedAt": "2025-05-31T04:44:38.000Z",
+          "uid": "7643177-97107fd4-d4a4-450e-bc05-f134b67fc52c"
+        },
+        {
+          "name": "Update Agent",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0c38d537-52b0-4bbf-96d4-b488b5f7a5c6",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.agent_id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "9820d87a-fc1b-4d20-a127-a8b161f16cf3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"completion_args\": {\n        \"temperature\": 0.3,\n        \"top_p\": 0.95\n    },\n    \"description\": \"An edited simple agent.\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/agents/{{temp.agent_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "agents",
+                "{{temp.agent_id}}"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-05-31T04:23:57.000Z",
+          "updatedAt": "2026-10-17T18:19:48.000Z",
+          "uid": "7643177-9820d87a-fc1b-4d20-a127-a8b161f16cf3"
+        },
+        {
+          "name": "Conversation",
+          "id": "2a6bb250-a031-4539-b1e8-22e2c6ff1c6d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inputs\": \"Who is Albert Einstein?\",\n    \"stream\": false,\n    \"agent_id\": \"ag_0683a851aac9767b8000137df14fafae\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/conversations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "conversations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-11-09T17:02:21.000Z",
+          "updatedAt": "2026-10-17T18:19:48.000Z",
+          "uid": "7643177-2a6bb250-a031-4539-b1e8-22e2c6ff1c6d"
+        }
+      ],
+      "id": "d9376805-e5bd-402c-9746-2c2579186547",
+      "createdAt": "2024-11-09T17:01:19.000Z",
+      "updatedAt": "2025-05-31T04:40:52.000Z",
+      "uid": "7643177-d9376805-e5bd-402c-9746-2c2579186547"
+    },
+    {
+      "name": "Batch",
+      "item": [
+        {
+          "name": "Get Batch Jobs",
+          "id": "6bc7f369-792d-4e43-ab57-c34641cfc97c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/batch/jobs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "batch",
+                "jobs"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-11-09T16:33:31.000Z",
+          "updatedAt": "2026-10-17T18:19:49.000Z",
+          "uid": "7643177-6bc7f369-792d-4e43-ab57-c34641cfc97c"
+        },
+        {
+          "name": "Create Batch Job",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "a6ec1f5e-7cdd-4803-969a-ee2b2337b99d",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "1ec19fe9-8128-420e-85bc-6d736452f8bd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"input_files\": [\r\n        \"{{temp.file_id}}\"\r\n    ],\r\n    \"endpoint\": \"/v1/chat/completions\",\r\n    \"model\": \"string\",\r\n    \"metadata\": {\r\n        \"property1\": \"string\",\r\n        \"property2\": \"string\"\r\n    },\r\n    \"timeout_hours\": 24\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/batch/jobs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "batch",
+                "jobs"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-11-09T16:34:23.000Z",
+          "updatedAt": "2025-02-01T21:56:50.000Z",
+          "uid": "7643177-1ec19fe9-8128-420e-85bc-6d736452f8bd"
+        },
+        {
+          "name": "Get Batch Job",
+          "id": "9f9a3e22-f62c-4095-b10a-a5824002c285",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/batch/jobs/:job_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "batch",
+                "jobs",
+                ":job_id"
+              ],
+              "variable": [
+                {
+                  "key": "job_id",
+                  "value": "{{temp.id}}"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-11-09T16:34:37.000Z",
+          "updatedAt": "2025-02-01T21:54:46.000Z",
+          "uid": "7643177-9f9a3e22-f62c-4095-b10a-a5824002c285"
+        },
+        {
+          "name": "Cancel Batch Job",
+          "id": "90c1b954-ab5c-491d-ac18-8b0a9d92cd6a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/batch/jobs/:job_id/cancel",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "batch",
+                "jobs",
+                ":job_id",
+                "cancel"
+              ],
+              "variable": [
+                {
+                  "key": "job_id",
+                  "value": "{{temp.id}}"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-11-09T16:35:10.000Z",
+          "updatedAt": "2025-02-01T21:54:57.000Z",
+          "uid": "7643177-90c1b954-ab5c-491d-ac18-8b0a9d92cd6a"
+        }
+      ],
+      "id": "fcfc9d8c-7cca-4243-9017-95f44f38d990",
+      "createdAt": "2024-11-09T16:28:41.000Z",
+      "updatedAt": "2024-11-09T16:41:09.000Z",
+      "uid": "7643177-fcfc9d8c-7cca-4243-9017-95f44f38d990"
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "codestral-2508",
+          "id": "cd31ddad-dd76-41a2-0c98-649f613bb91a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "value": "application/json",
+                "key": "Content-Type"
+              },
+              {
+                "value": "application/json",
+                "key": "Accept"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"codestral-2508\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a Python programming expert.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"Write a Python function that streams a chat completion from an OpenAI-compatible API and prints each token as it arrives.\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json",
+                  "headerFamily": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T22:42:36.000Z",
+          "updatedAt": "2026-10-17T18:19:49.000Z",
+          "uid": "7643177-cd31ddad-dd76-41a2-0c98-649f613bb91a"
+        },
+        {
+          "name": "codestral-latest",
+          "id": "c429a3f0-3c46-4524-a3db-d5d61e9cfe0e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"codestral-latest\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a Python programming expert.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"Write a Python function that streams a chat completion from an OpenAI-compatible API and prints each token as it arrives.\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-01-19T16:09:15.000Z",
+          "updatedAt": "2026-10-17T18:19:49.000Z",
+          "uid": "7643177-c429a3f0-3c46-4524-a3db-d5d61e9cfe0e"
+        },
+        {
+          "name": "devstral-2512",
+          "id": "6bb6c614-ff29-475b-9606-82c93333df2b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"devstral-2512\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a Python programming expert.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"Write a Python function that streams a chat completion from an OpenAI-compatible API and prints each token as it arrives.\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-01-03T02:47:49.000Z",
+          "updatedAt": "2026-10-17T18:19:49.000Z",
+          "uid": "7643177-6bb6c614-ff29-475b-9606-82c93333df2b"
+        },
+        {
+          "name": "labs-leanstral-1-5",
+          "id": "3605023c-5179-4fa8-9839-27c1312047e3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"labs-leanstral-1-5\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-07-07T02:42:55.000Z",
+          "updatedAt": "2026-10-17T18:00:28.000Z",
+          "uid": "7643177-3605023c-5179-4fa8-9839-27c1312047e3"
+        },
+        {
+          "name": "ministral-3b-latest",
+          "id": "c77aaa94-aa7e-4dd7-a711-c6f4854f5ae7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"ministral-3b-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-10-18T22:15:07.000Z",
+          "updatedAt": "2026-10-17T18:19:49.000Z",
+          "uid": "7643177-c77aaa94-aa7e-4dd7-a711-c6f4854f5ae7"
+        },
+        {
+          "name": "ministral-8b-latest",
+          "id": "b75f15ce-b1dd-4f48-8681-abbfe38443b3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"ministral-8b-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-10-18T22:17:54.000Z",
+          "updatedAt": "2026-10-17T18:19:49.000Z",
+          "uid": "7643177-b75f15ce-b1dd-4f48-8681-abbfe38443b3"
+        },
+        {
+          "name": "ministral-14b-2512",
+          "id": "85255dc9-9a70-69b8-76f7-e463a10bf168",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"ministral-14b-2512\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json",
+                  "headerFamily": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T22:42:40.000Z",
+          "updatedAt": "2026-10-17T18:19:50.000Z",
+          "uid": "7643177-85255dc9-9a70-69b8-76f7-e463a10bf168"
+        },
+        {
+          "name": "mistral-embed",
+          "id": "09e5fa1c-b7b4-4123-93bb-1de274bf23e0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-embed\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the most renowned French painter?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-01T00:30:23.000Z",
+          "updatedAt": "2026-10-17T18:19:50.000Z",
+          "uid": "7643177-09e5fa1c-b7b4-4123-93bb-1de274bf23e0"
+        },
+        {
+          "name": "mistral-large-4",
+          "id": "92bd8aa3-a5ed-bc7a-2a36-c372a6136364",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "value": "application/json",
+                "key": "Content-Type"
+              },
+              {
+                "value": "application/json",
+                "key": "Accept"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-large-4\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json",
+                  "headerFamily": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T22:42:44.000Z",
+          "updatedAt": "2026-10-17T18:19:50.000Z",
+          "uid": "7643177-92bd8aa3-a5ed-bc7a-2a36-c372a6136364"
+        },
+        {
+          "name": "mistral-large-2402",
+          "id": "af8a0b53-a22f-4b4a-880a-ed1abe5e14fa",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-large-2402\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-01T00:30:26.000Z",
+          "updatedAt": "2026-10-17T18:19:50.000Z",
+          "uid": "7643177-af8a0b53-a22f-4b4a-880a-ed1abe5e14fa"
+        },
+        {
+          "name": "mistral-large-2407",
+          "id": "6a6bc00c-aaae-45d7-a359-7eed30aea822",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-large-2407\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-07-24T20:43:19.000Z",
+          "updatedAt": "2026-10-17T18:19:50.000Z",
+          "uid": "7643177-6a6bc00c-aaae-45d7-a359-7eed30aea822"
+        },
+        {
+          "name": "mistral-large-latest",
+          "id": "5bfa1d35-c0ab-4d1c-977c-3b836b507512",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-large-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-03-12T04:19:17.000Z",
+          "updatedAt": "2026-10-17T18:19:50.000Z",
+          "uid": "7643177-5bfa1d35-c0ab-4d1c-977c-3b836b507512"
+        },
+        {
+          "name": "mistral-medium",
+          "id": "5fc6dfec-9f92-4b46-b220-4a6a9fa23d1e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-medium\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-01T00:30:29.000Z",
+          "updatedAt": "2026-10-17T18:19:50.000Z",
+          "uid": "7643177-5fc6dfec-9f92-4b46-b220-4a6a9fa23d1e"
+        },
+        {
+          "name": "mistral-medium-3.5",
+          "id": "4eb011aa-de44-e3a0-bd46-e2bb109db0df",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "value": "application/json",
+                "key": "Content-Type"
+              },
+              {
+                "value": "application/json",
+                "key": "Accept"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-medium-3.5\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json",
+                  "headerFamily": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T22:42:48.000Z",
+          "updatedAt": "2026-10-17T18:19:50.000Z",
+          "uid": "7643177-4eb011aa-de44-e3a0-bd46-e2bb109db0df"
+        },
+        {
+          "name": "mistral-medium-2312",
+          "id": "710cecd5-691c-41c0-8fc6-9b8fb7850145",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-medium-2312\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-01T00:30:32.000Z",
+          "updatedAt": "2026-10-17T18:19:51.000Z",
+          "uid": "7643177-710cecd5-691c-41c0-8fc6-9b8fb7850145"
+        },
+        {
+          "name": "mistral-medium-latest",
+          "id": "0e787531-57ce-4b53-a935-14866bcad2b8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-medium-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-01T00:30:35.000Z",
+          "updatedAt": "2026-10-17T18:19:51.000Z",
+          "uid": "7643177-0e787531-57ce-4b53-a935-14866bcad2b8"
+        },
+        {
+          "name": "mistral-ocr-latest",
+          "id": "c5afce28-05a0-4678-bbf5-82c7e6af41d4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-ocr-latest\",\n    \"document\": {\n        \"type\": \"document_url\",\n        \"document_url\": \"https://arxiv.org/pdf/2201.04234\"\n    },\n    \"include_image_base64\": true\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ocr",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ocr"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-05-24T15:11:15.000Z",
+          "updatedAt": "2026-10-17T18:19:51.000Z",
+          "uid": "7643177-c5afce28-05a0-4678-bbf5-82c7e6af41d4"
+        },
+        {
+          "name": "mistral-small",
+          "id": "d6f73628-c6d1-491f-b961-9f0a8f8a2c72",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-small\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-01T00:30:45.000Z",
+          "updatedAt": "2026-10-17T18:19:51.000Z",
+          "uid": "7643177-d6f73628-c6d1-491f-b961-9f0a8f8a2c72"
+        },
+        {
+          "name": "mistral-small-2312",
+          "id": "162749a1-0663-441f-a47a-b24549f9419c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-small-2312\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-01T00:30:48.000Z",
+          "updatedAt": "2026-10-17T18:19:51.000Z",
+          "uid": "7643177-162749a1-0663-441f-a47a-b24549f9419c"
+        },
+        {
+          "name": "mistral-small-2402",
+          "id": "122850dc-6861-46f6-8011-c54992a12a5f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-small-2402\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-01T00:30:42.000Z",
+          "updatedAt": "2026-10-17T18:19:51.000Z",
+          "uid": "7643177-122850dc-6861-46f6-8011-c54992a12a5f"
+        },
+        {
+          "name": "mistral-small-latest",
+          "id": "045e1f16-d6ac-43a5-972d-67273ac853b6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-small-latest\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-01T00:30:38.000Z",
+          "updatedAt": "2026-10-17T18:19:51.000Z",
+          "uid": "7643177-045e1f16-d6ac-43a5-972d-67273ac853b6"
+        },
+        {
+          "name": "mistral-tiny",
+          "id": "94303702-319e-483a-8e8d-32228d5e1d6f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-tiny\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-01T00:30:55.000Z",
+          "updatedAt": "2026-10-17T18:19:51.000Z",
+          "uid": "7643177-94303702-319e-483a-8e8d-32228d5e1d6f"
+        },
+        {
+          "name": "mistral-tiny-2312",
+          "id": "9de70736-98c7-4167-a006-a4eec33479f7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-tiny-2312\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-01T00:31:01.000Z",
+          "updatedAt": "2026-10-17T18:19:52.000Z",
+          "uid": "7643177-9de70736-98c7-4167-a006-a4eec33479f7"
+        },
+        {
+          "name": "open-mistral-7b",
+          "id": "8a772004-b008-4216-8bde-804afbebff03",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"open-mistral-7b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-01T00:31:04.000Z",
+          "updatedAt": "2026-10-17T18:19:52.000Z",
+          "uid": "7643177-8a772004-b008-4216-8bde-804afbebff03"
+        },
+        {
+          "name": "open-mistral-nemo-2407",
+          "id": "5888763b-73b1-4ee2-877d-9115824b2da0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"open-mistral-nemo-2407\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-07-19T03:27:01.000Z",
+          "updatedAt": "2026-10-17T18:19:52.000Z",
+          "uid": "7643177-5888763b-73b1-4ee2-877d-9115824b2da0"
+        },
+        {
+          "name": "open-mixtral-8x7b",
+          "id": "25efb99f-8d4e-4b5f-85b3-8a6eb5152284",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"open-mixtral-8x7b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-01T00:30:51.000Z",
+          "updatedAt": "2026-10-17T18:19:53.000Z",
+          "uid": "7643177-25efb99f-8d4e-4b5f-85b3-8a6eb5152284"
+        },
+        {
+          "name": "open-mixtral-8x22b",
+          "id": "3ae15e86-1e04-4dc4-941d-ec68cfb43069",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"open-mixtral-8x22b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-20T14:50:33.000Z",
+          "updatedAt": "2026-10-17T18:19:52.000Z",
+          "uid": "7643177-3ae15e86-1e04-4dc4-941d-ec68cfb43069"
+        },
+        {
+          "name": "pixtral-12b-2409",
+          "id": "fa9510c4-4c34-4399-9a70-cd4813e52c01",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"pixtral-12b-2409\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-09-21T18:09:20.000Z",
+          "updatedAt": "2026-10-17T18:19:52.000Z",
+          "uid": "7643177-fa9510c4-4c34-4399-9a70-cd4813e52c01"
+        },
+        {
+          "name": "voxtral-mini-latest",
+          "id": "abc98631-93fb-4cb5-978a-d555708dadf2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"voxtral-mini-latest\",\n    \"inputs\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Hello!\"\n        }\n    ],\n    \"tools\": [],\n    \"completion_args\": {\n        \"temperature\": 0.7,\n        \"max_tokens\": 2048,\n        \"top_p\": 1\n    },\n    \"stream\": false,\n    \"instructions\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/conversations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "conversations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-07-17T22:28:52.000Z",
+          "updatedAt": "2026-10-17T18:19:53.000Z",
+          "uid": "7643177-abc98631-93fb-4cb5-978a-d555708dadf2"
+        },
+        {
+          "name": "voxtral-small-latest",
+          "id": "4ad0a458-968c-4bfb-b5f3-ff4d35562e5d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"voxtral-small-latest\",\n    \"inputs\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Hello!\"\n        }\n    ],\n    \"tools\": [],\n    \"completion_args\": {\n        \"temperature\": 0.7,\n        \"max_tokens\": 2048,\n        \"top_p\": 1\n    },\n    \"stream\": false,\n    \"instructions\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/conversations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "conversations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-07-17T22:28:18.000Z",
+          "updatedAt": "2026-10-17T18:19:53.000Z",
+          "uid": "7643177-4ad0a458-968c-4bfb-b5f3-ff4d35562e5d"
+        },
+        {
+          "name": "zai-glm-5-3",
+          "id": "0a1d234c-a11c-1fb5-1312-0f7c319953a8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "value": "application/json",
+                "key": "Content-Type"
+              },
+              {
+                "value": "application/json",
+                "key": "Accept"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"zai-glm-5-3\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json",
+                  "headerFamily": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T22:42:52.000Z",
+          "updatedAt": "2026-10-17T18:19:53.000Z",
+          "uid": "7643177-0a1d234c-a11c-1fb5-1312-0f7c319953a8"
+        }
+      ],
+      "id": "eba06cb7-e867-4930-a992-9f989e2dc359",
+      "createdAt": "2024-03-12T04:19:17.000Z",
+      "updatedAt": "2026-10-12T19:50:53.000Z",
+      "uid": "7643177-eba06cb7-e867-4930-a992-9f989e2dc359"
+    },
+    {
+      "name": "Classifiers",
+      "item": [
+        {
+          "name": "Moderations",
+          "id": "6fec6726-8455-466d-b40f-2b6ce81bec04",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-moderation-latest\",\n    \"input\": \"What is the best French cheese?\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/moderations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "moderations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-11-09T16:15:16.000Z",
+          "updatedAt": "2026-10-17T18:19:53.000Z",
+          "uid": "7643177-6fec6726-8455-466d-b40f-2b6ce81bec04"
+        },
+        {
+          "name": "Moderations Chat",
+          "id": "24a192ac-4479-4707-9eb2-e57f7b65326f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-moderation-latest\",\n    \"input\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"What is the best French cheese?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/moderations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "moderations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-11-09T16:22:18.000Z",
+          "updatedAt": "2026-10-17T18:19:53.000Z",
+          "uid": "7643177-24a192ac-4479-4707-9eb2-e57f7b65326f"
+        }
+      ],
+      "id": "a75c86a8-7e2b-451d-a652-17f528380f30",
+      "createdAt": "2024-11-09T16:15:00.000Z",
+      "updatedAt": "2024-11-09T17:00:33.000Z",
+      "uid": "7643177-a75c86a8-7e2b-451d-a652-17f528380f30"
+    },
+    {
+      "name": "Embeddings",
+      "item": [
+        {
+          "name": "codestral-embed",
+          "id": "9d5b3a18-1cb9-4cab-8a52-a661a5b3f635",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"codestral-embed\",\n    \"input\": [\n        \"Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order. Example 1: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Because nums[0] + nums[1] == 9, we return [0, 1]. Example 2: Input: nums = [3,2,4], target = 6 Output: [1,2] Example 3: Input: nums = [3,3], target = 6 Output: [0,1] Constraints: 2 <= nums.length <= 104 -109 <= nums[i] <= 109 -109 <= target <= 109 Only one valid answer exists.\",\n        \"class Solution: def twoSum(self, nums: List[int], target: int) -> List[int]: d = {} for i, x in enumerate(nums): if (y := target - x) in d: return [d[y], i] d[x] = i\"\n    ],\n    \"encoding_format\": \"float\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/embeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "embeddings"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-05-31T04:17:17.000Z",
+          "updatedAt": "2026-10-17T18:19:53.000Z",
+          "uid": "7643177-9d5b3a18-1cb9-4cab-8a52-a661a5b3f635"
+        },
+        {
+          "name": "mistral-embed",
+          "id": "811640ef-06ab-4bcc-a63d-8306e64a9b6e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-embed\",\n    \"input\": [\n        \"Retrieval-augmented generation grounds a model's answer in your own documents.\",\n        \"A diffusion model generates an image by gradually removing noise.\"\n    ],\n    \"encoding_format\": \"float\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/embeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "embeddings"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-03-12T04:19:17.000Z",
+          "updatedAt": "2026-10-17T18:19:53.000Z",
+          "uid": "7643177-811640ef-06ab-4bcc-a63d-8306e64a9b6e"
+        }
+      ],
+      "id": "3ee32107-af3d-4b2f-88a5-fb12f2c50b0d",
+      "createdAt": "2024-03-12T04:19:17.000Z",
+      "updatedAt": "2025-05-31T04:17:21.000Z",
+      "uid": "7643177-3ee32107-af3d-4b2f-88a5-fb12f2c50b0d"
+    },
+    {
+      "name": "Files",
+      "item": [
+        {
+          "name": "Upload File",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "08da0351-f993-4afa-93c5-ae8f10b1c13f",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.file_id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "47ec47f3-6e06-4f0a-92a9-525df7e91c76",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+                  "filesNotInWorkingDirectory": [
+                    "/C:/Users/bstra/Downloads/fine-tuning-training.jsonl"
+                  ],
+                  "src": "postman-cloud:///1ef9ebfb-b3c7-4b60-a1b7-e00d3730ce5c"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/files",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "files"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-11-09T17:04:09.000Z",
+          "updatedAt": "2026-10-17T18:19:54.000Z",
+          "uid": "7643177-47ec47f3-6e06-4f0a-92a9-525df7e91c76"
+        },
+        {
+          "name": "List Files",
+          "id": "e9e8ad14-32d2-4cdc-b181-a54a3ccf07fd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/files",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "files"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-11-09T17:04:47.000Z",
+          "updatedAt": "2026-10-17T18:19:53.000Z",
+          "uid": "7643177-e9e8ad14-32d2-4cdc-b181-a54a3ccf07fd"
+        },
+        {
+          "name": "Retrieve File",
+          "id": "9103ed32-ae2c-4e6f-a51e-fb93cef467ff",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/files/:file_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "files",
+                ":file_id"
+              ],
+              "variable": [
+                {
+                  "key": "file_id",
+                  "value": "{{temp.file_id}}"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-11-09T17:04:44.000Z",
+          "updatedAt": "2026-10-17T18:19:54.000Z",
+          "uid": "7643177-9103ed32-ae2c-4e6f-a51e-fb93cef467ff"
+        },
+        {
+          "name": "Delete File",
+          "id": "56028da8-6417-4956-8a09-146f5791c156",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"max_tokens\": 0,\n    \"stream\": false,\n    \"stop\": \"string\",\n    \"random_seed\": 0,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Who is the best French painter? Answer in one short sentence.\"\n        }\n    ],\n    \"response_format\": {\n        \"type\": \"text\"\n    },\n    \"tools\": [\n        {\n            \"type\": \"function\",\n            \"function\": {\n                \"name\": \"string\",\n                \"description\": \"\",\n                \"parameters\": {}\n            }\n        }\n    ],\n    \"tool_choice\": \"auto\",\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 0,\n    \"n\": 1,\n    \"agent_id\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/files/:file_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "files",
+                ":file_id"
+              ],
+              "variable": [
+                {
+                  "key": "file_id",
+                  "value": "{{temp.file_id}}"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-11-09T17:04:41.000Z",
+          "updatedAt": "2026-10-17T18:19:54.000Z",
+          "uid": "7643177-56028da8-6417-4956-8a09-146f5791c156"
+        },
+        {
+          "name": "Download File",
+          "id": "21eb3d2b-01d2-4515-89e0-17318c34dcf5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/files/:file_id/content",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "files",
+                ":file_id",
+                "content"
+              ],
+              "variable": [
+                {
+                  "key": "file_id",
+                  "value": "{{temp.file_id}}"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-11-09T17:04:35.000Z",
+          "updatedAt": "2026-10-17T18:19:55.000Z",
+          "uid": "7643177-21eb3d2b-01d2-4515-89e0-17318c34dcf5"
+        }
+      ],
+      "id": "533b7c9e-0a66-4583-9d42-b8135b4f30f2",
+      "createdAt": "2024-11-09T17:01:29.000Z",
+      "updatedAt": "2024-11-09T17:04:47.000Z",
+      "uid": "7643177-533b7c9e-0a66-4583-9d42-b8135b4f30f2"
+    },
+    {
+      "name": "Models",
+      "item": [
+        {
+          "name": "List Models",
+          "id": "5ee13f40-f89d-4ee0-8e35-47eac6ad0d59",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/models",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-03-12T04:19:17.000Z",
+          "updatedAt": "2026-10-17T18:19:54.000Z",
+          "uid": "7643177-5ee13f40-f89d-4ee0-8e35-47eac6ad0d59"
+        },
+        {
+          "name": "Retrieve Model",
+          "id": "4a0db2d5-0046-4898-9455-d6653dd71001",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/models/:model_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                ":model_id"
+              ],
+              "variable": [
+                {
+                  "key": "model_id",
+                  "value": "open-mistral-7b"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-11-09T17:19:38.000Z",
+          "updatedAt": "2026-10-17T18:19:54.000Z",
+          "uid": "7643177-4a0db2d5-0046-4898-9455-d6653dd71001"
+        },
+        {
+          "name": "Delete Model",
+          "id": "4dc60604-a17c-42f6-8167-a69db10c8d21",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/models/:model_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                ":model_id"
+              ],
+              "variable": [
+                {
+                  "key": "model_id",
+                  "value": "TODO"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-11-09T17:20:38.000Z",
+          "updatedAt": "2024-11-09T17:21:59.000Z",
+          "uid": "7643177-4dc60604-a17c-42f6-8167-a69db10c8d21"
+        },
+        {
+          "name": "Update Fine Tuned Model",
+          "id": "33da6e76-ee03-46a6-b9b9-50f99d45a6c9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"string\",\r\n    \"description\": \"string\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fine_tuning/models/:model_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fine_tuning",
+                "models",
+                ":model_id"
+              ],
+              "variable": [
+                {
+                  "key": "model_id",
+                  "value": "TODO"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-11-09T17:20:36.000Z",
+          "updatedAt": "2024-11-09T17:23:11.000Z",
+          "uid": "7643177-33da6e76-ee03-46a6-b9b9-50f99d45a6c9"
+        },
+        {
+          "name": "Archive Fine Tuned Model",
+          "id": "29256460-0987-4647-a43b-37b6c93f4a71",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": \"string\",\r\n    \"object\": \"model\",\r\n    \"archived\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fine_tuning/models/:model_id/archive",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fine_tuning",
+                "models",
+                ":model_id",
+                "archive"
+              ],
+              "variable": [
+                {
+                  "key": "model_id",
+                  "value": "TODO"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-11-09T17:20:29.000Z",
+          "updatedAt": "2024-11-09T17:25:03.000Z",
+          "uid": "7643177-29256460-0987-4647-a43b-37b6c93f4a71"
+        },
+        {
+          "name": "Unarchive Fine Tuned Model",
+          "id": "bdb81aa6-3d1a-4de0-b34e-fa81eab665a7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fine_tuning/models/:model_id/archive",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fine_tuning",
+                "models",
+                ":model_id",
+                "archive"
+              ],
+              "variable": [
+                {
+                  "key": "model_id",
+                  "value": "TODO"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-11-09T17:20:26.000Z",
+          "updatedAt": "2024-11-09T17:25:20.000Z",
+          "uid": "7643177-bdb81aa6-3d1a-4de0-b34e-fa81eab665a7"
+        }
+      ],
+      "id": "986686ed-e7f3-4c23-a070-943484a06bef",
+      "description": "- mistral-embed\n- mistral-large-2402\n- mistral-large-latest\n- mistral-medium\n- mistral-medium-2312\n- mistral-medium-latest\n- mistral-small\n- mistral-small-2312\n- mistral-small-2402\n- mistral-small-latest\n- mistral-tiny\n- mistral-tiny-2312\n- open-mistral-7b\n- open-mixtral-8x7b",
+      "createdAt": "2024-03-12T04:19:17.000Z",
+      "updatedAt": "2024-11-09T17:20:39.000Z",
+      "uid": "7643177-986686ed-e7f3-4c23-a070-943484a06bef"
+    },
+    {
+      "name": "OCR",
+      "item": [
+        {
+          "name": "mistral-ocr-latest",
+          "id": "1b0062ce-e9a4-4ec5-905f-b41a00853b5d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral-ocr-latest\",\n    \"document\": {\n        \"type\": \"document_url\",\n        \"document_url\": \"https://arxiv.org/pdf/2201.04234\"\n    },\n    \"include_image_base64\": true\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ocr",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ocr"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-03-13T03:00:47.000Z",
+          "updatedAt": "2026-10-17T18:19:55.000Z",
+          "uid": "7643177-1b0062ce-e9a4-4ec5-905f-b41a00853b5d"
+        }
+      ],
+      "id": "15193486-0141-4d6a-950a-3aefb86d7434",
+      "createdAt": "2025-03-13T03:00:35.000Z",
+      "updatedAt": "2025-03-13T03:01:03.000Z",
+      "uid": "7643177-15193486-0141-4d6a-950a-3aefb86d7434"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vault:mistral_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "7aacc237-6a55-4069-a5bc-1bd743fc112f",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "8d28a3dd-c8d4-43c6-a77d-91e1965940f3",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mistral.ai/v1",
+      "type": "string"
+    }
+  ]
+}

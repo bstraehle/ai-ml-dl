@@ -1,1 +1,2 @@
-openai==1.33.0
+gradio[mcp]==6.32.0
+openai==3.49.0

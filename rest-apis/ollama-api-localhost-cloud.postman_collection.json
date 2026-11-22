@@ -1,0 +1,1292 @@
+{
+  "info": {
+    "_postman_id": "2ea8088c-43df-440a-b6de-4a84ac3fa60c",
+    "name": "📌 Ollama API (Localhost & Cloud)",
+    "description": "### About\n\n\"Ollama is the easiest way to run and build with open AI models locally or in the cloud on macOS, Windows, and Linux.\"\n\nOllama runs open models from other labs on your machine via REST API, Python SDK or CLI, and Ollama Cloud runs larger ones for you. On the workspace overview it is listed under **Run locally**.\n\n### Prerequisites\n\n- Postman Account\n    \n- Ollama Account: [https://ollama.com/](https://ollama.com/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `ollama_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:ollama_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- Models: [https://ollama.com/library](https://ollama.com/library)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2024-07-10T01:13:36.000Z",
+    "updatedAt": "2026-10-12T23:53:48.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-2ea8088c-43df-440a-b6de-4a84ac3fa60c"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Pull (pull)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f3935e30-ea35-4364-acf8-1d0011a82e02",
+                "exec": [
+                  "pm.collectionVariables.set('temp.model', 'qwen2.5:0.5b')"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "49f97fd2-9f9a-47a6-a3fe-ef42a377e1d1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"model\": \"qwen2.5:0.5b\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/pull",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pull"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-14T05:16:26.000Z",
+          "updatedAt": "2026-10-17T18:20:01.000Z",
+          "uid": "7643177-49f97fd2-9f9a-47a6-a3fe-ef42a377e1d1"
+        },
+        {
+          "name": "List Pulled (list)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f3935e30-ea35-4364-acf8-1d0011a82e02",
+                "exec": [
+                  "pm.collectionVariables.set('temp.model', 'qwen2.5:0.5b')"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "82eaae2b-7380-44bb-9f13-ad4598ca07ee",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"model\": \"qwen2.5:0.5b\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tags",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tags"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7b74cd4c-e2ca-e6ee-40d6-321ddfaa86ef",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"model\": \"qwen2.5:0.5b\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tags",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 17 Oct 2026 18:04:34 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1963"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2098",
+              "body": "{\n  \"models\": [\n    {\n      \"name\": \"qwen2.5:0.5b\",\n      \"model\": \"qwen2.5:0.5b\",\n      \"modified_at\": \"2026-10-11T22:30:22.9148772-07:00\",\n      \"size\": 397821319,\n      \"digest\": \"a8b0c51577010a279d933d14c2a8ab4b268079d44c5c8830c0a93900f1827c67\",\n      \"details\": {\n        \"parent_model\": \"\",\n        \"format\": \"gguf\",\n        \"family\": \"qwen2\",\n        \"families\": [\n          \"qwen2\"\n        ],\n        \"parameter_size\": \"494.03M\",\n        \"quantization_level\": \"Q4_K_M\",\n        \"context_length\": 32768,\n        \"embedding_length\": 896,\n        \"runner\": \"ggml\"\n      },\n      \"capabilities\": [\n        \"completion\",\n        \"tools\"\n      ]\n    },\n    {\n      \"name\": \"gpt-oss:20b-cloud\",\n      \"model\": \"gpt-oss:20b-cloud\",\n      \"remote_model\": \"gpt-oss:20b\",\n      \"remote_host\": \"https://ollama.com:443\",\n      \"modified_at\": \"2025-10-12T08:24:45.6306112-07:00\",\n      \"size\": 381,\n      \"digest\": \"875e8e3a629ad3c2e66f1f1c461e3d140474212f44a34f4687ae1d927db41690\",\n      \"details\": {\n        \"parent_model\": \"\",\n        \"format\": \"\",\n        \"family\": \"gptoss\",\n        \"families\": [\n          \"gptoss\"\n        ],\n        \"parameter_size\": \"20.9B\",\n        \"quantization_level\": \"MXFP4\",\n        \"context_length\": 131072,\n        \"embedding_length\": 2880\n      },\n      \"capabilities\": [\n        \"completion\",\n        \"tools\",\n        \"thinking\"\n      ]\n    },\n    {\n      \"name\": \"gpt-oss:120b-cloud\",\n      \"model\": \"gpt-oss:120b-cloud\",\n      \"remote_model\": \"gpt-oss:120b\",\n      \"remote_host\": \"https://ollama.com:443\",\n      \"modified_at\": \"2025-10-12T08:24:22.6462437-07:00\",\n      \"size\": 384,\n      \"digest\": \"569662207105c69bb0eca2f79a3fdf8691ad6301def477a5ec66f8e8bae237e3\",\n      \"details\": {\n        \"parent_model\": \"\",\n        \"format\": \"\",\n        \"family\": \"gptoss\",\n        \"families\": [\n          \"gptoss\"\n        ],\n        \"parameter_size\": \"116.8B\",\n        \"quantization_level\": \"MXFP4\",\n        \"context_length\": 131072,\n        \"embedding_length\": 2880\n      },\n      \"capabilities\": [\n        \"completion\",\n        \"tools\",\n        \"thinking\"\n      ]\n    },\n    {\n      \"name\": \"deepseek-v3.1:671b-cloud\",\n      \"model\": \"deepseek-v3.1:671b-cloud\",\n      \"remote_model\": \"deepseek-v3.1:671b\",\n      \"remote_host\": \"https://ollama.com:443\",\n      \"modified_at\": \"2025-10-12T08:23:08.7332314-07:00\",\n      \"size\": 405,\n      \"digest\": \"d3749919e45f955731da7a7e76849e20f7ed310725d3b8b52822e811f55d0a90\",\n      \"details\": {\n        \"parent_model\": \"\",\n        \"format\": \"\",\n        \"family\": \"deepseek2\",\n        \"families\": [\n          \"deepseek2\"\n        ],\n        \"parameter_size\": \"671.0B\",\n        \"quantization_level\": \"FP8_E4M3\",\n        \"context_length\": 163840,\n        \"embedding_length\": 7168\n      },\n      \"capabilities\": [\n        \"completion\",\n        \"tools\",\n        \"thinking\"\n      ]\n    }\n  ]\n}",
+              "createdAt": "2026-10-17T18:04:35.000Z",
+              "updatedAt": "2026-10-17T18:04:35.000Z",
+              "uid": "7643177-7b74cd4c-e2ca-e6ee-40d6-321ddfaa86ef"
+            }
+          ],
+          "createdAt": "2025-02-14T05:35:20.000Z",
+          "updatedAt": "2026-10-17T18:04:39.000Z",
+          "uid": "7643177-82eaae2b-7380-44bb-9f13-ad4598ca07ee"
+        },
+        {
+          "name": "Run (run)",
+          "id": "53359967-d761-485a-bbe1-ecc579b1b493",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"model\": \"{{temp.model}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generate"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "706fe9ea-5dcd-c724-8267-2f682f49b524",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"model\": \"{{temp.model}}\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/generate",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "generate"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "value": "application/json; charset=utf-8",
+                  "key": "Content-Type"
+                },
+                {
+                  "value": "Sat, 17 Oct 2026 18:08:49 GMT",
+                  "key": "Date"
+                },
+                {
+                  "value": "115",
+                  "key": "Content-Length"
+                },
+                {
+                  "value": "close",
+                  "key": "Connection"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "4177",
+              "body": "{\n  \"model\": \"qwen2.5:0.5b\",\n  \"created_at\": \"2026-10-17T18:08:49.4067432Z\",\n  \"response\": \"\",\n  \"done\": true,\n  \"done_reason\": \"load\"\n}",
+              "createdAt": "2026-10-17T18:08:50.000Z",
+              "updatedAt": "2026-10-17T18:08:50.000Z",
+              "uid": "7643177-706fe9ea-5dcd-c724-8267-2f682f49b524"
+            }
+          ],
+          "createdAt": "2025-02-14T05:06:06.000Z",
+          "updatedAt": "2026-10-17T18:08:51.000Z",
+          "uid": "7643177-53359967-d761-485a-bbe1-ecc579b1b493"
+        },
+        {
+          "name": "List Running (ps)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f3935e30-ea35-4364-acf8-1d0011a82e02",
+                "exec": [
+                  "pm.collectionVariables.set('temp.model', 'qwen2.5:0.5b')"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "54dc5ce6-726a-4bbf-a25e-441c685918bf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"model\": \"qwen2.5:0.5b\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ps",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ps"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "abe5861f-57e8-2f28-9523-8623317e8924",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"model\": \"qwen2.5:0.5b\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ps",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ps"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 17 Oct 2026 18:04:43 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "13"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2026",
+              "body": "{\n  \"models\": []\n}",
+              "createdAt": "2026-10-17T18:04:44.000Z",
+              "updatedAt": "2026-10-17T18:04:44.000Z",
+              "uid": "7643177-abe5861f-57e8-2f28-9523-8623317e8924"
+            }
+          ],
+          "createdAt": "2025-02-14T05:36:10.000Z",
+          "updatedAt": "2026-10-17T18:04:45.000Z",
+          "uid": "7643177-54dc5ce6-726a-4bbf-a25e-441c685918bf"
+        },
+        {
+          "name": "Generate",
+          "id": "f938d169-59b7-469d-9193-ff1b28e468a0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"{{temp.model}}\",\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"raw\": true,\n    \"stream\": false,\n    \"options\": {\n        \"num_predict\": 4096\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generate"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f7d9ea8d-5978-0cea-f499-6f835a7fa04c",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"{{temp.model}}\",\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"raw\": true,\n    \"stream\": false,\n    \"options\": {\n        \"num_predict\": 4096\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/generate",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "generate"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 17 Oct 2026 18:08:57 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "798"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "4568",
+              "body": "{\n  \"model\": \"qwen2.5:0.5b\",\n  \"created_at\": \"2026-10-17T18:08:57.2421495Z\",\n  \"response\": \" A large language model is a computer program that can generate large quantities of text, whereas a reasoning model is a computer program that can analyze and reason about complex data and information. The main difference between the two is that a large language model can generate large amounts of text, while a reasoning model can analyze and reason about complex data and information. However, a reasoning model may not be as capable of generating large quantities of text as a large language model.\",\n  \"done\": true,\n  \"done_reason\": \"stop\",\n  \"total_duration\": 2514005600,\n  \"load_duration\": 27007900,\n  \"prompt_eval_count\": 18,\n  \"prompt_eval_cached_count\": 0,\n  \"prompt_eval_duration\": 132572000,\n  \"eval_count\": 91,\n  \"eval_duration\": 2328931000\n}",
+              "createdAt": "2026-10-17T18:08:58.000Z",
+              "updatedAt": "2026-10-17T18:08:58.000Z",
+              "uid": "7643177-f7d9ea8d-5978-0cea-f499-6f835a7fa04c"
+            }
+          ],
+          "createdAt": "2025-02-14T05:09:46.000Z",
+          "updatedAt": "2026-10-17T18:08:59.000Z",
+          "uid": "7643177-f938d169-59b7-469d-9193-ff1b28e468a0"
+        },
+        {
+          "name": "Stop (stop)",
+          "id": "7c6b31c8-ebfe-453c-a4c6-e3cfc5eb0b73",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"model\": \"{{temp.model}}\",\r\n    \"keep_alive\": 0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generate"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0c55a1da-7abd-859e-02f2-9e703620044a",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"model\": \"{{temp.model}}\",\r\n    \"keep_alive\": 0\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/generate",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "generate"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 17 Oct 2026 18:09:02 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "117"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2060",
+              "body": "{\n  \"model\": \"qwen2.5:0.5b\",\n  \"created_at\": \"2026-10-17T18:09:02.3022912Z\",\n  \"response\": \"\",\n  \"done\": true,\n  \"done_reason\": \"unload\"\n}",
+              "createdAt": "2026-10-17T18:09:03.000Z",
+              "updatedAt": "2026-10-17T18:09:03.000Z",
+              "uid": "7643177-0c55a1da-7abd-859e-02f2-9e703620044a"
+            }
+          ],
+          "createdAt": "2025-02-14T05:11:46.000Z",
+          "updatedAt": "2026-10-17T18:09:05.000Z",
+          "uid": "7643177-7c6b31c8-ebfe-453c-a4c6-e3cfc5eb0b73"
+        },
+        {
+          "name": "Delete (rm)",
+          "id": "3a191f36-a692-4c61-8457-7b33899dea82",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"model\": \"{{temp.model}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delete",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delete"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-14T05:19:13.000Z",
+          "updatedAt": "2026-10-17T18:20:02.000Z",
+          "uid": "7643177-3a191f36-a692-4c61-8457-7b33899dea82"
+        }
+      ],
+      "id": "97711ca1-36af-4763-aaca-97e7fb4f946c",
+      "createdAt": "2025-02-14T05:13:30.000Z",
+      "updatedAt": "2025-02-14T05:36:13.000Z",
+      "uid": "7643177-97711ca1-36af-4763-aaca-97e7fb4f946c"
+    },
+    {
+      "name": "Cloud",
+      "item": [
+        {
+          "name": "Generate",
+          "item": [
+            {
+              "name": "gpt-oss:20b-cloud",
+              "id": "35e416dd-ebb5-43cc-81a9-77d4df78692f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"gpt-oss:20b-cloud\",\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"raw\": false,\n    \"stream\": false,\n    \"options\": {\n        \"num_predict\": 4096\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/generate",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "generate"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-10-12T14:46:30.000Z",
+              "updatedAt": "2026-10-17T18:20:02.000Z",
+              "uid": "7643177-35e416dd-ebb5-43cc-81a9-77d4df78692f"
+            },
+            {
+              "name": "gpt-oss:120b-cloud",
+              "id": "8d608d1c-98ad-45af-8247-fc6b4feefd67",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"gpt-oss:120b-cloud\",\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"raw\": false,\n    \"stream\": false,\n    \"options\": {\n        \"num_predict\": 4096\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/generate",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "generate"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-10-12T14:46:18.000Z",
+              "updatedAt": "2026-10-17T18:20:02.000Z",
+              "uid": "7643177-8d608d1c-98ad-45af-8247-fc6b4feefd67"
+            },
+            {
+              "name": "nemotron-3-ultra:cloud",
+              "id": "eae86236-cd8a-e2ba-e391-4198722d5a50",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"nemotron-3-ultra:cloud\",\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"raw\": false,\n    \"stream\": false,\n    \"options\": {\n        \"num_predict\": 4096\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/generate",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "generate"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2026-10-12T04:32:47.000Z",
+              "updatedAt": "2026-10-17T18:20:02.000Z",
+              "uid": "7643177-eae86236-cd8a-e2ba-e391-4198722d5a50"
+            }
+          ],
+          "id": "a4a06eef-93d5-4878-bfe0-99558b11693a",
+          "createdAt": "2025-10-12T15:55:13.000Z",
+          "updatedAt": "2026-10-12T19:51:23.000Z",
+          "uid": "7643177-a4a06eef-93d5-4878-bfe0-99558b11693a"
+        },
+        {
+          "name": "Web Search",
+          "item": [
+            {
+              "name": "Web Search",
+              "id": "246ca870-8ef2-477d-ae94-d574c926bfa1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{vault:ollama_api_key}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"query\": \"what is ollama?\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl2}}/web_search",
+                  "host": [
+                    "{{baseUrl2}}"
+                  ],
+                  "path": [
+                    "web_search"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-10-12T15:55:57.000Z",
+              "updatedAt": "2026-10-17T18:20:02.000Z",
+              "uid": "7643177-246ca870-8ef2-477d-ae94-d574c926bfa1"
+            }
+          ],
+          "id": "aa57c403-606c-42db-888b-1a3db1ed91d5",
+          "createdAt": "2025-10-12T15:54:58.000Z",
+          "updatedAt": "2025-10-12T15:56:32.000Z",
+          "uid": "7643177-aa57c403-606c-42db-888b-1a3db1ed91d5"
+        }
+      ],
+      "id": "75a1201a-a23e-4659-8eb5-4838b513c207",
+      "createdAt": "2025-10-12T14:43:24.000Z",
+      "updatedAt": "2026-10-12T19:26:09.000Z",
+      "uid": "7643177-75a1201a-a23e-4659-8eb5-4838b513c207"
+    },
+    {
+      "name": "Localhost",
+      "item": [
+        {
+          "name": "deepseek-coder-v2",
+          "id": "dbc21b10-0af0-48b9-b988-33d9f47b6238",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"deepseek-coder-v2\",\n    \"prompt\": \"Write a Python function that streams a chat completion from an OpenAI-compatible API and prints each token as it arrives.\",\n    \"raw\": true,\n    \"stream\": false,\n    \"options\": {\n        \"num_predict\": 4096\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generate"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-09-25T16:04:20.000Z",
+          "updatedAt": "2026-10-17T18:20:02.000Z",
+          "uid": "7643177-dbc21b10-0af0-48b9-b988-33d9f47b6238"
+        },
+        {
+          "name": "deepseek-r1:1.5b",
+          "id": "b6f51977-38fd-4259-b370-a428765b1974",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"deepseek-r1:1.5b\",\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"raw\": true,\n    \"stream\": false,\n    \"options\": {\n        \"num_predict\": 4096\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generate"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-01-27T03:36:07.000Z",
+          "updatedAt": "2026-10-17T18:20:02.000Z",
+          "uid": "7643177-b6f51977-38fd-4259-b370-a428765b1974"
+        },
+        {
+          "name": "gemma2",
+          "id": "b482aca4-b3fd-4eaf-a0f0-411bcbc43c59",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"gemma2\",\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"raw\": true,\n    \"stream\": false,\n    \"options\": {\n        \"num_predict\": 4096\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generate"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-07-11T00:09:56.000Z",
+          "updatedAt": "2026-10-17T18:20:03.000Z",
+          "uid": "7643177-b482aca4-b3fd-4eaf-a0f0-411bcbc43c59"
+        },
+        {
+          "name": "llama3",
+          "id": "da04f8ef-978d-452b-8096-2e8296fba47f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"llama3\",\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"raw\": true,\n    \"stream\": false,\n    \"options\": {\n        \"num_predict\": 4096\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generate"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-07-11T00:34:20.000Z",
+          "updatedAt": "2026-10-17T18:20:03.000Z",
+          "uid": "7643177-da04f8ef-978d-452b-8096-2e8296fba47f"
+        },
+        {
+          "name": "llama3.1",
+          "id": "ef1e5d98-431a-4227-837c-fb5c314e2949",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"llama3.1\",\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"raw\": true,\n    \"stream\": false,\n    \"options\": {\n        \"num_predict\": 4096\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generate"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-07-26T01:55:29.000Z",
+          "updatedAt": "2026-10-17T18:20:03.000Z",
+          "uid": "7643177-ef1e5d98-431a-4227-837c-fb5c314e2949"
+        },
+        {
+          "name": "llama3.2",
+          "id": "1149b5ca-a811-4665-930a-8dee45908be8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"llama3.2\",\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"raw\": true,\n    \"stream\": false,\n    \"options\": {\n        \"num_predict\": 4096\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generate"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-09-26T00:32:51.000Z",
+          "updatedAt": "2026-10-17T18:20:03.000Z",
+          "uid": "7643177-1149b5ca-a811-4665-930a-8dee45908be8"
+        },
+        {
+          "name": "llama3.2:1b",
+          "id": "9b47a6ab-d893-4b82-a576-18b96f542549",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"llama3.2:1b\",\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"raw\": true,\n    \"stream\": false,\n    \"options\": {\n        \"num_predict\": 4096\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generate"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-09-26T00:34:20.000Z",
+          "updatedAt": "2026-10-17T18:20:03.000Z",
+          "uid": "7643177-9b47a6ab-d893-4b82-a576-18b96f542549"
+        },
+        {
+          "name": "mistral",
+          "id": "34757795-30df-4bed-9956-fa87ebef279d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"mistral\",\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"raw\": true,\n    \"stream\": false,\n    \"options\": {\n        \"num_predict\": 4096\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generate"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-07-11T14:29:13.000Z",
+          "updatedAt": "2026-10-17T18:20:05.000Z",
+          "uid": "7643177-34757795-30df-4bed-9956-fa87ebef279d"
+        },
+        {
+          "name": "phi3.5",
+          "id": "8cd28a03-3601-4421-8bb0-ab27a1b33180",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"phi3.5\",\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"raw\": true,\n    \"stream\": false,\n    \"options\": {\n        \"num_predict\": 4096\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generate"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-09-26T00:47:20.000Z",
+          "updatedAt": "2026-10-17T18:20:03.000Z",
+          "uid": "7643177-8cd28a03-3601-4421-8bb0-ab27a1b33180"
+        },
+        {
+          "name": "phi3:mini",
+          "id": "144d140c-219f-4c45-8885-3d98e3e6b5fe",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"phi3:mini\",\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"raw\": true,\n    \"stream\": false,\n    \"options\": {\n        \"num_predict\": 4096\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generate"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-07-10T01:14:01.000Z",
+          "updatedAt": "2026-10-17T18:20:03.000Z",
+          "uid": "7643177-144d140c-219f-4c45-8885-3d98e3e6b5fe"
+        },
+        {
+          "name": "qwen2",
+          "id": "d128b242-337b-42e6-b71e-ae168beb6a0b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"qwen2\",\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"raw\": true,\n    \"stream\": false,\n    \"options\": {\n        \"num_predict\": 4096\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generate"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-07-11T04:03:29.000Z",
+          "updatedAt": "2026-10-17T18:20:03.000Z",
+          "uid": "7643177-d128b242-337b-42e6-b71e-ae168beb6a0b"
+        },
+        {
+          "name": "qwen2.5:1.5b",
+          "id": "6331c3c9-81ba-4763-9380-b5033cdb0ab8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"qwen2.5:1.5b\",\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"raw\": true,\n    \"stream\": false,\n    \"options\": {\n        \"num_predict\": 4096\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generate"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-09-26T00:44:24.000Z",
+          "updatedAt": "2026-10-17T18:20:03.000Z",
+          "uid": "7643177-6331c3c9-81ba-4763-9380-b5033cdb0ab8"
+        }
+      ],
+      "id": "a97055d7-52df-4bdb-91a8-33dfaeb5e814",
+      "createdAt": "2025-10-12T14:43:40.000Z",
+      "updatedAt": "2026-10-12T19:51:25.000Z",
+      "uid": "7643177-a97055d7-52df-4bdb-91a8-33dfaeb5e814"
+    },
+    {
+      "name": "Responses",
+      "item": [
+        {
+          "name": "gpt-oss:120b",
+          "id": "acba6d97-898a-8253-8d42-7d2819410a51",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{vault:ollama_api_key}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"gpt-oss:120b\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://ollama.com/v1/responses",
+              "protocol": "https",
+              "host": [
+                "ollama",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T20:30:23.000Z",
+          "updatedAt": "2026-10-17T18:20:04.000Z",
+          "uid": "7643177-acba6d97-898a-8253-8d42-7d2819410a51"
+        }
+      ],
+      "id": "c78b7c74-b214-0763-052e-7a2c92a820d7",
+      "createdAt": "2026-10-12T20:30:16.000Z",
+      "updatedAt": "2026-10-12T20:30:23.000Z",
+      "uid": "7643177-c78b7c74-b214-0763-052e-7a2c92a820d7"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "73a13b6b-5813-4a74-bac8-ba0e789666af",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "93869342-1afa-45c2-95df-7926b1471be7",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:11434/api",
+      "type": "string"
+    },
+    {
+      "key": "baseUrl2",
+      "value": "https://ollama.com/api",
+      "type": "string"
+    }
+  ]
+}

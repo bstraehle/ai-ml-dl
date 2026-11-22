@@ -1,0 +1,1211 @@
+{
+  "info": {
+    "_postman_id": "10ea8ac7-0fce-426e-807f-ed7bce74db66",
+    "name": "📌 Meta Model API",
+    "description": "### About\n\n\"Explore AI at Meta. Meet Muse, our new AI agent that takes tasks off your plate. Use Meta AI for questions and images, plus tools for developers.\"\n\nMeta builds its own Muse models and serves them through OpenAI-compatible Chat and Responses APIs and an Anthropic-compatible Messages API. On the workspace overview it is listed under **Model makers**.\n\n### Prerequisites\n\n- Postman Account\n    \n- Meta AI Account: [https://dev.meta.ai/](https://dev.meta.ai/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `meta_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:meta_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://dev.meta.ai/docs/getting-started/overview](https://dev.meta.ai/docs/getting-started/overview/)\n    \n- Models: [https://dev.meta.ai/docs/getting-started/models](https://dev.meta.ai/docs/getting-started/models)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-11T15:25:33.000Z",
+    "updatedAt": "2026-10-17T03:38:56.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-10ea8ac7-0fce-426e-807f-ed7bce74db66"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Chat (muse-wonder-1.0)",
+          "id": "2ede6a38-b78c-4e56-908a-1139e2510843",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-wonder-1.0\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2419a98d-1b93-e62b-150d-5a1f6035ad0d",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"muse-wonder-1.0\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/chat/completions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "value": "application/json",
+                  "key": "Content-Type"
+                },
+                {
+                  "value": "3000",
+                  "key": "x-ratelimit-limit-requests"
+                },
+                {
+                  "value": "3000",
+                  "key": "x-ratelimit-remaining-requests"
+                },
+                {
+                  "value": "4000000",
+                  "key": "x-ratelimit-limit-tokens"
+                },
+                {
+                  "value": "4000000",
+                  "key": "x-ratelimit-remaining-tokens"
+                },
+                {
+                  "value": "76af86cb-89be-49c7-abb7-46a2a899386d",
+                  "key": "x-request-id"
+                },
+                {
+                  "value": "*",
+                  "key": "Access-Control-Allow-Origin"
+                },
+                {
+                  "value": "Sat, 17 Oct 2026 18:03:24 GMT",
+                  "key": "Date"
+                },
+                {
+                  "value": "model-api-rust",
+                  "key": "x-route"
+                },
+                {
+                  "value": "close",
+                  "key": "Connection"
+                },
+                {
+                  "value": "817",
+                  "key": "Content-Length"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "7311",
+              "body": "{\n  \"id\": \"chatcmpl-01a14b08-68d1-736b-b237-f28c142d1dbd\",\n  \"choices\": [\n    {\n      \"finish_reason\": \"stop\",\n      \"index\": 0,\n      \"message\": {\n        \"content\": \"A large language model is trained primarily to predict the next token from vast amounts of text, so it answers quickly and fluently in a single pass. A reasoning model is a large language model additionally trained to spend extra time working through a problem step by step and checking its intermediate thoughts before answering, improving accuracy on math, coding, and logic at the cost of speed.\",\n        \"refusal\": null,\n        \"role\": \"assistant\"\n      },\n      \"logprobs\": null\n    }\n  ],\n  \"created\": 1792260204,\n  \"model\": \"muse-wonder-1.0\",\n  \"object\": \"chat.completion\",\n  \"usage\": {\n    \"completion_tokens\": 712,\n    \"prompt_tokens\": 26,\n    \"total_tokens\": 738,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 629\n    },\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0\n    }\n  }\n}",
+              "createdAt": "2026-10-17T18:03:25.000Z",
+              "updatedAt": "2026-10-17T18:03:25.000Z",
+              "uid": "7643177-2419a98d-1b93-e62b-150d-5a1f6035ad0d"
+            }
+          ],
+          "createdAt": "2026-10-12T04:59:24.000Z",
+          "updatedAt": "2026-10-17T18:03:26.000Z",
+          "uid": "7643177-2ede6a38-b78c-4e56-908a-1139e2510843"
+        }
+      ],
+      "id": "74da2667-c7e0-f98d-813b-f1e5b36a18e8",
+      "createdAt": "2026-10-12T04:59:23.000Z",
+      "updatedAt": "2026-10-12T04:59:24.000Z",
+      "uid": "7643177-74da2667-c7e0-f98d-813b-f1e5b36a18e8"
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "muse-ember-1.0",
+          "id": "a2f596f3-c0a8-24ba-2250-7ad6cb004942",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-ember-1.0\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-11-14T17:28:40.000Z",
+          "updatedAt": "2026-11-14T17:28:40.000Z",
+          "uid": "7643177-a2f596f3-c0a8-24ba-2250-7ad6cb004942"
+        },
+        {
+          "name": "muse-spark-1.1",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "cfeae40d-c613-4b2a-81ec-47e2eac12170",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "7df2fc26-926e-4735-b7dd-96c91dbb9a1c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-spark-1.1\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-07-11T15:47:59.000Z",
+          "updatedAt": "2026-10-17T18:19:43.000Z",
+          "uid": "7643177-7df2fc26-926e-4735-b7dd-96c91dbb9a1c"
+        },
+        {
+          "name": "muse-spark-1.2",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "cfeae40d-c613-4b2a-81ec-47e2eac12170",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "72f0ee7d-7639-4b42-a923-06f66e2e0241",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-spark-1.2\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-08-06T20:27:54.000Z",
+          "updatedAt": "2026-10-17T18:19:43.000Z",
+          "uid": "7643177-72f0ee7d-7639-4b42-a923-06f66e2e0241"
+        },
+        {
+          "name": "muse-spark-1.2-contributor",
+          "id": "f30ba181-b95b-6f95-00eb-1047cb729cae",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-spark-1.2-contributor\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-17T03:37:30.000Z",
+          "updatedAt": "2026-10-17T18:19:43.000Z",
+          "uid": "7643177-f30ba181-b95b-6f95-00eb-1047cb729cae"
+        },
+        {
+          "name": "muse-spark-1.3",
+          "id": "d348c426-d45c-45c7-b8a3-290ab8bf2daf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-spark-1.3\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-09-06T23:46:49.000Z",
+          "updatedAt": "2026-10-17T18:19:44.000Z",
+          "uid": "7643177-d348c426-d45c-45c7-b8a3-290ab8bf2daf"
+        },
+        {
+          "name": "muse-spark-1.3-contributor",
+          "id": "b15ed9b5-2ca9-61ef-e6a4-d1c436c969d3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-spark-1.3-contributor\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T22:41:23.000Z",
+          "updatedAt": "2026-10-17T18:19:44.000Z",
+          "uid": "7643177-b15ed9b5-2ca9-61ef-e6a4-d1c436c969d3"
+        },
+        {
+          "name": "muse-wonder-1.0",
+          "event": [
+            {
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "id": "cfeae40d-c613-4b2a-81ec-47e2eac12170",
+                "requests": [],
+                "packages": [],
+                "type": "text/javascript"
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "e041e409-e222-40de-4791-489cda71f664",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-wonder-1.0\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T20:31:27.000Z",
+          "updatedAt": "2026-10-17T18:19:44.000Z",
+          "uid": "7643177-e041e409-e222-40de-4791-489cda71f664"
+        }
+      ],
+      "id": "086cb02f-784c-4c59-82ed-8f1ed1b86741",
+      "createdAt": "2026-07-11T15:47:45.000Z",
+      "updatedAt": "2026-11-14T17:28:41.000Z",
+      "uid": "7643177-086cb02f-784c-4c59-82ed-8f1ed1b86741"
+    },
+    {
+      "name": "Messages",
+      "item": [
+        {
+          "name": "muse-ember-1.0",
+          "id": "67afe8b9-bc7e-cfba-c4b2-ad40b5854301",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-ember-1.0\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/messages",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "messages"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-11-14T17:28:42.000Z",
+          "updatedAt": "2026-11-14T17:28:42.000Z",
+          "uid": "7643177-67afe8b9-bc7e-cfba-c4b2-ad40b5854301"
+        },
+        {
+          "name": "muse-spark-1.1",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "cfeae40d-c613-4b2a-81ec-47e2eac12170",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "ab24fa16-030e-4cc7-b1e5-f12bd115845f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-spark-1.1\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/messages",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "messages"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-07-11T15:55:00.000Z",
+          "updatedAt": "2026-10-17T18:19:44.000Z",
+          "uid": "7643177-ab24fa16-030e-4cc7-b1e5-f12bd115845f"
+        },
+        {
+          "name": "muse-spark-1.2",
+          "id": "8b504699-3df8-4997-9bfb-6590b8845ec4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-spark-1.2\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/messages",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "messages"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-09-06T23:47:42.000Z",
+          "updatedAt": "2026-10-17T18:19:44.000Z",
+          "uid": "7643177-8b504699-3df8-4997-9bfb-6590b8845ec4"
+        },
+        {
+          "name": "muse-spark-1.2-contributor",
+          "id": "7def6a80-3741-915b-1dfc-fbeb23da1e05",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-spark-1.2-contributor\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/messages",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "messages"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-17T03:37:39.000Z",
+          "updatedAt": "2026-10-17T18:19:44.000Z",
+          "uid": "7643177-7def6a80-3741-915b-1dfc-fbeb23da1e05"
+        },
+        {
+          "name": "muse-spark-1.3",
+          "id": "95661b6a-537d-484e-922f-4c4e0e41943d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-spark-1.3\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/messages",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "messages"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-09-06T23:47:58.000Z",
+          "updatedAt": "2026-10-17T18:19:44.000Z",
+          "uid": "7643177-95661b6a-537d-484e-922f-4c4e0e41943d"
+        },
+        {
+          "name": "muse-spark-1.3-contributor",
+          "id": "09305f91-2b2d-4524-8fb1-f086b535ad7b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-spark-1.3-contributor\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/messages",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "messages"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T22:41:26.000Z",
+          "updatedAt": "2026-10-17T18:19:44.000Z",
+          "uid": "7643177-09305f91-2b2d-4524-8fb1-f086b535ad7b"
+        }
+      ],
+      "id": "807ca52b-eb81-4e4e-8bb5-2bd999116e6e",
+      "createdAt": "2026-07-11T15:55:00.000Z",
+      "updatedAt": "2026-11-14T17:28:43.000Z",
+      "uid": "7643177-807ca52b-eb81-4e4e-8bb5-2bd999116e6e"
+    },
+    {
+      "name": "Responses",
+      "item": [
+        {
+          "name": "muse-ember-1.0",
+          "id": "c22ed50a-6580-b8db-efab-97ec4463fcd8",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-ember-1.0\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"stream\": false,\n    \"max_output_tokens\": 4096,\n    \"reasoning\": {\n        \"effort\": \"low\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-11-14T17:28:43.000Z",
+          "updatedAt": "2026-11-14T17:28:43.000Z",
+          "uid": "7643177-c22ed50a-6580-b8db-efab-97ec4463fcd8"
+        },
+        {
+          "name": "muse-image-1.0",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "cfeae40d-c613-4b2a-81ec-47e2eac12170",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "f21eebbb-073c-48ed-b223-7e5b75e8871d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-image-1.0\",\n    \"input\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-08-30T22:48:32.000Z",
+          "updatedAt": "2026-10-17T18:19:45.000Z",
+          "uid": "7643177-f21eebbb-073c-48ed-b223-7e5b75e8871d"
+        },
+        {
+          "name": "muse-spark-1.1",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "cfeae40d-c613-4b2a-81ec-47e2eac12170",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "d1184f3e-21aa-42e3-a5ee-381586bd54be",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-spark-1.1\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"stream\": false,\n    \"max_output_tokens\": 4096,\n    \"reasoning\": {\n        \"effort\": \"low\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-07-11T15:26:19.000Z",
+          "updatedAt": "2026-10-17T18:19:45.000Z",
+          "uid": "7643177-d1184f3e-21aa-42e3-a5ee-381586bd54be"
+        },
+        {
+          "name": "muse-spark-1.1 - guardrail false positive",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "cfeae40d-c613-4b2a-81ec-47e2eac12170",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "0c437289-1dd6-4af1-9e81-3c1eeccf87b4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"model\": \"muse-spark-1.1\",\r\n    \"input\": \"I need to go to the carwash. The carwash is 100 meters from my home. Should I walk or drive?\",\r\n    \"stream\": false,\r\n    \"temperature\": 0,\r\n    \"max_output_tokens\": 512,\r\n    \"top_p\": 1,\r\n    \"reasoning\": {\r\n        \"effort\": \"low\"\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-07-11T15:41:54.000Z",
+          "updatedAt": "2026-10-17T18:19:45.000Z",
+          "uid": "7643177-0c437289-1dd6-4af1-9e81-3c1eeccf87b4"
+        },
+        {
+          "name": "muse-spark-1.2",
+          "id": "6b0c278d-255d-4b3a-913c-bd684d4bcbad",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-spark-1.2\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"stream\": false,\n    \"max_output_tokens\": 4096,\n    \"reasoning\": {\n        \"effort\": \"low\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-09-06T23:43:58.000Z",
+          "updatedAt": "2026-10-17T18:19:45.000Z",
+          "uid": "7643177-6b0c278d-255d-4b3a-913c-bd684d4bcbad"
+        },
+        {
+          "name": "muse-spark-1.2-contributor",
+          "id": "9b6299b0-7b6e-e235-6ae7-e9776673c83d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-spark-1.2-contributor\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"stream\": false,\n    \"max_output_tokens\": 4096,\n    \"reasoning\": {\n        \"effort\": \"low\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-17T03:37:49.000Z",
+          "updatedAt": "2026-10-17T18:19:45.000Z",
+          "uid": "7643177-9b6299b0-7b6e-e235-6ae7-e9776673c83d"
+        },
+        {
+          "name": "muse-spark-1.3",
+          "id": "c5481b3c-1ef8-4b2a-a05d-0b578e785a90",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-spark-1.3\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"stream\": false,\n    \"max_output_tokens\": 4096,\n    \"reasoning\": {\n        \"effort\": \"low\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-09-06T23:45:51.000Z",
+          "updatedAt": "2026-10-17T18:19:45.000Z",
+          "uid": "7643177-c5481b3c-1ef8-4b2a-a05d-0b578e785a90"
+        },
+        {
+          "name": "muse-spark-1.3-contributor",
+          "id": "1d4f6b92-556b-6aac-1efe-246b0da24afd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-spark-1.3-contributor\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"stream\": false,\n    \"max_output_tokens\": 4096,\n    \"reasoning\": {\n        \"effort\": \"low\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T22:41:02.000Z",
+          "updatedAt": "2026-10-17T18:19:45.000Z",
+          "uid": "7643177-1d4f6b92-556b-6aac-1efe-246b0da24afd"
+        },
+        {
+          "name": "muse-wonder-1.0",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "packages": [],
+                "requests": [],
+                "id": "cfeae40d-c613-4b2a-81ec-47e2eac12170",
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "aa2e2694-020d-43c1-de28-51493d336fe4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"muse-wonder-1.0\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T20:30:53.000Z",
+          "updatedAt": "2026-10-17T18:19:45.000Z",
+          "uid": "7643177-aa2e2694-020d-43c1-de28-51493d336fe4"
+        },
+        {
+          "name": "sam-3.1",
+          "event": [
+            {
+              "script": {
+                "requests": [],
+                "packages": [],
+                "type": "text/javascript",
+                "id": "cfeae40d-c613-4b2a-81ec-47e2eac12170",
+                "exec": [
+                  ""
+                ]
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "d3f7e1d5-e8c9-a460-f0fd-f75766a85b6c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"sam-3.1\",\n    \"input\": [\n        {\n            \"type\": \"message\",\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"input_text\",\n                    \"text\": \"truck\"\n                },\n                {\n                    \"type\": \"input_image\",\n                    \"image_url\": \"https://raw.githubusercontent.com/facebookresearch/sam2/main/notebooks/images/truck.jpg\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-17T03:37:16.000Z",
+          "updatedAt": "2026-10-17T18:19:45.000Z",
+          "uid": "7643177-d3f7e1d5-e8c9-a460-f0fd-f75766a85b6c"
+        }
+      ],
+      "id": "2cceec56-01b7-4668-bd9d-9f5fae29eb25",
+      "createdAt": "2026-07-11T15:44:33.000Z",
+      "updatedAt": "2026-11-14T17:28:45.000Z",
+      "uid": "7643177-2cceec56-01b7-4668-bd9d-9f5fae29eb25"
+    },
+    {
+      "name": "Speech-to-Text",
+      "item": [
+        {
+          "name": "muse-voice-transcribe-1.0",
+          "id": "641eb66f-afd4-7d02-1de3-de312a701aad",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "type": "text",
+                  "value": "{\"model\": \"muse-voice-transcribe-1.0\", \"audioEncoding\": \"WAV\", \"mode\": \"PUSH_TO_TALK\"}",
+                  "contentType": "application/json",
+                  "key": "request"
+                },
+                {
+                  "type": "file",
+                  "src": [],
+                  "value": null,
+                  "contentType": "audio/wav",
+                  "key": "audio",
+                  "description": "Select a WAV recording (up to 10 minutes, 32 MB)"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/asr/transcribe",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "asr",
+                "transcribe"
+              ]
+            },
+            "description": "Transcribe one complete WAV recording. Select your audio file in the `audio` form-data field before sending."
+          },
+          "response": [],
+          "createdAt": "2026-10-17T03:38:57.000Z",
+          "updatedAt": "2026-10-17T18:19:45.000Z",
+          "uid": "7643177-641eb66f-afd4-7d02-1de3-de312a701aad"
+        }
+      ],
+      "id": "50c8ed6e-b0cc-cb49-daf1-7708cc6eac04",
+      "createdAt": "2026-10-17T03:38:56.000Z",
+      "updatedAt": "2026-10-17T03:38:57.000Z",
+      "uid": "7643177-50c8ed6e-b0cc-cb49-daf1-7708cc6eac04"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vault:meta_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "d2e7038f-2623-42b7-9998-c83a907bca5d",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "0eeb54fe-606d-4b2c-b053-b50f19a7ffe2",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.meta.ai/v1",
+      "type": "string"
+    }
+  ]
+}
