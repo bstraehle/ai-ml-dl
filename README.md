@@ -66,7 +66,7 @@ Topics are grouped into numbered folders, roughly in learning order. Each folder
 **Courses**
 - [DeepLearning.AI courses](https://www.deeplearning.ai/courses/): most topics in this repo started here
 - [Andrej Karpathy on YouTube](https://www.youtube.com/@AndrejKarpathy): neural networks and LLMs from scratch
-- [Sebastian Raschka](https://sebastianraschka.com/): [Build a Large Language Model (From Scratch)](https://github.com/rasbt/LLMs-from-scratch) code and videos
+- [Sebastian Raschka](https://sebastianraschka.com/): author of *Build a Large Language Model (From Scratch)*, with code, videos and articles on LLMs
 
 **Books, talks and essays**
 - [An honest conversation on AI and humanity](https://www.youtube.com/watch?v=QiT2yK-5-yg): Yuval Noah Harari at the World Economic Forum
@@ -83,7 +83,7 @@ Free or low-cost learning from AI companies, course platforms and universities. 
 - [OpenAI Academy](https://academy.openai.com/): courses and events on using and building with OpenAI's models
 - [Google AI: learn AI skills](https://ai.google/learn-ai-skills/): Google's AI courses, tools and training
 - [Microsoft Learn AI learning hub](https://learn.microsoft.com/en-us/ai/): Microsoft's AI courses and learning paths
-- [AWS Skill Builder](https://skillbuilder.aws/)
+- [AWS Skill Builder](https://skillbuilder.aws/): AWS's online learning center, with hundreds of free courses on AWS Cloud and AI, from beginner to generative and agentic AI, plus hands-on labs
 - [NVIDIA Deep Learning Institute](https://www.nvidia.com/en-us/training/): self-paced and instructor-led courses on deep learning, generative AI and GPUs
 - [Hugging Face Learn](https://huggingface.co/learn): courses on LLMs, agents, MCP, diffusion and more
 
