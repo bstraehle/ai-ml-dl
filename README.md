@@ -2,8 +2,6 @@
 
 Courses I've worked through, the labs that came with them, my notes, and my own projects. It covers math and classic machine learning through to LLMs, RAG and agents. Pick a learning path for your role, or browse by topic.
 
-> **Being reorganized.** Topics whose README starts with a review date (for example [Prompt engineering](04-building-with-llms/prompt-eng/), [Agentic AI](06-agents/agentic-ai/) and [Fine-tuning](03-adapting-models/finetuning-llms/)) are in the new format: key concepts, top resources, hands-on labs and next steps. The rest are still plain link lists and are being updated.
-
 ## Learning paths by role
 
 Each path is an ordered list of topics in this repo. Skip what you already know. Not sure which role fits? See [AI careers](12-careers/ai-careers/).
