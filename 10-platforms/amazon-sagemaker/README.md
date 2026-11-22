@@ -9,7 +9,7 @@ review_every: 12mo
 Amazon SageMaker AI (formerly Amazon SageMaker) is AWS's managed service for training, tuning and deploying machine learning models. You bring a training script; it runs the script on the instances you choose and hosts the trained model behind an endpoint.
 
 **Roles:** ML engineer, data scientist.
-**Prerequisites:** [Deep learning](../deep-learning/), an AWS account
+**Prerequisites:** [Deep learning](../../01-foundations/deep-learning/), an AWS account
 
 ## Key concepts
 
@@ -38,5 +38,5 @@ Amazon SageMaker AI (formerly Amazon SageMaker) is AWS's managed service for tra
 
 ## Next steps
 
-- [ML engineering for production (MLOps)](../machine-learning-eng/)
+- [ML engineering for production (MLOps)](../../09-ops-and-deployment/machine-learning-eng/)
 - [Amazon Bedrock](../amazon-bedrock/) and [Google Vertex AI](../google-vertex-ai/)

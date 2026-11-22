@@ -5,7 +5,7 @@ review_every: 6mo
 ---
 
 <!--
-Template for a topic README. Copy it to <topic>/README.md and fill it in.
+Template for a topic README. Copy it to <category>/<topic>/README.md and fill it in.
 
 Front matter (checked monthly by .github/workflows/maintenance-report.yml):
 - status: current | aging | archived (archived topics are skipped)

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Mirror an author's public Hugging Face Spaces into hugging-face/.
+"""Mirror an author's public Hugging Face Spaces into projects/hugging-face/.
 
-Each Space becomes hugging-face/<space>/ with the files of its latest commit.
+Each Space becomes projects/hugging-face/<space>/ with the files of its latest commit.
 Files that no longer exist in the Space are deleted, and so are folders for
-Spaces that are gone or private. hugging-face/README.md is regenerated as an
+Spaces that are gone or private. projects/hugging-face/README.md is regenerated as an
 index. Needs no credentials.
 
     python .github/scripts/sync_hf_spaces.py [--author bstraehle] [--dry-run]
@@ -102,7 +102,7 @@ def write_index(dest, author, spaces, skipped):
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--author", default="bstraehle")
-    parser.add_argument("--dest", type=Path, default=Path("hugging-face"))
+    parser.add_argument("--dest", type=Path, default=Path("projects/hugging-face"))
     parser.add_argument("--dry-run", action="store_true", help="report changes without writing")
     args = parser.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")

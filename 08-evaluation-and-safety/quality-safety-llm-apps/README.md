@@ -9,7 +9,7 @@ review_every: 6mo
 LLM apps fail in ways traditional software doesn't: they make things up, leak data, produce toxic output, refuse good requests and follow injected instructions. This folder covers measuring those failures in real traffic and acting on them.
 
 **Roles:** AI engineer, ML engineer. Product managers and leaders: read *Key concepts*.
-**Prerequisites:** [Prompt engineering](../prompt-eng/)
+**Prerequisites:** [Prompt engineering](../../04-building-with-llms/prompt-eng/)
 
 ## Key concepts
 
@@ -44,4 +44,4 @@ LLM apps fail in ways traditional software doesn't: they make things up, leak da
 
 - [Guardrails](../guardrails/): validate inputs and outputs in code
 - [Red teaming](../red-teaming-llm-apps/): attack your app before others do
-- [LLMOps](../llm-ops/): run evaluation and monitoring as part of deployment
+- [LLMOps](../../09-ops-and-deployment/llm-ops/): run evaluation and monitoring as part of deployment

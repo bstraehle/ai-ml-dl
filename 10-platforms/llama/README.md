@@ -9,7 +9,7 @@ review_every: 6mo
 Llama is Meta's family of open-weights models. You can download, run and fine-tune them yourself, or use them through cloud providers. This folder has three DeepLearning.AI courses with Meta, from prompting Llama 2 to multimodal, long-context Llama 4.
 
 **Roles:** AI engineer, ML engineer.
-**Prerequisites:** [Prompt engineering](../prompt-eng/)
+**Prerequisites:** [Prompt engineering](../../04-building-with-llms/prompt-eng/)
 
 ## Key concepts
 
@@ -40,6 +40,6 @@ Llama is Meta's family of open-weights models. You can download, run and fine-tu
 
 ## Next steps
 
-- [Fine-tuning](../finetuning-llms/): the Improving Accuracy labs fine-tune Llama 3
+- [Fine-tuning](../../03-adapting-models/finetuning-llms/): the Improving Accuracy labs fine-tune Llama 3
 - [Open-source models](../open-source-models/): more open models through Hugging Face
-- [Quantization](../quantization/) and [On-device AI](../on-device-ai/): run open models on smaller hardware
+- [Quantization](../../03-adapting-models/quantization/) and [On-device AI](../../09-ops-and-deployment/on-device-ai/): run open models on smaller hardware

@@ -20,7 +20,7 @@ Function calling (also called tool use) lets an LLM ask your code to do somethin
 - **Any API can become a tool.** An OpenAPI spec already describes endpoints and parameters, so it can be turned into tool definitions ([Lesson 3](Lesson_3_Student.ipynb)).
 - **Extraction for free.** A "tool" that just takes a schema is a reliable way to pull structured data out of text ([Lesson 4](Lesson_4_Student.ipynb)); see also [Structured output](../llm-structured-output/).
 - **Treat it like user input.** Validate arguments, allowlist what tools may do, ask before anything with side effects, and treat tool results as untrusted: they can carry prompt injections.
-- **Small models can learn it.** Fine-tuning teaches an open model to call tools reliably ([HF Agents Course notebook](../finetuning-llms/hf-agents-course-function-calling.ipynb)). The Berkeley Function Calling Leaderboard compares models.
+- **Small models can learn it.** Fine-tuning teaches an open model to call tools reliably ([HF Agents Course notebook](../../03-adapting-models/finetuning-llms/hf-agents-course-function-calling.ipynb)). The Berkeley Function Calling Leaderboard compares models.
 
 ## Resources
 
@@ -46,5 +46,5 @@ Function calling (also called tool use) lets an LLM ask your code to do somethin
 ## Next steps
 
 - [Structured output](../llm-structured-output/): guarantee the shape of a model's answer
-- [Agentic AI](../agentic-ai/): put tool calls in a loop
-- [MCP](../mcp/): share tools across apps and models
+- [Agentic AI](../../06-agents/agentic-ai/): put tool calls in a loop
+- [MCP](../../06-agents/mcp/): share tools across apps and models

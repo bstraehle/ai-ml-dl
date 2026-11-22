@@ -14,7 +14,7 @@ Prompt engineering is writing instructions and context so a model reliably does 
 ## Key concepts
 
 - **Be clear and specific.** State the task, the audience, the constraints and what a good answer looks like. Most bad outputs come from vague prompts.
-- **Give context.** Include the facts the model needs instead of hoping it knows them. Feeding relevant documents in automatically is [RAG](../advanced-rag/).
+- **Give context.** Include the facts the model needs instead of hoping it knows them. Feeding relevant documents in automatically is [RAG](../../05-rag-and-data/advanced-rag/).
 - **Use the system prompt** for the role, rules and output format that apply to every turn. User messages carry the specific request.
 - **Show, don't only tell.** A few examples (few-shot prompting) pin down format and style better than descriptions do.
 - **Structure the prompt.** Separate instructions, context and examples with headings, delimiters or XML-style tags, and ask for a specific output format such as JSON.
@@ -38,11 +38,11 @@ Prompt engineering is writing instructions and context so a model reliably does 
 | [prompt_engineering.ipynb](prompt_engineering.ipynb) | Building a prompting assistant step by step: raw prompts, context, system prompts for inputs and outputs, zero-shot, few-shot and chain of thought, traced with W&B Weave |
 
 More prompting labs elsewhere in the repo:
-- [openai/](../openai/): ChatGPT prompt engineering for developers, building systems with ChatGPT, reasoning with o1
-- [llama/](../llama/): prompting Llama 2, Llama 3.2 and Llama 4
-- [vision-models/](../vision-models/): prompt engineering for vision models
+- [openai/](../../10-platforms/openai/): ChatGPT prompt engineering for developers, building systems with ChatGPT, reasoning with o1
+- [llama/](../../10-platforms/llama/): prompting Llama 2, Llama 3.2 and Llama 4
+- [vision-models/](../../07-multimodal/vision-models/): prompt engineering for vision models
 
 ## Next steps
 
 - [Function calling](../function-calling/) and [Structured output](../llm-structured-output/)
-- [Advanced RAG](../advanced-rag/): give the model the right context automatically
+- [Advanced RAG](../../05-rag-and-data/advanced-rag/): give the model the right context automatically

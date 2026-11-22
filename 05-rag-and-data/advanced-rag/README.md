@@ -9,7 +9,7 @@ review_every: 6mo
 Retrieval-augmented generation (RAG) answers questions from your own data. It retrieves relevant passages and puts them in the prompt, so the model grounds its answer in them instead of relying on what it memorized. This folder covers the full pipeline, from search basics to knowledge graphs, multimodal RAG and evaluation.
 
 **Roles:** AI engineer, ML engineer, data scientist. Product managers: read *Key concepts*.
-**Prerequisites:** [Embedding models](../embedding-models/), [Prompt engineering](../openai/)
+**Prerequisites:** [Embedding models](../embedding-models/), [Prompt engineering](../../10-platforms/openai/)
 
 ## Key concepts
 
@@ -78,11 +78,11 @@ Top picks (DeepLearning.AI short courses were free to enroll when this page was 
 
 ## My projects
 
-- [Advanced RAG](https://huggingface.co/spaces/bstraehle/advanced-rag): pre- and post-retrieval processing on MongoDB Atlas Vector Search ([source](../hugging-face/advanced-rag/))
-- [Agentic AI](https://huggingface.co/spaces/bstraehle/agentic-ai): agentic RAG with LangChain and LlamaIndex ([source](../hugging-face/agentic-ai/))
+- [Advanced RAG](https://huggingface.co/spaces/bstraehle/advanced-rag): pre- and post-retrieval processing on MongoDB Atlas Vector Search ([source](../../projects/hugging-face/advanced-rag/))
+- [Agentic AI](https://huggingface.co/spaces/bstraehle/agentic-ai): agentic RAG with LangChain and LlamaIndex ([source](../../projects/hugging-face/agentic-ai/))
 
 ## Next steps
 
-- [Agentic AI](../agentic-ai/): let an agent decide when and what to retrieve (agentic RAG)
+- [Agentic AI](../../06-agents/agentic-ai/): let an agent decide when and what to retrieve (agentic RAG)
 - [Unstructured data](../unstructured-data-for-llm-apps/): parse PDFs, tables and images for ingestion
-- [Quality & safety](../quality-safety-llm-apps/): monitor RAG apps in production
+- [Quality & safety](../../08-evaluation-and-safety/quality-safety-llm-apps/): monitor RAG apps in production

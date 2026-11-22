@@ -9,7 +9,7 @@ review_every: 6mo
 Fine-tuning continues training a pretrained model on your own examples so it reliably does a specific task, in a specific format or style. It's the step after prompting and RAG, not instead of them.
 
 **Roles:** ML engineer, AI engineer, data scientist. Product managers: read *Key concepts*.
-**Prerequisites:** [How LLMs work](../gen-ai-llms/), Python and PyTorch basics
+**Prerequisites:** [How LLMs work](../../02-llm-fundamentals/gen-ai-llms/), Python and PyTorch basics
 
 ## Key concepts
 
@@ -55,4 +55,4 @@ Fine-tuning continues training a pretrained model on your own examples so it rel
 
 - [RLHF](../rlhf/): the reinforcement-learning route to alignment
 - [Quantization](../quantization/): make fine-tuned models smaller and cheaper to run
-- [Serving LLMs efficiently](../efficiently-serving-llms/): serve many LoRA adapters on one base model
+- [Serving LLMs efficiently](../../09-ops-and-deployment/efficiently-serving-llms/): serve many LoRA adapters on one base model

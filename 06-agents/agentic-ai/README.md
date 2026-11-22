@@ -9,7 +9,7 @@ review_every: 3mo
 An agent is an LLM application where the model decides what happens next: which tool to call, whether to keep going, or which agent to hand off to. This folder has the agent courses I took, their labs, and my own multi-agent projects.
 
 **Roles:** AI engineer, ML engineer. Product managers: read *Key concepts*.
-**Prerequisites:** [Function calling](../function-calling/), [Advanced RAG](../advanced-rag/)
+**Prerequisites:** [Function calling](../../04-building-with-llms/function-calling/), [Advanced RAG](../../05-rag-and-data/advanced-rag/)
 
 ## Key concepts
 
@@ -91,16 +91,16 @@ Top picks (DeepLearning.AI short courses were free to enroll when this page was 
 
 ## My projects
 
-Each links to the live Space and its source in [hugging-face/](../hugging-face/).
+Each links to the live Space and its source in [hugging-face/](../../projects/hugging-face/).
 
-- [General AI Assistant](https://huggingface.co/spaces/bstraehle/gaia): a multi-agent system with MCP client and server that solves GAIA benchmark and Humanity's Last Exam problems ([source](../hugging-face/gaia/))
-- [Agentic AI](https://huggingface.co/spaces/bstraehle/agentic-ai): agentic RAG with LangChain and LlamaIndex ([source](../hugging-face/agentic-ai/))
-- Deep research: [crewAI](https://huggingface.co/spaces/bstraehle/multi-agent-ai-crewai-deep-research) ([source](../hugging-face/multi-agent-ai-crewai-deep-research/)) · [LangGraph](https://huggingface.co/spaces/bstraehle/multi-agent-ai-langgraph-deep-research) ([source](../hugging-face/multi-agent-ai-langgraph-deep-research/))
-- Chess: [LangGraph](https://huggingface.co/spaces/bstraehle/multi-agent-ai-langgraph-chess) ([source](../hugging-face/multi-agent-ai-langgraph-chess/)) · [Microsoft Agent Framework](https://huggingface.co/spaces/bstraehle/multi-agent-ai-microsoft-chess) ([source](../hugging-face/multi-agent-ai-microsoft-chess/))
-- Coding: [Microsoft Agent Framework](https://huggingface.co/spaces/bstraehle/multi-agent-ai-microsoft-coding) ([source](../hugging-face/multi-agent-ai-microsoft-coding/))
+- [General AI Assistant](https://huggingface.co/spaces/bstraehle/gaia): a multi-agent system with MCP client and server that solves GAIA benchmark and Humanity's Last Exam problems ([source](../../projects/hugging-face/gaia/))
+- [Agentic AI](https://huggingface.co/spaces/bstraehle/agentic-ai): agentic RAG with LangChain and LlamaIndex ([source](../../projects/hugging-face/agentic-ai/))
+- Deep research: [crewAI](https://huggingface.co/spaces/bstraehle/multi-agent-ai-crewai-deep-research) ([source](../../projects/hugging-face/multi-agent-ai-crewai-deep-research/)) · [LangGraph](https://huggingface.co/spaces/bstraehle/multi-agent-ai-langgraph-deep-research) ([source](../../projects/hugging-face/multi-agent-ai-langgraph-deep-research/))
+- Chess: [LangGraph](https://huggingface.co/spaces/bstraehle/multi-agent-ai-langgraph-chess) ([source](../../projects/hugging-face/multi-agent-ai-langgraph-chess/)) · [Microsoft Agent Framework](https://huggingface.co/spaces/bstraehle/multi-agent-ai-microsoft-chess) ([source](../../projects/hugging-face/multi-agent-ai-microsoft-chess/))
+- Coding: [Microsoft Agent Framework](https://huggingface.co/spaces/bstraehle/multi-agent-ai-microsoft-coding) ([source](../../projects/hugging-face/multi-agent-ai-microsoft-coding/))
 
 ## Next steps
 
 - [MCP](../mcp/): connect agents to tools and data in a standard way
-- [Quality & safety](../quality-safety-llm-apps/) and [Red teaming](../red-teaming-llm-apps/): make agents trustworthy
-- [LLMOps](../llm-ops/): run them in production
+- [Quality & safety](../../08-evaluation-and-safety/quality-safety-llm-apps/) and [Red teaming](../../08-evaluation-and-safety/red-teaming-llm-apps/): make agents trustworthy
+- [LLMOps](../../09-ops-and-deployment/llm-ops/): run them in production

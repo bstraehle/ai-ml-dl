@@ -9,7 +9,7 @@ review_every: 3mo
 MCP is an open protocol for connecting LLM applications to tools and data. You write an integration once as an MCP server, and any MCP-capable app (a chat app, IDE or agent) can use it. Anthropic introduced it in November 2024, and it is now supported across most major AI tools.
 
 **Roles:** AI engineer. Product managers and architects: read *Key concepts*.
-**Prerequisites:** [Function calling](../function-calling/)
+**Prerequisites:** [Function calling](../../04-building-with-llms/function-calling/)
 
 ## Key concepts
 
@@ -45,10 +45,10 @@ Related: [agentic-ai/acp/L9](../agentic-ai/acp/L9.ipynb) adds MCP to an agent th
 
 ## My projects
 
-- [Stockfish chess engine MCP server](https://huggingface.co/spaces/bstraehle/chess): evaluates chess positions ([source](../hugging-face/chess/))
-- [General AI Assistant](https://huggingface.co/spaces/bstraehle/gaia): an MCP client and server for multi-agent problem solving ([source](../hugging-face/gaia/))
+- [Stockfish chess engine MCP server](https://huggingface.co/spaces/bstraehle/chess): evaluates chess positions ([source](../../projects/hugging-face/chess/))
+- [General AI Assistant](https://huggingface.co/spaces/bstraehle/gaia): an MCP client and server for multi-agent problem solving ([source](../../projects/hugging-face/gaia/))
 
 ## Next steps
 
 - [Agentic AI](../agentic-ai/): agents that use MCP tools
-- [Red teaming](../red-teaming-llm-apps/): test tool-using apps for prompt injection
+- [Red teaming](../../08-evaluation-and-safety/red-teaming-llm-apps/): test tool-using apps for prompt injection
