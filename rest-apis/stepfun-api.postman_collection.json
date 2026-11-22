@@ -1,0 +1,374 @@
+{
+  "info": {
+    "_postman_id": "e23fb1c9-1cce-490a-b415-ddc2f3c6cfaa",
+    "name": "📌 StepFun API",
+    "description": "### About StepFun\n\n\"Leading models and tools to accelerate the deployment of your next AI app.\"\n\nStepFun builds its own Step models and serves them through an OpenAI-compatible API. On the workspace overview it is listed under **Model makers**.\n\n### Prerequisites\n\n- Postman Account\n    \n- StepFun Account: [https://platform.stepfun.ai/](https://platform.stepfun.ai/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `stepfun_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:stepfun_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://platform.stepfun.ai/docs/en/api-reference/chat/chat-completion-create](https://platform.stepfun.ai/docs/en/api-reference/chat/chat-completion-create)\n    \n- Models: [https://platform.stepfun.ai/docs/en/guides/developer/openai](https://platform.stepfun.ai/docs/en/guides/developer/openai)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-11T21:25:40.000Z",
+    "updatedAt": "2026-10-12T23:54:04.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-e23fb1c9-1cce-490a-b415-ddc2f3c6cfaa"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Chat (step-5-preview)",
+          "id": "e0d56572-3de9-4738-bfe8-317f9c9a2120",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"step-5-preview\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a4ee3971-0823-1b49-00e4-995aeddc1546",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"step-5-preview\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/chat/completions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sat, 17 Oct 2026 18:06:39 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "X-Trace-Id",
+                  "value": "fb503dbced3b018784fe81cd32110f58"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "X-Upstream-Latency",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Proxy-Latency",
+                  "value": "4322"
+                },
+                {
+                  "key": "X-Router-Id",
+                  "value": "path:/v1/chat/"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "5008",
+              "body": "{\n  \"id\": \"fb503dbced3b018784fe81cd32110f58.01a14b0b518f7e76b17a02771be8d08b\",\n  \"object\": \"chat.completion\",\n  \"created\": 1792260396,\n  \"model\": \"step-5-preview\",\n  \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"A large language model predicts the most probable next token based on statistical patterns learned from training data, while a reasoning model is explicitly designed to work through intermediate steps—such as logic, verification, or planning—before producing an answer. In short, an LLM generates fluent responses from learned associations, whereas a reasoning model emphasizes deliberate, step-by-step problem solving to improve accuracy on complex tasks.\",\n        \"reasoning\": \"The user wants a two-sentence explanation of the difference between a large language model and a reasoning model. I need to be concise and accurate.\\n\\nKey points:\\n- LLM: predicts next token based on patterns, statistical correlations, trained on vast text data\\n- Reasoning model: explicitly designed/optimized to work through steps, logic, deliberation, often uses chain-of-thought or search/verification mechanisms\\n- Some reasoning models are built on LLMs but with additional scaffolding/RL/training for explicit reasoning\\n\\nDraft:\\nA large language model predicts the most probable next token based on patterns learned from training data, while a reasoning model is designed to explicitly work through intermediate steps—such as logic, verification, or planning—before arriving at an answer. In short, an LLM generates fluent responses based on statistical patterns, whereas a reasoning model prioritizes deliberate, step-by-step problem solving to improve accuracy on complex tasks.\\n\\nCheck: two sentences. Yes. Covers the distinction well.\",\n        \"reasoning_content\": \"The user wants a two-sentence explanation of the difference between a large language model and a reasoning model. I need to be concise and accurate.\\n\\nKey points:\\n- LLM: predicts next token based on patterns, statistical correlations, trained on vast text data\\n- Reasoning model: explicitly designed/optimized to work through steps, logic, deliberation, often uses chain-of-thought or search/verification mechanisms\\n- Some reasoning models are built on LLMs but with additional scaffolding/RL/training for explicit reasoning\\n\\nDraft:\\nA large language model predicts the most probable next token based on patterns learned from training data, while a reasoning model is designed to explicitly work through intermediate steps—such as logic, verification, or planning—before arriving at an answer. In short, an LLM generates fluent responses based on statistical patterns, whereas a reasoning model prioritizes deliberate, step-by-step problem solving to improve accuracy on complex tasks.\\n\\nCheck: two sentences. Yes. Covers the distinction well.\"\n      },\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 29,\n    \"completion_tokens\": 280,\n    \"total_tokens\": 309,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0\n    }\n  }\n}",
+              "createdAt": "2026-10-17T18:06:40.000Z",
+              "updatedAt": "2026-10-17T18:06:40.000Z",
+              "uid": "7643177-a4ee3971-0823-1b49-00e4-995aeddc1546"
+            }
+          ],
+          "createdAt": "2026-10-11T21:25:41.000Z",
+          "updatedAt": "2026-10-17T18:06:41.000Z",
+          "uid": "7643177-e0d56572-3de9-4738-bfe8-317f9c9a2120"
+        }
+      ],
+      "id": "86711a61-b881-4bfb-b98a-ea0d959798e4",
+      "createdAt": "2026-10-11T21:25:41.000Z",
+      "updatedAt": "2026-10-11T21:25:41.000Z",
+      "uid": "7643177-86711a61-b881-4bfb-b98a-ea0d959798e4"
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "step-3.5-flash",
+          "id": "9d54e689-f63c-462f-b101-2537c1a19acb",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"step-3.5-flash\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:41.000Z",
+          "updatedAt": "2026-10-17T18:21:37.000Z",
+          "uid": "7643177-9d54e689-f63c-462f-b101-2537c1a19acb"
+        },
+        {
+          "name": "step-3.7-flash",
+          "id": "e1492a7d-0a96-4494-9d69-28c1953fa17a",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"step-3.7-flash\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:41.000Z",
+          "updatedAt": "2026-10-17T18:21:36.000Z",
+          "uid": "7643177-e1492a7d-0a96-4494-9d69-28c1953fa17a"
+        },
+        {
+          "name": "step-5-preview",
+          "id": "57e82cf3-b500-4014-8887-5764a3308b5e",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"step-5-preview\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:41.000Z",
+          "updatedAt": "2026-10-17T18:21:36.000Z",
+          "uid": "7643177-57e82cf3-b500-4014-8887-5764a3308b5e"
+        }
+      ],
+      "id": "a285388d-fc39-4d8d-8fb0-5f20748d9bac",
+      "createdAt": "2026-10-11T21:25:41.000Z",
+      "updatedAt": "2026-10-12T19:54:06.000Z",
+      "uid": "7643177-a285388d-fc39-4d8d-8fb0-5f20748d9bac"
+    },
+    {
+      "name": "Models",
+      "item": [
+        {
+          "name": "Models",
+          "id": "080c06b2-5711-44d4-8258-fcc5b4235689",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/models",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:41.000Z",
+          "updatedAt": "2026-10-17T18:21:36.000Z",
+          "uid": "7643177-080c06b2-5711-44d4-8258-fcc5b4235689"
+        }
+      ],
+      "id": "691bc3c9-5992-4966-aca0-2d01f5bee59b",
+      "createdAt": "2026-10-11T21:25:41.000Z",
+      "updatedAt": "2026-10-11T21:25:41.000Z",
+      "uid": "7643177-691bc3c9-5992-4966-aca0-2d01f5bee59b"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vault:stepfun_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "6d0b4146-e678-42ec-aec5-f8d604f83358",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "73d81859-7aab-4769-82ce-1553253e21e7",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.stepfun.ai/v1",
+      "type": "string"
+    }
+  ]
+}

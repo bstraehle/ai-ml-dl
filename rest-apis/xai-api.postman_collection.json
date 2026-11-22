@@ -1,0 +1,1240 @@
+{
+  "info": {
+    "_postman_id": "43688dec-2308-4c0b-b4b7-0aae9874a2c8",
+    "name": "📌 xAI API",
+    "description": "### About xAI\n\n\"SpaceXSI builds Grok — frontier AI models for reasoning, voice, image generation, and more.\"\n\nxAI builds the Grok models and serves them through OpenAI-compatible Chat and Responses APIs, plus image, video and voice. On the workspace overview it is listed under **Model makers**.\n\n### Prerequisites\n\n- Postman Account\n    \n- xAI Account: [https://console.x.ai/](https://console.x.ai/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `xai_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:xai_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://docs.x.ai/docs/api-reference](https://docs.x.ai/docs/api-reference)\n    \n- Models: [https://docs.x.ai/docs/models](https://docs.x.ai/docs/models)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2024-10-22T12:44:42.000Z",
+    "updatedAt": "2026-10-12T23:54:11.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-43688dec-2308-4c0b-b4b7-0aae9874a2c8"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Chat (grok-4.7)",
+          "id": "bcd076a3-649f-43d4-8f00-26eb4a11a904",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a test assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"grok-4.7\",\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e866422e-ecef-766b-b65a-47fe58b4dd6f",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a test assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"grok-4.7\",\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/chat/completions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sat, 17 Oct 2026 18:07:07 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1133"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000"
+                },
+                {
+                  "key": "Server-Timing",
+                  "value": "cfCacheStatus;desc=\"DYNAMIC\""
+                },
+                {
+                  "key": "Server-Timing",
+                  "value": "cfEdge;dur=5,cfOrigin;dur=3480"
+                },
+                {
+                  "key": "x-ratelimit-limit-tokens",
+                  "value": "50000000"
+                },
+                {
+                  "key": "x-ratelimit-remaining-tokens",
+                  "value": "50000000"
+                },
+                {
+                  "key": "x-ratelimit-limit-requests",
+                  "value": "7200"
+                },
+                {
+                  "key": "x-ratelimit-remaining-requests",
+                  "value": "7200"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "ff6535f2-7013-991b-be20-0e352322b918"
+                },
+                {
+                  "key": "x-zero-data-retention",
+                  "value": "false"
+                },
+                {
+                  "key": "x-data-retention",
+                  "value": "general"
+                },
+                {
+                  "key": "x-metrics-ttft-ms",
+                  "value": "280.4"
+                },
+                {
+                  "key": "x-metrics-e2e-ms",
+                  "value": "3441.6"
+                },
+                {
+                  "key": "traceparent",
+                  "value": "00-602ebf692b92345bcadab8e849befa50-c3ea2d86000393b3-01"
+                },
+                {
+                  "key": "vary",
+                  "value": "origin, access-control-request-method, access-control-request-headers"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-expose-headers",
+                  "value": "*"
+                },
+                {
+                  "key": "cf-cache-status",
+                  "value": "DYNAMIC"
+                },
+                {
+                  "key": "Server",
+                  "value": "cloudflare"
+                },
+                {
+                  "key": "CF-RAY",
+                  "value": "a4c13da158f38b33-DFW"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "3783",
+              "body": "{\n  \"id\": \"ff6535f2-7013-991b-be20-0e352322b918\",\n  \"object\": \"chat.completion\",\n  \"created\": 1792260424,\n  \"model\": \"grok-4.7\",\n  \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"A large language model is trained mainly to predict likely next words and produce fluent text from patterns in its training data. A reasoning model is built or tuned to spend extra computation on intermediate steps—such as chain-of-thought or search—before answering, so it handles multi-step problems more reliably than a standard LLM that replies in one pass.\",\n        \"reasoning_content\": \"I need to explain the difference between a large language model and a reasoning model in two sentences.\",\n        \"refusal\": null\n      },\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 1269,\n    \"completion_tokens\": 70,\n    \"total_tokens\": 1476,\n    \"prompt_tokens_details\": {\n      \"text_tokens\": 1269,\n      \"audio_tokens\": 0,\n      \"image_tokens\": 0,\n      \"cached_tokens\": 1152\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 137,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    },\n    \"num_sources_used\": 0,\n    \"cost_in_usd_ticks\": 20520000\n  },\n  \"system_fingerprint\": \"fp_c60958d81f66f847\",\n  \"service_tier\": \"default\"\n}",
+              "createdAt": "2026-10-17T18:07:08.000Z",
+              "updatedAt": "2026-10-17T18:07:08.000Z",
+              "uid": "7643177-e866422e-ecef-766b-b65a-47fe58b4dd6f"
+            }
+          ],
+          "createdAt": "2025-07-12T13:46:11.000Z",
+          "updatedAt": "2026-10-17T18:07:09.000Z",
+          "uid": "7643177-bcd076a3-649f-43d4-8f00-26eb4a11a904"
+        }
+      ],
+      "id": "4b095429-eda3-43b0-bad0-081d441e54a0",
+      "createdAt": "2024-10-22T12:52:04.000Z",
+      "updatedAt": "2025-07-12T13:46:27.000Z",
+      "uid": "7643177-4b095429-eda3-43b0-bad0-081d441e54a0"
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "grok-4.3",
+          "id": "4b3f51b0-3d42-dfa7-02bc-27766215dcfe",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a test assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"grok-4.3\",\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-17T03:47:24.000Z",
+          "updatedAt": "2026-10-17T18:22:11.000Z",
+          "uid": "7643177-4b3f51b0-3d42-dfa7-02bc-27766215dcfe"
+        },
+        {
+          "name": "grok-4.5",
+          "id": "763cf6e4-e43c-ccc1-4afd-c9a852bb2f3d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a test assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"grok-4.5\",\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-17T03:47:12.000Z",
+          "updatedAt": "2026-10-17T18:22:11.000Z",
+          "uid": "7643177-763cf6e4-e43c-ccc1-4afd-c9a852bb2f3d"
+        },
+        {
+          "name": "grok-4.6",
+          "id": "f3f053ed-f95f-0013-d434-aab5c8fdc067",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a test assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"grok-4.6\",\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-17T03:47:04.000Z",
+          "updatedAt": "2026-10-17T18:22:12.000Z",
+          "uid": "7643177-f3f053ed-f95f-0013-d434-aab5c8fdc067"
+        },
+        {
+          "name": "grok-4.7",
+          "id": "7acd5beb-2e18-8141-aa9c-3335af8490ee",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a test assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"grok-4.7\",\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-17T03:46:53.000Z",
+          "updatedAt": "2026-10-17T18:22:12.000Z",
+          "uid": "7643177-7acd5beb-2e18-8141-aa9c-3335af8490ee"
+        },
+        {
+          "name": "grok-4.20-0309-non-reasoning",
+          "id": "761daa99-9ed9-3690-95d8-409fdd57b1c9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a test assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"grok-4.20-0309-non-reasoning\",\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-17T03:48:00.000Z",
+          "updatedAt": "2026-10-17T18:22:12.000Z",
+          "uid": "7643177-761daa99-9ed9-3690-95d8-409fdd57b1c9"
+        },
+        {
+          "name": "grok-4.20-0309-reasoning",
+          "id": "b63d747e-0bec-6208-52f7-d9c9e8d56ee1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a test assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"grok-4.20-0309-reasoning\",\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-17T03:47:31.000Z",
+          "updatedAt": "2026-10-17T18:22:12.000Z",
+          "uid": "7643177-b63d747e-0bec-6208-52f7-d9c9e8d56ee1"
+        },
+        {
+          "name": "grok-build-0.1",
+          "id": "7eab83f3-8cbb-f2d0-e11c-7e39d606ae3b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a test assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"Write a Python function that streams a chat completion from an OpenAI-compatible API and prints each token as it arrives.\"\n        }\n    ],\n    \"model\": \"grok-build-0.1\",\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-17T03:48:08.000Z",
+          "updatedAt": "2026-10-17T18:22:12.000Z",
+          "uid": "7643177-7eab83f3-8cbb-f2d0-e11c-7e39d606ae3b"
+        }
+      ],
+      "id": "04f78f66-92f8-4956-9477-13d015724d2c",
+      "createdAt": "2024-10-22T13:17:40.000Z",
+      "updatedAt": "2026-10-17T03:49:28.000Z",
+      "uid": "7643177-04f78f66-92f8-4956-9477-13d015724d2c"
+    },
+    {
+      "name": "Image",
+      "item": [
+        {
+          "name": "grok-imagine-image",
+          "id": "ff35d03c-46b6-4604-9593-f583f4a15a0f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"grok-imagine-image\",\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/images/generations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "images",
+                "generations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-03-29T00:15:07.000Z",
+          "updatedAt": "2026-10-17T18:22:12.000Z",
+          "uid": "7643177-ff35d03c-46b6-4604-9593-f583f4a15a0f"
+        },
+        {
+          "name": "grok-imagine-image-2.0",
+          "id": "3216a5a2-9d98-4550-b8a2-a66097510ebc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"grok-imagine-image-2.0\",\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/images/generations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "images",
+                "generations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-09-06T23:40:19.000Z",
+          "updatedAt": "2026-10-17T18:22:12.000Z",
+          "uid": "7643177-3216a5a2-9d98-4550-b8a2-a66097510ebc"
+        },
+        {
+          "name": "grok-imagine-image-quality",
+          "id": "5c5fcfb5-0eb5-6822-8306-5426344cd144",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"grok-imagine-image-quality\",\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/images/generations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "images",
+                "generations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T22:40:54.000Z",
+          "updatedAt": "2026-10-17T18:22:13.000Z",
+          "uid": "7643177-5c5fcfb5-0eb5-6822-8306-5426344cd144"
+        }
+      ],
+      "id": "f54c56a2-7d5e-473b-9712-51edf4a64355",
+      "createdAt": "2026-03-29T00:14:35.000Z",
+      "updatedAt": "2026-10-12T19:55:00.000Z",
+      "uid": "7643177-f54c56a2-7d5e-473b-9712-51edf4a64355"
+    },
+    {
+      "name": "Responses",
+      "item": [
+        {
+          "name": "grok-4.3",
+          "id": "aa2a44d7-a1dc-4069-b55b-6f9149127e20",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a test assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"grok-4.3\",\n    \"stream\": false,\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-05-07T04:22:55.000Z",
+          "updatedAt": "2026-10-17T18:22:13.000Z",
+          "uid": "7643177-aa2a44d7-a1dc-4069-b55b-6f9149127e20"
+        },
+        {
+          "name": "grok-4.5",
+          "id": "c91c2e10-e071-410c-80a1-640e7b78725f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a test assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"grok-4.5\",\n    \"stream\": false,\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-07-11T15:11:33.000Z",
+          "updatedAt": "2026-10-17T18:22:13.000Z",
+          "uid": "7643177-c91c2e10-e071-410c-80a1-640e7b78725f"
+        },
+        {
+          "name": "grok-4.6",
+          "id": "d77cdccd-82fb-4672-a245-5fba8f2ed2f5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a test assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"grok-4.6\",\n    \"stream\": false,\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-08-14T03:11:41.000Z",
+          "updatedAt": "2026-10-17T18:22:13.000Z",
+          "uid": "7643177-d77cdccd-82fb-4672-a245-5fba8f2ed2f5"
+        },
+        {
+          "name": "grok-4.7",
+          "id": "854f28a6-e52d-498d-9d41-9ccd94cefa98",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a test assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"grok-4.7\",\n    \"stream\": false,\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-04T03:22:41.000Z",
+          "updatedAt": "2026-10-17T18:22:13.000Z",
+          "uid": "7643177-854f28a6-e52d-498d-9d41-9ccd94cefa98"
+        },
+        {
+          "name": "grok-4.20-0309-non-reasoning",
+          "id": "3ff245d8-bae8-4b55-8d23-e1b3361f319b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a test assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"grok-4.20-0309-non-reasoning\",\n    \"stream\": false,\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-03-17T14:22:03.000Z",
+          "updatedAt": "2026-10-17T18:22:13.000Z",
+          "uid": "7643177-3ff245d8-bae8-4b55-8d23-e1b3361f319b"
+        },
+        {
+          "name": "grok-4.20-0309-reasoning",
+          "id": "1e5cf4a9-de5e-42fe-93d7-83bf26307b9c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a test assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"grok-4.20-0309-reasoning\",\n    \"stream\": false,\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-03-17T14:22:07.000Z",
+          "updatedAt": "2026-10-17T18:22:13.000Z",
+          "uid": "7643177-1e5cf4a9-de5e-42fe-93d7-83bf26307b9c"
+        },
+        {
+          "name": "grok-4.20-multi-agent-0309",
+          "id": "1ee2fc26-30d3-42d4-b7d6-bdd94b91676c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a test assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"grok-4.20-multi-agent-0309\",\n    \"stream\": false,\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-03-17T14:21:33.000Z",
+          "updatedAt": "2026-10-17T18:22:13.000Z",
+          "uid": "7643177-1ee2fc26-30d3-42d4-b7d6-bdd94b91676c"
+        },
+        {
+          "name": "grok-build-0.1",
+          "id": "c34edc7c-c31c-4d4c-8afc-8340664dd321",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a Python coding assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"Write a Python function that streams a chat completion from an OpenAI-compatible API and prints each token as it arrives.\"\n        }\n    ],\n    \"model\": \"grok-build-0.1\",\n    \"stream\": false,\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-06-10T02:09:11.000Z",
+          "updatedAt": "2026-10-17T18:22:13.000Z",
+          "uid": "7643177-c34edc7c-c31c-4d4c-8afc-8340664dd321"
+        }
+      ],
+      "id": "db618ec7-6580-494f-8651-cc61df778a33",
+      "createdAt": "2026-01-24T16:23:40.000Z",
+      "updatedAt": "2026-10-17T03:48:18.000Z",
+      "uid": "7643177-db618ec7-6580-494f-8651-cc61df778a33"
+    },
+    {
+      "name": "Video",
+      "item": [
+        {
+          "name": "grok-imagine-video-1.5",
+          "id": "87d99197-5963-9de3-ecf8-d50763442f62",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"grok-imagine-video-1.5\",\n    \"prompt\": \"A small robot walks through a field of wildflowers at sunrise, cinematic slow camera pan.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/videos/generations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "videos",
+                "generations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T22:44:22.000Z",
+          "updatedAt": "2026-10-17T18:22:14.000Z",
+          "uid": "7643177-87d99197-5963-9de3-ecf8-d50763442f62"
+        },
+        {
+          "name": "grok-imagine-video-1.5-lite",
+          "id": "d7513ab5-89d4-73bf-3bfc-7d4b0bceb309",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"grok-imagine-video-1.5-lite\",\n    \"prompt\": \"A small robot walks through a field of wildflowers at sunrise, cinematic slow camera pan.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/videos/generations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "videos",
+                "generations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T22:44:17.000Z",
+          "updatedAt": "2026-10-17T18:22:14.000Z",
+          "uid": "7643177-d7513ab5-89d4-73bf-3bfc-7d4b0bceb309"
+        },
+        {
+          "name": "grok-imagine-video",
+          "id": "043b57b6-1058-4a7d-9c91-809b9f33f113",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"grok-imagine-video\",\n    \"prompt\": \"A small robot walks through a field of wildflowers at sunrise, cinematic slow camera pan.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/videos/generations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "videos",
+                "generations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-03-29T00:17:24.000Z",
+          "updatedAt": "2026-10-17T18:22:14.000Z",
+          "uid": "7643177-043b57b6-1058-4a7d-9c91-809b9f33f113"
+        },
+        {
+          "name": "Get video",
+          "id": "c4813cac-2636-4ea0-b158-b5a5d8576148",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/videos/:request_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "videos",
+                ":request_id"
+              ],
+              "variable": [
+                {
+                  "key": "request_id",
+                  "value": "c67376f4-3600-9035-87ca-0eebd315f5e6"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-03-29T00:19:17.000Z",
+          "updatedAt": "2026-10-17T18:22:14.000Z",
+          "uid": "7643177-c4813cac-2636-4ea0-b158-b5a5d8576148"
+        }
+      ],
+      "id": "4da5cfa3-6313-4e72-b2fc-c2fcc8034926",
+      "createdAt": "2026-03-29T00:14:46.000Z",
+      "updatedAt": "2026-10-11T22:44:23.000Z",
+      "uid": "7643177-4da5cfa3-6313-4e72-b2fc-c2fcc8034926"
+    },
+    {
+      "name": "Voice",
+      "item": [
+        {
+          "name": "tts - ara",
+          "id": "2e069cff-d0a6-4e1f-ac71-c0670eef8746",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"text\": \"Generative AI turns a simple prompt into text, images, speech, music and video.\",\n    \"voice_id\": \"ara\",\n    \"language\": \"en\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tts"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-03-29T00:24:46.000Z",
+          "updatedAt": "2026-10-17T18:16:59.000Z",
+          "uid": "7643177-2e069cff-d0a6-4e1f-ac71-c0670eef8746"
+        },
+        {
+          "name": "tts - eve",
+          "id": "d2213bba-06a2-4a20-9f5a-03548a87b7b4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"text\": \"Generative AI turns a simple prompt into text, images, speech, music and video.\",\n    \"voice_id\": \"eve\",\n    \"language\": \"en\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tts"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-03-29T00:22:08.000Z",
+          "updatedAt": "2026-10-17T18:16:59.000Z",
+          "uid": "7643177-d2213bba-06a2-4a20-9f5a-03548a87b7b4"
+        },
+        {
+          "name": "tts - leo de",
+          "id": "f0ea4c7d-8b49-4731-8214-3f5e85a75405",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"text\": \"Hallo! Willkommen zur xAI Text to Speech API.\",\r\n    \"voice_id\": \"leo\",\r\n    \"language\": \"de\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tts"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-03-29T00:24:36.000Z",
+          "updatedAt": "2026-03-29T00:26:37.000Z",
+          "uid": "7643177-f0ea4c7d-8b49-4731-8214-3f5e85a75405"
+        },
+        {
+          "name": "tts - rex",
+          "id": "a2e94ed9-0c16-4eb6-96b9-3d672e2db09e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"text\": \"Generative AI turns a simple prompt into text, images, speech, music and video.\",\n    \"voice_id\": \"rex\",\n    \"language\": \"en\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tts"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-03-29T00:24:43.000Z",
+          "updatedAt": "2026-10-17T18:16:59.000Z",
+          "uid": "7643177-a2e94ed9-0c16-4eb6-96b9-3d672e2db09e"
+        },
+        {
+          "name": "tts - sal",
+          "id": "c53c52d2-a0b5-4dbb-a940-7ee22d2c859b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"text\": \"Generative AI turns a simple prompt into text, images, speech, music and video.\",\n    \"voice_id\": \"sal\",\n    \"language\": \"en\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tts"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-03-29T00:24:40.000Z",
+          "updatedAt": "2026-10-17T18:16:59.000Z",
+          "uid": "7643177-c53c52d2-a0b5-4dbb-a940-7ee22d2c859b"
+        }
+      ],
+      "id": "8106ad1a-2769-4b03-b1a2-cf2b25f0c5fd",
+      "createdAt": "2026-03-29T00:14:53.000Z",
+      "updatedAt": "2026-10-12T19:55:09.000Z",
+      "uid": "7643177-8106ad1a-2769-4b03-b1a2-cf2b25f0c5fd"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vault:xai_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "a06d2ca9-f510-49d3-9852-6dafac27993d",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "403417e7-1d8b-45a7-8b23-4d693194216d",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.x.ai/v1",
+      "type": "string"
+    }
+  ]
+}

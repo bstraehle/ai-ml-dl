@@ -1,2 +1,0 @@
-chess==1.10.0
-pyautogen==0.2.25

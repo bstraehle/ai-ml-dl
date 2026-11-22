@@ -13,6 +13,10 @@
     {
       "path": "bedrooms",
       "type": "filter"
+    },
+    {
+      "path": "number_of_reviews",
+      "type": "filter"
     }
   ]
 }

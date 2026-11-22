@@ -1,0 +1,3249 @@
+{
+  "info": {
+    "_postman_id": "24e561e6-da78-4398-b374-d85057a01335",
+    "name": "📌 Hugging Face API",
+    "description": "### About Hugging Face\n\n\"We’re on a journey to advance and democratize artificial intelligence through open source and open science.\"\n\nHugging Face hosts open models and routes requests to partner inference providers, such as Cerebras, Groq, Together and Novita, through one OpenAI-compatible router. On the workspace overview it is listed under **Inference hosts**.\n\n### Prerequisites\n\n- Postman Account\n    \n- Hugging Face Account: [https://huggingface.co/](https://huggingface.co/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests (on 503 due to model loading, wait and retry)\n\nStart with the 🚀 Get Started folder.\n\nAdd these keys to your **Postman Vault** as `hugging_face_api_key`, `openai_api_key`, `google_gemini_api_key`, `anthropic_api_key` (Vault icon in the footer, then **Add secret**, using these exact names). Requests read them as `{{vault:hugging_face_api_key}}` and so on, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://huggingface.co/docs/api-inference/index](https://huggingface.co/docs/api-inference/index)\n    \n- Models: [https://huggingface.co/models](https://huggingface.co/models)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2024-04-07T00:16:20.000Z",
+    "updatedAt": "2026-10-24T17:02:51.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-24e561e6-da78-4398-b374-d85057a01335"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Chat (gpt-oss-120b, via Cerebras)",
+          "id": "ff4a35f1-169c-40c6-a955-2c6770fd823b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"gpt-oss-120b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl_cerebras}}/chat/completions",
+              "host": [
+                "{{baseUrl_cerebras}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "23a312b1-3ba1-8563-f34e-8e008886febc",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"gpt-oss-120b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl_cerebras}}/chat/completions",
+                  "host": [
+                    "{{baseUrl_cerebras}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1559"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 17 Oct 2026 18:03:06 GMT"
+                },
+                {
+                  "key": "x-ratelimit-remaining-tokens-minute",
+                  "value": "745881"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "huggingface-moon"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "a4c137d6caa2e61d-IAD"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Expose-Headers",
+                  "value": "X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "x-inference-provider",
+                  "value": "cerebras"
+                },
+                {
+                  "key": "cf-cache-status",
+                  "value": "DYNAMIC"
+                },
+                {
+                  "key": "cf-ray",
+                  "value": "a4c137d6caa2e61d-IAD"
+                },
+                {
+                  "key": "inference-id",
+                  "value": "chatcmpl-8ff504cb-bbf3-49cc-a52c-6ec3df72a164"
+                },
+                {
+                  "key": "server",
+                  "value": "cloudflare"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=31536000"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-ratelimit-limit-requests-day",
+                  "value": "2880000"
+                },
+                {
+                  "key": "x-ratelimit-limit-requests-hour",
+                  "value": "120000"
+                },
+                {
+                  "key": "x-ratelimit-limit-requests-minute",
+                  "value": "2000"
+                },
+                {
+                  "key": "x-ratelimit-limit-tokens-day",
+                  "value": "1080000000"
+                },
+                {
+                  "key": "x-ratelimit-limit-tokens-hour",
+                  "value": "45000000"
+                },
+                {
+                  "key": "x-ratelimit-limit-tokens-minute",
+                  "value": "750000"
+                },
+                {
+                  "key": "x-ratelimit-remaining-requests-day",
+                  "value": "2879999"
+                },
+                {
+                  "key": "x-ratelimit-remaining-requests-hour",
+                  "value": "119999"
+                },
+                {
+                  "key": "x-ratelimit-remaining-requests-minute",
+                  "value": "1999"
+                },
+                {
+                  "key": "x-ratelimit-remaining-tokens-day",
+                  "value": "1079995881"
+                },
+                {
+                  "key": "x-ratelimit-remaining-tokens-hour",
+                  "value": "134995881"
+                },
+                {
+                  "key": "X-Cache",
+                  "value": "Miss from cloudfront"
+                },
+                {
+                  "key": "Via",
+                  "value": "1.1 8890b54c896210103be09e081a72630a.cloudfront.net (CloudFront)"
+                },
+                {
+                  "key": "X-Amz-Cf-Pop",
+                  "value": "LAX54-P13"
+                },
+                {
+                  "key": "X-Amz-Cf-Id",
+                  "value": "ff_Ggs9cNt8IRiD-yqhae6AK4NBUiIZFAfd5aumaIo_4fQsG64J25w=="
+                }
+              ],
+              "cookie": [],
+              "responseTime": "484",
+              "body": "{\n  \"id\": \"chatcmpl-8ff504cb-bbf3-49cc-a52c-6ec3df72a164\",\n  \"choices\": [\n    {\n      \"finish_reason\": \"stop\",\n      \"index\": 0,\n      \"message\": {\n        \"content\": \"A large language model is a statistical predictor that generates text by learning patterns in massive corpora of language data, without an explicit representation of logical structure. A reasoning model, by contrast, is designed (often by augmenting an LLM with chain‑of‑thought prompting, tool use, or symbolic modules) to explicitly manipulate premises and infer conclusions, aiming to produce step‑by‑step logical outcomes rather than merely fluent continuations.\",\n        \"reasoning\": \"We need to answer: In two sentences, difference between large language model vs reasoning model. Provide concise answer in two sentences. Probably mention that LLM is trained to predict next token based on massive data, while reasoning model is built to perform logical inference, chain-of-thought, maybe integrates symbolic reasoning or explicit reasoning steps. Provide two sentences.\\n\\nWe should be concise.\",\n        \"role\": \"assistant\"\n      }\n    }\n  ],\n  \"created\": 1792260186,\n  \"model\": \"gpt-oss-120b\",\n  \"system_fingerprint\": \"fp_a9089f3cce52797e7952\",\n  \"object\": \"chat.completion\",\n  \"usage\": {\n    \"total_tokens\": 256,\n    \"completion_tokens\": 171,\n    \"completion_tokens_details\": {\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0,\n      \"reasoning_tokens\": 74\n    },\n    \"prompt_tokens\": 85,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0\n    }\n  },\n  \"time_info\": {\n    \"created\": 1792260186.725097,\n    \"queue_time\": 0.0031489539999999955,\n    \"prompt_time\": 0.001567874,\n    \"completion_time\": 0.089426557,\n    \"total_time\": 0.10185980796813965\n  }\n}",
+              "createdAt": "2026-10-17T18:03:07.000Z",
+              "updatedAt": "2026-10-17T18:03:07.000Z",
+              "uid": "7643177-23a312b1-3ba1-8563-f34e-8e008886febc"
+            }
+          ],
+          "createdAt": "2025-07-12T13:19:53.000Z",
+          "updatedAt": "2026-10-17T18:03:08.000Z",
+          "uid": "7643177-ff4a35f1-169c-40c6-a955-2c6770fd823b"
+        }
+      ],
+      "id": "0d11cde0-63a4-45dd-9e9e-3ab823aa445e",
+      "createdAt": "2024-04-07T00:16:21.000Z",
+      "updatedAt": "2025-07-12T13:20:05.000Z",
+      "uid": "7643177-0d11cde0-63a4-45dd-9e9e-3ab823aa445e"
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+          "id": "545864d0-4a08-8283-827d-19ccfaebf5c3",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"deepseek-ai/DeepSeek-V4.1-Flash-1017\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://router.huggingface.co/v1/chat/completions",
+              "protocol": "https",
+              "host": [
+                "router",
+                "huggingface",
+                "co"
+              ],
+              "path": [
+                "v1",
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-24T17:01:35.000Z",
+          "updatedAt": "2026-10-24T17:01:35.000Z",
+          "uid": "7643177-545864d0-4a08-8283-827d-19ccfaebf5c3"
+        },
+        {
+          "name": "inclusionAI/Ling-3.1-flash",
+          "id": "e8b3a315-ad63-8262-9404-d57a5527c9d8",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"inclusionAI/Ling-3.1-flash\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://router.huggingface.co/v1/chat/completions",
+              "protocol": "https",
+              "host": [
+                "router",
+                "huggingface",
+                "co"
+              ],
+              "path": [
+                "v1",
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-24T17:01:36.000Z",
+          "updatedAt": "2026-10-24T17:01:36.000Z",
+          "uid": "7643177-e8b3a315-ad63-8262-9404-d57a5527c9d8"
+        },
+        {
+          "name": "meta-models/Muse-Spark-Open-816B-A42B",
+          "id": "42c18337-02dc-9565-b5b7-27c44318452b",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"meta-models/Muse-Spark-Open-816B-A42B\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://router.huggingface.co/v1/chat/completions",
+              "protocol": "https",
+              "host": [
+                "router",
+                "huggingface",
+                "co"
+              ],
+              "path": [
+                "v1",
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-24T17:01:39.000Z",
+          "updatedAt": "2026-10-24T17:01:39.000Z",
+          "uid": "7643177-42c18337-02dc-9565-b5b7-27c44318452b"
+        },
+        {
+          "name": "MiniMaxAI/MiniMax-M3.1-Flash",
+          "id": "6dec3d20-ad4c-a70a-44a4-4518f1e43e12",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"MiniMaxAI/MiniMax-M3.1-Flash\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://router.huggingface.co/v1/chat/completions",
+              "protocol": "https",
+              "host": [
+                "router",
+                "huggingface",
+                "co"
+              ],
+              "path": [
+                "v1",
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-11-01T01:16:53.000Z",
+          "updatedAt": "2026-11-01T01:16:53.000Z",
+          "uid": "7643177-6dec3d20-ad4c-a70a-44a4-4518f1e43e12"
+        },
+        {
+          "name": "moonshotai/Kimi-K3.1-Pro",
+          "id": "f2e25424-df6f-dc6d-75c4-006839a724c8",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"moonshotai/Kimi-K3.1-Pro\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://router.huggingface.co/v1/chat/completions",
+              "protocol": "https",
+              "host": [
+                "router",
+                "huggingface",
+                "co"
+              ],
+              "path": [
+                "v1",
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-11-14T17:35:51.000Z",
+          "updatedAt": "2026-11-14T17:35:51.000Z",
+          "uid": "7643177-f2e25424-df6f-dc6d-75c4-006839a724c8"
+        },
+        {
+          "name": "Qwen/Qwen3.8-Flash-Next-FP8",
+          "id": "0968127f-3ef2-6b87-c449-30c81c76e796",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"Qwen/Qwen3.8-Flash-Next-FP8\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://router.huggingface.co/v1/chat/completions",
+              "protocol": "https",
+              "host": [
+                "router",
+                "huggingface",
+                "co"
+              ],
+              "path": [
+                "v1",
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-11-01T01:16:55.000Z",
+          "updatedAt": "2026-11-01T01:16:55.000Z",
+          "uid": "7643177-0968127f-3ef2-6b87-c449-30c81c76e796"
+        },
+        {
+          "name": "reflection/Beam-1.0-501B-A23B",
+          "id": "d0d13d23-01d6-1f0e-afa0-e90dcb99b560",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"reflection/Beam-1.0-501B-A23B\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://router.huggingface.co/v1/chat/completions",
+              "protocol": "https",
+              "host": [
+                "router",
+                "huggingface",
+                "co"
+              ],
+              "path": [
+                "v1",
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-24T17:01:38.000Z",
+          "updatedAt": "2026-10-24T17:01:38.000Z",
+          "uid": "7643177-d0d13d23-01d6-1f0e-afa0-e90dcb99b560"
+        },
+        {
+          "name": "thinkingmachines/Inkling-2-Small",
+          "id": "6e03504c-bb76-ada6-bf67-66a3d80074bf",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"thinkingmachines/Inkling-2-Small\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://router.huggingface.co/v1/chat/completions",
+              "protocol": "https",
+              "host": [
+                "router",
+                "huggingface",
+                "co"
+              ],
+              "path": [
+                "v1",
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-11-14T17:35:53.000Z",
+          "updatedAt": "2026-11-14T17:35:53.000Z",
+          "uid": "7643177-6e03504c-bb76-ada6-bf67-66a3d80074bf"
+        }
+      ],
+      "id": "1ffce61a-8abf-4253-e8a9-44e20d847275",
+      "createdAt": "2026-10-24T17:01:34.000Z",
+      "updatedAt": "2026-11-14T17:35:53.000Z",
+      "uid": "7643177-1ffce61a-8abf-4253-e8a9-44e20d847275"
+    },
+    {
+      "name": "Hugging Face Spaces",
+      "item": [
+        {
+          "name": "RAG",
+          "item": [
+            {
+              "name": "Naive RAG (Question Answering)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.event_id', jsonResponse.event_id)\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "d5c882a2-25df-447e-9354-ee9e79761f12",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"data\": [\n\t    \"{{vault:openai_api_key}}\",\n        \"What is the GPT-4 API's cost and rate limit? Answer in English, Arabic, Chinese, Hindi, and Russian in JSON format.\",\n        \"LangChain\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bstraehle-rag.hf.space/gradio_api/call/predict",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-rag",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T15:41:52.000Z",
+              "updatedAt": "2026-10-17T18:18:37.000Z",
+              "uid": "7643177-d5c882a2-25df-447e-9354-ee9e79761f12"
+            },
+            {
+              "name": "Naive RAG (Question Answering)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "b2f0cfa1-b705-44c3-9407-023a297c609f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://bstraehle-rag.hf.space/gradio_api/call/predict/{{temp.event_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-rag",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict",
+                    "{{temp.event_id}}"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T15:41:54.000Z",
+              "updatedAt": "2026-10-17T18:18:37.000Z",
+              "uid": "7643177-b2f0cfa1-b705-44c3-9407-023a297c609f"
+            },
+            {
+              "name": "Advanced RAG (Recommendation System)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.event_id', jsonResponse.event_id)\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "6e296923-6fe0-45fe-9921-9ca8330b1bd3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"data\": [\n        \"{{vault:openai_api_key}}\",\n        \"Recommend listings close to the Financial District, include amenities, picture, price, and reviews\",\n        2,\n        1,\n        \"Advanced RAG\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bstraehle-advanced-rag.hf.space/gradio_api/call/predict",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-advanced-rag",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T15:48:38.000Z",
+              "updatedAt": "2026-10-17T18:18:38.000Z",
+              "uid": "7643177-6e296923-6fe0-45fe-9921-9ca8330b1bd3"
+            },
+            {
+              "name": "Advanced RAG (Recommendation System)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "67ed3d23-783b-4716-bf79-daac4d0d8c92",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://bstraehle-advanced-rag.hf.space/gradio_api/call/predict/{{temp.event_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-advanced-rag",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict",
+                    "{{temp.event_id}}"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T15:48:52.000Z",
+              "updatedAt": "2026-10-17T18:18:38.000Z",
+              "uid": "7643177-67ed3d23-783b-4716-bf79-daac4d0d8c92"
+            },
+            {
+              "name": "Agentic RAG - crewAI (Deep Research)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.event_id', jsonResponse.event_id)\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "2825f47c-62ec-45be-8ca4-963243926ff2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"data\": [\n\t    \"{{vault:openai_api_key}}\",\n        \"Evolution of RAG: From Naive to Advanced to Agentic\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bstraehle-multi-agent-ai-crewai.hf.space/gradio_api/call/predict",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-multi-agent-ai-crewai",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T15:57:33.000Z",
+              "updatedAt": "2026-10-17T18:18:38.000Z",
+              "uid": "7643177-2825f47c-62ec-45be-8ca4-963243926ff2"
+            },
+            {
+              "name": "Agentic RAG - crewAI (Deep Research)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "7cb90fdf-2bcc-43fe-8fa0-1a43c4c9a2de",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://bstraehle-multi-agent-ai-crewai.hf.space/gradio_api/call/predict/{{temp.event_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-multi-agent-ai-crewai",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict",
+                    "{{temp.event_id}}"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T15:57:36.000Z",
+              "updatedAt": "2026-10-17T18:18:38.000Z",
+              "uid": "7643177-7cb90fdf-2bcc-43fe-8fa0-1a43c4c9a2de"
+            },
+            {
+              "name": "Agentic RAG - LangGraph (Deep Research)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.event_id', jsonResponse.event_id)\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "183475a6-596b-47ab-9fd7-9839cdfd8661",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"data\": [\n\t    \"{{vault:openai_api_key}}\",\n        \"Evolution of RAG: From Naive to Advanced to Agentic\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bstraehle-multi-agent-ai-langgraph.hf.space/gradio_api/call/predict",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-multi-agent-ai-langgraph",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T15:57:52.000Z",
+              "updatedAt": "2026-10-17T18:18:38.000Z",
+              "uid": "7643177-183475a6-596b-47ab-9fd7-9839cdfd8661"
+            },
+            {
+              "name": "Agentic RAG - LangGraph (Deep Research)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "54e89b24-bc5e-4439-a1f4-ca8b9de83b44",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://bstraehle-multi-agent-ai-langgraph.hf.space/gradio_api/call/predict/{{temp.event_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-multi-agent-ai-langgraph",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict",
+                    "{{temp.event_id}}"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T15:57:55.000Z",
+              "updatedAt": "2026-10-17T18:18:38.000Z",
+              "uid": "7643177-54e89b24-bc5e-4439-a1f4-ca8b9de83b44"
+            },
+            {
+              "name": "Agentic RAG - OpenAI Assistants API (Deep Research)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.event_id', jsonResponse.event_id)\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "995bfaa2-7547-4058-bfb1-7dc52de3ee99",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"data\": [\n        \"Evolution of RAG: From Naive to Advanced to Agentic\",\n        \"\",\n        \"{{vault:openai_api_key}}\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bstraehle-openai-assistants.hf.space/call/chat",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-openai-assistants",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "call",
+                    "chat"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T15:58:05.000Z",
+              "updatedAt": "2026-10-17T18:18:39.000Z",
+              "uid": "7643177-995bfaa2-7547-4058-bfb1-7dc52de3ee99"
+            },
+            {
+              "name": "Agentic RAG - OpenAI Assistants API (Deep Research)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "7e7da350-d989-480a-a258-7bd6b1dd05d7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://bstraehle-openai-assistants.hf.space/call/chat/{{temp.event_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-openai-assistants",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "call",
+                    "chat",
+                    "{{temp.event_id}}"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T15:58:08.000Z",
+              "updatedAt": "2026-10-17T18:18:39.000Z",
+              "uid": "7643177-7e7da350-d989-480a-a258-7bd6b1dd05d7"
+            }
+          ],
+          "id": "f83a6f13-7256-4aad-8244-3385936a4e4b",
+          "createdAt": "2025-02-04T15:25:50.000Z",
+          "updatedAt": "2025-07-13T01:55:51.000Z",
+          "uid": "7643177-f83a6f13-7256-4aad-8244-3385936a4e4b"
+        },
+        {
+          "name": "Agentic AI",
+          "item": [
+            {
+              "name": "Agentic AI - LangChain (Tool Calling)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.event_id', jsonResponse.event_id)\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "a21f4c65-075e-4a41-98d9-b14d844b56bd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"data\": [\n\t    \"{{vault:openai_api_key}}\",\n        \"How does current weather in San Francisco and Paris compare in metric and imperial system? Answer in JSON format and include today's date.\",\n\t\t\"LangChain\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bstraehle-agentic-ai.hf.space/gradio_api/call/predict",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-agentic-ai",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T04:22:27.000Z",
+              "updatedAt": "2026-10-17T18:18:40.000Z",
+              "uid": "7643177-a21f4c65-075e-4a41-98d9-b14d844b56bd"
+            },
+            {
+              "name": "Agentic AI - LangChain (Tool Calling)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "c77bbd22-31a8-4e7f-8706-3885a926f9f2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://bstraehle-agentic-ai.hf.space/gradio_api/call/predict/{{temp.event_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-agentic-ai",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict",
+                    "{{temp.event_id}}"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T04:29:51.000Z",
+              "updatedAt": "2026-10-17T18:18:39.000Z",
+              "uid": "7643177-c77bbd22-31a8-4e7f-8706-3885a926f9f2"
+            },
+            {
+              "name": "Multi-Agent AI - crewAI (Deep Research)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.event_id', jsonResponse.event_id)\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "0b7a0c0c-5e2c-448d-b395-4b2dab3270e7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"data\": [\n\t    \"{{vault:openai_api_key}}\",\n        \"Large Language Models and the Fair Use Doctrine\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bstraehle-multi-agent-ai-crewai.hf.space/gradio_api/call/predict",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-multi-agent-ai-crewai",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T05:03:09.000Z",
+              "updatedAt": "2026-10-17T18:18:39.000Z",
+              "uid": "7643177-0b7a0c0c-5e2c-448d-b395-4b2dab3270e7"
+            },
+            {
+              "name": "Multi-Agent AI - crewAI (Deep Research)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "5ab91fbe-7715-4e20-956c-a095819bdbff",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://bstraehle-multi-agent-ai-crewai.hf.space/gradio_api/call/predict/{{temp.event_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-multi-agent-ai-crewai",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict",
+                    "{{temp.event_id}}"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T05:03:11.000Z",
+              "updatedAt": "2026-10-17T18:18:39.000Z",
+              "uid": "7643177-5ab91fbe-7715-4e20-956c-a095819bdbff"
+            },
+            {
+              "name": "Multi-Agent AI - LangGraph (Deep Research)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.event_id', jsonResponse.event_id)\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "14c6158f-fabc-4cb6-9598-799990e3b579",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"data\": [\n\t    \"{{vault:openai_api_key}}\",\n        \"Large Language Models and the Fair Use Doctrine\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bstraehle-multi-agent-ai-langgraph.hf.space/gradio_api/call/predict",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-multi-agent-ai-langgraph",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T06:13:36.000Z",
+              "updatedAt": "2026-10-17T18:18:39.000Z",
+              "uid": "7643177-14c6158f-fabc-4cb6-9598-799990e3b579"
+            },
+            {
+              "name": "Multi-Agent AI - LangGraph (Deep Research)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "4e7aa42d-8093-4f75-b8d2-c9aac9acde5b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://bstraehle-multi-agent-ai-langgraph.hf.space/gradio_api/call/predict/{{temp.event_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-multi-agent-ai-langgraph",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict",
+                    "{{temp.event_id}}"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T06:13:39.000Z",
+              "updatedAt": "2026-10-17T18:18:39.000Z",
+              "uid": "7643177-4e7aa42d-8093-4f75-b8d2-c9aac9acde5b"
+            },
+            {
+              "name": "Multi-Agent AI - LangGraph (Chess)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.event_id', jsonResponse.event_id)\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "24129584-b918-40ad-bdc8-0add3ff2d345",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"data\": [\n\t      \"{{vault:openai_api_key}}\",\n        3\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bstraehle-multi-agent-ai-langgraph-chess.hf.space/gradio_api/call/predict",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-multi-agent-ai-langgraph-chess",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T06:49:33.000Z",
+              "updatedAt": "2026-10-17T18:18:40.000Z",
+              "uid": "7643177-24129584-b918-40ad-bdc8-0add3ff2d345"
+            },
+            {
+              "name": "Multi-Agent AI - LangGraph (Chess)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "c93b3953-0b13-4733-a780-7c6d181b5ea7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://bstraehle-multi-agent-ai-langgraph-chess.hf.space/gradio_api/call/predict/{{temp.event_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-multi-agent-ai-langgraph-chess",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict",
+                    "{{temp.event_id}}"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T06:49:38.000Z",
+              "updatedAt": "2026-10-17T18:18:40.000Z",
+              "uid": "7643177-c93b3953-0b13-4733-a780-7c6d181b5ea7"
+            },
+            {
+              "name": "Multi-Agent AI - AutoGen (Chess)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.event_id', jsonResponse.event_id)\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "529b5baa-7383-440d-b342-3438d8cbead0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"data\": [\n\t    \"{{vault:openai_api_key}}\",\n        3\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bstraehle-multi-agent-ai-autogen-chess.hf.space/gradio_api/call/predict",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-multi-agent-ai-autogen-chess",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T06:52:39.000Z",
+              "updatedAt": "2026-10-17T18:18:40.000Z",
+              "uid": "7643177-529b5baa-7383-440d-b342-3438d8cbead0"
+            },
+            {
+              "name": "Multi-Agent AI - AutoGen (Chess)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "25d7a94b-5f16-4857-8bfd-b65411ea6d23",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://bstraehle-multi-agent-ai-autogen-chess.hf.space/gradio_api/call/predict/{{temp.event_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-multi-agent-ai-autogen-chess",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict",
+                    "{{temp.event_id}}"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T06:52:42.000Z",
+              "updatedAt": "2026-10-17T18:18:40.000Z",
+              "uid": "7643177-25d7a94b-5f16-4857-8bfd-b65411ea6d23"
+            },
+            {
+              "name": "Multi-Agent AI - AutoGen (Code Generation & Execution)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.event_id', jsonResponse.event_id)\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "1a3034a0-1fb6-4085-88b8-29108d1b5b90",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"data\": [\n        \"{{vault:openai_api_key}}\",\n        \"Create a plot showing stock gain YTD for NVDA, MSFT, AAPL, and GOOG, x-axis is 'Day' and y-axis is 'YTD Gain %'. Save the figure to a file ytd_stock_gains.png.\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bstraehle-multi-agent-ai-autogen-coding.hf.space/gradio_api/call/predict",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-multi-agent-ai-autogen-coding",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T05:29:03.000Z",
+              "updatedAt": "2026-10-17T18:18:40.000Z",
+              "uid": "7643177-1a3034a0-1fb6-4085-88b8-29108d1b5b90"
+            },
+            {
+              "name": "Multi-Agent AI - AutoGen (Code Generation & Execution)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "d8971600-01b5-4e5e-a02f-932d030cea2a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://bstraehle-multi-agent-ai-autogen-coding.hf.space/gradio_api/call/predict/{{temp.event_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-multi-agent-ai-autogen-coding",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "predict",
+                    "{{temp.event_id}}"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T05:29:06.000Z",
+              "updatedAt": "2026-10-17T18:18:40.000Z",
+              "uid": "7643177-d8971600-01b5-4e5e-a02f-932d030cea2a"
+            },
+            {
+              "name": "OpenAI Assistants API (Code Generation & Execution)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.event_id', jsonResponse.event_id)\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "f965112f-dcdc-417d-8226-974cdca9959b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"data\": [\n        \"First, execute with tools: Create a plot showing stock gain QTD for NVDA and AMD, x-axis is 'Day' and y-axis is 'Gain %'. Second, show the code.\",\n        \"\",\n        \"{{vault:openai_api_key}}\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bstraehle-openai-assistants.hf.space/call/chat",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-openai-assistants",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "call",
+                    "chat"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T05:43:25.000Z",
+              "updatedAt": "2026-10-17T18:18:40.000Z",
+              "uid": "7643177-f965112f-dcdc-417d-8226-974cdca9959b"
+            },
+            {
+              "name": "OpenAI Assistants API (Code Generation & Execution)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "7a7dd246-ba2c-4d13-a3eb-e9818f9ef90d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://bstraehle-openai-assistants.hf.space/call/chat/{{temp.event_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-openai-assistants",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "call",
+                    "chat",
+                    "{{temp.event_id}}"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-04T05:43:28.000Z",
+              "updatedAt": "2026-10-17T18:18:41.000Z",
+              "uid": "7643177-7a7dd246-ba2c-4d13-a3eb-e9818f9ef90d"
+            },
+            {
+              "name": "GAIA - General AI Assistant",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.event_id', jsonResponse.event_id)\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "7ed31f0b-9c90-4805-ab2a-2095b6c89449",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"data\": [\n        \"Black to move. Without moving the black queens, which sequence is mate in 2 for black, regardless of what white does? Use standard chess notation, leaving out the white move.\",\n        \"{{vault:openai_api_key}}\",\n        \"{{vault:google_gemini_api_key}}\",\n        \"{{vault:anthropic_api_key}}\",\n        \"hle-6687ffb1091058ff19128813.jpg\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bstraehle-gaia.hf.space/gradio_api/call/ask",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-gaia",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "ask"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-05-11T02:29:19.000Z",
+              "updatedAt": "2026-10-17T18:18:41.000Z",
+              "uid": "7643177-7ed31f0b-9c90-4805-ab2a-2095b6c89449"
+            },
+            {
+              "name": "GAIA - General AI Assistant",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab9ebee8-ba3d-4ced-aba9-eecb49c09db9",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "a94dae7c-6587-428c-bcaa-6afbe7ddf336",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://bstraehle-gaia.hf.space/gradio_api/call/ask/{{temp.event_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "bstraehle-gaia",
+                    "hf",
+                    "space"
+                  ],
+                  "path": [
+                    "gradio_api",
+                    "call",
+                    "ask",
+                    "{{temp.event_id}}"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-05-11T02:29:23.000Z",
+              "updatedAt": "2026-10-17T18:18:41.000Z",
+              "uid": "7643177-a94dae7c-6587-428c-bcaa-6afbe7ddf336"
+            }
+          ],
+          "id": "de73c6d2-3983-48de-b0d2-b030729237c1",
+          "createdAt": "2025-02-04T15:26:04.000Z",
+          "updatedAt": "2025-11-19T05:01:42.000Z",
+          "uid": "7643177-de73c6d2-3983-48de-b0d2-b030729237c1"
+        }
+      ],
+      "id": "d5e56e29-c0b3-48dd-8084-73618b11ccf0",
+      "description": "### Retrieval-Augmented Generation\n\nPatterns include:\n\n- Naive RAG (retrieval & generation)\n    \n- Advanced RAG (retrieval & generation with retrieval pre- and post-processing)\n    \n- Agentic RAG (multi-model multi-step inference using tools)\n    \n\nUse cases include:\n\n- Question Answering\n    \n- Recommendation System\n    \n- Article Writing\n    \n\n### Agentic AI\n\nFrameworks include:\n\n- crewAI\n    \n- LangGraph\n    \n- AutoGen\n    \n- OpenAI asynchronous stateful Assistants API\n    \n\nUse cases include:\n\n- Tool Calling\n    \n- Article Writing\n    \n- Chess\n    \n- Code Generation & Execution\n    \n- General AI Assistant\n    \n\n### Source\n\n- [https://huggingface.co/bstraehle](https://huggingface.co/bstraehle)",
+      "createdAt": "2025-02-04T04:21:21.000Z",
+      "updatedAt": "2025-07-13T01:54:33.000Z",
+      "uid": "7643177-d5e56e29-c0b3-48dd-8084-73618b11ccf0"
+    },
+    {
+      "name": "Image-to-Text",
+      "item": [
+        {
+          "name": "Salesforce/blip-image-captioning-large",
+          "id": "bc649896-0f61-4984-86c8-b1aa9bf59f2e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": \"https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/transformers/beach.jpg\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/:model",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                ":model"
+              ],
+              "variable": [
+                {
+                  "id": "2029d260-8392-4835-90df-2fd27bc5046a",
+                  "key": "model",
+                  "value": "Salesforce/blip-image-captioning-large"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-07T00:16:21.000Z",
+          "updatedAt": "2026-10-17T18:18:41.000Z",
+          "uid": "7643177-bc649896-0f61-4984-86c8-b1aa9bf59f2e"
+        }
+      ],
+      "id": "026ec906-05b3-4676-8d3c-2a3b144b8134",
+      "createdAt": "2024-04-07T00:16:21.000Z",
+      "updatedAt": "2024-04-11T04:10:24.000Z",
+      "uid": "7643177-026ec906-05b3-4676-8d3c-2a3b144b8134"
+    },
+    {
+      "name": "Inference Providers",
+      "item": [
+        {
+          "name": "Cerebras",
+          "item": [
+            {
+              "name": "openai/gpt-oss-120b",
+              "id": "d8217a59-f403-4068-ab4b-44ff63221d04",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"gpt-oss-120b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl_cerebras}}/chat/completions",
+                  "host": [
+                    "{{baseUrl_cerebras}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-08-16T17:16:31.000Z",
+              "updatedAt": "2026-10-17T18:18:41.000Z",
+              "uid": "7643177-d8217a59-f403-4068-ab4b-44ff63221d04"
+            }
+          ],
+          "id": "ac4fbc2e-7c74-4c18-93f1-e926bfca3ea7",
+          "createdAt": "2025-07-12T13:30:55.000Z",
+          "updatedAt": "2026-10-12T00:17:41.000Z",
+          "uid": "7643177-ac4fbc2e-7c74-4c18-93f1-e926bfca3ea7"
+        },
+        {
+          "name": "Fireworks AI",
+          "item": [
+            {
+              "name": "openai/gpt-oss-120b",
+              "id": "9c189b01-c2f7-46cc-bb97-a33594965946",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"accounts/fireworks/models/gpt-oss-120b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl_fireworks}}/chat/completions",
+                  "host": [
+                    "{{baseUrl_fireworks}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-08-16T17:17:12.000Z",
+              "updatedAt": "2026-10-17T18:18:41.000Z",
+              "uid": "7643177-9c189b01-c2f7-46cc-bb97-a33594965946"
+            }
+          ],
+          "id": "a3ede62a-5eaa-4a66-815c-8827bb7c47e2",
+          "createdAt": "2025-07-12T13:31:33.000Z",
+          "updatedAt": "2026-10-12T00:17:39.000Z",
+          "uid": "7643177-a3ede62a-5eaa-4a66-815c-8827bb7c47e2"
+        },
+        {
+          "name": "Groq",
+          "item": [
+            {
+              "name": "openai/gpt-oss-20b",
+              "id": "0fde1d4a-9da7-4c4f-bf40-dcbe19a84cbd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"openai/gpt-oss-20b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl_groq}}/chat/completions",
+                  "host": [
+                    "{{baseUrl_groq}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-08-16T17:23:05.000Z",
+              "updatedAt": "2026-10-17T18:18:43.000Z",
+              "uid": "7643177-0fde1d4a-9da7-4c4f-bf40-dcbe19a84cbd"
+            },
+            {
+              "name": "openai/gpt-oss-120b",
+              "id": "08b74113-7c46-4889-b357-bd99008c69d5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"openai/gpt-oss-120b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl_groq}}/chat/completions",
+                  "host": [
+                    "{{baseUrl_groq}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-08-16T17:17:03.000Z",
+              "updatedAt": "2026-10-17T18:18:42.000Z",
+              "uid": "7643177-08b74113-7c46-4889-b357-bd99008c69d5"
+            }
+          ],
+          "id": "f7c395e4-2adc-4b50-8c35-f84e6dce0a20",
+          "createdAt": "2025-07-17T22:23:11.000Z",
+          "updatedAt": "2026-10-12T19:49:58.000Z",
+          "uid": "7643177-f7c395e4-2adc-4b50-8c35-f84e6dce0a20"
+        },
+        {
+          "name": "Nebius AI",
+          "item": [
+            {
+              "name": "google/gemma-3-27b-it",
+              "id": "3f3853de-fd27-43b5-becc-de0a44014142",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"google/gemma-3-27b-it\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl_nebius}}/chat/completions",
+                  "host": [
+                    "{{baseUrl_nebius}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-05-24T15:48:04.000Z",
+              "updatedAt": "2026-10-17T18:18:42.000Z",
+              "uid": "7643177-3f3853de-fd27-43b5-becc-de0a44014142"
+            }
+          ],
+          "id": "4f6e7d2d-7cd6-4ea3-a109-81811f1ed012",
+          "createdAt": "2025-07-12T13:32:25.000Z",
+          "updatedAt": "2026-10-12T00:17:31.000Z",
+          "uid": "7643177-4f6e7d2d-7cd6-4ea3-a109-81811f1ed012"
+        },
+        {
+          "name": "Novita",
+          "item": [
+            {
+              "name": "meta-llama/llama-4-maverick-17b-128e-instruct-fp8",
+              "id": "e0bc47a7-d814-4735-9405-34df96c74e45",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"meta-llama/llama-4-maverick-17b-128e-instruct-fp8\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl_novita}}/chat/completions",
+                  "host": [
+                    "{{baseUrl_novita}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-04-07T00:00:29.000Z",
+              "updatedAt": "2026-10-17T18:18:42.000Z",
+              "uid": "7643177-e0bc47a7-d814-4735-9405-34df96c74e45"
+            },
+            {
+              "name": "meta-llama/llama-4-scout-17b-16e-instruct",
+              "id": "fa4a7e5e-cf14-4838-80e5-97ea796d0c62",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"meta-llama/llama-4-scout-17b-16e-instruct\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl_novita}}/chat/completions",
+                  "host": [
+                    "{{baseUrl_novita}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-04-06T23:58:05.000Z",
+              "updatedAt": "2026-10-17T18:18:42.000Z",
+              "uid": "7643177-fa4a7e5e-cf14-4838-80e5-97ea796d0c62"
+            },
+            {
+              "name": "moonshotai/kimi-k2-instruct",
+              "id": "44dc7332-6932-490c-a5b5-f8dbc9d8e270",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"moonshotai/kimi-k2-instruct\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl_novita}}/chat/completions",
+                  "host": [
+                    "{{baseUrl_novita}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-07-12T13:16:53.000Z",
+              "updatedAt": "2026-10-17T18:18:42.000Z",
+              "uid": "7643177-44dc7332-6932-490c-a5b5-f8dbc9d8e270"
+            }
+          ],
+          "id": "f8391992-c553-4571-8cff-a1e9e0ded81f",
+          "createdAt": "2025-07-12T13:34:25.000Z",
+          "updatedAt": "2026-10-12T19:50:01.000Z",
+          "uid": "7643177-f8391992-c553-4571-8cff-a1e9e0ded81f"
+        },
+        {
+          "name": "Together AI",
+          "item": [
+            {
+              "name": "deepseek-ai/DeepSeek-R1",
+              "id": "7c67173b-4fca-4f57-93f2-6f52ad44b7c0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"deepseek-ai/DeepSeek-R1\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl_together}}/chat/completions",
+                  "host": [
+                    "{{baseUrl_together}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-02-15T14:54:59.000Z",
+              "updatedAt": "2026-10-17T18:18:42.000Z",
+              "uid": "7643177-7c67173b-4fca-4f57-93f2-6f52ad44b7c0"
+            },
+            {
+              "name": "MiniMaxAI/MiniMax-M3",
+              "id": "4f19d1ba-6013-659b-b3ff-3e01b0e0e870",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"MiniMaxAI/MiniMax-M3\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl_together}}/chat/completions",
+                  "host": [
+                    "{{baseUrl_together}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2026-10-12T03:14:51.000Z",
+              "updatedAt": "2026-10-17T18:18:43.000Z",
+              "uid": "7643177-4f19d1ba-6013-659b-b3ff-3e01b0e0e870"
+            },
+            {
+              "name": "moonshotai/Kimi-K2-Instruct",
+              "id": "52a9366d-6ae7-41ff-99d3-dab302210cfc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"moonshotai/Kimi-K2-Instruct\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl_together}}/chat/completions",
+                  "host": [
+                    "{{baseUrl_together}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-07-17T22:22:11.000Z",
+              "updatedAt": "2026-10-17T18:18:42.000Z",
+              "uid": "7643177-52a9366d-6ae7-41ff-99d3-dab302210cfc"
+            },
+            {
+              "name": "openai/gpt-oss-20b",
+              "id": "6a96829e-ef84-4ecf-86a9-0e6bc62976da",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"openai/gpt-oss-20b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl_together}}/chat/completions",
+                  "host": [
+                    "{{baseUrl_together}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-08-16T17:23:16.000Z",
+              "updatedAt": "2026-10-17T18:18:43.000Z",
+              "uid": "7643177-6a96829e-ef84-4ecf-86a9-0e6bc62976da"
+            },
+            {
+              "name": "openai/gpt-oss-120b",
+              "id": "334fd7d6-4cfd-4b0c-a41d-c83859872e9e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"openai/gpt-oss-120b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl_together}}/chat/completions",
+                  "host": [
+                    "{{baseUrl_together}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-08-16T17:17:27.000Z",
+              "updatedAt": "2026-10-17T18:18:43.000Z",
+              "uid": "7643177-334fd7d6-4cfd-4b0c-a41d-c83859872e9e"
+            },
+            {
+              "name": "zai-org/GLM-5.3",
+              "id": "91621554-9ae0-c457-61da-3b00995a913c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"zai-org/GLM-5.3\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl_together}}/chat/completions",
+                  "host": [
+                    "{{baseUrl_together}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2026-10-12T03:14:55.000Z",
+              "updatedAt": "2026-10-17T18:18:43.000Z",
+              "uid": "7643177-91621554-9ae0-c457-61da-3b00995a913c"
+            }
+          ],
+          "id": "bc3c8a60-64de-4e1b-97aa-18f729b2c9c0",
+          "createdAt": "2025-07-12T13:33:16.000Z",
+          "updatedAt": "2026-10-12T19:50:04.000Z",
+          "uid": "7643177-bc3c8a60-64de-4e1b-97aa-18f729b2c9c0"
+        }
+      ],
+      "id": "25f64121-de0f-43fa-9310-63cfbdfa1319",
+      "description": "Go to Hugging Face, Models, Other and filter by inference provider:\n\n- Hugging Face: [https://huggingface.co/models?inference_provider=hf-inference&amp;sort=trending](https://huggingface.co/models?inference_provider=hf-inference&sort=trending) (25,000+ models)\n    \n- fal.ai: [https://huggingface.co/models?inference_provider=fal-ai&amp;sort=trending](https://huggingface.co/models?inference_provider=fal-ai&sort=trending) (15+ models)\n    \n- Fireworks AI: [https://huggingface.co/models?inference_provider=fireworks-ai&amp;sort=trending](https://huggingface.co/models?inference_provider=fireworks-ai&sort=trending) (15+ models)\n    \n- Replicate: [https://huggingface.co/models?inference_provider=replicate&amp;sort=trending](https://huggingface.co/models?inference_provider=replicate&sort=trending) (10+ models)\n    \n- SambaNova: [https://huggingface.co/models?inference_provider=sambanova&amp;sort=trending](https://huggingface.co/models?inference_provider=sambanova&sort=trending) (15+ models)\n    \n- Together AI: [https://huggingface.co/models?inference_provider=together&amp;sort=trending](https://huggingface.co/models?inference_provider=together&sort=trending) (35+ models)",
+      "createdAt": "2025-02-15T14:54:23.000Z",
+      "updatedAt": "2026-10-12T19:26:04.000Z",
+      "uid": "7643177-25f64121-de0f-43fa-9310-63cfbdfa1319"
+    },
+    {
+      "name": "Object Detection",
+      "item": [
+        {
+          "name": "facebook/detr-resnet-50",
+          "id": "f460297a-13ee-465b-bd0c-59e15ba736b0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "postman-cloud:///1eef7bc6-00d9-4800-adae-18e3bb645edd"
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/:model",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                ":model"
+              ],
+              "variable": [
+                {
+                  "key": "model",
+                  "value": "facebook/detr-resnet-50"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-11T04:19:52.000Z",
+          "updatedAt": "2026-10-17T18:18:43.000Z",
+          "uid": "7643177-f460297a-13ee-465b-bd0c-59e15ba736b0"
+        }
+      ],
+      "id": "2cbf6ed3-24ac-4ad8-9a3e-ae0b9066c813",
+      "createdAt": "2024-04-11T04:19:52.000Z",
+      "updatedAt": "2024-04-11T04:20:07.000Z",
+      "uid": "7643177-2cbf6ed3-24ac-4ad8-9a3e-ae0b9066c813"
+    },
+    {
+      "name": "Responses",
+      "item": [
+        {
+          "name": "openai/gpt-oss-120b",
+          "id": "eeb3fe40-0449-d80c-b029-cf8645939bc2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"openai/gpt-oss-120b\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://router.huggingface.co/v1/responses",
+              "protocol": "https",
+              "host": [
+                "router",
+                "huggingface",
+                "co"
+              ],
+              "path": [
+                "v1",
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T20:29:54.000Z",
+          "updatedAt": "2026-10-17T18:18:43.000Z",
+          "uid": "7643177-eeb3fe40-0449-d80c-b029-cf8645939bc2"
+        }
+      ],
+      "id": "fc2bee3b-e64d-c518-9b05-0d00ab649557",
+      "createdAt": "2026-10-12T20:29:48.000Z",
+      "updatedAt": "2026-10-12T20:29:54.000Z",
+      "uid": "7643177-fc2bee3b-e64d-c518-9b05-0d00ab649557"
+    },
+    {
+      "name": "Speech-to-Text",
+      "item": [
+        {
+          "name": "openai/whisper-large-v3",
+          "id": "0b6adf04-1383-407a-8823-43567164c9c4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "data-binary",
+                  "type": "file",
+                  "src": "postman-cloud:///1eef4fc4-db6d-4df0-94fc-ae3617d4a2f0"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/:model",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                ":model"
+              ],
+              "variable": [
+                {
+                  "key": "model",
+                  "value": "openai/whisper-large-v3"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-11T03:46:07.000Z",
+          "updatedAt": "2026-10-17T18:18:43.000Z",
+          "uid": "7643177-0b6adf04-1383-407a-8823-43567164c9c4"
+        },
+        {
+          "name": "openai/whisper-large-v3-turbo",
+          "id": "3bc72afe-46be-4f35-92fe-c7447feb3137",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "data-binary",
+                  "type": "file",
+                  "fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+                  "filesNotInWorkingDirectory": [
+                    "/C:/Users/bstra/Downloads/test.mp3"
+                  ],
+                  "src": "postman-cloud:///1ef86bd4-3ec8-4650-843d-344333e34c48"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/:model",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                ":model"
+              ],
+              "variable": [
+                {
+                  "key": "model",
+                  "value": "openai/whisper-large-v3-turbo"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-10-10T04:05:24.000Z",
+          "updatedAt": "2026-10-17T18:18:44.000Z",
+          "uid": "7643177-3bc72afe-46be-4f35-92fe-c7447feb3137"
+        }
+      ],
+      "id": "948c34b5-c711-41dd-bf56-6396190a5dcf",
+      "createdAt": "2024-04-11T03:51:40.000Z",
+      "updatedAt": "2024-10-10T04:05:24.000Z",
+      "uid": "7643177-948c34b5-c711-41dd-bf56-6396190a5dcf"
+    },
+    {
+      "name": "Summarization",
+      "item": [
+        {
+          "name": "facebook/bart-large-cnn",
+          "id": "9d218a00-d5b6-4c27-85df-2b7131dbed97",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inputs\": \"The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930. It was the first structure to reach a height of 300 metres. Due to the addition of a broadcasting aerial at the top of the tower in 1957, it is now taller than the Chrysler Building by 5.2 metres (17 ft). Excluding transmitters, the Eiffel Tower is the second tallest free-standing structure in France after the Millau Viaduct.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/:model",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                ":model"
+              ],
+              "variable": [
+                {
+                  "key": "model",
+                  "value": "facebook/bart-large-cnn"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-11T04:01:23.000Z",
+          "updatedAt": "2026-10-17T18:18:44.000Z",
+          "uid": "7643177-9d218a00-d5b6-4c27-85df-2b7131dbed97"
+        }
+      ],
+      "id": "63b5c414-a4e4-4528-9811-69799bfa9c66",
+      "createdAt": "2024-04-11T04:01:11.000Z",
+      "updatedAt": "2024-04-11T04:01:26.000Z",
+      "uid": "7643177-63b5c414-a4e4-4528-9811-69799bfa9c66"
+    },
+    {
+      "name": "Text-to-Audio",
+      "item": [
+        {
+          "name": "facebook/musicgen-small",
+          "id": "6f2d487c-9fea-4bab-905e-f0aa3436bfda",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inputs\": \"A 10-second upbeat electronic track with bright synth arpeggios.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/:model",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                ":model"
+              ],
+              "variable": [
+                {
+                  "key": "model",
+                  "value": "facebook/musicgen-small"
+                }
+              ]
+            },
+            "description": "1. Click send and download\n    \n2. Save as .flac\n    \n3. Convert file format if needed"
+          },
+          "response": [],
+          "createdAt": "2024-04-11T03:58:45.000Z",
+          "updatedAt": "2026-10-17T17:59:11.000Z",
+          "uid": "7643177-6f2d487c-9fea-4bab-905e-f0aa3436bfda"
+        },
+        {
+          "name": "facebook/musicgen-stereo-large",
+          "id": "b83e2db7-513e-4a8c-b541-1bfd2c0da8bc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inputs\": \"A 10-second upbeat electronic track with bright synth arpeggios.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/:model",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                ":model"
+              ],
+              "variable": [
+                {
+                  "key": "model",
+                  "value": "facebook/musicgen-stereo-large"
+                }
+              ]
+            },
+            "description": "1. Click send and download\n    \n2. Save as .flac\n    \n3. Convert file format if needed"
+          },
+          "response": [],
+          "createdAt": "2024-04-11T03:56:56.000Z",
+          "updatedAt": "2026-10-17T17:59:11.000Z",
+          "uid": "7643177-b83e2db7-513e-4a8c-b541-1bfd2c0da8bc"
+        }
+      ],
+      "id": "02ed3d32-ffa0-4d8c-8231-62a343be7ad9",
+      "createdAt": "2024-04-11T03:56:56.000Z",
+      "updatedAt": "2024-04-11T04:09:08.000Z",
+      "uid": "7643177-02ed3d32-ffa0-4d8c-8231-62a343be7ad9"
+    },
+    {
+      "name": "Text-to-Image",
+      "item": [
+        {
+          "name": "black-forest-labs/FLUX.1-dev",
+          "id": "0c852658-ca93-4c2a-ab19-b639954ebee5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inputs\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/:model",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                ":model"
+              ],
+              "variable": [
+                {
+                  "key": "model",
+                  "value": "black-forest-labs/FLUX.1-dev"
+                }
+              ]
+            },
+            "description": "Click send and download"
+          },
+          "response": [],
+          "createdAt": "2024-11-09T15:50:54.000Z",
+          "updatedAt": "2026-10-17T17:59:12.000Z",
+          "uid": "7643177-0c852658-ca93-4c2a-ab19-b639954ebee5"
+        },
+        {
+          "name": "black-forest-labs/FLUX.1-schnell",
+          "id": "de7b0a8c-c89a-45f8-b7bd-24b983aeb1de",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inputs\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/:model",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                ":model"
+              ],
+              "variable": [
+                {
+                  "key": "model",
+                  "value": "black-forest-labs/FLUX.1-schnell"
+                }
+              ]
+            },
+            "description": "Click send and download"
+          },
+          "response": [],
+          "createdAt": "2024-08-12T13:38:33.000Z",
+          "updatedAt": "2026-10-17T17:59:12.000Z",
+          "uid": "7643177-de7b0a8c-c89a-45f8-b7bd-24b983aeb1de"
+        },
+        {
+          "name": "stabilityai/stable-diffusion-3.5-large",
+          "id": "9344eebe-86e2-4b94-bc84-bcde493a66ff",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inputs\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/:model",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                ":model"
+              ],
+              "variable": [
+                {
+                  "key": "model",
+                  "value": "stabilityai/stable-diffusion-3.5-large"
+                }
+              ]
+            },
+            "description": "Click send and download"
+          },
+          "response": [],
+          "createdAt": "2024-11-03T02:09:16.000Z",
+          "updatedAt": "2026-10-17T17:59:12.000Z",
+          "uid": "7643177-9344eebe-86e2-4b94-bc84-bcde493a66ff"
+        },
+        {
+          "name": "stabilityai/stable-diffusion-3.5-large-turbo",
+          "id": "52715142-32f1-4b9a-bee7-eb72feccded8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inputs\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/:model",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                ":model"
+              ],
+              "variable": [
+                {
+                  "key": "model",
+                  "value": "stabilityai/stable-diffusion-3.5-large-turbo"
+                }
+              ]
+            },
+            "description": "Click send and download"
+          },
+          "response": [],
+          "createdAt": "2024-11-03T02:09:13.000Z",
+          "updatedAt": "2026-10-17T17:59:13.000Z",
+          "uid": "7643177-52715142-32f1-4b9a-bee7-eb72feccded8"
+        },
+        {
+          "name": "stabilityai/stable-diffusion-3.5-medium",
+          "id": "51482693-1259-426d-a862-23b067ffbcd9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inputs\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/:model",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                ":model"
+              ],
+              "variable": [
+                {
+                  "key": "model",
+                  "value": "stabilityai/stable-diffusion-3.5-medium"
+                }
+              ]
+            },
+            "description": "Click send and download"
+          },
+          "response": [],
+          "createdAt": "2024-11-03T02:09:10.000Z",
+          "updatedAt": "2026-10-17T17:59:13.000Z",
+          "uid": "7643177-51482693-1259-426d-a862-23b067ffbcd9"
+        },
+        {
+          "name": "stabilityai/stable-diffusion-xl-base-1.0",
+          "id": "3f47f9fe-3484-48b8-9d7e-c2f350131799",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inputs\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/:model",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                ":model"
+              ],
+              "variable": [
+                {
+                  "key": "model",
+                  "value": "stabilityai/stable-diffusion-xl-base-1.0"
+                }
+              ]
+            },
+            "description": "Click send and download"
+          },
+          "response": [],
+          "createdAt": "2024-04-07T00:16:21.000Z",
+          "updatedAt": "2026-10-17T17:59:13.000Z",
+          "uid": "7643177-3f47f9fe-3484-48b8-9d7e-c2f350131799"
+        }
+      ],
+      "id": "22f3f76d-3cbf-4a03-b694-26089bd1253e",
+      "createdAt": "2024-04-07T00:16:21.000Z",
+      "updatedAt": "2026-10-12T19:50:07.000Z",
+      "uid": "7643177-22f3f76d-3cbf-4a03-b694-26089bd1253e"
+    },
+    {
+      "name": "Text-to-Speech",
+      "item": [
+        {
+          "name": "facebook/fastspeech2-en-ljspeech",
+          "id": "a5ff1595-8fd1-4a4b-ab77-12f1943f6690",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inputs\": \"Generative AI turns a simple prompt into text, images, speech, music and video.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/:model",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                ":model"
+              ],
+              "variable": [
+                {
+                  "id": "67f1fcac-82e1-4322-87fd-dbf15b6c67b6",
+                  "key": "model",
+                  "value": "facebook/fastspeech2-en-ljspeech"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-07T00:16:21.000Z",
+          "updatedAt": "2026-10-17T17:59:13.000Z",
+          "uid": "7643177-a5ff1595-8fd1-4a4b-ab77-12f1943f6690"
+        }
+      ],
+      "id": "39d43e44-5f8a-436a-99c3-cfe247b0ca37",
+      "createdAt": "2024-04-07T00:16:21.000Z",
+      "updatedAt": "2024-04-11T04:10:56.000Z",
+      "uid": "7643177-39d43e44-5f8a-436a-99c3-cfe247b0ca37"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vault:hugging_face_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "207bca63-af5e-4552-803b-27b517752269",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "c88ceadc-93b3-4efc-8fe5-bbd5aa2f0108",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-inference.huggingface.co",
+      "type": "string"
+    },
+    {
+      "key": "baseUrl_hf",
+      "value": "https://router.huggingface.co/hf-inference",
+      "type": "string"
+    },
+    {
+      "key": "baseUrl_cerebras",
+      "value": "https://router.huggingface.co/cerebras/v1",
+      "type": "string"
+    },
+    {
+      "key": "baseUrl_fireworks",
+      "value": "https://router.huggingface.co/fireworks-ai/v1",
+      "type": "string"
+    },
+    {
+      "key": "baseUrl_groq",
+      "value": "https://router.huggingface.co/groq/openai/v1",
+      "type": "string"
+    },
+    {
+      "key": "baseUrl_nebius",
+      "value": "https://router.huggingface.co/nebius/v1",
+      "type": "string"
+    },
+    {
+      "key": "baseUrl_novita",
+      "value": "https://router.huggingface.co/novita/v3/openai",
+      "type": "string"
+    },
+    {
+      "key": "baseUrl_router",
+      "value": "https://router.huggingface.co/scaleway/v1",
+      "type": "string"
+    },
+    {
+      "key": "baseUrl_sambanova",
+      "value": "https://router.huggingface.co/sambanova/v1",
+      "type": "string"
+    },
+    {
+      "key": "baseUrl_together",
+      "value": "https://router.huggingface.co/together/v1",
+      "type": "string"
+    }
+  ]
+}

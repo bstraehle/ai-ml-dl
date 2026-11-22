@@ -1,0 +1,587 @@
+{
+  "info": {
+    "_postman_id": "75b1d2e1-4a68-4b35-bf53-81c5034a8a23",
+    "name": "📌 ElevenLabs API",
+    "description": "### About\n\n\"ElevenLabs is an AI audio research and deployment company.\"\n\nElevenLabs builds its own text-to-speech, speech-to-text and music models. On the workspace overview it is listed under **Speech & audio**.\n\n### Prerequisites\n\n- Postman Account\n    \n- ElevenLabs Account: [https://elevenlabs.io/app/home](https://elevenlabs.io/app/home)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `elevenlabs_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:elevenlabs_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://elevenlabs.io/docs/api-reference/introduction](https://elevenlabs.io/docs/api-reference/introduction)\n    \n- Models: [https://elevenlabs.io/docs/models](https://elevenlabs.io/docs/models)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2025-02-20T04:00:41.000Z",
+    "updatedAt": "2026-10-12T23:53:20.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-75b1d2e1-4a68-4b35-bf53-81c5034a8a23"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Speech-to-Text (scribe_v2)",
+          "id": "fe0027bd-9c20-4bf3-b426-6c98f5b97da0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "model_id",
+                  "value": "scribe_v2",
+                  "type": "text",
+                  "uuid": "7191c4f4-1573-4a96-aa10-8dfc3c86be2c"
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "uuid": "d0094d3a-99ea-4e3e-b171-f2321727833d",
+                  "src": "postman-cloud:///1ef86bd4-3ec8-4650-843d-344333e34c48"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/speech-to-text",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "speech-to-text"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T04:59:13.000Z",
+          "updatedAt": "2026-10-17T18:18:25.000Z",
+          "uid": "7643177-fe0027bd-9c20-4bf3-b426-6c98f5b97da0"
+        }
+      ],
+      "id": "a5fd0563-9ac1-e88a-a9df-ec3a045e0df1",
+      "createdAt": "2026-10-12T04:59:12.000Z",
+      "updatedAt": "2026-10-12T04:59:13.000Z",
+      "uid": "7643177-a5fd0563-9ac1-e88a-a9df-ec3a045e0df1"
+    },
+    {
+      "name": "Models",
+      "item": [
+        {
+          "name": "Models",
+          "id": "6ea21341-3537-46aa-a035-8285da19f2be",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/models",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-20T04:12:46.000Z",
+          "updatedAt": "2026-10-17T18:18:26.000Z",
+          "uid": "7643177-6ea21341-3537-46aa-a035-8285da19f2be"
+        }
+      ],
+      "id": "3516d8b8-4db1-23cb-07b2-f5997f2cd953",
+      "createdAt": "2026-10-12T17:45:55.000Z",
+      "updatedAt": "2026-10-12T17:45:55.000Z",
+      "uid": "7643177-3516d8b8-4db1-23cb-07b2-f5997f2cd953"
+    },
+    {
+      "name": "Music",
+      "item": [
+        {
+          "name": "music_v1",
+          "id": "76c791f7-0949-48b0-9bd3-3c9ca2db28f5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"A 10-second upbeat electronic track with bright synth arpeggios.\",\n    \"music_length_ms\": 10000,\n    \"model_id\": \"music_v1\",\n    \"force_instrumental\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/music",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "music"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-02-21T03:55:05.000Z",
+          "updatedAt": "2026-10-17T18:10:40.000Z",
+          "uid": "7643177-76c791f7-0949-48b0-9bd3-3c9ca2db28f5"
+        }
+      ],
+      "id": "620be42e-eaff-5c81-1bd5-e8819667cec0",
+      "createdAt": "2026-10-12T17:45:53.000Z",
+      "updatedAt": "2026-10-12T17:45:54.000Z",
+      "uid": "7643177-620be42e-eaff-5c81-1bd5-e8819667cec0"
+    },
+    {
+      "name": "Speech-to-Text",
+      "item": [
+        {
+          "name": "Speech-to-Text - scribe_v2",
+          "id": "0c335202-400d-41cc-b470-abc635be2759",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "model_id",
+                  "value": "scribe_v2",
+                  "type": "text",
+                  "uuid": "7191c4f4-1573-4a96-aa10-8dfc3c86be2c"
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "uuid": "d0094d3a-99ea-4e3e-b171-f2321727833d",
+                  "src": "postman-cloud:///1ef86bd4-3ec8-4650-843d-344333e34c48"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/speech-to-text",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "speech-to-text"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-02-21T03:54:07.000Z",
+          "updatedAt": "2026-10-17T18:18:26.000Z",
+          "uid": "7643177-0c335202-400d-41cc-b470-abc635be2759"
+        }
+      ],
+      "id": "4ca3a898-2943-1388-9daf-0151785927bf",
+      "createdAt": "2026-10-12T17:45:52.000Z",
+      "updatedAt": "2026-10-12T17:45:53.000Z",
+      "uid": "7643177-4ca3a898-2943-1388-9daf-0151785927bf"
+    },
+    {
+      "name": "Text-to-Speech",
+      "item": [
+        {
+          "name": "eleven_flash_v2_5",
+          "id": "5590761f-164f-4356-8c87-4973e08a56ba",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"text\": \"Generative AI turns a simple prompt into text, images, speech, music and video.\",\n    \"model_id\": \"eleven_flash_v2_5\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/text-to-speech/:voice_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "text-to-speech",
+                ":voice_id"
+              ],
+              "variable": [
+                {
+                  "key": "voice_id",
+                  "value": "pMsXgVXv3BLzUgSXRplE"
+                }
+              ]
+            },
+            "description": "1. Click send and download\n    \n2. Convert file format if needed"
+          },
+          "response": [],
+          "createdAt": "2025-02-20T04:25:38.000Z",
+          "updatedAt": "2026-10-17T18:10:40.000Z",
+          "uid": "7643177-5590761f-164f-4356-8c87-4973e08a56ba"
+        },
+        {
+          "name": "eleven_multilingual_v2",
+          "id": "f412aead-adf3-41d3-9981-52d498e07624",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"text\": \"Generative AI turns a simple prompt into text, images, speech, music and video.\",\n    \"model_id\": \"eleven_multilingual_v2\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/text-to-speech/:voice_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "text-to-speech",
+                ":voice_id"
+              ],
+              "variable": [
+                {
+                  "key": "voice_id",
+                  "value": "pMsXgVXv3BLzUgSXRplE"
+                }
+              ]
+            },
+            "description": "1. Click send and download\n    \n2. Convert file format if needed"
+          },
+          "response": [],
+          "createdAt": "2025-03-04T05:31:12.000Z",
+          "updatedAt": "2026-10-17T18:10:40.000Z",
+          "uid": "7643177-f412aead-adf3-41d3-9981-52d498e07624"
+        },
+        {
+          "name": "eleven_turbo_v2_5",
+          "id": "9595b8d7-16b8-48aa-88dc-5ef09e7d7995",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"text\": \"Generative AI turns a simple prompt into text, images, speech, music and video.\",\n    \"model_id\": \"eleven_turbo_v2_5\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/text-to-speech/:voice_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "text-to-speech",
+                ":voice_id"
+              ],
+              "variable": [
+                {
+                  "key": "voice_id",
+                  "value": "pMsXgVXv3BLzUgSXRplE"
+                }
+              ]
+            },
+            "description": "1. Click send and download\n    \n2. Convert file format if needed"
+          },
+          "response": [],
+          "createdAt": "2025-11-15T16:30:45.000Z",
+          "updatedAt": "2026-10-17T18:10:41.000Z",
+          "uid": "7643177-9595b8d7-16b8-48aa-88dc-5ef09e7d7995"
+        },
+        {
+          "name": "eleven_v3",
+          "id": "95901a97-ee7e-4de3-82fa-5e1eea41833b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"text\": \"Generative AI turns a simple prompt into text, images, speech, music and video.\",\n    \"model_id\": \"eleven_v3\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/text-to-speech/:voice_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "text-to-speech",
+                ":voice_id"
+              ],
+              "variable": [
+                {
+                  "key": "voice_id",
+                  "value": "AYZwqKNJgPfbTjp3GbCG"
+                }
+              ]
+            },
+            "description": "1. Click send and download\n    \n2. Convert file format if needed"
+          },
+          "response": [],
+          "createdAt": "2025-06-16T01:19:13.000Z",
+          "updatedAt": "2026-10-17T18:10:41.000Z",
+          "uid": "7643177-95901a97-ee7e-4de3-82fa-5e1eea41833b"
+        },
+        {
+          "name": "eleven_v4",
+          "id": "5f6ef06b-202e-4ebf-b11e-8c30ddab94cb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"text\": \"Generative AI turns a simple prompt into text, images, speech, music and video.\",\n    \"model_id\": \"eleven_v4\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/text-to-speech/:voice_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "text-to-speech",
+                ":voice_id"
+              ],
+              "variable": [
+                {
+                  "key": "voice_id",
+                  "value": "AYZwqKNJgPfbTjp3GbCG"
+                }
+              ]
+            },
+            "description": "1. Click send and download\n    \n2. Convert file format if needed"
+          },
+          "response": [],
+          "createdAt": "2026-10-04T03:09:25.000Z",
+          "updatedAt": "2026-10-17T18:10:41.000Z",
+          "uid": "7643177-5f6ef06b-202e-4ebf-b11e-8c30ddab94cb"
+        },
+        {
+          "name": "eleven_v4_turbo",
+          "id": "9f9d908a-7d55-4d07-9726-5edc9b24611c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"text\": \"Generative AI turns a simple prompt into text, images, speech, music and video.\",\n    \"model_id\": \"eleven_v4_turbo\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/text-to-speech/:voice_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "text-to-speech",
+                ":voice_id"
+              ],
+              "variable": [
+                {
+                  "key": "voice_id",
+                  "value": "AYZwqKNJgPfbTjp3GbCG"
+                }
+              ]
+            },
+            "description": "1. Click send and download\n    \n2. Convert file format if needed"
+          },
+          "response": [],
+          "createdAt": "2026-10-04T03:11:23.000Z",
+          "updatedAt": "2026-10-17T18:10:42.000Z",
+          "uid": "7643177-9f9d908a-7d55-4d07-9726-5edc9b24611c"
+        }
+      ],
+      "id": "20f332f5-fe97-591d-e190-bbcb729bd3fe",
+      "createdAt": "2026-10-12T17:45:47.000Z",
+      "updatedAt": "2026-10-12T19:46:29.000Z",
+      "uid": "7643177-20f332f5-fe97-591d-e190-bbcb729bd3fe"
+    },
+    {
+      "name": "Voices",
+      "item": [
+        {
+          "name": "Voices",
+          "id": "28d5f5dc-2db1-4c6a-87e8-96ef805ad6c1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/voices",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "voices"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-20T04:35:22.000Z",
+          "updatedAt": "2026-10-17T18:18:26.000Z",
+          "uid": "7643177-28d5f5dc-2db1-4c6a-87e8-96ef805ad6c1"
+        }
+      ],
+      "id": "1f7078aa-4db2-9586-80f5-2cc12bf32178",
+      "createdAt": "2026-10-12T17:45:56.000Z",
+      "updatedAt": "2026-10-12T17:45:57.000Z",
+      "uid": "7643177-1f7078aa-4db2-9586-80f5-2cc12bf32178"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "xi-api-key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{vault:elevenlabs_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "dac7d1b9-8db5-48ae-80b0-1289a2b57ed6",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "8abb150f-3c6e-4770-b2ae-deb99dda2c95",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.elevenlabs.io/v1",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "info": {
+    "_postman_id": "33bc9009-0d5d-45d4-b3b4-9c2c6e78a266",
+    "name": "📌 Eden AI API",
+    "description": "### About\n\n\"Access around 1,000 LLMs and expert AI models through one unified API.\"\n\nEden AI sends one request to models from many providers. It supports parallel requests to multiple providers, including OpenAI, Amazon, Anthropic, Google, Mistral and xAI. On the workspace overview it is listed under **Routers & aggregators**.\n\n### Prerequisites\n\n- Postman Account\n    \n- Eden AI Account: [https://app.edenai.run/](https://app.edenai.run/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `eden_ai_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:eden_ai_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://docs.edenai.co/](https://docs.edenai.co/)\n    \n- Models: [https://app.edenai.run/bricks/catalog](https://app.edenai.run/bricks/catalog)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2025-02-20T05:41:11.000Z",
+    "updatedAt": "2026-10-12T23:53:18.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-33bc9009-0d5d-45d4-b3b4-9c2c6e78a266"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Chat (Multiple Providers)",
+          "id": "f09bea47-17a3-4fcb-a796-c174b535ca98",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"providers\": [\n        \"amazon/amazon.nova-pro-v1:0\",\n        \"anthropic/claude-opus-4-5\",\n        \"google/gemini-3-flash-preview\",\n        \"xai/grok-4\",\n        \"mistral/mistral-large-latest\",\n        \"openai/gpt-5.2\"\n    ],\n    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/text/chat",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "text",
+                "chat"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T04:59:07.000Z",
+          "updatedAt": "2026-10-17T18:18:27.000Z",
+          "uid": "7643177-f09bea47-17a3-4fcb-a796-c174b535ca98"
+        }
+      ],
+      "id": "b6aecf67-5ddd-0230-eede-39793293a2e9",
+      "createdAt": "2026-10-12T04:59:06.000Z",
+      "updatedAt": "2026-10-12T04:59:07.000Z",
+      "uid": "7643177-b6aecf67-5ddd-0230-eede-39793293a2e9"
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "Chat (Multiple Providers)",
+          "id": "065527cc-2f6c-4e6e-90b5-ccc92f8800e8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"providers\": [\n        \"amazon/amazon.nova-pro-v1:0\",\n        \"anthropic/claude-opus-4-5\",\n        \"google/gemini-3-flash-preview\",\n        \"xai/grok-4\",\n        \"mistral/mistral-large-latest\",\n        \"openai/gpt-5.2\"\n    ],\n    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/text/chat",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "text",
+                "chat"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-21T16:28:18.000Z",
+          "updatedAt": "2026-10-17T18:18:25.000Z",
+          "uid": "7643177-065527cc-2f6c-4e6e-90b5-ccc92f8800e8"
+        }
+      ],
+      "id": "1e901d35-e9a5-823c-acbb-2c6cc666acd5",
+      "createdAt": "2026-10-12T17:45:45.000Z",
+      "updatedAt": "2026-10-12T17:45:46.000Z",
+      "uid": "7643177-1e901d35-e9a5-823c-acbb-2c6cc666acd5"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vault:eden_ai_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "193ca6b6-4bdb-4cbd-8392-8828030fe9a5",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "2b7ef506-378d-44d3-9059-4d16480804b2",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.edenai.run/v2",
+      "type": "string"
+    }
+  ]
+}

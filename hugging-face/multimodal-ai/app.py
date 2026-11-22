@@ -1,69 +1,96 @@
-import gradio as gr
-import base64, os, threading
+import base64
+import logging
+import mimetypes
+import os
+import sys
 
+import gradio as gr
 from openai import OpenAI
 
-lock = threading.Lock()
+MODEL = "gpt-6.2-sol"
+REASONING_EFFORT = "medium"
+CONCURRENCY_LIMIT = 8
 
-config = {
-    "max_tokens": 1000,
-    "model": "gpt-4o",
-    "temperature": 0
-}
+DEFAULT_PROMPT = "Describe the diagram"
+DEFAULT_IMAGE = "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/refs/heads/main/hugging-face/multimodal-ai/architecture.png"
 
-def get_img_b64(img_path):
-    with open(img_path, "rb") as img_file:
-        return base64.b64encode(img_file.read()).decode("utf-8")
+# Gradio's Markdown blocks (description, completion) scroll (overflow: auto) with no
+# padding, which clips focus outlines at their edges
+CSS = """
+.block > div > .prose { padding: 6px; }
+.prose a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 4px; }
+"""
 
-def invoke(openai_api_key, prompt, image):
-    if (openai_api_key == ""):
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+
+def image_data_url(path: str) -> str:
+    mime_type = mimetypes.guess_type(path)[0] or "image/png"
+    with open(path, "rb") as f:
+        return f"data:{mime_type};base64,{base64.b64encode(f.read()).decode()}"
+
+
+def invoke(openai_api_key: str, prompt: str, image: str) -> str:
+    """Answer a prompt about an image with OpenAI's GPT-6.2 Sol model.
+
+    Args:
+        openai_api_key: OpenAI API key.
+        prompt: Question or instruction about the image.
+        image: The image to reason about.
+
+    Returns:
+        The model's answer in Markdown.
+    """
+    if not openai_api_key:
         raise gr.Error("OpenAI API Key is required.")
-    if (prompt == ""):
+    if not prompt:
         raise gr.Error("Prompt is required.")
-    if (image is None):
+    if not image:
         raise gr.Error("Image is required.")
 
-    with lock:
-        os.environ["OPENAI_API_KEY"] = openai_api_key
-        
-        content = ""
-        
-        try:
-            client = OpenAI()
-    
-            img_b64 = get_img_b64(image)
-    
-            completion = client.chat.completions.create(
-                max_tokens = config["max_tokens"],
-                messages = [{"role": "user",
-                             "content": [{"type": "text", 
-                                          "text": prompt},
-                                         {"type": "image_url",
-                                          "image_url": {"url": f"data:image/jpeg;base64,{img_b64}"}}]}],
-                model = config["model"],
-                temperature = config["temperature"]
-            )
-        
-            content = completion.choices[0].message.content
-        except Exception as e:
-            err_msg = e
-            raise gr.Error(e)
-        finally:
-            del os.environ["OPENAI_API_KEY"]        
-    
-        return content
+    try:
+        completion = OpenAI(api_key=openai_api_key).chat.completions.create(
+            model=MODEL,
+            messages=[{
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": prompt},
+                    {"type": "image_url", "image_url": {"url": image_data_url(image)}},
+                ],
+            }],
+            reasoning_effort=REASONING_EFFORT,
+        )
+    except Exception as e:
+        logger.exception("Request failed")
+        raise gr.Error(str(e)) from e
 
-gr.close_all()
+    content = completion.choices[0].message.content
+
+    if not content:
+        raise gr.Error(f"The model returned no text (finish reason: {completion.choices[0].finish_reason}).")
+
+    logger.info("Completion:\n%s", content)
+    return content
+
 
 demo = gr.Interface(
-    fn = invoke, 
-    inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1),
-              gr.Textbox(label = "Prompt", lines = 1, value = "Describe the diagram"),
-              gr.Image(label = "Image", type = "filepath", sources = ["upload"], 
-                       value = "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/hugging-face/multimodal-ai/architecture.png")],
-    outputs = [gr.Markdown(label = "Completion", value = os.environ["OUTPUT"])],
-    title = "Multimodal Reasoning Application",
-    description = os.environ["DESCRIPTION"]
+    fn=invoke,
+    inputs=[
+        gr.Textbox(label="OpenAI API Key", type="password", lines=1),
+        gr.Textbox(label="Prompt", value=DEFAULT_PROMPT, lines=1),
+        gr.Image(label="Image", type="filepath", sources=["upload"], value=DEFAULT_IMAGE, height=400),
+    ],
+    outputs=[gr.Markdown(label="Completion", value=os.environ.get("OUTPUT", ""))],
+    title="Multimodal Reasoning Application",
+    description=os.environ.get("DESCRIPTION", ""),
+    concurrency_limit=CONCURRENCY_LIMIT,
 )
 
-demo.launch()
+if __name__ == "__main__":
+    # Gradio 6's bundled SourceSansPro-SemiBold.woff2 is a 55-glyph subset, so
+    # semibold text mixes fonts; load the full family from Google Fonts instead.
+    theme = gr.themes.Default(
+        font=[gr.themes.GoogleFont("Source Sans 3", weights=(400, 600, 700)), "ui-sans-serif", "system-ui", "sans-serif"]
+    )
+    demo.launch(mcp_server=True, theme=theme, css=CSS)

@@ -1,0 +1,3 @@
+crewai==1.15.40
+crewai-tools==1.15.40
+gradio[mcp]==6.32.0

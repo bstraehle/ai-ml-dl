@@ -1,0 +1,532 @@
+{
+  "info": {
+    "_postman_id": "c4d61bf4-1b95-4d6f-8cbb-b37cbf8cb7c6",
+    "name": "📌 SambaNova API ⚡",
+    "description": "### About\n\n\"The Fastest AI Inference Platform\"\n\nSambaNova runs open models from other labs, such as DeepSeek, MiniMax and gpt-oss, on its own RDU hardware through an OpenAI-compatible API. On the workspace overview it is listed under **Inference hosts**.\n\n### Prerequisites\n\n- Postman Account\n    \n- SambaNova Account: [https://cloud.sambanova.ai/](https://cloud.sambanova.ai/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `sambanova_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:sambanova_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://docs.sambanova.ai/cloud/docs/get-started/overview](https://docs.sambanova.ai/cloud/docs/get-started/overview)\n    \n- Models: [https://docs.sambanova.ai/docs/en/models/sambacloud-models](https://docs.sambanova.ai/docs/en/models/sambacloud-models)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2025-02-08T19:54:17.000Z",
+    "updatedAt": "2026-10-12T23:54:00.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-c4d61bf4-1b95-4d6f-8cbb-b37cbf8cb7c6"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Chat (MiniMax-M3.1-Flash)",
+          "id": "45d833a3-df59-461c-b556-414c4c8a5425",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"MiniMax-M3.1-Flash\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_completion_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "365f064a-f3ce-a440-0a7e-9e4322df29e6",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"MiniMax-M3.1-Flash\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_completion_tokens\": 4096\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/chat/completions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sat, 24 Oct 2026 17:05:49 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "Inference-Id",
+                  "value": "892f0364-4ff4-4cdd-8284-a6bf446991cd"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "dbeeaqhgldmrs9fu0mig"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "Permissions-Policy",
+                  "value": "camera=(), microphone=(), geolocation=()"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'none'"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "3075",
+              "body": "{\n  \"choices\": [\n    {\n      \"finish_reason\": \"stop\",\n      \"index\": 0,\n      \"logprobs\": null,\n      \"message\": {\n        \"content\": \"A large language model (LLM) is a general-purpose AI model trained on massive amounts of text to generate language and respond to prompts. A reasoning model is a type of LLM specifically optimized for multi-step problem-solving, typically using reinforcement learning and additional computation at inference time to work through intermediate steps before producing an answer.\",\n        \"reasoning\": \"We need answer user in two sentences difference between large language model and reasoning model. Need comply exactly two sentences. Need think nuance: LLM broad trained on text predicts next token, reasoning model trained/optimized for multi-step reasoning, often via RL, spends more test-time compute to work through problems. Need not overstate all reasoning models distinct architectures; reasoning models are LLMs specialized. Two sentences. Could say \\\"A large language model (LLM) is a general-purpose AI model trained on vast amounts of text to predict and generate language, though it can also handle reasoning tasks. A reasoning model is an LLM further trained or optimized to perform multi-step logical problem-solving, typically by generating intermediate steps and using more computation at inference time.\\\" That's two sentences. Need ensure accurate: reasoning model may not always generate intermediate steps (some latent reasoning) but typically. Could say \\\"often by generating intermediate reasoning steps and allocating more computation at inference time.\\\" Good. User asks in two sentences. We should just answer two sentences no preamble. Need maybe mention reasoning model subset. Sentence 1: \\\"A large language model (LLM) is a broad, general-purpose model trained on massive text data to generate language and answer prompts.\\\" Sentence 2: \\\"A reasoning model is a type of LLM specifically optimized for multi-step problem-solving, typically using techniques such as reinforcement learning and extra computation to work through intermediate steps before giving an answer.\\\" That's good. Is \\\"extra computation\\\" at inference time? Could specify \\\"at inference time\\\". Two sentences. No need caveats. Let's produce.\",\n        \"role\": \"assistant\"\n      }\n    }\n  ],\n  \"created\": 1792861549,\n  \"id\": \"21909493-ae20-4a89-b899-a1116856d9ec\",\n  \"model\": \"MiniMax-M3.1-Flash\",\n  \"object\": \"chat.completion\",\n  \"system_fingerprint\": \"fastcoe\",\n  \"usage\": {\n    \"completion_tokens\": 384,\n    \"completion_tokens_after_first_per_sec\": 198.18900850744686,\n    \"completion_tokens_after_first_per_sec_first_ten\": 219.2948343171728,\n    \"completion_tokens_after_first_per_sec_graph\": 219.2948343171728,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 318\n    },\n    \"completion_tokens_per_sec\": 164.5055593982327,\n    \"end_time\": 1792861549.055975,\n    \"is_last_response\": true,\n    \"prompt_tokens\": 202,\n    \"prompt_tokens_details\": {\n      \"cache_creation_tokens\": 0,\n      \"cached_tokens\": 0\n    },\n    \"start_time\": 1792861546.7217073,\n    \"stop_reason\": \"stop\",\n    \"time_to_first_token\": 0.40176892280578613,\n    \"total_latency\": 2.3342676162719727,\n    \"total_tokens\": 586,\n    \"total_tokens_per_sec\": 251.04233804001132\n  }\n}",
+              "createdAt": "2026-10-24T17:05:50.000Z",
+              "updatedAt": "2026-10-24T17:05:50.000Z",
+              "uid": "7643177-365f064a-f3ce-a440-0a7e-9e4322df29e6"
+            }
+          ],
+          "createdAt": "2025-02-09T18:01:27.000Z",
+          "updatedAt": "2026-10-24T17:05:51.000Z",
+          "uid": "7643177-45d833a3-df59-461c-b556-414c4c8a5425"
+        }
+      ],
+      "id": "57df2c3c-2704-4840-9242-4771e8461804",
+      "createdAt": "2025-02-09T17:29:15.000Z",
+      "updatedAt": "2025-02-09T18:02:12.000Z",
+      "uid": "7643177-57df2c3c-2704-4840-9242-4771e8461804"
+    },
+    {
+      "name": "Audio",
+      "item": [
+        {
+          "name": "Transcription (Qwen2-Audio-7B-Instruct)",
+          "id": "2e459526-302b-44a4-80c0-0f234190c402",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "model",
+                  "value": "Qwen2-Audio-7B-Instruct",
+                  "type": "text",
+                  "uuid": "e93c3719-ef49-43d8-bb41-0d4b48cee7b2"
+                },
+                {
+                  "key": "language",
+                  "value": "english",
+                  "type": "text",
+                  "uuid": "4cca695f-e1d2-46bd-94fe-8c0e82c95150"
+                },
+                {
+                  "key": "response_format",
+                  "value": "json",
+                  "type": "text",
+                  "uuid": "52bf2eaa-49f2-4d29-a1a7-e93a537cf09b"
+                },
+                {
+                  "key": "temperature",
+                  "value": "0.01",
+                  "type": "text",
+                  "uuid": "8d62ff62-137f-41d9-a28c-fff66eb16a56"
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "uuid": "11857511-4cb4-4bf4-b9de-b6ab521b33a8",
+                  "src": "postman-cloud:///1ef86bd4-3ec8-4650-843d-344333e34c48"
+                },
+                {
+                  "key": "stream",
+                  "value": "false",
+                  "type": "text",
+                  "uuid": "abed2d84-d610-4cbe-953b-f91f3e67c959"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/audio/transcriptions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "audio",
+                "transcriptions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-09T18:06:16.000Z",
+          "updatedAt": "2026-10-17T18:21:33.000Z",
+          "uid": "7643177-2e459526-302b-44a4-80c0-0f234190c402"
+        },
+        {
+          "name": "Translation (Qwen2-Audio-7B-Instruct)",
+          "id": "d4c8a18c-b197-4978-b012-0173c38298e2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "model",
+                  "value": "Qwen2-Audio-7B-Instruct",
+                  "type": "text",
+                  "uuid": "e93c3719-ef49-43d8-bb41-0d4b48cee7b2"
+                },
+                {
+                  "key": "language",
+                  "value": "spanish",
+                  "type": "text",
+                  "uuid": "4cca695f-e1d2-46bd-94fe-8c0e82c95150"
+                },
+                {
+                  "key": "response_format",
+                  "value": "json",
+                  "type": "text",
+                  "uuid": "52bf2eaa-49f2-4d29-a1a7-e93a537cf09b"
+                },
+                {
+                  "key": "temperature",
+                  "value": "0.01",
+                  "type": "text",
+                  "uuid": "8d62ff62-137f-41d9-a28c-fff66eb16a56"
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "uuid": "11857511-4cb4-4bf4-b9de-b6ab521b33a8",
+                  "src": "postman-cloud:///1ef86bd4-3ec8-4650-843d-344333e34c48"
+                },
+                {
+                  "key": "stream",
+                  "value": "false",
+                  "type": "text",
+                  "uuid": "abed2d84-d610-4cbe-953b-f91f3e67c959"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/audio/translations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "audio",
+                "translations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-09T18:11:18.000Z",
+          "updatedAt": "2026-10-17T18:21:33.000Z",
+          "uid": "7643177-d4c8a18c-b197-4978-b012-0173c38298e2"
+        }
+      ],
+      "id": "442b99f6-adf1-401b-97cc-551ceb966ef2",
+      "createdAt": "2025-02-09T17:29:34.000Z",
+      "updatedAt": "2026-10-12T19:53:59.000Z",
+      "uid": "7643177-442b99f6-adf1-401b-97cc-551ceb966ef2"
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "gemma-4-31B-it",
+          "id": "74aaf430-629f-4419-8102-163fb280dc6c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"gemma-4-31B-it\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_completion_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-06-10T02:24:53.000Z",
+          "updatedAt": "2026-10-17T18:21:33.000Z",
+          "uid": "7643177-74aaf430-629f-4419-8102-163fb280dc6c"
+        },
+        {
+          "name": "gpt-oss-120b",
+          "id": "c4f77d0d-2bcf-d129-d9a2-2d42d4760103",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"gpt-oss-120b\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_completion_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T00:09:28.000Z",
+          "updatedAt": "2026-10-17T18:21:34.000Z",
+          "uid": "7643177-c4f77d0d-2bcf-d129-d9a2-2d42d4760103"
+        },
+        {
+          "name": "Meta-Llama-3.3-70B-Instruct",
+          "id": "701a4968-ea3f-498c-8c7a-1795e7e75526",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"Meta-Llama-3.3-70B-Instruct\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_completion_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-09T17:42:34.000Z",
+          "updatedAt": "2026-10-17T18:21:35.000Z",
+          "uid": "7643177-701a4968-ea3f-498c-8c7a-1795e7e75526"
+        },
+        {
+          "name": "MiniMax-M3.1-Flash",
+          "id": "c64b4c22-41d2-4ec6-124e-bd3ae0222af9",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"MiniMax-M3.1-Flash\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_completion_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-24T17:01:01.000Z",
+          "updatedAt": "2026-10-24T17:01:01.000Z",
+          "uid": "7643177-c64b4c22-41d2-4ec6-124e-bd3ae0222af9"
+        }
+      ],
+      "id": "96531aca-5da5-49b4-b1b1-c2902817073f",
+      "createdAt": "2025-02-09T17:29:28.000Z",
+      "updatedAt": "2026-11-14T17:41:29.000Z",
+      "uid": "7643177-96531aca-5da5-49b4-b1b1-c2902817073f"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vault:sambanova_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "0242a628-4bbb-45b3-b6e4-779c42c879cb",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "f06d28d6-8b70-46fe-9a7c-13d62c355ab1",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.sambanova.ai/v1",
+      "type": "string"
+    }
+  ]
+}

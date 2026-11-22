@@ -55,7 +55,7 @@ Each path is an ordered list of topics in this repo. Skip what you already know.
 | Multimodal | [Vision models](vision-models/) · [Diffusion models](diffusion-models/) |
 | Evaluation and safety | [Quality & safety](quality-safety-llm-apps/) · [Guardrails](guardrails/) · [Red teaming](red-teaming-llm-apps/) |
 | Ops and deployment | [LLMOps](llm-ops/) · [MLOps](machine-learning-eng/) · [Serving LLMs](efficiently-serving-llms/) · [On-device AI](on-device-ai/) · [Federated learning](federated-learning/) · [Carbon-aware computing](carbon-aware-computing/) · [Weights & Biases](wandb/) |
-| Platforms and model providers | [Amazon Bedrock](amazon-bedrock/) · [Amazon SageMaker](amazon-sagemaker/) · [Google Vertex AI](google-vertex-ai/) · [IBM watsonx](ibm-watsonx/) · [OpenAI](openai/) · [Mistral](mistral/) · [Llama](llama/) |
+| Platforms and model providers | [Open-source models (Hugging Face)](open-source-models/) · [Amazon Bedrock](amazon-bedrock/) · [Amazon SageMaker](amazon-sagemaker/) · [Google Vertex AI](google-vertex-ai/) · [IBM watsonx](ibm-watsonx/) · [OpenAI](openai/) · [Mistral](mistral/) · [Llama](llama/) |
 | Frameworks | [LangChain](langchain/) · [Haystack](haystack/) · [Semantic Kernel](microsoft-semantic-kernel/) |
 | My projects | [Hugging Face apps](hugging-face/) · [Gen AI REST APIs](rest-apis/) |
 
@@ -78,8 +78,8 @@ Each path is an ordered list of topics in this repo. Skip what you already know.
 
 ## My projects
 
-- [Hugging Face apps](hugging-face/): source code for my [Hugging Face Spaces](https://hf.co/bstraehle): RAG, agentic RAG, multi-agent systems (AutoGen, crewAI, LangGraph), a GAIA benchmark agent, and fine-tuning
-- [Gen AI REST APIs](rest-apis/): a [Postman workspace](https://www.postman.com/bstraehle/workspace/generative-ai-llm-rest-apis/overview) for calling LLM provider APIs directly
+- [Hugging Face apps](hugging-face/): source code for my 12 [Hugging Face Spaces](https://hf.co/bstraehle), mirrored from the Hub: a GAIA benchmark agent with MCP, agentic and advanced RAG, multi-agent deep research, chess and coding (crewAI, LangGraph, Microsoft Agent Framework), a Stockfish MCP server, and SDK demos for Amazon Bedrock, OpenAI and Vertex AI
+- [Gen AI REST APIs](rest-apis/): Postman collections for 51 generative AI providers, exported from my public [Generative AI APIs workspace](https://www.postman.com/ai-engineer/generative-ai-apis/)
 - [Kaggle](https://www.kaggle.com/bstraehle): tabular classification and regression competitions
 
 ## How this repo stays current

@@ -1,5 +1,0 @@
-agentops==0.2.2
-crewai==0.28.8
-crewai_tools==0.1.6
-langchain_community==0.3.27
-openai==1.33.0

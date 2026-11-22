@@ -1,0 +1,335 @@
+{
+  "info": {
+    "_postman_id": "0a2f536c-1899-47a7-9a2b-bc5ea302b1f5",
+    "name": "📌 Cartesia API",
+    "description": "### About Cartesia\n\n\"AI that learns and interacts like humans\"\n\nCartesia builds its own Sonic text-to-speech and Ink speech-to-text models. On the workspace overview it is listed under **Speech & audio**.\n\n### Prerequisites\n\n- Postman Account\n    \n- Cartesia Account: [https://cartesia.ai/](https://cartesia.ai/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `cartesia_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:cartesia_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://docs.cartesia.ai/api-reference/tts/bytes](https://docs.cartesia.ai/api-reference/tts/bytes)\n    \n- Models: [https://docs.cartesia.ai/api-reference/stt/transcribe](https://docs.cartesia.ai/api-reference/stt/transcribe)\n\n### Notes\n\nText-to-Speech returns raw audio (WAV). Speech-to-Text needs an audio file selected in the `file` form field.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-11T21:26:23.000Z",
+    "updatedAt": "2026-10-12T23:53:03.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-0a2f536c-1899-47a7-9a2b-bc5ea302b1f5"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Text-to-Speech (sonic-3.6)",
+          "id": "6dff6885-a302-4762-8fde-fba44fcfe494",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cartesia-Version",
+                "value": "2026-08-14"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model_id\": \"sonic-3.6\",\n    \"transcript\": \"Generative AI turns a simple prompt into text, images, speech, music and video.\",\n    \"voice\": \"db6b0ed5-d5d3-463d-ae85-518a07d3c2b4\",\n    \"output_format\": {\n        \"container\": \"wav\",\n        \"encoding\": \"pcm_s16le\",\n        \"sample_rate\": 44100\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tts/bytes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tts",
+                "bytes"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:23.000Z",
+          "updatedAt": "2026-10-17T17:30:43.000Z",
+          "uid": "7643177-6dff6885-a302-4762-8fde-fba44fcfe494"
+        }
+      ],
+      "id": "73b98f1b-31fc-424e-a017-be1c0c79acc8",
+      "createdAt": "2026-10-11T21:26:23.000Z",
+      "updatedAt": "2026-10-11T21:26:23.000Z",
+      "uid": "7643177-73b98f1b-31fc-424e-a017-be1c0c79acc8"
+    },
+    {
+      "name": "Speech-to-Text",
+      "item": [
+        {
+          "name": "ink-whisper",
+          "id": "697656d6-5133-4104-a31e-9e31b228b5bd",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cartesia-Version",
+                "value": "2026-08-14"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "model",
+                  "value": "ink-whisper",
+                  "type": "text"
+                },
+                {
+                  "key": "language",
+                  "value": "en",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/stt",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stt"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:23.000Z",
+          "updatedAt": "2026-10-11T21:26:23.000Z",
+          "uid": "7643177-697656d6-5133-4104-a31e-9e31b228b5bd"
+        }
+      ],
+      "id": "21c7cc13-0819-4c57-ae46-2a628ceb5f03",
+      "createdAt": "2026-10-11T21:26:23.000Z",
+      "updatedAt": "2026-10-11T21:26:23.000Z",
+      "uid": "7643177-21c7cc13-0819-4c57-ae46-2a628ceb5f03"
+    },
+    {
+      "name": "Text-to-Speech",
+      "item": [
+        {
+          "name": "sonic-3.5",
+          "id": "408c1d08-7976-4e34-916f-c7448aad9643",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cartesia-Version",
+                "value": "2026-08-14"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model_id\": \"sonic-3.5\",\n    \"transcript\": \"Generative AI turns a simple prompt into text, images, speech, music and video.\",\n    \"voice\": \"db6b0ed5-d5d3-463d-ae85-518a07d3c2b4\",\n    \"output_format\": {\n        \"container\": \"wav\",\n        \"encoding\": \"pcm_s16le\",\n        \"sample_rate\": 44100\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tts/bytes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tts",
+                "bytes"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:23.000Z",
+          "updatedAt": "2026-10-17T17:30:44.000Z",
+          "uid": "7643177-408c1d08-7976-4e34-916f-c7448aad9643"
+        },
+        {
+          "name": "sonic-3.6",
+          "id": "9fbb1b9a-7505-4109-9721-b85ba54aaf9f",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Cartesia-Version",
+                "value": "2026-08-14"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model_id\": \"sonic-3.6\",\n    \"transcript\": \"Generative AI turns a simple prompt into text, images, speech, music and video.\",\n    \"voice\": \"db6b0ed5-d5d3-463d-ae85-518a07d3c2b4\",\n    \"output_format\": {\n        \"container\": \"wav\",\n        \"encoding\": \"pcm_s16le\",\n        \"sample_rate\": 44100\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tts/bytes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tts",
+                "bytes"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:23.000Z",
+          "updatedAt": "2026-10-17T17:30:44.000Z",
+          "uid": "7643177-9fbb1b9a-7505-4109-9721-b85ba54aaf9f"
+        }
+      ],
+      "id": "b9ffcf57-74e6-4fa2-8b7a-e7d1a19c8b07",
+      "createdAt": "2026-10-11T21:26:23.000Z",
+      "updatedAt": "2026-10-12T19:45:07.000Z",
+      "uid": "7643177-b9ffcf57-74e6-4fa2-8b7a-e7d1a19c8b07"
+    },
+    {
+      "name": "Voices",
+      "item": [
+        {
+          "name": "Voices",
+          "id": "41a3bdf1-5564-48ff-a59d-1e5f8144ea8c",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Cartesia-Version",
+                "value": "2026-08-14"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/voices",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "voices"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:23.000Z",
+          "updatedAt": "2026-10-17T18:17:16.000Z",
+          "uid": "7643177-41a3bdf1-5564-48ff-a59d-1e5f8144ea8c"
+        }
+      ],
+      "id": "5c613b63-298e-40c9-9565-038cd025d86c",
+      "createdAt": "2026-10-11T21:26:23.000Z",
+      "updatedAt": "2026-10-11T21:26:23.000Z",
+      "uid": "7643177-5c613b63-298e-40c9-9565-038cd025d86c"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vault:cartesia_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "593d9124-48ce-4623-ac09-0ae6a893ab2c",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "283b1261-ed96-416b-8d13-17be6d897e7f",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.cartesia.ai",
+      "type": "string"
+    }
+  ]
+}
