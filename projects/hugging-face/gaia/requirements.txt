@@ -4,7 +4,7 @@ crewai-tools[stagehand]==1.15.40
 datasets==5.2.0
 google-genai==3.2.0
 gradio[mcp,oauth]==6.32.0
-litellm==1.80.0
+litellm==1.109.0.dev1
 openai==2.54.0
 openpyxl==3.1.5
 python-docx==1.2.0
