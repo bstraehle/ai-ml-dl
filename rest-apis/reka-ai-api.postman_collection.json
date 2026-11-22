@@ -1,0 +1,456 @@
+{
+  "info": {
+    "_postman_id": "9050ec2e-0f59-4455-991c-32159bc83c54",
+    "name": "📌 Reka AI API",
+    "description": "### About Reka AI\n\n\"Reka AI builds natively multimodal models (Spark, Edge, Flash, Core) for video, image, audio, and text.\"\n\nReka builds its own multimodal models and serves them through an OpenAI-compatible API. On the workspace overview it is listed under **Model makers**.\n\n### Prerequisites\n\n- Postman Account\n    \n- Reka AI Account: [https://platform.reka.ai/](https://platform.reka.ai/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `reka_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:reka_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://docs.reka.ai/chat/overview](https://docs.reka.ai/chat/overview)\n    \n- Models: [https://docs.reka.ai/chat/models](https://docs.reka.ai/chat/models)\n    \n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2025-03-24T02:30:06.000Z",
+    "updatedAt": "2026-10-12T23:53:56.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-9050ec2e-0f59-4455-991c-32159bc83c54"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Chat (reka-edge-2603)",
+          "id": "99c4aa6f-17fe-4cbf-b623-606853351e8c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"reka-edge-2603\",\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ba31ca1f-d321-e0fe-16e5-2b2b5d2fff46",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"reka-edge-2603\",\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/chat/completions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "value": "Sat, 17 Oct 2026 18:05:59 GMT",
+                  "key": "Date"
+                },
+                {
+                  "value": "application/json",
+                  "key": "Content-Type"
+                },
+                {
+                  "value": "998",
+                  "key": "Content-Length"
+                },
+                {
+                  "value": "close",
+                  "key": "Connection"
+                },
+                {
+                  "value": "a4c13c0c19e49d66-DFW",
+                  "key": "CF-Ray"
+                },
+                {
+                  "value": "DYNAMIC",
+                  "key": "CF-Cache-Status"
+                },
+                {
+                  "value": "no-store, no-cache",
+                  "key": "Cache-Control"
+                },
+                {
+                  "value": "cloudflare",
+                  "key": "Server"
+                },
+                {
+                  "value": "Origin",
+                  "key": "Vary"
+                },
+                {
+                  "value": "120",
+                  "key": "ratelimit-limit"
+                },
+                {
+                  "value": "29",
+                  "key": "ratelimit-remaining"
+                },
+                {
+                  "value": "0",
+                  "key": "ratelimit-reset"
+                },
+                {
+                  "value": "120",
+                  "key": "x-ratelimit-limit-requests"
+                },
+                {
+                  "value": "29",
+                  "key": "x-ratelimit-remaining-requests"
+                },
+                {
+                  "value": "0s",
+                  "key": "x-ratelimit-reset-requests"
+                },
+                {
+                  "value": "154cff10-b403-4e6c-bc30-39dd33549245",
+                  "key": "x-request-id"
+                },
+                {
+                  "value": "6ad3b90700000000aeee4859f5929b74",
+                  "key": "x-trace-id"
+                },
+                {
+                  "value": "cfCacheStatus;desc=\"DYNAMIC\"",
+                  "key": "Server-Timing"
+                },
+                {
+                  "value": "cfEdge;dur=10,cfOrigin;dur=0,cfWorker;dur=872",
+                  "key": "Server-Timing"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "1181",
+              "body": "{\n  \"id\": \"chatcmpl-0488a66754204327abd53b0160eae4a8\",\n  \"object\": \"chat.completion\",\n  \"created\": 1792260359,\n  \"model\": \"reka-edge-2603\",\n  \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"A large language model is designed to understand and generate text based on extensive training data, focusing on large-scale capabilities like processing vast amounts of information and context. In contrast, a reasoning model adds cognitive-like reasoning capabilities, enabling it to infer logical conclusions and solve complex problems by analyzing patterns and logic, often requiring real-world reasoning tasks.\\n\\n\",\n        \"refusal\": null,\n        \"annotations\": null,\n        \"audio\": null,\n        \"function_call\": null,\n        \"reasoning_content\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\",\n      \"stop_reason\": \"<sep>\",\n      \"token_ids\": null\n    }\n  ],\n  \"service_tier\": null,\n  \"system_fingerprint\": null,\n  \"usage\": {\n    \"prompt_tokens\": 23,\n    \"total_tokens\": 90,\n    \"completion_tokens\": 67,\n    \"prompt_tokens_details\": null\n  },\n  \"prompt_logprobs\": null,\n  \"prompt_token_ids\": null,\n  \"kv_transfer_params\": null\n}",
+              "createdAt": "2026-10-17T18:06:00.000Z",
+              "updatedAt": "2026-10-17T18:06:00.000Z",
+              "uid": "7643177-ba31ca1f-d321-e0fe-16e5-2b2b5d2fff46"
+            }
+          ],
+          "createdAt": "2025-03-24T02:45:58.000Z",
+          "updatedAt": "2026-10-17T18:06:02.000Z",
+          "uid": "7643177-99c4aa6f-17fe-4cbf-b623-606853351e8c"
+        }
+      ],
+      "id": "613670d3-7590-468a-a3ec-bc194a32e38d",
+      "createdAt": "2025-03-24T02:45:44.000Z",
+      "updatedAt": "2025-03-24T02:46:00.000Z",
+      "uid": "7643177-613670d3-7590-468a-a3ec-bc194a32e38d"
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "deepseek41-flash-20261017",
+          "id": "76df1ebb-d746-371e-0d3b-0ef32420d461",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"deepseek41-flash-20261017\",\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-24T17:01:00.000Z",
+          "updatedAt": "2026-10-24T17:01:00.000Z",
+          "uid": "7643177-76df1ebb-d746-371e-0d3b-0ef32420d461"
+        },
+        {
+          "name": "reka-edge-2603",
+          "id": "0110a056-0102-449d-9b0f-9f5766e6f421",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"reka-edge-2603\",\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-03-24T02:42:45.000Z",
+          "updatedAt": "2026-10-17T18:21:29.000Z",
+          "uid": "7643177-0110a056-0102-449d-9b0f-9f5766e6f421"
+        },
+        {
+          "name": "reka-flash",
+          "id": "b2131a1d-9f4f-421b-a182-d75252e2c638",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"reka-flash\",\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-03-24T02:41:50.000Z",
+          "updatedAt": "2026-10-17T18:21:29.000Z",
+          "uid": "7643177-b2131a1d-9f4f-421b-a182-d75252e2c638"
+        },
+        {
+          "name": "reka-flash-3",
+          "id": "c9ed6d42-c693-4dde-8d01-2b75190bd6b1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"model\": \"reka-flash-3\",\n    \"stream\": false,\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-03-24T02:42:18.000Z",
+          "updatedAt": "2026-10-17T18:21:29.000Z",
+          "uid": "7643177-c9ed6d42-c693-4dde-8d01-2b75190bd6b1"
+        }
+      ],
+      "id": "65438e19-38c9-4737-835d-4aaba2c7f960",
+      "createdAt": "2025-03-24T02:45:16.000Z",
+      "updatedAt": "2026-10-24T17:01:01.000Z",
+      "uid": "7643177-65438e19-38c9-4737-835d-4aaba2c7f960"
+    },
+    {
+      "name": "Models",
+      "item": [
+        {
+          "name": "Models",
+          "id": "388eeb34-e4c8-4dc7-b69e-855bc81916f1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/models",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-03-24T02:31:28.000Z",
+          "updatedAt": "2026-10-17T18:21:29.000Z",
+          "uid": "7643177-388eeb34-e4c8-4dc7-b69e-855bc81916f1"
+        }
+      ],
+      "id": "d6705006-57c6-d587-1cff-e46fd6bef545",
+      "createdAt": "2026-10-12T17:46:11.000Z",
+      "updatedAt": "2026-10-12T17:46:12.000Z",
+      "uid": "7643177-d6705006-57c6-d587-1cff-e46fd6bef545"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "value",
+        "value": "{{vault:reka_api_key}}",
+        "type": "string"
+      },
+      {
+        "key": "key",
+        "value": "X-Api-Key",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "70d8bab7-2ed2-4146-aa0d-49b09b8062d4",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "ad665715-fdf8-4c96-adc8-ca7df649b2be",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.reka.ai/v1",
+      "type": "string"
+    }
+  ]
+}

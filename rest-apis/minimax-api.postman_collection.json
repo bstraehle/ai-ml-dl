@@ -1,0 +1,702 @@
+{
+  "info": {
+    "_postman_id": "da44cdc0-5e2f-443a-831a-bfc7762b9dbb",
+    "name": "📌 MiniMax API",
+    "description": "### About MiniMax\n\n\"Global leader in multi-modal models and AI-native products with over 200 million users.\"\n\nMiniMax builds its own language, speech, image and video models and serves them through its own API. On the workspace overview it is listed under **Model makers**.\n\n### Prerequisites\n\n- Postman Account\n    \n- MiniMax Account: [https://platform.minimax.io/](https://platform.minimax.io/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `minimax_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:minimax_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://platform.minimax.io/docs/api-reference/api-overview](https://platform.minimax.io/docs/api-reference/api-overview)\n    \n- Models: [https://platform.minimax.io/docs/api-reference/api-overview](https://platform.minimax.io/docs/api-reference/api-overview)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-11T21:25:49.000Z",
+    "updatedAt": "2026-10-12T23:53:39.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-da44cdc0-5e2f-443a-831a-bfc7762b9dbb"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Chat (MiniMax-M3)",
+          "id": "d24bf371-e821-4972-b253-63f1910f7df8",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"MiniMax-M3\",\n    \"max_completion_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9752230c-b341-9027-7473-f934ed547642",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"MiniMax-M3\",\n    \"max_completion_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1/chat/completions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "value": "application/json; charset=utf-8",
+                  "key": "Content-Type"
+                },
+                {
+                  "value": "1889",
+                  "key": "Content-Length"
+                },
+                {
+                  "value": "Accept-Encoding",
+                  "key": "Vary"
+                },
+                {
+                  "value": "0722eb72323b1501978aa05ae92506ee",
+                  "key": "Trace-Id"
+                },
+                {
+                  "value": "eee1047ed4dca2763d34287d19f555a0",
+                  "key": "X-Session-Id"
+                },
+                {
+                  "value": "2109298827151282869_1792260210vexnz6",
+                  "key": "X-Mm-Request-Id"
+                },
+                {
+                  "value": "f5278626b560761684b7a41de0333c47",
+                  "key": "Minimax-Request-Id"
+                },
+                {
+                  "value": "1792260210.605",
+                  "key": "alb_receive_time"
+                },
+                {
+                  "value": "19531d2d7e0714ffd3ffd0f1641c8771f5e00d7f",
+                  "key": "alb_request_id"
+                },
+                {
+                  "value": "Sat, 17 Oct 2026 18:03:33 GMT",
+                  "key": "Expires"
+                },
+                {
+                  "value": "max-age=0, no-cache, no-store",
+                  "key": "Cache-Control"
+                },
+                {
+                  "value": "no-cache",
+                  "key": "Pragma"
+                },
+                {
+                  "value": "Sat, 17 Oct 2026 18:03:33 GMT",
+                  "key": "Date"
+                },
+                {
+                  "value": "close",
+                  "key": "Connection"
+                },
+                {
+                  "value": "*",
+                  "key": "Access-Control-Allow-Origin"
+                },
+                {
+                  "value": "ak",
+                  "key": "X-From"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "3034",
+              "body": "{\n  \"id\": \"0722eb72323b1501978aa05ae92506ee\",\n  \"choices\": [\n    {\n      \"finish_reason\": \"stop\",\n      \"index\": 0,\n      \"message\": {\n        \"content\": \"<think>The user is asking a concise question about the difference between a large language model (LLM) and a reasoning model. I should answer in exactly two sentences as requested.\\n\\nA large language model (LLM) is trained primarily to predict the next token in a sequence based on patterns learned from vast amounts of text data, excelling at generating fluent, contextually relevant text but often struggling with multi-step logical problems. A reasoning model is specifically designed—or fine-tuned—to perform structured, step-by-step logical inference, often using techniques like chain-of-thought prompting or reinforcement learning, to tackle problems requiring deliberate deduction rather than just pattern matching.\\n\\nLet me make sure this is exactly two sentences and clearly distinguishes the two.</think>\\n\\nA large language model (LLM) is primarily trained to predict the next token in a sequence, enabling it to generate fluent, contextually relevant text based on patterns learned from vast amounts of data, but it often struggles with multi-step logical problems. A reasoning model is specifically designed or fine-tuned—often using techniques like chain-of-thought prompting or reinforcement learning—to work through problems through deliberate, step-by-step logical inference rather than relying solely on pattern matching.\",\n        \"role\": \"assistant\"\n      }\n    }\n  ],\n  \"created\": 1792260211,\n  \"model\": \"MiniMax-M3\",\n  \"object\": \"chat.completion\",\n  \"usage\": {\n    \"total_tokens\": 431,\n    \"total_characters\": 0,\n    \"prompt_tokens\": 194,\n    \"completion_tokens\": 237,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 128\n    }\n  },\n  \"input_sensitive\": false,\n  \"output_sensitive\": false,\n  \"input_sensitive_type\": 0,\n  \"output_sensitive_type\": 0,\n  \"output_sensitive_int\": 0,\n  \"service_tier\": \"standard\",\n  \"base_resp\": {\n    \"status_code\": 0,\n    \"status_msg\": \"\"\n  }\n}",
+              "createdAt": "2026-10-17T18:03:34.000Z",
+              "updatedAt": "2026-10-17T18:03:34.000Z",
+              "uid": "7643177-9752230c-b341-9027-7473-f934ed547642"
+            }
+          ],
+          "createdAt": "2026-10-11T21:25:50.000Z",
+          "updatedAt": "2026-10-17T18:03:35.000Z",
+          "uid": "7643177-d24bf371-e821-4972-b253-63f1910f7df8"
+        }
+      ],
+      "id": "8f6637ab-61a8-4acf-b80a-c1b5e3600ea1",
+      "createdAt": "2026-10-11T21:25:50.000Z",
+      "updatedAt": "2026-10-11T21:25:50.000Z",
+      "uid": "7643177-8f6637ab-61a8-4acf-b80a-c1b5e3600ea1"
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "MiniMax-M2.7",
+          "id": "4b818ca7-aa69-4109-b1b1-0274a866f01b",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"MiniMax-M2.7\",\n    \"max_completion_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:50.000Z",
+          "updatedAt": "2026-10-17T18:19:47.000Z",
+          "uid": "7643177-4b818ca7-aa69-4109-b1b1-0274a866f01b"
+        },
+        {
+          "name": "MiniMax-M2.7-highspeed",
+          "id": "fe826a11-a007-4be6-9015-af79d49b7352",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"MiniMax-M2.7-highspeed\",\n    \"max_completion_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:50.000Z",
+          "updatedAt": "2026-10-17T18:19:47.000Z",
+          "uid": "7643177-fe826a11-a007-4be6-9015-af79d49b7352"
+        },
+        {
+          "name": "MiniMax-M3",
+          "id": "f94a0508-86e4-4a89-bb7a-2b18159465b7",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"MiniMax-M3\",\n    \"max_completion_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:50.000Z",
+          "updatedAt": "2026-10-17T18:19:47.000Z",
+          "uid": "7643177-f94a0508-86e4-4a89-bb7a-2b18159465b7"
+        },
+        {
+          "name": "MiniMax-M3.1-Flash",
+          "id": "0211eb60-2bcb-a7f2-e9fc-bde4223a0d4e",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"MiniMax-M3.1-Flash\",\n    \"max_completion_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-24T17:00:48.000Z",
+          "updatedAt": "2026-10-24T17:00:48.000Z",
+          "uid": "7643177-0211eb60-2bcb-a7f2-e9fc-bde4223a0d4e"
+        }
+      ],
+      "id": "bb2e3c93-8f72-4549-a3de-13d84111bf49",
+      "createdAt": "2026-10-11T21:25:50.000Z",
+      "updatedAt": "2026-10-24T17:00:49.000Z",
+      "uid": "7643177-bb2e3c93-8f72-4549-a3de-13d84111bf49"
+    },
+    {
+      "name": "Image",
+      "item": [
+        {
+          "name": "image-01",
+          "id": "c08e4aef-a947-438b-a95c-6c9672a44a4c",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"image-01\",\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\",\n    \"aspect_ratio\": \"16:9\",\n    \"response_format\": \"url\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/image_generation",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "image_generation"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:50.000Z",
+          "updatedAt": "2026-10-17T18:19:47.000Z",
+          "uid": "7643177-c08e4aef-a947-438b-a95c-6c9672a44a4c"
+        }
+      ],
+      "id": "329c3e4f-f542-49ae-a695-d8b14625a361",
+      "createdAt": "2026-10-11T21:25:50.000Z",
+      "updatedAt": "2026-10-11T21:25:50.000Z",
+      "uid": "7643177-329c3e4f-f542-49ae-a695-d8b14625a361"
+    },
+    {
+      "name": "Responses",
+      "item": [
+        {
+          "name": "MiniMax-M3",
+          "id": "3a6201e4-2ec4-b1c7-e47e-75a56dcc38c4",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"MiniMax-M3\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T20:30:03.000Z",
+          "updatedAt": "2026-10-17T18:19:47.000Z",
+          "uid": "7643177-3a6201e4-2ec4-b1c7-e47e-75a56dcc38c4"
+        },
+        {
+          "name": "MiniMax-M3.1-Flash",
+          "id": "2c7d13d8-2a44-71e5-492b-625c1e95156f",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"MiniMax-M3.1-Flash\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-24T17:00:50.000Z",
+          "updatedAt": "2026-10-24T17:00:50.000Z",
+          "uid": "7643177-2c7d13d8-2a44-71e5-492b-625c1e95156f"
+        }
+      ],
+      "id": "5eec2058-e219-ecc9-f465-e003cff91951",
+      "createdAt": "2026-10-12T20:29:57.000Z",
+      "updatedAt": "2026-10-24T17:00:51.000Z",
+      "uid": "7643177-5eec2058-e219-ecc9-f465-e003cff91951"
+    },
+    {
+      "name": "Speech",
+      "item": [
+        {
+          "name": "speech-2.8-hd",
+          "id": "9b4dbf12-0709-4e2d-a0f4-c60904dca10b",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"speech-2.8-hd\",\n    \"text\": \"Generative AI turns a simple prompt into text, images, speech, music and video.\",\n    \"stream\": false,\n    \"output_format\": \"url\",\n    \"voice_setting\": {\n        \"voice_id\": \"English_expressive_narrator\",\n        \"speed\": 1,\n        \"vol\": 1,\n        \"pitch\": 0\n    },\n    \"audio_setting\": {\n        \"sample_rate\": 32000,\n        \"bitrate\": 128000,\n        \"format\": \"mp3\",\n        \"channel\": 1\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/t2a_v2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "t2a_v2"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:50.000Z",
+          "updatedAt": "2026-10-17T18:19:47.000Z",
+          "uid": "7643177-9b4dbf12-0709-4e2d-a0f4-c60904dca10b"
+        },
+        {
+          "name": "speech-2.8-turbo",
+          "id": "cd964ac7-0d2a-4363-82a3-b31214af4c3e",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"speech-2.8-turbo\",\n    \"text\": \"Generative AI turns a simple prompt into text, images, speech, music and video.\",\n    \"stream\": false,\n    \"output_format\": \"url\",\n    \"voice_setting\": {\n        \"voice_id\": \"English_expressive_narrator\",\n        \"speed\": 1,\n        \"vol\": 1,\n        \"pitch\": 0\n    },\n    \"audio_setting\": {\n        \"sample_rate\": 32000,\n        \"bitrate\": 128000,\n        \"format\": \"mp3\",\n        \"channel\": 1\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/t2a_v2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "t2a_v2"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:50.000Z",
+          "updatedAt": "2026-10-17T18:19:47.000Z",
+          "uid": "7643177-cd964ac7-0d2a-4363-82a3-b31214af4c3e"
+        }
+      ],
+      "id": "bae699e8-bbbc-49df-bca2-68a536802279",
+      "createdAt": "2026-10-11T21:25:50.000Z",
+      "updatedAt": "2026-10-11T21:25:50.000Z",
+      "uid": "7643177-bae699e8-bbbc-49df-bca2-68a536802279"
+    },
+    {
+      "name": "Video",
+      "item": [
+        {
+          "name": "MiniMax-H3",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"temp.task_id\", body.task_id || (body.task && body.task.id));"
+                ]
+              }
+            }
+          ],
+          "id": "7bdba99d-fbf4-433e-91c1-4b0a9cbc3a8e",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"MiniMax-H3\",\n    \"content\": [\n        {\n            \"type\": \"text\",\n            \"text\": \"A small robot walks through a field of wildflowers at sunrise, cinematic slow camera pan.\"\n        }\n    ],\n    \"resolution\": \"768P\",\n    \"duration\": 5,\n    \"ratio\": \"16:9\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v2/video_generation",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v2",
+                "video_generation"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:50.000Z",
+          "updatedAt": "2026-10-17T18:19:47.000Z",
+          "uid": "7643177-7bdba99d-fbf4-433e-91c1-4b0a9cbc3a8e"
+        },
+        {
+          "name": "MiniMax-H3-Max",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"temp.task_id\", body.task_id || (body.task && body.task.id));"
+                ]
+              }
+            }
+          ],
+          "id": "b9caefca-f126-438a-b1e2-dec8c1dd00be",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"MiniMax-H3-Max\",\n    \"content\": [\n        {\n            \"type\": \"text\",\n            \"text\": \"A small robot walks through a field of wildflowers at sunrise, cinematic slow camera pan.\"\n        }\n    ],\n    \"resolution\": \"768P\",\n    \"duration\": 5,\n    \"ratio\": \"16:9\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v2/video_generation",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v2",
+                "video_generation"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:50.000Z",
+          "updatedAt": "2026-10-17T18:19:47.000Z",
+          "uid": "7643177-b9caefca-f126-438a-b1e2-dec8c1dd00be"
+        },
+        {
+          "name": "Query task",
+          "id": "9f881d53-cf34-45f1-8fb2-1e4cc7b8eab6",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v2/query/video_generation/{{temp.task_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v2",
+                "query",
+                "video_generation",
+                "{{temp.task_id}}"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:50.000Z",
+          "updatedAt": "2026-10-17T18:19:47.000Z",
+          "uid": "7643177-9f881d53-cf34-45f1-8fb2-1e4cc7b8eab6"
+        }
+      ],
+      "id": "6b16fa23-5a63-453f-bf7a-9c557a223825",
+      "createdAt": "2026-10-11T21:25:50.000Z",
+      "updatedAt": "2026-10-11T21:25:50.000Z",
+      "uid": "7643177-6b16fa23-5a63-453f-bf7a-9c557a223825"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vault:minimax_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "77802547-b3af-4733-bcc2-1998d525ffb8",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "bc44c633-2fd3-4720-b08b-ae13f5544e54",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.minimax.io",
+      "type": "string"
+    }
+  ]
+}

@@ -1,100 +1,96 @@
+import logging
+import os
+import re
+import sys
+
 import gradio as gr
-import logging, os, sys, threading
+from openai import OpenAI
 
-from custom_utils import (
-    connect_to_database,
-    inference,
-    rag_ingestion,
-    rag_retrieval_naive,
-    rag_retrieval_advanced,
-    rag_inference
-)
-
-lock = threading.Lock()
-
-RAG_INGESTION = False
+from rag import inference, rag_inference, rag_retrieval_advanced, rag_retrieval_naive
 
 RAG_OFF      = "Off"
 RAG_NAIVE    = "Naive RAG"
 RAG_ADVANCED = "Advanced RAG"
 
-logging.basicConfig(stream = sys.stdout, level = logging.INFO)
-logging.getLogger().addHandler(logging.StreamHandler(stream = sys.stdout))
-    
-def invoke(openai_api_key, 
-           prompt, 
-           accomodates, 
-           bedrooms, 
-           rag_option):
+CONCURRENCY_LIMIT = 8
+
+RAG_RETRIEVERS = {
+    RAG_NAIVE: rag_retrieval_naive,
+    RAG_ADVANCED: rag_retrieval_advanced,
+}
+
+# Markdown links (not already images) that point at Airbnb listing photos
+PICTURE_LINK = re.compile(r"(?<!!)\[([^\]]*)\]\((https://a0\.muscache\.com/[^)\s]+)\)")
+
+# Gradio's Markdown blocks (description, completion) scroll (overflow: auto) with no
+# padding, which clips focus outlines at their edges
+CSS = """
+.block > div > .prose { padding: 6px; }
+.prose a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 4px; }
+#completion img { max-width: 320px; max-height: 240px; object-fit: cover; border-radius: 8px; vertical-align: top; }
+#completion a:has(img) { display: inline-block; border-radius: 8px; }
+"""
+
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+
+def inline_pictures(markdown: str) -> str:
+    return PICTURE_LINK.sub(r"![\1](\2)", markdown)
+
+
+def invoke(openai_api_key: str, prompt: str, accommodates: int, bedrooms: int, rag_option: str) -> str:
+    """Recommend San Francisco Airbnb listings using retrieval-augmented generation.
+
+    Args:
+        openai_api_key: OpenAI API key.
+        prompt: Question about Airbnb listings.
+        accommodates: Number of guests the listing must accommodate.
+        bedrooms: Number of bedrooms the listing must have.
+        rag_option: One of "Off", "Naive RAG", or "Advanced RAG".
+    """
     if not openai_api_key:
         raise gr.Error("OpenAI API Key is required.")
     if not prompt:
         raise gr.Error("Prompt is required.")
-    if not rag_option:
+    if rag_option != RAG_OFF and rag_option not in RAG_RETRIEVERS:
         raise gr.Error("Retrieval-Augmented Generation is required.")
 
-    with lock:
-        db, collection = connect_to_database()
+    client = OpenAI(api_key=openai_api_key)
 
-        inference_result = ""
+    try:
+        if rag_option == RAG_OFF:
+            result = inference(client, prompt)
+        else:
+            retrieval_result = RAG_RETRIEVERS[rag_option](client, prompt, int(accommodates), int(bedrooms))
+            result = rag_inference(client, prompt, retrieval_result, ranked=rag_option == RAG_ADVANCED)
+    except Exception as e:
+        logger.exception("Request failed")
+        raise gr.Error(str(e)) from e
 
-        try:
-            if (RAG_INGESTION):
-                return rag_ingestion(collection)
-            elif rag_option == RAG_OFF:
-                inference_result = inference(
-                    openai_api_key, 
-                    prompt
-                )
-            elif rag_option == RAG_NAIVE:
-                retrieval_result = rag_retrieval_naive(
-                    openai_api_key, 
-                    prompt,
-                    accomodates,
-                    bedrooms,
-                    db, 
-                    collection
-                )
-                inference_result = rag_inference(
-                    openai_api_key, 
-                    prompt, 
-                    retrieval_result
-                )        
-            elif rag_option == RAG_ADVANCED:
-                retrieval_result = rag_retrieval_advanced(
-                    openai_api_key, 
-                    prompt, 
-                    accomodates,
-                    bedrooms,
-                    db, 
-                    collection
-                )
-                inference_result = rag_inference(
-                    openai_api_key, 
-                    prompt, 
-                    retrieval_result
-                )
-        except Exception as e:
-            raise gr.Error(e)
+    logger.info("Completion:\n%s", result)
+    return inline_pictures(result)
 
-        print("###")
-        print(inference_result)
-        print("###")
- 
-        return inference_result
-
-gr.close_all()
 
 demo = gr.Interface(
-    fn = invoke, 
-    inputs = [gr.Textbox(label = "OpenAI API Key", type = "password", lines = 1), 
-              gr.Textbox(label = "Prompt", value = os.environ["PROMPT"], lines = 1),
-              gr.Number(label = "Accomodates", value = 2),
-              gr.Number(label = "Bedrooms", value = 1),
-              gr.Radio([RAG_OFF, RAG_NAIVE, RAG_ADVANCED], label = "Retrieval-Augmented Generation", value = RAG_ADVANCED)],
-    outputs = [gr.Markdown(label = "Completion", value = os.environ["COMPLETION"], line_breaks = True, sanitize_html = False)],
-    title = "Context-Aware Reasoning Application",
-    description = os.environ["DESCRIPTION"]
+    fn=invoke,
+    inputs=[
+        gr.Textbox(label="OpenAI API Key", type="password", lines=1),
+        gr.Textbox(label="Prompt", value=os.environ.get("PROMPT", ""), lines=1),
+        gr.Number(label="Accommodates", value=2, precision=0, minimum=1),
+        gr.Number(label="Bedrooms", value=1, precision=0, minimum=0),
+        gr.Radio([RAG_OFF, RAG_NAIVE, RAG_ADVANCED], label="Retrieval-Augmented Generation", value=RAG_ADVANCED),
+    ],
+    outputs=[gr.Markdown(label="Completion", value=os.environ.get("COMPLETION", ""), line_breaks=True, sanitize_html=False, elem_id="completion")],
+    title="Context-Aware Reasoning Application",
+    description=os.environ.get("DESCRIPTION", ""),
+    concurrency_limit=CONCURRENCY_LIMIT,
 )
 
-demo.launch()
+if __name__ == "__main__":
+    # Gradio 6's bundled SourceSansPro-SemiBold.woff2 is a 55-glyph subset, so
+    # semibold text mixes fonts; load the full family from Google Fonts instead.
+    theme = gr.themes.Default(
+        font=[gr.themes.GoogleFont("Source Sans 3", weights=(400, 600, 700)), "ui-sans-serif", "system-ui", "sans-serif"]
+    )
+    demo.launch(mcp_server=True, theme=theme, css=CSS)

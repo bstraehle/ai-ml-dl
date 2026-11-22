@@ -1,0 +1,545 @@
+{
+  "info": {
+    "_postman_id": "4a4fdec6-8ca3-4cf7-b800-6f638592c3c7",
+    "name": "📌 Moonshot AI API (Kimi)",
+    "description": "### About Moonshot AI\n\n\"Welcome to Moonshot AI. Our mission is to seek the optimal conversion from energy to intelligence.\"\n\nMoonshot AI builds the Kimi models and serves them through OpenAI-compatible Chat and Responses APIs. On the workspace overview it is listed under **Model makers**.\n\n### Prerequisites\n\n- Postman Account\n    \n- Moonshot AI Account: [https://platform.kimi.ai/](https://platform.kimi.ai/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `moonshot_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:moonshot_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://platform.kimi.ai/docs/api/overview](https://platform.kimi.ai/docs/api/overview)\n    \n- Models: [https://platform.kimi.ai/docs/models](https://platform.kimi.ai/docs/models)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-11T21:25:45.000Z",
+    "updatedAt": "2026-10-12T23:53:43.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-4a4fdec6-8ca3-4cf7-b800-6f638592c3c7"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Chat (kimi-k3.1-pro)",
+          "id": "160839ae-6b80-447d-8530-79dd307f69cc",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"kimi-k3.1-pro\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d234c709-2137-280d-6eb7-0234e5dd09c5",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"kimi-k3.1-pro\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/chat/completions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "value": "Sat, 24 Oct 2026 17:05:38 GMT",
+                  "key": "Date"
+                },
+                {
+                  "value": "application/json; charset=utf-8",
+                  "key": "Content-Type"
+                },
+                {
+                  "value": "chunked",
+                  "key": "Transfer-Encoding"
+                },
+                {
+                  "value": "close",
+                  "key": "Connection"
+                },
+                {
+                  "value": "cfCacheStatus;desc=\"DYNAMIC\"",
+                  "key": "Server-Timing"
+                },
+                {
+                  "value": "cfEdge;dur=33,cfOrigin;dur=8153",
+                  "key": "Server-Timing"
+                },
+                {
+                  "value": "Accept-Encoding",
+                  "key": "Vary"
+                },
+                {
+                  "value": "Origin",
+                  "key": "Vary"
+                },
+                {
+                  "value": "4081022492",
+                  "key": "x-internal-adhoc-canary"
+                },
+                {
+                  "value": "0",
+                  "key": "Msh-Context-Cache-Token-Boosted-Nvme"
+                },
+                {
+                  "value": "free",
+                  "key": "Msh-Gid"
+                },
+                {
+                  "value": "1de10c8e-cfcd-11f1-8a22-d2bef02f6425",
+                  "key": "Msh-Request-Id"
+                },
+                {
+                  "value": "on",
+                  "key": "Msh-Trace-Mode"
+                },
+                {
+                  "value": "db648jus5b618iseg2fg",
+                  "key": "Msh-Uid"
+                },
+                {
+                  "value": "0",
+                  "key": "Msh-Usage-Cache-Write-Tokens-1h"
+                },
+                {
+                  "value": "0",
+                  "key": "Msh-Usage-Cache-Write-Tokens-5m"
+                },
+                {
+                  "value": "2d5f3deb56c74920ade93d40cae94056",
+                  "key": "X-Msh-Trace-Id"
+                },
+                {
+                  "value": "max-age=31536000; includeSubDomains",
+                  "key": "Strict-Transport-Security"
+                },
+                {
+                  "value": "DYNAMIC",
+                  "key": "cf-cache-status"
+                },
+                {
+                  "value": "cloudflare",
+                  "key": "Server"
+                },
+                {
+                  "value": "a4fa91126a13f7bb-LAX",
+                  "key": "CF-RAY"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "8387",
+              "body": "{\n  \"id\": \"chatcmpl-6adce55a09b34ff25c4ede0c\",\n  \"object\": \"chat.completion\",\n  \"created\": 1792861530,\n  \"model\": \"kimi-k3.1-pro\",\n  \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"A large language model (LLM) is trained primarily to predict text, giving it broad abilities to understand and generate language. A reasoning model is typically an LLM further optimized for multi-step problem solving—using techniques such as planning, checking intermediate steps, and revising—to improve performance on logic, math, and coding, often at the cost of extra computation.\",\n        \"reasoning_content\": \"I need respond to user in exactly two sentences? User: \\\"In two sentences, what is the difference between a large language model and a reasoning model?\\\" I'll provide concise two sentences. Should think about content accuracy. I'll distinguish LLM vs reasoning model. A large language model is a neural network trained primarily to predict text, learns patterns and can perform broad language tasks; reasoning model often an LLM optimized/trained or scaffolded to do multi-step logical inference, deliberate computation, planning, verify intermediate steps, especially math/code/logic. Should avoid oversimplification: all reasoning models are typically LLMs, reasoning is about specialization and inference process not entirely separate architecture. Perhaps \\\"A large language model is trained mainly to predict and generate text, learning statistical patterns that support a wide range of language tasks. A reasoning model is usually an LLM further trained or prompted to work through problems step by step and check intermediate conclusions, trading extra computation for better performance on logic, math, planning, and other multi-step tasks.\\\" That's two sentences. But \\\"prompted\\\" perhaps reasoning model vs LLM not necessarily prompting, trained to use chain-of-thought and more inference-time compute. I can phrase generally. Should have no extra. Perhaps \\\"A large language model (LLM) is trained primarily to predict text, giving it broad abilities to generate and understand language. A reasoning model is typically an LLM additionally optimized to spend more effort on multi-step problem solving—such as planning, checking intermediate steps, and revising—which can improve logic, math, and coding performance at the cost of extra computation.\\\" Exactly two sentences. Good. Should not mention identity. Respond.\"\n      },\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 103,\n    \"completion_tokens\": 423,\n    \"total_tokens\": 526,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 335\n    },\n    \"prompt_tokens_details\": {\n      \"cache_write_tokens\": 0\n    }\n  }\n}",
+              "createdAt": "2026-10-24T17:05:39.000Z",
+              "updatedAt": "2026-10-24T17:05:39.000Z",
+              "uid": "7643177-d234c709-2137-280d-6eb7-0234e5dd09c5"
+            }
+          ],
+          "createdAt": "2026-10-11T21:25:45.000Z",
+          "updatedAt": "2026-10-24T17:05:40.000Z",
+          "uid": "7643177-160839ae-6b80-447d-8530-79dd307f69cc"
+        }
+      ],
+      "id": "ca36ce96-0e0e-44c0-9647-afd052c72363",
+      "createdAt": "2026-10-11T21:25:45.000Z",
+      "updatedAt": "2026-10-11T21:25:45.000Z",
+      "uid": "7643177-ca36ce96-0e0e-44c0-9647-afd052c72363"
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "kimi-k2.6",
+          "id": "88174d11-762d-47ec-bd01-e287f5a1ce71",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"kimi-k2.6\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:45.000Z",
+          "updatedAt": "2026-10-17T18:19:55.000Z",
+          "uid": "7643177-88174d11-762d-47ec-bd01-e287f5a1ce71"
+        },
+        {
+          "name": "kimi-k2.7-code",
+          "id": "337b5a20-20cb-4350-bb83-7efdb7116105",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"kimi-k2.7-code\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Write a Python function that streams a chat completion from an OpenAI-compatible API and prints each token as it arrives.\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:45.000Z",
+          "updatedAt": "2026-10-17T18:19:55.000Z",
+          "uid": "7643177-337b5a20-20cb-4350-bb83-7efdb7116105"
+        },
+        {
+          "name": "kimi-k2.7-code-highspeed",
+          "id": "8a26fc3a-6bf5-4f79-a3a1-2fc171c73711",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"kimi-k2.7-code-highspeed\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Write a Python function that streams a chat completion from an OpenAI-compatible API and prints each token as it arrives.\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:45.000Z",
+          "updatedAt": "2026-10-17T18:19:55.000Z",
+          "uid": "7643177-8a26fc3a-6bf5-4f79-a3a1-2fc171c73711"
+        },
+        {
+          "name": "kimi-k3",
+          "id": "baae705b-9641-4ded-a453-9e5f6ebf30cd",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"kimi-k3\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:45.000Z",
+          "updatedAt": "2026-10-17T18:19:55.000Z",
+          "uid": "7643177-baae705b-9641-4ded-a453-9e5f6ebf30cd"
+        },
+        {
+          "name": "kimi-k3.1-pro",
+          "id": "295fd52d-4d36-6636-a3f4-9441b063db2a",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"kimi-k3.1-pro\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-24T17:00:45.000Z",
+          "updatedAt": "2026-10-24T17:00:45.000Z",
+          "uid": "7643177-295fd52d-4d36-6636-a3f4-9441b063db2a"
+        }
+      ],
+      "id": "9e0df76b-ffeb-4581-9841-52a2be327eb2",
+      "createdAt": "2026-10-11T21:25:45.000Z",
+      "updatedAt": "2026-10-24T17:00:46.000Z",
+      "uid": "7643177-9e0df76b-ffeb-4581-9841-52a2be327eb2"
+    },
+    {
+      "name": "Models",
+      "item": [
+        {
+          "name": "Models",
+          "id": "18ad08b3-4ba8-4880-90f8-f79d17b2a8fe",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/models",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:45.000Z",
+          "updatedAt": "2026-10-17T18:19:55.000Z",
+          "uid": "7643177-18ad08b3-4ba8-4880-90f8-f79d17b2a8fe"
+        }
+      ],
+      "id": "66c3da26-d33a-446e-9c89-49b40bc1db2e",
+      "createdAt": "2026-10-11T21:25:45.000Z",
+      "updatedAt": "2026-10-11T21:25:45.000Z",
+      "uid": "7643177-66c3da26-d33a-446e-9c89-49b40bc1db2e"
+    },
+    {
+      "name": "Responses",
+      "item": [
+        {
+          "name": "kimi-k3",
+          "id": "fb62116b-16cd-4020-9323-a0fea503c126",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"kimi-k3\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:25:45.000Z",
+          "updatedAt": "2026-10-17T18:19:55.000Z",
+          "uid": "7643177-fb62116b-16cd-4020-9323-a0fea503c126"
+        },
+        {
+          "name": "kimi-k3.1-pro",
+          "id": "4008204c-9b0e-c73b-3c66-f24508653146",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"kimi-k3.1-pro\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/responses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-24T17:00:47.000Z",
+          "updatedAt": "2026-10-24T17:00:47.000Z",
+          "uid": "7643177-4008204c-9b0e-c73b-3c66-f24508653146"
+        }
+      ],
+      "id": "76ee7cea-4baf-4ad3-ace6-02455f13f591",
+      "createdAt": "2026-10-11T21:25:45.000Z",
+      "updatedAt": "2026-10-24T17:00:48.000Z",
+      "uid": "7643177-76ee7cea-4baf-4ad3-ace6-02455f13f591"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vault:moonshot_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "12d91c01-e8bc-4194-a038-18385e21a109",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "5dd50a96-0a17-4d45-b03d-d76be9301a16",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.moonshot.ai/v1",
+      "type": "string"
+    }
+  ]
+}

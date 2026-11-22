@@ -1,0 +1,427 @@
+{
+  "info": {
+    "_postman_id": "5e10a499-9690-470f-9a25-bbf24c6e55bb",
+    "name": "📌 Luma AI API",
+    "description": "### About Luma AI\n\n\"Luma AI is the creative AI platform for video generation and image creation.\"\n\nLuma AI builds its own Ray video and Uni image models. On the workspace overview it is listed under **Image & video**.\n\n### Prerequisites\n\n- Postman Account\n    \n- Luma AI Account: [https://lumalabs.ai/api](https://lumalabs.ai/api)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `luma_ai_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:luma_ai_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://docs.agents.lumalabs.ai/](https://docs.agents.lumalabs.ai/)\n    \n- Models: [https://docs.agents.lumalabs.ai/guides/model](https://docs.agents.lumalabs.ai/guides/model)\n\n### Notes\n\nGeneration is asynchronous: **Generations / Get generation** polls `temp.generation_id` until `state` is `completed`.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-11T21:26:09.000Z",
+    "updatedAt": "2026-10-12T23:53:35.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-5e10a499-9690-470f-9a25-bbf24c6e55bb"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Image Generation (uni-1)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"temp.generation_id\", body.id);"
+                ]
+              }
+            }
+          ],
+          "id": "7bbd1eba-7dc7-4dad-a2c9-d8febfedb5c2",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"uni-1\",\n    \"type\": \"image\",\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generations"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dc383c4f-1756-ce62-9e36-70ba424e8da3",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"uni-1\",\n    \"type\": \"image\",\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/generations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "generations"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "value": "Sat, 17 Oct 2026 18:03:13 GMT",
+                  "key": "Date"
+                },
+                {
+                  "value": "application/json",
+                  "key": "Content-Type"
+                },
+                {
+                  "value": "202",
+                  "key": "Content-Length"
+                },
+                {
+                  "value": "close",
+                  "key": "Connection"
+                },
+                {
+                  "value": "uvicorn",
+                  "key": "server"
+                },
+                {
+                  "value": "6c89eea0-e26c-4c15-ab26-b0775a2c22ed",
+                  "key": "x-request-id"
+                },
+                {
+                  "value": "2026-04-01",
+                  "key": "x-api-version"
+                },
+                {
+                  "value": "30",
+                  "key": "x-ratelimit-limit"
+                },
+                {
+                  "value": "29",
+                  "key": "x-ratelimit-remaining"
+                },
+                {
+                  "value": "1792260252",
+                  "key": "x-ratelimit-reset"
+                },
+                {
+                  "value": "d9c460257c3dc2a290324fa26fa37dd7",
+                  "key": "x-trace-id"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "1328",
+              "body": "{\n  \"id\": \"7059aa9b-dfff-48ed-8172-3229935f727a\",\n  \"type\": \"image\",\n  \"state\": \"queued\",\n  \"model\": \"uni-1\",\n  \"created_at\": \"2026-10-17T18:03:13.358559\",\n  \"output\": [],\n  \"failure_reason\": null,\n  \"failure_code\": null,\n  \"scene\": null\n}",
+              "createdAt": "2026-10-17T18:03:15.000Z",
+              "updatedAt": "2026-10-17T18:03:15.000Z",
+              "uid": "7643177-dc383c4f-1756-ce62-9e36-70ba424e8da3"
+            }
+          ],
+          "createdAt": "2026-10-11T21:26:09.000Z",
+          "updatedAt": "2026-10-17T18:03:16.000Z",
+          "uid": "7643177-7bbd1eba-7dc7-4dad-a2c9-d8febfedb5c2"
+        }
+      ],
+      "id": "40fddbd6-86eb-4b6d-8701-16fd23bb62b2",
+      "createdAt": "2026-10-11T21:26:09.000Z",
+      "updatedAt": "2026-10-11T21:26:09.000Z",
+      "uid": "7643177-40fddbd6-86eb-4b6d-8701-16fd23bb62b2"
+    },
+    {
+      "name": "Generations",
+      "item": [
+        {
+          "name": "Get generation",
+          "id": "22c789e4-c2ec-4dd0-998e-0f833bf0c6bd",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/generations/{{temp.generation_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generations",
+                "{{temp.generation_id}}"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:09.000Z",
+          "updatedAt": "2026-10-17T18:19:43.000Z",
+          "uid": "7643177-22c789e4-c2ec-4dd0-998e-0f833bf0c6bd"
+        }
+      ],
+      "id": "8d858961-09f8-4142-a62a-500da4fbb5d4",
+      "createdAt": "2026-10-11T21:26:09.000Z",
+      "updatedAt": "2026-10-11T21:26:09.000Z",
+      "uid": "7643177-8d858961-09f8-4142-a62a-500da4fbb5d4"
+    },
+    {
+      "name": "Image",
+      "item": [
+        {
+          "name": "uni-1-max",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"temp.generation_id\", body.id);"
+                ]
+              }
+            }
+          ],
+          "id": "0d20ad11-9158-4d37-9c03-dbc91ee7f60c",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"uni-1-max\",\n    \"type\": \"image\",\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:09.000Z",
+          "updatedAt": "2026-10-17T18:19:43.000Z",
+          "uid": "7643177-0d20ad11-9158-4d37-9c03-dbc91ee7f60c"
+        },
+        {
+          "name": "uni-1",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"temp.generation_id\", body.id);"
+                ]
+              }
+            }
+          ],
+          "id": "68c1ce94-43cb-41a7-99a0-14a755c42682",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"uni-1\",\n    \"type\": \"image\",\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:09.000Z",
+          "updatedAt": "2026-10-17T18:19:43.000Z",
+          "uid": "7643177-68c1ce94-43cb-41a7-99a0-14a755c42682"
+        }
+      ],
+      "id": "c5e84c3e-a37b-4915-9f6e-b9483941259b",
+      "createdAt": "2026-10-11T21:26:09.000Z",
+      "updatedAt": "2026-10-11T21:26:09.000Z",
+      "uid": "7643177-c5e84c3e-a37b-4915-9f6e-b9483941259b"
+    },
+    {
+      "name": "Video",
+      "item": [
+        {
+          "name": "ray-3.2",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"temp.generation_id\", body.id);"
+                ]
+              }
+            }
+          ],
+          "id": "1762ab2d-4f05-4335-b8c9-305ea5446afd",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"ray-3.2\",\n    \"type\": \"video\",\n    \"prompt\": \"A small robot walks through a field of wildflowers at sunrise, cinematic slow camera pan.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/generations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:09.000Z",
+          "updatedAt": "2026-10-17T18:19:43.000Z",
+          "uid": "7643177-1762ab2d-4f05-4335-b8c9-305ea5446afd"
+        }
+      ],
+      "id": "d66579bc-bfa5-4b4d-9f65-6124bfd4b89d",
+      "createdAt": "2026-10-11T21:26:09.000Z",
+      "updatedAt": "2026-10-11T21:26:09.000Z",
+      "uid": "7643177-d66579bc-bfa5-4b4d-9f65-6124bfd4b89d"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vault:luma_ai_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "00469095-4530-444e-abd7-17728faeae3f",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "07f18661-ae37-40af-8381-fdbec5250904",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://agents.lumalabs.ai/v1",
+      "type": "string"
+    }
+  ]
+}

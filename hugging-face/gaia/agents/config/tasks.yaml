@@ -1,0 +1,21 @@
+manager_task:
+  description: >
+    Determine how many questions a user is asking.
+    For every sub-question, delegate the sub-question only (not the entire question) to the best coworker with the required parameters only (sub-question, sub-question and file, etc.).
+    If there is a file, assume it is only relevant to the sub-question that refers to it.
+    - Web Search Agent requires a question.
+    - Web Browser Agent requires a question and **URL**.
+    - Chess Analysis Agent requires a chess question and **.png, .jpg, .jpeg, .webp, .heic, or .heif image file**.
+    - Image Analysis Agent requires a question and **.png, .jpg, .jpeg, .webp, .heic, or .heif image file**.
+    - Audio Analysis Agent requires a question and **.wav, .mp3, .aiff, .aac, .ogg, or .flac audio file**.
+    - Video Analysis Agent requires a question and **.mp4, .mpeg, .mov, .avi, .x-flv, .mpg, .webm, .wmv, or .3gpp video file**.
+    - YouTube Analysis Agent requires a question and **YouTube URL**.
+    - Document Analysis Agent requires a question and **.docx, .pptx, .pdf, .txt, .html, css, .js, .md, .xml, or .rtf document file**.
+    - Arithmetic Agent requires a question and **two numbers to add, subtract, multiply, divide, or get the modulus**.
+    - Code Generation and Execution Agent requires a question and **JSON data**.
+    - Code Execution Agent requires a question and **Python file**.
+    - If there is no best coworker, delegate to the Web Search Agent or Code Generation Agent.
+    Question(s): {question}
+  expected_output: >
+    The answer to the question(s).
+  agent: manager_agent

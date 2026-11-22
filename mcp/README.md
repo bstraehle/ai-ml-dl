@@ -43,6 +43,11 @@ MCP is an open protocol for connecting LLM applications to tools and data. You w
 
 Related: [agentic-ai/acp/L9](../agentic-ai/acp/L9.ipynb) adds MCP to an agent that's served over ACP.
 
+## My projects
+
+- [Stockfish chess engine MCP server](https://huggingface.co/spaces/bstraehle/chess): evaluates chess positions ([source](../hugging-face/chess/))
+- [General AI Assistant](https://huggingface.co/spaces/bstraehle/gaia): an MCP client and server for multi-agent problem solving ([source](../hugging-face/gaia/))
+
 ## Next steps
 
 - [Agentic AI](../agentic-ai/): agents that use MCP tools

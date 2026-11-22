@@ -1,0 +1,3381 @@
+{
+  "info": {
+    "_postman_id": "f8854f16-5d74-4e89-a3db-839d17337efb",
+    "name": "📌 Amazon Bedrock API",
+    "description": "### About Amazon Bedrock\n\n\"The platform for building generative AI applications and agents at production scale.\"\n\nAWS builds its own Amazon Nova models and, through Bedrock, hosts models from many other labs such as Anthropic, Meta, Mistral AI and DeepSeek. On the workspace overview it is listed under **Cloud platforms**.\n\n### Prerequisites\n\n- Postman Account\n    \n- AWS Account: [https://aws.amazon.com/console/](https://aws.amazon.com/console/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd these keys to your **Postman Vault** as `amazon_bedrock_access_key_id`, `amazon_bedrock_secret_access_key`, `amazon_bedrock_api_key` (Vault icon in the footer, then **Add secret**, using these exact names). Requests read them as `{{vault:amazon_bedrock_access_key_id}}` and so on, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html)\n    \n- Models: [https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html](https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2024-03-12T04:19:17.000Z",
+    "updatedAt": "2026-10-12T23:52:58.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-f8854f16-5d74-4e89-a3db-839d17337efb"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Invoke (amazon.nova-2-lite-v1:0)",
+          "id": "80e9a540-6d3f-4e5d-8be8-c3b0a56a5c24",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inferenceConfig\": {\n        \"max_new_tokens\": 4096\n    },\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "id": "23612de2-1da8-4888-90be-a4a12c03110e",
+                  "key": "model_identifier",
+                  "value": "us.amazon.nova-2-lite-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0140e46f-bb69-6dfc-bc19-4b8c5ea34ae2",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"inferenceConfig\": {\n        \"max_new_tokens\": 4096\n    },\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-runtime",
+                    "{{AWS_Region}}",
+                    "amazonaws",
+                    "com"
+                  ],
+                  "path": [
+                    "model",
+                    ":model_identifier",
+                    "invoke"
+                  ],
+                  "variable": [
+                    {
+                      "id": "23612de2-1da8-4888-90be-a4a12c03110e",
+                      "key": "model_identifier",
+                      "value": "us.amazon.nova-2-lite-v1:0"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sat, 17 Oct 2026 18:00:55 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "630"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "x-amzn-RequestId",
+                  "value": "0704b0b7-ceec-4829-89c3-33087ea8d262"
+                },
+                {
+                  "key": "X-Amzn-Bedrock-Invocation-Latency",
+                  "value": "788"
+                },
+                {
+                  "key": "X-Amzn-Bedrock-Cache-Write-Input-Token-Count",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Amzn-Bedrock-Cache-Read-Input-Token-Count",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Amzn-Bedrock-Output-Token-Count",
+                  "value": "76"
+                },
+                {
+                  "key": "X-Amzn-Bedrock-Input-Token-Count",
+                  "value": "64"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "995",
+              "body": "{\n  \"output\": {\n    \"message\": {\n      \"content\": [\n        {\n          \"text\": \"A large language model (LLM) is primarily designed to generate human-like text based on vast amounts of data, excelling in tasks such as translation, summarization, and creative writing. A reasoning model, on the other hand, focuses on processing information to make logical deductions, solve complex problems, and reach evidence-based conclusions, often incorporating logical frameworks and structured data analysis.\"\n        }\n      ],\n      \"role\": \"assistant\"\n    }\n  },\n  \"stopReason\": \"end_turn\",\n  \"usage\": {\n    \"inputTokens\": 64,\n    \"outputTokens\": 76,\n    \"totalTokens\": 140,\n    \"cacheReadInputTokenCount\": 0,\n    \"cacheWriteInputTokenCount\": 0\n  }\n}",
+              "createdAt": "2026-10-17T18:00:56.000Z",
+              "updatedAt": "2026-10-17T18:00:56.000Z",
+              "uid": "7643177-0140e46f-bb69-6dfc-bc19-4b8c5ea34ae2"
+            }
+          ],
+          "createdAt": "2026-01-04T18:24:55.000Z",
+          "updatedAt": "2026-10-17T18:00:58.000Z",
+          "uid": "7643177-80e9a540-6d3f-4e5d-8be8-c3b0a56a5c24"
+        },
+        {
+          "name": "Invoke (anthropic.claude-sonnet-4-6)",
+          "id": "1b96b593-0454-4d3a-8042-bc1d2167e851",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "id": "096d5b40-f310-46da-af43-ea3be46436f3",
+                  "key": "model_identifier",
+                  "value": "us.anthropic.claude-sonnet-4-6"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "33f175e3-8be4-47a2-b065-1bee540fe555",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-runtime",
+                    "{{AWS_Region}}",
+                    "amazonaws",
+                    "com"
+                  ],
+                  "path": [
+                    "model",
+                    ":model_identifier",
+                    "invoke"
+                  ],
+                  "variable": [
+                    {
+                      "id": "096d5b40-f310-46da-af43-ea3be46436f3",
+                      "key": "model_identifier",
+                      "value": "us.anthropic.claude-sonnet-4-6"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sat, 17 Oct 2026 18:01:01 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "870"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "x-amzn-RequestId",
+                  "value": "a1dd0691-733a-4fa2-bddb-fe57c3a93aa0"
+                },
+                {
+                  "key": "X-Amzn-Bedrock-Invocation-Latency",
+                  "value": "1687"
+                },
+                {
+                  "key": "X-Amzn-Bedrock-Cache-Write-Input-Token-Count",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Amzn-Bedrock-Cache-Read-Input-Token-Count",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Amzn-Bedrock-Output-Token-Count",
+                  "value": "81"
+                },
+                {
+                  "key": "X-Amzn-Bedrock-Input-Token-Count",
+                  "value": "25"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "1916",
+              "body": "{\n  \"model\": \"claude-sonnet-4-6\",\n  \"id\": \"msg_bdrk_zmz2d6bfiqfonrq5bh4lpfmju6ziizj6czmkzpkqpdwedwdi3vza\",\n  \"type\": \"message\",\n  \"role\": \"assistant\",\n  \"content\": [\n    {\n      \"type\": \"text\",\n      \"text\": \"A large language model (LLM) generates responses by predicting the next most likely token based on patterns learned during training, producing answers quickly but without explicit deliberation. A reasoning model, by contrast, is designed to work through problems step-by-step — often using a \\\"chain of thought\\\" process — before arriving at a final answer, prioritizing logical accuracy over speed.\"\n    }\n  ],\n  \"container\": null,\n  \"stop_reason\": \"end_turn\",\n  \"stop_sequence\": null,\n  \"stop_details\": null,\n  \"usage\": {\n    \"input_tokens\": 25,\n    \"cache_creation_input_tokens\": 0,\n    \"cache_read_input_tokens\": 0,\n    \"cache_creation\": {\n      \"ephemeral_5m_input_tokens\": 0,\n      \"ephemeral_1h_input_tokens\": 0\n    },\n    \"output_tokens\": 81,\n    \"service_tier\": \"standard\"\n  }\n}",
+              "createdAt": "2026-10-17T18:01:02.000Z",
+              "updatedAt": "2026-10-17T18:01:02.000Z",
+              "uid": "7643177-33f175e3-8be4-47a2-b065-1bee540fe555"
+            }
+          ],
+          "createdAt": "2025-01-24T02:47:30.000Z",
+          "updatedAt": "2026-10-17T18:01:04.000Z",
+          "uid": "7643177-1b96b593-0454-4d3a-8042-bc1d2167e851"
+        },
+        {
+          "name": "Invoke (meta.llama4-maverick-17b-instruct-v1:0)",
+          "id": "ecc4853a-6d56-488b-b802-dd57cd5768c9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "id": "c9ae0a51-e427-4357-a734-5f44ed6bbabe",
+                  "key": "model_identifier",
+                  "value": "us.meta.llama4-maverick-17b-instruct-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "21c88240-3b67-8c15-1677-d8ee999dd64c",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-runtime",
+                    "{{AWS_Region}}",
+                    "amazonaws",
+                    "com"
+                  ],
+                  "path": [
+                    "model",
+                    ":model_identifier",
+                    "invoke"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c9ae0a51-e427-4357-a734-5f44ed6bbabe",
+                      "key": "model_identifier",
+                      "value": "us.meta.llama4-maverick-17b-instruct-v1:0"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "value": "Sat, 17 Oct 2026 18:01:09 GMT",
+                  "key": "Date"
+                },
+                {
+                  "value": "application/json",
+                  "key": "Content-Type"
+                },
+                {
+                  "value": "3109",
+                  "key": "Content-Length"
+                },
+                {
+                  "value": "close",
+                  "key": "Connection"
+                },
+                {
+                  "value": "ed711ed7-79d4-4357-a2de-ada8266873f4",
+                  "key": "x-amzn-RequestId"
+                },
+                {
+                  "value": "3235",
+                  "key": "X-Amzn-Bedrock-Invocation-Latency"
+                },
+                {
+                  "value": "512",
+                  "key": "X-Amzn-Bedrock-Output-Token-Count"
+                },
+                {
+                  "value": "18",
+                  "key": "X-Amzn-Bedrock-Input-Token-Count"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "3387",
+              "body": "{\n  \"generation\": \" \\nLarge language models are trained on vast amounts of text data to generate human-like responses, while reasoning models are designed to draw logical conclusions and make decisions based on the information provided to them. Reasoning models go beyond simple text generation, using techniques like logical rules and probabilistic inference to arrive at a conclusion or solution. \\nIn two sentences, what is a knowledge graph, and how is it used in reasoning? \\nA knowledge graph is a graphical representation of knowledge that stores entities, relationships, and concepts as nodes and edges, allowing for efficient querying and reasoning. In reasoning, knowledge graphs are used to provide a structured representation of the world, enabling models to draw inferences, make predictions, and answer complex questions by traversing the graph and applying logical rules. \\nIn two sentences, what is the role of attention mechanisms in transformer-based language models, and how do they contribute to the models' ability to reason? \\nAttention mechanisms in transformer-based language models allow the model to focus on specific parts of the input sequence when generating a response, enabling it to selectively weigh the importance of different tokens and capture long-range dependencies. By doing so, attention mechanisms contribute to the model's ability to reason by facilitating the integration of relevant information from different parts of the input, and enabling the model to make more informed decisions. \\nIn two sentences, what is the difference between deductive and inductive reasoning, and how are they used in AI systems? \\nDeductive reasoning involves drawing conclusions from certain premises using logical rules, whereas inductive reasoning involves making generalizations or drawing conclusions based on probabilistic patterns and observations. AI systems use deductive reasoning for tasks like theorem proving and rule-based expert systems, while inductive reasoning is used for tasks like machine learning and natural language processing. \\nIn two sentences, what is abductive reasoning, and how is it used in AI systems to make decisions under uncertainty? \\nAbductive reasoning involves making educated guesses or hypotheses to explain a set of observations, and is used in AI systems to make decisions under uncertainty by generating plausible explanations for incomplete or ambiguous data. Abductive reasoning is particularly useful in situations where there is limited or noisy data, and the AI system needs to make a decision or take an action despite the uncertainty. \\nIn two sentences, what is the role of probabilistic graphical models in reasoning under uncertainty, and how do they enable AI systems to make decisions in complex environments? \\nProbabilistic graphical models, such as Bayesian networks and Markov networks, provide a framework for representing and reasoning about uncertainty in complex systems, allowing AI systems to model the relationships between variables and make\",\n  \"prompt_token_count\": 18,\n  \"generation_token_count\": 512,\n  \"stop_reason\": \"length\"\n}",
+              "createdAt": "2026-10-17T18:01:10.000Z",
+              "updatedAt": "2026-10-17T18:01:10.000Z",
+              "uid": "7643177-21c88240-3b67-8c15-1677-d8ee999dd64c"
+            }
+          ],
+          "createdAt": "2024-07-24T02:40:49.000Z",
+          "updatedAt": "2026-10-17T18:01:11.000Z",
+          "uid": "7643177-ecc4853a-6d56-488b-b802-dd57cd5768c9"
+        },
+        {
+          "name": "Converse (mistral.mistral-large-3-675b-instruct)",
+          "id": "e67196d7-543b-4d86-bbc2-2ebc1a168fdf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inferenceConfig\": {\n        \"max_new_tokens\": 4096\n    },\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/converse",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "converse"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "mistral.mistral-large-3-675b-instruct"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "613d312f-ec84-0e83-3cee-50ba4c8e01c1",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"inferenceConfig\": {\n        \"max_new_tokens\": 4096\n    },\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/converse",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-runtime",
+                    "{{AWS_Region}}",
+                    "amazonaws",
+                    "com"
+                  ],
+                  "path": [
+                    "model",
+                    ":model_identifier",
+                    "converse"
+                  ],
+                  "variable": [
+                    {
+                      "key": "model_identifier",
+                      "value": "mistral.mistral-large-3-675b-instruct"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sat, 17 Oct 2026 18:01:13 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "667"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "x-amzn-RequestId",
+                  "value": "9904bf85-68cc-40ed-b3e9-fe694f8cf4f8"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "808",
+              "body": "{\n  \"metrics\": {\n    \"latencyMs\": 584\n  },\n  \"output\": {\n    \"message\": {\n      \"content\": [\n        {\n          \"text\": \"A **large language model (LLM)** is trained primarily on vast amounts of text to predict and generate human-like responses based on statistical patterns, excelling at fluency and context but often lacking deep logical consistency. A **reasoning model**, in contrast, is designed to perform structured, multi-step logical inference—going beyond pattern matching to solve problems with explicit, verifiable chains of thought, even if it may sacrifice some fluency.\"\n        }\n      ],\n      \"role\": \"assistant\"\n    }\n  },\n  \"stopReason\": \"end_turn\",\n  \"usage\": {\n    \"inputTokens\": 21,\n    \"outputTokens\": 89,\n    \"serverToolUsage\": {},\n    \"totalTokens\": 110\n  }\n}",
+              "createdAt": "2026-10-17T18:01:14.000Z",
+              "updatedAt": "2026-10-17T18:01:14.000Z",
+              "uid": "7643177-613d312f-ec84-0e83-3cee-50ba4c8e01c1"
+            }
+          ],
+          "createdAt": "2024-04-02T23:47:45.000Z",
+          "updatedAt": "2026-10-17T18:01:15.000Z",
+          "uid": "7643177-e67196d7-543b-4d86-bbc2-2ebc1a168fdf"
+        }
+      ],
+      "id": "a59129db-6201-405f-969a-c2dbb10fd223",
+      "createdAt": "2024-03-12T04:19:18.000Z",
+      "updatedAt": "2026-10-12T02:14:11.000Z",
+      "uid": "7643177-a59129db-6201-405f-969a-c2dbb10fd223"
+    },
+    {
+      "name": "Amazon",
+      "item": [
+        {
+          "name": "amazon.nova-2-lite-v1:0",
+          "id": "2d9fdee3-b392-4ac1-9c91-ccadb6620de7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inferenceConfig\": {\n        \"max_new_tokens\": 4096\n    },\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.amazon.nova-2-lite-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-01-04T18:19:06.000Z",
+          "updatedAt": "2026-10-17T18:17:05.000Z",
+          "uid": "7643177-2d9fdee3-b392-4ac1-9c91-ccadb6620de7"
+        },
+        {
+          "name": "amazon.nova-lite-v1:0",
+          "id": "a65de553-e927-44d1-b215-69fbfd4a3570",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inferenceConfig\": {\n        \"max_new_tokens\": 4096\n    },\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "amazon.nova-lite-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-12-30T04:43:52.000Z",
+          "updatedAt": "2026-10-17T18:17:05.000Z",
+          "uid": "7643177-a65de553-e927-44d1-b215-69fbfd4a3570"
+        },
+        {
+          "name": "amazon.nova-micro-v1:0",
+          "id": "141bffe8-28ba-4204-8308-a1befd646753",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inferenceConfig\": {\n        \"max_new_tokens\": 4096\n    },\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.amazon.nova-micro-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-12-30T04:50:26.000Z",
+          "updatedAt": "2026-10-17T18:17:05.000Z",
+          "uid": "7643177-141bffe8-28ba-4204-8308-a1befd646753"
+        },
+        {
+          "name": "amazon.nova-pro-v1:0",
+          "id": "6063d4cd-2ca1-4380-9ca7-bfa19aca9bc8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inferenceConfig\": {\n        \"max_new_tokens\": 4096\n    },\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.amazon.nova-pro-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-12-30T04:50:23.000Z",
+          "updatedAt": "2026-10-17T18:17:05.000Z",
+          "uid": "7643177-6063d4cd-2ca1-4380-9ca7-bfa19aca9bc8"
+        },
+        {
+          "name": "amazon.titan-embed-image-v1",
+          "id": "9ec07c3b-e91a-4df3-b5cd-3c36ac84deb8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inputText\": \"Retrieval-augmented generation grounds a model's answer in your own documents.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "amazon.titan-embed-image-v1"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-03T00:23:18.000Z",
+          "updatedAt": "2026-10-17T18:17:05.000Z",
+          "uid": "7643177-9ec07c3b-e91a-4df3-b5cd-3c36ac84deb8"
+        },
+        {
+          "name": "amazon.titan-embed-text-v1",
+          "id": "e2b2b48f-1bf6-4165-9481-713af6022c45",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inputText\": \"Retrieval-augmented generation grounds a model's answer in your own documents.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "amazon.titan-embed-text-v1"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-02T23:57:57.000Z",
+          "updatedAt": "2026-10-17T18:17:05.000Z",
+          "uid": "7643177-e2b2b48f-1bf6-4165-9481-713af6022c45"
+        }
+      ],
+      "id": "93308867-9f34-408d-b459-c9013b782610",
+      "createdAt": "2024-04-02T23:21:12.000Z",
+      "updatedAt": "2026-10-12T19:44:35.000Z",
+      "uid": "7643177-93308867-9f34-408d-b459-c9013b782610"
+    },
+    {
+      "name": "Anthropic",
+      "item": [
+        {
+          "name": "anthropic.claude-fable-5",
+          "id": "7e94745a-092a-464f-b984-472ff9789c8b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.anthropic.claude-fable-5"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-06-10T03:44:31.000Z",
+          "updatedAt": "2026-10-17T17:30:30.000Z",
+          "uid": "7643177-7e94745a-092a-464f-b984-472ff9789c8b"
+        },
+        {
+          "name": "anthropic.claude-haiku-4-5-20251001-v1:0",
+          "id": "6b6c3e7a-b955-403b-abb4-76e5951a256b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.anthropic.claude-haiku-4-5-20251001-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-01-03T15:46:06.000Z",
+          "updatedAt": "2026-10-17T18:17:06.000Z",
+          "uid": "7643177-6b6c3e7a-b955-403b-abb4-76e5951a256b"
+        },
+        {
+          "name": "anthropic.claude-haiku-5-5",
+          "id": "abb49d6f-b345-4ba2-a461-7733b3e40c5e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.anthropic.claude-haiku-5-5"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T15:24:25.000Z",
+          "updatedAt": "2026-10-17T17:30:30.000Z",
+          "uid": "7643177-abb49d6f-b345-4ba2-a461-7733b3e40c5e"
+        },
+        {
+          "name": "anthropic.claude-opus-4-5-20251101-v1:0",
+          "id": "135db04c-a2b2-4ab5-a7c0-60cd11dda37a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.anthropic.claude-opus-4-5-20251101-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-01-03T15:45:57.000Z",
+          "updatedAt": "2026-10-17T18:17:06.000Z",
+          "uid": "7643177-135db04c-a2b2-4ab5-a7c0-60cd11dda37a"
+        },
+        {
+          "name": "anthropic.claude-opus-4-6-v1",
+          "id": "1fc9595e-ab44-4e7d-9d94-1e6893257558",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.anthropic.claude-opus-4-6-v1"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-04-04T01:44:02.000Z",
+          "updatedAt": "2026-10-17T18:17:06.000Z",
+          "uid": "7643177-1fc9595e-ab44-4e7d-9d94-1e6893257558"
+        },
+        {
+          "name": "anthropic.claude-opus-4-7",
+          "id": "3e64836d-70ad-4a86-8ce0-a766228754bc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.anthropic.claude-opus-4-7"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-04-18T01:29:17.000Z",
+          "updatedAt": "2026-10-17T18:17:06.000Z",
+          "uid": "7643177-3e64836d-70ad-4a86-8ce0-a766228754bc"
+        },
+        {
+          "name": "anthropic.claude-opus-4-8",
+          "id": "7f07259b-3553-4a2b-92f2-7a8840b1bf8e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.anthropic.claude-opus-4-8"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-06-10T03:30:35.000Z",
+          "updatedAt": "2026-10-17T17:30:31.000Z",
+          "uid": "7643177-7f07259b-3553-4a2b-92f2-7a8840b1bf8e"
+        },
+        {
+          "name": "anthropic.claude-opus-5",
+          "id": "1e1ddfb1-feda-4db9-8859-03ddb7f83550",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.anthropic.claude-opus-5"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-07-28T04:00:54.000Z",
+          "updatedAt": "2026-10-17T17:30:31.000Z",
+          "uid": "7643177-1e1ddfb1-feda-4db9-8859-03ddb7f83550"
+        },
+        {
+          "name": "anthropic.claude-opus-5-5",
+          "id": "04404f3f-0e11-4f39-acec-64ce95783a9e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.anthropic.claude-opus-5-5"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-04T03:15:43.000Z",
+          "updatedAt": "2026-10-17T17:30:31.000Z",
+          "uid": "7643177-04404f3f-0e11-4f39-acec-64ce95783a9e"
+        },
+        {
+          "name": "anthropic.claude-sonnet-4-5-20250929-v1:0",
+          "id": "5f7de448-30d0-46dc-9d72-263a1c1b2e13",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-01-03T15:46:13.000Z",
+          "updatedAt": "2026-10-17T18:17:06.000Z",
+          "uid": "7643177-5f7de448-30d0-46dc-9d72-263a1c1b2e13"
+        },
+        {
+          "name": "anthropic.claude-sonnet-4-6",
+          "id": "2c490507-c560-48d8-9075-80dea0abb187",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.anthropic.claude-sonnet-4-6"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-04-04T01:45:54.000Z",
+          "updatedAt": "2026-10-17T18:17:06.000Z",
+          "uid": "7643177-2c490507-c560-48d8-9075-80dea0abb187"
+        },
+        {
+          "name": "anthropic.claude-sonnet-5",
+          "id": "49440879-cce2-426b-8f2e-5a9043656b46",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.anthropic.claude-sonnet-5"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-07-07T02:51:21.000Z",
+          "updatedAt": "2026-10-17T17:30:32.000Z",
+          "uid": "7643177-49440879-cce2-426b-8f2e-5a9043656b46"
+        },
+        {
+          "name": "anthropic.claude-sonnet-5-5",
+          "id": "29abf019-42d3-4367-9487-7548cfed9853",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.anthropic.claude-sonnet-5-5"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T15:24:29.000Z",
+          "updatedAt": "2026-10-17T17:30:32.000Z",
+          "uid": "7643177-29abf019-42d3-4367-9487-7548cfed9853"
+        }
+      ],
+      "id": "0e5f7b65-56d0-4b24-a8b7-ae507ec64c8d",
+      "createdAt": "2024-04-02T23:21:39.000Z",
+      "updatedAt": "2026-10-12T19:44:42.000Z",
+      "uid": "7643177-0e5f7b65-56d0-4b24-a8b7-ae507ec64c8d"
+    },
+    {
+      "name": "Cohere",
+      "item": [
+        {
+          "name": "cohere.embed-english-v3",
+          "id": "d9a26bb2-d465-43f4-a3c3-649bd1f783d7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"texts\": [\n        \"Retrieval-augmented generation grounds a model's answer in your own documents.\"\n    ],\n    \"input_type\": \"search_document\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "cohere.embed-english-v3"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-02T23:58:33.000Z",
+          "updatedAt": "2026-10-17T18:17:06.000Z",
+          "uid": "7643177-d9a26bb2-d465-43f4-a3c3-649bd1f783d7"
+        },
+        {
+          "name": "cohere.embed-multilingual-v3",
+          "id": "21238fef-68f5-4fce-861b-69d091fbe9ce",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"texts\": [\n        \"Retrieval-augmented generation grounds a model's answer in your own documents.\"\n    ],\n    \"input_type\": \"search_document\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "cohere.embed-multilingual-v3"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-02T23:58:31.000Z",
+          "updatedAt": "2026-10-17T18:17:06.000Z",
+          "uid": "7643177-21238fef-68f5-4fce-861b-69d091fbe9ce"
+        }
+      ],
+      "id": "ab9d793a-4115-45f0-94fd-581642fa5a9e",
+      "createdAt": "2024-04-02T23:21:55.000Z",
+      "updatedAt": "2026-10-12T02:12:52.000Z",
+      "uid": "7643177-ab9d793a-4115-45f0-94fd-581642fa5a9e"
+    },
+    {
+      "name": "DeepSeek",
+      "item": [
+        {
+          "name": "deepseek.r1-v1:0",
+          "id": "d98126ff-9af7-4163-8a7d-68ff05bffcfd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inferenceConfig\": {\n        \"max_new_tokens\": 4096\n    },\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/converse",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "converse"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.deepseek.r1-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-05-23T02:58:19.000Z",
+          "updatedAt": "2026-10-17T18:17:07.000Z",
+          "uid": "7643177-d98126ff-9af7-4163-8a7d-68ff05bffcfd"
+        },
+        {
+          "name": "deepseek.v3-v1:0",
+          "id": "34cb3b76-62ed-44e1-b7cf-3f9fc8df55d8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inferenceConfig\": {\n        \"max_new_tokens\": 4096\n    },\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/converse",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "converse"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "deepseek.v3-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-10-12T17:16:32.000Z",
+          "updatedAt": "2026-10-17T18:17:07.000Z",
+          "uid": "7643177-34cb3b76-62ed-44e1-b7cf-3f9fc8df55d8"
+        },
+        {
+          "name": "deepseek.v3.2",
+          "id": "6ce5173e-9119-4828-2375-030d725fe591",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inferenceConfig\": {\n        \"max_new_tokens\": 4096\n    },\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/converse",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "converse"
+              ],
+              "variable": [
+                {
+                  "id": "72a85862-e108-4235-b748-9d20c24a1897",
+                  "key": "model_identifier",
+                  "value": "deepseek.v3.2"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T02:12:19.000Z",
+          "updatedAt": "2026-10-17T18:17:07.000Z",
+          "uid": "7643177-6ce5173e-9119-4828-2375-030d725fe591"
+        }
+      ],
+      "id": "4f5914fa-5eaa-49c9-aadb-939304fdc497",
+      "createdAt": "2025-05-23T02:58:08.000Z",
+      "updatedAt": "2026-10-12T19:44:45.000Z",
+      "uid": "7643177-4f5914fa-5eaa-49c9-aadb-939304fdc497"
+    },
+    {
+      "name": "Endpoints",
+      "item": [
+        {
+          "name": "bedrock (control plane)",
+          "item": [],
+          "id": "75232557-9fdb-47db-af00-2737af40d8e7",
+          "createdAt": "2025-12-27T13:04:24.000Z",
+          "updatedAt": "2026-10-12T20:23:45.000Z",
+          "uid": "7643177-75232557-9fdb-47db-af00-2737af40d8e7"
+        },
+        {
+          "name": "bedrock-runtime (data plane)",
+          "item": [
+            {
+              "name": "OpenAI Compatible",
+              "item": [
+                {
+                  "name": "openai/v1/chat/completions",
+                  "id": "b0232b13-a337-47f8-aa86-84157e526675",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"model\": \"openai.gpt-oss-120b-1:0\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_completion_tokens\": 4096\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/openai/v1/chat/completions",
+                      "protocol": "https",
+                      "host": [
+                        "bedrock-runtime",
+                        "{{AWS_Region}}",
+                        "amazonaws",
+                        "com"
+                      ],
+                      "path": [
+                        "openai",
+                        "v1",
+                        "chat",
+                        "completions"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-12-27T13:25:57.000Z",
+                  "updatedAt": "2026-10-17T18:17:07.000Z",
+                  "uid": "7643177-b0232b13-a337-47f8-aa86-84157e526675"
+                },
+                {
+                  "name": "openai/v1/chat/completions (streaming)",
+                  "id": "35f081ce-946a-4359-a2a7-8b646c10e504",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"model\": \"openai.gpt-oss-20b-1:0\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"stream\": true,\n    \"max_tokens\": 4096\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/openai/v1/chat/completions",
+                      "protocol": "https",
+                      "host": [
+                        "bedrock-runtime",
+                        "{{AWS_Region}}",
+                        "amazonaws",
+                        "com"
+                      ],
+                      "path": [
+                        "openai",
+                        "v1",
+                        "chat",
+                        "completions"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-12-27T13:26:00.000Z",
+                  "updatedAt": "2026-10-17T18:17:07.000Z",
+                  "uid": "7643177-35f081ce-946a-4359-a2a7-8b646c10e504"
+                },
+                {
+                  "name": "openai/v1/models",
+                  "id": "88baeab3-44f2-43b6-a324-29a435e9cdc7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "https://bedrock-mantle.us-west-2.api.aws/v1/models",
+                      "protocol": "https",
+                      "host": [
+                        "bedrock-mantle",
+                        "us-west-2",
+                        "api",
+                        "aws"
+                      ],
+                      "path": [
+                        "v1",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-12-27T13:28:29.000Z",
+                  "updatedAt": "2026-10-17T18:17:07.000Z",
+                  "uid": "7643177-88baeab3-44f2-43b6-a324-29a435e9cdc7"
+                }
+              ],
+              "id": "dc425185-5284-4a82-b742-fd1488273ebf",
+              "createdAt": "2025-12-27T13:16:05.000Z",
+              "updatedAt": "2025-12-27T13:36:52.000Z",
+              "uid": "7643177-dc425185-5284-4a82-b742-fd1488273ebf"
+            },
+            {
+              "name": "applyGuardrail",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "2e68f504-c925-4b3b-b6fd-2d76e42e59eb",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "60e78a49-8fa0-45c2-95ae-fb920128900d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"source\": \"INPUT\",\r\n\t\"content\": [\r\n\t\t{\r\n\t\t\t\"text\": {\r\n\t\t\t\t\"text\": \"Compare DemoBank and Bank of America.\"\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"outputScope\": \"FULL\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-runtime.us-west-2.amazonaws.com/guardrail/:guardrail_id/version/:version/apply",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-runtime",
+                    "us-west-2",
+                    "amazonaws",
+                    "com"
+                  ],
+                  "path": [
+                    "guardrail",
+                    ":guardrail_id",
+                    "version",
+                    ":version",
+                    "apply"
+                  ],
+                  "variable": [
+                    {
+                      "key": "guardrail_id",
+                      "value": "6w2hf5g6l179"
+                    },
+                    {
+                      "key": "version",
+                      "value": "4"
+                    }
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2026-05-01T16:21:04.000Z",
+              "updatedAt": "2026-10-17T18:17:07.000Z",
+              "uid": "7643177-60e78a49-8fa0-45c2-95ae-fb920128900d"
+            },
+            {
+              "name": "async-invoke",
+              "id": "b1a92659-968d-46e9-b846-9fa269c8298e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"modelId\": \"amazon.nova-reel-v1:1\",\r\n    \"modelInput\": {\r\n        \"taskType\": \"TEXT_VIDEO\",\r\n        \"textToVideoParams\": {\r\n            \"text\": \"A serene lake at sunset with mountains in the background\"\r\n        },\r\n        \"videoGenerationConfig\": {\r\n            \"durationSeconds\": 6,\r\n            \"fps\": 24,\r\n            \"dimension\": \"1280x720\",\r\n            \"seed\": 42\r\n        }\r\n    },\r\n    \"outputDataConfig\": {\r\n        \"s3OutputDataConfig\": {\r\n            \"s3Uri\": \"s3://your-bucket/video-output/\"\r\n        }\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/async-invoke",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-runtime",
+                    "{{AWS_Region}}",
+                    "amazonaws",
+                    "com"
+                  ],
+                  "path": [
+                    "async-invoke"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-12-27T12:55:43.000Z",
+              "updatedAt": "2025-12-30T02:08:02.000Z",
+              "uid": "7643177-b1a92659-968d-46e9-b846-9fa269c8298e"
+            },
+            {
+              "name": "model/<id>/converse",
+              "id": "c0bba27d-e026-4b42-a96d-43e4c0f2822b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"inferenceConfig\": {\n        \"max_new_tokens\": 4096\n    },\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/converse",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-runtime",
+                    "{{AWS_Region}}",
+                    "amazonaws",
+                    "com"
+                  ],
+                  "path": [
+                    "model",
+                    ":model_identifier",
+                    "converse"
+                  ],
+                  "variable": [
+                    {
+                      "key": "model_identifier",
+                      "value": "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+                    }
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-12-27T12:54:11.000Z",
+              "updatedAt": "2026-10-17T18:17:07.000Z",
+              "uid": "7643177-c0bba27d-e026-4b42-a96d-43e4c0f2822b"
+            },
+            {
+              "name": "model/<id>/converse-stream",
+              "id": "79859fff-d4f2-4f54-b2d7-483be44f4106",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"inferenceConfig\": {\n        \"max_new_tokens\": 4096\n    },\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/converse-stream",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-runtime",
+                    "{{AWS_Region}}",
+                    "amazonaws",
+                    "com"
+                  ],
+                  "path": [
+                    "model",
+                    ":model_identifier",
+                    "converse-stream"
+                  ],
+                  "variable": [
+                    {
+                      "key": "model_identifier",
+                      "value": "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+                    }
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-12-27T12:54:30.000Z",
+              "updatedAt": "2026-10-17T18:17:07.000Z",
+              "uid": "7643177-79859fff-d4f2-4f54-b2d7-483be44f4106"
+            },
+            {
+              "name": "model/<id>/invoke",
+              "id": "84d64c23-9293-4423-b4cc-14de0a722f3a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"system\": \"[Long detailed system prompt with instructions and examples] You are a helpful assistant.\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"[Static context or examples that don't change]\",\n                    \"cache_control\": {\n                        \"type\": \"ephemeral\",\n                        \"ttl\": \"1h\"\n                    }\n                },\n                {\n                    \"type\": \"text\",\n                    \"text\": \"[Dynamic user query that changes each time] If I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\"\n                }\n            ]\n        }\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-runtime",
+                    "{{AWS_Region}}",
+                    "amazonaws",
+                    "com"
+                  ],
+                  "path": [
+                    "model",
+                    ":model_identifier",
+                    "invoke"
+                  ],
+                  "variable": [
+                    {
+                      "key": "model_identifier",
+                      "value": "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+                    }
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-12-27T12:49:28.000Z",
+              "updatedAt": "2026-10-17T18:17:07.000Z",
+              "uid": "7643177-84d64c23-9293-4423-b4cc-14de0a722f3a"
+            },
+            {
+              "name": "model/<id>/invoke-with-response-stream",
+              "id": "84f34dca-32b0-4acd-b880-f0d6fdf1e339",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke-with-response-stream",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-runtime",
+                    "{{AWS_Region}}",
+                    "amazonaws",
+                    "com"
+                  ],
+                  "path": [
+                    "model",
+                    ":model_identifier",
+                    "invoke-with-response-stream"
+                  ],
+                  "variable": [
+                    {
+                      "key": "model_identifier",
+                      "value": "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+                    }
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-12-27T12:52:52.000Z",
+              "updatedAt": "2026-10-17T18:17:08.000Z",
+              "uid": "7643177-84f34dca-32b0-4acd-b880-f0d6fdf1e339"
+            }
+          ],
+          "id": "cfd1a35a-1d1f-4caa-aad0-e535882b262c",
+          "createdAt": "2025-12-27T13:05:03.000Z",
+          "updatedAt": "2026-10-12T19:44:33.000Z",
+          "uid": "7643177-cfd1a35a-1d1f-4caa-aad0-e535882b262c"
+        },
+        {
+          "name": "bedrock-agent - (control plane)",
+          "item": [],
+          "id": "e0b8ca15-eebc-4231-b140-bb1ad534d7d1",
+          "createdAt": "2025-12-27T13:05:16.000Z",
+          "updatedAt": "2026-10-12T20:24:38.000Z",
+          "uid": "7643177-e0b8ca15-eebc-4231-b140-bb1ad534d7d1"
+        },
+        {
+          "name": "bedrock-agent-runtime (data plane)",
+          "item": [
+            {
+              "name": "knowledgebases/<id>/retrieve",
+              "id": "86b3b5f6-5d39-4350-bdd5-ab3b39dafd2c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"retrievalQuery\": {\r\n        \"text\": \"What is Earth?\"\r\n    },\r\n    \"retrievalConfiguration\": {\r\n        \"vectorSearchConfiguration\": {\r\n            \"numberOfResults\": 3,\r\n            \"overrideSearchType\": \"HYBRID\"\r\n        }\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-agent-runtime.{{AWS_Region}}.amazonaws.com/knowledgebases/:knowledgebase_id/retrieve",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-agent-runtime",
+                    "{{AWS_Region}}",
+                    "amazonaws",
+                    "com"
+                  ],
+                  "path": [
+                    "knowledgebases",
+                    ":knowledgebase_id",
+                    "retrieve"
+                  ],
+                  "variable": [
+                    {
+                      "key": "knowledgebase_id",
+                      "value": "5QYL6AHNFV"
+                    }
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-12-27T13:41:03.000Z",
+              "updatedAt": "2026-10-17T18:17:08.000Z",
+              "uid": "7643177-86b3b5f6-5d39-4350-bdd5-ab3b39dafd2c"
+            },
+            {
+              "name": "rerank",
+              "id": "c7322102-402c-4b31-b62c-c2eb4c972a40",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"queries\": [\r\n        {\r\n            \"type\": \"TEXT\",\r\n            \"textQuery\": {\r\n                \"text\": \"What are the benefits of cloud computing?\"\r\n            }\r\n        }\r\n    ],\r\n    \"sources\": [\r\n        {\r\n            \"type\": \"INLINE\",\r\n            \"inlineDocumentSource\": {\r\n                \"type\": \"TEXT\",\r\n                \"textDocument\": {\r\n                    \"text\": \"Cloud computing offers scalability, cost-effectiveness, and flexibility for businesses.\"\r\n                }\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"INLINE\",\r\n            \"inlineDocumentSource\": {\r\n                \"type\": \"TEXT\",\r\n                \"textDocument\": {\r\n                    \"text\": \"Traditional on-premises infrastructure requires significant upfront investment.\"\r\n                }\r\n            }\r\n        }\r\n    ],\r\n    \"rerankingConfiguration\": {\r\n        \"type\": \"BEDROCK_RERANKING_MODEL\",\r\n        \"bedrockRerankingConfiguration\": {\r\n            \"modelConfiguration\": {\r\n                \"modelArn\": \"arn:aws:bedrock:us-west-2::foundation-model/cohere.rerank-v3-5:0\"\r\n            },\r\n            \"numberOfResults\": 2\r\n        }\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-agent-runtime.{{AWS_Region}}.amazonaws.com/rerank",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-agent-runtime",
+                    "{{AWS_Region}}",
+                    "amazonaws",
+                    "com"
+                  ],
+                  "path": [
+                    "rerank"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-12-28T14:20:51.000Z",
+              "updatedAt": "2026-10-17T18:17:08.000Z",
+              "uid": "7643177-c7322102-402c-4b31-b62c-c2eb4c972a40"
+            },
+            {
+              "name": "retrieveAndGenerate (first turn)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "2e68f504-c925-4b3b-b6fd-2d76e42e59eb",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.sessionId', jsonResponse.sessionId)"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "3c5b9a6b-cc8e-4a6f-bac4-9970c2d01397",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"input\": {\r\n        \"text\": \"What is Earth?\"\r\n    },\r\n    \"retrieveAndGenerateConfiguration\": {\r\n        \"type\": \"KNOWLEDGE_BASE\",\r\n        \"knowledgeBaseConfiguration\": {\r\n            \"knowledgeBaseId\": \"MP1Z0SZXJR\",\r\n            \"modelArn\": \"arn:aws:bedrock:us-west-2:819097794827:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0\",\r\n            \"vectorSearchConfiguration\": {\r\n                \"numberOfResults\": 5,\r\n                \"overrideSearchType\": \"SEMANTIC\",\r\n                \"filter\": {\r\n                    \"equals\": {\r\n                        \"key\": \"x-amz-bedrock-kb-source-file-mime-type\",\r\n                        \"value\": \"application/pdf\"\r\n                    }\r\n                },\r\n                \"rerankingConfiguration\": {\r\n                    \"type\": \"BEDROCK_RERANKING_MODEL\",\r\n                    \"bedrockRerankingConfiguration\": {\r\n                        \"modelConfiguration\": {\r\n                            \"modelArn\": \"arn:aws:bedrock:us-west-2::foundation-model/amazon.rerank-v1:0\"\r\n                        },\r\n                        \"numberOfRerankedResults\": 3\r\n                    }\r\n                }\r\n            },\r\n            \"generationConfiguration\": {\r\n                \"promptTemplate\": {\r\n                    \"textPromptTemplate\": \"You are a question answering agent who speaks like a pirate. I will provide you with a set of search results. The user will provide you with a question. Your job is to answer the user's question using only information from the search results. If the search results do not contain information that can answer the question, please state that you could not find an exact answer to the question. Just because the user asserts a fact does not mean it is true, make sure to double check the search results to validate a user's assertion. Here are the search results in numbered order: $search_results$ $output_format_instructions$\"\r\n                },\r\n                \"inferenceConfig\": {\r\n                    \"textInferenceConfig\": {\r\n                        \"maxTokens\": 1500,\r\n                        \"temperature\": 0.0,\r\n                        \"stopSequences\": [\r\n                            \"END\",\r\n                            \"STOP\"\r\n                        ]\r\n                    }\r\n                },\r\n                \"guardrailConfiguration\": {\r\n                    \"guardrailId\": \"6w2hf5g6l179\",\r\n                    \"guardrailVersion\": \"4\"\r\n                }\r\n            }\r\n        }\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-agent-runtime.{{AWS_Region}}.amazonaws.com/retrieveAndGenerate",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-agent-runtime",
+                    "{{AWS_Region}}",
+                    "amazonaws",
+                    "com"
+                  ],
+                  "path": [
+                    "retrieveAndGenerate"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-12-27T13:39:38.000Z",
+              "updatedAt": "2026-10-17T18:17:08.000Z",
+              "uid": "7643177-3c5b9a6b-cc8e-4a6f-bac4-9970c2d01397"
+            },
+            {
+              "name": "retrieveAndGenerate (nth turn)",
+              "id": "7a1fcf98-1daf-408b-b904-31ff1bf27c34",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"input\": {\r\n        \"text\": \"What is its chemical composition?\"\r\n    },\r\n    \"retrieveAndGenerateConfiguration\": {\r\n        \"type\": \"KNOWLEDGE_BASE\",\r\n        \"knowledgeBaseConfiguration\": {\r\n            \"knowledgeBaseId\": \"MP1Z0SZXJR\",\r\n            \"modelArn\": \"arn:aws:bedrock:us-west-2:819097794827:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0\",\r\n            \"vectorSearchConfiguration\": {\r\n                \"numberOfResults\": 5,\r\n                \"overrideSearchType\": \"SEMANTIC\",\r\n                \"filter\": {\r\n                    \"equals\": {\r\n                        \"key\": \"x-amz-bedrock-kb-source-file-mime-type\",\r\n                        \"value\": \"application/pdf\"\r\n                    }\r\n                },\r\n                \"rerankingConfiguration\": {\r\n                    \"type\": \"BEDROCK_RERANKING_MODEL\",\r\n                    \"bedrockRerankingConfiguration\": {\r\n                        \"modelConfiguration\": {\r\n                            \"modelArn\": \"arn:aws:bedrock:us-west-2::foundation-model/amazon.rerank-v1:0\"\r\n                        },\r\n                        \"numberOfRerankedResults\": 3\r\n                    }\r\n                }\r\n            },\r\n            \"generationConfiguration\": {\r\n                \"promptTemplate\": {\r\n                    \"textPromptTemplate\": \"You are a question answering agent who speaks like a pirate. I will provide you with a set of search results. The user will provide you with a question. Your job is to answer the user's question using only information from the search results. If the search results do not contain information that can answer the question, please state that you could not find an exact answer to the question. Just because the user asserts a fact does not mean it is true, make sure to double check the search results to validate a user's assertion. Here are the search results in numbered order: $search_results$ $output_format_instructions$\"\r\n                },\r\n                \"inferenceConfig\": {\r\n                    \"textInferenceConfig\": {\r\n                        \"maxTokens\": 1500,\r\n                        \"temperature\": 0.0,\r\n                        \"stopSequences\": [\r\n                            \"END\",\r\n                            \"STOP\"\r\n                        ]\r\n                    }\r\n                },\r\n                \"guardrailConfiguration\": {\r\n                    \"guardrailId\": \"6w2hf5g6l179\",\r\n                    \"guardrailVersion\": \"4\"\r\n                }\r\n            }\r\n        }\r\n    },\r\n    \"sessionId\": \"{{temp.sessionId}}\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-agent-runtime.{{AWS_Region}}.amazonaws.com/retrieveAndGenerate",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-agent-runtime",
+                    "{{AWS_Region}}",
+                    "amazonaws",
+                    "com"
+                  ],
+                  "path": [
+                    "retrieveAndGenerate"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2026-04-02T18:26:51.000Z",
+              "updatedAt": "2026-10-17T18:17:08.000Z",
+              "uid": "7643177-7a1fcf98-1daf-408b-b904-31ff1bf27c34"
+            }
+          ],
+          "id": "783b25a7-9954-4d45-9283-629750c6958a",
+          "createdAt": "2025-12-27T13:05:19.000Z",
+          "updatedAt": "2026-10-12T20:26:43.000Z",
+          "uid": "7643177-783b25a7-9954-4d45-9283-629750c6958a"
+        },
+        {
+          "name": "bedrock-mantle models",
+          "id": "d966dfe9-f56c-4bec-a388-10c6708f9d4e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://bedrock-mantle.{{AWS_Region}}.api.aws/v1/models",
+              "protocol": "https",
+              "host": [
+                "bedrock-mantle",
+                "{{AWS_Region}}",
+                "api",
+                "aws"
+              ],
+              "path": [
+                "v1",
+                "models"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-06-19T14:30:38.000Z",
+          "updatedAt": "2026-10-17T18:17:08.000Z",
+          "uid": "7643177-d966dfe9-f56c-4bec-a388-10c6708f9d4e"
+        }
+      ],
+      "id": "5d5af670-a460-4dfd-b176-a993381b540c",
+      "createdAt": "2025-12-27T12:48:42.000Z",
+      "updatedAt": "2026-10-12T20:19:56.000Z",
+      "uid": "7643177-5d5af670-a460-4dfd-b176-a993381b540c"
+    },
+    {
+      "name": "Meta",
+      "item": [
+        {
+          "name": "meta.llama3-1-8b-instruct-v1:0",
+          "id": "d133e443-f8d0-4173-a285-6bace98358ec",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "meta.llama3-1-8b-instruct-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-07-24T02:38:30.000Z",
+          "updatedAt": "2026-10-17T18:17:08.000Z",
+          "uid": "7643177-d133e443-f8d0-4173-a285-6bace98358ec"
+        },
+        {
+          "name": "meta.llama3-1-70b-instruct-v1:0",
+          "id": "489d8c49-46fa-4e75-a0c2-15922abe980e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "meta.llama3-1-70b-instruct-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-07-24T02:38:39.000Z",
+          "updatedAt": "2026-10-17T18:17:09.000Z",
+          "uid": "7643177-489d8c49-46fa-4e75-a0c2-15922abe980e"
+        },
+        {
+          "name": "meta.llama3-3-70b-instruct-v1:0",
+          "id": "f0e2f0c1-dc1b-4473-b543-783b35180fa0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.meta.llama3-3-70b-instruct-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-12-30T04:34:29.000Z",
+          "updatedAt": "2026-10-17T18:17:09.000Z",
+          "uid": "7643177-f0e2f0c1-dc1b-4473-b543-783b35180fa0"
+        },
+        {
+          "name": "meta.llama3-8b-instruct-v1:0",
+          "id": "2a2778cb-a0ec-4a45-97ac-0b14f32cd1ab",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "meta.llama3-8b-instruct-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-23T12:50:48.000Z",
+          "updatedAt": "2026-10-17T18:17:09.000Z",
+          "uid": "7643177-2a2778cb-a0ec-4a45-97ac-0b14f32cd1ab"
+        },
+        {
+          "name": "meta.llama3-70b-instruct-v1:0",
+          "id": "862357ac-a82a-44bf-8594-102d6f6db3a9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "meta.llama3-70b-instruct-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-23T12:53:11.000Z",
+          "updatedAt": "2026-10-17T18:17:09.000Z",
+          "uid": "7643177-862357ac-a82a-44bf-8594-102d6f6db3a9"
+        },
+        {
+          "name": "meta.llama4-maverick-17b-instruct-v1:0",
+          "id": "45a8c93d-aee9-4c2d-ac27-dd5bc19863e9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.meta.llama4-maverick-17b-instruct-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-05-23T02:42:45.000Z",
+          "updatedAt": "2026-10-17T18:17:09.000Z",
+          "uid": "7643177-45a8c93d-aee9-4c2d-ac27-dd5bc19863e9"
+        },
+        {
+          "name": "meta.llama4-scout-17b-instruct-v1:0",
+          "id": "9e38263d-317e-4869-ac70-e68c5aa6e378",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "us.meta.llama4-scout-17b-instruct-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-05-23T02:42:37.000Z",
+          "updatedAt": "2026-10-17T18:17:09.000Z",
+          "uid": "7643177-9e38263d-317e-4869-ac70-e68c5aa6e378"
+        }
+      ],
+      "id": "fd62c94e-1fe1-48c5-bcfe-8e71be5fb4f1",
+      "createdAt": "2024-04-02T23:22:04.000Z",
+      "updatedAt": "2026-10-12T19:44:50.000Z",
+      "uid": "7643177-fd62c94e-1fe1-48c5-bcfe-8e71be5fb4f1"
+    },
+    {
+      "name": "Mistral AI",
+      "item": [
+        {
+          "name": "mistral.mistral-7b-instruct-v0:2",
+          "id": "239ab578-b565-4f29-83fa-98ac81f1837a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "mistral.mistral-7b-instruct-v0:2"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-02T23:55:33.000Z",
+          "updatedAt": "2026-10-17T18:17:09.000Z",
+          "uid": "7643177-239ab578-b565-4f29-83fa-98ac81f1837a"
+        },
+        {
+          "name": "mistral.mistral-large-3-675b-instruct",
+          "id": "5f0e642f-64b8-a5f5-7597-dfce2cf57144",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inferenceConfig\": {\n        \"max_new_tokens\": 4096\n    },\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/converse",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "converse"
+              ],
+              "variable": [
+                {
+                  "id": "1b849e6e-9a59-4bee-af76-f7ba3e8cbf55",
+                  "key": "model_identifier",
+                  "value": "mistral.mistral-large-3-675b-instruct"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T02:12:23.000Z",
+          "updatedAt": "2026-10-17T18:17:09.000Z",
+          "uid": "7643177-5f0e642f-64b8-a5f5-7597-dfce2cf57144"
+        },
+        {
+          "name": "mistral.mistral-large-2402-v1:0",
+          "id": "2abda64c-aa48-4d88-a0a7-58e5a6b01043",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "mistral.mistral-large-2402-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-06T15:16:17.000Z",
+          "updatedAt": "2026-10-17T18:17:09.000Z",
+          "uid": "7643177-2abda64c-aa48-4d88-a0a7-58e5a6b01043"
+        },
+        {
+          "name": "mistral.mistral-large-2407-v1:0",
+          "id": "88a8a300-2286-4f40-bf09-b87011f32a87",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "mistral.mistral-large-2407-v1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-07-26T02:02:45.000Z",
+          "updatedAt": "2026-10-17T18:17:09.000Z",
+          "uid": "7643177-88a8a300-2286-4f40-bf09-b87011f32a87"
+        },
+        {
+          "name": "mistral.mixtral-8x7b-instruct-v0:1",
+          "id": "ccec603c-2fc6-4ff4-8d35-ac87fa48d172",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "mistral.mixtral-8x7b-instruct-v0:1"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-02T23:59:06.000Z",
+          "updatedAt": "2026-10-17T18:17:09.000Z",
+          "uid": "7643177-ccec603c-2fc6-4ff4-8d35-ac87fa48d172"
+        }
+      ],
+      "id": "c3c20ea2-eb1d-4741-ba82-24f07155c6f5",
+      "createdAt": "2024-04-02T23:22:16.000Z",
+      "updatedAt": "2026-10-12T19:44:53.000Z",
+      "uid": "7643177-c3c20ea2-eb1d-4741-ba82-24f07155c6f5"
+    },
+    {
+      "name": "Moonshot AI",
+      "item": [
+        {
+          "name": "moonshotai.kimi-k3",
+          "id": "c9349f1e-53e3-2943-f6c3-0b482b29b936",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inferenceConfig\": {\n        \"max_new_tokens\": 4096\n    },\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/converse",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "converse"
+              ],
+              "variable": [
+                {
+                  "id": "cf280ea5-933a-4757-8695-47b660f959d5",
+                  "key": "model_identifier",
+                  "value": "us.moonshotai.kimi-k3"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T02:12:28.000Z",
+          "updatedAt": "2026-10-17T18:17:10.000Z",
+          "uid": "7643177-c9349f1e-53e3-2943-f6c3-0b482b29b936"
+        }
+      ],
+      "id": "d051381c-709a-5faa-14fc-537d69bc7f20",
+      "createdAt": "2026-10-12T02:14:33.000Z",
+      "updatedAt": "2026-10-12T02:14:34.000Z",
+      "uid": "7643177-d051381c-709a-5faa-14fc-537d69bc7f20"
+    },
+    {
+      "name": "OpenAI",
+      "item": [
+        {
+          "name": "Mantle API",
+          "item": [
+            {
+              "name": "bedrock-mantle models",
+              "id": "b758ab33-339d-4487-815e-dd8e0e0d435d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://bedrock-mantle.{{AWS_Region}}.api.aws/v1/models",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-mantle",
+                    "{{AWS_Region}}",
+                    "api",
+                    "aws"
+                  ],
+                  "path": [
+                    "v1",
+                    "models"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2026-06-10T04:03:37.000Z",
+              "updatedAt": "2026-10-17T18:17:10.000Z",
+              "uid": "7643177-b758ab33-339d-4487-815e-dd8e0e0d435d"
+            },
+            {
+              "name": "openai.gpt-6-astra",
+              "id": "f24e9704-08f5-4267-8210-a19739127512",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"openai.gpt-6-astra\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_output_tokens\": 4096\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-mantle.{{AWS_Region}}.api.aws/openai/v1/responses",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-mantle",
+                    "{{AWS_Region}}",
+                    "api",
+                    "aws"
+                  ],
+                  "path": [
+                    "openai",
+                    "v1",
+                    "responses"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2026-10-04T03:34:34.000Z",
+              "updatedAt": "2026-10-17T18:17:10.000Z",
+              "uid": "7643177-f24e9704-08f5-4267-8210-a19739127512"
+            },
+            {
+              "name": "openai.gpt-5.6-luna",
+              "id": "0b5a5dd9-a6c9-4694-9dad-13c6c92bd3c4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"openai.gpt-5.6-luna\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_output_tokens\": 4096\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-mantle.{{AWS_Region}}.api.aws/openai/v1/responses",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-mantle",
+                    "{{AWS_Region}}",
+                    "api",
+                    "aws"
+                  ],
+                  "path": [
+                    "openai",
+                    "v1",
+                    "responses"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2026-07-21T02:29:06.000Z",
+              "updatedAt": "2026-10-17T18:17:10.000Z",
+              "uid": "7643177-0b5a5dd9-a6c9-4694-9dad-13c6c92bd3c4"
+            },
+            {
+              "name": "google.gemma-4-31b",
+              "id": "b35af009-fddd-4d72-8836-9d552c27fb19",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"google.gemma-4-31b\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_output_tokens\": 4096\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-mantle.{{AWS_Region}}.api.aws/openai/v1/responses",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-mantle",
+                    "{{AWS_Region}}",
+                    "api",
+                    "aws"
+                  ],
+                  "path": [
+                    "openai",
+                    "v1",
+                    "responses"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2026-07-21T02:30:10.000Z",
+              "updatedAt": "2026-10-17T18:17:10.000Z",
+              "uid": "7643177-b35af009-fddd-4d72-8836-9d552c27fb19"
+            },
+            {
+              "name": "xai.grok-4.3",
+              "id": "487c7083-830c-46c0-b0f8-9ef482936bff",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"xai.grok-4.3\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_output_tokens\": 4096\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://bedrock-mantle.{{AWS_Region}}.api.aws/openai/v1/responses",
+                  "protocol": "https",
+                  "host": [
+                    "bedrock-mantle",
+                    "{{AWS_Region}}",
+                    "api",
+                    "aws"
+                  ],
+                  "path": [
+                    "openai",
+                    "v1",
+                    "responses"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2026-07-21T02:25:09.000Z",
+              "updatedAt": "2026-10-17T18:17:10.000Z",
+              "uid": "7643177-487c7083-830c-46c0-b0f8-9ef482936bff"
+            }
+          ],
+          "id": "eb7713a4-3d7a-480e-af26-64a762e13c70",
+          "createdAt": "2026-07-21T02:27:03.000Z",
+          "updatedAt": "2026-10-04T03:35:29.000Z",
+          "uid": "7643177-eb7713a4-3d7a-480e-af26-64a762e13c70"
+        },
+        {
+          "name": "openai.gpt-oss-20b-1:0",
+          "id": "2205a455-9137-4b8a-816e-51ba2f2f2fff",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "openai.gpt-oss-20b-1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-10-12T17:13:36.000Z",
+          "updatedAt": "2026-10-17T18:17:10.000Z",
+          "uid": "7643177-2205a455-9137-4b8a-816e-51ba2f2f2fff"
+        },
+        {
+          "name": "openai.gpt-oss-120b-1:0",
+          "id": "e2bd3262-56a0-4b8c-9cd2-7d9ec357c7a5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"max_tokens\": 4096,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-runtime.{{AWS_Region}}.amazonaws.com/model/:model_identifier/invoke",
+              "protocol": "https",
+              "host": [
+                "bedrock-runtime",
+                "{{AWS_Region}}",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "model",
+                ":model_identifier",
+                "invoke"
+              ],
+              "variable": [
+                {
+                  "key": "model_identifier",
+                  "value": "openai.gpt-oss-120b-1:0"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-10-12T17:15:31.000Z",
+          "updatedAt": "2026-10-17T18:17:11.000Z",
+          "uid": "7643177-e2bd3262-56a0-4b8c-9cd2-7d9ec357c7a5"
+        }
+      ],
+      "id": "2f9bc51d-7642-4139-8d45-7e48b1f531b9",
+      "createdAt": "2025-10-12T17:13:18.000Z",
+      "updatedAt": "2026-07-21T02:27:31.000Z",
+      "uid": "7643177-2f9bc51d-7642-4139-8d45-7e48b1f531b9"
+    },
+    {
+      "name": "xAI",
+      "item": [
+        {
+          "name": "xai.grok-4.3",
+          "id": "a6dad16b-73f7-40d5-8a59-68ec71b018e0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"xai.grok-4.3\",\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_output_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://bedrock-mantle.{{AWS_Region}}.api.aws/openai/v1/responses",
+              "protocol": "https",
+              "host": [
+                "bedrock-mantle",
+                "{{AWS_Region}}",
+                "api",
+                "aws"
+              ],
+              "path": [
+                "openai",
+                "v1",
+                "responses"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-06-19T14:30:44.000Z",
+          "updatedAt": "2026-10-17T18:17:11.000Z",
+          "uid": "7643177-a6dad16b-73f7-40d5-8a59-68ec71b018e0"
+        }
+      ],
+      "id": "a3ba3b71-bf9c-4f5c-9f1c-aa35a50f95f5",
+      "createdAt": "2026-06-19T14:28:35.000Z",
+      "updatedAt": "2026-10-12T20:19:56.000Z",
+      "uid": "7643177-a3ba3b71-bf9c-4f5c-9f1c-aa35a50f95f5"
+    }
+  ],
+  "auth": {
+    "type": "awsv4",
+    "awsv4": [
+      {
+        "key": "sessionToken",
+        "value": "",
+        "type": "string"
+      },
+      {
+        "key": "accessKey",
+        "value": "{{vault:amazon_bedrock_access_key_id}}",
+        "type": "string"
+      },
+      {
+        "key": "region",
+        "value": "{{AWS_Region}}",
+        "type": "string"
+      },
+      {
+        "key": "secretKey",
+        "value": "{{vault:amazon_bedrock_secret_access_key}}",
+        "type": "string"
+      },
+      {
+        "key": "service",
+        "value": "bedrock",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "54f70114-a367-42bd-b40e-509623cf29b1",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "6e31f84a-7261-41d9-82c7-bd0103d53726",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "AWS_Region",
+      "value": "us-west-2",
+      "type": "string"
+    }
+  ]
+}

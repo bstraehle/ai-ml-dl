@@ -1,0 +1,1234 @@
+{
+  "info": {
+    "_postman_id": "7de52107-238e-487a-af63-a1f90e737bae",
+    "name": "📌 fal.ai API",
+    "description": "### About\n\n\"fal is the generative media inference platform: call 1,000+ models via one API, deploy your own on serverless GPUs, or train on GPU clusters.\"\n\nfal.ai hosts image, video and audio models from many labs, such as Google's Nano Banana and Veo, behind one queue-based API. On the workspace overview it is listed under **Image & video**.\n\n### Prerequisites\n\n- Postman Account\n    \n- fal.ai Account: [https://fal.ai/dashboard](https://fal.ai/dashboard)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `fal_ai_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:fal_ai_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://fal.ai/dashboard](https://fal.ai/dashboard)\n    \n- Models: [https://fal.ai/models](https://fal.ai/models)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2025-02-15T15:03:05.000Z",
+    "updatedAt": "2026-10-12T23:53:21.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-7de52107-238e-487a-af63-a1f90e737bae"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Generate Image (nano-banana-2)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "packages": [],
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.status_url', jsonResponse.status_url)\r",
+                  "pm.collectionVariables.set('temp.response_url', jsonResponse.response_url)\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "packages": [],
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "id": "f017909f-40b4-43ff-b396-509751240b2a"
+              }
+            }
+          ],
+          "id": "00e94922-9e1c-435c-b576-4904d739a6b0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:model_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":model_id"
+              ],
+              "variable": [
+                {
+                  "id": "7659ee12-d39a-4789-8717-286e85bea25a",
+                  "key": "model_id",
+                  "value": "nano-banana-2"
+                }
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [
+            {
+              "id": "17fe5193-2365-573d-2efa-3646eb1b6f40",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:model_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":model_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "7659ee12-d39a-4789-8717-286e85bea25a",
+                      "key": "model_id",
+                      "value": "nano-banana-2"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "value": "application/json",
+                  "key": "content-type"
+                },
+                {
+                  "value": "01a14b07-8953-7b81-b6c5-0411be68fb5d",
+                  "key": "x-fal-request-id"
+                },
+                {
+                  "value": "origin, access-control-request-method, access-control-request-headers",
+                  "key": "vary"
+                },
+                {
+                  "value": "true",
+                  "key": "access-control-allow-credentials"
+                },
+                {
+                  "value": "491",
+                  "key": "content-length"
+                },
+                {
+                  "value": "Sat, 17 Oct 2026 18:02:27 GMT",
+                  "key": "date"
+                },
+                {
+                  "value": "noindex",
+                  "key": "x-robots-tag"
+                },
+                {
+                  "value": "max-age=31536000; includeSubDomains",
+                  "key": "strict-transport-security"
+                },
+                {
+                  "value": "close",
+                  "key": "connection"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "370",
+              "body": "{\n  \"status\": \"IN_QUEUE\",\n  \"request_id\": \"01a14b07-8953-7b81-b6c5-0411be68fb5d\",\n  \"response_url\": \"https://queue.fal.run/fal-ai/nano-banana-2/requests/01a14b07-8953-7b81-b6c5-0411be68fb5d\",\n  \"status_url\": \"https://queue.fal.run/fal-ai/nano-banana-2/requests/01a14b07-8953-7b81-b6c5-0411be68fb5d/status\",\n  \"cancel_url\": \"https://queue.fal.run/fal-ai/nano-banana-2/requests/01a14b07-8953-7b81-b6c5-0411be68fb5d/cancel\",\n  \"logs\": null,\n  \"metrics\": {},\n  \"queue_position\": 0,\n  \"user_queue_position\": 0,\n  \"user_queued_count\": 1\n}",
+              "createdAt": "2026-10-17T18:02:28.000Z",
+              "updatedAt": "2026-10-17T18:02:28.000Z",
+              "uid": "7643177-17fe5193-2365-573d-2efa-3646eb1b6f40"
+            }
+          ],
+          "createdAt": "2026-10-12T04:59:18.000Z",
+          "updatedAt": "2026-10-17T18:02:29.000Z",
+          "uid": "7643177-00e94922-9e1c-435c-b576-4904d739a6b0"
+        }
+      ],
+      "id": "d2057c6a-8953-55b3-1b22-bcf5e54bc0ea",
+      "createdAt": "2026-10-12T04:59:17.000Z",
+      "updatedAt": "2026-10-12T04:59:18.000Z",
+      "uid": "7643177-d2057c6a-8953-55b3-1b22-bcf5e54bc0ea"
+    },
+    {
+      "name": "Generate Audio",
+      "item": [
+        {
+          "name": "Generate Audio",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.status_url', jsonResponse.status_url)\r",
+                  "pm.collectionVariables.set('temp.response_url', jsonResponse.response_url)\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "8c6adbb7-69d3-4266-98da-43c127543df5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n     \"lyrics\": \"[verse]\\nStaring at the sunset, colors paint the sky\\nThoughts of you keep swirling, can't deny\\nI know I let you down, I made mistakes\\nBut I'm here to mend the heart I didn't break\\n\\n[chorus]\\nEvery road you take, I'll be one step behind\\nEvery dream you chase, I'm reaching for the light\\nYou can't fight this feeling now\\nI won't back down\\nYou know you can't deny it now\\nI won't back down\\n\",\n     \"genres\": \"inspiring female uplifting pop airy vocal electronic bright vocal vocal\"\n   }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:model_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":model_id"
+              ],
+              "variable": [
+                {
+                  "key": "model_id",
+                  "value": "yue"
+                }
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2025-02-16T18:43:39.000Z",
+          "updatedAt": "2026-10-17T18:18:26.000Z",
+          "uid": "7643177-8c6adbb7-69d3-4266-98da-43c127543df5"
+        }
+      ],
+      "id": "971cf0b7-bf03-1ee6-0169-87ecde355f26",
+      "createdAt": "2026-10-12T17:45:58.000Z",
+      "updatedAt": "2026-10-12T17:45:59.000Z",
+      "uid": "7643177-971cf0b7-bf03-1ee6-0169-87ecde355f26"
+    },
+    {
+      "name": "Generate Image",
+      "item": [
+        {
+          "name": "nano-banana-pro",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.status_url', jsonResponse.status_url)\r",
+                  "pm.collectionVariables.set('temp.response_url', jsonResponse.response_url)\r",
+                  ""
+                ],
+                "packages": [],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "packages": [],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "e50e4779-f358-99c7-ac1e-5df156b08977",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:model_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":model_id"
+              ],
+              "variable": [
+                {
+                  "id": "647f4b93-7f70-4603-89f2-27712329970d",
+                  "key": "model_id",
+                  "value": "nano-banana-pro"
+                }
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2026-10-12T03:28:18.000Z",
+          "updatedAt": "2026-10-17T18:18:26.000Z",
+          "uid": "7643177-e50e4779-f358-99c7-ac1e-5df156b08977"
+        },
+        {
+          "name": "nano-banana-2",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "packages": [],
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.status_url', jsonResponse.status_url)\r",
+                  "pm.collectionVariables.set('temp.response_url', jsonResponse.response_url)\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "packages": [],
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "id": "f017909f-40b4-43ff-b396-509751240b2a"
+              }
+            }
+          ],
+          "id": "1c5dc6fc-959b-876e-0936-1dd58234dcea",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:model_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":model_id"
+              ],
+              "variable": [
+                {
+                  "id": "7659ee12-d39a-4789-8717-286e85bea25a",
+                  "key": "model_id",
+                  "value": "nano-banana-2"
+                }
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2026-10-12T03:15:00.000Z",
+          "updatedAt": "2026-10-17T18:18:26.000Z",
+          "uid": "7643177-1c5dc6fc-959b-876e-0936-1dd58234dcea"
+        },
+        {
+          "name": "flux-pro/v1.1-ultra",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.status_url', jsonResponse.status_url)\r",
+                  "pm.collectionVariables.set('temp.response_url', jsonResponse.response_url)\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "a02e2adb-da9a-4c58-981e-ba11be7a176e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:model_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":model_id"
+              ],
+              "variable": [
+                {
+                  "key": "model_id",
+                  "value": "flux-pro/v1.1-ultra"
+                }
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2025-02-16T18:28:10.000Z",
+          "updatedAt": "2026-10-17T18:18:27.000Z",
+          "uid": "7643177-a02e2adb-da9a-4c58-981e-ba11be7a176e"
+        },
+        {
+          "name": "flux-pro/kontext",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.status_url', jsonResponse.status_url)\r",
+                  "pm.collectionVariables.set('temp.response_url', jsonResponse.response_url)\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "c56135c1-571c-45c1-b809-e7ee1ffee41b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"Turn this image into a watercolor painting.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:model_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":model_id"
+              ],
+              "variable": [
+                {
+                  "key": "model_id",
+                  "value": "flux-pro/kontext"
+                }
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2025-06-16T00:55:44.000Z",
+          "updatedAt": "2026-10-17T18:18:27.000Z",
+          "uid": "7643177-c56135c1-571c-45c1-b809-e7ee1ffee41b"
+        },
+        {
+          "name": "openai/gpt-image-2.6/flare/text-to-image",
+          "event": [
+            {
+              "script": {
+                "packages": [],
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.status_url', jsonResponse.status_url)\r",
+                  "pm.collectionVariables.set('temp.response_url', jsonResponse.response_url)\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "test"
+            },
+            {
+              "script": {
+                "packages": [],
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "prerequest"
+            }
+          ],
+          "id": "5d5129aa-8c37-93a5-ced4-fb7cb6547d15",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://queue.fal.run/:model_id",
+              "protocol": "https",
+              "host": [
+                "queue",
+                "fal",
+                "run"
+              ],
+              "path": [
+                ":model_id"
+              ],
+              "variable": [
+                {
+                  "id": "11a4af1b-56a7-4794-9c44-b2d3952cdb8f",
+                  "key": "model_id",
+                  "value": "openai/gpt-image-2.6/flare/text-to-image"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-11-14T17:41:23.000Z",
+          "updatedAt": "2026-11-14T17:41:23.000Z",
+          "uid": "7643177-5d5129aa-8c37-93a5-ced4-fb7cb6547d15"
+        },
+        {
+          "name": "openai/gpt-image-2.6/sunburst/text-to-image",
+          "event": [
+            {
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "type": "text/javascript",
+                "packages": [],
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.status_url', jsonResponse.status_url)\r",
+                  "pm.collectionVariables.set('temp.response_url', jsonResponse.response_url)\r",
+                  ""
+                ]
+              },
+              "listen": "test"
+            },
+            {
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "type": "text/javascript",
+                "packages": [],
+                "exec": [
+                  ""
+                ]
+              },
+              "listen": "prerequest"
+            }
+          ],
+          "id": "931ec9c5-86ac-d63e-d3c2-8d50eeabebd9",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://queue.fal.run/:model_id",
+              "protocol": "https",
+              "host": [
+                "queue",
+                "fal",
+                "run"
+              ],
+              "path": [
+                ":model_id"
+              ],
+              "variable": [
+                {
+                  "id": "a77305c3-d399-4be8-b06c-e82cc3b6cc7d",
+                  "key": "model_id",
+                  "value": "openai/gpt-image-2.6/sunburst/text-to-image"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-11-14T17:41:25.000Z",
+          "updatedAt": "2026-11-14T17:41:25.000Z",
+          "uid": "7643177-931ec9c5-86ac-d63e-d3c2-8d50eeabebd9"
+        },
+        {
+          "name": "bytedance/seedream/v5.5/text-to-image",
+          "event": [
+            {
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.status_url', jsonResponse.status_url)\r",
+                  "pm.collectionVariables.set('temp.response_url', jsonResponse.response_url)\r",
+                  ""
+                ],
+                "packages": [],
+                "type": "text/javascript"
+              },
+              "listen": "test"
+            },
+            {
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "packages": [],
+                "type": "text/javascript"
+              },
+              "listen": "prerequest"
+            }
+          ],
+          "id": "5c3714af-6512-a4da-e3fa-d864cd46f4fe",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://queue.fal.run/:model_id",
+              "protocol": "https",
+              "host": [
+                "queue",
+                "fal",
+                "run"
+              ],
+              "path": [
+                ":model_id"
+              ],
+              "variable": [
+                {
+                  "id": "1e10842a-ec0c-4ad4-8395-cf1e4820fac3",
+                  "key": "model_id",
+                  "value": "bytedance/seedream/v5.5/text-to-image"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-11-14T17:41:26.000Z",
+          "updatedAt": "2026-11-14T17:41:26.000Z",
+          "uid": "7643177-5c3714af-6512-a4da-e3fa-d864cd46f4fe"
+        },
+        {
+          "name": "veo3",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.status_url', jsonResponse.status_url)\r",
+                  "pm.collectionVariables.set('temp.response_url', jsonResponse.response_url)\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "9b349ba3-1031-4c27-8ce3-7f71f878b50c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"A small robot walks through a field of wildflowers at sunrise, cinematic slow camera pan.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:model_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":model_id"
+              ],
+              "variable": [
+                {
+                  "key": "model_id",
+                  "value": "veo3"
+                }
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2025-06-16T00:55:42.000Z",
+          "updatedAt": "2026-10-17T18:18:27.000Z",
+          "uid": "7643177-9b349ba3-1031-4c27-8ce3-7f71f878b50c"
+        },
+        {
+          "name": "veo3/fast",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.status_url', jsonResponse.status_url)\r",
+                  "pm.collectionVariables.set('temp.response_url', jsonResponse.response_url)\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "cba927eb-c738-42db-b981-e100f1928832",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"A small robot walks through a field of wildflowers at sunrise, cinematic slow camera pan.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:model_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":model_id"
+              ],
+              "variable": [
+                {
+                  "key": "model_id",
+                  "value": "veo3/fast"
+                }
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2025-07-11T02:18:01.000Z",
+          "updatedAt": "2026-10-17T18:18:27.000Z",
+          "uid": "7643177-cba927eb-c738-42db-b981-e100f1928832"
+        }
+      ],
+      "id": "3a617180-6497-4fff-abf6-1c40fbcd3e35",
+      "createdAt": "2025-06-16T00:55:13.000Z",
+      "updatedAt": "2026-11-14T17:41:28.000Z",
+      "uid": "7643177-3a617180-6497-4fff-abf6-1c40fbcd3e35"
+    },
+    {
+      "name": "Generate Video",
+      "item": [
+        {
+          "name": "Generate Video - txt to vid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.status_url', jsonResponse.status_url)\r",
+                  "pm.collectionVariables.set('temp.response_url', jsonResponse.response_url)\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "05e4f739-13b9-421d-a4af-67f93e758d6c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"A small robot walks through a field of wildflowers at sunrise, cinematic slow camera pan.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:model_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":model_id"
+              ],
+              "variable": [
+                {
+                  "key": "model_id",
+                  "value": "veo2"
+                }
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2025-02-16T18:43:58.000Z",
+          "updatedAt": "2026-10-17T18:18:27.000Z",
+          "uid": "7643177-05e4f739-13b9-421d-a4af-67f93e758d6c"
+        },
+        {
+          "name": "Generate Video - img to vid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.status_url', jsonResponse.status_url)\r",
+                  "pm.collectionVariables.set('temp.response_url', jsonResponse.response_url)\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "e4e96f9d-beab-4462-bf20-133c55515b6f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"The camera slowly pushes in as the scene comes to life.\",\n    \"image_url\": \"https://fal.media/files/elephant/6fq8JDSjb1osE_c3J_F2H.png\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:model_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":model_id"
+              ],
+              "variable": [
+                {
+                  "key": "model_id",
+                  "value": "veo2"
+                }
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2025-03-16T16:48:23.000Z",
+          "updatedAt": "2026-10-17T18:18:27.000Z",
+          "uid": "7643177-e4e96f9d-beab-4462-bf20-133c55515b6f"
+        }
+      ],
+      "id": "0e98da8e-42d5-5136-5d93-5715c8e481fb",
+      "createdAt": "2026-10-12T17:46:00.000Z",
+      "updatedAt": "2026-10-12T17:46:02.000Z",
+      "uid": "7643177-0e98da8e-42d5-5136-5d93-5715c8e481fb"
+    },
+    {
+      "name": "Queue",
+      "item": [
+        {
+          "name": "Response",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "bf1aa7f9-b1b3-4d87-b37f-369100ed3d04",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{temp.response_url}}",
+              "host": [
+                "{{temp.response_url}}"
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2025-02-16T18:34:28.000Z",
+          "updatedAt": "2026-10-17T18:18:27.000Z",
+          "uid": "7643177-bf1aa7f9-b1b3-4d87-b37f-369100ed3d04"
+        },
+        {
+          "name": "Status",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7bef118a-9e61-4aa6-9848-8aa332cf7c61",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f017909f-40b4-43ff-b396-509751240b2a",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "ebad88c8-d208-4b21-a4fc-4dc70072c751",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{temp.status_url}}",
+              "host": [
+                "{{temp.status_url}}"
+              ]
+            },
+            "description": "Create a text completion with the specified model from AI Studio using the chat format. You need to provide the list of messages, where each message is a dictionary with two keys: `role`, which is one of `system` / `user` / `assistant` , and `message` , which is a string - the content of the message."
+          },
+          "response": [],
+          "createdAt": "2025-02-16T18:33:50.000Z",
+          "updatedAt": "2026-10-17T18:18:28.000Z",
+          "uid": "7643177-ebad88c8-d208-4b21-a4fc-4dc70072c751"
+        }
+      ],
+      "id": "73c9d013-d417-139c-723a-6cf8d9df4452",
+      "createdAt": "2026-10-12T17:46:03.000Z",
+      "updatedAt": "2026-10-12T19:46:31.000Z",
+      "uid": "7643177-73c9d013-d417-139c-723a-6cf8d9df4452"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "value",
+        "value": "Key {{vault:fal_ai_api_key}}",
+        "type": "string"
+      },
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "f87084cb-4f2e-442a-ba4e-9aec9a774557",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "2eb98636-4d7a-400a-b1c2-5378736609f2",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://queue.fal.run/fal-ai",
+      "type": "string"
+    }
+  ]
+}

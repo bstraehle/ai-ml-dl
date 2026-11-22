@@ -1,0 +1,369 @@
+{
+  "info": {
+    "_postman_id": "eaa28658-c8f9-4aeb-97f2-a5b81fdae648",
+    "name": "📌 AssemblyAI API",
+    "description": "### About AssemblyAI\n\n\"AI models to transcribe and understand speech\"\n\nAssemblyAI builds its own speech-to-text models, such as Universal. On the workspace overview it is listed under **Speech & audio**.\n\n### Prerequisites\n\n- Postman Account\n    \n- AssemblyAI Account: [https://www.assemblyai.com/](https://www.assemblyai.com/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `assemblyai_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:assemblyai_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://www.assemblyai.com/docs/pre-recorded-audio/api-reference/transcripts/submit](https://www.assemblyai.com/docs/pre-recorded-audio/api-reference/transcripts/submit)\n    \n- Models: [https://www.assemblyai.com/docs/pre-recorded-audio/select-the-speech-model](https://www.assemblyai.com/docs/pre-recorded-audio/select-the-speech-model)\n\n### Notes\n\nTranscription is asynchronous: **Speech-to-Text / Get transcript** polls `temp.transcript_id` until `status` is `completed`.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-11T21:26:18.000Z",
+    "updatedAt": "2026-10-12T23:53:01.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-eaa28658-c8f9-4aeb-97f2-a5b81fdae648"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Speech-to-Text (universal-3-5-pro)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"temp.transcript_id\", body.id);"
+                ]
+              }
+            }
+          ],
+          "id": "fe867406-c77e-449f-b664-525e10c591f3",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"audio_url\": \"https://assembly.ai/wildfires.mp3\",\n    \"speech_models\": [\n        \"universal-3-5-pro\"\n    ],\n    \"language_detection\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/transcript",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "transcript"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7f55cb5a-8219-5961-7c74-29d1f4f51219",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"audio_url\": \"https://assembly.ai/wildfires.mp3\",\n    \"speech_models\": [\n        \"universal-3-5-pro\"\n    ],\n    \"language_detection\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/transcript",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "transcript"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "value": "Sat, 17 Oct 2026 18:01:25 GMT",
+                  "key": "Date"
+                },
+                {
+                  "value": "application/json; charset=UTF-8",
+                  "key": "Content-Type"
+                },
+                {
+                  "value": "2204",
+                  "key": "Content-Length"
+                },
+                {
+                  "value": "close",
+                  "key": "Connection"
+                },
+                {
+                  "value": "*",
+                  "key": "Access-Control-Allow-Origin"
+                },
+                {
+                  "value": "Content-Type, Authorization, X-Requested-With, User-Agent, AssemblyAI-Agent",
+                  "key": "Access-Control-Allow-Headers"
+                },
+                {
+                  "value": "POST, PUT, GET, OPTIONS",
+                  "key": "Access-Control-Allow-Methods"
+                },
+                {
+                  "value": "max-age=31536000; includeSubDomains; preload",
+                  "key": "Strict-Transport-Security"
+                },
+                {
+                  "value": "Accept-Encoding",
+                  "key": "Vary"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "266",
+              "body": "{\n  \"id\": \"d05f0033-c98f-4686-b0f9-c93a0b8ba7e2\",\n  \"language_model\": \"assemblyai_default\",\n  \"acoustic_model\": \"assemblyai_default\",\n  \"language_code\": null,\n  \"speech_understanding\": null,\n  \"translated_texts\": null,\n  \"status\": \"processing\",\n  \"audio_url\": \"https://assembly.ai/wildfires.mp3\",\n  \"text\": null,\n  \"words\": null,\n  \"utterances\": null,\n  \"confidence\": null,\n  \"audio_duration\": null,\n  \"punctuate\": true,\n  \"format_text\": true,\n  \"webhook_url\": null,\n  \"webhook_status_code\": null,\n  \"webhook_auth\": false,\n  \"webhook_auth_header_name\": null,\n  \"speed_boost\": false,\n  \"auto_highlights_result\": null,\n  \"auto_highlights\": false,\n  \"audio_start_from\": null,\n  \"audio_end_at\": null,\n  \"word_boost\": [],\n  \"boost_param\": null,\n  \"prompt\": null,\n  \"keyterms_prompt\": null,\n  \"filter_profanity\": false,\n  \"redact_pii\": false,\n  \"redact_pii_audio\": false,\n  \"redact_pii_audio_quality\": null,\n  \"redact_pii_audio_options\": null,\n  \"redact_pii_policies\": null,\n  \"redact_pii_sub\": null,\n  \"redact_static_entities\": null,\n  \"speaker_labels\": false,\n  \"speaker_options\": null,\n  \"content_safety\": false,\n  \"iab_categories\": false,\n  \"content_safety_labels\": {},\n  \"iab_categories_result\": {},\n  \"language_detection\": true,\n  \"language_detection_options\": {\n    \"expected_languages\": null,\n    \"fallback_language\": null,\n    \"code_switching\": null,\n    \"code_switching_confidence_threshold\": null,\n    \"on_low_language_confidence\": null,\n    \"on_no_speech_detected\": \"fallback\",\n    \"swiss_german\": null,\n    \"language_detection_model\": null,\n    \"localization\": null\n  },\n  \"language_detection_results\": null,\n  \"language_confidence_threshold\": null,\n  \"language_confidence\": null,\n  \"custom_spelling\": null,\n  \"throttled\": false,\n  \"auto_chapters\": false,\n  \"summarization\": false,\n  \"summary_type\": null,\n  \"summary_model\": null,\n  \"custom_topics\": false,\n  \"topics\": [],\n  \"speech_threshold\": null,\n  \"speech_model\": null,\n  \"speech_models\": [\n    \"universal-3-5-pro\"\n  ],\n  \"speech_model_used\": null,\n  \"temperature\": null,\n  \"remove_audio_tags\": \"all\",\n  \"chapters\": null,\n  \"disfluencies\": false,\n  \"entity_detection\": false,\n  \"sentiment_analysis\": false,\n  \"sentiment_analysis_results\": null,\n  \"entities\": null,\n  \"speakers_expected\": null,\n  \"summary\": null,\n  \"custom_topics_results\": null,\n  \"is_deleted\": null,\n  \"multichannel\": null,\n  \"project_id\": 2075707,\n  \"token_id\": 2116575\n}",
+              "createdAt": "2026-10-17T18:01:27.000Z",
+              "updatedAt": "2026-10-17T18:01:27.000Z",
+              "uid": "7643177-7f55cb5a-8219-5961-7c74-29d1f4f51219"
+            }
+          ],
+          "createdAt": "2026-10-11T21:26:19.000Z",
+          "updatedAt": "2026-10-17T18:01:28.000Z",
+          "uid": "7643177-fe867406-c77e-449f-b664-525e10c591f3"
+        }
+      ],
+      "id": "7351cb62-dcb2-4821-9b8b-9c03c65e8f18",
+      "createdAt": "2026-10-11T21:26:19.000Z",
+      "updatedAt": "2026-10-11T21:26:19.000Z",
+      "uid": "7643177-7351cb62-dcb2-4821-9b8b-9c03c65e8f18"
+    },
+    {
+      "name": "Speech-to-Text",
+      "item": [
+        {
+          "name": "universal-3-5-pro",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"temp.transcript_id\", body.id);"
+                ]
+              }
+            }
+          ],
+          "id": "87d96290-8e1c-4870-a80e-19c806dfe03d",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"audio_url\": \"https://assembly.ai/wildfires.mp3\",\n    \"speech_models\": [\n        \"universal-3-5-pro\"\n    ],\n    \"language_detection\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/transcript",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "transcript"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:19.000Z",
+          "updatedAt": "2026-10-17T18:17:15.000Z",
+          "uid": "7643177-87d96290-8e1c-4870-a80e-19c806dfe03d"
+        },
+        {
+          "name": "universal-2",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"temp.transcript_id\", body.id);"
+                ]
+              }
+            }
+          ],
+          "id": "3cbf924d-1e80-4f51-a715-c57274806cbb",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"audio_url\": \"https://assembly.ai/wildfires.mp3\",\n    \"speech_models\": [\n        \"universal-2\"\n    ],\n    \"language_detection\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/transcript",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "transcript"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:19.000Z",
+          "updatedAt": "2026-10-17T18:17:16.000Z",
+          "uid": "7643177-3cbf924d-1e80-4f51-a715-c57274806cbb"
+        },
+        {
+          "name": "Get transcript",
+          "id": "7495396f-c77a-4301-924a-9bfca989b874",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/transcript/{{temp.transcript_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "transcript",
+                "{{temp.transcript_id}}"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:19.000Z",
+          "updatedAt": "2026-10-17T18:17:16.000Z",
+          "uid": "7643177-7495396f-c77a-4301-924a-9bfca989b874"
+        }
+      ],
+      "id": "fb8e2c1d-0b98-4d97-bf48-26791e7c53ef",
+      "createdAt": "2026-10-11T21:26:19.000Z",
+      "updatedAt": "2026-10-11T21:26:19.000Z",
+      "uid": "7643177-fb8e2c1d-0b98-4d97-bf48-26791e7c53ef"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "value",
+        "value": "{{vault:assemblyai_api_key}}",
+        "type": "string"
+      },
+      {
+        "key": "key",
+        "value": "authorization",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "b496e303-57f8-4538-95e7-4347e87a9a44",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "36e0df05-d228-40d7-98da-9302575187bb",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.assemblyai.com/v2",
+      "type": "string"
+    }
+  ]
+}
