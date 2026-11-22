@@ -45,7 +45,8 @@ def front_matter(readme):
         key, sep, value = line.partition(":")
         if sep and key == key.strip() and not key.startswith("#"):
             meta[key] = value.split(" #")[0].strip().strip("'\"")
-    return {}
+    meta["_error"] = "front matter is missing its closing `---`"
+    return meta
 
 
 def add_interval(start, interval):
@@ -96,6 +97,9 @@ def classify(root, topics, today):
             continue
         if "last_reviewed" not in meta:
             rows["missing"].append((path, "no review front matter", last_changed(root, path)))
+            continue
+        if "_error" in meta:
+            rows["invalid"].append((path, meta["_error"]))
             continue
         status = meta.get("status", "current")
         if status == "archived":
