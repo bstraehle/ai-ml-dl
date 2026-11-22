@@ -17,3 +17,5 @@ Don't edit these folders here: change the Space, then run `python .github/script
 | [Multi-Agent AI - Coding](https://huggingface.co/spaces/bstraehle/multi-agent-ai-microsoft-coding) | Multi-Agent AI with Microsoft Agent Framework | [multi-agent-ai-microsoft-coding/](multi-agent-ai-microsoft-coding/) |
 | [OpenAI](https://huggingface.co/spaces/bstraehle/multimodal-ai) | OpenAI SDK with GPT-6.2 Sol model | [multimodal-ai/](multimodal-ai/) |
 | [Google Vertex AI](https://huggingface.co/spaces/bstraehle/vertex-ai) | Google Gen AI SDK on Vertex AI with Gemini 4 Argon model | [vertex-ai/](vertex-ai/) |
+
+**gaia:** Dependabot reports litellm advisories for `gaia/requirements.txt`. litellm stays at 1.80.0 because stagehand 0.5.x (the last release that the crewai-tools Stagehand browser tool supports) caps it there. Most advisories concern the LiteLLM Proxy server, which this Space doesn't run; it uses litellm only as a library.

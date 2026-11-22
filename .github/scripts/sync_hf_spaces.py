@@ -21,6 +21,12 @@ HUB = "https://huggingface.co"
 ALWAYS_SKIP = {".gitattributes"}
 SKIP_PREFIXES = {"gaia": ("files/",)}
 MAX_BYTES = 5_000_000
+NOTES = {
+    "gaia": "Dependabot reports litellm advisories for `gaia/requirements.txt`. litellm stays at 1.80.0 because "
+            "stagehand 0.5.x (the last release that the crewai-tools Stagehand browser tool supports) caps it there. "
+            "Most advisories concern the LiteLLM Proxy server, which this Space doesn't run; it uses litellm only "
+            "as a library.",
+}
 
 
 def get(url):
@@ -94,7 +100,8 @@ def write_index(dest, author, spaces, skipped):
         "# Hugging Face Spaces\n\n"
         f"Source code for my public [Hugging Face Spaces]({HUB}/{author}), mirrored from the Hub.\n"
         "Don't edit these folders here: change the Space, then run `python .github/scripts/sync_hf_spaces.py`.\n\n"
-        "| Space | What it does | Source |\n|---|---|---|\n" + "\n".join(rows) + "\n",
+        "| Space | What it does | Source |\n|---|---|---|\n" + "\n".join(rows) + "\n"
+        + "".join(f"\n**{name}:** {text}\n" for name, text in NOTES.items() if any(s["id"].endswith("/" + name) for s in spaces)),
         encoding="utf-8",
     )
 
