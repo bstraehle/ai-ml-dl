@@ -8,7 +8,7 @@ flwr-datasets[vision]==0.2.0
 torch==2.13.0
 torchvision==0.17.1
 matplotlib==3.8.3
-scikit-learn==1.4.2
+scikit-learn==1.5.0
 seaborn==0.13.2
 ipywidgets==8.1.2
 transformers==5.10.1
