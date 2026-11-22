@@ -69,10 +69,10 @@ Topics are grouped into numbered folders, roughly in learning order. Each folder
 - [Sebastian Raschka](https://sebastianraschka.com/): [Build a Large Language Model (From Scratch)](https://github.com/rasbt/LLMs-from-scratch) code and videos
 
 **Books, talks and essays**
-- [Co-Existence: The Next Phase of AI](https://co-existence.ai/) by Ethan Mollick (Penguin, 2026)
 - [An honest conversation on AI and humanity](https://www.youtube.com/watch?v=QiT2yK-5-yg): Yuval Noah Harari at the World Economic Forum
 - [Machines of Loving Grace](https://darioamodei.com/essay/machines-of-loving-grace): Dario Amodei's essay on how AI could transform the world for the better
 - [The Adolescence of Technology](https://darioamodei.com/essay/the-adolescence-of-technology): Dario Amodei's essay on confronting and overcoming the risks of powerful AI
+- [Co-Existence: The Next Phase of AI](https://co-existence.ai/) by Ethan Mollick (Penguin, 2026)
 
 ## More places to learn
 
@@ -81,10 +81,9 @@ Free or low-cost learning from AI companies, course platforms and universities. 
 **From AI companies**
 - [Anthropic Academy](https://academy.claude.com/): courses on building with Claude, agents and MCP
 - [OpenAI Academy](https://academy.openai.com/): courses and events on using and building with OpenAI's models
-- [Google Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course) and [Google Skills](https://www.skills.google/) (Google Cloud training)
-- [Microsoft: Generative AI for Beginners](https://github.com/microsoft/generative-ai-for-beginners), [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners) and [ML for Beginners](https://github.com/microsoft/ML-For-Beginners): free lesson-by-lesson courses on GitHub
+- [Google AI: learn AI skills](https://ai.google/learn-ai-skills/): Google's AI courses, tools and training
+- [Microsoft Learn AI learning hub](https://learn.microsoft.com/en-us/ai/): Microsoft's AI courses and learning paths
 - [AWS Skill Builder](https://skillbuilder.aws/)
-- [IBM SkillsBuild](https://skillsbuild.org/)
 - [NVIDIA Deep Learning Institute](https://www.nvidia.com/en-us/training/): self-paced and instructor-led courses on deep learning, generative AI and GPUs
 - [Hugging Face Learn](https://huggingface.co/learn): courses on LLMs, agents, MCP, diffusion and more
 
