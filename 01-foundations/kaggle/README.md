@@ -27,7 +27,6 @@ Kaggle competitions are a good way to practice the whole machine learning workfl
 | [Titanic: binary classification with tabular data](https://www.kaggle.com/competitions/titanic/) | Competition | Beginner | Free |
 | [House prices: regression with tabular data](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/) | Competition | Beginner | Free |
 | [Kaggle Learn](https://www.kaggle.com/learn) | Courses | Beginner | Free |
-| [My Kaggle profile](https://www.kaggle.com/bstraehle) | Profile | | |
 
 ## Hands-on
 
