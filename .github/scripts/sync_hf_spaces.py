@@ -19,10 +19,10 @@ from urllib.parse import quote
 
 HUB = "https://huggingface.co"
 ALWAYS_SKIP = {".gitattributes"}
-SKIP_PREFIXES = {"gaia": ("files/",)}
+SKIP_PREFIXES = {"bstraehle/gaia": ("files/",)}
 MAX_BYTES = 5_000_000
 NOTES = {
-    "gaia": "Dependabot reports litellm advisories for `gaia/requirements.txt`. litellm stays at 1.80.0 because "
+    "bstraehle/gaia": "Dependabot reports litellm advisories for `gaia/requirements.txt`. litellm stays at 1.80.0 because "
             "stagehand 0.5.x (the last release that the crewai-tools Stagehand browser tool supports) caps it there. "
             "Most advisories concern the LiteLLM Proxy server, which this Space doesn't run; it uses litellm only "
             "as a library.",
@@ -49,10 +49,10 @@ def space_files(space_id, sha):
     return [f for f in tree if f["type"] == "file"]
 
 
-def skip_reason(name, f):
+def skip_reason(space_id, f):
     if f["path"] in ALWAYS_SKIP:
         return "git config"
-    if f["path"].startswith(SKIP_PREFIXES.get(name, ())):
+    if f["path"].startswith(SKIP_PREFIXES.get(space_id, ())):
         return "excluded"
     if f["size"] > MAX_BYTES:
         return f"{f['size'] // 1_000_000} MB"
@@ -64,7 +64,7 @@ def sync_space(space, dest, dry_run):
     target = dest / name
     kept, skipped, changed = set(), [], 0
     for f in space_files(space["id"], space["sha"]):
-        reason = skip_reason(name, f)
+        reason = skip_reason(space["id"], f)
         if reason:
             skipped.append((f["path"], reason))
             continue
@@ -101,7 +101,7 @@ def write_index(dest, author, spaces, skipped):
         f"Source code for my public [Hugging Face Spaces]({HUB}/{author}), mirrored from the Hub.\n"
         "Don't edit these folders here: change the Space, then run `python .github/scripts/sync_hf_spaces.py`.\n\n"
         "| Space | What it does | Source |\n|---|---|---|\n" + "\n".join(rows) + "\n"
-        + "".join(f"\n**{name}:** {text}\n" for name, text in NOTES.items() if any(s["id"].endswith("/" + name) for s in spaces)),
+        + "".join(f"\n**{sid.split('/', 1)[1]}:** {text}\n" for sid, text in NOTES.items() if any(s["id"] == sid for s in spaces)),
         encoding="utf-8",
     )
 
