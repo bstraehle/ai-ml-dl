@@ -74,6 +74,7 @@ Topics are grouped into numbered folders, roughly in learning order. Each folder
 - [Conversational AI: Chatbots that work](https://www.manning.com/books/conversational-ai) by Andrew R. Freed (Manning)
 - [Co-Existence: The Next Phase of AI](https://co-existence.ai/) by Ethan Mollick (Penguin, 2026)
 - [Prophecy: Prediction, Power, and the Fight for the Future, from Ancient Oracles to AI](https://www.carissaveliz.com/prophecy) by Carissa Véliz (Doubleday, 2026)
+- [Vibe Coding: Building Production-Grade Software With GenAI, Chat, Agents, and Beyond](https://itrevolution.com/product/vibe-coding-book/) by Gene Kim and Steve Yegge (IT Revolution, 2025)
 
 **Notebooks**
 - [Hugging Face Open-Source AI Cookbook](https://huggingface.co/learn/cookbook/index/)
