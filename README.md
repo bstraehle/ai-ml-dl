@@ -66,14 +66,14 @@ Topics are grouped into numbered folders, roughly in learning order. Each folder
 **Courses**
 - [DeepLearning.AI courses](https://www.deeplearning.ai/courses/): most topics in this repo started here
 - [Weights & Biases course notebooks](https://github.com/wandb/edu): RAG, LLM apps, fine-tuning and MLOps
-- [IBM Applied AI professional certificate](https://www.coursera.org/professional-certificates/applied-artifical-intelligence-ibm-watson-ai/) on Coursera
-- [OpenAI Academy](https://academy.openai.com/)
 - [Andrej Karpathy on YouTube](https://www.youtube.com/@AndrejKarpathy): neural networks and LLMs from scratch
-- [Sebastian Raschka](https://sebastianraschka.com/): [Build a Large Language Model (From Scratch)](https://github.com/rasbt/LLMs-from-scratch) code and videos, and the [Ahead of AI](https://magazine.sebastianraschka.com/) newsletter
+- [Sebastian Raschka](https://sebastianraschka.com/): [Build a Large Language Model (From Scratch)](https://github.com/rasbt/LLMs-from-scratch) code and videos
 
 **Books**
 - [Generative AI on AWS: Building Context-Aware Multimodal Reasoning Applications](https://github.com/generative-ai-on-aws/generative-ai-on-aws) by Chris Fregly, Antje Barth and Shelbee Eigenbrode (O'Reilly), with code and notebooks for every chapter
 - [Conversational AI: Chatbots that work](https://www.manning.com/books/conversational-ai) by Andrew R. Freed (Manning)
+- [Co-Existence: The Next Phase of AI](https://co-existence.ai/) by Ethan Mollick (Penguin, 2026)
+- [Prophecy: Prediction, Power, and the Fight for the Future, from Ancient Oracles to AI](https://www.carissaveliz.com/prophecy) by Carissa Véliz (Doubleday, 2026)
 
 **Notebooks**
 - [Hugging Face Open-Source AI Cookbook](https://huggingface.co/learn/cookbook/index/)
@@ -84,6 +84,7 @@ Free or low-cost learning from AI companies, course platforms and universities. 
 
 **From AI companies**
 - [Anthropic Academy](https://academy.claude.com/): courses on building with Claude, agents and MCP
+- [OpenAI Academy](https://academy.openai.com/): courses and events on using and building with OpenAI's models
 - [Microsoft: Generative AI for Beginners](https://github.com/microsoft/generative-ai-for-beginners), [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners) and [ML for Beginners](https://github.com/microsoft/ML-For-Beginners): free lesson-by-lesson courses on GitHub
 - [NVIDIA Deep Learning Institute](https://www.nvidia.com/en-us/training/): self-paced and instructor-led courses on deep learning, generative AI and GPUs
 - [Google Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course) and [Google Skills](https://www.skills.google/) (Google Cloud training)
@@ -97,6 +98,7 @@ Free or low-cost learning from AI companies, course platforms and universities. 
 
 **University courses**
 - [Stanford CS336: Language Modeling from Scratch](https://stanford-cs336.github.io/)
+- [Stanford CS224N: Natural Language Processing with Deep Learning](https://cs224n.stanford.edu/)
 - [Stanford CS231n: Deep Learning for Computer Vision](https://cs231n.stanford.edu/)
 - [MIT 6.S191: Introduction to Deep Learning](https://introtodeeplearning.com/)
 
