@@ -1,0 +1,25 @@
+# Course snapshots and demo apps pin the versions they were written for, so
+# routine version updates are off. Security updates still arrive, grouped into
+# one pull request per directory.
+version: 2
+updates:
+  - package-ecosystem: pip
+    directories:
+      - "**/*"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 0
+    groups:
+      security:
+        applies-to: security-updates
+        patterns: ["*"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns: ["*"]
