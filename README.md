@@ -2,7 +2,7 @@
 
 Courses I've worked through, the labs that came with them, my notes, and my own projects. It covers math and classic machine learning through to LLMs, RAG and agents. Pick a learning path for your role, or browse by topic.
 
-> **Being reorganized.** Topics whose README starts with a review date (for example [Agentic AI](agentic-ai/), [Advanced RAG](advanced-rag/) and [MCP](mcp/)) are in the new format: key concepts, top resources, hands-on labs and next steps. The rest are still plain link lists and are being updated.
+> **Being reorganized.** Topics whose README starts with a review date (for example [Prompt engineering](prompt-eng/), [Agentic AI](agentic-ai/) and [Fine-tuning](finetuning-llms/)) are in the new format: key concepts, top resources, hands-on labs and next steps. The rest are still plain link lists and are being updated.
 
 ## Learning paths by role
 
@@ -10,7 +10,7 @@ Each path is an ordered list of topics in this repo. Skip what you already know.
 
 ### AI engineer: building LLM apps and agents
 
-1. [How LLMs work](gen-ai-llms/), then [Prompt engineering](openai/)
+1. [How LLMs work](gen-ai-llms/), then [Prompt engineering](prompt-eng/)
 2. [Function calling](function-calling/) and [Structured output](llm-structured-output/)
 3. [Embedding models](embedding-models/), then [Advanced RAG](advanced-rag/) and [Unstructured data](unstructured-data-for-llm-apps/)
 4. [Agentic AI](agentic-ai/) and [MCP](mcp/)
