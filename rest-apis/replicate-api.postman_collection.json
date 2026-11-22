@@ -1,0 +1,1346 @@
+{
+  "info": {
+    "_postman_id": "9667bf7c-7af3-4cb8-bae6-9159d8ba2ce0",
+    "name": "📌 Replicate API",
+    "description": "### About Replicate\n\n\"Run open-source machine learning models with a cloud API\"\n\nReplicate hosts thousands of community and official models, from image and video generation to LLMs, behind one prediction API. On the workspace overview it is listed under **Image & video**.\n\n### Prerequisites\n\n- Postman Account\n    \n- Replicate Account: [https://replicate.com/](https://replicate.com/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `replicate_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:replicate_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://replicate.com/docs/reference/http](https://replicate.com/docs/reference/http)\n    \n- Models: [https://replicate.com/explore#collections](https://replicate.com/explore#collections)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2024-04-15T04:34:30.000Z",
+    "updatedAt": "2026-10-12T23:53:58.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-9667bf7c-7af3-4cb8-bae6-9159d8ba2ce0"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Chat (anthropic/claude-opus-4.7)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7c4ddbd8-d3c1-4e69-856b-30783fb9330a",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "9a720777-d3f6-4472-9dbb-a1f32dd99d9b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"stream\": true,\n    \"input\": {\n        \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/anthropic/claude-opus-4.7/predictions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                "anthropic",
+                "claude-opus-4.7",
+                "predictions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f12582b1-b61b-c20f-b587-80d6e5e3bac0",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"stream\": true,\n    \"input\": {\n        \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/models/anthropic/claude-opus-4.7/predictions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "models",
+                    "anthropic",
+                    "claude-opus-4.7",
+                    "predictions"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "value": "Sat, 17 Oct 2026 18:06:05 GMT",
+                  "key": "Date"
+                },
+                {
+                  "value": "application/json; charset=utf-8",
+                  "key": "Content-Type"
+                },
+                {
+                  "value": "701",
+                  "key": "Content-Length"
+                },
+                {
+                  "value": "close",
+                  "key": "Connection"
+                },
+                {
+                  "value": "a4c13c31ae5a68fa-DFW",
+                  "key": "CF-Ray"
+                },
+                {
+                  "value": "DYNAMIC",
+                  "key": "CF-Cache-Status"
+                },
+                {
+                  "value": "cloudflare",
+                  "key": "Server"
+                },
+                {
+                  "value": "max-age=15552000",
+                  "key": "Strict-Transport-Security"
+                },
+                {
+                  "value": "1.1 google",
+                  "key": "Via"
+                },
+                {
+                  "value": "h3=\":443\"; ma=86400",
+                  "key": "alt-svc"
+                },
+                {
+                  "value": "max-age=86400, enforce",
+                  "key": "expect-ct"
+                },
+                {
+                  "value": "0",
+                  "key": "ratelimit-remaining"
+                },
+                {
+                  "value": "10",
+                  "key": "ratelimit-reset"
+                },
+                {
+                  "value": "same-origin",
+                  "key": "referrer-policy"
+                },
+                {
+                  "value": "pnksx5ewqsrmr0d19c59sxysam",
+                  "key": "replicate-prediction-id"
+                },
+                {
+                  "value": "nosniff",
+                  "key": "x-content-type-options"
+                },
+                {
+                  "value": "SAMEORIGIN",
+                  "key": "x-frame-options"
+                },
+                {
+                  "value": "1; mode=block",
+                  "key": "x-xss-protection"
+                },
+                {
+                  "value": "accept-encoding",
+                  "key": "Vary"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "801",
+              "body": "{\n  \"id\": \"pnksx5ewqsrmr0d19c59sxysam\",\n  \"model\": \"anthropic/claude-opus-4.7\",\n  \"version\": \"hidden\",\n  \"input\": {\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n  },\n  \"logs\": \"\",\n  \"output\": null,\n  \"data_removed\": false,\n  \"error\": null,\n  \"source\": \"api\",\n  \"status\": \"starting\",\n  \"created_at\": \"2026-10-17T18:06:05.502Z\",\n  \"urls\": {\n    \"cancel\": \"https://api.replicate.com/v1/predictions/pnksx5ewqsrmr0d19c59sxysam/cancel\",\n    \"get\": \"https://api.replicate.com/v1/predictions/pnksx5ewqsrmr0d19c59sxysam\",\n    \"stream\": \"https://stream-b.svc.ric2.c.replicate.net/v1/streams/kmjr522z5djlqjoh3b5hu7doofhqeenp4xnsspgrplidnvhbjy3q\",\n    \"web\": \"https://replicate.com/p/pnksx5ewqsrmr0d19c59sxysam\"\n  },\n  \"stream\": true\n}",
+              "createdAt": "2026-10-17T18:06:06.000Z",
+              "updatedAt": "2026-10-17T18:06:06.000Z",
+              "uid": "7643177-f12582b1-b61b-c20f-b587-80d6e5e3bac0"
+            }
+          ],
+          "createdAt": "2025-02-01T19:59:29.000Z",
+          "updatedAt": "2026-10-17T18:06:07.000Z",
+          "uid": "7643177-9a720777-d3f6-4472-9dbb-a1f32dd99d9b"
+        },
+        {
+          "name": "Chat (anthropic/claude-opus-4.7) - Get prediction",
+          "id": "49a07d93-a7f0-4407-a0e6-4ae16ccc3447",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.replicate.com/v1/predictions/:prediction_id",
+              "protocol": "https",
+              "host": [
+                "api",
+                "replicate",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "predictions",
+                ":prediction_id"
+              ],
+              "variable": [
+                {
+                  "key": "prediction_id",
+                  "value": "{{temp.id}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b6db364d-35c7-a68f-ee64-544dff7b8232",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://api.replicate.com/v1/predictions/:prediction_id",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "replicate",
+                    "com"
+                  ],
+                  "path": [
+                    "v1",
+                    "predictions",
+                    ":prediction_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "prediction_id",
+                      "value": "{{temp.id}}"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sat, 17 Oct 2026 18:09:13 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1648"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "ratelimit-remaining",
+                  "value": "59999"
+                },
+                {
+                  "key": "ratelimit-reset",
+                  "value": "1"
+                },
+                {
+                  "key": "via",
+                  "value": "1.1 google"
+                },
+                {
+                  "key": "alt-svc",
+                  "value": "h3=\":443\"; ma=86400"
+                },
+                {
+                  "key": "cf-cache-status",
+                  "value": "DYNAMIC"
+                },
+                {
+                  "key": "x-xss-protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000"
+                },
+                {
+                  "key": "expect-ct",
+                  "value": "max-age=86400, enforce"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "Server",
+                  "value": "cloudflare"
+                },
+                {
+                  "key": "CF-RAY",
+                  "value": "a4c140cacd774755-DFW"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "258",
+              "body": "{\n  \"id\": \"pnksx5ewqsrmr0d19c59sxysam\",\n  \"model\": \"anthropic/claude-opus-4.7\",\n  \"version\": \"hidden\",\n  \"input\": {\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n  },\n  \"logs\": \"Running prediction... \\n\\nUsing model: claude-opus-4-7\\n\",\n  \"output\": [\n    \"A\",\n    \" large language model (LLM)\",\n    \" generates respon\",\n    \"ses by predicting lik\",\n    \"ely next t\",\n    \"okens based\",\n    \" on patterns lear\",\n    \"ned from\",\n    \" training data, typ\",\n    \"ically producing answers in\",\n    \" a single for\",\n    \"ward pass. A reaso\",\n    \"ning model is\",\n    \" a\",\n    \" type\",\n    \" of LLM spec\",\n    \"ifically trained or\",\n    \" pr\",\n    \"ompted to per\",\n    \"form expl\",\n    \"icit step-by-step th\",\n    \"inking (often\",\n    \" through ext\",\n    \"ended intern\",\n    \"al \\\"\",\n    \"chain-\",\n    \"of-thought\\\" process\",\n    \"es) before producing a final answ\",\n    \"er, making\",\n    \" it better\",\n    \" su\",\n    \"ited for complex probl\",\n    \"ems in\",\n    \" math, log\",\n    \"ic, and coding.\"\n  ],\n  \"data_removed\": false,\n  \"error\": null,\n  \"source\": \"api\",\n  \"status\": \"succeeded\",\n  \"created_at\": \"2026-10-17T18:06:05.502Z\",\n  \"started_at\": \"2026-10-17T18:06:05.544388928Z\",\n  \"completed_at\": \"2026-10-17T18:06:08.045161662Z\",\n  \"urls\": {\n    \"cancel\": \"https://api.replicate.com/v1/predictions/pnksx5ewqsrmr0d19c59sxysam/cancel\",\n    \"get\": \"https://api.replicate.com/v1/predictions/pnksx5ewqsrmr0d19c59sxysam\",\n    \"stream\": \"https://stream-b.svc.ric2.c.replicate.net/v1/streams/kmjr522z5djlqjoh3b5hu7doofhqeenp4xnsspgrplidnvhbjy3q\",\n    \"web\": \"https://replicate.com/p/pnksx5ewqsrmr0d19c59sxysam\"\n  },\n  \"metrics\": {\n    \"input_token_count\": 35,\n    \"output_token_count\": 135,\n    \"predict_time\": 2.500772734,\n    \"time_to_first_token\": 0.000722979,\n    \"token_input_count\": 35,\n    \"token_output_count\": 135,\n    \"tokens_per_second\": 53.99892531338841,\n    \"total_time\": 2.543161662\n  },\n  \"stream\": true\n}",
+              "createdAt": "2026-10-17T18:09:14.000Z",
+              "updatedAt": "2026-10-17T18:09:14.000Z",
+              "uid": "7643177-b6db364d-35c7-a68f-ee64-544dff7b8232"
+            }
+          ],
+          "createdAt": "2025-02-01T20:05:28.000Z",
+          "updatedAt": "2026-10-17T18:09:15.000Z",
+          "uid": "7643177-49a07d93-a7f0-4407-a0e6-4ae16ccc3447"
+        }
+      ],
+      "id": "22070cae-4e50-4a69-837b-f208462f3360",
+      "createdAt": "2025-02-01T19:56:48.000Z",
+      "updatedAt": "2025-02-01T20:39:26.000Z",
+      "uid": "7643177-22070cae-4e50-4a69-837b-f208462f3360"
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "deepseek-ai/deepseek-v3.1",
+          "event": [
+            {
+              "script": {
+                "type": "text/javascript",
+                "packages": [],
+                "id": "593bd236-111c-429a-b584-a5763aa48a12",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.id', jsonResponse.id)"
+                ]
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "d9dcc567-ff70-9a43-3054-f6138e684715",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"stream\": true,\n    \"input\": {\n        \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/deepseek-ai/deepseek-v3.1/predictions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                "deepseek-ai",
+                "deepseek-v3.1",
+                "predictions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T03:15:09.000Z",
+          "updatedAt": "2026-10-17T18:21:30.000Z",
+          "uid": "7643177-d9dcc567-ff70-9a43-3054-f6138e684715"
+        },
+        {
+          "name": "anthropic/claude-opus-4.7",
+          "event": [
+            {
+              "script": {
+                "packages": [],
+                "id": "593bd236-111c-429a-b584-a5763aa48a12",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.id', jsonResponse.id)"
+                ],
+                "type": "text/javascript"
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "a86db323-1cbe-f86f-9931-a01192d2467e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"stream\": true,\n    \"input\": {\n        \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/anthropic/claude-opus-4.7/predictions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                "anthropic",
+                "claude-opus-4.7",
+                "predictions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T03:15:05.000Z",
+          "updatedAt": "2026-10-17T18:21:30.000Z",
+          "uid": "7643177-a86db323-1cbe-f86f-9931-a01192d2467e"
+        },
+        {
+          "name": "deepseek-ai/deepseek-r1",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "593bd236-111c-429a-b584-a5763aa48a12",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "b0c7d0f5-2731-41eb-a12b-6c6302aad88d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"stream\": true,\n    \"input\": {\n        \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/deepseek-ai/deepseek-r1/predictions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                "deepseek-ai",
+                "deepseek-r1",
+                "predictions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-01T20:39:18.000Z",
+          "updatedAt": "2026-10-17T18:21:30.000Z",
+          "uid": "7643177-b0c7d0f5-2731-41eb-a12b-6c6302aad88d"
+        },
+        {
+          "name": "deepseek-ai/deepseek-r1 - Get prediction",
+          "id": "925190bf-b155-499f-a2e0-bee6728dea22",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.replicate.com/v1/predictions/:prediction_id",
+              "protocol": "https",
+              "host": [
+                "api",
+                "replicate",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "predictions",
+                ":prediction_id"
+              ],
+              "variable": [
+                {
+                  "key": "prediction_id",
+                  "value": "{{temp.id}}"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-01T20:39:20.000Z",
+          "updatedAt": "2026-10-17T18:21:30.000Z",
+          "uid": "7643177-925190bf-b155-499f-a2e0-bee6728dea22"
+        },
+        {
+          "name": "ibm-granite/granite-3.2-8b-instruct",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "593bd236-111c-429a-b584-a5763aa48a12",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "07accb33-a61e-4236-95f8-be4d5216f1f4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"stream\": true,\n    \"input\": {\n        \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/ibm-granite/granite-3.2-8b-instruct/predictions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                "ibm-granite",
+                "granite-3.2-8b-instruct",
+                "predictions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-03-04T04:36:44.000Z",
+          "updatedAt": "2026-10-17T18:21:30.000Z",
+          "uid": "7643177-07accb33-a61e-4236-95f8-be4d5216f1f4"
+        },
+        {
+          "name": "ibm-granite/granite-3.2-8b-instruct - Get prediction",
+          "id": "bd287bb9-b410-4f8e-98ac-3bd1304032d0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.replicate.com/v1/predictions/:prediction_id",
+              "protocol": "https",
+              "host": [
+                "api",
+                "replicate",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "predictions",
+                ":prediction_id"
+              ],
+              "variable": [
+                {
+                  "id": "26a9233e-9d5e-464d-931b-219e70941093",
+                  "key": "prediction_id",
+                  "value": "{{temp.id}}"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-03-04T04:38:47.000Z",
+          "updatedAt": "2026-10-17T18:21:30.000Z",
+          "uid": "7643177-bd287bb9-b410-4f8e-98ac-3bd1304032d0"
+        },
+        {
+          "name": "ibm-granite/granite-vision-3.2-2b",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "593bd236-111c-429a-b584-a5763aa48a12",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "7a49697d-1a3d-4017-85e7-997f6d3782bf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"stream\": true,\n    \"input\": {\n        \"image\": \"https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg\",\n        \"prompt\": \"Describe this image in one sentence.\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/ibm-granite/granite-vision-3.2-2b/predictions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                "ibm-granite",
+                "granite-vision-3.2-2b",
+                "predictions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-03-04T04:40:50.000Z",
+          "updatedAt": "2026-10-17T18:21:31.000Z",
+          "uid": "7643177-7a49697d-1a3d-4017-85e7-997f6d3782bf"
+        },
+        {
+          "name": "ibm-granite/granite-vision-3.2-2b - Get prediction",
+          "id": "45431ce0-b314-4ec8-bc66-c7a07ae99f97",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.replicate.com/v1/predictions/:prediction_id",
+              "protocol": "https",
+              "host": [
+                "api",
+                "replicate",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "predictions",
+                ":prediction_id"
+              ],
+              "variable": [
+                {
+                  "id": "26a9233e-9d5e-464d-931b-219e70941093",
+                  "key": "prediction_id",
+                  "value": "{{temp.id}}"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-03-04T04:40:53.000Z",
+          "updatedAt": "2026-10-17T18:21:31.000Z",
+          "uid": "7643177-45431ce0-b314-4ec8-bc66-c7a07ae99f97"
+        },
+        {
+          "name": "meta/meta-llama-3.1-405b-instruct",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b3434b6b-ba01-4850-8c5a-dd486aac9640",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "eaff6bb5-508d-4e31-b020-45a1cd81be85",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": {\n        \"top_p\": 0.9,\n        \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n        \"max_tokens\": 512,\n        \"min_tokens\": 0,\n        \"temperature\": 0.6,\n        \"prompt_template\": \"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n\",\n        \"presence_penalty\": 1.15,\n        \"frequency_penalty\": 0.2\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/meta/meta-llama-3.1-405b-instruct/predictions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                "meta",
+                "meta-llama-3.1-405b-instruct",
+                "predictions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-07-24T03:28:55.000Z",
+          "updatedAt": "2026-10-17T18:21:31.000Z",
+          "uid": "7643177-eaff6bb5-508d-4e31-b020-45a1cd81be85"
+        },
+        {
+          "name": "meta/meta-llama-3.1-405b-instruct - Get prediction",
+          "id": "2f39cb82-7b26-4b38-bf65-5068c5b3283b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.replicate.com/v1/predictions/:prediction_id",
+              "protocol": "https",
+              "host": [
+                "api",
+                "replicate",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "predictions",
+                ":prediction_id"
+              ],
+              "variable": [
+                {
+                  "key": "prediction_id",
+                  "value": "{{temp.id}}"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-07-24T03:30:13.000Z",
+          "updatedAt": "2026-10-17T18:21:31.000Z",
+          "uid": "7643177-2f39cb82-7b26-4b38-bf65-5068c5b3283b"
+        },
+        {
+          "name": "meta/meta-llama-3-70b-instruct",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "aae12710-15aa-4498-9684-8f90dfb436e2",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "4fdec73a-190c-4881-b6c1-399327a5a7e4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": {\n        \"top_p\": 0.9,\n        \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n        \"max_tokens\": 512,\n        \"min_tokens\": 0,\n        \"temperature\": 0.6,\n        \"prompt_template\": \"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n\",\n        \"presence_penalty\": 1.15,\n        \"frequency_penalty\": 0.2\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/meta/meta-llama-3-70b-instruct/predictions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                "meta",
+                "meta-llama-3-70b-instruct",
+                "predictions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-20T17:48:16.000Z",
+          "updatedAt": "2026-10-17T18:21:31.000Z",
+          "uid": "7643177-4fdec73a-190c-4881-b6c1-399327a5a7e4"
+        },
+        {
+          "name": "meta/meta-llama-3-70b-instruct - Get prediction",
+          "id": "1094e680-19b8-4401-9fcc-33b44ef62982",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.replicate.com/v1/predictions/:prediction_id",
+              "protocol": "https",
+              "host": [
+                "api",
+                "replicate",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "predictions",
+                ":prediction_id"
+              ],
+              "variable": [
+                {
+                  "key": "prediction_id",
+                  "value": "{{temp.id}}"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-20T18:14:58.000Z",
+          "updatedAt": "2026-10-17T18:21:31.000Z",
+          "uid": "7643177-1094e680-19b8-4401-9fcc-33b44ef62982"
+        },
+        {
+          "name": "meta/meta-llama-3-8b-instruct",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3b088288-96e7-4630-8038-4597612f9a14",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "db0ff4bb-ded0-45ec-b0ac-5f1dfd13893c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": {\n        \"top_p\": 0.9,\n        \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n        \"max_tokens\": 512,\n        \"min_tokens\": 0,\n        \"temperature\": 0.6,\n        \"prompt_template\": \"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\\n\\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\\n\\n\",\n        \"presence_penalty\": 1.15,\n        \"frequency_penalty\": 0.2\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/meta/meta-llama-3-8b-instruct/predictions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                "meta",
+                "meta-llama-3-8b-instruct",
+                "predictions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-20T18:00:42.000Z",
+          "updatedAt": "2026-10-17T18:21:31.000Z",
+          "uid": "7643177-db0ff4bb-ded0-45ec-b0ac-5f1dfd13893c"
+        },
+        {
+          "name": "meta/meta-llama-3-8b-instruct - Get prediction",
+          "id": "6ce49379-3833-4150-b874-381487b37218",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.replicate.com/v1/predictions/:prediction_id",
+              "protocol": "https",
+              "host": [
+                "api",
+                "replicate",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "predictions",
+                ":prediction_id"
+              ],
+              "variable": [
+                {
+                  "key": "prediction_id",
+                  "value": "{{temp.id}}"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-04-20T18:11:02.000Z",
+          "updatedAt": "2026-10-17T18:21:31.000Z",
+          "uid": "7643177-6ce49379-3833-4150-b874-381487b37218"
+        },
+        {
+          "name": "mistralai/mistral-7b-v0.1",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "86c96c39-1105-4959-aa47-aaace560ce07",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "78bd9ba5-bfae-4ce4-b7fe-ef10a1dd572a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": {\n        \"top_p\": 0.9,\n        \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n        \"max_tokens\": 512,\n        \"min_tokens\": 0,\n        \"temperature\": 0.6,\n        \"prompt_template\": \"{prompt}\",\n        \"presence_penalty\": 1.15,\n        \"frequency_penalty\": 0.2\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/mistralai/mistral-7b-v0.1/predictions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                "mistralai",
+                "mistral-7b-v0.1",
+                "predictions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-01T20:43:01.000Z",
+          "updatedAt": "2026-10-17T18:21:32.000Z",
+          "uid": "7643177-78bd9ba5-bfae-4ce4-b7fe-ef10a1dd572a"
+        },
+        {
+          "name": "mistralai/mistral-7b-v0.1 - Get prediction",
+          "id": "9337df48-4fa8-498e-93f2-ab420706a8e8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.replicate.com/v1/predictions/:prediction_id",
+              "protocol": "https",
+              "host": [
+                "api",
+                "replicate",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "predictions",
+                ":prediction_id"
+              ],
+              "variable": [
+                {
+                  "key": "prediction_id",
+                  "value": "{{temp.id}}"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-01T20:43:05.000Z",
+          "updatedAt": "2026-10-17T18:21:32.000Z",
+          "uid": "7643177-9337df48-4fa8-498e-93f2-ab420706a8e8"
+        },
+        {
+          "name": "openai/gpt-oss-120b",
+          "event": [
+            {
+              "script": {
+                "id": "593bd236-111c-429a-b584-a5763aa48a12",
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('temp.id', jsonResponse.id)"
+                ],
+                "type": "text/javascript",
+                "packages": []
+              },
+              "listen": "test"
+            }
+          ],
+          "id": "b7a46c18-bdf6-ebf2-0d8b-8eebee986d15",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"stream\": true,\n    \"input\": {\n        \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/openai/gpt-oss-120b/predictions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                "openai",
+                "gpt-oss-120b",
+                "predictions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T03:15:20.000Z",
+          "updatedAt": "2026-10-17T18:21:32.000Z",
+          "uid": "7643177-b7a46c18-bdf6-ebf2-0d8b-8eebee986d15"
+        }
+      ],
+      "id": "c430eaeb-940c-4b1f-ac1e-436881f8f810",
+      "createdAt": "2025-02-01T20:08:04.000Z",
+      "updatedAt": "2026-10-12T03:15:20.000Z",
+      "uid": "7643177-c430eaeb-940c-4b1f-ac1e-436881f8f810"
+    },
+    {
+      "name": "Images",
+      "item": [
+        {
+          "name": "black-forest-labs/flux-3-image",
+          "id": "5f166c4d-4a25-965e-18ba-f68a1e95af56",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": {\n        \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/black-forest-labs/flux-3-image/predictions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                "black-forest-labs",
+                "flux-3-image",
+                "predictions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T03:15:16.000Z",
+          "updatedAt": "2026-10-17T18:21:32.000Z",
+          "uid": "7643177-5f166c4d-4a25-965e-18ba-f68a1e95af56"
+        },
+        {
+          "name": "google/nano-banana-2.1",
+          "id": "7f1215bb-82f3-1f71-30b2-4e430957ce3d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": {\n        \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/google/nano-banana-2.1/predictions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                "google",
+                "nano-banana-2.1",
+                "predictions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T03:15:13.000Z",
+          "updatedAt": "2026-10-17T18:21:32.000Z",
+          "uid": "7643177-7f1215bb-82f3-1f71-30b2-4e430957ce3d"
+        },
+        {
+          "name": "black-forest-labs/flux-schnell",
+          "id": "6bc068f5-69c4-45be-9253-197e1d6c7e74",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": {\n        \"prompt\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models/black-forest-labs/flux-schnell/predictions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models",
+                "black-forest-labs",
+                "flux-schnell",
+                "predictions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-09-24T18:08:36.000Z",
+          "updatedAt": "2026-10-17T18:21:32.000Z",
+          "uid": "7643177-6bc068f5-69c4-45be-9253-197e1d6c7e74"
+        },
+        {
+          "name": "black-forest-labs/flux-schnell - Get prediction",
+          "id": "ff963760-af4d-4673-b13d-3706ab1443b5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.replicate.com/v1/predictions/:prediction_id",
+              "protocol": "https",
+              "host": [
+                "api",
+                "replicate",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "predictions",
+                ":prediction_id"
+              ],
+              "variable": [
+                {
+                  "key": "prediction_id",
+                  "value": "3m4pjkc5e9rma0cmrcgvvhxkm8"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-01T20:09:22.000Z",
+          "updatedAt": "2026-10-17T18:21:32.000Z",
+          "uid": "7643177-ff963760-af4d-4673-b13d-3706ab1443b5"
+        }
+      ],
+      "id": "733bb6e0-0bf4-493f-8119-00fa4149325c",
+      "createdAt": "2025-02-01T20:08:51.000Z",
+      "updatedAt": "2026-10-12T03:15:17.000Z",
+      "uid": "7643177-733bb6e0-0bf4-493f-8119-00fa4149325c"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vault:replicate_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "87724900-17f1-4dbf-9735-47bdc0f7d322",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "fc07e6a8-a609-4184-a2f1-6430bf25ce6d",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.replicate.com/v1",
+      "type": "string"
+    }
+  ]
+}

@@ -1,2 +1,3 @@
-google-cloud-aiplatform==1.133.0
-python-dotenv==1.2.2
+google-genai==3.3.0
+gradio[mcp]==6.32.0
+python-dotenv==1.2.4

@@ -1,0 +1,452 @@
+{
+  "info": {
+    "_postman_id": "6da4d34d-dd01-423e-8b1e-588b52cf362a",
+    "name": "📌 Perplexity AI API",
+    "description": "### About\n\n\"Perplexity is a free AI-powered answer engine that provides accurate, trusted, and real-time answers to any question.\"\n\nPerplexity's Sonar models answer with live web search results and citations, and its Search API returns ranked web results. On the workspace overview it is listed under **Search & retrieval**.\n\n### Prerequisites\n\n- Postman Account\n    \n- Perplexity AI Account: [https://www.perplexity.ai/](https://www.perplexity.ai/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `perplexity_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:perplexity_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://docs.perplexity.ai/api-reference/chat-completions-post](https://docs.perplexity.ai/api-reference/chat-completions-post)\n    \n- Models: [https://docs.perplexity.ai/getting-started/models](https://docs.perplexity.ai/getting-started/models)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2024-03-25T04:01:34.000Z",
+    "updatedAt": "2026-10-12T23:53:55.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-6da4d34d-dd01-423e-8b1e-588b52cf362a"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Chat (sonar-pro)",
+          "id": "0ddf247a-a16c-4df1-a7c4-d70cd41d5635",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"sonar-pro\",\n    \"messages\": [\n        {\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n            \"role\": \"user\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "99af92de-0e51-079e-c0b7-1c8b7354efea",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"sonar-pro\",\n    \"messages\": [\n        {\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n            \"role\": \"user\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/chat/completions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sat, 17 Oct 2026 18:05:53 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "Server",
+                  "value": "cloudflare"
+                },
+                {
+                  "key": "x-ratelimit-limit",
+                  "value": "1"
+                },
+                {
+                  "key": "x-ratelimit-remaining",
+                  "value": "0"
+                },
+                {
+                  "key": "x-ratelimit-reset",
+                  "value": "1792260354"
+                },
+                {
+                  "key": "x-ratelimit-used",
+                  "value": "1"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "f16028c7-d7f1-414d-bab7-ae24010f2e30"
+                },
+                {
+                  "key": "Server-Timing",
+                  "value": "cfCacheStatus;desc=\"DYNAMIC\""
+                },
+                {
+                  "key": "Server-Timing",
+                  "value": "cfEdge;dur=39,cfOrigin;dur=2059"
+                },
+                {
+                  "key": "cf-cache-status",
+                  "value": "DYNAMIC"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains; preload"
+                },
+                {
+                  "key": "CF-RAY",
+                  "value": "a4c13bdaeb333127-DFW"
+                },
+                {
+                  "key": "alt-svc",
+                  "value": "h3=\":443\"; ma=86400"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2385",
+              "body": "{\n  \"choices\": [\n    {\n      \"delta\": {\n        \"content\": \"\",\n        \"role\": \"assistant\"\n      },\n      \"finish_reason\": \"stop\",\n      \"index\": 0,\n      \"message\": {\n        \"content\": \"A **large language model (LLM)** primarily generates fluent text by predicting likely sequences, while a **reasoning model** is an LLM specially trained to spend additional computation working through multi-step problems before answering.[1][2] Consequently, reasoning models are generally slower but stronger at complex tasks such as mathematics, coding, logic, and planning.[1][5]\",\n        \"role\": \"assistant\"\n      }\n    }\n  ],\n  \"citations\": [\n    \"https://www.ibm.com/think/topics/reasoning-model\",\n    \"https://vercel.com/i/reasoning-models-vs-standard-llms\",\n    \"https://en.wikipedia.org/wiki/Reasoning_model\",\n    \"https://zapier.com/blog/ai-reasoning/\",\n    \"https://decagon.ai/glossary/what-is-a-reasoning-model\",\n    \"https://www.educative.io/blog/reasoning-models-vs-llm\",\n    \"https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/general-purpose-vs-reasoning-models-in-azure-openai/4403091\",\n    \"https://cameronrwolfe.substack.com/p/demystifying-reasoning-models\",\n    \"https://link.springer.com/chapter/10.1007/978-3-032-08872-7_2\",\n    \"https://magazine.sebastianraschka.com/p/understanding-reasoning-llms\"\n  ],\n  \"created\": 1792260353,\n  \"id\": \"resp_15d8c7c5-3835-4cd2-a7e3-94d3cee80245\",\n  \"model\": \"sonar-pro\",\n  \"object\": \"chat.completion\",\n  \"search_results\": [\n    {\n      \"date\": \"2025-08-07\",\n      \"last_updated\": \"2026-10-14\",\n      \"place_metadata\": null,\n      \"snippet\": \"# What is a reasoning model?\\n## What is a reasoning model?\\nA reasoning model, also called a *thinking model * or *large reasoning mode* l (LRM), is a large language model (LLM) that has been fine-tuned to perform multi-step problem-solving by generating intermediate steps, often called “reasoning tr...\",\n      \"source\": \"web\",\n      \"title\": \"What Is a Reasoning Model? | IBM\",\n      \"url\": \"https://www.ibm.com/think/topics/reasoning-model\"\n    },\n    {\n      \"date\": \"2026-08-07\",\n      \"last_updated\": \"2026-10-15\",\n      \"place_metadata\": null,\n      \"snippet\": \"# Reasoning models vs standard LLMs: Which one should handle each request?\\nReasoning models and standard LLMs answer the same request in different ways, and the difference is where the compute goes.\\nA standard model resolves a request in one pass per output token.\\nA reasoning model spends extra comp...\",\n      \"source\": \"web\",\n      \"title\": \"Reasoning models vs standard LLMs: which one? - Vercel\",\n      \"url\": \"https://vercel.com/i/reasoning-models-vs-standard-llms\"\n    },\n    {\n      \"date\": \"2025-01-27\",\n      \"last_updated\": \"2026-10-12\",\n      \"place_metadata\": null,\n      \"snippet\": \"**Reasoning language models** (**RLMs**) or **large reasoning models** (**LRMs**) are large language models that are trained to solve tasks that require several steps of reasoning.\\nThey tend to do better on logic, math, and programming tasks than standard LLMs, can revisit and revise earlier steps, ...\",\n      \"source\": \"web\",\n      \"title\": \"Reasoning model - Wikipedia\",\n      \"url\": \"https://en.wikipedia.org/wiki/Reasoning_model\"\n    },\n    {\n      \"date\": null,\n      \"last_updated\": \"2026-10-16\",\n      \"place_metadata\": null,\n      \"snippet\": \"# What are AI reasoning models?\\nIf regular AI models are an overeager junior coworker who always runs with their first idea no matter how bad it is, reasoning models (large language models with reasoning abilities) are experienced executive assistants who slow down and consider their options.\\nThey t...\",\n      \"source\": \"web\",\n      \"title\": \"What are AI reasoning models? - Zapier\",\n      \"url\": \"https://zapier.com/blog/ai-reasoning/\"\n    },\n    {\n      \"date\": null,\n      \"last_updated\": \"2026-10-09\",\n      \"place_metadata\": null,\n      \"snippet\": \"**A reasoning model** is a large language model trained to spend significant inference-time compute generating an internal chain of thought before producing its final answer.\\nRather than committing to a response in a single forward pass, the model works through the problem in a sequence of intermedi...\",\n      \"source\": \"web\",\n      \"title\": \"What is a reasoning model? - Decagon\",\n      \"url\": \"https://decagon.ai/glossary/what-is-a-reasoning-model\"\n    },\n    {\n      \"date\": null,\n      \"last_updated\": \"2026-10-16\",\n      \"place_metadata\": null,\n      \"snippet\": \"## This blog explains how LLMs generate language through pattern prediction, while reasoning models emphasize step-by-step problem solving to handle complex tasks more effectively.\\n...\\nWhile traditional language models rely heavily on pattern recognition learned from training data, reasoning-focused...\",\n      \"source\": \"web\",\n      \"title\": \"www.educative.io › blog › reasoning-models-vs-llmReasoning models vs LLM in modern AI systems - Educative\",\n      \"url\": \"https://www.educative.io/blog/reasoning-models-vs-llm\"\n    },\n    {\n      \"date\": \"2025-04-11\",\n      \"last_updated\": \"2026-10-08\",\n      \"place_metadata\": null,\n      \"snippet\": \"- **General-Purpose Models** – Designed for broad tasks like conversation, content generation, and multimodal input processing.\\n- **Reasoning Models** – Optimized for tasks requiring logic, problem-solving, and step-by-step breakdowns.\\n...\\nIn the context of large language models, \\\"reasoning\\\" refers ...\",\n      \"source\": \"web\",\n      \"title\": \"General-Purpose vs Reasoning Models in Azure OpenAI\",\n      \"url\": \"https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/general-purpose-vs-reasoning-models-in-azure-openai/4403091\"\n    },\n    {\n      \"date\": \"2025-02-18\",\n      \"last_updated\": \"2026-10-14\",\n      \"place_metadata\": null,\n      \"snippet\": \"Reasoning models approach problem solving in a completely different manner compared to standard LLMs.\\nIn particular, they spend a variable amount of time “thinking” prior to providing their final answer to a question.\\n...\\n**Long CoT.** The main difference between a reasoning model and a standard LLM...\",\n      \"source\": \"web\",\n      \"title\": \"Demystifying Reasoning Models - by Cameron R. Wolfe, Ph.D.\",\n      \"url\": \"https://cameronrwolfe.substack.com/p/demystifying-reasoning-models\"\n    },\n    {\n      \"date\": \"2026-01-23\",\n      \"last_updated\": \"2026-10-16\",\n      \"place_metadata\": null,\n      \"snippet\": \"An LLM is a statistical representation of language obtained from training and fine-tuning a neural network using vast amounts of language data.\\n...\\nAnother limitation is reasoning, which is the cognitive process of deriving conclusions from premises or evidence.\\nLLMs excel at recognizing language pa...\",\n      \"source\": \"web\",\n      \"title\": \"Overview of Artificial Intelligence, Machine Learning, Natural ...\",\n      \"url\": \"https://link.springer.com/chapter/10.1007/978-3-032-08872-7_2\"\n    },\n    {\n      \"date\": \"2025-02-05\",\n      \"last_updated\": \"2026-10-16\",\n      \"place_metadata\": null,\n      \"snippet\": \"The development of reasoning models is one of these specializations.\\nThis means we refine LLMs to excel at complex tasks that are best solved with intermediate steps, such as puzzles, advanced math, and coding challenges.\\n...\\nIn this article, I define \\\"reasoning\\\" as the process of answering question...\",\n      \"source\": \"web\",\n      \"title\": \"Understanding Reasoning LLMs - by Sebastian Raschka, PhD\",\n      \"url\": \"https://magazine.sebastianraschka.com/p/understanding-reasoning-llms\"\n    }\n  ],\n  \"usage\": {\n    \"completion_tokens\": 78,\n    \"cost\": {\n      \"input_tokens_cost\": 0.0022,\n      \"output_tokens_cost\": 0.00019,\n      \"request_cost\": 0.0025,\n      \"total_cost\": 0.00489\n    },\n    \"prompt_tokens\": 18,\n    \"search_context_size\": \"low\",\n    \"total_tokens\": 96\n  }\n}",
+              "createdAt": "2026-10-17T18:05:54.000Z",
+              "updatedAt": "2026-10-17T18:05:54.000Z",
+              "uid": "7643177-99af92de-0e51-079e-c0b7-1c8b7354efea"
+            }
+          ],
+          "createdAt": "2025-01-29T01:29:13.000Z",
+          "updatedAt": "2026-10-17T18:05:55.000Z",
+          "uid": "7643177-0ddf247a-a16c-4df1-a7c4-d70cd41d5635"
+        }
+      ],
+      "id": "c066a944-0719-4231-94d0-7c6824fd9ca7",
+      "createdAt": "2024-03-25T04:02:17.000Z",
+      "updatedAt": "2025-02-22T05:31:28.000Z",
+      "uid": "7643177-c066a944-0719-4231-94d0-7c6824fd9ca7"
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "sonar",
+          "id": "dd3c081a-ea0a-49ab-baf4-9682a9486735",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"sonar\",\n    \"messages\": [\n        {\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n            \"role\": \"user\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-01-23T01:46:05.000Z",
+          "updatedAt": "2026-10-17T18:21:29.000Z",
+          "uid": "7643177-dd3c081a-ea0a-49ab-baf4-9682a9486735"
+        },
+        {
+          "name": "sonar-deep-research",
+          "id": "45118aa9-25fd-3782-55e6-645a92f35bf3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"sonar-deep-research\",\n    \"messages\": [\n        {\n            \"content\": \"Research how retrieval-augmented generation has evolved since 2020.\",\n            \"role\": \"user\"\n        }\n    ],\n    \"max_tokens\": 8000,\n    \"temperature\": 0.2,\n    \"top_p\": 0.9,\n    \"top_k\": 0,\n    \"stream\": false,\n    \"presence_penalty\": 0,\n    \"frequency_penalty\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T02:38:33.000Z",
+          "updatedAt": "2026-10-17T18:21:29.000Z",
+          "uid": "7643177-45118aa9-25fd-3782-55e6-645a92f35bf3"
+        },
+        {
+          "name": "sonar-pro",
+          "id": "d38045bf-97cd-4e59-80d3-b72f09513f67",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"sonar-pro\",\n    \"messages\": [\n        {\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n            \"role\": \"user\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-01-23T01:47:20.000Z",
+          "updatedAt": "2026-10-17T18:21:29.000Z",
+          "uid": "7643177-d38045bf-97cd-4e59-80d3-b72f09513f67"
+        },
+        {
+          "name": "sonar-reasoning-pro - powered by DeepSeek",
+          "id": "a07b45a6-8b4f-4dfb-a566-81cabbcae0bb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"sonar-reasoning-pro\",\n    \"messages\": [\n        {\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n            \"role\": \"user\"\n        }\n    ],\n    \"max_tokens\": 4096,\n    \"stream\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "completions"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-14T05:55:49.000Z",
+          "updatedAt": "2026-10-17T18:21:29.000Z",
+          "uid": "7643177-a07b45a6-8b4f-4dfb-a566-81cabbcae0bb"
+        }
+      ],
+      "id": "03e089cd-c59c-4553-b24a-65c4e46d7361",
+      "createdAt": "2024-04-02T04:14:49.000Z",
+      "updatedAt": "2026-10-12T19:53:57.000Z",
+      "uid": "7643177-03e089cd-c59c-4553-b24a-65c4e46d7361"
+    },
+    {
+      "name": "Search",
+      "item": [
+        {
+          "name": "Search",
+          "id": "f73e2170-9bda-4153-aac0-bb7474a9a6d5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"query\": [\r\n        \"What is Comet Browser?\",\r\n        \"Perplexity AI\",\r\n        \"Perplexity Changelog\"\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/search",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "search"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-10-12T15:42:44.000Z",
+          "updatedAt": "2026-10-17T18:21:29.000Z",
+          "uid": "7643177-f73e2170-9bda-4153-aac0-bb7474a9a6d5"
+        }
+      ],
+      "id": "62001c76-ffe4-49ec-817d-faf85911be64",
+      "createdAt": "2025-10-12T15:37:40.000Z",
+      "updatedAt": "2025-10-12T15:42:47.000Z",
+      "uid": "7643177-62001c76-ffe4-49ec-817d-faf85911be64"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vault:perplexity_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "e29654f8-6300-4e1f-b877-cbd40914fdad",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "1e392dc5-74fb-4a0c-8f43-f24b8b2694bd",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.perplexity.ai",
+      "type": "string"
+    }
+  ]
+}

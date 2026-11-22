@@ -1,0 +1,3646 @@
+{
+  "info": {
+    "_postman_id": "844c14d1-298b-419a-8db8-10c53d523d32",
+    "name": "📌 IBM watsonx.ai API",
+    "description": "### About IBM WatsonX AI\n\n\"A next generation enterprise studio for AI builders to train, validate, tune and deploy AI models\"\n\nIBM builds its own Granite models and hosts models from other labs, such as Llama and Mistral, with a Model Gateway to further providers. On the workspace overview it is listed under **Cloud platforms**.\n\n### Prerequisites\n\n- Postman Account\n    \n- IBM Cloud Account: [https://dataplatform.cloud.ibm.com/login](https://dataplatform.cloud.ibm.com/login)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd these keys to your **Postman Vault** as `ibm_watsonx_api_key`, `openai_api_key`, `google_gemini_api_key`, `groq_api_key`, `xai_api_key`, `anthropic_api_key`, `cerebras_api_key`, `nvidia_api_key`, `amazon_bedrock_access_key_id`, `amazon_bedrock_secret_access_key` (Vault icon in the footer, then **Add secret**, using these exact names). Requests read them as `{{vault:ibm_watsonx_api_key}}` and so on, so your key never leaves your device. Also set your watsonx project in the `projectId` collection variable, and send **identity/token** first to get the `access_token`.\n\n### Documentation\n\n- API: [https://cloud.ibm.com/apidocs/machine-learning](https://cloud.ibm.com/apidocs/machine-learning)\n    \n- Models: [https://www.ibm.com/products/watsonx-ai/foundation-models](https://www.ibm.com/products/watsonx-ai/foundation-models)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2024-03-12T04:19:17.000Z",
+    "updatedAt": "2026-10-12T23:53:33.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-844c14d1-298b-419a-8db8-10c53d523d32"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "identity/token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('access_token', jsonResponse.access_token)"
+                ],
+                "type": "text/javascript",
+                "id": "b591f374-b2cc-48dc-a5cb-e2c549c43c0c"
+              }
+            }
+          ],
+          "id": "7b69073b-29a3-44b5-a0aa-ec4781a064dc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "value": "urn:ibm:params:oauth:grant-type:apikey",
+                  "key": "grant_type",
+                  "type": "text"
+                },
+                {
+                  "value": "{{vault:ibm_watsonx_api_key}}",
+                  "key": "apikey",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://iam.cloud.ibm.com/identity/token",
+              "protocol": "https",
+              "host": [
+                "iam",
+                "cloud",
+                "ibm",
+                "com"
+              ],
+              "path": [
+                "identity",
+                "token"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-07-12T13:36:17.000Z",
+          "updatedAt": "2026-10-12T15:39:19.000Z",
+          "uid": "7643177-7b69073b-29a3-44b5-a0aa-ec4781a064dc"
+        },
+        {
+          "name": "Question Answering (ibm/granite-4-h-small)",
+          "id": "64eeef5c-4fc9-419a-9473-b8217b57eaaf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"parameters\": {\n        \"max_new_tokens\": 4096,\n        \"min_new_tokens\": 0\n    },\n    \"model_id\": \"ibm/granite-4-h-small\",\n    \"project_id\": \"{{projectId}}\",\n    \"moderations\": {\n        \"hap\": {\n            \"input\": {\n                \"enabled\": true,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            },\n            \"output\": {\n                \"enabled\": true,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            }\n        },\n        \"pii\": {\n            \"input\": {\n                \"enabled\": false,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            },\n            \"output\": {\n                \"enabled\": false,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            }\n        }\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ml/v1/text/generation?version=2023-05-29",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ml",
+                "v1",
+                "text",
+                "generation"
+              ],
+              "query": [
+                {
+                  "key": "version",
+                  "value": "2023-05-29"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2552d429-4bf4-1bf6-2b6c-c65f2f9b7ea3",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"parameters\": {\n        \"max_new_tokens\": 4096,\n        \"min_new_tokens\": 0\n    },\n    \"model_id\": \"ibm/granite-4-h-small\",\n    \"project_id\": \"{{projectId}}\",\n    \"moderations\": {\n        \"hap\": {\n            \"input\": {\n                \"enabled\": true,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            },\n            \"output\": {\n                \"enabled\": true,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            }\n        },\n        \"pii\": {\n            \"input\": {\n                \"enabled\": false,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            },\n            \"output\": {\n                \"enabled\": false,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            }\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ml/v1/text/generation?version=2023-05-29",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ml",
+                    "v1",
+                    "text",
+                    "generation"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "2023-05-29"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sat, 17 Oct 2026 18:08:35 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "779"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "Server",
+                  "value": "cloudflare"
+                },
+                {
+                  "key": "Server-Timing",
+                  "value": "intid;desc=a94be54200a44694"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "X-Requests-Limit-Reset-After",
+                  "value": "500"
+                },
+                {
+                  "key": "X-Tokens-Monthly-Used",
+                  "value": "82"
+                },
+                {
+                  "key": "X-Requests-Limit-Remaining",
+                  "value": "1"
+                },
+                {
+                  "key": "X-Global-Transaction-Id",
+                  "value": "110123e697854d812ed973066f522703"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "X-Requests-Limit-Rate",
+                  "value": "2"
+                },
+                {
+                  "key": "X-Requests-Limit-Period",
+                  "value": "1000"
+                },
+                {
+                  "key": "X-Xss-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "X-Xss-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self'; frame-ancestors 'none'; form-action 'self';"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "strict-origin"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, must-revalidate"
+                },
+                {
+                  "key": "cf-cache-status",
+                  "value": "DYNAMIC"
+                },
+                {
+                  "key": "CF-RAY",
+                  "value": "a4c13fd8285f2c52-DFW"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "1703",
+              "body": "{\n  \"model_id\": \"ibm/granite-4-h-small\",\n  \"model_version\": \"4.0.0\",\n  \"created_at\": \"2026-10-17T18:08:35.874Z\",\n  \"results\": [\n    {\n      \"generated_text\": \"*\\n\\nA large language model (LLM) is a sophisticated AI system that can generate complex, human-like text based on the information it was trained on. A reasoning model is an AI system specifically designed to think through problems and draw logical conclusions, often outperforming LLMs in logic puzzles and math tasks.\",\n      \"generated_token_count\": 64,\n      \"input_token_count\": 18,\n      \"stop_reason\": \"eos_token\"\n    }\n  ],\n  \"system\": {\n    \"warnings\": [\n      {\n        \"message\": \"Threshold is not supported for PII\",\n        \"id\": \"threshold_parameter_warning\"\n      },\n      {\n        \"message\": \"The API '/ml/v1/text/generation' is deprecated and will be removed soon. Instead use '/ml/v1/text/chat'.\",\n        \"id\": \"api_deprecation\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-10-17T18:08:37.000Z",
+              "updatedAt": "2026-10-17T18:08:37.000Z",
+              "uid": "7643177-2552d429-4bf4-1bf6-2b6c-c65f2f9b7ea3"
+            }
+          ],
+          "createdAt": "2024-07-24T02:49:42.000Z",
+          "updatedAt": "2026-10-17T18:08:39.000Z",
+          "uid": "7643177-64eeef5c-4fc9-419a-9473-b8217b57eaaf"
+        }
+      ],
+      "id": "4b063b63-2060-4504-a646-9bf5fdcdf213",
+      "createdAt": "2024-03-12T04:19:17.000Z",
+      "updatedAt": "2025-07-12T13:36:52.000Z",
+      "uid": "7643177-4b063b63-2060-4504-a646-9bf5fdcdf213"
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "identity/token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const jsonResponse = pm.response.json();\r",
+                  "pm.collectionVariables.set('access_token', jsonResponse.access_token)"
+                ],
+                "type": "text/javascript",
+                "id": "b591f374-b2cc-48dc-a5cb-e2c549c43c0c"
+              }
+            }
+          ],
+          "id": "69d05759-81e0-42c4-bbe6-3700359a97cd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "grant_type",
+                  "value": "urn:ibm:params:oauth:grant-type:apikey",
+                  "type": "text"
+                },
+                {
+                  "key": "apikey",
+                  "value": "{{vault:ibm_watsonx_api_key}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://iam.cloud.ibm.com/identity/token",
+              "protocol": "https",
+              "host": [
+                "iam",
+                "cloud",
+                "ibm",
+                "com"
+              ],
+              "path": [
+                "identity",
+                "token"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-07-05T03:59:05.000Z",
+          "updatedAt": "2026-10-12T17:46:08.000Z",
+          "uid": "7643177-69d05759-81e0-42c4-bbe6-3700359a97cd"
+        }
+      ],
+      "id": "bec2f213-1d0d-c897-0c87-df66f0334402",
+      "createdAt": "2026-10-12T17:46:07.000Z",
+      "updatedAt": "2026-10-12T17:46:08.000Z",
+      "uid": "7643177-bec2f213-1d0d-c897-0c87-df66f0334402"
+    },
+    {
+      "name": "Embeddings",
+      "item": [
+        {
+          "name": "ibm/granite-embedding-278m-multilingual",
+          "id": "93442e97-7ad3-4765-b926-34d7d5331ad8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inputs\": [\n        \"Retrieval-augmented generation grounds a model's answer in your own documents.\",\n        \"A diffusion model generates an image by gradually removing noise.\"\n    ],\n    \"model_id\": \"ibm/granite-embedding-278m-multilingual\",\n    \"project_id\": \"{{projectId}}\",\n    \"moderations\": {\n        \"hap\": {\n            \"input\": {\n                \"enabled\": true,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            },\n            \"output\": {\n                \"enabled\": true,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            }\n        }\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ml/v1/text/embeddings?version=2023-05-29",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ml",
+                "v1",
+                "text",
+                "embeddings"
+              ],
+              "query": [
+                {
+                  "key": "version",
+                  "value": "2023-05-29"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-04T03:07:05.000Z",
+          "updatedAt": "2026-10-17T18:18:44.000Z",
+          "uid": "7643177-93442e97-7ad3-4765-b926-34d7d5331ad8"
+        },
+        {
+          "name": "ibm/slate-30m-english-rtrvr-v2",
+          "id": "0076c8f6-d9c9-4234-b9e5-7fd41892444f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inputs\": [\n        \"Retrieval-augmented generation grounds a model's answer in your own documents.\",\n        \"A diffusion model generates an image by gradually removing noise.\"\n    ],\n    \"model_id\": \"ibm/slate-30m-english-rtrvr-v2\",\n    \"project_id\": \"{{projectId}}\",\n    \"moderations\": {\n        \"hap\": {\n            \"input\": {\n                \"enabled\": true,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            },\n            \"output\": {\n                \"enabled\": true,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            }\n        }\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ml/v1/text/embeddings?version=2023-05-29",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ml",
+                "v1",
+                "text",
+                "embeddings"
+              ],
+              "query": [
+                {
+                  "key": "version",
+                  "value": "2023-05-29"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-04T03:04:57.000Z",
+          "updatedAt": "2026-10-17T18:18:44.000Z",
+          "uid": "7643177-0076c8f6-d9c9-4234-b9e5-7fd41892444f"
+        },
+        {
+          "name": "ibm/slate-125m-english-rtrvr-v2",
+          "id": "faa408ee-abae-4596-a5b4-8051913f00f9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"inputs\": [\n        \"Retrieval-augmented generation grounds a model's answer in your own documents.\",\n        \"A diffusion model generates an image by gradually removing noise.\"\n    ],\n    \"model_id\": \"ibm/slate-125m-english-rtrvr-v2\",\n    \"project_id\": \"{{projectId}}\",\n    \"moderations\": {\n        \"hap\": {\n            \"input\": {\n                \"enabled\": true,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            },\n            \"output\": {\n                \"enabled\": true,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            }\n        }\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ml/v1/text/embeddings?version=2023-05-29",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ml",
+                "v1",
+                "text",
+                "embeddings"
+              ],
+              "query": [
+                {
+                  "key": "version",
+                  "value": "2023-05-29"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-02-04T03:04:27.000Z",
+          "updatedAt": "2026-10-17T18:18:44.000Z",
+          "uid": "7643177-faa408ee-abae-4596-a5b4-8051913f00f9"
+        }
+      ],
+      "id": "9b57e363-91cc-4070-9081-31312d3da961",
+      "createdAt": "2024-05-12T13:47:51.000Z",
+      "updatedAt": "2026-10-12T03:15:49.000Z",
+      "uid": "7643177-9b57e363-91cc-4070-9081-31312d3da961"
+    },
+    {
+      "name": "Model Gateway",
+      "item": [
+        {
+          "name": "Tenant",
+          "item": [
+            {
+              "name": "Tenant",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6ab67d2c-97a0-450a-8ccc-97241dfb33c5",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.tenant_id', jsonResponse.id);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "a2d7df95-6a35-4139-bfdc-796654435867",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"test\",\r\n    \"secrets_manager\": \"{{secretsManagerUrl}}\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{modelGatewayUrl}}/tenant",
+                  "host": [
+                    "{{modelGatewayUrl}}"
+                  ],
+                  "path": [
+                    "tenant"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-07-04T16:33:14.000Z",
+              "updatedAt": "2026-10-17T18:18:44.000Z",
+              "uid": "7643177-a2d7df95-6a35-4139-bfdc-796654435867"
+            }
+          ],
+          "id": "05bd5b7c-487d-415f-95eb-49220c9ad185",
+          "createdAt": "2025-07-20T16:46:16.000Z",
+          "updatedAt": "2025-08-16T17:01:00.000Z",
+          "uid": "7643177-05bd5b7c-487d-415f-95eb-49220c9ad185"
+        },
+        {
+          "name": "Providers",
+          "item": [
+            {
+              "name": "IBM watsonx.ai",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6494258f-f820-4b65-8a3b-07ee864f4793",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.watsonxai_provider_id', jsonResponse.uuid);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "ecb20ed6-a1a2-45ee-9da7-1067654a8800",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"watsonxai-provider\",\r\n    \"data\": {\r\n        \"apikey\": \"{{vault:ibm_watsonx_api_key}}\",\r\n        \"project_id\": \"{{projectId}}\",\r\n        \"base_url\": \"{{baseUrl}}\"\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{modelGatewayUrl}}/providers/watsonxai",
+                  "host": [
+                    "{{modelGatewayUrl}}"
+                  ],
+                  "path": [
+                    "providers",
+                    "watsonxai"
+                  ]
+                },
+                "description": "## Add WatsonxAI Provider\n\nThis endpoint allows you to add a new WatsonxAI provider by sending a POST request to the specified URL.\n\n### Endpoint\n\n`POST {{modelGatewayUrl}}/providers/watsonxai`\n\n### Request Body\n\nThe request should include a JSON payload with the following parameters:\n\n- **name** (string): The name of the provider. For example, `\"watsonxai-provider\"`.\n    \n- **data** (object): An object containing the necessary configuration for the provider:\n    \n    - **apikey** (string): Your API key for authentication.\n        \n    - **project_id** (string): The ID of the project associated with the provider.\n        \n    - **base_url** (string): The base URL for the WatsonxAI service.\n        \n\n### Example Request\n\n``` json\n{\n  \"name\": \"watsonxai-provider\",\n  \"data\": {\n    \"apikey\": \"{{vault:ibm_watsonx_api_key}}\",\n    \"project_id\": \"{{projectId}}\",\n    \"base_url\": \"{{baseUrl}}\"\n  }\n}\n\n ```\n\n### Expected Response\n\nUpon a successful request, the response will return a JSON object with the following fields:\n\n- **uuid** (string): A unique identifier for the provider.\n    \n- **name** (string): The name of the provider that was added.\n    \n- **type** (string): The type of the provider.\n    \n\n### Example Response\n\n``` json\n{\n  \"uuid\": \"\",\n  \"name\": \"\",\n  \"type\": \"\"\n}\n\n ```\n\nEnsure that all required parameters are included in the request body to successfully add the WatsonxAI provider."
+              },
+              "response": [],
+              "createdAt": "2025-07-04T22:05:32.000Z",
+              "updatedAt": "2026-10-17T18:18:44.000Z",
+              "uid": "7643177-ecb20ed6-a1a2-45ee-9da7-1067654a8800"
+            },
+            {
+              "name": "OpenAI",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6494258f-f820-4b65-8a3b-07ee864f4793",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.openai_provider_id', jsonResponse.uuid);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "9b076623-65f1-4638-b6c9-f26033ed4932",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"openai-provider\",\r\n    \"data\": {\r\n        \"apikey\": \"{{vault:openai_api_key}}\"\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{modelGatewayUrl}}/providers/openai",
+                  "host": [
+                    "{{modelGatewayUrl}}"
+                  ],
+                  "path": [
+                    "providers",
+                    "openai"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-07-04T21:37:59.000Z",
+              "updatedAt": "2026-10-17T18:19:36.000Z",
+              "uid": "7643177-9b076623-65f1-4638-b6c9-f26033ed4932"
+            },
+            {
+              "name": "Gemini (OpenAI Compatible)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6494258f-f820-4b65-8a3b-07ee864f4793",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.gemini_provider_id', jsonResponse.uuid);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "7bff35b1-4526-4aa2-9618-7d7df88c0e90",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"gemini-provider\",\r\n    \"data\": {\r\n        \"apikey\": \"{{vault:google_gemini_api_key}}\",\r\n        \"base_url\": \"https://generativelanguage.googleapis.com/v1beta/openai\"\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{modelGatewayUrl}}/providers/openai",
+                  "host": [
+                    "{{modelGatewayUrl}}"
+                  ],
+                  "path": [
+                    "providers",
+                    "openai"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-07-08T01:38:20.000Z",
+              "updatedAt": "2026-10-17T18:19:36.000Z",
+              "uid": "7643177-7bff35b1-4526-4aa2-9618-7d7df88c0e90"
+            },
+            {
+              "name": "Groq (OpenAI Compatible) ⚡",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6494258f-f820-4b65-8a3b-07ee864f4793",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.groq_provider_id', jsonResponse.uuid);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "a013ae86-fdca-4336-9ead-6cb92a6da4f6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"groq-provider\",\r\n    \"data\": {\r\n        \"apikey\": \"{{vault:groq_api_key}}\",\r\n        \"base_url\": \"https://api.groq.com/openai/v1\"\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{modelGatewayUrl}}/providers/openai",
+                  "host": [
+                    "{{modelGatewayUrl}}"
+                  ],
+                  "path": [
+                    "providers",
+                    "openai"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-07-12T16:27:49.000Z",
+              "updatedAt": "2026-10-17T18:19:36.000Z",
+              "uid": "7643177-a013ae86-fdca-4336-9ead-6cb92a6da4f6"
+            },
+            {
+              "name": "xAI (OpenAI Compatible)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6494258f-f820-4b65-8a3b-07ee864f4793",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.xai_provider_id', jsonResponse.uuid);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "f2c982f0-2019-409e-bd07-0a65e649c898",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"xai-provider\",\r\n    \"data\": {\r\n        \"apikey\": \"{{vault:xai_api_key}}\",\r\n        \"base_url\": \"https://api.x.ai/v1\"\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{modelGatewayUrl}}/providers/openai",
+                  "host": [
+                    "{{modelGatewayUrl}}"
+                  ],
+                  "path": [
+                    "providers",
+                    "openai"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-07-12T16:15:30.000Z",
+              "updatedAt": "2026-10-17T18:19:36.000Z",
+              "uid": "7643177-f2c982f0-2019-409e-bd07-0a65e649c898"
+            },
+            {
+              "name": "Anthropic",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6494258f-f820-4b65-8a3b-07ee864f4793",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.anthropic_provider_id', jsonResponse.uuid);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "888f5e30-19c6-495d-9bdf-0e7d8cc17925",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"anthropic-provider\",\r\n    \"data\": {\r\n        \"apikey\": \"{{vault:anthropic_api_key}}\"\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{modelGatewayUrl}}/providers/anthropic",
+                  "host": [
+                    "{{modelGatewayUrl}}"
+                  ],
+                  "path": [
+                    "providers",
+                    "anthropic"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-07-04T22:05:50.000Z",
+              "updatedAt": "2026-10-17T18:19:36.000Z",
+              "uid": "7643177-888f5e30-19c6-495d-9bdf-0e7d8cc17925"
+            },
+            {
+              "name": "Amazon Bedrock",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6494258f-f820-4b65-8a3b-07ee864f4793",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.bedrock_provider_id', jsonResponse.uuid);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "b4a3ed7f-6f62-40df-bad2-184775bde067",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"bedrock-provider\",\r\n    \"data\": {\r\n        \"access_key_id\": \"{{vault:amazon_bedrock_access_key_id}}\",\r\n        \"secret_access_key\": \"{{vault:amazon_bedrock_secret_access_key}}\",\r\n        \"region\": \"{{aws_Region}}\"\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{modelGatewayUrl}}/providers/bedrock",
+                  "host": [
+                    "{{modelGatewayUrl}}"
+                  ],
+                  "path": [
+                    "providers",
+                    "bedrock"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-07-04T22:05:53.000Z",
+              "updatedAt": "2026-10-17T18:19:36.000Z",
+              "uid": "7643177-b4a3ed7f-6f62-40df-bad2-184775bde067"
+            },
+            {
+              "name": "Cerebras ⚡",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6494258f-f820-4b65-8a3b-07ee864f4793",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.cerebras_provider_id', jsonResponse.uuid);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "5d78d26b-88eb-4d64-a1f9-afd4bfa35c9f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"cerebras-provider\",\r\n    \"data\": {\r\n        \"apikey\": \"{{vault:cerebras_api_key}}\"\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{modelGatewayUrl}}/providers/cerebras",
+                  "host": [
+                    "{{modelGatewayUrl}}"
+                  ],
+                  "path": [
+                    "providers",
+                    "cerebras"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-07-04T22:05:55.000Z",
+              "updatedAt": "2026-10-17T18:19:37.000Z",
+              "uid": "7643177-5d78d26b-88eb-4d64-a1f9-afd4bfa35c9f"
+            },
+            {
+              "name": "NVIDIA AI",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6494258f-f820-4b65-8a3b-07ee864f4793",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.nvidia_provider_id', jsonResponse.uuid);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "3a235640-3b97-46ce-a97e-48108fd9a8e9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"nvidia-provider\",\r\n    \"data\": {\r\n        \"apikey\": \"{{vault:nvidia_api_key}}\"\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{modelGatewayUrl}}/providers/nim",
+                  "host": [
+                    "{{modelGatewayUrl}}"
+                  ],
+                  "path": [
+                    "providers",
+                    "nim"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-07-04T22:07:03.000Z",
+              "updatedAt": "2026-10-17T18:19:36.000Z",
+              "uid": "7643177-3a235640-3b97-46ce-a97e-48108fd9a8e9"
+            },
+            {
+              "name": "Providers",
+              "id": "1ec00ce5-ccf9-4274-9546-d6d06185e08b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{modelGatewayUrl}}/providers",
+                  "host": [
+                    "{{modelGatewayUrl}}"
+                  ],
+                  "path": [
+                    "providers"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-07-04T16:20:44.000Z",
+              "updatedAt": "2026-10-17T18:19:36.000Z",
+              "uid": "7643177-1ec00ce5-ccf9-4274-9546-d6d06185e08b"
+            },
+            {
+              "name": "Provider",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6494258f-f820-4b65-8a3b-07ee864f4793",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.openai_id', jsonResponse.uuid)"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "dcfb46c2-6fc7-47be-a7b7-d9452fd867c1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{modelGatewayUrl}}/providers/:provider_id",
+                  "host": [
+                    "{{modelGatewayUrl}}"
+                  ],
+                  "path": [
+                    "providers",
+                    ":provider_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "provider_id",
+                      "value": "{{temp.watsonxai_provider_id}}"
+                    }
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-07-04T21:54:30.000Z",
+              "updatedAt": "2026-10-17T18:19:36.000Z",
+              "uid": "7643177-dcfb46c2-6fc7-47be-a7b7-d9452fd867c1"
+            }
+          ],
+          "id": "ccdfa79c-98ae-472a-93c8-667c91c7350c",
+          "createdAt": "2025-07-04T16:36:36.000Z",
+          "updatedAt": "2025-08-16T16:57:41.000Z",
+          "uid": "7643177-ccdfa79c-98ae-472a-93c8-667c91c7350c"
+        },
+        {
+          "name": "Models",
+          "item": [
+            {
+              "name": "IBM watsonx.ai",
+              "item": [
+                {
+                  "name": "llama-3-3-70b-instruct",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "3da35d9d-3085-4a5d-b353-92af71dbe3d5",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "0fc0678d-8cea-4ad3-b714-182d5cec7f18",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"meta-llama/llama-3-3-70b-instruct\",\r\n    \"id\": \"meta-llama/llama-3-3-70b-instruct\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/{{temp.watsonxai_provider_id}}/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "{{temp.watsonxai_provider_id}}",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-05T04:01:27.000Z",
+                  "updatedAt": "2026-10-17T18:19:37.000Z",
+                  "uid": "7643177-0fc0678d-8cea-4ad3-b714-182d5cec7f18"
+                }
+              ],
+              "id": "eca9240e-6465-4a6d-abaf-d4f36f1ba210",
+              "createdAt": "2025-07-12T13:48:21.000Z",
+              "updatedAt": "2025-07-12T13:48:39.000Z",
+              "uid": "7643177-eca9240e-6465-4a6d-abaf-d4f36f1ba210"
+            },
+            {
+              "name": "OpenAI",
+              "item": [
+                {
+                  "name": "gpt-5-2025-08-07",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "fbb97033-51d2-4bdd-8793-a710f701af55",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"openai/gpt-5-2025-08-07\",\r\n    \"id\": \"gpt-5-2025-08-07\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/:provider_id/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        ":provider_id",
+                        "models"
+                      ],
+                      "variable": [
+                        {
+                          "key": "provider_id",
+                          "value": "be32d48a-b2ad-4642-b7b9-c8bc528c2b81",
+                          "description": "{{temp.openai_provider_id}}"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-08-11T22:33:47.000Z",
+                  "updatedAt": "2026-10-17T18:19:37.000Z",
+                  "uid": "7643177-fbb97033-51d2-4bdd-8793-a710f701af55"
+                },
+                {
+                  "name": "gpt-5-mini-2025-08-07",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "78f2abb3-434b-4223-a33d-4fbcfad591bd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"openai/gpt-5-mini-2025-08-07\",\r\n    \"id\": \"gpt-5-mini-2025-08-07\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/:provider_id/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        ":provider_id",
+                        "models"
+                      ],
+                      "variable": [
+                        {
+                          "key": "provider_id",
+                          "value": "be32d48a-b2ad-4642-b7b9-c8bc528c2b81",
+                          "description": "{{temp.openai_provider_id}}"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-08-11T22:37:28.000Z",
+                  "updatedAt": "2026-10-17T18:19:37.000Z",
+                  "uid": "7643177-78f2abb3-434b-4223-a33d-4fbcfad591bd"
+                },
+                {
+                  "name": "gpt-5-nano-2025-08-07",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "f0e268c6-6984-4be0-b2c0-4c4b93664769",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"openai/gpt-5-nano-2025-08-07\",\r\n    \"id\": \"gpt-5-nano-2025-08-07\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/:provider_id/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        ":provider_id",
+                        "models"
+                      ],
+                      "variable": [
+                        {
+                          "key": "provider_id",
+                          "value": "be32d48a-b2ad-4642-b7b9-c8bc528c2b81",
+                          "description": "{{temp.openai_provider_id}}"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-08-11T22:37:37.000Z",
+                  "updatedAt": "2026-10-17T18:19:37.000Z",
+                  "uid": "7643177-f0e268c6-6984-4be0-b2c0-4c4b93664769"
+                },
+                {
+                  "name": "o4-mini",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "54aae3a7-d635-4748-9486-21b7cb87a40d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"openai/o4-mini\",\r\n    \"id\": \"o4-mini\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/{{temp.openai_provider_id}}/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "{{temp.openai_provider_id}}",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-05T04:53:02.000Z",
+                  "updatedAt": "2026-10-17T18:19:37.000Z",
+                  "uid": "7643177-54aae3a7-d635-4748-9486-21b7cb87a40d"
+                },
+                {
+                  "name": "o3",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "30d0c558-34de-4a4b-913c-de0e99b50a21",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"openai/o3\",\r\n    \"id\": \"o3\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/{{temp.openai_provider_id}}/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "{{temp.openai_provider_id}}",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-05T04:01:27.000Z",
+                  "updatedAt": "2026-10-17T18:19:37.000Z",
+                  "uid": "7643177-30d0c558-34de-4a4b-913c-de0e99b50a21"
+                },
+                {
+                  "name": "gpt-4.1",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "06b191a0-b212-4942-bf5e-f90707bdf6ee",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"openai/gpt-4.1\",\r\n    \"id\": \"gpt-4.1\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/{{temp.openai_provider_id}}/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "{{temp.openai_provider_id}}",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-05T04:51:50.000Z",
+                  "updatedAt": "2026-10-17T18:19:37.000Z",
+                  "uid": "7643177-06b191a0-b212-4942-bf5e-f90707bdf6ee"
+                },
+                {
+                  "name": "gpt-4.1-mini",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "4599d23a-d036-4517-96ef-4e5948ec0dc0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"openai/gpt-4.1-mini\",\r\n    \"id\": \"gpt-4.1-mini\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/{{temp.openai_provider_id}}/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "{{temp.openai_provider_id}}",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-05T04:54:27.000Z",
+                  "updatedAt": "2026-10-17T18:19:37.000Z",
+                  "uid": "7643177-4599d23a-d036-4517-96ef-4e5948ec0dc0"
+                },
+                {
+                  "name": "gpt-4.1-nano",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "717a42b2-4279-48a1-9fd2-af6abbbc631e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"openai/gpt-4.1-nano\",\r\n    \"id\": \"gpt-4.1-nano\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/{{temp.openai_provider_id}}/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "{{temp.openai_provider_id}}",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-05T04:54:38.000Z",
+                  "updatedAt": "2026-10-17T18:19:38.000Z",
+                  "uid": "7643177-717a42b2-4279-48a1-9fd2-af6abbbc631e"
+                },
+                {
+                  "name": "text-embedding-3-large",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "3da35d9d-3085-4a5d-b353-92af71dbe3d5",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "67a882ea-9f27-46a6-a053-80c801a1f6f5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"openai/text-embedding-3-large\",\r\n    \"id\": \"text-embedding-3-large\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/{{temp.openai_provider_id}}/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "{{temp.openai_provider_id}}",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-05T04:01:27.000Z",
+                  "updatedAt": "2026-10-17T18:19:38.000Z",
+                  "uid": "7643177-67a882ea-9f27-46a6-a053-80c801a1f6f5"
+                }
+              ],
+              "id": "e0e15514-40ca-4c26-8ad9-36042e7dc1da",
+              "createdAt": "2025-07-12T13:48:56.000Z",
+              "updatedAt": "2025-08-11T22:37:37.000Z",
+              "uid": "7643177-e0e15514-40ca-4c26-8ad9-36042e7dc1da"
+            },
+            {
+              "name": "Gemini (OpenAI Compatible)",
+              "item": [
+                {
+                  "name": "gemini-2.5-pro",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "b09e2557-59f8-4646-bee6-a666e2d3a5e9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"gemini-2.5-pro\",\r\n    \"id\": \"gemini-2.5-pro\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/{{temp.gemini_provider_id}}/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "{{temp.gemini_provider_id}}",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-08T02:04:00.000Z",
+                  "updatedAt": "2026-10-17T18:19:38.000Z",
+                  "uid": "7643177-b09e2557-59f8-4646-bee6-a666e2d3a5e9"
+                },
+                {
+                  "name": "gemini-2.5-flash",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "2d66b805-cd89-41be-9176-610a445a786a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"gemini-2.5-flash\",\r\n    \"id\": \"gemini-2.5-flash\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/{{temp.gemini_provider_id}}/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "{{temp.gemini_provider_id}}",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-08T13:11:03.000Z",
+                  "updatedAt": "2026-10-17T18:19:38.000Z",
+                  "uid": "7643177-2d66b805-cd89-41be-9176-610a445a786a"
+                },
+                {
+                  "name": "gemini-2.0-flash",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "d345d6b0-c8e0-4e97-b81b-8f46982eec32",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"gemini-2.0-flash\",\r\n    \"id\": \"gemini-2.0-flash\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/{{temp.gemini_provider_id}}/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "{{temp.gemini_provider_id}}",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-08T13:28:55.000Z",
+                  "updatedAt": "2026-10-17T18:19:38.000Z",
+                  "uid": "7643177-d345d6b0-c8e0-4e97-b81b-8f46982eec32"
+                }
+              ],
+              "id": "08628caa-27cd-431c-a2ce-cb714d5eb55d",
+              "createdAt": "2025-07-12T13:50:10.000Z",
+              "updatedAt": "2025-07-12T16:49:58.000Z",
+              "uid": "7643177-08628caa-27cd-431c-a2ce-cb714d5eb55d"
+            },
+            {
+              "name": "Groq (OpenAI Compatible) ⚡",
+              "item": [
+                {
+                  "name": "llama-4-scout-17b-16e-instruct",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "38e717eb-50e6-411f-a60c-9e195d6512b1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"llama-4-scout-17b-16e-instruct\",\r\n    \"id\": \"meta-llama/llama-4-scout-17b-16e-instruct\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/{{temp.groq_provider_id}}/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "{{temp.groq_provider_id}}",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-12T16:41:03.000Z",
+                  "updatedAt": "2026-10-17T18:19:38.000Z",
+                  "uid": "7643177-38e717eb-50e6-411f-a60c-9e195d6512b1"
+                }
+              ],
+              "id": "be4d1a96-d4ed-4540-8801-9a6687d64ee1",
+              "createdAt": "2025-07-12T16:41:03.000Z",
+              "updatedAt": "2025-07-12T16:46:11.000Z",
+              "uid": "7643177-be4d1a96-d4ed-4540-8801-9a6687d64ee1"
+            },
+            {
+              "name": "xAI (OpenAI Compatible)",
+              "item": [
+                {
+                  "name": "grok-4",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "129e2da6-1d33-47c8-ae84-7ed3c7ca6b68",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"grok-4\",\r\n    \"id\": \"grok-4\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/{{temp.xai_provider_id}}/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "{{temp.xai_provider_id}}",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-12T16:21:19.000Z",
+                  "updatedAt": "2026-10-17T18:19:38.000Z",
+                  "uid": "7643177-129e2da6-1d33-47c8-ae84-7ed3c7ca6b68"
+                }
+              ],
+              "id": "dfa4fdda-7f33-49ac-a924-09950e5e33c0",
+              "createdAt": "2025-07-12T16:20:40.000Z",
+              "updatedAt": "2025-07-12T16:21:22.000Z",
+              "uid": "7643177-dfa4fdda-7f33-49ac-a924-09950e5e33c0"
+            },
+            {
+              "name": "Anthropic",
+              "item": [
+                {
+                  "name": "claude-opus-4",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "4fed1843-57ae-4880-80e0-a91ce65a24b5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"anthropic/claude-opus-4\",\r\n    \"id\": \"claude-opus-4-20250514\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/{{temp.anthropic_provider_id}}/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "{{temp.anthropic_provider_id}}",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-05T04:01:27.000Z",
+                  "updatedAt": "2026-10-17T18:19:39.000Z",
+                  "uid": "7643177-4fed1843-57ae-4880-80e0-a91ce65a24b5"
+                }
+              ],
+              "id": "90bb6b93-55ae-4f5e-85a8-0aaac90cbc58",
+              "createdAt": "2025-07-12T13:51:04.000Z",
+              "updatedAt": "2025-07-12T13:51:35.000Z",
+              "uid": "7643177-90bb6b93-55ae-4f5e-85a8-0aaac90cbc58"
+            },
+            {
+              "name": "Amazon Bedrock",
+              "item": [
+                {
+                  "name": "claude-4-opus",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "4cdd2e6c-9a7e-4383-81e1-a5c33b55309b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"bedrock/claude-4-opus\",\r\n    \"id\": \"us.anthropic.claude-opus-4-20250514-v1:0\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/{{temp.bedrock_provider_id}}/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "{{temp.bedrock_provider_id}}",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-05T04:01:27.000Z",
+                  "updatedAt": "2026-10-17T18:19:39.000Z",
+                  "uid": "7643177-4cdd2e6c-9a7e-4383-81e1-a5c33b55309b"
+                }
+              ],
+              "id": "850f5e2a-b242-49cc-887e-326aa3d32148",
+              "createdAt": "2025-07-12T13:51:19.000Z",
+              "updatedAt": "2025-07-12T13:51:38.000Z",
+              "uid": "7643177-850f5e2a-b242-49cc-887e-326aa3d32148"
+            },
+            {
+              "name": "Cerebras ⚡",
+              "item": [
+                {
+                  "name": "llama-3.3-70b",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "b1665947-38aa-4f46-b763-fe419cfd27ef",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"cerebras/llama-3.3-70b\",\r\n    \"id\": \"llama-3.3-70b\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/{{temp.cerebras_provider_id}}/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "{{temp.cerebras_provider_id}}",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-05T13:50:34.000Z",
+                  "updatedAt": "2026-10-17T18:19:39.000Z",
+                  "uid": "7643177-b1665947-38aa-4f46-b763-fe419cfd27ef"
+                },
+                {
+                  "name": "qwen-3-32b",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "ab081154-4a6a-4b31-8b7c-268224dca3ae",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"cerebras/qwen-3-32b\",\r\n    \"id\": \"qwen-3-32b\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/{{temp.cerebras_provider_id}}/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "{{temp.cerebras_provider_id}}",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-05T04:01:27.000Z",
+                  "updatedAt": "2026-10-17T18:19:39.000Z",
+                  "uid": "7643177-ab081154-4a6a-4b31-8b7c-268224dca3ae"
+                }
+              ],
+              "id": "8846025c-a1b4-411b-a76e-4d95fbe8b07d",
+              "createdAt": "2025-07-12T13:52:07.000Z",
+              "updatedAt": "2025-07-12T13:53:26.000Z",
+              "uid": "7643177-8846025c-a1b4-411b-a76e-4d95fbe8b07d"
+            },
+            {
+              "name": "NVIDIA AI",
+              "item": [
+                {
+                  "name": "deepseek-r1",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "9f540ac8-5b97-45e6-972e-6b2dda2dfd42",
+                        "exec": [
+                          "const jsonResponse = pm.response.json();\r",
+                          "pm.collectionVariables.set('temp.model_id', jsonResponse.uuid);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "id": "bd1f5302-877b-4907-94fc-c2cb1daa9877",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"alias\": \"deepseek-ai/deepseek-r1\",\r\n    \"id\": \"deepseek-ai/deepseek-r1\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/providers/{{temp.nvidia_provider_id}}/models",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "{{temp.nvidia_provider_id}}",
+                        "models"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-05T04:01:27.000Z",
+                  "updatedAt": "2026-10-17T18:19:39.000Z",
+                  "uid": "7643177-bd1f5302-877b-4907-94fc-c2cb1daa9877"
+                }
+              ],
+              "id": "f72cfd54-294c-4a54-a2b3-b6482a12b488",
+              "createdAt": "2025-07-12T13:52:27.000Z",
+              "updatedAt": "2025-07-12T13:52:41.000Z",
+              "uid": "7643177-f72cfd54-294c-4a54-a2b3-b6482a12b488"
+            },
+            {
+              "name": "Models",
+              "id": "4cb6cfc6-cd8d-4eef-a10a-4b066b708ba6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{modelGatewayUrl}}/models",
+                  "host": [
+                    "{{modelGatewayUrl}}"
+                  ],
+                  "path": [
+                    "models"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-07-05T04:17:58.000Z",
+              "updatedAt": "2026-10-17T18:19:39.000Z",
+              "uid": "7643177-4cb6cfc6-cd8d-4eef-a10a-4b066b708ba6"
+            },
+            {
+              "name": "Model",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6494258f-f820-4b65-8a3b-07ee864f4793",
+                    "exec": [
+                      "const jsonResponse = pm.response.json();\r",
+                      "pm.collectionVariables.set('temp.openai_id', jsonResponse.uuid)"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "id": "b41aaae2-9074-4012-8776-ca40ea2c21dc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{modelGatewayUrl}}/models/:model_id",
+                  "host": [
+                    "{{modelGatewayUrl}}"
+                  ],
+                  "path": [
+                    "models",
+                    ":model_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "model_id",
+                      "value": "{{temp.model_id}}"
+                    }
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-07-05T04:18:09.000Z",
+              "updatedAt": "2026-10-17T18:19:39.000Z",
+              "uid": "7643177-b41aaae2-9074-4012-8776-ca40ea2c21dc"
+            },
+            {
+              "name": "Provider Models",
+              "id": "cb04a1e3-0f11-418e-bb8c-90a4ee50ab14",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{modelGatewayUrl}}/providers/:provider_id/models",
+                  "host": [
+                    "{{modelGatewayUrl}}"
+                  ],
+                  "path": [
+                    "providers",
+                    ":provider_id",
+                    "models"
+                  ],
+                  "variable": [
+                    {
+                      "key": "provider_id",
+                      "value": "be32d48a-b2ad-4642-b7b9-c8bc528c2b81",
+                      "description": "{{temp.openai_provider_id}}"
+                    }
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-08-16T17:04:50.000Z",
+              "updatedAt": "2025-08-16T17:07:16.000Z",
+              "uid": "7643177-cb04a1e3-0f11-418e-bb8c-90a4ee50ab14"
+            }
+          ],
+          "id": "a5cf3347-25e3-4e14-9dad-34feb42d4ef3",
+          "createdAt": "2025-07-05T04:01:27.000Z",
+          "updatedAt": "2025-08-16T17:04:53.000Z",
+          "uid": "7643177-a5cf3347-25e3-4e14-9dad-34feb42d4ef3"
+        },
+        {
+          "name": "Inference",
+          "item": [
+            {
+              "name": "Chat",
+              "item": [
+                {
+                  "name": "IBM watsonx.ai",
+                  "item": [
+                    {
+                      "name": "llama-3-3-70b-instruct",
+                      "id": "0f7a880b-7de4-4aea-9a37-a12065cfc027",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"meta-llama/llama-3-3-70b-instruct\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-07-05T03:39:20.000Z",
+                      "updatedAt": "2026-10-17T18:19:39.000Z",
+                      "uid": "7643177-0f7a880b-7de4-4aea-9a37-a12065cfc027"
+                    }
+                  ],
+                  "id": "2275a69d-9daa-4fb2-aede-4ca716d7d44a",
+                  "createdAt": "2025-07-12T13:58:11.000Z",
+                  "updatedAt": "2025-07-12T14:03:11.000Z",
+                  "uid": "7643177-2275a69d-9daa-4fb2-aede-4ca716d7d44a"
+                },
+                {
+                  "name": "OpenAI",
+                  "item": [
+                    {
+                      "name": "gpt-4.1",
+                      "id": "cb8cb6a0-5bca-40b6-9b3e-85cacc792dea",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"openai/gpt-4.1\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-07-05T13:46:49.000Z",
+                      "updatedAt": "2026-10-17T18:19:39.000Z",
+                      "uid": "7643177-cb8cb6a0-5bca-40b6-9b3e-85cacc792dea"
+                    },
+                    {
+                      "name": "gpt-4.1-mini",
+                      "id": "9d6b0e13-b2aa-4ee7-a406-aa9f4d4b7e89",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"openai/gpt-4.1-mini\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-07-05T13:46:36.000Z",
+                      "updatedAt": "2026-10-17T18:19:39.000Z",
+                      "uid": "7643177-9d6b0e13-b2aa-4ee7-a406-aa9f4d4b7e89"
+                    },
+                    {
+                      "name": "gpt-4.1-nano",
+                      "id": "b4495610-5304-4afe-9ad0-29836a61dd11",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"openai/gpt-4.1-nano\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-07-05T13:46:32.000Z",
+                      "updatedAt": "2026-10-17T18:19:40.000Z",
+                      "uid": "7643177-b4495610-5304-4afe-9ad0-29836a61dd11"
+                    },
+                    {
+                      "name": "gpt-5-2025-08-07",
+                      "id": "e5401870-1d05-4af9-8079-838e642b3130",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"openai/gpt-5-2025-08-07\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-08-11T22:39:28.000Z",
+                      "updatedAt": "2026-10-17T17:59:17.000Z",
+                      "uid": "7643177-e5401870-1d05-4af9-8079-838e642b3130"
+                    },
+                    {
+                      "name": "gpt-5-mini-2025-08-07",
+                      "id": "41901d5d-d113-4543-b435-5053f007366a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"openai/gpt-5-mini-2025-08-07\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-08-11T22:39:42.000Z",
+                      "updatedAt": "2026-10-17T17:59:16.000Z",
+                      "uid": "7643177-41901d5d-d113-4543-b435-5053f007366a"
+                    },
+                    {
+                      "name": "gpt-5-nano-2025-08-07",
+                      "id": "4ef10664-6775-45da-80a0-19c7b4a22822",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"openai/gpt-5-nano-2025-08-07\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-08-11T22:39:39.000Z",
+                      "updatedAt": "2026-10-17T17:59:17.000Z",
+                      "uid": "7643177-4ef10664-6775-45da-80a0-19c7b4a22822"
+                    },
+                    {
+                      "name": "o3",
+                      "id": "204f07ed-0321-49ba-8f9d-43f6c591eafa",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"openai/o3\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-07-04T16:28:51.000Z",
+                      "updatedAt": "2026-10-17T18:19:40.000Z",
+                      "uid": "7643177-204f07ed-0321-49ba-8f9d-43f6c591eafa"
+                    },
+                    {
+                      "name": "o4-mini",
+                      "id": "3e984d6c-9f62-4b1f-9c62-bbc37e073748",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"openai/o4-mini\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-07-05T13:46:14.000Z",
+                      "updatedAt": "2026-10-17T18:19:41.000Z",
+                      "uid": "7643177-3e984d6c-9f62-4b1f-9c62-bbc37e073748"
+                    }
+                  ],
+                  "id": "a9bc75fe-4a39-40e8-9da4-002e4f13e0bf",
+                  "createdAt": "2025-07-12T13:58:31.000Z",
+                  "updatedAt": "2026-10-12T19:50:12.000Z",
+                  "uid": "7643177-a9bc75fe-4a39-40e8-9da4-002e4f13e0bf"
+                },
+                {
+                  "name": "Gemini (OpenAI Compatible)",
+                  "item": [
+                    {
+                      "name": "gemini-2.0-flash",
+                      "id": "a28ba232-727f-4049-b5b8-d3cc24a787aa",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"gemini-2.0-flash\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-07-08T13:29:38.000Z",
+                      "updatedAt": "2026-10-17T18:19:40.000Z",
+                      "uid": "7643177-a28ba232-727f-4049-b5b8-d3cc24a787aa"
+                    },
+                    {
+                      "name": "gemini-2.5-flash",
+                      "id": "e3e3a576-4050-42e2-8762-4b282e67f3c9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"gemini-2.5-flash\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-07-08T02:05:45.000Z",
+                      "updatedAt": "2026-10-17T18:19:40.000Z",
+                      "uid": "7643177-e3e3a576-4050-42e2-8762-4b282e67f3c9"
+                    },
+                    {
+                      "name": "gemini-2.5-pro",
+                      "id": "709a086f-f24d-44fb-88a6-28bc3500f0de",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"gemini-2.5-pro\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-07-08T13:14:39.000Z",
+                      "updatedAt": "2026-10-17T18:19:40.000Z",
+                      "uid": "7643177-709a086f-f24d-44fb-88a6-28bc3500f0de"
+                    }
+                  ],
+                  "id": "79b5a476-a0f3-48d6-9c5a-4999f313cd6d",
+                  "createdAt": "2025-07-12T13:59:06.000Z",
+                  "updatedAt": "2026-10-12T19:50:16.000Z",
+                  "uid": "7643177-79b5a476-a0f3-48d6-9c5a-4999f313cd6d"
+                },
+                {
+                  "name": "Groq (OpenAI Compatible) ⚡",
+                  "item": [
+                    {
+                      "name": "llama-4-scout-17b-16e-instruct",
+                      "id": "34862fc0-a533-4749-89a1-03da575953d5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"llama-4-scout-17b-16e-instruct\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-07-12T16:42:43.000Z",
+                      "updatedAt": "2026-10-17T18:19:40.000Z",
+                      "uid": "7643177-34862fc0-a533-4749-89a1-03da575953d5"
+                    }
+                  ],
+                  "id": "375877ae-aed6-492d-b0dd-603385738469",
+                  "createdAt": "2025-07-12T16:42:43.000Z",
+                  "updatedAt": "2025-07-12T16:46:21.000Z",
+                  "uid": "7643177-375877ae-aed6-492d-b0dd-603385738469"
+                },
+                {
+                  "name": "xAI (OpenAI Compatible)",
+                  "item": [
+                    {
+                      "name": "grok-4",
+                      "id": "fbbb9af5-67e4-4c50-bf2f-6761a46cba88",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"grok-4\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-07-12T16:24:48.000Z",
+                      "updatedAt": "2026-10-17T18:19:40.000Z",
+                      "uid": "7643177-fbbb9af5-67e4-4c50-bf2f-6761a46cba88"
+                    }
+                  ],
+                  "id": "17cdaafa-2ea9-4056-9cf8-d17885d96531",
+                  "createdAt": "2025-07-12T16:24:15.000Z",
+                  "updatedAt": "2025-07-12T16:24:50.000Z",
+                  "uid": "7643177-17cdaafa-2ea9-4056-9cf8-d17885d96531"
+                },
+                {
+                  "name": "Anthropic",
+                  "item": [
+                    {
+                      "name": "claude-opus-4",
+                      "id": "7a1291d5-177a-47b8-810e-979b3b87d35f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"anthropic/claude-opus-4\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-07-05T03:37:38.000Z",
+                      "updatedAt": "2026-10-17T18:19:41.000Z",
+                      "uid": "7643177-7a1291d5-177a-47b8-810e-979b3b87d35f"
+                    }
+                  ],
+                  "id": "5c376c5c-e7e8-43fe-b569-27e4215f7778",
+                  "createdAt": "2025-07-12T14:00:03.000Z",
+                  "updatedAt": "2025-07-12T14:03:19.000Z",
+                  "uid": "7643177-5c376c5c-e7e8-43fe-b569-27e4215f7778"
+                },
+                {
+                  "name": "Amazon Bedrock",
+                  "item": [
+                    {
+                      "name": "claude-4-opus",
+                      "id": "5b9740f2-939e-415f-be34-ffe6514ca204",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"bedrock/claude-4-opus\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-07-05T03:41:21.000Z",
+                      "updatedAt": "2026-10-17T18:19:41.000Z",
+                      "uid": "7643177-5b9740f2-939e-415f-be34-ffe6514ca204"
+                    }
+                  ],
+                  "id": "366b1254-1ebe-4d32-836d-d413fc78b194",
+                  "createdAt": "2025-07-12T14:00:13.000Z",
+                  "updatedAt": "2025-07-12T14:03:21.000Z",
+                  "uid": "7643177-366b1254-1ebe-4d32-836d-d413fc78b194"
+                },
+                {
+                  "name": "Cerebras ⚡",
+                  "item": [
+                    {
+                      "name": "llama-3.3-70b",
+                      "id": "f7d8ad1b-25c9-4f42-87f8-781e5a3a1dc9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"cerebras/llama-3.3-70b\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-07-05T13:51:10.000Z",
+                      "updatedAt": "2026-10-17T18:19:41.000Z",
+                      "uid": "7643177-f7d8ad1b-25c9-4f42-87f8-781e5a3a1dc9"
+                    },
+                    {
+                      "name": "qwen-3-32b",
+                      "id": "6b510d03-4ce9-4620-a3f0-ea4b13199348",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"cerebras/qwen-3-32b\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-07-05T03:41:05.000Z",
+                      "updatedAt": "2026-10-17T18:19:41.000Z",
+                      "uid": "7643177-6b510d03-4ce9-4620-a3f0-ea4b13199348"
+                    }
+                  ],
+                  "id": "5dc5b58c-8f5e-44a9-a039-1ea2daed060d",
+                  "createdAt": "2025-07-12T14:00:32.000Z",
+                  "updatedAt": "2025-07-12T14:03:23.000Z",
+                  "uid": "7643177-5dc5b58c-8f5e-44a9-a039-1ea2daed060d"
+                },
+                {
+                  "name": "NVIDIA AI",
+                  "item": [
+                    {
+                      "name": "deepseek-r1",
+                      "id": "1d57ddcf-6ae4-4e10-8cc8-87713d795f13",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"model\": \"deepseek-ai/deepseek-r1\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are a helpful assistant.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"max_tokens\": 4096\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{modelGatewayUrl}}/chat/completions",
+                          "host": [
+                            "{{modelGatewayUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "completions"
+                          ]
+                        }
+                      },
+                      "response": [],
+                      "createdAt": "2025-07-05T03:41:17.000Z",
+                      "updatedAt": "2026-10-17T18:19:41.000Z",
+                      "uid": "7643177-1d57ddcf-6ae4-4e10-8cc8-87713d795f13"
+                    }
+                  ],
+                  "id": "786b842d-4157-4fb2-86fe-d6384dbfb295",
+                  "createdAt": "2025-07-12T14:01:33.000Z",
+                  "updatedAt": "2025-07-12T14:03:25.000Z",
+                  "uid": "7643177-786b842d-4157-4fb2-86fe-d6384dbfb295"
+                }
+              ],
+              "id": "3845d5fb-478d-43d8-af73-303cd89fcc42",
+              "createdAt": "2025-07-12T14:01:53.000Z",
+              "updatedAt": "2026-10-12T19:47:29.000Z",
+              "uid": "7643177-3845d5fb-478d-43d8-af73-303cd89fcc42"
+            },
+            {
+              "name": "Completions",
+              "item": [
+                {
+                  "name": "llama-3-3-70b-instruct",
+                  "id": "cb934409-7e02-4ea1-a859-8daadc7b3f43",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"model\": \"meta-llama/llama-3-3-70b-instruct\",\n    \"prompt\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"max_tokens\": 4096\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/completions",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "completions"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-04T16:30:02.000Z",
+                  "updatedAt": "2026-10-17T18:19:41.000Z",
+                  "uid": "7643177-cb934409-7e02-4ea1-a859-8daadc7b3f43"
+                }
+              ],
+              "id": "bc9bddbf-e127-4d70-9f5e-0ffc186932a0",
+              "createdAt": "2025-07-12T14:02:08.000Z",
+              "updatedAt": "2025-07-12T14:02:33.000Z",
+              "uid": "7643177-bc9bddbf-e127-4d70-9f5e-0ffc186932a0"
+            },
+            {
+              "name": "Embeddings",
+              "item": [
+                {
+                  "name": "text-embedding-3-large",
+                  "id": "e989d51f-a019-4306-92fb-3b025bfff7aa",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"input\": \"Retrieval-augmented generation grounds a model's answer in your own documents.\",\n    \"model\": \"openai/text-embedding-3-large\",\n    \"encoding_format\": \"float\"\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{modelGatewayUrl}}/embeddings",
+                      "host": [
+                        "{{modelGatewayUrl}}"
+                      ],
+                      "path": [
+                        "embeddings"
+                      ]
+                    }
+                  },
+                  "response": [],
+                  "createdAt": "2025-07-04T16:30:44.000Z",
+                  "updatedAt": "2026-10-17T18:19:41.000Z",
+                  "uid": "7643177-e989d51f-a019-4306-92fb-3b025bfff7aa"
+                }
+              ],
+              "id": "b682702c-2b27-42fb-b988-89da9b2ca09f",
+              "createdAt": "2025-07-12T14:02:23.000Z",
+              "updatedAt": "2025-07-12T14:02:35.000Z",
+              "uid": "7643177-b682702c-2b27-42fb-b988-89da9b2ca09f"
+            }
+          ],
+          "id": "cfacb513-7deb-4a91-8d68-485dd6f35510",
+          "createdAt": "2025-07-04T16:36:47.000Z",
+          "updatedAt": "2025-07-12T14:03:25.000Z",
+          "uid": "7643177-cfacb513-7deb-4a91-8d68-485dd6f35510"
+        }
+      ],
+      "id": "6f41e864-c9a3-465b-b27f-111adaaae9ba",
+      "description": "- [https://www.ibm.com/docs/en/watsonx/saas?topic=models-using-model-gateway-beta](https://www.ibm.com/docs/en/watsonx/saas?topic=models-using-model-gateway-beta)\n    \n- [https://ai.google.dev/gemini-api/docs/openai](https://ai.google.dev/gemini-api/docs/openai)",
+      "createdAt": "2025-07-04T16:18:11.000Z",
+      "updatedAt": "2025-08-16T16:58:19.000Z",
+      "uid": "7643177-6f41e864-c9a3-465b-b27f-111adaaae9ba"
+    },
+    {
+      "name": "Models",
+      "item": [
+        {
+          "name": "IBM - granite-guardian-3-8b - Input",
+          "id": "9cd7fe25-f4ab-4bcd-b8da-b7536c700490",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"input\": \"<|start_of_role|>user<|end_of_role|>You are a safety agent trying to help determine if the assistant message is harmful based on the provided risk definition\\n<start_of_turn>\\nUser message: Who is the presdient of ACME Corp?\\nContext: John Doe is the president of ACME Corp.\\nAssistant message: Jane Doe is the president of XYZ Corp.\\n<end_of_turn>\\nOur safety risk definition is defined below:\\n<start_of_risk_definition>\\n- groundedness\\n- relevance\\n- answer_relevance\\n<end_of_risk_definition>\\nIs the assistant message harmful based on the risk definition (groundedness, relevance, answer_relevance)? Your answer must be either 'Yes' or 'No'.<|end_of_text|>\\n<|start_of_role|>assistant<|end_of_role|>\",\r\n    \"parameters\": {\r\n\t\t\"decoding_method\": \"sample\",\r\n\t\t\"max_new_tokens\": 200,\r\n\t\t\"min_new_tokens\": 0,\r\n\t\t\"random_seed\": 1,\r\n\t\t\"stop_sequences\": [],\r\n\t\t\"temperature\": 0,\r\n\t\t\"top_k\": 1,\r\n\t\t\"top_p\": 0,\r\n\t\t\"repetition_penalty\": 1\r\n    },\r\n    \"model_id\": \"ibm/granite-guardian-3-8b\",\r\n    \"project_id\": \"{{projectId}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ml/v1/text/generation?version=2023-05-29",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ml",
+                "v1",
+                "text",
+                "generation"
+              ],
+              "query": [
+                {
+                  "key": "version",
+                  "value": "2023-05-29"
+                }
+              ]
+            },
+            "description": "See [https://github.com/ibm-granite/granite-guardian/blob/main/cookbooks/granite-guardian-3.1/detailed_guide_vllm.ipynb](https://github.com/ibm-granite/granite-guardian/blob/main/cookbooks/granite-guardian-3.1/detailed_guide_vllm.ipynb)"
+          },
+          "response": [],
+          "createdAt": "2024-10-21T15:57:55.000Z",
+          "updatedAt": "2026-10-17T18:19:42.000Z",
+          "uid": "7643177-9cd7fe25-f4ab-4bcd-b8da-b7536c700490"
+        },
+        {
+          "name": "IBM - granite-guardian-3-8b - Output (answer_relevance)",
+          "id": "83ff4d35-9659-422c-a953-d23a178de5a8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"input\": \"<|start_of_role|>system<|end_of_role|>Knowledge Cutoff Date: April 2024. Today's Date: April 15, 2025. You are Granite, developed by IBM. You are a helpful AI assistant.\\n<|start_of_role|>user<|end_of_role|>You are a safety agent trying to help determine whether the assistant message to user message poses a potential harm based on the provided risk definition.\\n<start_of_turn>\\nUser Message: In what month did the AFL season originally begin?\\nAssistant Message: The AFL season now begins in February.\\n<end_of_turn>\\nOur safety risk definition is defined below:\\n<start_of_risk_definition>\\n* 'Assistant Message' fails to address or properly respond to the User's input. This includes providing off-topic information, misinterpreting the query, or omitting crucial details requested by the User. An irrelevant answer may contain factually correct information but still fail to meet the User's specific needs or answer their intended question.\\n<end_of_risk_definition>\\nIs the assistant message harmful based on the risk definition? Your answer must be either 'Yes' or 'No'.\\n<|start_of_role|>assistant<|end_of_role|>\",\r\n    \"parameters\": {\r\n\t\t\"decoding_method\": \"sample\",\r\n\t\t\"max_new_tokens\": 10,\r\n\t\t\"min_new_tokens\": 0,\r\n\t\t\"random_seed\": 1,\r\n\t\t\"stop_sequences\": [\"No\", \"Yes\"],\r\n\t\t\"temperature\": 0,\r\n\t\t\"top_k\": 1,\r\n\t\t\"top_p\": 0,\r\n\t\t\"repetition_penalty\": 1\r\n    },\r\n    \"model_id\": \"ibm/granite-guardian-3-8b\",\r\n    \"project_id\": \"{{projectId}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ml/v1/text/generation?version=2023-05-29",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ml",
+                "v1",
+                "text",
+                "generation"
+              ],
+              "query": [
+                {
+                  "key": "version",
+                  "value": "2023-05-29"
+                }
+              ]
+            },
+            "description": "See [https://github.com/ibm-granite/granite-guardian/blob/main/cookbooks/granite-guardian-3.1/detailed_guide_vllm.ipynb](https://github.com/ibm-granite/granite-guardian/blob/main/cookbooks/granite-guardian-3.1/detailed_guide_vllm.ipynb)"
+          },
+          "response": [],
+          "createdAt": "2025-04-11T21:31:44.000Z",
+          "updatedAt": "2026-10-17T18:19:42.000Z",
+          "uid": "7643177-83ff4d35-9659-422c-a953-d23a178de5a8"
+        },
+        {
+          "name": "IBM - granite-guardian-3-8b - Output (context_relevance)",
+          "id": "8a792454-11d8-4cff-a873-497a073ce963",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"input\": \"<|start_of_role|>system<|end_of_role|>Knowledge Cutoff Date: April 2024. Today's Date: April 15, 2025. You are Granite, developed by IBM. You are a helpful AI assistant.\\n<|start_of_role|>user<|end_of_role|>You are a safety agent trying to help determine if the context poses a potential harm based on the provided harm definition and the user message.\\n<start_of_turn>\\nContext: One significant part of treaty making is that signing a treaty implies recognition that the other side is a sovereign state and that the agreement being considered is enforceable under international law. Hence, nations can be very careful about terming an agreement to be a treaty. For example, within the United States, agreements between states are compacts and agreements between states and the federal government or between agencies of the government are memoranda of understanding.\\nUser Message: What is the history of treaty making?\\n<end_of_turn>\\nOur safety risk definition is defined below:\\n<start_of_risk_definition>\\n* 'Context' is not relevant to the 'User Message'. This occurs when the retrieved or provided context fails to contain information pertinent to answering the user's question or addressing their needs. Irrelevant context may be on a different topic, from an unrelated domain, or contain information that doesn't help in formulating an appropriate response to the user.\\n<end_of_risk_definition>\\nIs the context harmful based on the risk definition? Your answer must be either 'Yes' or 'No'.\\n<|start_of_role|>assistant<|end_of_role|>\",\r\n    \"parameters\": {\r\n\t\t\"decoding_method\": \"sample\",\r\n\t\t\"max_new_tokens\": 10,\r\n\t\t\"min_new_tokens\": 0,\r\n\t\t\"random_seed\": 1,\r\n\t\t\"stop_sequences\": [\"No\", \"Yes\"],\r\n\t\t\"temperature\": 0,\r\n\t\t\"top_k\": 1,\r\n\t\t\"top_p\": 0,\r\n\t\t\"repetition_penalty\": 1\r\n    },\r\n    \"model_id\": \"ibm/granite-guardian-3-8b\",\r\n    \"project_id\": \"{{projectId}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ml/v1/text/generation?version=2023-05-29",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ml",
+                "v1",
+                "text",
+                "generation"
+              ],
+              "query": [
+                {
+                  "key": "version",
+                  "value": "2023-05-29"
+                }
+              ]
+            },
+            "description": "See [https://github.com/ibm-granite/granite-guardian/blob/main/cookbooks/granite-guardian-3.1/detailed_guide_vllm.ipynb](https://github.com/ibm-granite/granite-guardian/blob/main/cookbooks/granite-guardian-3.1/detailed_guide_vllm.ipynb)"
+          },
+          "response": [],
+          "createdAt": "2025-04-11T22:19:58.000Z",
+          "updatedAt": "2026-10-17T18:19:42.000Z",
+          "uid": "7643177-8a792454-11d8-4cff-a873-497a073ce963"
+        },
+        {
+          "name": "IBM - granite-guardian-3-8b - Output (groundedness)",
+          "id": "8d891a52-7c1b-49bf-be42-4fd519410e62",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"input\": \"<|start_of_role|>system<|end_of_role|>Knowledge Cutoff Date: April 2024. Today's Date: April 15, 2025. You are Granite, developed by IBM. You are a helpful AI assistant.\\n<|start_of_role|>user<|end_of_role|>You are a safety agent trying to help determine if the assistant message poses a potential harm based on the provided risk definition and the given context.\\n<start_of_turn>\\nContext: Eat (1964) is a 45-minute underground film created by Andy Warhol and featuring painter Robert Indiana, filmed on Sunday, February 2, 1964, in Indiana's studio. The film was first shown by Jonas Mekas on July 16, 1964, at the Washington Square Gallery at 530 West Broadway. Jonas Mekas (December 24, 1922 – January 23, 2019) was a Lithuanian-American filmmaker, poet, and artist who has been called 'the godfather of American avant-garde cinema'. Mekas's work has been exhibited in museums and at festivals worldwide.\\nAssistant Message: The film Eat was first shown by Jonas Mekas on December 24, 1922 at the Washington Square Gallery at 530 West Broadway.\\n<end_of_turn>\\nOur safety risk definition is defined below:\\n<start_of_risk_definition>\\n* 'Assistant Message' is not grounded or faithful to the information provided in the 'Context'. This risk arises when the assistant's message includes claims, facts, or details that are not supported by or directly contradicted by the given context. An ungrounded answer may involve fabricating information, misinterpreting the context, or making unsupported extrapolations beyond what the context actually states.\\n<end_of_risk_definition>\\nIs the assistant message harmful based on the risk definition? Your answer must be either 'Yes' or 'No'.\\n<|start_of_role|>assistant<|end_of_role|>\",\r\n    \"parameters\": {\r\n\t\t\"decoding_method\": \"sample\",\r\n\t\t\"max_new_tokens\": 10,\r\n\t\t\"min_new_tokens\": 0,\r\n\t\t\"random_seed\": 1,\r\n\t\t\"stop_sequences\": [\"No\", \"Yes\"],\r\n\t\t\"temperature\": 0,\r\n\t\t\"top_k\": 1,\r\n\t\t\"top_p\": 0,\r\n\t\t\"repetition_penalty\": 1\r\n    },\r\n    \"model_id\": \"ibm/granite-guardian-3-8b\",\r\n    \"project_id\": \"{{projectId}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ml/v1/text/generation?version=2023-05-29",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ml",
+                "v1",
+                "text",
+                "generation"
+              ],
+              "query": [
+                {
+                  "key": "version",
+                  "value": "2023-05-29"
+                }
+              ]
+            },
+            "description": "See [https://github.com/ibm-granite/granite-guardian/blob/main/cookbooks/granite-guardian-3.1/detailed_guide_vllm.ipynb](https://github.com/ibm-granite/granite-guardian/blob/main/cookbooks/granite-guardian-3.1/detailed_guide_vllm.ipynb)"
+          },
+          "response": [],
+          "createdAt": "2025-02-06T15:54:07.000Z",
+          "updatedAt": "2026-10-17T18:19:42.000Z",
+          "uid": "7643177-8d891a52-7c1b-49bf-be42-4fd519410e62"
+        },
+        {
+          "name": "ibm/granite-4-h-small",
+          "id": "4ecfbae0-35c7-4f43-91c8-f5dc1e16e4c7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"parameters\": {\n        \"max_new_tokens\": 4096,\n        \"min_new_tokens\": 0\n    },\n    \"model_id\": \"ibm/granite-4-h-small\",\n    \"project_id\": \"{{projectId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ml/v1/text/generation?version=2023-05-29",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ml",
+                "v1",
+                "text",
+                "generation"
+              ],
+              "query": [
+                {
+                  "key": "version",
+                  "value": "2023-05-29"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-10-12T18:09:09.000Z",
+          "updatedAt": "2026-10-17T18:19:44.000Z",
+          "uid": "7643177-4ecfbae0-35c7-4f43-91c8-f5dc1e16e4c7"
+        },
+        {
+          "name": "Meta AI - llama-3-3-70b-instruct",
+          "id": "b6b91541-3dc7-460d-acb2-cb6a6cb3be19",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": \"In two sentences, what is the difference between a large language model and a reasoning model?\",\n    \"parameters\": {\n        \"max_new_tokens\": 4096,\n        \"min_new_tokens\": 0\n    },\n    \"model_id\": \"meta-llama/llama-3-3-70b-instruct\",\n    \"project_id\": \"{{projectId}}\",\n    \"moderations\": {\n        \"hap\": {\n            \"input\": {\n                \"enabled\": true,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            },\n            \"output\": {\n                \"enabled\": true,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            }\n        }\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ml/v1/text/generation?version=2023-05-29",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ml",
+                "v1",
+                "text",
+                "generation"
+              ],
+              "query": [
+                {
+                  "key": "version",
+                  "value": "2023-05-29"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-12-09T19:38:35.000Z",
+          "updatedAt": "2026-10-17T18:19:42.000Z",
+          "uid": "7643177-b6b91541-3dc7-460d-acb2-cb6a6cb3be19"
+        },
+        {
+          "name": "Meta AI - llama-4-maverick-17b-128e-instruct-fp8",
+          "id": "6b1b678a-f195-4e9b-8bb7-425b06a581a3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": \"<|begin_of_text|>\\n<|header_start|>system<|header_end|>\\nYou are a helpful assistant\\n<|eot|>\\n<|header_start|>user<|header_end|>\\nIf I dry one shirt in the sun, it takes 1 hour. How long do 3 shirts take?\\n<|eot|>\\n<|header_start|>assistant<|header_end|>\",\n    \"parameters\": {\n        \"max_new_tokens\": 4096,\n        \"min_new_tokens\": 0\n    },\n    \"model_id\": \"meta-llama/llama-4-maverick-17b-128e-instruct-fp8\",\n    \"project_id\": \"{{projectId}}\",\n    \"moderations\": {\n        \"hap\": {\n            \"input\": {\n                \"enabled\": true,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            },\n            \"output\": {\n                \"enabled\": true,\n                \"threshold\": 0.5,\n                \"mask\": {\n                    \"remove_entity_value\": true\n                }\n            }\n        }\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ml/v1/text/generation?version=2023-05-29",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ml",
+                "v1",
+                "text",
+                "generation"
+              ],
+              "query": [
+                {
+                  "key": "version",
+                  "value": "2023-05-29"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-04-08T01:22:19.000Z",
+          "updatedAt": "2026-10-17T18:19:42.000Z",
+          "uid": "7643177-6b1b678a-f195-4e9b-8bb7-425b06a581a3"
+        },
+        {
+          "name": "Mistral AI - mistral-small-3-1-24b-instruct-2503",
+          "id": "6752f7d0-512c-cd38-502f-cd87ace2db0e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"project_id\": \"{{projectId}}\",\n    \"model_id\": \"mistralai/mistral-small-3-1-24b-instruct-2503\",\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ml/v1/text/chat?version=2023-05-29",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ml",
+                "v1",
+                "text",
+                "chat"
+              ],
+              "query": [
+                {
+                  "key": "version",
+                  "value": "2023-05-29"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T03:15:25.000Z",
+          "updatedAt": "2026-10-17T18:19:42.000Z",
+          "uid": "7643177-6752f7d0-512c-cd38-502f-cd87ace2db0e"
+        },
+        {
+          "name": "mistral-large-2512",
+          "id": "684646de-e9ae-77ea-8002-d0c17f9fcd48",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"project_id\": \"{{projectId}}\",\n    \"model_id\": \"mistral-large-2512\",\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ml/v1/text/chat?version=2023-05-29",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ml",
+                "v1",
+                "text",
+                "chat"
+              ],
+              "query": [
+                {
+                  "key": "version",
+                  "value": "2023-05-29"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-12T03:15:33.000Z",
+          "updatedAt": "2026-10-17T18:19:42.000Z",
+          "uid": "7643177-684646de-e9ae-77ea-8002-d0c17f9fcd48"
+        },
+        {
+          "name": "OpenAI - gpt-oss-120b",
+          "id": "631aacd6-dd8d-4637-8d09-45910403ab1a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"In two sentences, what is the difference between a large language model and a reasoning model?\"\n        }\n    ],\n    \"project_id\": \"{{projectId}}\",\n    \"model_id\": \"openai/gpt-oss-120b\",\n    \"max_tokens\": 4096\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ml/v1/text/chat?version=2023-05-29",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ml",
+                "v1",
+                "text",
+                "chat"
+              ],
+              "query": [
+                {
+                  "key": "version",
+                  "value": "2023-05-29"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-08-13T01:43:55.000Z",
+          "updatedAt": "2026-10-17T18:19:43.000Z",
+          "uid": "7643177-631aacd6-dd8d-4637-8d09-45910403ab1a"
+        }
+      ],
+      "id": "38a1d97e-acf5-4034-a4a4-c9cc9ab5da61",
+      "createdAt": "2024-03-12T04:19:17.000Z",
+      "updatedAt": "2026-10-12T19:50:22.000Z",
+      "uid": "7643177-38a1d97e-acf5-4034-a4a4-c9cc9ab5da61"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{access_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "d5dccdc9-477a-43d3-922f-3838c94d2ea2",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "8ee2d7d8-3031-4292-8402-9ebf1bbcf45f",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://us-south.ml.cloud.ibm.com",
+      "type": "string"
+    },
+    {
+      "key": "modelGatewayUrl",
+      "value": "https://ca-tor.ml.cloud.ibm.com/ml/gateway/v1",
+      "type": "string"
+    },
+    {
+      "key": "secretsManagerUrl",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "projectId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "aws_Region",
+      "value": "us-west-2",
+      "type": "string"
+    },
+    {
+      "key": "access_token",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}

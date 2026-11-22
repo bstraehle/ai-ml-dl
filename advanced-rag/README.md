@@ -78,8 +78,8 @@ Top picks (DeepLearning.AI short courses were free to enroll when this page was 
 
 ## My projects
 
-- [RAG with LangChain and LlamaIndex](../hugging-face/rag/)
-- [Advanced RAG with pre- and post-retrieval processing](../hugging-face/advanced-rag/)
+- [Advanced RAG](https://huggingface.co/spaces/bstraehle/advanced-rag): pre- and post-retrieval processing on MongoDB Atlas Vector Search ([source](../hugging-face/advanced-rag/))
+- [Agentic AI](https://huggingface.co/spaces/bstraehle/agentic-ai): agentic RAG with LangChain and LlamaIndex ([source](../hugging-face/agentic-ai/))
 
 ## Next steps
 

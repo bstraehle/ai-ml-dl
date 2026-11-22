@@ -1,0 +1,449 @@
+{
+  "info": {
+    "_postman_id": "8de2253c-d8bb-4881-aec4-fb0d61fd38ab",
+    "name": "📌 Runway API",
+    "description": "### About Runway\n\n\"Runway is building foundational Real-World Intelligence that can understand, simulate and act in the world.\"\n\nRunway builds its own Gen video and image models and serves them through its own API. On the workspace overview it is listed under **Image & video**.\n\n### Prerequisites\n\n- Postman Account\n    \n- Runway Account: [https://dev.runway.com/](https://dev.runway.com/)\n    \n\n### Usage\n\n1. Create a fork\n    \n2. Update collection variables\n    \n3. Send requests\n\nStart with the 🚀 Get Started folder.\n\nAdd your key to your **Postman Vault** as `runway_api_key` (Vault icon in the footer, then **Add secret**, using that exact name). Requests read it as `{{vault:runway_api_key}}`, so your key never leaves your device.\n\n### Documentation\n\n- API: [https://docs.dev.runwayml.com/](https://docs.dev.runwayml.com/)\n    \n- Models: [https://dev.runway.com/models](https://dev.runway.com/models)\n\n### Notes\n\nGeneration endpoints are asynchronous: they return a task `id`; **Tasks / Get task** polls `temp.task_id` until `status` is `SUCCEEDED` or `FAILED`.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-11T21:26:04.000Z",
+    "updatedAt": "2026-10-12T23:53:59.000Z",
+    "lastUpdatedBy": "7643177",
+    "uid": "7643177-8de2253c-d8bb-4881-aec4-fb0d61fd38ab"
+  },
+  "item": [
+    {
+      "name": "🚀 Get Started",
+      "item": [
+        {
+          "name": "Text to Video (gen4.5)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"temp.task_id\", body.id);"
+                ]
+              }
+            }
+          ],
+          "id": "4b74cbd7-e711-4f89-a8ee-3179827d7a19",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Runway-Version",
+                "value": "2024-11-06"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"gen4.5\",\n    \"promptText\": \"A small robot walks through a field of wildflowers at sunrise, cinematic slow camera pan.\",\n    \"ratio\": \"1280:720\",\n    \"duration\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/text_to_video",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "text_to_video"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "08453377-9b71-821e-a87e-12deca685272",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Runway-Version",
+                    "value": "2024-11-06"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"model\": \"gen4.5\",\n    \"promptText\": \"A small robot walks through a field of wildflowers at sunrise, cinematic slow camera pan.\",\n    \"ratio\": \"1280:720\",\n    \"duration\": 5\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/text_to_video",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "text_to_video"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "value": "Sat, 17 Oct 2026 18:06:10 GMT",
+                  "key": "Date"
+                },
+                {
+                  "value": "application/json; charset=utf-8",
+                  "key": "Content-Type"
+                },
+                {
+                  "value": "76",
+                  "key": "Content-Length"
+                },
+                {
+                  "value": "close",
+                  "key": "Connection"
+                },
+                {
+                  "value": "W/\"4c-gsHkdmPHmcVBH3tzb7rcdsDrMr0\"",
+                  "key": "etag"
+                },
+                {
+                  "value": "max-age=31536000; includeSubDomains; preload",
+                  "key": "strict-transport-security"
+                },
+                {
+                  "value": "nosniff",
+                  "key": "x-content-type-options"
+                },
+                {
+                  "value": "DENY",
+                  "key": "x-frame-options"
+                },
+                {
+                  "value": "FZnbAjgOoAMEM-A=",
+                  "key": "apigw-requestid"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "548",
+              "body": "{\n  \"id\": \"5f2aebfc-7abf-486b-8664-190c46ba0cb2\",\n  \"estimatedCost\": {\n    \"credits\": 60\n  }\n}",
+              "createdAt": "2026-10-17T18:06:11.000Z",
+              "updatedAt": "2026-10-17T18:06:11.000Z",
+              "uid": "7643177-08453377-9b71-821e-a87e-12deca685272"
+            }
+          ],
+          "createdAt": "2026-10-11T21:26:04.000Z",
+          "updatedAt": "2026-10-17T18:06:12.000Z",
+          "uid": "7643177-4b74cbd7-e711-4f89-a8ee-3179827d7a19"
+        }
+      ],
+      "id": "c690b144-29ad-49f2-aa1b-a9648ac9df3b",
+      "createdAt": "2026-10-11T21:26:04.000Z",
+      "updatedAt": "2026-10-11T21:26:04.000Z",
+      "uid": "7643177-c690b144-29ad-49f2-aa1b-a9648ac9df3b"
+    },
+    {
+      "name": "Image",
+      "item": [
+        {
+          "name": "gen4_image",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"temp.task_id\", body.id);"
+                ]
+              }
+            }
+          ],
+          "id": "89931bca-c034-41be-a982-ae89624cbcef",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Runway-Version",
+                "value": "2024-11-06"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"gen4_image\",\n    \"promptText\": \"A friendly robot painting its self-portrait on an easel in a sunlit studio, watercolor style. No text.\",\n    \"ratio\": \"1920:1080\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/text_to_image",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "text_to_image"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:04.000Z",
+          "updatedAt": "2026-10-17T18:21:33.000Z",
+          "uid": "7643177-89931bca-c034-41be-a982-ae89624cbcef"
+        }
+      ],
+      "id": "9e58a166-90ec-48ac-9034-8673d71e69d4",
+      "createdAt": "2026-10-11T21:26:04.000Z",
+      "updatedAt": "2026-10-11T21:26:04.000Z",
+      "uid": "7643177-9e58a166-90ec-48ac-9034-8673d71e69d4"
+    },
+    {
+      "name": "Tasks",
+      "item": [
+        {
+          "name": "Get task",
+          "id": "deb65550-00e2-46f3-9c6a-602d62ccf4d7",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Runway-Version",
+                "value": "2024-11-06"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tasks/{{temp.task_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tasks",
+                "{{temp.task_id}}"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:04.000Z",
+          "updatedAt": "2026-10-17T18:21:33.000Z",
+          "uid": "7643177-deb65550-00e2-46f3-9c6a-602d62ccf4d7"
+        }
+      ],
+      "id": "9e6414fd-a5c8-4dae-9fb9-94e52755f691",
+      "createdAt": "2026-10-11T21:26:04.000Z",
+      "updatedAt": "2026-10-11T21:26:04.000Z",
+      "uid": "7643177-9e6414fd-a5c8-4dae-9fb9-94e52755f691"
+    },
+    {
+      "name": "Video",
+      "item": [
+        {
+          "name": "gen4.5",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"temp.task_id\", body.id);"
+                ]
+              }
+            }
+          ],
+          "id": "bff3929d-2800-470e-9bb9-9ac6fea89484",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Runway-Version",
+                "value": "2024-11-06"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"gen4.5\",\n    \"promptText\": \"A small robot walks through a field of wildflowers at sunrise, cinematic slow camera pan.\",\n    \"ratio\": \"1280:720\",\n    \"duration\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/text_to_video",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "text_to_video"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:04.000Z",
+          "updatedAt": "2026-10-17T18:21:33.000Z",
+          "uid": "7643177-bff3929d-2800-470e-9bb9-9ac6fea89484"
+        },
+        {
+          "name": "gen4.5 - image to video",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"temp.task_id\", body.id);"
+                ]
+              }
+            }
+          ],
+          "id": "9c057327-5449-4c43-9cd5-c56c272e472f",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Runway-Version",
+                "value": "2024-11-06"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"model\": \"gen4.5\",\n    \"promptImage\": \"https://upload.wikimedia.org/wikipedia/commons/8/85/Tour_Eiffel_Wikimedia_Commons_(cropped).jpg\",\n    \"promptText\": \"The camera slowly pushes in as the scene comes to life.\",\n    \"ratio\": \"1280:720\",\n    \"duration\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/image_to_video",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "image_to_video"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2026-10-11T21:26:04.000Z",
+          "updatedAt": "2026-10-17T18:21:33.000Z",
+          "uid": "7643177-9c057327-5449-4c43-9cd5-c56c272e472f"
+        }
+      ],
+      "id": "d2c084ac-d5ca-4a12-b602-ece5cec843e8",
+      "createdAt": "2026-10-11T21:26:04.000Z",
+      "updatedAt": "2026-10-11T21:26:04.000Z",
+      "uid": "7643177-d2c084ac-d5ca-4a12-b602-ece5cec843e8"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{vault:runway_api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "aec349a4-34fa-44f0-9803-7f47615630c4",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "af5f40a7-74a1-4b2a-98d8-08fa0cd0966e",
+        "type": "text/javascript",
+        "exec": [
+          "// GenAI APIs workspace: shared test + visualizer (runs after every request in this collection).",
+          "// Shows the model's text reply as formatted Markdown and any returned images/videos inline (Visualize tab).",
+          "(function () {",
+          "    pm.test(\"Status code is 2xx\", function () { pm.expect(pm.response.code).to.be.within(200, 299); });",
+          "    var body;",
+          "    try { body = pm.response.json(); } catch (e) { return; }",
+          "    var texts = [], media = [], seen = {};",
+          "    function addText(t) { if (typeof t === \"string\" && t.trim()) texts.push(t); }",
+          "    function addMedia(url) {",
+          "        if (seen[url] || media.length >= 8) return;",
+          "        seen[url] = true;",
+          "        media.push({ url: url, isVideo: /\\.(mp4|webm|mov)(\\?|$)/i.test(url) || /^data:video\\//i.test(url) });",
+          "    }",
+          "    (body.choices || []).forEach(function (c) { addText(c && c.message && c.message.content); addText(c && c.text); });",
+          "    addText(body.output_text);",
+          "    (Array.isArray(body.output) ? body.output : []).forEach(function (o) {",
+          "        ((o && o.content) || []).forEach(function (p) { addText(p && p.text); });",
+          "    });",
+          "    if (Array.isArray(body.content)) body.content.forEach(function (p) { addText(p && p.text); });",
+          "    (body.candidates || []).forEach(function (c) {",
+          "        (((c && c.content) || {}).parts || []).forEach(function (p) {",
+          "            addText(p && p.text);",
+          "            if (p && p.inlineData && /^image\\//.test(p.inlineData.mimeType || \"\")) addMedia(\"data:\" + p.inlineData.mimeType + \";base64,\" + p.inlineData.data);",
+          "        });",
+          "    });",
+          "    if (body.message && Array.isArray(body.message.content)) body.message.content.forEach(function (p) { addText(p && p.text); });",
+          "    (((body.results || {}).channels) || []).forEach(function (ch) {",
+          "        ((ch && ch.alternatives) || []).slice(0, 1).forEach(function (a) { addText(a && a.transcript); });",
+          "    });",
+          "    if (!texts.length) { addText(body.text); addText(body.response); addText(body.generated_text); }",
+          "    if (!texts.length) Object.keys(body).forEach(function (k) {",
+          "        var v = body[k];",
+          "        if (v && typeof v === \"object\" && typeof v.generated_text === \"string\") addText(\"**\" + k + \"**\\n\\n\" + v.generated_text);",
+          "    });",
+          "    (Array.isArray(body.data) ? body.data : []).forEach(function (d) { if (d && d.b64_json) addMedia(\"data:image/png;base64,\" + d.b64_json); });",
+          "    (function walk(v, depth) {",
+          "        if (depth > 6 || media.length >= 8) return;",
+          "        if (typeof v === \"string\") {",
+          "            if (/^https?:\\/\\/\\S+\\.(png|jpe?g|webp|gif|mp4|webm|mov)(\\?\\S*)?$/i.test(v)) addMedia(v);",
+          "        } else if (v && typeof v === \"object\") {",
+          "            Object.keys(v).forEach(function (k) { walk(v[k], depth + 1); });",
+          "        }",
+          "    })(body, 0);",
+          "    if (!texts.length && !media.length) return;",
+          "    var template = [",
+          "        \"<style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5;margin:12px;color:#222}\",",
+          "        \".reply{border:1px solid #e1e4e8;border-radius:8px;padding:4px 14px;margin-bottom:12px;background:#fff}\",",
+          "        \"img,video{max-width:100%;border-radius:8px;margin-bottom:12px;display:block}\",",
+          "        \"pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}code{background:#f6f8fa;padding:1px 4px;border-radius:4px}</style>\",",
+          "        \"<div id=\\\"out\\\"></div>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js\\\"></script>\",",
+          "        \"<script src=\\\"https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js\\\"></script>\",",
+          "        \"<script>pm.getData(function (err, data) {\",",
+          "        \"  var out = document.getElementById('out');\",",
+          "        \"  (data.texts || []).forEach(function (t) {\",",
+          "        \"    var d = document.createElement('div'); d.className = 'reply';\",",
+          "        \"    if (window.marked && window.DOMPurify) { d.innerHTML = DOMPurify.sanitize(marked.parse(t)); } else { d.style.whiteSpace = 'pre-wrap'; d.textContent = t; }\",",
+          "        \"    out.appendChild(d);\",",
+          "        \"  });\",",
+          "        \"  (data.media || []).forEach(function (m) {\",",
+          "        \"    var el = document.createElement(m.isVideo ? 'video' : 'img'); el.src = m.url; if (m.isVideo) { el.controls = true; }\",",
+          "        \"    out.appendChild(el);\",",
+          "        \"  });\",",
+          "        \"});</script>\"",
+          "    ].join(\"\\n\");",
+          "    pm.visualizer.set(template, { texts: texts, media: media });",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.dev.runwayml.com/v1",
+      "type": "string"
+    }
+  ]
+}

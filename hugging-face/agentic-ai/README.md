@@ -1,12 +1,13 @@
 ---
 title: Agentic AI
-emoji: 🔥
-colorFrom: red
+emoji: 🤖
+colorFrom: blue
 colorTo: gray
 sdk: gradio
-sdk_version: 4.36.1
+sdk_version: 6.32.0
+python_version: "3.12"
 app_file: app.py
-pinned: false
+pinned: true
 license: apache-2.0
 short_description: Agentic AI with LangChain & LlamaIndex
 ---
