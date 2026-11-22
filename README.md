@@ -67,7 +67,6 @@ Topics are grouped into numbered folders, roughly in learning order. Each folder
 - [DeepLearning.AI courses](https://www.deeplearning.ai/courses/): most topics in this repo started here
 - [Andrej Karpathy on YouTube](https://www.youtube.com/@AndrejKarpathy): neural networks and LLMs from scratch
 - [Sebastian Raschka](https://sebastianraschka.com/): [Build a Large Language Model (From Scratch)](https://github.com/rasbt/LLMs-from-scratch) code and videos
-- [Addy Osmani](https://addyosmani.com/): agentic engineering, AI-assisted development and software quality
 
 **Books**
 - [Generative AI on AWS: Building Context-Aware Multimodal Reasoning Applications](https://github.com/generative-ai-on-aws/generative-ai-on-aws) by Chris Fregly, Antje Barth and Shelbee Eigenbrode (O'Reilly), with code and notebooks for every chapter
