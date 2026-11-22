@@ -1,2 +1,1 @@
-https://community.aws/code/generative-ai  
-https://community.aws/generative-ai  
+Labs from [Serverless LLM apps with Amazon Bedrock](https://www.deeplearning.ai/short-courses/serverless-llm-apps-amazon-bedrock/): first generations, summarizing an audio file with Amazon Transcribe, logging, deploying a Lambda function, and event-driven generation. Setup notes are in [1/requirements.txt](1/requirements.txt). See the [Amazon Bedrock topic](../) for more.

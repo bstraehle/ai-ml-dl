@@ -12,7 +12,7 @@ REASONING_EFFORT = "medium"
 CONCURRENCY_LIMIT = 8
 
 DEFAULT_PROMPT = "Describe the diagram"
-DEFAULT_IMAGE = "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/refs/heads/main/hugging-face/multimodal-ai/architecture.png"
+DEFAULT_IMAGE = "https://raw.githubusercontent.com/bstraehle/ai-ml-dl/main/assets/architecture.png"
 
 # Gradio's Markdown blocks (description, completion) scroll (overflow: auto) with no
 # padding, which clips focus outlines at their edges

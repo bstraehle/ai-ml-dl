@@ -33,8 +33,6 @@ LLMOps applies MLOps practice to LLM applications: versioned data and prompts, a
 |---|---|
 | [L4_predictions_prompts_safety.ipynb](L4_predictions_prompts_safety.ipynb) | Deploying a tuned model, load balancing, getting predictions and safety attributes |
 
-`L2_data.ipynb` and `L3_automation.ipynb` (data preparation and pipeline automation) were saved as empty Jupyter web pages, so they have no lesson content.
-
 ## Next steps
 
 - [Serving LLMs efficiently](../efficiently-serving-llms/)
