@@ -94,8 +94,8 @@ Free or low-cost learning from AI companies, course platforms and universities. 
 
 **University courses**
 - [MIT 6.S191: Introduction to Deep Learning](https://introtodeeplearning.com/)
+- [Stanford CS224n: Natural Language Processing with Deep Learning](https://cs224n.stanford.edu/)
 - [Stanford CS231n: Deep Learning for Computer Vision](https://cs231n.stanford.edu/)
-- [Stanford CS224N: Natural Language Processing with Deep Learning](https://cs224n.stanford.edu/)
 - [Stanford CS336: Language Modeling from Scratch](https://stanford-cs336.github.io/)
 
 **Staying current**
