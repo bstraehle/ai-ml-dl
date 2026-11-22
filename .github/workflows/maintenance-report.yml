@@ -1,0 +1,62 @@
+name: Maintenance report
+
+on:
+  schedule:
+    - cron: "0 6 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: maintenance-report
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Check freshness
+        run: python3 .github/scripts/freshness.py > freshness.md
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: --no-progress --config lychee.toml './**/*.md'
+          output: lychee/out.md
+          fail: false
+
+      - name: Open or update this month's issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          title="Maintenance report $(date -u +%Y-%m)"
+          {
+            echo "Generated $(date -u +%F) by [this run]($RUN_URL). Work through the items below, then close this issue. Next month's report supersedes it."
+            echo
+            cat freshness.md
+            echo
+            echo "## Links"
+            echo
+            sed -E 's/^(#+)/\1##/' lychee/out.md 2>/dev/null || echo "The link check produced no report; see the run log."
+          } | head -c 60000 > report.md
+
+          gh label create maintenance --color 0E8A16 --description "Monthly maintenance report" --force
+          open=$(gh issue list --label maintenance --state open --json number,title)
+          number=$(jq -r --arg t "$title" '.[] | select(.title == $t) | .number' <<< "$open" | head -n1)
+          if [ -n "$number" ]; then
+            gh issue edit "$number" --body-file report.md
+            url=$(gh issue view "$number" --json url --jq .url)
+          else
+            url=$(gh issue create --title "$title" --label maintenance --body-file report.md)
+          fi
+          jq -r --arg t "$title" '.[] | select(.title != $t) | .number' <<< "$open" |
+            while read -r old; do gh issue close "$old" --comment "Superseded by $url"; done

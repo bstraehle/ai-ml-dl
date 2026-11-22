@@ -1,0 +1,38 @@
+name: PR checks
+
+on:
+  pull_request:
+    paths:
+      - "**.md"
+      - "lychee.toml"
+      - ".github/**"
+
+permissions:
+  contents: read
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Validate review metadata
+        run: python3 .github/scripts/freshness.py --strict > /dev/null
+
+      - name: List changed Markdown files
+        id: changed
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          git diff --name-only --diff-filter=AMR "$BASE_SHA"...HEAD -- '*.md' > changed-md.txt
+          echo "count=$(wc -l < changed-md.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Check links in changed files
+        if: steps.changed.outputs.count != '0'
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: --no-progress --config lychee.toml --files-from changed-md.txt
