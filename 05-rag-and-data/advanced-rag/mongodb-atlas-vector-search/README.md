@@ -1,3 +1,3 @@
 https://www.deeplearning.ai/short-courses/prompt-compression-and-query-optimization/  
 
-https://github.com/bstraehle/ai-ml-dl/tree/main/projects/hugging-face/advanced-rag/  
+My Space built on this course: [Advanced RAG](../../../projects/hugging-face/advanced-rag/)
