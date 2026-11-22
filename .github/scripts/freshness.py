@@ -9,9 +9,11 @@ A topic README starts with:
     review_every: 6mo      # e.g. 90d, 8w, 6mo, 1y
     ---
 
-Every top-level folder is expected to carry this metadata. Nested folders are
-tracked when their README.md has a last_reviewed key. Folders under archive/
-and topics with status: archived are skipped.
+Every topic folder is expected to carry this metadata: each folder inside a
+numbered category (01-foundations/mathematics/, ...) and any other top-level
+folder. Other folders are tracked when their README.md has a last_reviewed key.
+projects/ (mirrored from websites), archive/ and topics with status: archived
+are skipped.
 
 Prints a Markdown report to stdout. With --strict, exits 1 when any metadata
 is invalid (used as a pull request check).
@@ -30,7 +32,8 @@ from urllib.parse import quote
 DEFAULT_INTERVAL = "6mo"
 DUE_SOON_DAYS = 30
 STATUSES = {"current", "aging", "archived"}
-SKIP_DIRS = {"archive", "node_modules"}
+SKIP_DIRS = {"archive", "node_modules", "projects"}
+CATEGORY_RE = re.compile(r"^[0-9]{2}-")
 INTERVAL_RE = re.compile(r"^(\d+)\s*(d|w|mo|y)$")
 
 
@@ -66,7 +69,9 @@ def add_interval(start, interval):
 def last_changed(root, path):
     try:
         result = subprocess.run(
-            ["git", "log", "-1", "--format=%cs", "--", path.as_posix()],
+            ["git", "log", "-1", "--format=%cs", "--follow", "--diff-filter=AM", "--", f"{path.as_posix()}/README.md"]
+            if (root / path / "README.md").exists()
+            else ["git", "log", "-1", "--format=%cs", "--", path.as_posix()],
             cwd=root, capture_output=True, text=True, check=True,
         )
     except (OSError, subprocess.CalledProcessError):
@@ -77,7 +82,11 @@ def last_changed(root, path):
 def discover(root):
     """Map topic path (relative to root) -> front matter dict, or None if there is no README."""
     skip = lambda name: name in SKIP_DIRS or name.startswith(".")
-    top = {Path(p.name) for p in root.iterdir() if p.is_dir() and not skip(p.name)}
+    top = set()
+    for p in root.iterdir():
+        if p.is_dir() and not skip(p.name):
+            children = [Path(p.name, c.name) for c in p.iterdir() if c.is_dir() and not skip(c.name)]
+            top.update(children if CATEGORY_RE.match(p.name) else [Path(p.name)])
     topics = {p: None for p in top}
     for dirpath, dirnames, filenames in os.walk(root):
         dirnames[:] = sorted(d for d in dirnames if not skip(d))
