@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export every collection in the public Generative AI APIs Postman workspace into rest-apis/.
+"""Export every collection in the public Generative AI APIs Postman workspace into projects/rest-apis/.
 
 Each collection is written as Postman v2.1 JSON (rest-apis/<name>.postman_collection.json),
 other files in rest-apis/ are removed, and rest-apis/README.md is regenerated. Only reads from
@@ -63,7 +63,7 @@ def count_requests(items):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--dest", type=Path, default=Path("rest-apis"))
+    parser.add_argument("--dest", type=Path, default=Path("projects/rest-apis"))
     parser.add_argument("--env-file", help="read POSTMAN_API_KEY from this .env file")
     args = parser.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")

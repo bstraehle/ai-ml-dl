@@ -2,7 +2,7 @@
 
 Courses I've worked through, the labs that came with them, my notes, and my own projects. It covers math and classic machine learning through to LLMs, RAG and agents. Pick a learning path for your role, or browse by topic.
 
-> **Being reorganized.** Topics whose README starts with a review date (for example [Prompt engineering](prompt-eng/), [Agentic AI](agentic-ai/) and [Fine-tuning](finetuning-llms/)) are in the new format: key concepts, top resources, hands-on labs and next steps. The rest are still plain link lists and are being updated.
+> **Being reorganized.** Topics whose README starts with a review date (for example [Prompt engineering](04-building-with-llms/prompt-eng/), [Agentic AI](06-agents/agentic-ai/) and [Fine-tuning](03-adapting-models/finetuning-llms/)) are in the new format: key concepts, top resources, hands-on labs and next steps. The rest are still plain link lists and are being updated.
 
 ## Learning paths by role
 
@@ -10,54 +10,56 @@ Each path is an ordered list of topics in this repo. Skip what you already know.
 
 ### AI engineer: building LLM apps and agents
 
-1. [How LLMs work](gen-ai-llms/), then [Prompt engineering](prompt-eng/)
-2. [Function calling](function-calling/) and [Structured output](llm-structured-output/)
-3. [Embedding models](embedding-models/), then [Advanced RAG](advanced-rag/) and [Unstructured data](unstructured-data-for-llm-apps/)
-4. [Agentic AI](agentic-ai/) and [MCP](mcp/)
-5. [Quality & safety](quality-safety-llm-apps/), [Guardrails](guardrails/), [Red teaming](red-teaming-llm-apps/)
-6. [LLMOps](llm-ops/) and [Serving LLMs efficiently](efficiently-serving-llms/)
+1. [How LLMs work](02-llm-fundamentals/gen-ai-llms/), then [Prompt engineering](04-building-with-llms/prompt-eng/)
+2. [Function calling](04-building-with-llms/function-calling/) and [Structured output](04-building-with-llms/llm-structured-output/)
+3. [Embedding models](05-rag-and-data/embedding-models/), then [Advanced RAG](05-rag-and-data/advanced-rag/) and [Unstructured data](05-rag-and-data/unstructured-data-for-llm-apps/)
+4. [Agentic AI](06-agents/agentic-ai/) and [MCP](06-agents/mcp/)
+5. [Quality & safety](08-evaluation-and-safety/quality-safety-llm-apps/), [Guardrails](08-evaluation-and-safety/guardrails/), [Red teaming](08-evaluation-and-safety/red-teaming-llm-apps/)
+6. [LLMOps](09-ops-and-deployment/llm-ops/) and [Serving LLMs efficiently](09-ops-and-deployment/efficiently-serving-llms/)
 7. Build something: see [my projects](#my-projects) for examples
 
 ### ML engineer: training, adapting and deploying models
 
-1. [Mathematics](mathematics/), [Machine learning](machine-learning/), [Deep learning](deep-learning/)
-2. [Attention in transformers](attention-in-transformers/) and [Pretraining LLMs](pretraining-llms/)
-3. [Fine-tuning](finetuning-llms/), [RLHF](rlhf/), [Quantization](quantization/)
-4. [ML engineering for production (MLOps)](machine-learning-eng/) and [Experiment tracking with W&B](wandb/)
-5. [Serving LLMs efficiently](efficiently-serving-llms/), [On-device AI](on-device-ai/), [Federated learning](federated-learning/)
-6. A managed platform: [Amazon SageMaker](amazon-sagemaker/), [Google Vertex AI](google-vertex-ai/) or [Amazon Bedrock](amazon-bedrock/)
+1. [Mathematics](01-foundations/mathematics/), [Machine learning](01-foundations/machine-learning/), [Deep learning](01-foundations/deep-learning/)
+2. [Attention in transformers](02-llm-fundamentals/attention-in-transformers/) and [Pretraining LLMs](02-llm-fundamentals/pretraining-llms/)
+3. [Fine-tuning](03-adapting-models/finetuning-llms/), [RLHF](03-adapting-models/rlhf/), [Quantization](03-adapting-models/quantization/)
+4. [ML engineering for production (MLOps)](09-ops-and-deployment/machine-learning-eng/) and [Experiment tracking with W&B](09-ops-and-deployment/wandb/)
+5. [Serving LLMs efficiently](09-ops-and-deployment/efficiently-serving-llms/), [On-device AI](09-ops-and-deployment/on-device-ai/), [Federated learning](09-ops-and-deployment/federated-learning/)
+6. A managed platform: [Amazon SageMaker](10-platforms/amazon-sagemaker/), [Google Vertex AI](10-platforms/google-vertex-ai/) or [Amazon Bedrock](10-platforms/amazon-bedrock/)
 
 ### Data scientist: from data to models
 
-1. [Mathematics](mathematics/), then [Machine learning](machine-learning/)
-2. [Practical data science](practical-data-science/) and [Kaggle competitions](kaggle/)
-3. [Deep learning](deep-learning/) and [Embedding models](embedding-models/)
-4. [Experiment tracking with W&B](wandb/)
+1. [Mathematics](01-foundations/mathematics/), then [Machine learning](01-foundations/machine-learning/)
+2. [Practical data science](01-foundations/practical-data-science/) and [Kaggle competitions](01-foundations/kaggle/)
+3. [Deep learning](01-foundations/deep-learning/) and [Embedding models](05-rag-and-data/embedding-models/)
+4. [Experiment tracking with W&B](09-ops-and-deployment/wandb/)
 5. Next: the first steps of the AI engineer path, to use LLMs in your analysis
 
 ### Product manager or business leader: what's possible and what it takes
 
-1. [Generative AI for everyone](gen-ai-for-everyone/)
-2. [How LLMs work](gen-ai-llms/), the first week is enough
-3. The *Key concepts* sections of [Advanced RAG](advanced-rag/), [Agentic AI](agentic-ai/) and [MCP](mcp/)
-4. Risks and costs: [Quality & safety](quality-safety-llm-apps/), [Red teaming](red-teaming-llm-apps/), [Carbon-aware computing](carbon-aware-computing/)
+1. [Generative AI for everyone](02-llm-fundamentals/gen-ai-for-everyone/)
+2. [How LLMs work](02-llm-fundamentals/gen-ai-llms/), the first week is enough
+3. The *Key concepts* sections of [Advanced RAG](05-rag-and-data/advanced-rag/), [Agentic AI](06-agents/agentic-ai/) and [MCP](06-agents/mcp/)
+4. Risks and costs: [Quality & safety](08-evaluation-and-safety/quality-safety-llm-apps/), [Red teaming](08-evaluation-and-safety/red-teaming-llm-apps/), [Carbon-aware computing](09-ops-and-deployment/carbon-aware-computing/)
 
 ## Browse by topic
 
+Topics are grouped into numbered folders, roughly in learning order. Each folder has its own index.
+
 | Area | Topics |
 |---|---|
-| Foundations | [Mathematics](mathematics/) · [Machine learning](machine-learning/) · [Deep learning](deep-learning/) · [Practical data science](practical-data-science/) · [Kaggle](kaggle/) |
-| How LLMs work | [Generative AI for everyone](gen-ai-for-everyone/) · [Generative AI with LLMs](gen-ai-llms/) · [Attention in transformers](attention-in-transformers/) · [Pretraining LLMs](pretraining-llms/) |
-| Adapting models | [Fine-tuning](finetuning-llms/) · [RLHF](rlhf/) · [Quantization](quantization/) |
-| Building with LLMs | [Prompt engineering](prompt-eng/) · [Function calling](function-calling/) · [Structured output](llm-structured-output/) · [Pair programming with LLMs](pair-programming-llm/) · [Gradio](gradio/) · [AI-powered game](ai-powered-game/) |
-| RAG and data | [Embedding models](embedding-models/) · [Advanced RAG](advanced-rag/) · [Unstructured data](unstructured-data-for-llm-apps/) |
-| Agents | [Agentic AI](agentic-ai/) · [MCP](mcp/) · [Computer use](anthropic-computer-use/) |
-| Multimodal | [Vision models](vision-models/) · [Diffusion models](diffusion-models/) |
-| Evaluation and safety | [Quality & safety](quality-safety-llm-apps/) · [Guardrails](guardrails/) · [Red teaming](red-teaming-llm-apps/) |
-| Ops and deployment | [LLMOps](llm-ops/) · [MLOps](machine-learning-eng/) · [Serving LLMs](efficiently-serving-llms/) · [On-device AI](on-device-ai/) · [Federated learning](federated-learning/) · [Carbon-aware computing](carbon-aware-computing/) · [Weights & Biases](wandb/) |
-| Platforms and model providers | [Open-source models (Hugging Face)](open-source-models/) · [Amazon Bedrock](amazon-bedrock/) · [Amazon SageMaker](amazon-sagemaker/) · [Google Vertex AI](google-vertex-ai/) · [IBM watsonx](ibm-watsonx/) · [OpenAI](openai/) · [Mistral](mistral/) · [Llama](llama/) |
-| Frameworks | [LangChain](langchain/) · [Haystack](haystack/) · [Semantic Kernel](microsoft-semantic-kernel/) |
-| My projects | [Hugging Face apps](hugging-face/) · [Gen AI REST APIs](rest-apis/) |
+| [Foundations](01-foundations/) | [Mathematics](01-foundations/mathematics/) · [Machine learning](01-foundations/machine-learning/) · [Deep learning](01-foundations/deep-learning/) · [Practical data science](01-foundations/practical-data-science/) · [Kaggle](01-foundations/kaggle/) |
+| [How LLMs work](02-llm-fundamentals/) | [Generative AI for everyone](02-llm-fundamentals/gen-ai-for-everyone/) · [Generative AI with LLMs](02-llm-fundamentals/gen-ai-llms/) · [Attention in transformers](02-llm-fundamentals/attention-in-transformers/) · [Pretraining LLMs](02-llm-fundamentals/pretraining-llms/) |
+| [Adapting models](03-adapting-models/) | [Fine-tuning](03-adapting-models/finetuning-llms/) · [RLHF](03-adapting-models/rlhf/) · [Quantization](03-adapting-models/quantization/) |
+| [Building with LLMs](04-building-with-llms/) | [Prompt engineering](04-building-with-llms/prompt-eng/) · [Function calling](04-building-with-llms/function-calling/) · [Structured output](04-building-with-llms/llm-structured-output/) · [Pair programming with LLMs](04-building-with-llms/pair-programming-llm/) · [Gradio](04-building-with-llms/gradio/) · [AI-powered game](04-building-with-llms/ai-powered-game/) |
+| [RAG and data](05-rag-and-data/) | [Embedding models](05-rag-and-data/embedding-models/) · [Advanced RAG](05-rag-and-data/advanced-rag/) · [Unstructured data](05-rag-and-data/unstructured-data-for-llm-apps/) |
+| [Agents](06-agents/) | [Agentic AI](06-agents/agentic-ai/) · [MCP](06-agents/mcp/) · [Computer use](06-agents/anthropic-computer-use/) |
+| [Multimodal](07-multimodal/) | [Vision models](07-multimodal/vision-models/) · [Diffusion models](07-multimodal/diffusion-models/) |
+| [Evaluation and safety](08-evaluation-and-safety/) | [Quality & safety](08-evaluation-and-safety/quality-safety-llm-apps/) · [Guardrails](08-evaluation-and-safety/guardrails/) · [Red teaming](08-evaluation-and-safety/red-teaming-llm-apps/) |
+| [Ops and deployment](09-ops-and-deployment/) | [LLMOps](09-ops-and-deployment/llm-ops/) · [MLOps](09-ops-and-deployment/machine-learning-eng/) · [Serving LLMs](09-ops-and-deployment/efficiently-serving-llms/) · [On-device AI](09-ops-and-deployment/on-device-ai/) · [Federated learning](09-ops-and-deployment/federated-learning/) · [Carbon-aware computing](09-ops-and-deployment/carbon-aware-computing/) · [Weights & Biases](09-ops-and-deployment/wandb/) |
+| [Platforms and model providers](10-platforms/) | [Open-source models (Hugging Face)](10-platforms/open-source-models/) · [Amazon Bedrock](10-platforms/amazon-bedrock/) · [Amazon SageMaker](10-platforms/amazon-sagemaker/) · [Google Vertex AI](10-platforms/google-vertex-ai/) · [IBM watsonx](10-platforms/ibm-watsonx/) · [OpenAI](10-platforms/openai/) · [Mistral](10-platforms/mistral/) · [Llama](10-platforms/llama/) |
+| [Frameworks](11-frameworks/) | [LangChain](11-frameworks/langchain/) · [Haystack](11-frameworks/haystack/) · [Semantic Kernel](11-frameworks/microsoft-semantic-kernel/) |
+| [My projects](projects/) | [Hugging Face apps](projects/hugging-face/) · [Gen AI REST APIs](projects/rest-apis/) |
 
 ## Resources I recommend
 
@@ -78,8 +80,8 @@ Each path is an ordered list of topics in this repo. Skip what you already know.
 
 ## My projects
 
-- [Hugging Face apps](hugging-face/): source code for my 12 [Hugging Face Spaces](https://hf.co/bstraehle), mirrored from the Hub: a GAIA benchmark agent with MCP, agentic and advanced RAG, multi-agent deep research, chess and coding (crewAI, LangGraph, Microsoft Agent Framework), a Stockfish MCP server, and SDK demos for Amazon Bedrock, OpenAI and Vertex AI
-- [Gen AI REST APIs](rest-apis/): Postman collections for 51 generative AI providers, exported from my public [Generative AI APIs workspace](https://www.postman.com/ai-engineer/generative-ai-apis/)
+- [Hugging Face apps](projects/hugging-face/): source code for my 12 [Hugging Face Spaces](https://hf.co/bstraehle), mirrored from the Hub: a GAIA benchmark agent with MCP, agentic and advanced RAG, multi-agent deep research, chess and coding (crewAI, LangGraph, Microsoft Agent Framework), a Stockfish MCP server, and SDK demos for Amazon Bedrock, OpenAI and Vertex AI
+- [Gen AI REST APIs](projects/rest-apis/): Postman collections for 51 generative AI providers, exported from my public [Generative AI APIs workspace](https://www.postman.com/ai-engineer/generative-ai-apis/)
 - [Kaggle](https://www.kaggle.com/bstraehle): tabular classification and regression competitions
 
 ## How this repo stays current
