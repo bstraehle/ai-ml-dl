@@ -65,6 +65,7 @@ Topics are grouped into numbered folders, roughly in learning order. Each folder
 
 **Courses**
 - [DeepLearning.AI courses](https://www.deeplearning.ai/courses/): most topics in this repo started here
+- [Hugging Face Open-Source AI Cookbook](https://huggingface.co/learn/cookbook/index/)
 - [Weights & Biases course notebooks](https://github.com/wandb/edu): RAG, LLM apps, fine-tuning and MLOps
 - [Andrej Karpathy on YouTube](https://www.youtube.com/@AndrejKarpathy): neural networks and LLMs from scratch
 - [Sebastian Raschka](https://sebastianraschka.com/): [Build a Large Language Model (From Scratch)](https://github.com/rasbt/LLMs-from-scratch) code and videos
@@ -76,11 +77,10 @@ Topics are grouped into numbered folders, roughly in learning order. Each folder
 - [Prophecy: Prediction, Power, and the Fight for the Future, from Ancient Oracles to AI](https://www.carissaveliz.com/prophecy) by Carissa Véliz (Doubleday, 2026)
 - [Vibe Coding: Building Production-Grade Software With GenAI, Chat, Agents, and Beyond](https://itrevolution.com/product/vibe-coding-book/) by Gene Kim and Steve Yegge (IT Revolution, 2025)
 
-**Talks**
+**Talks and essays**
 - [An honest conversation on AI and humanity](https://www.youtube.com/watch?v=QiT2yK-5-yg): Yuval Noah Harari at the World Economic Forum
-
-**Notebooks**
-- [Hugging Face Open-Source AI Cookbook](https://huggingface.co/learn/cookbook/index/)
+- [Machines of Loving Grace](https://darioamodei.com/essay/machines-of-loving-grace): Dario Amodei's essay on how AI could transform the world for the better
+- [The Adolescence of Technology](https://darioamodei.com/essay/the-adolescence-of-technology): Dario Amodei's essay on confronting and overcoming the risks of powerful AI
 
 ## More places to learn
 
