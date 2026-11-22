@@ -69,7 +69,7 @@ Each path is an ordered list of topics in this repo. Skip what you already know.
 - [Andrej Karpathy on YouTube](https://www.youtube.com/@AndrejKarpathy): neural networks and LLMs from scratch
 
 **Books**
-- [Generative AI on AWS: Building Context-Aware Multimodal Reasoning Applications](https://www.amazon.com/Generative-AWS-Context-Aware-Multimodal-Applications/dp/1098159225) (O'Reilly)
+- [Generative AI on AWS: Building Context-Aware Multimodal Reasoning Applications](https://github.com/generative-ai-on-aws/generative-ai-on-aws) by Chris Fregly, Antje Barth and Shelbee Eigenbrode (O'Reilly), with code and notebooks for every chapter
 - [Conversational AI: Chatbots that work](https://www.manning.com/books/conversational-ai) by Andrew R. Freed (Manning)
 
 **Notebooks and lists**
