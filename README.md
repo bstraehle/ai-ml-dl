@@ -65,14 +65,12 @@ Topics are grouped into numbered folders, roughly in learning order. Each folder
 
 **Courses**
 - [DeepLearning.AI courses](https://www.deeplearning.ai/courses/): most topics in this repo started here
-- [Hugging Face Open-Source AI Cookbook](https://huggingface.co/learn/cookbook/index/)
-- [Weights & Biases course notebooks](https://github.com/wandb/edu): RAG, LLM apps, fine-tuning and MLOps
 - [Andrej Karpathy on YouTube](https://www.youtube.com/@AndrejKarpathy): neural networks and LLMs from scratch
 - [Sebastian Raschka](https://sebastianraschka.com/): [Build a Large Language Model (From Scratch)](https://github.com/rasbt/LLMs-from-scratch) code and videos
+- [Addy Osmani](https://addyosmani.com/): agentic engineering, AI-assisted development and software quality
 
 **Books**
 - [Generative AI on AWS: Building Context-Aware Multimodal Reasoning Applications](https://github.com/generative-ai-on-aws/generative-ai-on-aws) by Chris Fregly, Antje Barth and Shelbee Eigenbrode (O'Reilly), with code and notebooks for every chapter
-- [Conversational AI: Chatbots that work](https://www.manning.com/books/conversational-ai) by Andrew R. Freed (Manning)
 - [Co-Existence: The Next Phase of AI](https://co-existence.ai/) by Ethan Mollick (Penguin, 2026)
 - [Prophecy: Prediction, Power, and the Fight for the Future, from Ancient Oracles to AI](https://www.carissaveliz.com/prophecy) by Carissa Véliz (Doubleday, 2026)
 - [Vibe Coding: Building Production-Grade Software With GenAI, Chat, Agents, and Beyond](https://itrevolution.com/product/vibe-coding-book/) by Gene Kim and Steve Yegge (IT Revolution, 2025)
