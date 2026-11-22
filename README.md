@@ -76,6 +76,9 @@ Topics are grouped into numbered folders, roughly in learning order. Each folder
 - [Prophecy: Prediction, Power, and the Fight for the Future, from Ancient Oracles to AI](https://www.carissaveliz.com/prophecy) by Carissa Véliz (Doubleday, 2026)
 - [Vibe Coding: Building Production-Grade Software With GenAI, Chat, Agents, and Beyond](https://itrevolution.com/product/vibe-coding-book/) by Gene Kim and Steve Yegge (IT Revolution, 2025)
 
+**Talks**
+- [An honest conversation on AI and humanity](https://www.youtube.com/watch?v=QiT2yK-5-yg): Yuval Noah Harari at the World Economic Forum
+
 **Notebooks**
 - [Hugging Face Open-Source AI Cookbook](https://huggingface.co/learn/cookbook/index/)
 
