@@ -16,8 +16,7 @@ def get_openai_api_key():
 
 def get_huggingface_token():
     load_env()
-    hf_token = "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"
-    return hf_token
+    return os.getenv("HF_TOKEN")
 
 def calculate_transport_cost(distance_km: float, order_volume: float) -> float:
     """

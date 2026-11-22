@@ -23,12 +23,14 @@ jobs:
           persist-credentials: false
 
       - name: Check freshness
-        run: python3 .github/scripts/freshness.py > freshness.md
+        env:
+          BASE_URL: ${{ github.server_url }}/${{ github.repository }}/tree/${{ github.event.repository.default_branch }}
+        run: python3 .github/scripts/freshness.py --base-url "$BASE_URL" > "$RUNNER_TEMP/freshness.md"
 
       - name: Check links
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
-          args: --no-progress --config lychee.toml './**/*.md'
+          args: --no-progress --config lychee.toml --exclude '^https?://([a-z0-9-]+\.)*deeplearning\.ai(/|$)' './**/*.md'
           output: lychee/out.md
           fail: false
 
@@ -42,9 +44,11 @@ jobs:
           {
             echo "Generated $(date -u +%F) by [this run]($RUN_URL). Work through the items below, then close this issue. Next month's report supersedes it."
             echo
-            cat freshness.md
+            cat "$RUNNER_TEMP/freshness.md"
             echo
             echo "## Links"
+            echo
+            echo "deeplearning.ai blocks GitHub runners, so its links are skipped here. Check them locally with \`lychee --config lychee.toml './**/*.md'\`."
             echo
             sed -E 's/^(#+)/\1##/' lychee/out.md 2>/dev/null || echo "The link check produced no report; see the run log."
           } | head -c 60000 > report.md
