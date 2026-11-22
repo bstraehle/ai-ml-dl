@@ -23,9 +23,7 @@ jobs:
           persist-credentials: false
 
       - name: Check freshness
-        env:
-          BASE_URL: ${{ github.server_url }}/${{ github.repository }}/tree/${{ github.event.repository.default_branch }}
-        run: python3 .github/scripts/freshness.py --base-url "$BASE_URL" > "$RUNNER_TEMP/freshness.md"
+        run: python3 .github/scripts/freshness.py > "$RUNNER_TEMP/freshness.md"
 
       - name: Check links
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
