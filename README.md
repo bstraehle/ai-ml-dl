@@ -69,20 +69,45 @@ Topics are grouped into numbered folders, roughly in learning order. Each folder
 - [IBM Applied AI professional certificate](https://www.coursera.org/professional-certificates/applied-artifical-intelligence-ibm-watson-ai/) on Coursera
 - [OpenAI Academy](https://academy.openai.com/)
 - [Andrej Karpathy on YouTube](https://www.youtube.com/@AndrejKarpathy): neural networks and LLMs from scratch
+- [Sebastian Raschka](https://sebastianraschka.com/): [Build a Large Language Model (From Scratch)](https://github.com/rasbt/LLMs-from-scratch) code and videos, and the [Ahead of AI](https://magazine.sebastianraschka.com/) newsletter
 
 **Books**
 - [Generative AI on AWS: Building Context-Aware Multimodal Reasoning Applications](https://github.com/generative-ai-on-aws/generative-ai-on-aws) by Chris Fregly, Antje Barth and Shelbee Eigenbrode (O'Reilly), with code and notebooks for every chapter
 - [Conversational AI: Chatbots that work](https://www.manning.com/books/conversational-ai) by Andrew R. Freed (Manning)
 
-**Notebooks and lists**
+**Notebooks**
 - [Hugging Face Open-Source AI Cookbook](https://huggingface.co/learn/cookbook/index/)
-- [Awesome Generative AI Guide: free GenAI courses](https://github.com/aishwaryanr/awesome-generative-ai-guide?tab=readme-ov-file#book-list-of-free-genai-courses)
+
+## More places to learn
+
+Free or low-cost learning from AI companies, course platforms and universities. I haven't taken all of these, but they're widely used and well regarded.
+
+**From AI companies**
+- [Anthropic Academy](https://academy.claude.com/): courses on building with Claude, agents and MCP
+- [Microsoft: Generative AI for Beginners](https://github.com/microsoft/generative-ai-for-beginners), [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners) and [ML for Beginners](https://github.com/microsoft/ML-For-Beginners): free lesson-by-lesson courses on GitHub
+- [NVIDIA Deep Learning Institute](https://www.nvidia.com/en-us/training/): self-paced and instructor-led courses on deep learning, generative AI and GPUs
+- [Google Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course) and [Google Skills](https://www.skills.google/) (Google Cloud training)
+- [AWS Skill Builder](https://skillbuilder.aws/) and [IBM SkillsBuild](https://skillsbuild.org/)
+- [Hugging Face Learn](https://huggingface.co/learn): courses on LLMs, agents, MCP, diffusion and more
+
+**Course platforms and practice**
+- [Coursera: DeepLearning.AI](https://www.coursera.org/partners/deeplearning-ai): the longer specializations, with certificates
+- [Kaggle](https://www.kaggle.com/learn): free micro-courses, datasets and competitions to practice on
+- [fast.ai](https://course.fast.ai/): practical deep learning, top down
+
+**University courses**
+- [Stanford CS336: Language Modeling from Scratch](https://stanford-cs336.github.io/)
+- [Stanford CS231n: Deep Learning for Computer Vision](https://cs231n.stanford.edu/)
+- [MIT 6.S191: Introduction to Deep Learning](https://introtodeeplearning.com/)
+
+**Staying current**
+- [The Batch](https://www.deeplearning.ai/the-batch/) (DeepLearning.AI): weekly AI news
+- [Ahead of AI](https://magazine.sebastianraschka.com/) (Sebastian Raschka): research explained
 
 ## My projects
 
 - [Hugging Face apps](projects/hugging-face/): source code for my 12 [Hugging Face Spaces](https://hf.co/bstraehle), mirrored from the Hub: a GAIA benchmark agent with MCP, agentic and advanced RAG, multi-agent deep research, chess and coding (crewAI, LangGraph, Microsoft Agent Framework), a Stockfish MCP server, and SDK demos for Amazon Bedrock, OpenAI and Vertex AI
 - [Gen AI REST APIs](projects/rest-apis/): Postman collections for 51 generative AI providers, exported from my public [Generative AI APIs workspace](https://www.postman.com/ai-engineer/generative-ai-apis/)
-- [Kaggle](https://www.kaggle.com/bstraehle): tabular classification and regression competitions
 
 ## How this repo stays current
 
