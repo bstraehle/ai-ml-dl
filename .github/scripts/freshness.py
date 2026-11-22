@@ -12,7 +12,7 @@ A topic README starts with:
 Every topic folder is expected to carry this metadata: each folder inside a
 numbered category (01-foundations/mathematics/, ...) and any other top-level
 folder. Other folders are tracked when their README.md has a last_reviewed key.
-projects/ (mirrored from websites), archive/ and topics with status: archived
+projects/ (mirrored from websites), assets/, archive/ and topics with status: archived
 are skipped.
 
 Prints a Markdown report to stdout. With --strict, exits 1 when any metadata
@@ -32,7 +32,7 @@ from urllib.parse import quote
 DEFAULT_INTERVAL = "6mo"
 DUE_SOON_DAYS = 30
 STATUSES = {"current", "aging", "archived"}
-SKIP_DIRS = {"archive", "node_modules", "projects"}
+SKIP_DIRS = {"archive", "assets", "node_modules", "projects"}
 CATEGORY_RE = re.compile(r"^[0-9]{2}-")
 INTERVAL_RE = re.compile(r"^(\d+)\s*(d|w|mo|y)$")
 
