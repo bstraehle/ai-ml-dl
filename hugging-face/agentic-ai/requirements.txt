@@ -1,8 +1,8 @@
 langchain==1.3.9
 llama-hub==0.0.79
-llama-index==0.10.45
+llama-index==0.13.0
 llama-index-tools-weather==0.1.3
 openai==1.33.0
 pyowm==3.3.0
-python-dotenv==1.0.1
+python-dotenv==1.2.2
 wandb==0.16.1
